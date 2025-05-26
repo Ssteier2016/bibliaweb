@@ -1,15 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { db } from './firebase';
-import { supabase } from './supabase';
-import { collection, addDoc, onSnapshot } from 'firebase/firestore';
 import bibleData from './data/reina_valera.json';
 import './App.css';
 
 function App() {
   const [selectedComment, setSelectedComment] = useState('none');
   const [searchQuery, setSearchQuery] = useState('');
-  const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState('');
   const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0, verse: null });
   const [noteInput, setNoteInput] = useState({ visible: false, verse: null });
   const [notes, setNotes] = useState({});
@@ -23,51 +18,31 @@ function App() {
     verse.text.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Cargar notas desde Supabase
+  // Cargar notas desde localStorage
   useEffect(() => {
-    const fetchNotes = async () => {
-      const { data } = await supabase.from('notes').select('*');
-      const notesObj = data.reduce((acc, note) => ({
-        ...acc,
-        [note.verse_id]: note.note
-      }), {});
-      setNotes(notesObj);
-    };
-    fetchNotes();
-  }, []);
-
-  // Cargar mensajes de Firebase
-  useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, 'messages'), (snapshot) => {
-      setMessages(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    const storedNotes = {};
+    verses.forEach(verse => {
+      const note = localStorage.getItem(`note_${verse.verse}`);
+      if (note) storedNotes[verse.verse] = note;
     });
-    return () => unsubscribe();
+    setNotes(storedNotes);
   }, []);
 
-  // Guardar nota en Supabase
-  const saveNote = async (verseId, note) => {
-    if (note.trim()) {
-      await supabase.from('notes').upsert({ verse_id: verseId, note });
-      setNotes({ ...notes, [verseId]: note });
-    }
-  };
-
-  // Enviar mensaje de chat
-  const sendMessage = async () => {
-    if (newMessage.trim()) {
-      await addDoc(collection(db, 'messages'), {
-        text: newMessage,
-        timestamp: new Date(),
-      });
-      setNewMessage('');
-    }
-  };
+  // Cargar subrayados desde localStorage
+  useEffect(() => {
+    const storedHighlights = {};
+    verses.forEach(verse => {
+      const isHighlighted = localStorage.getItem(`highlight_${verse.verse}`);
+      if (isHighlighted === 'true') storedHighlights[verse.verse] = true;
+    });
+    setHighlightedVerses(storedHighlights);
+  }, []);
 
   // Manejar clic largo en versículo
   const handleContextMenu = (e, verse) => {
     e.preventDefault();
-    const x = e.clientX || e.touches[0].clientX;
-    const y = e.clientY || e.touches[0].clientY;
+    const x = e.clientX || (e.touches && e.touches[0].clientX);
+    const y = e.clientY || (e.touches && e.touches[0].clientY);
     setContextMenu({ visible: true, x, y, verse });
     setCommentSubmenu(false);
   };
@@ -86,10 +61,12 @@ function App() {
 
   // Subrayar versículo
   const handleHighlight = (verse) => {
+    const newHighlighted = !highlightedVerses[verse];
     setHighlightedVerses({
       ...highlightedVerses,
-      [verse]: !highlightedVerses[verse]
+      [verse]: newHighlighted
     });
+    localStorage.setItem(`highlight_${verse}`, newHighlighted.toString());
     setContextMenu({ visible: false, verse: null });
   };
 
@@ -99,9 +76,10 @@ function App() {
     setContextMenu({ visible: false, verse: null });
   };
 
-  // Guardar y cerrar nota
+  // Guardar nota en localStorage
   const handleNoteChange = (verse, value) => {
-    saveNote(verse, value);
+    localStorage.setItem(`note_${verse}`, value);
+    setNotes({ ...notes, [verse]: value });
   };
 
   // Cerrar campo de nota
@@ -112,10 +90,14 @@ function App() {
   // Compartir versículo
   const handleShare = async (verse) => {
     const text = `Juan 3:${verse.verse} - ${verse.text}`;
-    if (navigator.share) {
-      await navigator.share({ title: 'Biblia Web', text });
-    } else {
-      alert('Copia este versículo: ' + text);
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'Biblia Web', text });
+      } else {
+        alert('Copia este versículo: ' + text);
+      }
+    } catch (error) {
+      console.error('Error al compartir:', error);
     }
     setContextMenu({ visible: false, verse: null });
   };
@@ -140,7 +122,7 @@ function App() {
       if (type === 'cultural') return 'El término "mundo" (kosmos) refleja una visión inclusiva en la cultura grecorromana.';
       if (type === 'linguistico') return 'La palabra "unigénito" (monogenes) en griego enfatiza la unicidad de Jesús.';
       if (type === 'geografico') return 'El evangelio de Juan se sitúa en Judea, con referencias a Jerusalén y Galilea.';
-      if (type === 'paleontologico') return 'No hay evidencia paleontológica directa en este versículo, pero el contexto puede incluir fósiles de la región.';
+      if (type === 'paleontologico') return 'No hay evidencia paleontológica directa, pero el contexto puede incluir fósiles de la región.';
       if (type === 'arqueologico') return 'Excavaciones en Judea han encontrado sinagogas del siglo I, contextualizando el ministerio de Jesús.';
     }
     return 'Comentario en desarrollo...';
@@ -169,6 +151,9 @@ function App() {
           {selectedComment !== 'none' && (
             <p>Comentario {selectedComment}: {getMockComment(verse.verse, selectedComment)}</p>
           )}
+          {notes[verse.verse] && (
+            <p className="note">Nota: {notes[verse.verse]}</p>
+          )}
           {noteInput.visible && noteInput.verse === verse.verse && (
             <div className="note-input">
               <textarea
@@ -188,10 +173,10 @@ function App() {
           style={{ top: contextMenu.y, left: contextMenu.x }}
           ref={contextMenuRef}
         >
-          <div className="menu-item" onClick={() => handleHighlight(contextMenu.verse)}>
-            Subrayar
+          <div className="menu-item" onClick={() => handleHighlight(contextMenu.verse.verse)}>
+            {highlightedVerses[contextMenu.verse.verse] ? 'Quitar subrayado' : 'Subrayar'}
           </div>
-          <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
+          <div className="menu-item" onClick={() => handleNote(contextMenu.verse.verse)}>
             Anotar
           </div>
           <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
@@ -202,44 +187,31 @@ function App() {
             {commentSubmenu && (
               <div className="submenu">
                 <div className="submenu-item" onClick={() => handleCommentSelect('linguistico')}>
-                  Lingüístico
+                  Lingüística
                 </div>
                 <div className="submenu-item" onClick={() => handleCommentSelect('cultural')}>
                   Cultural
                 </div>
                 <div className="submenu-item" onClick={() => handleCommentSelect('historico')}>
-                  Histórico
+                  Histórica
                 </div>
                 <div className="submenu-item" onClick={() => handleCommentSelect('teologico')}>
-                  Teológico
+                  Teológica
                 </div>
                 <div className="submenu-item" onClick={() => handleCommentSelect('geografico')}>
-                  Geográfico
+                  Geográfica
                 </div>
                 <div className="submenu-item" onClick={() => handleCommentSelect('paleontologico')}>
-                  Paleontológico
+                  Paleontológica
                 </div>
                 <div className="submenu-item" onClick={() => handleCommentSelect('arqueologico')}>
-                  Arqueológico
+                  Arqueológica
                 </div>
               </div>
             )}
           </div>
         </div>
       )}
-      <h2>Chat</h2>
-      <div className="chat">
-        {messages.map(msg => (
-          <p key={msg.id}>{msg.text} <small>({new Date(msg.timestamp.toDate()).toLocaleTimeString()})</small></p>
-        ))}
-        <input
-          type="text"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          placeholder="Escribe un mensaje..."
-        />
-        <button onClick={sendMessage}>Enviar</button>
-      </div>
     </div>
   );
 }
