@@ -130,7 +130,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Biblia Web</h1>
+      <h1>Bibl-ia</h1>
       <input
         type="text"
         placeholder="Buscar versículos..."
@@ -183,7 +183,7 @@ function App() {
             Compartir
           </div>
           <div className="menu-item" onClick={toggleCommentSubmenu}>
-            Comentario
+            Comentarios:
             {commentSubmenu && (
               <div className="submenu">
                 <div className="submenu-item" onClick={() => handleCommentSelect('linguistico')}>
