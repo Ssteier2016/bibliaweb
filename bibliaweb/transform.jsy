@@ -1,0 +1,34 @@
+const fs = require('fs');
+const path = require('path');
+
+try {
+  // Asegurarse de que src/data exista
+  const dataDir = path.join(__dirname, 'src', 'data');
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+
+  // Leer es_rvr.json
+  const input = JSON.parse(fs.readFileSync('es_rvr.json', 'utf8'));
+
+  // Transformar a la estructura de reina_valera.json
+  const output = {
+    books: input.map(book => ({
+      name: book.book,
+      chapters: book.chapters.map(chapter => ({
+        chapter: chapter[1], // Número del capítulo
+        verses: chapter[2].map((text, index) => ({
+          verse: index + 1,
+          text: text
+        }))
+      }))
+    }))
+  };
+
+  // Guardar como reina_valera.json
+  const outputPath = path.join(dataDir, 'reina_valera.json');
+  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
+  console.log('¡Transformación completada! Archivo guardado en:', outputPath);
+} catch (error) {
+  console.error('Error:', error.message);
+}
