@@ -11,6 +11,17 @@ function App() {
     verse.text.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Función para simular comentarios de IA
+  function getMockComment(verse, type) {
+    if (verse === 16) {
+      if (type === 'teologico') return 'Expresa el amor sacrificial de Dios, un pilar del cristianismo.';
+      if (type === 'historico') return 'Escrito en un contexto de tensión entre cristianos y judíos en el siglo I.';
+      if (type === 'cultural') return 'El término "mundo" (kosmos) refleja una visión inclusiva en la cultura grecorromana.';
+      if (type === 'linguistico') return 'La palabra "unigénito" (monogenes) en griego enfatiza la unicidad de Jesús.';
+    }
+    return 'Comentario en desarrollo...';
+  }
+
   return (
     <div className="App">
       <h1>Biblia Web</h1>
@@ -31,7 +42,7 @@ function App() {
         <div key={verse.verse} className="verse">
           <p><strong>{verse.verse}</strong>: {verse.text}</p>
           {selectedComment !== 'none' && (
-            <p>Comentario {selectedComment}: (Aquí va el comentario de la IA)</p>
+            <p>Comentario {selectedComment}: {getMockComment(verse.verse, selectedComment)}</p>
           )}
           <textarea
             placeholder="Escribe tu nota..."
