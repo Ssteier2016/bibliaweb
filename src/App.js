@@ -3,6 +3,8 @@ import bibleData from './data/reina_valera.json';
 import './App.css';
 
 function App() {
+  const [selectedBook, setSelectedBook] = useState('Juan');
+  const [selectedChapter, setSelectedChapter] = useState(3);
   const [selectedComment, setSelectedComment] = useState('none');
   const [searchQuery, setSearchQuery] = useState('');
   const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0, verse: null });
@@ -12,18 +14,23 @@ function App() {
   const [commentSubmenu, setCommentSubmenu] = useState(false);
   const contextMenuRef = useRef(null);
 
-  const book = bibleData.books.find(b => b.name === 'Juan');
-  const chapter = book.chapters[0];
-  const verses = chapter.verses.filter(verse =>
+  const book = bibleData.books.find(b => b.name === selectedBook);
+  const chapter = book?.chapters.find(c => c.chapter === selectedChapter);
+  const verses = chapter?.verses.filter(verse =>
     verse.text.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  ) || [];
 
   // Cargar notas desde localStorage
   useEffect(() => {
     const storedNotes = {};
-    verses.forEach(verse => {
-      const note = localStorage.getItem(`note_${verse.verse}`);
-      if (note) storedNotes[verse.verse] = note;
+    bibleData.books.forEach(book => {
+      book.chapters.forEach(chapter => {
+        chapter.verses.forEach(verse => {
+          const key = `note_${book.name}_${chapter.chapter}_${verse.verse}`;
+          const note = localStorage.getItem(key);
+          if (note) storedNotes[key] = note;
+        });
+      });
     });
     setNotes(storedNotes);
   }, []);
@@ -31,9 +38,14 @@ function App() {
   // Cargar subrayados desde localStorage
   useEffect(() => {
     const storedHighlights = {};
-    verses.forEach(verse => {
-      const isHighlighted = localStorage.getItem(`highlight_${verse.verse}`);
-      if (isHighlighted === 'true') storedHighlights[verse.verse] = true;
+    bibleData.books.forEach(book => {
+      book.chapters.forEach(chapter => {
+        chapter.verses.forEach(verse => {
+          const key = `highlight_${book.name}_${chapter.chapter}_${verse.verse}`;
+          const isHighlighted = localStorage.getItem(key);
+          if (isHighlighted === 'true') storedHighlights[key] = true;
+        });
+      });
     });
     setHighlightedVerses(storedHighlights);
   }, []);
@@ -61,12 +73,13 @@ function App() {
 
   // Subrayar versículo
   const handleHighlight = (verse) => {
-    const newHighlighted = !highlightedVerses[verse];
+    const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
+    const newHighlighted = !highlightedVerses[key];
     setHighlightedVerses({
       ...highlightedVerses,
-      [verse]: newHighlighted
+      [key]: newHighlighted
     });
-    localStorage.setItem(`highlight_${verse}`, newHighlighted.toString());
+    localStorage.setItem(key, newHighlighted.toString());
     setContextMenu({ visible: false, verse: null });
   };
 
@@ -78,8 +91,9 @@ function App() {
 
   // Guardar nota en localStorage
   const handleNoteChange = (verse, value) => {
-    localStorage.setItem(`note_${verse}`, value);
-    setNotes({ ...notes, [verse]: value });
+    const key = `note_${selectedBook}_${selectedChapter}_${verse}`;
+    localStorage.setItem(key, value);
+    setNotes({ ...notes, [key]: value });
   };
 
   // Cerrar campo de nota
@@ -89,7 +103,7 @@ function App() {
 
   // Compartir versículo
   const handleShare = async (verse) => {
-    const text = `Juan 3:${verse.verse} - ${verse.text}`;
+    const text = `${selectedBook} ${selectedChapter}:${verse.verse} - ${verse.text}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: 'Biblia Web', text });
@@ -116,7 +130,7 @@ function App() {
 
   // Comentarios simulados
   function getMockComment(verse, type) {
-    if (verse === 16) {
+    if (selectedBook === 'Juan' && selectedChapter === 3 && verse === 16) {
       if (type === 'teologico') return 'Expresa el amor sacrificial de Dios, un pilar del cristianismo.';
       if (type === 'historico') return 'Escrito en un contexto de tensión entre cristianos y judíos en el siglo I.';
       if (type === 'cultural') return 'El término "mundo" (kosmos) refleja una visión inclusiva en la cultura grecorromana.';
@@ -130,7 +144,19 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Bibl-ia</h1>
+      <h1>Biblia Web</h1>
+      <div className="selector">
+        <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
+          {bibleData.books.map(book => (
+            <option key={book.name} value={book.name}>{book.name}</option>
+          ))}
+        </select>
+        <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
+          {book?.chapters.map(chapter => (
+            <option key={chapter.chapter} value={chapter.chapter}>{chapter.chapter}</option>
+          ))}
+        </select>
+      </div>
       <input
         type="text"
         placeholder="Buscar versículos..."
@@ -140,7 +166,7 @@ function App() {
       {verses.map(verse => (
         <div
           key={verse.verse}
-          className={`verse ${highlightedVerses[verse.verse] ? 'highlighted' : ''}`}
+          className={`verse ${highlightedVerses[`highlight_${selectedBook}_${selectedChapter}_${verse.verse}`] ? 'highlighted' : ''}`}
           onContextMenu={(e) => handleContextMenu(e, verse)}
           onTouchStart={(e) => {
             const timeout = setTimeout(() => handleContextMenu(e, verse), 500);
@@ -151,14 +177,14 @@ function App() {
           {selectedComment !== 'none' && (
             <p>Comentario {selectedComment}: {getMockComment(verse.verse, selectedComment)}</p>
           )}
-          {notes[verse.verse] && (
-            <p className="note">Nota: {notes[verse.verse]}</p>
+          {notes[`note_${selectedBook}_${selectedChapter}_${verse.verse}`] && (
+            <p className="note">Nota: {notes[`note_${selectedBook}_${selectedChapter}_${verse.verse}`]}</p>
           )}
           {noteInput.visible && noteInput.verse === verse.verse && (
             <div className="note-input">
               <textarea
                 placeholder="Escribe tu nota..."
-                value={notes[verse.verse] || ''}
+                value={notes[`note_${selectedBook}_${selectedChapter}_${verse.verse}`] || ''}
                 onChange={(e) => handleNoteChange(verse.verse, e.target.value)}
                 autoFocus
               />
@@ -173,17 +199,17 @@ function App() {
           style={{ top: contextMenu.y, left: contextMenu.x }}
           ref={contextMenuRef}
         >
-          <div className="menu-item" onClick={() => handleHighlight(contextMenu.verse.verse)}>
-            {highlightedVerses[contextMenu.verse.verse] ? 'Quitar subrayado' : 'Subrayar'}
+          <div className="menu-item" onClick={() => handleHighlight(contextMenu.verse)}>
+            {highlightedVerses[`highlight_${selectedBook}_${selectedChapter}_${contextMenu.verse.verse}`] ? 'Quitar subrayado' : 'Subrayar'}
           </div>
-          <div className="menu-item" onClick={() => handleNote(contextMenu.verse.verse)}>
+          <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
             Anotar
           </div>
           <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
             Compartir
           </div>
           <div className="menu-item" onClick={toggleCommentSubmenu}>
-            Comentarios:
+            Comentario
             {commentSubmenu && (
               <div className="submenu">
                 <div className="submenu-item" onClick={() => handleCommentSelect('linguistico')}>
