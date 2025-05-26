@@ -5,7 +5,7 @@
   font-family: Arial, sans-serif;
 }
 
-input, select, textarea, button {
+input, select, textarea {
   width: 100%;
   margin: 10px 0;
   padding: 8px;
@@ -24,11 +24,10 @@ input, select, textarea, button {
   background-color: #fff3cd;
 }
 
-.chat {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.note {
+  font-style: italic;
+  color: #555;
+  margin-top: 5px;
 }
 
 p {
@@ -36,7 +35,7 @@ p {
 }
 
 .context-menu {
-  position: fixed;
+  position: absolute;
   background: white;
   border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -82,7 +81,7 @@ p {
 .note-input textarea {
   width: 100%;
   min-height: 80px;
-  resize: vertical;
+  resize: none;
 }
 
 .close-note {
