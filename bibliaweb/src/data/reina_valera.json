@@ -1,4 +1,3 @@
-// src/data/reina_valera.json
 {
   "books": [
     {
@@ -7,9 +6,18 @@
         {
           "chapter": 3,
           "verses": [
-            { "verse": 1, "text": "Había un hombre de los fariseos que se llamaba Nicodemo, un principal entre los judíos." },
-            { "verse": 16, "text": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna." },
-            // Agrega más versículos según necesites
+            {
+              "verse": 1,
+              "text": "Había un hombre de los fariseos que se llamaba Nicodemo, un principal entre los judíos."
+            },
+            {
+              "verse": 2,
+              "text": "Este vino a Jesús de noche, y le dijo: Rabí, sabemos que has venido de Dios como maestro; porque nadie puede hacer estas señales que tú haces, si no está Dios con él."
+            },
+            {
+              "verse": 16,
+              "text": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."
+            }
           ]
         }
       ]
