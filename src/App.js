@@ -16,6 +16,7 @@ function App() {
   const [verseComments, setVerseComments] = useState({});
   const [loadingComment, setLoadingComment] = useState(null);
   const contextMenuRef = useRef(null);
+  const touchStartPos = useRef(null);
 
   const book = bibleData.books.find(b => b.name === selectedBook);
   const chapter = book?.chapters.find(c => c.chapter === selectedChapter);
@@ -46,7 +47,9 @@ function App() {
   }, []);
 
   const handleContextMenu = (e, verse) => {
-    e.preventDefault();
+    if (e.cancelable) {
+      e.preventDefault();
+    }
     const x = e.clientX || (e.touches && e.touches[0].clientX);
     const y = e.clientY || (e.touches && e.touches[0].clientY);
     setContextMenu({ visible: true, x, y, verse });
@@ -69,6 +72,24 @@ function App() {
       document.removeEventListener('touchstart', handleClickOutside);
     };
   }, []);
+
+  const handleTouchStart = (e, verse) => {
+    const touch = e.touches[0];
+    touchStartPos.current = { x: touch.clientX, y: touch.clientY };
+    const timeout = setTimeout(() => {
+      const currentTouch = e.touches[0] || touch;
+      const moved = touchStartPos.current &&
+        (Math.abs(currentTouch.clientX - touchStartPos.current.x) > 10 ||
+         Math.abs(currentTouch.clientY - touchStartPos.current.y) > 10);
+      if (!moved) {
+        handleContextMenu(e, verse);
+      }
+    }, 500);
+    e.target.ontouchend = () => {
+      clearTimeout(timeout);
+      touchStartPos.current = null;
+    };
+  };
 
   const handleHighlight = (verse, color) => {
     const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
@@ -120,15 +141,19 @@ function App() {
       const response = await axios.post(
         'https://api.x.ai/v1/chat/completions',
         {
-          model: 'grok-beta',
+          model: 'grok-2',
           messages: [
+            {
+              role: 'system',
+              content: 'Eres un experto en estudios bíblicos. Proporciona comentarios breves y precisos sobre versículos de la Biblia.'
+            },
             {
               role: 'user',
               content: `Proporciona un comentario ${type} breve (máximo 100 palabras) para ${selectedBook} ${selectedChapter}:${verse.verse} - "${verse.text}"`
             }
           ],
           max_tokens: 150,
-          temperature: 0.5
+          temperature: 0.6
         },
         {
           headers: {
@@ -141,8 +166,11 @@ function App() {
       setVerseComments({ ...verseComments, [key]: { type, text: comment } });
       localStorage.setItem(key, JSON.stringify({ type, text: comment }));
     } catch (error) {
-      console.error('Error fetching Grok comment:', error);
-      setVerseComments({ ...verseComments, [key]: { type, text: 'Error al obtener comentario.' } });
+      console.error('Error fetching Grok comment:', error.response?.data || error.message);
+      setVerseComments({
+        ...verseComments,
+        [key]: { type, text: `Error: ${error.response?.data?.error?.message || 'No se pudo obtener el comentario.'}` }
+      });
     }
     setLoadingComment(null);
     setContextMenu({ visible: false, verse: null });
@@ -184,10 +212,7 @@ function App() {
             key={verse.verse}
             className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
             onContextMenu={(e) => handleContextMenu(e, verse)}
-            onTouchStart={(e) => {
-              const timeout = setTimeout(() => handleContextMenu(e, verse), 500);
-              e.target.ontouchend = () => clearTimeout(timeout);
-            }}
+            onTouchStart={(e) => handleTouchStart(e, verse)}
           >
             <p><strong>{verse.verse}</strong>: {verse.text}</p>
             {verseComments[commentKey] && (
