@@ -29,8 +29,20 @@ input, select, textarea {
   position: relative;
 }
 
-.highlighted {
+.highlighted-yellow {
   background-color: #fff3cd;
+}
+
+.highlighted-green {
+  background-color: #d4edda;
+}
+
+.highlighted-blue {
+  background-color: #d1ecf1;
+}
+
+.highlighted-pink {
+  background-color: #f8d7da;
 }
 
 .note {
@@ -90,7 +102,9 @@ p {
 .note-input textarea {
   width: 100%;
   min-height: 80px;
-  resize: none;
+  resize: vertical;
+  padding: 10px;
+  font-size: 14px;
 }
 
 .close-note {
