@@ -26,7 +26,6 @@ function App() {
     const storedNotes = {};
     const storedHighlights = {};
     const storedComments = {};
-    const storedComments = {};
     bibleData.books.forEach(book => {
       book.chapters.forEach(chapter => {
         chapter.verses.forEach(verse => {
