@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import bibleData from './data/reina_valera.json';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
   const [highlightSubmenu, setHighlightSubmenu] = useState(false);
   const [commentSubmenu, setCommentSubmenu] = useState(false);
   const [verseComments, setVerseComments] = useState({});
+  const [loadingComment, setLoadingComment] = useState(null);
   const contextMenuRef = useRef(null);
 
   const book = bibleData.books.find(b => b.name === selectedBook);
@@ -34,7 +36,7 @@ function App() {
           const comment = localStorage.getItem(commentKey);
           if (note) storedNotes[noteKey] = note;
           if (highlight) storedHighlights[highlightKey] = JSON.parse(highlight);
-          if (comment) storedComments[commentKey] = comment;
+          if (comment) storedComments[commentKey] = JSON.parse(comment);
         });
       });
     });
@@ -71,7 +73,7 @@ function App() {
   const handleHighlight = (verse, color) => {
     const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
     const newHighlight = highlightedVerses[key]?.color === color ? null : { color };
-    setHighlightedVerses({ ...highlightedVerses, [key]: newHighlight });
+    setHighlightedVerses({ ...highlightedVerses, [key]: newHighlight }));
     localStorage.setItem(key, JSON.stringify(newHighlight));
     setContextMenu({ visible: false, verse: null });
     setHighlightSubmenu(false);
@@ -111,10 +113,38 @@ function App() {
     setContextMenu({ visible: false, verse: null });
   };
 
-  const handleCommentSelect = (verse, type) => {
+  const handleCommentSelect = async (verse, type) => {
     const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}`;
-    setVerseComments({ ...verseComments, [key]: type });
-    localStorage.setItem(key, type);
+    setLoadingComment(key);
+    try {
+      const response = await axios.post(
+        'https://api.x.ai/v1/chat/completions',
+        {
+          model: 'grok-beta',
+          messages: [
+            {
+              role: 'user',
+              content: `Proporciona un comentario ${type} breve (máximo 100 palabras) para ${selectedBook} ${selectedChapter}:${verse.verse} - "${verse.text}"`
+            }
+          ],
+          max_tokens: 150,
+          temperature: 0.5
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_GROK_API_KEY}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      const comment = response.data.choices[0].message.content.trim();
+      setVerseComments({ ...verseComments, [key]: { type, text: comment } });
+      localStorage.setItem(key, JSON.stringify({ type, text: comment }));
+    } catch (error) {
+      console.error('Error fetching Grok comment:', error);
+      setVerseComments({ ...verseComments, [key]: { type, text: 'Error al obtener comentario.' } });
+    }
+    setLoadingComment(null);
     setContextMenu({ visible: false, verse: null });
     setCommentSubmenu(false);
   };
@@ -123,22 +153,6 @@ function App() {
     setCommentSubmenu(!commentSubmenu);
     setHighlightSubmenu(false);
   };
-
-  function getMockComment(verse, type) {
-    const key = `${selectedBook}_${selectedChapter}_${verse.verse}`;
-    const comments = {
-      'Apocalipsis_22_19': {
-        teologico: 'Advierte sobre la integridad de la profecía, enfatizando la santidad del texto.',
-        historico: 'Escrito en un contexto de persecución romana, refleja la urgencia de preservar la fe.',
-        cultural: 'La "santa ciudad" evoca la esperanza de la Nueva Jerusalén en la comunidad cristiana.',
-        linguistico: '"Libro de la vida" (biblion tes zoes) en griego simboliza la salvación eterna.',
-        geografico: 'La Nueva Jerusalén es una visión simbólica, no un lugar físico.',
-        paleolitico: 'No aplica directamente, pero el simbolismo puede evocar un mundo renovado.',
-        arqueologico: 'Patmos, donde Juan recibió la visión, tiene restos de comunidades cristianas.'
-      }
-    };
-    return comments[key]?.[type] || 'Comentario en desarrollo...';
-  }
 
   return (
     <div className="App">
@@ -177,7 +191,10 @@ function App() {
           >
             <p><strong>{verse.verse}</strong>: {verse.text}</p>
             {verseComments[commentKey] && (
-              <p>Comentario {verseComments[commentKey]}: {getMockComment(verse, verseComments[commentKey])}</p>
+              <p className="comment">
+                Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
+                {loadingComment === commentKey && ' (Cargando...)'}
+              </p>
             )}
             {notes[noteKey] && (
               <p className="note">Nota: {notes[noteKey]}</p>
@@ -223,13 +240,13 @@ function App() {
             Comentario
             {commentSubmenu && (
               <div className="submenu">
-                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'linguistico')}>Lingüística</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>Lingüística</div>
                 <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>Cultural</div>
-                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'historico')}>Histórica</div>
-                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teologico')}>Teológica</div>
-                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geografico')}>Geográfica</div>
-                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolitico')}>Paleolítica</div>
-                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueologico')}>Arqueológica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>Histórica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>Teológica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>Geográfica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>Paleolítica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>Arqueológica</div>
               </div>
             )}
           </div>
