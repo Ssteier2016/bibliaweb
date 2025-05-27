@@ -73,7 +73,7 @@ function App() {
   const handleHighlight = (verse, color) => {
     const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
     const newHighlight = highlightedVerses[key]?.color === color ? null : { color };
-    setHighlightedVerses({ ...highlightedVerses, [key]: newHighlight }));
+    setHighlightedVerses({ ...highlightedVerses, [key]: newHighlight });
     localStorage.setItem(key, JSON.stringify(newHighlight));
     setContextMenu({ visible: false, verse: null });
     setHighlightSubmenu(false);
