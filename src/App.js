@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const [selectedBook, setSelectedBook] = useState('Juan');
-  const [selectedChapter, setSelectedChapter] = useState(3);
+  const [selectedChapter, setSelectedChapter] = useState(1);
   const [selectedComment, setSelectedComment] = useState('none');
   const [searchQuery, setSearchQuery] = useState('');
   const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0, verse: null });
@@ -16,11 +16,8 @@ function App() {
 
   const book = bibleData.books.find(b => b.name === selectedBook);
   const chapter = book?.chapters.find(c => c.chapter === selectedChapter);
-  const verses = chapter?.verses.filter(verse =>
-    verse.text.toLowerCase().includes(searchQuery.toLowerCase())
-  ) || [];
+  const verses = chapter?.verses.filter(v => v.text.toLowerCase().includes(searchQuery.toLowerCase())) || [];
 
-  // Cargar notas desde localStorage
   useEffect(() => {
     const storedNotes = {};
     bibleData.books.forEach(book => {
@@ -35,7 +32,6 @@ function App() {
     setNotes(storedNotes);
   }, []);
 
-  // Cargar subrayados desde localStorage
   useEffect(() => {
     const storedHighlights = {};
     bibleData.books.forEach(book => {
@@ -50,7 +46,6 @@ function App() {
     setHighlightedVerses(storedHighlights);
   }, []);
 
-  // Manejar clic largo en versículo
   const handleContextMenu = (e, verse) => {
     e.preventDefault();
     const x = e.clientX || (e.touches && e.touches[0].clientX);
@@ -59,7 +54,6 @@ function App() {
     setCommentSubmenu(false);
   };
 
-  // Cerrar menú contextual al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (contextMenuRef.current && !contextMenuRef.current.contains(e.target)) {
@@ -68,47 +62,43 @@ function App() {
       }
     };
     document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
-  // Subrayar versículo
   const handleHighlight = (verse) => {
     const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
     const newHighlighted = !highlightedVerses[key];
-    setHighlightedVerses({
-      ...highlightedVerses,
-      [key]: newHighlighted
-    });
+    setHighlightedVerses({ ...highlightedVerses, [key]: newHighlighted });
     localStorage.setItem(key, newHighlighted.toString());
     setContextMenu({ visible: false, verse: null });
   };
 
-  // Abrir campo de nota
   const handleNote = (verse) => {
     setNoteInput({ visible: true, verse });
     setContextMenu({ visible: false, verse: null });
   };
 
-  // Guardar nota en localStorage
   const handleNoteChange = (verse, value) => {
     const key = `note_${selectedBook}_${selectedChapter}_${verse}`;
     localStorage.setItem(key, value);
     setNotes({ ...notes, [key]: value });
   };
 
-  // Cerrar campo de nota
   const closeNoteInput = () => {
     setNoteInput({ visible: false, verse: null });
   };
 
-  // Compartir versículo
   const handleShare = async (verse) => {
     const text = `${selectedBook} ${selectedChapter}:${verse.verse} - ${verse.text}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: 'Biblia Web', text });
       } else {
-        alert('Copia este versículo: ' + text);
+        alert('Copia: ' + text);
       }
     } catch (error) {
       console.error('Error al compartir:', error);
@@ -116,30 +106,30 @@ function App() {
     setContextMenu({ visible: false, verse: null });
   };
 
-  // Seleccionar comentario
   const handleCommentSelect = (type) => {
     setSelectedComment(type);
     setContextMenu({ visible: false, verse: null });
     setCommentSubmenu(false);
   };
 
-  // Mostrar submenú de comentarios
   const toggleCommentSubmenu = () => {
     setCommentSubmenu(!commentSubmenu);
   };
 
-  // Comentarios simulados
   function getMockComment(verse, type) {
-    if (selectedBook === 'Juan' && selectedChapter === 3 && verse === 16) {
-      if (type === 'teologico') return 'Expresa el amor sacrificial de Dios, un pilar del cristianismo.';
-      if (type === 'historico') return 'Escrito en un contexto de tensión entre cristianos y judíos en el siglo I.';
-      if (type === 'cultural') return 'El término "mundo" (kosmos) refleja una visión inclusiva en la cultura grecorromana.';
-      if (type === 'linguistico') return 'La palabra "unigénito" (monogenes) en griego enfatiza la unicidad de Jesús.';
-      if (type === 'geografico') return 'El evangelio de Juan se sitúa en Judea, con referencias a Jerusalén y Galilea.';
-      if (type === 'paleontologico') return 'No hay evidencia paleontológica directa, pero el contexto puede incluir fósiles de la región.';
-      if (type === 'arqueologico') return 'Excavaciones en Judea han encontrado sinagogas del siglo I, contextualizando el ministerio de Jesús.';
-    }
-    return 'Comentario en desarrollo...';
+    const key = `${selectedBook}_${selectedChapter}_${verse}`;
+    const comments = {
+      'Apocalipsis_22_19': {
+        teologico: 'Advierte sobre la integridad de la profecía, enfatizando la santidad del texto.',
+        historico: 'Escrito en un contexto de persecución romana, refleja la urgencia de preservar la fe.',
+        cultural: 'La "santa ciudad" evoca la esperanza de la Nueva Jerusalén en la comunidad cristiana.',
+        linguistico: '"Libro de la vida" (biblion tes zoes) en griego simboliza la salvación eterna.',
+        geografico: 'La Nueva Jerusalén es una visión simbólica, no un lugar físico.',
+        paleolitico: 'No aplica directamente, pero el simbolismo puede evocar un mundo renovado.',
+        arqueologico: 'Patmos, donde Juan recibió la visión, tiene restos de comunidades cristianas.'
+      }
+    };
+    return comments[key]?.[type] || 'Comentario en desarrollo...';
   }
 
   return (
@@ -212,27 +202,13 @@ function App() {
             Comentario
             {commentSubmenu && (
               <div className="submenu">
-                <div className="submenu-item" onClick={() => handleCommentSelect('linguistico')}>
-                  Lingüística
-                </div>
-                <div className="submenu-item" onClick={() => handleCommentSelect('cultural')}>
-                  Cultural
-                </div>
-                <div className="submenu-item" onClick={() => handleCommentSelect('historico')}>
-                  Histórica
-                </div>
-                <div className="submenu-item" onClick={() => handleCommentSelect('teologico')}>
-                  Teológica
-                </div>
-                <div className="submenu-item" onClick={() => handleCommentSelect('geografico')}>
-                  Geográfica
-                </div>
-                <div className="submenu-item" onClick={() => handleCommentSelect('paleontologico')}>
-                  Paleontológica
-                </div>
-                <div className="submenu-item" onClick={() => handleCommentSelect('arqueologico')}>
-                  Arqueológica
-                </div>
+                <div className="submenu-item" onClick={() => handleCommentSelect('linguistico')}>Lingüística</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect('cultural')}>Cultural</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect('historico')}>Histórica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect('teologico')}>Teológica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect('geografico')}>Geográfica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect('paleolitico')}>Paleolítica</div>
+                <div className="submenu-item" onClick={() => handleCommentSelect('arqueologico')}>Arqueológica</div>
               </div>
             )}
           </div>
