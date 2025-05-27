@@ -26,12 +26,13 @@ function App() {
     const storedNotes = {};
     const storedHighlights = {};
     const storedComments = {};
+    const storedComments = {};
     bibleData.books.forEach(book => {
       book.chapters.forEach(chapter => {
         chapter.verses.forEach(verse => {
           const noteKey = `note_${book.name}_${chapter.chapter}_${verse.verse}`;
-          const highlightKey = `highlight_${book.name}_${chapter.chapter}_${verse.verse}`;
-          const commentKey = `comment_${book.name}_${chapter.chapter}_${verse.verse}`;
+          const highlightKey = `highlight_${book.name}_${chapter.chapter}_${verse}`;
+          const commentKey = `comment_${book.name}_${chapter.chapter}_${verse}`;
           const note = localStorage.getItem(noteKey);
           const highlight = localStorage.getItem(highlightKey);
           const comment = localStorage.getItem(commentKey);
@@ -145,7 +146,7 @@ function App() {
           messages: [
             {
               role: 'system',
-              content: 'Eres un experto en estudios bíblicos. Proporciona comentarios breves y precisos sobre versículos de la Biblia.'
+              content: 'Eres un experto en estudios bíblicos. Proporciona comentarios breves y precisos sobre versículos de la Biblia, basándote en la traducción Reina-Valera.'
             },
             {
               role: 'user',
