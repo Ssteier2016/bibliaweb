@@ -4,6 +4,7 @@ import axios from 'axios';
 import bibleData from './data/reina_valera.json';
 import concordances from './data/concordances.json';
 import BibleReading from './components/BibleReading';
+import Collection from './components/Collection'; // Nuevo componente
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 
@@ -257,7 +258,6 @@ function App() {
       }
       if (related.length > 0) {
         localStorage.setItem(key, JSON.stringify(related));
-        // Nota: Persistir en concordances.json requiere script separado
       }
       setLoadingConcordance(null);
       return related;
@@ -321,6 +321,7 @@ function App() {
               <div className="dropdown-menu">
                 <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
                 <Link to="/reading" onClick={() => setMenuOpen(false)}>Lectura Bíblica</Link>
+                <Link to="/collection" onClick={() => setMenuOpen(false)}>Colección</Link>
               </div>
             )}
           </div>
@@ -497,6 +498,10 @@ function App() {
                 contextMenuRef={contextMenuRef}
               />
             }
+          />
+          <Route
+            path="/collection"
+            element={<Collection />}
           />
         </Routes>
       </div>
