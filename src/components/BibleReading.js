@@ -28,7 +28,6 @@ function BibleReading({
   const [completedChapters, setCompletedChapters] = useState({});
 
   useEffect(() => {
-    // Cargar libros y capítulos completados desde localStorage
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
     const storedChapters = JSON.parse(localStorage.getItem('completedChapters') || '{}');
     setCompletedBooks(storedBooks);
