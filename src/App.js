@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bibleData from './data/reina_valera.json';
 import concordances from './data/concordances.json';
@@ -147,7 +147,7 @@ function App() {
   };
 
   const handleCommentSelect = async (verse, type) => {
-    const key = `${selectedBook}_${selectedChapter}_${verse.verse}_${type}`;
+    const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}`;
     const cachedComment = localStorage.getItem(key);
     if (cachedComment) {
       setVerseComments({ ...verseComments, [key]: JSON.parse(cachedComment) });
@@ -159,7 +159,7 @@ function App() {
     setLoadingComment(key);
     try {
       const prompt = `
-        Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro y con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
+        const Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro y con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
         - Teológico: "Juan 1:1 establece la divinidad de Cristo como el Verbo eterno."
         - Geográfico: "El prólogo de Juan es universal, sin un lugar específico."
       `;
@@ -174,7 +174,7 @@ function App() {
           headers: {
             'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY}`,
             'Content-Type': 'application/json',
-            'x-wait-for-model': 'true',
+            'x-wait': 'true'for-model,
           },
           timeout: 15000,
         }
@@ -216,8 +216,8 @@ function App() {
     setConcordanceSubmenu(false);
   };
 
-  const handleCloseComment = (verse) => {
-    const key = `${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`${selectedBook}_${selectedChapter}_${verse.verse}_type`]}`]?.type}`;
+  const handleCloseComment = (verse, type) => {
+    const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}`;
     const newComments = { ...verseComments };
     delete newComments[key];
     setVerseComments(newComments);
@@ -291,7 +291,7 @@ function App() {
                 {verses.map(verse => {
                   const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
                   const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
-                  const commentKey = `${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`${selectedBook}_${selectedChapter}_${verse.verse}_type`]?.type || 'unknown'}`;
+                  const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`comment_${selectedBook}_${selectedChapter}_${verse.verse}_type`]?.type || 'unknown'}`;
                   return (
                     <div
                       key={verse.verse}
@@ -301,10 +301,12 @@ function App() {
                     >
                       <p><strong>{verse.verse}</strong>: {verse.text}</p>
                       {verseComments[commentKey] && (
-                        <p className="comment">
-                          Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
-                          {loadingComment === commentKey && ' (Cargando...)'}
-                          <button className="close-comment" onClick={() => handleCloseComment(verse)}>X</button>
+                        <p className="comment-wrapper">
+                          <span className="comment">
+                            Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
+                            {loadingComment === commentKey && ' (Cargando...)'}
+                          </span>
+                          <button className="close-comment" onClick={() => handleCloseComment(verse, verseComments[commentKey].type)}>X</button>
                         </p>
                       )}
                       {notes[noteKey] && (
