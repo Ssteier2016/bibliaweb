@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import charactersData from '../data/characters.json';
 
 function BibleReading({
@@ -44,8 +44,6 @@ function BibleReading({
   const [selectedChapter, setSelectedChapter] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
-  const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false); // Si llegó al final
-  const verseListRef = useRef(null); // Contenedor de versículos
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
@@ -53,28 +51,6 @@ function BibleReading({
     setCompletedBooks(storedBooks);
     setCompletedChapters(storedChapters);
   }, []);
-
-  // Detectar desplazamiento hasta el final
-  useEffect(() => {
-    const handleScroll = () => {
-      if (verseListRef.current) {
-        const { scrollTop, scrollHeight, clientHeight } = verseListRef.current;
-        if (scrollTop + clientHeight >= scrollHeight - 10) {
-          setHasScrolledToBottom(true);
-        }
-      }
-    };
-
-    const verseList = verseListRef.current;
-    if (verseList) {
-      verseList.addEventListener('scroll', handleScroll);
-    }
-    return () => {
-      if (verseList) {
-        verseList.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [selectedChapter]);
 
   const formatDate = () => {
     const now = new Date();
@@ -103,12 +79,7 @@ function BibleReading({
       ?.chapters.find((ch) => ch.chapter === chapterNumber);
     if (!chapter) return;
 
-    // Verificar solo si se llegó al final
-    if (!hasScrolledToBottom) {
-      alert('Debes deslizar hasta el final del capítulo.');
-      return;
-    }
-
+    // Sin restricciones: marcar directamente
     const newCompletedChapters = {
       ...completedChapters,
       [key]: {
@@ -131,25 +102,20 @@ function BibleReading({
         }
       }
     }
-    // Reiniciar condición
-    setHasScrolledToBottom(false);
   };
 
   const handleBookClick = (book) => {
     setSelectedBook(book);
     setSelectedChapter(null);
-    setHasScrolledToBottom(false);
   };
 
   const handleChapterClick = (chapter) => {
     setSelectedChapter(chapter);
-    setHasScrolledToBottom(false);
   };
 
   const handleBack = () => {
     if (selectedChapter) {
       setSelectedChapter(null);
-      setHasScrolledToBottom(false);
     } else if (selectedBook) {
       setSelectedBook(null);
     }
@@ -190,7 +156,6 @@ function BibleReading({
                 type="checkbox"
                 checked={!!completedChapters[`${selectedBook.name}_${chapter.chapter}`]?.completed}
                 onChange={() => toggleChapterCompletion(selectedBook.name, chapter.chapter)}
-                disabled={selectedChapter?.chapter === chapter.chapter && !hasScrolledToBottom}
               />
               <span onClick={() => handleChapterClick(chapter)}>
                 Capítulo {chapter.chapter}
@@ -201,11 +166,7 @@ function BibleReading({
           ))}
         </div>
       ) : (
-        <div
-          className="verse-list"
-          ref={verseListRef}
-          style={{ maxHeight: '500px', overflowY: 'auto' }}
-        >
+        <div className="verse-list" style={{ maxHeight: '500px', overflowY: 'auto' }}>
           <h2>
             {selectedBook.name} {selectedChapter.chapter}
           </h2>
@@ -225,7 +186,6 @@ function BibleReading({
                   handleTouchStart(e, verse);
                   console.log('Reading verse touch start:', verse);
                 }}
-                onTouchEnd={(e) => e.preventDefault()}
               >
                 <p>
                   <strong>{verse.verse}</strong>: {verse.text}
