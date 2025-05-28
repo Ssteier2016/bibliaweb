@@ -120,6 +120,60 @@
     "chapter": "1 Reyes 18"
   },
   {
+    "name": "Eliseo",
+    "image": "https://via.placeholder.com/50?text=Eliseo",
+    "description": "Profeta, sucesor de Elías.",
+    "chapter": "2 Reyes 2"
+  },
+  {
+    "name": "Isaías",
+    "image": "https://via.placeholder.com/50?text=Isaias",
+    "description": "Profeta, anunció la venida del Mesías.",
+    "chapter": "Isaías 6"
+  },
+  {
+    "name": "Jeremías",
+    "image": "https://via.placeholder.com/50?text=Jeremias",
+    "description": "Profeta del exilio babilónico.",
+    "chapter": "Jeremías 1"
+  },
+  {
+    "name": "Ezequiel",
+    "image": "https://via.placeholder.com/50?text=Ezequiel",
+    "description": "Profeta de visiones en el exilio.",
+    "chapter": "Ezequiel 1"
+  },
+  {
+    "name": "Daniel",
+    "image": "https://via.placeholder.com/50?text=Daniel",
+    "description": "Profeta en Babilonia, interpretó sueños.",
+    "chapter": "Daniel 1"
+  },
+  {
+    "name": "Ester",
+    "image": "https://via.placeholder.com/50?text=Ester",
+    "description": "Reina que salvó a su pueblo.",
+    "chapter": "Ester 2"
+  },
+  {
+    "name": "Nehemías",
+    "image": "https://via.placeholder.com/50?text=Nehemias",
+    "description": "Reconstruyó los muros de Jerusalén.",
+    "chapter": "Nehemías 1"
+  },
+  {
+    "name": "Juan el Bautista",
+    "image": "https://via.placeholder.com/50?text=Juan",
+    "description": "Precursor de Jesús, bautizó en el Jordán.",
+    "chapter": "Mateo 3"
+  },
+  {
+    "name": "Jesús",
+    "image": "https://via.placeholder.com/50?text=Jesus",
+    "description": "Hijo de Dios, Salvador del mundo.",
+    "chapter": "Mateo 1"
+  },
+  {
     "name": "Marta",
     "image": "https://via.placeholder.com/50?text=Marta",
     "description": "Hermana de María y Lázaro, conocida por su hospitalidad.",
