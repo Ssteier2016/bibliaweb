@@ -1,55 +1,117 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import charactersData from '../data/characters.json';
 
 function Collection() {
-  const [collection, setCollection] = useState([]);
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const collection = JSON.parse(localStorage.getItem('collection') || '[]');
 
-  useEffect(() => {
-    const storedCollection = JSON.parse(localStorage.getItem('collection') || '[]');
-    setCollection(storedCollection);
-  }, []);
-
-  // Inicializar cuadrícula de 1700 posiciones
-  const grid = Array(1700).fill(null).map((_, index) => {
-    const card = collection[index] || null;
-    return { position: index + 1, card };
-  });
-
-  const handleCardClick = (card, index) => {
-    if (card) {
-      setSelectedCard({ ...card, position: index + 1 });
-    }
+  const handleCardClick = (character) => {
+    setSelectedCharacter(character);
   };
 
-  const closeCardDetails = () => {
-    setSelectedCard(null);
+  const handleCloseModal = () => {
+    setSelectedCharacter(null);
   };
 
   return (
     <div className="collection">
-      <h2>Colección</h2>
+      <h2>Colección de Cartas</h2>
       <div className="grid">
-        {grid.map((slot, index) => (
-          <div
-            key={index}
-            className={`grid-item ${slot.card ? 'unlocked' : ''}`}
-            onClick={() => handleCardClick(slot.card, index)}
-          >
-            {slot.card ? (
-              <img src={slot.card.image} alt={slot.card.name} title={`${slot.card.name} (${slot.card.chapter})`} />
-            ) : (
-              slot.position
-            )}
-          </div>
-        ))}
+        {charactersData.map((character, index) => {
+          const isUnlocked = collection.some((c) => c.name === character.name);
+          return (
+            <div
+              key={index}
+              className={`grid-item ${isUnlocked ? 'unlocked' : ''}`}
+              onClick={() => isUnlocked && handleCardClick(character)}
+              style={{ cursor: isUnlocked ? 'pointer' : 'default' }}
+            >
+              {isUnlocked ? (
+                <img
+                  src={character.image}
+                  alt={character.name}
+                  style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                  onError={(e) => {
+                    e.target.src = 'https://placehold.co/50x50?text=Error';
+                    console.log(`Error loading image for ${character.name}: ${character.image}`);
+                  }}
+                />
+              ) : (
+                <span>???</span>
+              )}
+            </div>
+          );
+        })}
       </div>
-      {selectedCard && (
-        <div className="card-details" style={{ top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
-          <img src={selectedCard.image} alt={selectedCard.name} />
-          <h3>{selectedCard.name}</h3>
-          <p>Capítulo: {selectedCard.chapter}</p>
-          <p>{selectedCard.description}</p>
-          <button onClick={closeCardDetails}>Cerrar</button>
+      {selectedCharacter && (
+        <div
+          className="modal"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              position: 'relative',
+              maxWidth: '90%',
+              maxHeight: '90%',
+            }}
+          >
+            <img
+              src={selectedCharacter.image}
+              alt={selectedCharacter.name}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
+              }}
+              onError={(e) => {
+                e.target.src = 'https://placehold.co/300x300?text=Error';
+                console.log(`Error loading modal image for ${selectedCharacter.name}`);
+              }}
+            />
+            <button
+              onClick={handleCloseModal}
+              style={{
+                position: 'absolute',
+                top: '-15px',
+                right: '-15px',
+                background: '#ff4444',
+                color: 'white',
+                border: 'none',
+                borderRadius: '50%',
+                width: '30px',
+                height: '30px',
+                fontSize: '16px',
+                cursor: 'pointer',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              ✕
+            </button>
+            <div
+              style={{
+                background: 'rgba(0, 0, 0, 0.7)',
+                color: 'white',
+                padding: '10px',
+                textAlign: 'center',
+              }}
+            >
+              <h3 style={{ margin: '0' }}>{selectedCharacter.name}</h3>
+              <p style={{ margin: '5px 0' }}>{selectedCharacter.description}</p>
+            </div>
+          </div>
         </div>
       )}
     </div>
