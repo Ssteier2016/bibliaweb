@@ -206,7 +206,6 @@ select, input[type="text"] {
   margin-bottom: 10px;
 }
 
-/* Nuevos estilos para la funcionalidad de colección */
 .collection {
   padding: 20px;
   max-width: 1200px;
@@ -275,6 +274,8 @@ select, input[type="text"] {
   font-size: 14px;
 }
 
-.verse.read {
-  background-color: rgba(0, 255, 0, 0.1); /* Fondo verde claro para versículos leídos */
+/* Nuevo estilo para checkbox deshabilitado */
+.chapter-item input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
