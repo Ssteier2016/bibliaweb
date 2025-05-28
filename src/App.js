@@ -30,15 +30,18 @@ function App() {
   const verses = chapter?.verses.filter(v => v.text.toLowerCase().includes(searchQuery.toLowerCase())) || [];
 
   useEffect(() => {
+    // Optimizar carga de localStorage: solo para el libro y capítulo actual
     const storedNotes = {};
     const storedHighlights = {};
     const storedComments = {};
-    bibleData.books.forEach(book => {
-      book.chapters.forEach(chapter => {
-        chapter.verses.forEach(verse => {
-          const noteKey = `note_${book.name}_${chapter.chapter}_${verse.verse}`;
-          const highlightKey = `highlight_${book.name}_${chapter.chapter}_${verse.verse}`;
-          const commentKey = `comment_${book.name}_${chapter.chapter}_${verse.verse}`;
+    const currentBook = bibleData.books.find(b => b.name === selectedBook);
+    if (currentBook) {
+      const currentChapter = currentBook.chapters.find(c => c.chapter === selectedChapter);
+      if (currentChapter) {
+        currentChapter.verses.forEach(verse => {
+          const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
+          const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
+          const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}`;
           const note = localStorage.getItem(noteKey);
           const highlight = localStorage.getItem(highlightKey);
           const comment = localStorage.getItem(commentKey);
@@ -46,12 +49,12 @@ function App() {
           if (highlight) storedHighlights[highlightKey] = JSON.parse(highlight);
           if (comment) storedComments[commentKey] = JSON.parse(comment);
         });
-      });
-    });
+      }
+    }
     setNotes(storedNotes);
     setHighlightedVerses(storedHighlights);
     setVerseComments(storedComments);
-  }, []);
+  }, [selectedBook, selectedChapter]);
 
   const handleContextMenu = (e, verse) => {
     if (e.cancelable) {
@@ -63,6 +66,7 @@ function App() {
     setHighlightSubmenu(false);
     setCommentSubmenu(false);
     setConcordanceSubmenu(false);
+    console.log('Context menu opened:', { x, y, verse }); // Depuración
   };
 
   useEffect(() => {
@@ -98,6 +102,7 @@ function App() {
       clearTimeout(timeout);
       touchStartPos.current = null;
     };
+    console.log('Touch start:', { verse }); // Depuración
   };
 
   const handleHighlight = (verse, color) => {
@@ -163,6 +168,7 @@ function App() {
         - Teológico: "Juan 1:1 establece la divinidad de Cristo como el Verbo eterno."
         - Geográfico: "El prólogo de Juan es universal, sin un lugar específico."
       `;
+      console.log('Sending request to Hugging Face:', { prompt, key }); // Depuración
       const response = await axios.post(
         'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
         {
@@ -176,9 +182,10 @@ function App() {
             'Content-Type': 'application/json',
             'x-wait-for-model': 'true',
           },
-          timeout: 15000,
+          timeout: 30000, // Aumentado a 30s
         }
       );
+      console.log('Hugging Face response:', response.data); // Depuración
       let commentText = response.data?.[0]?.generated_text?.trim() || 'No se recibió comentario.';
       if (commentText.startsWith(prompt)) {
         commentText = commentText.substring(prompt.length).trim();
@@ -408,14 +415,23 @@ function App() {
                 handleConcordanceSelect={handleConcordanceSelect}
                 getConcordances={getConcordances}
                 contextMenu={contextMenu}
+                setContextMenu={setContextMenu} // Añadido
                 noteInput={noteInput}
+                setNoteInput={setNoteInput} // Añadido
                 notes={notes}
+                setNotes={setNotes} // Añadido
                 highlightedVerses={highlightedVerses}
+                setHighlightedVerses={setHighlightedVerses} // Añadido
                 highlightSubmenu={highlightSubmenu}
+                setHighlightSubmenu={setHighlightSubmenu} // Añadido
                 commentSubmenu={commentSubmenu}
+                setCommentSubmenu={setCommentSubmenu} // Añadido
                 concordanceSubmenu={concordanceSubmenu}
+                setConcordanceSubmenu={setConcordanceSubmenu} // Añadido
                 verseComments={verseComments}
+                setVerseComments={setVerseComments} // Añadido
                 loadingComment={loadingComment}
+                setLoadingComment={setLoadingComment} // Añadido
                 contextMenuRef={contextMenuRef}
               />
             }
