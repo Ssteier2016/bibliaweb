@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import bibleData from './data/reina_valera.json';
+import bibleData from './data/reina_json.json';
 import BibleReading from './components/BibleReading';
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
@@ -172,11 +172,18 @@ function App() {
         }
       );
       let commentText = response.data?.[0]?.generated_text?.trim() || 'No se recibió comentario.';
-      // Filtrar el prompt de la respuesta
-      const promptIndex = commentText.indexOf('Ejemplo:');
-      if (promptIndex !== -1) {
-        commentText = commentText.substring(promptIndex + prompt.length).trim();
+      // Filtrar el prompt: tomar solo el texto después del prompt
+      if (commentText.startsWith(prompt)) {
+        commentText = commentText.substring(prompt.length).trim();
+      } else {
+        // Fallback: buscar el último ejemplo como delimitador
+        const exampleIndex = commentText.lastIndexOf('- Geográfico:');
+        if (exampleIndex !== -1) {
+          commentText = commentText.substring(exampleIndex + commentText.substring(exampleIndex).indexOf('\n') + 1).trim();
+        }
       }
+      // Asegurar que el comentario no exceda 100 palabras
+      commentText = commentText.split(' ').slice(0, 100).join(' ');
       setVerseComments({ ...verseComments, [key]: { type, text: commentText } });
       localStorage.setItem(key, JSON.stringify({ type, text: commentText }));
     } catch (error) {
