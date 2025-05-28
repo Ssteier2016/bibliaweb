@@ -114,7 +114,7 @@ function BibleReading({
           {selectedChapter.verses.map(verse => {
             const highlightKey = `highlight_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
             const noteKey = `note_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
-            const commentKey = `${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_${verseComments[`${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
+            const commentKey = `comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_${verseComments[`comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
             return (
               <div
                 key={verse.verse}
@@ -129,7 +129,7 @@ function BibleReading({
                       Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
                       {loadingComment === commentKey && ' (Cargando...)'}
                     </span>
-                    <button className="close-comment" onClick={() => handleCloseComment(verse)}>X</button>
+                    <button className="close-comment" onClick={() => handleCloseComment(verse, verseComments[commentKey].type)}>X</button>
                   </p>
                 )}
                 {notes[noteKey] && (
