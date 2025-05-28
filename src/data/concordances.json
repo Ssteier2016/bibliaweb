@@ -13,6 +13,20 @@
         {"book": "Deuteronomio", "chapter": 4, "verse": 2, "text": "No añadiréis a la palabra que yo os mando..."},
         {"book": "Proverbios", "chapter": 30, "verse": 6, "text": "No añadas a sus palabras, no sea que te reprenda..."}
       ]
+    },
+    {
+      "reference": "Mateo 5:5",
+      "related": [
+        {"book": "Salmos", "chapter": 37, "verse": 11, "text": "Pero los mansos heredarán la tierra..."},
+        {"book": "Isaías", "chapter": 60, "verse": 21, "text": "Tu pueblo, todos ellos justos, heredarán la tierra..."}
+      ]
+    },
+    {
+      "reference": "Romanos 8:28",
+      "related": [
+        {"book": "Génesis", "chapter": 50, "verse": 20, "text": "Vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien..."},
+        {"book": "Efesios", "chapter": 1, "verse": 11, "text": "En él asimismo tuvimos herencia, habiendo sido predestinados..."}
+      ]
     }
   ]
 }
