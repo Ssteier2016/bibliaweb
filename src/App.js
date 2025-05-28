@@ -80,7 +80,7 @@ function App() {
     const touch = e.touches[0];
     touchStartPos.current = { x: touch.clientX, y: touch.clientY };
     const timeout = setTimeout(() => {
-      const currentTouch = e.touches[0] || touch;
+      const currentTouch = e.touches-ON[0] || touch;
       const moved = touchStartPos.current &&
         (Math.abs(currentTouch.clientX - touchStartPos.current.x) > 10 ||
          Math.abs(currentTouch.clientY - touchStartPos.current.y) > 10);
@@ -142,32 +142,40 @@ function App() {
     setLoadingComment(key);
     try {
       const prompt = `
-        Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, preciso y relevante al contexto bíblico, con un máximo de 100 palabras. Ejemplo:
+        Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro y con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
         - Teológico: "Juan 1:1 establece la divinidad de Cristo como el Verbo eterno."
         - Geográfico: "El prólogo de Juan es universal, sin un lugar específico."
       `;
       const response = await axios.post(
-        'https://api.huggingface.co/models/mixtral/Mixtral-8x7B-Instruct-v0.1',
+        'https://api-inference.huggingface.co/models/mixtral/Mixtral-8x7B-Instruct-v0.1',
         {
           inputs: prompt,
-          max_tokens: 150,
+          max_tokens: 200,
           temperature: 0.7,
         },
         {
           headers: {
             'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY}`,
             'Content-Type': 'application/json',
+            'x-wait-for-model': 'true',
           },
+          timeout: 10000,
         }
       );
-      const comment = response.data[0].generated_text.trim();
-      setVerseComments({ ...verseComments, [key]: { type, text: comment } });
-      localStorage.setItem(key, JSON.stringify({ type, text: comment }));
+      const commentText = response.data?.[0]?.generated_text?.trim() || 'No se recibió comentario.';
+      setVerseComments({ ...verseComments, [key]: { type, text: commentText } });
+      localStorage.setItem(key, JSON.stringify({ type, text: commentText }));
     } catch (error) {
       console.error('Error fetching comment:', error);
+      let errorMessage = 'Error al obtener el comentario.';
+      if (error.code === 'ERR_NETWORK') {
+        errorMessage = 'Error de red: No se pudo conectar con el servidor de Hugging Face.';
+      } else if (error.response) {
+        errorMessage = `Error ${error.response.status}: ${error.response.data?.error || 'Error desconocido'}`;
+      }
       setVerseComments({
         ...verseComments,
-        [key]: { type, text: `Error: ${error.message}` }
+        [key]: { type, text: errorMessage }
       });
     }
     setLoadingComment(null);
