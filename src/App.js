@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bibleData from './data/reina_valera.json';
+import concordances from './data/concordances.json';
 import BibleReading from './components/BibleReading';
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
@@ -16,11 +17,13 @@ function App() {
   const [highlightedVerses, setHighlightedVerses] = useState({});
   const [highlightSubmenu, setHighlightSubmenu] = useState(false);
   const [commentSubmenu, setCommentSubmenu] = useState(false);
+  const [concordanceSubmenu, setConcordanceSubmenu] = useState(false);
   const [verseComments, setVerseComments] = useState({});
   const [loadingComment, setLoadingComment] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const contextMenuRef = useRef(null);
   const touchStartPos = useRef(null);
+  const navigate = useNavigate();
 
   const book = bibleData.books.find(b => b.name === selectedBook);
   const chapter = book?.chapters.find(c => c.chapter === selectedChapter);
@@ -59,6 +62,7 @@ function App() {
     setContextMenu({ visible: true, x, y, verse });
     setHighlightSubmenu(false);
     setCommentSubmenu(false);
+    setConcordanceSubmenu(false);
   };
 
   useEffect(() => {
@@ -67,6 +71,7 @@ function App() {
         setContextMenu({ visible: false, verse: null });
         setHighlightSubmenu(false);
         setCommentSubmenu(false);
+        setConcordanceSubmenu(false);
       }
     };
     document.addEventListener('click', handleClickOutside);
@@ -107,6 +112,7 @@ function App() {
   const toggleHighlightSubmenu = () => {
     setHighlightSubmenu(!highlightSubmenu);
     setCommentSubmenu(false);
+    setConcordanceSubmenu(false);
   };
 
   const handleNote = (verse) => {
@@ -133,13 +139,15 @@ function App() {
         alert('Copia: ' + text);
       }
     } catch (error) {
-      console.error('Error al compartir:', error);
+      if (error.name !== 'AbortError') {
+        console.error('Error al compartir:', error);
+      }
     }
     setContextMenu({ visible: false, verse: null });
   };
 
   const handleCommentSelect = async (verse, type) => {
-    const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}`;
+    const key = `${selectedBook}_${selectedChapter}_${verse.verse}_${type}`;
     const cachedComment = localStorage.getItem(key);
     if (cachedComment) {
       setVerseComments({ ...verseComments, [key]: JSON.parse(cachedComment) });
@@ -168,29 +176,27 @@ function App() {
             'Content-Type': 'application/json',
             'x-wait-for-model': 'true',
           },
-          timeout: 10000,
+          timeout: 15000,
         }
       );
       let commentText = response.data?.[0]?.generated_text?.trim() || 'No se recibió comentario.';
-      // Filtrar el prompt: tomar solo el texto después del prompt
       if (commentText.startsWith(prompt)) {
         commentText = commentText.substring(prompt.length).trim();
       } else {
-        // Fallback: buscar el último ejemplo como delimitador
         const exampleIndex = commentText.lastIndexOf('- Geográfico:');
         if (exampleIndex !== -1) {
           commentText = commentText.substring(exampleIndex + commentText.substring(exampleIndex).indexOf('\n') + 1).trim();
         }
       }
-      // Asegurar que el comentario no exceda 100 palabras
       commentText = commentText.split(' ').slice(0, 100).join(' ');
-      setVerseComments({ ...verseComments, [key]: { type, text: commentText } });
-      localStorage.setItem(key, JSON.stringify({ type, text: commentText }));
+      const comment = { type, text: commentText };
+      setVerseComments({ ...verseComments, [key]: comment });
+      localStorage.setItem(key, JSON.stringify(comment));
     } catch (error) {
       console.error('Error fetching comment:', error);
-      let errorMessage = 'Error al obtener el comentario.';
+      let errorMessage = 'Error al obtener el comentario. Verifica tu conexión o la clave API.';
       if (error.code === 'ERR_NETWORK') {
-        errorMessage = 'Error de red: No se pudo conectar con el servidor de Hugging Face.';
+        errorMessage = 'Error de red: No se pudo conectar con Hugging Face.';
       } else if (error.response) {
         errorMessage = `Error ${error.response.status}: ${error.response.data?.error || 'Error desconocido'}`;
       }
@@ -207,6 +213,35 @@ function App() {
   const toggleCommentSubmenu = () => {
     setCommentSubmenu(!commentSubmenu);
     setHighlightSubmenu(false);
+    setConcordanceSubmenu(false);
+  };
+
+  const handleCloseComment = (verse) => {
+    const key = `${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`${selectedBook}_${selectedChapter}_${verse.verse}_type`]}`]?.type}`;
+    const newComments = { ...verseComments };
+    delete newComments[key];
+    setVerseComments(newComments);
+    localStorage.removeItem(key);
+  };
+
+  const toggleConcordanceSubmenu = () => {
+    setConcordanceSubmenu(!concordanceSubmenu);
+    setHighlightSubmenu(false);
+    setCommentSubmenu(false);
+  };
+
+  const handleConcordanceSelect = (relatedVerse) => {
+    setSelectedBook(relatedVerse.book);
+    setSelectedChapter(relatedVerse.chapter);
+    navigate('/');
+    setContextMenu({ visible: false, verse: null });
+    setConcordanceSubmenu(false);
+  };
+
+  const getConcordances = (verse) => {
+    const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
+    const entry = concordances.concordances.find(c => c.reference === reference);
+    return entry ? entry.related : [];
   };
 
   const toggleMenu = () => {
@@ -215,152 +250,176 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <Router>
-        <div className="App">
-          <header>
-            <h1>Biblia Web</h1>
-            <div className="menu-container">
-              <button className="menu-button" onClick={toggleMenu}>
-                ☰
-              </button>
-              {menuOpen && (
-                <div className="dropdown-menu">
-                  <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
-                  <Link to="/reading" onClick={() => setMenuOpen(false)}>Lectura Bíblica</Link>
+      <div className="App">
+        <header>
+          <h1>Biblia Web</h1>
+          <div className="menu-container">
+            <button className="menu-button" onClick={toggleMenu}>
+              ☰
+            </button>
+            {menuOpen && (
+              <div className="dropdown-menu">
+                <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
+                <Link to="/reading" onClick={() => setMenuOpen(false)}>Lectura Bíblica</Link>
+              </div>
+            )}
+          </div>
+        </header>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="main-content">
+                <div className="selector">
+                  <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
+                    {bibleData.books.map(book => (
+                      <option key={book.name} value={book.name}>{book.name}</option>
+                    ))}
+                  </select>
+                  <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
+                    {book?.chapters.map(chapter => (
+                      <option key={chapter.chapter} value={chapter.chapter}>{chapter.chapter}</option>
+                    ))}
+                  </select>
                 </div>
-              )}
-            </div>
-          </header>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <div className="main-content">
-                  <div className="selector">
-                    <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
-                      {bibleData.books.map(book => (
-                        <option key={book.name} value={book.name}>{book.name}</option>
-                      ))}
-                    </select>
-                    <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
-                      {book?.chapters.map(chapter => (
-                        <option key={chapter.chapter} value={chapter.chapter}>{chapter.chapter}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Buscar versículos..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                  {verses.map(verse => {
-                    const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
-                    const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
-                    const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}`;
-                    return (
-                      <div
-                        key={verse.verse}
-                        className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
-                        onContextMenu={(e) => handleContextMenu(e, verse)}
-                        onTouchStart={(e) => handleTouchStart(e, verse)}
-                      >
-                        <p><strong>{verse.verse}</strong>: {verse.text}</p>
-                        {verseComments[commentKey] && (
-                          <p className="comment">
-                            Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
-                            {loadingComment === commentKey && ' (Cargando...)'}
-                          </p>
-                        )}
-                        {notes[noteKey] && (
-                          <p className="note">Nota: {notes[noteKey]}</p>
-                        )}
-                        {noteInput.visible && noteInput.verse?.verse === verse.verse && (
-                          <div className="note-input">
-                            <textarea
-                              placeholder="Escribe tu nota..."
-                              defaultValue={notes[noteKey] || ''}
-                              onChange={(e) => handleNoteChange(verse, e.target.value)}
-                              autoFocus
-                            />
-                            <button className="close-note" onClick={closeNoteInput}>X</button>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                  {contextMenu.visible && (
-                    <div
-                      className="context-menu"
-                      style={{ top: contextMenu.y, left: contextMenu.x }}
-                      ref={contextMenuRef}
-                    >
-                      <div className="menu-item" onClick={toggleHighlightSubmenu}>
-                        Subrayar
-                        {highlightSubmenu && (
-                          <div className="submenu">
-                            <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>Amarillo</div>
-                            <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'green')}>Verde</div>
-                            <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'blue')}>Azul</div>
-                            <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'pink')}>Rosa</div>
-                          </div>
-                        )}
-                      </div>
-                      <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
-                        Anotar
-                      </div>
-                      <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
-                        Compartir
-                      </div>
-                      <div className="menu-item" onClick={toggleCommentSubmenu}>
-                        Comentario
-                        {commentSubmenu && (
-                          <div className="submenu">
-                            <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>Lingüística</div>
-                            <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>Cultural</div>
-                            <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>Histórica</div>
-                            <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>Teológica</div>
-                            <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>Geográfica</div>
-                            <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>Paleolítica</div>
-                            <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>Arqueológica</div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              }
-            />
-            <Route
-              path="/reading"
-              element={
-                <BibleReading
-                  bibleData={bibleData}
-                  handleContextMenu={handleContextMenu}
-                  handleTouchStart={handleTouchStart}
-                  handleHighlight={handleHighlight}
-                  toggleHighlightSubmenu={toggleHighlightSubmenu}
-                  handleNote={handleNote}
-                  handleNoteChange={handleNoteChange}
-                  closeNoteInput={closeNoteInput}
-                  handleShare={handleShare}
-                  handleCommentSelect={handleCommentSelect}
-                  toggleCommentSubmenu={toggleCommentSubmenu}
-                  contextMenu={contextMenu}
-                  noteInput={noteInput}
-                  notes={notes}
-                  highlightedVerses={highlightedVerses}
-                  highlightSubmenu={highlightSubmenu}
-                  commentSubmenu={commentSubmenu}
-                  verseComments={verseComments}
-                  loadingComment={loadingComment}
-                  contextMenuRef={contextMenuRef}
+                <input
+                  type="text"
+                  placeholder="Buscar versículos..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 />
-              }
-            />
-          </Routes>
-        </div>
-      </Router>
+                {verses.map(verse => {
+                  const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
+                  const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
+                  const commentKey = `${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`${selectedBook}_${selectedChapter}_${verse.verse}_type`]?.type || 'unknown'}`;
+                  return (
+                    <div
+                      key={verse.verse}
+                      className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
+                      onContextMenu={(e) => handleContextMenu(e, verse)}
+                      onTouchStart={(e) => handleTouchStart(e, verse)}
+                    >
+                      <p><strong>{verse.verse}</strong>: {verse.text}</p>
+                      {verseComments[commentKey] && (
+                        <p className="comment">
+                          Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
+                          {loadingComment === commentKey && ' (Cargando...)'}
+                          <button className="close-comment" onClick={() => handleCloseComment(verse)}>X</button>
+                        </p>
+                      )}
+                      {notes[noteKey] && (
+                        <p className="note">Nota: {notes[noteKey]}</p>
+                      )}
+                      {noteInput.visible && noteInput.verse?.verse === verse.verse && (
+                        <div className="note-input">
+                          <textarea
+                            placeholder="Escribe tu nota..."
+                            defaultValue={notes[noteKey] || ''}
+                            onChange={(e) => handleNoteChange(verse, e.target.value)}
+                            autoFocus
+                          />
+                          <button className="close-note" onClick={closeNoteInput}>X</button>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                {contextMenu.visible && (
+                  <div
+                    className="context-menu"
+                    style={{ top: contextMenu.y, left: contextMenu.x }}
+                    ref={contextMenuRef}
+                  >
+                    <div className="menu-item" onClick={toggleHighlightSubmenu}>
+                      Subrayar
+                      {highlightSubmenu && (
+                        <div className="submenu">
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>Amarillo</div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'green')}>Verde</div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'blue')}>Azul</div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'pink')}>Rosa</div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
+                      Anotar
+                    </div>
+                    <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
+                      Compartir
+                    </div>
+                    <div className="menu-item" onClick={toggleCommentSubmenu}>
+                      Comentario
+                      {commentSubmenu && (
+                        <div className="submenu">
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>Lingüística</div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>Cultural</div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>Histórica</div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>Teológica</div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>Geográfica</div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>Paleolítica</div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>Arqueológica</div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="menu-item" onClick={toggleConcordanceSubmenu}>
+                      Concordancia
+                      {concordanceSubmenu && (
+                        <div className="submenu">
+                          {getConcordances(contextMenu.verse).map((related, index) => (
+                            <div
+                              key={index}
+                              className="submenu-item"
+                              onClick={() => handleConcordanceSelect(related)}
+                            >
+                              {related.book} {related.chapter}:{related.verse}
+                            </div>
+                          ))}
+                          {getConcordances(contextMenu.verse).length === 0 && (
+                            <div className="submenu-item">No hay concordancias</div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            }
+          />
+          <Route
+            path="/reading"
+            element={
+              <BibleReading
+                bibleData={bibleData}
+                concordances={concordances}
+                handleContextMenu={handleContextMenu}
+                handleTouchStart={handleTouchStart}
+                handleHighlight={handleHighlight}
+                toggleHighlightSubmenu={toggleHighlightSubmenu}
+                handleNote={handleNote}
+                handleNoteChange={handleNoteChange}
+                closeNoteInput={closeNoteInput}
+                handleShare={handleShare}
+                handleCommentSelect={handleCommentSelect}
+                toggleCommentSubmenu={toggleCommentSubmenu}
+                handleCloseComment={handleCloseComment}
+                toggleConcordanceSubmenu={toggleConcordanceSubmenu}
+                handleConcordanceSelect={handleConcordanceSelect}
+                getConcordances={getConcordances}
+                contextMenu={contextMenu}
+                noteInput={noteInput}
+                notes={notes}
+                highlightedVerses={highlightedVerses}
+                highlightSubmenu={highlightSubmenu}
+                commentSubmenu={commentSubmenu}
+                concordanceSubmenu={concordanceSubmenu}
+                verseComments={verseComments}
+                loadingComment={loadingComment}
+                contextMenuRef={contextMenuRef}
+              />
+            }
+          />
+        </Routes>
+      </div>
     </ErrorBoundary>
   );
 }
