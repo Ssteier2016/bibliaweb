@@ -224,6 +224,27 @@ select, input[type="text"] {
   border-radius: 4px;
 }
 
+/* Añadir al final si no está */
+.grid-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  zIndex: 1000;
+}
+
 .grid-item {
   width: 50px;
   height: 50px;
