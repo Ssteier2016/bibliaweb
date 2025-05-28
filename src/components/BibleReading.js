@@ -130,11 +130,11 @@ function BibleReading({
                 className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
                 onContextMenu={(e) => {
                   handleContextMenu(e, verse);
-                  console.log('Verse context menu triggered:', verse); // Depuración
+                  console.log('Reading verse context menu:', verse);
                 }}
                 onTouchStart={(e) => {
                   handleTouchStart(e, verse);
-                  console.log('Verse touch start:', verse); // Depuración
+                  console.log('Reading verse touch start:', verse);
                 }}
               >
                 <p><strong>{verse.verse}</strong>: {verse.text}</p>
@@ -205,18 +205,20 @@ function BibleReading({
                 Concordancia
                 {concordanceSubmenu && (
                   <div className="submenu">
-                    {getConcordances(contextMenu.verse).map((related, index) => (
-                      <div
-                        key={index}
-                        className="submenu-item"
-                        onClick={() => handleConcordanceSelect(related)}
-                      >
-                        {related.book} {related.chapter}:{related.verse}
-                      </div>
+                    {getConcordances(contextMenu.verse).then(related => (
+                      related.map((rel, index) => (
+                        <div
+                          key={index}
+                          className="submenu-item"
+                          onClick={() => handleConcordanceSelect(rel)}
+                        >
+                          {rel.book} {rel.chapter}:{rel.verse}
+                        </div>
+                      ))
                     ))}
-                    {getConcordances(contextMenu.verse).length === 0 && (
-                      <div className="submenu-item">No hay concordancias</div>
-                    )}
+                    {getConcordances(contextMenu.verse).then(related => (
+                      related.length === 0 && <div className="submenu-item">No hay concordancias</div>
+                    ))}
                   </div>
                 )}
               </div>
