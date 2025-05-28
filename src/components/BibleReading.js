@@ -18,14 +18,23 @@ function BibleReading({
   handleConcordanceSelect,
   getConcordances,
   contextMenu,
+  setContextMenu,
   noteInput,
+  setNoteInput,
   notes,
+  setNotes,
   highlightedVerses,
+  setHighlightedVerses,
   highlightSubmenu,
+  setHighlightSubmenu,
   commentSubmenu,
+  setCommentSubmenu,
   concordanceSubmenu,
+  setConcordanceSubmenu,
   verseComments,
+  setVerseComments,
   loadingComment,
+  setLoadingComment,
   contextMenuRef,
 }) {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -119,8 +128,14 @@ function BibleReading({
               <div
                 key={verse.verse}
                 className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
-                onContextMenu={(e) => handleContextMenu(e, verse)}
-                onTouchStart={(e) => handleTouchStart(e, verse)}
+                onContextMenu={(e) => {
+                  handleContextMenu(e, verse);
+                  console.log('Verse context menu triggered:', verse); // Depuración
+                }}
+                onTouchStart={(e) => {
+                  handleTouchStart(e, verse);
+                  console.log('Verse touch start:', verse); // Depuración
+                }}
               >
                 <p><strong>{verse.verse}</strong>: {verse.text}</p>
                 {verseComments[commentKey] && (
