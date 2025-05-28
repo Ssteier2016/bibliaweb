@@ -205,3 +205,76 @@ select, input[type="text"] {
   cursor: pointer;
   margin-bottom: 10px;
 }
+
+/* Nuevos estilos para la funcionalidad de colección */
+.collection {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(34, 50px);
+  gap: 5px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.grid-item {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.grid-item.unlocked {
+  background-color: #e0f7fa;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-details {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px;
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.card-details img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card-details h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.verse.read {
+  background-color: rgba(0, 255, 0, 0.1); /* Fondo verde claro para versículos leídos */
+}
