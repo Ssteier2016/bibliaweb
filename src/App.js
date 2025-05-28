@@ -20,6 +20,7 @@ function App() {
   const [concordanceSubmenu, setConcordanceSubmenu] = useState(false);
   const [verseComments, setVerseComments] = useState({});
   const [loadingComment, setLoadingComment] = useState(null);
+  const [loadingConcordance, setLoadingConcordance] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const contextMenuRef = useRef(null);
   const touchStartPos = useRef(null);
@@ -169,7 +170,7 @@ function App() {
       `;
       console.log('Sending comment request:', { prompt, key, apiKey: process.env.REACT_APP_HF_API_KEY ? 'Set' : 'Missing' });
       const response = await axios.post(
-        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.3',
+        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
         {
           inputs: prompt,
           max_tokens: 200,
@@ -213,10 +214,12 @@ function App() {
 
   const generateConcordance = async (verse) => {
     const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
-    const existing = concordances.concordances.find(c => c.reference === reference);
-    if (existing && existing.related.length > 0) {
-      return existing.related;
+    const key = `concordance_${reference}`;
+    const cachedConcordance = localStorage.getItem(key);
+    if (cachedConcordance) {
+      return JSON.parse(cachedConcordance);
     }
+    setLoadingConcordance(reference);
     try {
       const prompt = `
         Eres un experto en estudios bíblicos. Proporciona hasta 3 referencias cruzadas (concordancias) para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en la Biblia. Cada referencia debe incluir libro, capítulo, versículo y un fragmento breve del texto (máximo 20 palabras). Responde solo con un array JSON de objetos, por ejemplo:
@@ -227,7 +230,7 @@ function App() {
       `;
       console.log('Sending concordance request:', { prompt, reference });
       const response = await axios.post(
-        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.3',
+        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
         {
           inputs: prompt,
           max_tokens: 300,
@@ -252,16 +255,15 @@ function App() {
         console.error('Invalid concordance response:', concordanceText);
         related = [];
       }
-      // Actualizar concordances.json (simulado, requiere backend o script)
       if (related.length > 0) {
-        const newEntry = { reference, related };
-        concordances.concordances.push(newEntry);
-        console.log('New concordance added:', newEntry);
-        // Nota: Para persistir, necesitas un backend o script en Termux
+        localStorage.setItem(key, JSON.stringify(related));
+        // Nota: Persistir en concordances.json requiere script separado
       }
+      setLoadingConcordance(null);
       return related;
     } catch (error) {
       console.error('Error generating concordance:', error);
+      setLoadingConcordance(null);
       return [];
     }
   };
@@ -310,7 +312,7 @@ function App() {
     <ErrorBoundary>
       <div className="App">
         <header>
-          <h1>Bibl.ia</h1>
+          <h1>Biblia Web</h1>
           <div className="menu-container">
             <button className="menu-button" onClick={toggleMenu}>
               ☰
@@ -425,20 +427,25 @@ function App() {
                       Concordancia
                       {concordanceSubmenu && (
                         <div className="submenu">
-                          {getConcordances(contextMenu.verse).then(related => (
-                            related.map((rel, index) => (
-                              <div
-                                key={index}
-                                className="submenu-item"
-                                onClick={() => handleConcordanceSelect(rel)}
-                              >
-                                {rel.book} {rel.chapter}:{rel.verse}
-                              </div>
-                            ))
-                          ))}
-                          {getConcordances(contextMenu.verse).then(related => (
-                            related.length === 0 && <div className="submenu-item">No hay concordancias</div>
-                          ))}
+                          {loadingConcordance ? (
+                            <div className="submenu-item">Cargando...</div>
+                          ) : (
+                            getConcordances(contextMenu.verse).then(related =>
+                              related.length === 0 ? (
+                                <div className="submenu-item">No hay concordancias</div>
+                              ) : (
+                                related.map((rel, index) => (
+                                  <div
+                                    key={index}
+                                    className="submenu-item"
+                                    onClick={() => handleConcordanceSelect(rel)}
+                                  >
+                                    {rel.book} {rel.chapter}:{rel.verse}
+                                  </div>
+                                ))
+                              )
+                            )
+                          )}
                         </div>
                       )}
                     </div>
@@ -452,7 +459,7 @@ function App() {
             element={
               <BibleReading
                 bibleData={bibleData}
-                concordances={concances}
+                concordances={concordances}
                 handleContextMenu={handleContextMenu}
                 handleTouchStart={handleTouchStart}
                 handleHighlight={handleHighlight}
@@ -485,6 +492,8 @@ function App() {
                 setVerseComments={setVerseComments}
                 loadingComment={loadingComment}
                 setLoadingComment={setLoadingComment}
+                loadingConcordance={loadingConcordance}
+                setLoadingConcordance={setLoadingConcordance}
                 contextMenuRef={contextMenuRef}
               />
             }
