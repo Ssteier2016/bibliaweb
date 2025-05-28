@@ -159,7 +159,7 @@ function App() {
     setLoadingComment(key);
     try {
       const prompt = `
-        const Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro y con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
+        Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro y con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
         - Teológico: "Juan 1:1 establece la divinidad de Cristo como el Verbo eterno."
         - Geográfico: "El prólogo de Juan es universal, sin un lugar específico."
       `;
@@ -174,7 +174,7 @@ function App() {
           headers: {
             'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY}`,
             'Content-Type': 'application/json',
-            'x-wait': 'true'for-model,
+            'x-wait-for-model': 'true',
           },
           timeout: 15000,
         }
