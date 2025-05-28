@@ -310,7 +310,7 @@ function App() {
     <ErrorBoundary>
       <div className="App">
         <header>
-          <h1>Biblia Web</h1>
+          <h1>Bibl.ia</h1>
           <div className="menu-container">
             <button className="menu-button" onClick={toggleMenu}>
               ☰
