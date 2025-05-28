@@ -1,14 +1,128 @@
 [
   {
-    "name": "Marta",
-    "image": "https://via.placeholder.com/50?text=Marta",
-    "description": "Hermana de María y Lázaro, conocida por su hospitalidad.",
-    "chapter": "Juan 11"
-  },
-  {
     "name": "Dios Creador",
     "image": "https://via.placeholder.com/50?text=Dios",
     "description": "Creador del universo, descrito en el relato de la creación.",
     "chapter": "Génesis 1"
+  },
+  {
+    "name": "Adán",
+    "image": "https://via.placeholder.com/50?text=Adan",
+    "description": "Primer hombre, creado a imagen de Dios.",
+    "chapter": "Génesis 2"
+  },
+  {
+    "name": "Eva",
+    "image": "https://via.placeholder.com/50?text=Eva",
+    "description": "Primera mujer, compañera de Adán.",
+    "chapter": "Génesis 3"
+  },
+  {
+    "name": "Caín",
+    "image": "https://via.placeholder.com/50?text=Cain",
+    "description": "Hijo de Adán y Eva, mató a su hermano Abel.",
+    "chapter": "Génesis 4"
+  },
+  {
+    "name": "Abel",
+    "image": "https://via.placeholder.com/50?text=Abel",
+    "description": "Hijo de Adán y Eva, pastor y mártir.",
+    "chapter": "Génesis 4"
+  },
+  {
+    "name": "Noé",
+    "image": "https://via.placeholder.com/50?text=Noe",
+    "description": "Constructor del arca, sobreviviente del diluvio.",
+    "chapter": "Génesis 6"
+  },
+  {
+    "name": "Abraham",
+    "image": "https://via.placeholder.com/50?text=Abraham",
+    "description": "Patriarca, padre de la fe hebrea.",
+    "chapter": "Génesis 12"
+  },
+  {
+    "name": "Sara",
+    "image": "https://via.placeholder.com/50?text=Sara",
+    "description": "Esposa de Abraham, madre de Isaac.",
+    "chapter": "Génesis 17"
+  },
+  {
+    "name": "Isaac",
+    "image": "https://via.placeholder.com/50?text=Isaac",
+    "description": "Hijo de Abraham, patriarca de Israel.",
+    "chapter": "Génesis 22"
+  },
+  {
+    "name": "Jacob",
+    "image": "https://via.placeholder.com/50?text=Jacob",
+    "description": "Padre de las doce tribus de Israel.",
+    "chapter": "Génesis 28"
+  },
+  {
+    "name": "José",
+    "image": "https://via.placeholder.com/50?text=Jose",
+    "description": "Hijo de Jacob, gobernante en Egipto.",
+    "chapter": "Génesis 37"
+  },
+  {
+    "name": "Moisés",
+    "image": "https://via.placeholder.com/50?text=Moises",
+    "description": "Líder de Israel, recibió las tablas de la Ley.",
+    "chapter": "Éxodo 3"
+  },
+  {
+    "name": "Aarón",
+    "image": "https://via.placeholder.com/50?text=Aaron",
+    "description": "Hermano de Moisés, primer Sumo Sacerdote.",
+    "chapter": "Éxodo 7"
+  },
+  {
+    "name": "Josué",
+    "image": "https://via.placeholder.com/50?text=Josue",
+    "description": "Sucesor de Moisés, conquistó Canaán.",
+    "chapter": "Josué 1"
+  },
+  {
+    "name": "Débora",
+    "image": "https://via.placeholder.com/50?text=Debora",
+    "description": "Profetisa y jueza de Israel.",
+    "chapter": "Jueces 4"
+  },
+  {
+    "name": "Sansón",
+    "image": "https://via.placeholder.com/50?text=Samson",
+    "description": "Juez de Israel, conocido por su fuerza.",
+    "chapter": "Jueces 16"
+  },
+  {
+    "name": "Samuel",
+    "image": "https://via.placeholder.com/50?text=Samuel",
+    "description": "Profeta y último juez de Israel.",
+    "chapter": "1 Samuel 3"
+  },
+  {
+    "name": "David",
+    "image": "https://via.placeholder.com/50?text=David",
+    "description": "Rey de Israel, autor de muchos Salmos.",
+    "chapter": "1 Samuel 17"
+  },
+  {
+    "name": "Salomón",
+    "image": "https://via.placeholder.com/50?text=Salomon",
+    "description": "Rey sabio, constructor del Templo.",
+    "chapter": "1 Reyes 3"
+  },
+  {
+    "name": "Elías",
+    "image": "https://via.placeholder.com/50?text=Elias",
+    "description": "Profeta, desafió a los profetas de Baal.",
+    "chapter": "1 Reyes 18"
+  },
+  {
+    "name": "Marta",
+    "image": "https://via.placeholder.com/50?text=Marta",
+    "description": "Hermana de María y Lázaro, conocida por su hospitalidad.",
+    "chapter": "Juan 11"
   }
 ]
