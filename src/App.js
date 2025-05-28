@@ -80,7 +80,7 @@ function App() {
     const touch = e.touches[0];
     touchStartPos.current = { x: touch.clientX, y: touch.clientY };
     const timeout = setTimeout(() => {
-      const currentTouch = e.touches-ON[0] || touch;
+      const currentTouch = e.touches[0] || touch;
       const moved = touchStartPos.current &&
         (Math.abs(currentTouch.clientX - touchStartPos.current.x) > 10 ||
          Math.abs(currentTouch.clientY - touchStartPos.current.y) > 10);
@@ -139,6 +139,14 @@ function App() {
 
   const handleCommentSelect = async (verse, type) => {
     const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}`;
+    const cachedComment = localStorage.getItem(key);
+    if (cachedComment) {
+      setVerseComments({ ...verseComments, [key]: JSON.parse(cachedComment) });
+      setLoadingComment(null);
+      setContextMenu({ visible: false, verse: null });
+      setCommentSubmenu(false);
+      return;
+    }
     setLoadingComment(key);
     try {
       const prompt = `
@@ -147,7 +155,7 @@ function App() {
         - Geográfico: "El prólogo de Juan es universal, sin un lugar específico."
       `;
       const response = await axios.post(
-        'https://api-inference.huggingface.co/models/mixtral/Mixtral-8x7B-Instruct-v0.1',
+        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
         {
           inputs: prompt,
           max_tokens: 200,
