@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import charactersData from '../data/characters.json';
 
 function BibleReading({
@@ -44,7 +44,9 @@ function BibleReading({
   const [selectedChapter, setSelectedChapter] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
-  const [readVerses, setReadVerses] = useState(new Set());
+  const [timeSpent, setTimeSpent] = useState(0); // Segundos en la vista del capítulo
+  const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false); // Si llegó al final
+  const verseListRef = useRef(null); // Referencia al contenedor de versículos
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
@@ -52,6 +54,40 @@ function BibleReading({
     setCompletedBooks(storedBooks);
     setCompletedChapters(storedChapters);
   }, []);
+
+  // Temporizador para contar segundos en la vista del capítulo
+  useEffect(() => {
+    let timer;
+    if (selectedChapter) {
+      timer = setInterval(() => {
+        setTimeSpent(prev => prev + 1);
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [selectedChapter]);
+
+  // Detectar desplazamiento hasta el final
+  useEffect(() => {
+    const handleScroll = () => {
+      if (verseListRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = verseListRef.current;
+        // Considerar "final" si está a 10px del fondo
+        if (scrollTop + clientHeight >= scrollHeight - 10) {
+          setHasScrolledToBottom(true);
+        }
+      }
+    };
+
+    const verseList = verseListRef.current;
+    if (verseList) {
+      verseList.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      if (verseList) {
+        verseList.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [selectedChapter]);
 
   const formatDate = () => {
     const now = new Date();
@@ -80,8 +116,10 @@ function BibleReading({
       ?.chapters.find(ch => ch.chapter === chapterNumber);
     if (!chapter) return;
 
-    if (!readVerses.size || readVerses.size < chapter.verses.length) {
-      alert('Debes leer todos los versículos del capítulo antes de marcarlo como leído.');
+    // Verificar si se cumplen las condiciones: tiempo mínimo y desplazamiento al final
+    const requiredTime = chapter.verses.length; // 1 segundo por versículo
+    if (timeSpent < requiredTime || !hasScrolledToBottom) {
+      alert(`Debes pasar al menos ${requiredTime} segundos y deslizar hasta el final del capítulo.`);
       return;
     }
 
@@ -92,9 +130,10 @@ function BibleReading({
         date: !completedChapters[key]?.completed ? formatDate() : completedChapters[key]?.date || null,
       },
     };
-    setCompletedBooks(newCompletedBooks);
+    setCompletedChapters(newCompletedChapters);
     localStorage.setItem('completedChapters', JSON.stringify(newCompletedChapters));
 
+    // Desbloquear carta si el capítulo se marca como leído
     if (!completedChapters[key]?.completed) {
       const character = charactersData.find(c => c.chapter === `${bookName} ${chapterNumber}`);
       if (character) {
@@ -106,28 +145,29 @@ function BibleReading({
         }
       }
     }
-    setReadVerses(new Set());
-  };
-
-  const markVerseRead = (verseNumber) => {
-    setReadVerses(prev => new Set(prev).add(verseNumber));
+    // Reiniciar condiciones
+    setTimeSpent(0);
+    setHasScrolledToBottom(false);
   };
 
   const handleBookClick = (book) => {
     setSelectedBook(book);
     setSelectedChapter(null);
-    setReadVerses(new Set());
+    setTimeSpent(0);
+    setHasScrolledToBottom(false);
   };
 
   const handleChapterClick = (chapter) => {
     setSelectedChapter(chapter);
-    setReadVerses(new Set());
+    setTimeSpent(0);
+    setHasScrolledToBottom(false);
   };
 
   const handleBack = () => {
     if (selectedChapter) {
       setSelectedChapter(null);
-      setReadVerses(new Set());
+      setTimeSpent(0);
+      setHasScrolledToBottom(false);
     } else if (selectedBook) {
       setSelectedBook(null);
     }
@@ -164,6 +204,10 @@ function BibleReading({
                 type="checkbox"
                 checked={!!completedChapters[`${selectedBook.name}_${chapter.chapter}`]?.completed}
                 onChange={() => toggleChapterCompletion(selectedBook.name, chapter.chapter)}
+                disabled={
+                  selectedChapter?.chapter === chapter.chapter &&
+                  (timeSpent < chapter.verses.length || !hasScrolledToBottom)
+                }
               />
               <span onClick={() => handleChapterClick(chapter)}>
                 Capítulo {chapter.chapter}
@@ -174,7 +218,7 @@ function BibleReading({
           ))}
         </div>
       ) : (
-        <div className="verse-list">
+        <div className="verse-list" ref={verseListRef} style={{ maxHeight: '500px', overflowY: 'auto' }}>
           <h2>{selectedBook.name} {selectedChapter.chapter}</h2>
           {selectedChapter.verses.map(verse => {
             const highlightKey = `highlight_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
@@ -183,7 +227,7 @@ function BibleReading({
             return (
               <div
                 key={verse.verse}
-                className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''} ${readVerses.has(verse.verse) ? 'read' : ''}`}
+                className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
                 onContextMenu={(e) => {
                   handleContextMenu(e, verse);
                   console.log('Reading verse context menu:', verse);
@@ -193,7 +237,6 @@ function BibleReading({
                   console.log('Reading verse touch start:', verse);
                 }}
                 onTouchEnd={(e) => e.preventDefault()}
-                onClick={() => markVerseRead(verse.verse)}
               >
                 <p><strong>{verse.verse}</strong>: {verse.text}</p>
                 {verseComments[commentKey] && (
