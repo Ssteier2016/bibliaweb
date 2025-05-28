@@ -51,19 +51,34 @@ function BibleReading({
     setCompletedChapters(storedChapters);
   }, []);
 
+  const formatDate = () => {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
   const toggleBookCompletion = (bookName) => {
     const newCompletedBooks = {
       ...completedBooks,
-      [bookName]: !completedBooks[bookName],
+      [bookName]: {
+        completed: !completedBooks[bookName]?.completed,
+        date: !completedBooks[bookName]?.completed ? formatDate() : completedBooks[bookName]?.date || null,
+      },
     };
     setCompletedBooks(newCompletedBooks);
     localStorage.setItem('completedBooks', JSON.stringify(newCompletedBooks));
   };
 
   const toggleChapterCompletion = (bookName, chapterNumber) => {
+    const key = `${bookName}_${chapterNumber}`;
     const newCompletedChapters = {
       ...completedChapters,
-      [`${bookName}_${chapterNumber}`]: !completedChapters[`${bookName}_${chapterNumber}`],
+      [key]: {
+        completed: !completedChapters[key]?.completed,
+        date: !completedChapters[key]?.completed ? formatDate() : completedChapters[key]?.date || null,
+      },
     };
     setCompletedChapters(newCompletedChapters);
     localStorage.setItem('completedChapters', JSON.stringify(newCompletedChapters));
@@ -98,10 +113,13 @@ function BibleReading({
             <div key={book.name} className="book-item">
               <input
                 type="checkbox"
-                checked={!!completedBooks[book.name]}
+                checked={!!completedBooks[book.name]?.completed}
                 onChange={() => toggleBookCompletion(book.name)}
               />
-              <span onClick={() => handleBookClick(book)}>{book.name}</span>
+              <span onClick={() => handleBookClick(book)}>
+                {book.name}
+                {completedBooks[book.name]?.date && ` - Marcado el ${completedBooks[book.name].date}`}
+              </span>
             </div>
           ))}
         </div>
@@ -112,10 +130,14 @@ function BibleReading({
             <div key={chapter.chapter} className="chapter-item">
               <input
                 type="checkbox"
-                checked={!!completedChapters[`${selectedBook.name}_${chapter.chapter}`]}
+                checked={!!completedChapters[`${selectedBook.name}_${chapter.chapter}`]?.completed}
                 onChange={() => toggleChapterCompletion(selectedBook.name, chapter.chapter)}
               />
-              <span onClick={() => handleChapterClick(chapter)}>Capítulo {chapter.chapter}</span>
+              <span onClick={() => handleChapterClick(chapter)}>
+                Capítulo {chapter.chapter}
+                {completedChapters[`${selectedBook.name}_${chapter.chapter}`]?.date &&
+                  ` - Marcado el ${completedChapters[`${selectedBook.name}_${chapter.chapter}`].date}`}
+              </span>
             </div>
           ))}
         </div>
@@ -138,6 +160,7 @@ function BibleReading({
                   handleTouchStart(e, verse);
                   console.log('Reading verse touch start:', verse);
                 }}
+                onTouchEnd={(e) => e.preventDefault()}
               >
                 <p><strong>{verse.verse}</strong>: {verse.text}</p>
                 {verseComments[commentKey] && (
@@ -166,10 +189,10 @@ function BibleReading({
               </div>
             );
           })}
-          {contextMenu.visible && (
+          {contextMenu.visible && contextMenu.verse && (
             <div
               className="context-menu"
-              style={{ top: contextMenu.y, left: contextMenu.x }}
+              style={{ top: contextMenu.y, left: contextMenu.x, position: 'fixed', zIndex: 1000 }}
               ref={contextMenuRef}
             >
               <div className="menu-item" onClick={toggleHighlightSubmenu}>
