@@ -3,27 +3,28 @@ import json
 with open('src/data/reina_valera.json', 'r', encoding='utf-8') as f:
     bible_data = json.load(f)
 
-# Lista inicial de personajes (ampliar con fuentes)
+# Copia los 30 personajes de characters.json
 characters = [
-    {"name": "Dios Creador", "description": "Creador del universo.", "chapter": "Génesis 1"},
-    {"name": "Marta", "description": "Hermana de María y Lázaro.", "chapter": "Juan 11"},
-    # Añadir más desde fuentes
+    {
+        "name": "Dios Creador",
+        "image": "https://placehold.co/50x50?text=Dios",
+        "description": "Creador del universo, descrito en el relato de la creación.",
+        "chapter": "Génesis 1"
+    },
+    
 ]
 
 output = []
 generic_count = 1
 for book in bible_data['books']:
     for chapter in book['chapters']:
-        # Buscar personaje específico
         char = next((c for c in characters if c['chapter'] == f"{book['name']} {chapter['chapter']}"), None)
         if char:
-            char["image"] = f"https://via.placeholder.com/50?text={char['name'].replace(' ', '+')}"
             output.append(char)
         else:
-            # Personaje genérico
             output.append({
                 "name": f"Personaje {generic_count}",
-                "image": f"https://via.placeholder.com/50?text=Personaje+{generic_count}",
+                "image": f"https://placehold.co/50x50?text=Personaje+{generic_count}",
                 "description": f"Figura en {book['name']} {chapter['chapter']}.",
                 "chapter": f"{book['name']} {chapter['chapter']}"
             })
