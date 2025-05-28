@@ -4,14 +4,187 @@ with open('src/data/reina_valera.json', 'r', encoding='utf-8') as f:
     bible_data = json.load(f)
 
 # Copia los 30 personajes de characters.json
-characters = [
-    {
-        "name": "Dios Creador",
-        "image": "https://placehold.co/50x50?text=Dios",
-        "description": "Creador del universo, descrito en el relato de la creación.",
-        "chapter": "Génesis 1"
-    },
-    
+characters =[
+  {
+    "name": "Dios Creador",
+    "image": "https://placehold.co/50x50?text=Dios",
+    "description": "Creador del universo, descrito en el relato de la creación.",
+    "chapter": "Génesis 1"
+  },
+  {
+    "name": "Adán",
+    "image": "https://placehold.co/50x50?text=Adan",
+    "description": "Primer hombre, creado a imagen de Dios.",
+    "chapter": "Génesis 2"
+  },
+  {
+    "name": "Eva",
+    "image": "https://placehold.co/50x50?text=Eva",
+    "description": "Primera mujer, compañera de Adán.",
+    "chapter": "Génesis 3"
+  },
+  {
+    "name": "Caín",
+    "image": "https://placehold.co/50x50?text=Cain",
+    "description": "Hijo de Adán y Eva, mató a su hermano Abel.",
+    "chapter": "Génesis 4"
+  },
+  {
+    "name": "Abel",
+    "image": "https://placehold.co/50x50?text=Abel",
+    "description": "Hijo de Adán y Eva, pastor y mártir.",
+    "chapter": "Génesis 4"
+  },
+  {
+    "name": "Noé",
+    "image": "https://placehold.co/50x50?text=Noe",
+    "description": "Constructor del arca, sobreviviente del diluvio.",
+    "chapter": "Génesis 6"
+  },
+  {
+    "name": "Abraham",
+    "image": "https://placehold.co/50x50?text=Abraham",
+    "description": "Patriarca, padre de la fe hebrea.",
+    "chapter": "Génesis 12"
+  },
+  {
+    "name": "Sara",
+    "image": "https://placehold.co/50x50?text=Sara",
+    "description": "Esposa de Abraham, madre de Isaac.",
+    "chapter": "Génesis 17"
+  },
+  {
+    "name": "Isaac",
+    "image": "https://placehold.co/50x50?text=Isaac",
+    "description": "Hijo de Abraham, patriarca de Israel.",
+    "chapter": "Génesis 22"
+  },
+  {
+    "name": "Jacob",
+    "image": "https://placehold.co/50x50?text=Jacob",
+    "description": "Padre de las doce tribus de Israel.",
+    "chapter": "Génesis 28"
+  },
+  {
+    "name": "José",
+    "image": "https://placehold.co/50x50?text=José",
+    "description": "Hijo de Jacob, gobernante en Egipto.",
+    "chapter": "Génesis 37"
+  },
+  {
+    "name": "Moisés",
+    "image": "https://placehold.co/50x50?text=Moisés",
+    "description": "Líder de Israel, recibió las tablas de la Ley.",
+    "chapter": "Éxodo 3"
+  },
+  {
+    "name": "Aarón",
+    "image": "https://placehold.co/50x50?text=Aarón",
+    "description": "Hermano de Moisés, primer Sumo Sacerdote.",
+    "chapter": "Éxodo 7"
+  },
+  {
+    "name": "Josué",
+    "image": "https://placehold.co/50x50?text=Josué",
+    "description": "Sucesor de Moisés, conquistó Canaán.",
+    "chapter": "Josué 1"
+  },
+  {
+    "name": "Débora",
+    "image": "https://placehold.co/50x50?text=Débora",
+    "description": "Profetisa y jueza de Israel.",
+    "chapter": "Jueces 4"
+  },
+  {
+    "name": "Sansón",
+    "image": "https://placehold.co/50x50?text=Sansón",
+    "description": "Juez de Israel, conocido por su fuerza.",
+    "chapter": "Jueces 16"
+  },
+  {
+    "name": "Samuel",
+    "image": "https://placehold.co/50x50?text=Samuel",
+    "description": "Profeta y último juez de Israel.",
+    "chapter": "1 Samuel 3"
+  },
+  {
+    "name": "David",
+    "image": "https://placehold.co/50x50?text=David",
+    "description": "Rey de Israel, autor de muchos Salmos.",
+    "chapter": "1 Samuel 17"
+  },
+  {
+    "name": "Salomón",
+    "image": "https://placehold.co/50x50?text=Salomón",
+    "description": "Rey sabio, constructor del Templo.",
+    "chapter": "1 Reyes 3"
+  },
+  {
+    "name": "Elías",
+    "image": "https://placehold.co/50x50?text=Elías",
+    "description": "Profeta, desafió a los profetas de Baal.",
+    "chapter": "1 Reyes 18"
+  },
+  {
+    "name": "Eliseo",
+    "image": "https://placehold.co/50x50?text=Eliseo",
+    "description": "Profeta, sucesor de Elías.",
+    "chapter": "2 Reyes 2"
+  },
+  {
+    "name": "Isaías",
+    "image": "https://placehold.co/50x50?text=Isaías",
+    "description": "Profeta, anunció la venida del Mesías.",
+    "chapter": "Isaías 6"
+  },
+  {
+    "name": "Jeremías",
+    "image": "https://placehold.co/50x50?text=Jeremías",
+    "description": "Profeta del exilio babilónico.",
+    "chapter": "Jeremías 1"
+  },
+  {
+    "name": "Ezequiel",
+    "image": "https://placehold.co/50x50?text=Ezequiel",
+    "description": "Profeta de visiones en el exilio.",
+    "chapter": "Ezequiel 1"
+  },
+  {
+    "name": "Daniel",
+    "image": "https://placehold.co/50x50?text=Daniel",
+    "description": "Profeta en Babilonia, interpretó sueños.",
+    "chapter": "Daniel 1"
+  },
+  {
+    "name": "Ester",
+    "image": "https://placehold.co/50x50?text=Ester",
+    "description": "Reina que salvó a su pueblo.",
+    "chapter": "Ester 2"
+  },
+  {
+    "name": "Nehemías",
+    "image": "https://placehold.co/50x50?text=Nehemías",
+    "description": "Reconstruyó los muros de Jerusalén.",
+    "chapter": "Nehemías 1"
+  },
+  {
+    "name": "Juan el Bautista",
+    "image": "https://placehold.co/50x50?text=Juan",
+    "description": "Precursor de Jesús, bautizó en el Jordán.",
+    "chapter": "Mateo 3"
+  },
+  {
+    "name": "Jesús",
+    "image": "https://placehold.co/50x50?text=Jesús",
+    "description": "Hijo de Dios, Salvador del mundo.",
+    "chapter": "Mateo 1"
+  },
+  {
+    "name": "Marta",
+    "image": "https://placehold.co/50x50?text=Marta",
+    "description": "Hermana de María y Lázaro, conocida por su hospitalidad.",
+    "chapter": "Juan 11"
+  }
 ]
 
 output = []
