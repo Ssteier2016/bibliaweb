@@ -35,6 +35,8 @@ function BibleReading({
   setVerseComments,
   loadingComment,
   setLoadingComment,
+  loadingConcordance,
+  setLoadingConcordance,
   contextMenuRef,
 }) {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -205,20 +207,25 @@ function BibleReading({
                 Concordancia
                 {concordanceSubmenu && (
                   <div className="submenu">
-                    {getConcordances(contextMenu.verse).then(related => (
-                      related.map((rel, index) => (
-                        <div
-                          key={index}
-                          className="submenu-item"
-                          onClick={() => handleConcordanceSelect(rel)}
-                        >
-                          {rel.book} {rel.chapter}:{rel.verse}
-                        </div>
-                      ))
-                    ))}
-                    {getConcordances(contextMenu.verse).then(related => (
-                      related.length === 0 && <div className="submenu-item">No hay concordancias</div>
-                    ))}
+                    {loadingConcordance ? (
+                      <div className="submenu-item">Cargando...</div>
+                    ) : (
+                      getConcordances(contextMenu.verse).then(related =>
+                        related.length === 0 ? (
+                          <div className="submenu-item">No hay concordancias</div>
+                        ) : (
+                          related.map((rel, index) => (
+                            <div
+                              key={index}
+                              className="submenu-item"
+                              onClick={() => handleConcordanceSelect(rel)}
+                            >
+                              {rel.book} {rel.chapter}:{rel.verse}
+                            </div>
+                          ))
+                        )
+                      )
+                    )}
                   </div>
                 )}
               </div>
