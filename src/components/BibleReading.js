@@ -44,10 +44,8 @@ function BibleReading({
   const [selectedChapter, setSelectedChapter] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
-  const [readVerses, setReadVerses] = useState(new Set()); // Versículos leídos
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false); // Si llegó al final
   const verseListRef = useRef(null); // Contenedor de versículos
-  const verseRefs = useRef([]); // Referencias a cada versículo
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
@@ -55,33 +53,6 @@ function BibleReading({
     setCompletedBooks(storedBooks);
     setCompletedChapters(storedChapters);
   }, []);
-
-  // Detectar versículos visibles con IntersectionObserver
-  useEffect(() => {
-    if (!selectedChapter) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const verseNumber = parseInt(entry.target.dataset.verse, 10);
-            setReadVerses((prev) => new Set(prev).add(verseNumber));
-          }
-        });
-      },
-      { root: verseListRef.current, threshold: 0.5 } // 50% del versículo visible
-    );
-
-    verseRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      verseRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, [selectedChapter]);
 
   // Detectar desplazamiento hasta el final
   useEffect(() => {
@@ -132,9 +103,9 @@ function BibleReading({
       ?.chapters.find((ch) => ch.chapter === chapterNumber);
     if (!chapter) return;
 
-    // Verificar si todos los versículos están leídos y se llegó al final
-    if (readVerses.size < chapter.verses.length || !hasScrolledToBottom) {
-      alert('Para tildar, se debe leer todo el capítulo.');
+    // Verificar solo si se llegó al final
+    if (!hasScrolledToBottom) {
+      alert('Debes deslizar hasta el final del capítulo.');
       return;
     }
 
@@ -160,32 +131,25 @@ function BibleReading({
         }
       }
     }
-    // Reiniciar condiciones
-    setReadVerses(new Set());
+    // Reiniciar condición
     setHasScrolledToBottom(false);
   };
 
   const handleBookClick = (book) => {
     setSelectedBook(book);
     setSelectedChapter(null);
-    setReadVerses(new Set());
     setHasScrolledToBottom(false);
-    verseRefs.current = [];
   };
 
   const handleChapterClick = (chapter) => {
     setSelectedChapter(chapter);
-    setReadVerses(new Set());
     setHasScrolledToBottom(false);
-    verseRefs.current = [];
   };
 
   const handleBack = () => {
     if (selectedChapter) {
       setSelectedChapter(null);
-      setReadVerses(new Set());
       setHasScrolledToBottom(false);
-      verseRefs.current = [];
     } else if (selectedBook) {
       setSelectedBook(null);
     }
@@ -226,10 +190,7 @@ function BibleReading({
                 type="checkbox"
                 checked={!!completedChapters[`${selectedBook.name}_${chapter.chapter}`]?.completed}
                 onChange={() => toggleChapterCompletion(selectedBook.name, chapter.chapter)}
-                disabled={
-                  selectedChapter?.chapter === chapter.chapter &&
-                  (readVerses.size < chapter.verses.length || !hasScrolledToBottom)
-                }
+                disabled={selectedChapter?.chapter === chapter.chapter && !hasScrolledToBottom}
               />
               <span onClick={() => handleChapterClick(chapter)}>
                 Capítulo {chapter.chapter}
@@ -248,7 +209,7 @@ function BibleReading({
           <h2>
             {selectedBook.name} {selectedChapter.chapter}
           </h2>
-          {selectedChapter.verses.map((verse, index) => {
+          {selectedChapter.verses.map((verse) => {
             const highlightKey = `highlight_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
             const noteKey = `note_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
             const commentKey = `comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_${verseComments[`comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
@@ -256,8 +217,6 @@ function BibleReading({
               <div
                 key={verse.verse}
                 className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
-                ref={(el) => (verseRefs.current[index] = el)}
-                data-verse={verse.verse}
                 onContextMenu={(e) => {
                   handleContextMenu(e, verse);
                   console.log('Reading verse context menu:', verse);
