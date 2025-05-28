@@ -50,6 +50,7 @@ function BibleReading({
     const storedChapters = JSON.parse(localStorage.getItem('completedChapters') || '{}');
     setCompletedBooks(storedBooks);
     setCompletedChapters(storedChapters);
+    console.log('Loaded from localStorage:', { storedBooks, storedChapters });
   }, []);
 
   const formatDate = () => {
@@ -70,6 +71,7 @@ function BibleReading({
     };
     setCompletedBooks(newCompletedBooks);
     localStorage.setItem('completedBooks', JSON.stringify(newCompletedBooks));
+    console.log(`Toggled book completion: ${bookName}`, newCompletedBooks[bookName]);
   };
 
   const toggleChapterCompletion = (bookName, chapterNumber) => {
@@ -77,9 +79,17 @@ function BibleReading({
     const chapter = bibleData.books
       .find((book) => book.name === bookName)
       ?.chapters.find((ch) => ch.chapter === chapterNumber);
-    if (!chapter) return;
+    if (!chapter) {
+      console.error(`Chapter not found: ${bookName} ${chapterNumber}`);
+      return;
+    }
 
-    // Sin restricciones: marcar directamente
+    console.log(`Toggling completion for ${key}`, {
+      currentState: completedChapters[key]?.completed,
+      chapter,
+      collection: JSON.parse(localStorage.getItem('collection') || '[]'),
+    });
+
     const newCompletedChapters = {
       ...completedChapters,
       [key]: {
@@ -90,7 +100,7 @@ function BibleReading({
     setCompletedChapters(newCompletedChapters);
     localStorage.setItem('completedChapters', JSON.stringify(newCompletedChapters));
 
-    // Desbloquear carta si el capítulo se marca como leído
+    // Desbloquear carta
     if (!completedChapters[key]?.completed) {
       const character = charactersData.find((c) => c.chapter === `${bookName} ${chapterNumber}`);
       if (character) {
@@ -99,7 +109,12 @@ function BibleReading({
           collection.push(character);
           localStorage.setItem('collection', JSON.stringify(collection));
           alert(`¡Has desbloqueado la carta de ${character.name}!`);
+          console.log(`Unlocked character: ${character.name}`, { collection });
+        } else {
+          console.log(`Character already in collection: ${character.name}`);
         }
+      } else {
+        console.log(`No character found for ${bookName} ${chapterNumber}`);
       }
     }
   };
