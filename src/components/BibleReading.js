@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import charactersData from '../data/characters.json'; // Nuevo archivo de datos
+import charactersData from '../data/characters.json';
 
 function BibleReading({
   bibleData,
@@ -44,7 +44,7 @@ function BibleReading({
   const [selectedChapter, setSelectedChapter] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
-  const [readVerses, setReadVerses] = useState(new Set()); // Estado para versículos leídos
+  const [readVerses, setReadVerses] = useState(new Set());
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
@@ -80,7 +80,6 @@ function BibleReading({
       ?.chapters.find(ch => ch.chapter === chapterNumber);
     if (!chapter) return;
 
-    // Verificar si todos los versículos han sido marcados como leídos
     if (!readVerses.size || readVerses.size < chapter.verses.length) {
       alert('Debes leer todos los versículos del capítulo antes de marcarlo como leído.');
       return;
@@ -93,10 +92,9 @@ function BibleReading({
         date: !completedChapters[key]?.completed ? formatDate() : completedChapters[key]?.date || null,
       },
     };
-    setCompletedChapters(newCompletedChapters);
+    setCompletedBooks(newCompletedBooks);
     localStorage.setItem('completedChapters', JSON.stringify(newCompletedChapters));
 
-    // Desbloquear carta si el capítulo se marca como leído
     if (!completedChapters[key]?.completed) {
       const character = charactersData.find(c => c.chapter === `${bookName} ${chapterNumber}`);
       if (character) {
@@ -108,7 +106,7 @@ function BibleReading({
         }
       }
     }
-    setReadVerses(new Set()); // Reiniciar versículos leídos
+    setReadVerses(new Set());
   };
 
   const markVerseRead = (verseNumber) => {
@@ -255,7 +253,7 @@ function BibleReading({
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>Cultural</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>Histórica</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>Teológica</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')>.Geográfica</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>Geográfica</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>Paleolítica</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>Arqueológica</div>
                   </div>
