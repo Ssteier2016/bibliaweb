@@ -4,7 +4,7 @@ import axios from 'axios';
 import bibleData from './data/reina_valera.json';
 import concordances from './data/concordances.json';
 import BibleReading from './components/BibleReading';
-import Collection from './components/Collection'; // Nuevo componente
+import Collection from './components/Collection';
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 
@@ -99,10 +99,11 @@ function App() {
         handleContextMenu(e, verse);
       }
     }, 500);
-    e.target.ontouchend = () => {
+    // Limpiar timeout al finalizar el toque
+    e.target.addEventListener('touchend', () => {
       clearTimeout(timeout);
       touchStartPos.current = null;
-    };
+    }, { once: true });
     console.log('Touch start:', { verse });
   };
 
