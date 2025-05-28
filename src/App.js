@@ -30,7 +30,6 @@ function App() {
   const verses = chapter?.verses.filter(v => v.text.toLowerCase().includes(searchQuery.toLowerCase())) || [];
 
   useEffect(() => {
-    // Optimizar carga de localStorage: solo para el libro y capítulo actual
     const storedNotes = {};
     const storedHighlights = {};
     const storedComments = {};
@@ -66,7 +65,7 @@ function App() {
     setHighlightSubmenu(false);
     setCommentSubmenu(false);
     setConcordanceSubmenu(false);
-    console.log('Context menu opened:', { x, y, verse }); // Depuración
+    console.log('Context menu opened:', { x, y, verse });
   };
 
   useEffect(() => {
@@ -102,7 +101,7 @@ function App() {
       clearTimeout(timeout);
       touchStartPos.current = null;
     };
-    console.log('Touch start:', { verse }); // Depuración
+    console.log('Touch start:', { verse });
   };
 
   const handleHighlight = (verse, color) => {
@@ -164,13 +163,13 @@ function App() {
     setLoadingComment(key);
     try {
       const prompt = `
-        Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro y con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
+        Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro, con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
         - Teológico: "Juan 1:1 establece la divinidad de Cristo como el Verbo eterno."
         - Geográfico: "El prólogo de Juan es universal, sin un lugar específico."
       `;
-      console.log('Sending request to Hugging Face:', { prompt, key }); // Depuración
+      console.log('Sending comment request:', { prompt, key, apiKey: process.env.REACT_APP_HF_API_KEY ? 'Set' : 'Missing' });
       const response = await axios.post(
-        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
+        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.3',
         {
           inputs: prompt,
           max_tokens: 200,
@@ -182,18 +181,13 @@ function App() {
             'Content-Type': 'application/json',
             'x-wait-for-model': 'true',
           },
-          timeout: 30000, // Aumentado a 30s
+          timeout: 30000,
         }
       );
-      console.log('Hugging Face response:', response.data); // Depuración
+      console.log('Comment response:', response.data);
       let commentText = response.data?.[0]?.generated_text?.trim() || 'No se recibió comentario.';
       if (commentText.startsWith(prompt)) {
         commentText = commentText.substring(prompt.length).trim();
-      } else {
-        const exampleIndex = commentText.lastIndexOf('- Geográfico:');
-        if (exampleIndex !== -1) {
-          commentText = commentText.substring(exampleIndex + commentText.substring(exampleIndex).indexOf('\n') + 1).trim();
-        }
       }
       commentText = commentText.split(' ').slice(0, 100).join(' ');
       const comment = { type, text: commentText };
@@ -215,6 +209,61 @@ function App() {
     setLoadingComment(null);
     setContextMenu({ visible: false, verse: null });
     setCommentSubmenu(false);
+  };
+
+  const generateConcordance = async (verse) => {
+    const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
+    const existing = concordances.concordances.find(c => c.reference === reference);
+    if (existing && existing.related.length > 0) {
+      return existing.related;
+    }
+    try {
+      const prompt = `
+        Eres un experto en estudios bíblicos. Proporciona hasta 3 referencias cruzadas (concordancias) para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en la Biblia. Cada referencia debe incluir libro, capítulo, versículo y un fragmento breve del texto (máximo 20 palabras). Responde solo con un array JSON de objetos, por ejemplo:
+        [
+          {"book": "Génesis", "chapter": 1, "verse": 1, "text": "En el principio creó Dios..."},
+          {"book": "Colosenses", "chapter": 1, "verse": 16, "text": "Porque en él fueron creadas..."}
+        ]
+      `;
+      console.log('Sending concordance request:', { prompt, reference });
+      const response = await axios.post(
+        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.3',
+        {
+          inputs: prompt,
+          max_tokens: 300,
+          temperature: 0.7,
+        },
+        {
+          headers: {
+            'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY}`,
+            'Content-Type': 'application/json',
+            'x-wait-for-model': 'true',
+          },
+          timeout: 30000,
+        }
+      );
+      console.log('Concordance response:', response.data);
+      let concordanceText = response.data?.[0]?.generated_text?.trim() || '[]';
+      let related = [];
+      try {
+        related = JSON.parse(concordanceText);
+        if (!Array.isArray(related)) throw new Error('Invalid format');
+      } catch (e) {
+        console.error('Invalid concordance response:', concordanceText);
+        related = [];
+      }
+      // Actualizar concordances.json (simulado, requiere backend o script)
+      if (related.length > 0) {
+        const newEntry = { reference, related };
+        concordances.concordances.push(newEntry);
+        console.log('New concordance added:', newEntry);
+        // Nota: Para persistir, necesitas un backend o script en Termux
+      }
+      return related;
+    } catch (error) {
+      console.error('Error generating concordance:', error);
+      return [];
+    }
   };
 
   const toggleCommentSubmenu = () => {
@@ -245,10 +294,12 @@ function App() {
     setConcordanceSubmenu(false);
   };
 
-  const getConcordances = (verse) => {
+  const getConcordances = async (verse) => {
     const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
     const entry = concordances.concordances.find(c => c.reference === reference);
-    return entry ? entry.related : [];
+    if (entry) return entry.related;
+    const generated = await generateConcordance(verse);
+    return generated;
   };
 
   const toggleMenu = () => {
@@ -374,18 +425,20 @@ function App() {
                       Concordancia
                       {concordanceSubmenu && (
                         <div className="submenu">
-                          {getConcordances(contextMenu.verse).map((related, index) => (
-                            <div
-                              key={index}
-                              className="submenu-item"
-                              onClick={() => handleConcordanceSelect(related)}
-                            >
-                              {related.book} {related.chapter}:{related.verse}
-                            </div>
+                          {getConcordances(contextMenu.verse).then(related => (
+                            related.map((rel, index) => (
+                              <div
+                                key={index}
+                                className="submenu-item"
+                                onClick={() => handleConcordanceSelect(rel)}
+                              >
+                                {rel.book} {rel.chapter}:{rel.verse}
+                              </div>
+                            ))
                           ))}
-                          {getConcordances(contextMenu.verse).length === 0 && (
-                            <div className="submenu-item">No hay concordancias</div>
-                          )}
+                          {getConcordances(contextMenu.verse).then(related => (
+                            related.length === 0 && <div className="submenu-item">No hay concordancias</div>
+                          ))}
                         </div>
                       )}
                     </div>
@@ -399,7 +452,7 @@ function App() {
             element={
               <BibleReading
                 bibleData={bibleData}
-                concordances={concordances}
+                concordances={concances}
                 handleContextMenu={handleContextMenu}
                 handleTouchStart={handleTouchStart}
                 handleHighlight={handleHighlight}
@@ -415,23 +468,23 @@ function App() {
                 handleConcordanceSelect={handleConcordanceSelect}
                 getConcordances={getConcordances}
                 contextMenu={contextMenu}
-                setContextMenu={setContextMenu} // Añadido
+                setContextMenu={setContextMenu}
                 noteInput={noteInput}
-                setNoteInput={setNoteInput} // Añadido
+                setNoteInput={setNoteInput}
                 notes={notes}
-                setNotes={setNotes} // Añadido
+                setNotes={setNotes}
                 highlightedVerses={highlightedVerses}
-                setHighlightedVerses={setHighlightedVerses} // Añadido
+                setHighlightedVerses={setHighlightedVerses}
                 highlightSubmenu={highlightSubmenu}
-                setHighlightSubmenu={setHighlightSubmenu} // Añadido
+                setHighlightSubmenu={setHighlightSubmenu}
                 commentSubmenu={commentSubmenu}
-                setCommentSubmenu={setCommentSubmenu} // Añadido
+                setCommentSubmenu={setCommentSubmenu}
                 concordanceSubmenu={concordanceSubmenu}
-                setConcordanceSubmenu={setConcordanceSubmenu} // Añadido
+                setConcordanceSubmenu={setConcordanceSubmenu}
                 verseComments={verseComments}
-                setVerseComments={setVerseComments} // Añadido
+                setVerseComments={setVerseComments}
                 loadingComment={loadingComment}
-                setLoadingComment={setLoadingComment} // Añadido
+                setLoadingComment={setLoadingComment}
                 contextMenuRef={contextMenuRef}
               />
             }
