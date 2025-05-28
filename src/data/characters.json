@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Marta",
+    "image": "https://via.placeholder.com/50?text=Marta",
+    "description": "Hermana de María y Lázaro, conocida por su hospitalidad.",
+    "chapter": "Juan 11"
+  },
+  {
+    "name": "Dios Creador",
+    "image": "https://via.placeholder.com/50?text=Dios",
+    "description": "Creador del universo, descrito en el relato de la creación.",
+    "chapter": "Génesis 1"
+  }
+]
