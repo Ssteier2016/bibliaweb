@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import bibleData from './data/reina_json.json';
+import bibleData from './data/reina_valera.json';
 import BibleReading from './components/BibleReading';
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
