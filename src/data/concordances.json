@@ -1,0 +1,18 @@
+{
+  "concordances": [
+    {
+      "reference": "Juan 1:1",
+      "related": [
+        {"book": "Génesis", "chapter": 1, "verse": 1, "text": "En el principio creó Dios los cielos y la tierra."},
+        {"book": "Colosenses", "chapter": 1, "verse": 16, "text": "Porque en él fueron creadas todas las cosas..."}
+      ]
+    },
+    {
+      "reference": "Apocalipsis 22:19",
+      "related": [
+        {"book": "Deuteronomio", "chapter": 4, "verse": 2, "text": "No añadiréis a la palabra que yo os mando..."},
+        {"book": "Proverbios", "chapter": 30, "verse": 6, "text": "No añadas a sus palabras, no sea que te reprenda..."}
+      ]
+    }
+  ]
+}
