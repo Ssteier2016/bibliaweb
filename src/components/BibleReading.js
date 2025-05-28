@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import charactersData from '../data/characters.json'; // Nuevo archivo de datos
 
 function BibleReading({
   bibleData,
@@ -43,6 +44,7 @@ function BibleReading({
   const [selectedChapter, setSelectedChapter] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
+  const [readVerses, setReadVerses] = useState(new Set()); // Estado para versículos leídos
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
@@ -73,6 +75,17 @@ function BibleReading({
 
   const toggleChapterCompletion = (bookName, chapterNumber) => {
     const key = `${bookName}_${chapterNumber}`;
+    const chapter = bibleData.books
+      .find(book => book.name === bookName)
+      ?.chapters.find(ch => ch.chapter === chapterNumber);
+    if (!chapter) return;
+
+    // Verificar si todos los versículos han sido marcados como leídos
+    if (!readVerses.size || readVerses.size < chapter.verses.length) {
+      alert('Debes leer todos los versículos del capítulo antes de marcarlo como leído.');
+      return;
+    }
+
     const newCompletedChapters = {
       ...completedChapters,
       [key]: {
@@ -82,20 +95,41 @@ function BibleReading({
     };
     setCompletedChapters(newCompletedChapters);
     localStorage.setItem('completedChapters', JSON.stringify(newCompletedChapters));
+
+    // Desbloquear carta si el capítulo se marca como leído
+    if (!completedChapters[key]?.completed) {
+      const character = charactersData.find(c => c.chapter === `${bookName} ${chapterNumber}`);
+      if (character) {
+        const collection = JSON.parse(localStorage.getItem('collection') || '[]');
+        if (!collection.some(c => c.name === character.name)) {
+          collection.push(character);
+          localStorage.setItem('collection', JSON.stringify(collection));
+          alert(`¡Has desbloqueado la carta de ${character.name}!`);
+        }
+      }
+    }
+    setReadVerses(new Set()); // Reiniciar versículos leídos
+  };
+
+  const markVerseRead = (verseNumber) => {
+    setReadVerses(prev => new Set(prev).add(verseNumber));
   };
 
   const handleBookClick = (book) => {
     setSelectedBook(book);
     setSelectedChapter(null);
+    setReadVerses(new Set());
   };
 
   const handleChapterClick = (chapter) => {
     setSelectedChapter(chapter);
+    setReadVerses(new Set());
   };
 
   const handleBack = () => {
     if (selectedChapter) {
       setSelectedChapter(null);
+      setReadVerses(new Set());
     } else if (selectedBook) {
       setSelectedBook(null);
     }
@@ -151,7 +185,7 @@ function BibleReading({
             return (
               <div
                 key={verse.verse}
-                className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
+                className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''} ${readVerses.has(verse.verse) ? 'read' : ''}`}
                 onContextMenu={(e) => {
                   handleContextMenu(e, verse);
                   console.log('Reading verse context menu:', verse);
@@ -161,6 +195,7 @@ function BibleReading({
                   console.log('Reading verse touch start:', verse);
                 }}
                 onTouchEnd={(e) => e.preventDefault()}
+                onClick={() => markVerseRead(verse.verse)}
               >
                 <p><strong>{verse.verse}</strong>: {verse.text}</p>
                 {verseComments[commentKey] && (
@@ -220,7 +255,7 @@ function BibleReading({
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>Cultural</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>Histórica</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>Teológica</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>Geográfica</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')>.Geográfica</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>Paleolítica</div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>Arqueológica</div>
                   </div>
