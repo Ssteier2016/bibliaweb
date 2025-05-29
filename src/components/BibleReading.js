@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import charactersData from '../data/characters.json';
 
 function BibleReading({
@@ -56,6 +57,7 @@ function BibleReading({
   const [recording, setRecording] = useState(false);
   const [unlockDate, setUnlockDate] = useState('');
   const [selectedVerse, setSelectedVerse] = useState(null);
+  const navigate = useNavigate();
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -119,29 +121,37 @@ function BibleReading({
   };
 
   const handleBookClick = (book) => {
+    if (!book?.name) return;
     setSelectedBookObj(book);
     setSelectedChapterObj(null);
+    navigate(`/reading?book=${encodeURIComponent(book.name)}`);
   };
 
   const handleChapterClick = (chapter) => {
+    if (!chapter?.chapter || !selectedBookObj?.name) return;
     setSelectedChapterObj(chapter);
+    navigate(`/reading?book=${encodeURIComponent(selectedBookObj.name)}&chapter=${chapter.chapter}`);
   };
 
   const handleBack = () => {
     if (selectedChapterObj) {
       setSelectedChapterObj(null);
+      navigate(`/reading?book=${encodeURIComponent(selectedBookObj?.name)}`);
     } else if (selectedBookObj) {
       setSelectedBookObj(null);
+      navigate('/reading');
     }
   };
 
   const handleVerseClick = (verse) => {
+    if (!verse) return;
     setSelectedVerse(verse);
     handleContextMenu(null, verse);
     setPrayerMenu({ visible: false, verse: null });
   };
 
   const togglePrayerMenu = (verse) => {
+    if (!verse) return;
     setPrayerMenu({
       visible: !prayerMenu.visible || prayerMenu.verse !== verse,
       verse,
@@ -199,6 +209,7 @@ function BibleReading({
   };
 
   const handlePrayerClick = (verse) => {
+    if (!verse) return;
     const prayerKey = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
     const prayer = prayers[prayerKey];
     if (prayer) {
@@ -215,14 +226,16 @@ function BibleReading({
   };
 
   const searchVerses = () => {
-    if (!searchQuery.trim()) {
+    if (!searchQuery?.trim()) {
       const book = bibleData.books.find((b) => b.name === selectedBook);
       const chapter = book?.chapters?.find((c) => c.chapter === selectedChapter);
-      return chapter?.verses?.map((verse) => ({
-        ...verse,
-        book: book.name,
-        chapter: chapter.chapter,
-      })) || [];
+      return (
+        chapter?.verses?.map((verse) => ({
+          ...verse,
+          book: book.name,
+          chapter: chapter.chapter,
+        })) || []
+      );
     }
 
     const results = [];
@@ -242,14 +255,17 @@ function BibleReading({
     return results;
   };
 
-  // Corrección del error en la línea ~270
   const verses = isHome
     ? searchVerses()
     : (selectedChapterObj?.verses?.map((verse) => ({
         ...verse,
-        book: selectedBookObj?.name, // Coma añadida
-        chapter: selectedChapterObj?.chapter, // Coma añadida
+        book: selectedBookObj?.name,
+        chapter: selectedChapterObj?.chapter,
       })) || []);
+
+  if (!bibleData?.books) {
+    return <div>Cargando datos de la Biblia...</div>;
+  }
 
   return (
     <div className="bible-reading">
@@ -278,7 +294,7 @@ function BibleReading({
           <input
             type="text"
             placeholder="Buscar en toda la Biblia..."
-            value={searchQuery}
+            value={searchQuery || ''}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
           />
@@ -289,7 +305,11 @@ function BibleReading({
               const noteKey = `note_${verse.book}_${verse.chapter}_${verse.verse}`;
               const commentKey = `comment_${verse.book}_${verse.chapter}_${verse.verse}_${verseComments[`comment_${verse.book}_${verse.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
               const prayerKey = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
-              const isSelected = selectedVerse && verse.verse === selectedVerse.verse && verse.book === selectedVerse.book && verse.chapter === selectedVerse.chapter;
+              const isSelected =
+                selectedVerse &&
+                verse.verse === selectedVerse.verse &&
+                verse.book === selectedVerse.book &&
+                verse.chapter === selectedVerse.chapter;
               return (
                 <div
                   key={`${verse.book}_${verse.chapter}_${verse.verse}_${index}`}
@@ -317,7 +337,10 @@ function BibleReading({
                     </span>
                   )}
                   <p style={{ margin: '0', padding: '0 20px' }}>
-                    <strong>{verse.book} {verse.chapter}:{verse.verse}</strong>: {verse.text}
+                    <strong>
+                      {verse.book} {verse.chapter}:{verse.verse}
+                    </strong>
+                    : {verse.text}
                   </p>
                   {verseComments[commentKey] && (
                     <p className="comment-wrapper">
@@ -334,19 +357,23 @@ function BibleReading({
                     </p>
                   )}
                   {notes[noteKey] && <p className="note">Nota: {notes[noteKey]}</p>}
-                  {noteInput.visible && noteInput.verse && verse.verse === noteInput.verse?.verse && noteInput.verse?.book === verse.book && verse.chapter === noteInput.verse?.chapter && (
-                    <div className="note-input">
-                      <textarea
-                        placeholder="Escribe tu nota..."
-                        defaultValue={notes[noteKey] || ''}
-                        onChange={(e) => handleNoteChange(verse, e.target.value)}
-                        autoFocus
-                      />
-                      <button className="close-note" onClick={closeNoteInput}>
-                        X
-                      </button>
-                    </div>
-                  )}
+                  {noteInput.visible &&
+                    noteInput.verse &&
+                    verse.verse === noteInput.verse?.verse &&
+                    verse.book === noteInput.verse?.book &&
+                    verse.chapter === noteInput.verse?.chapter && (
+                      <div className="note-input">
+                        <textarea
+                          placeholder="Escribe tu nota..."
+                          defaultValue={notes[noteKey] || ''}
+                          onChange={(e) => handleNoteChange(verse, e.target.value)}
+                          autoFocus
+                        />
+                        <button className="close-note" onClick={closeNoteInput}>
+                          X
+                        </button>
+                      </div>
+                    )}
                 </div>
               );
             })}
@@ -413,25 +440,46 @@ function BibleReading({
                 )}
                 {commentSubmenu && (
                   <div className="comment-submenu">
-                    <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>
+                    <button
+                      className="submenu-item"
+                      onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}
+                    >
                       Lingüística
                     </button>
-                    <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>
+                    <button
+                      className="submenu-item"
+                      onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}
+                    >
                       Cultural
                     </button>
-                    <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>
+                    <button
+                      className="submenu-item"
+                      onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}
+                    >
                       Histórica
                     </button>
-                    <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>
+                    <button
+                      className="submenu-item"
+                      onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}
+                    >
                       Teológica
                     </button>
-                    <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>
+                    <button
+                      className="submenu-item"
+                      onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}
+                    >
                       Geográfica
                     </button>
-                    <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>
+                    <button
+                      className="submenu-item"
+                      onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}
+                    >
                       Paleolítica
                     </button>
-                    <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>
+                    <button
+                      className="submenu-item"
+                      onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}
+                    >
                       Arqueológica
                     </button>
                   </div>
@@ -568,7 +616,11 @@ function BibleReading({
                 const noteKey = `note_${verse.book}_${verse.chapter}_${verse.verse}`;
                 const commentKey = `comment_${verse.book}_${verse.chapter}_${verse.verse}_${verseComments[`comment_${verse.book}_${verse.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
                 const prayerKey = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
-                const isSelected = selectedVerse && verse.verse === selectedVerse.verse && verse.book === selectedVerse.book && verse.chapter === selectedVerse.chapter;
+                const isSelected =
+                  selectedVerse &&
+                  verse.verse === selectedVerse.verse &&
+                  verse.book === selectedVerse.book &&
+                  verse.chapter === selectedVerse.chapter;
                 return (
                   <div
                     key={`${verse.book}_${verse.chapter}_${verse.verse}_${index}`}
@@ -592,7 +644,7 @@ function BibleReading({
                           fontSize: '20px',
                         }}
                       >
-                        ▶️🔒
+                        ▶️
                       </span>
                     )}
                     <p style={{ margin: '0', padding: '0 20px' }}>
@@ -613,19 +665,23 @@ function BibleReading({
                       </p>
                     )}
                     {notes[noteKey] && <p className="note">Nota: {notes[noteKey]}</p>}
-                    {noteInput.visible && noteInput.verse && verse.verse === noteInput.verse?.verse && noteInput.verse?.book === verse.book && verse.chapter === noteInput.verse?.chapter && (
-                      <div className="note-input">
-                        <textarea
-                          placeholder="Escribe tu nota..."
-                          defaultValue={notes[noteKey] || ''}
-                          onChange={(e) => handleNoteChange(verse, e.target.value)}
-                          autoFocus
-                        />
-                        <button className="close-note" onClick={closeNoteInput}>
-                          X
-                        </button>
-                      </div>
-                    )}
+                    {noteInput.visible &&
+                      noteInput.verse &&
+                      verse.verse === noteInput.verse?.verse &&
+                      verse.book === noteInput.verse?.book &&
+                      verse.chapter === noteInput.verse?.chapter && (
+                        <div className="note-input">
+                          <textarea
+                            placeholder="Escribe tu nota..."
+                            defaultValue={notes[noteKey] || ''}
+                            onChange={(e) => handleNoteChange(verse, e.target.value)}
+                            autoFocus
+                          />
+                          <button className="close-note" onClick={closeNoteInput}>
+                            X
+                          </button>
+                        </div>
+                      )}
                   </div>
                 );
               })}
@@ -692,25 +748,46 @@ function BibleReading({
                   )}
                   {commentSubmenu && (
                     <div className="comment-submenu">
-                      <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>
+                      <button
+                        className="submenu-item"
+                        onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}
+                      >
                         Lingüística
                       </button>
-                      <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>
+                      <button
+                        className="submenu-item"
+                        onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}
+                      >
                         Cultural
                       </button>
-                      <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>
+                      <button
+                        className="submenu-item"
+                        onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}
+                      >
                         Histórica
                       </button>
-                      <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>
+                      <button
+                        className="submenu-item"
+                        onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}
+                      >
                         Teológica
                       </button>
-                      <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>
+                      <button
+                        className="submenu-item"
+                        onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}
+                      >
                         Geográfica
                       </button>
-                      <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>
+                      <button
+                        className="submenu-item"
+                        onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}
+                      >
                         Paleolítica
                       </button>
-                      <button className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>
+                      <button
+                        className="submenu-item"
+                        onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}
+                      >
                         Arqueológica
                       </button>
                     </div>
@@ -758,7 +835,7 @@ function BibleReading({
                 </div>
               )}
               {prayerMenu.visible && prayerMenu.verse && (
-                <div
+                Krause(
                   className="prayer-menu"
                   style={{
                     position: 'fixed',
@@ -778,23 +855,23 @@ function BibleReading({
                     </button>
                     <input
                       type="date"
-                      value={unlockDate}
+                      value={prayerMenu.unlockDate}
                       onChange={(e) => setUnlockDate(e.target.value)}
                       min={new Date().toISOString().split('T')[0]}
                     />
                     <button
-                      className="close-prayer"
+                      className="close-prayer-btn"
                       onClick={() => setPrayerMenu({ visible: false, verse: null })}
                     >
                       X
                     </button>
                   </div>
                 </div>
-              )}
+              ))}
             </div>
-          )}
-        </>
-      )}
+          </div>
+        )}
+      </>
     </div>
   );
 }
