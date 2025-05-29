@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import charactersData from '../data/characters.json';
 
 function BibleReading({
@@ -44,13 +44,20 @@ function BibleReading({
   const [selectedChapter, setSelectedChapter] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
+  const [prayerMenu, setPrayerMenu] = useState({ visible: false, verse: null, x: 0, y: 0 });
+  const [prayers, setPrayers] = useState({});
+  const [recording, setRecording] = useState(false);
+  const [unlockDate, setUnlockDate] = useState('');
+  const mediaRecorderRef = useRef(null);
+  const audioChunksRef = useRef([]);
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
     const storedChapters = JSON.parse(localStorage.getItem('completedChapters') || '{}');
+    const storedPrayers = JSON.parse(localStorage.getItem('prayers') || '{}');
     setCompletedBooks(storedBooks);
     setCompletedChapters(storedChapters);
-    console.log('Loaded from localStorage:', { storedBooks, storedChapters });
+    setPrayers(storedPrayers);
   }, []);
 
   const formatDate = () => {
@@ -71,7 +78,6 @@ function BibleReading({
     };
     setCompletedBooks(newCompletedBooks);
     localStorage.setItem('completedBooks', JSON.stringify(newCompletedBooks));
-    console.log(`Toggled book completion: ${bookName}`, newCompletedBooks[bookName]);
   };
 
   const toggleChapterCompletion = (bookName, chapterNumber) => {
@@ -79,16 +85,7 @@ function BibleReading({
     const chapter = bibleData.books
       .find((book) => book.name === bookName)
       ?.chapters.find((ch) => ch.chapter === chapterNumber);
-    if (!chapter) {
-      console.error(`Chapter not found: ${bookName} ${chapterNumber}`);
-      return;
-    }
-
-    console.log(`Toggling completion for ${key}`, {
-      currentState: completedChapters[key]?.completed,
-      chapter,
-      collection: JSON.parse(localStorage.getItem('collection') || '[]'),
-    });
+    if (!chapter) return;
 
     const newCompletedChapters = {
       ...completedChapters,
@@ -100,7 +97,6 @@ function BibleReading({
     setCompletedChapters(newCompletedChapters);
     localStorage.setItem('completedChapters', JSON.stringify(newCompletedChapters));
 
-    // Desbloquear carta
     if (!completedChapters[key]?.completed) {
       const character = charactersData.find((c) => c.chapter === `${bookName} ${chapterNumber}`);
       if (character) {
@@ -109,12 +105,7 @@ function BibleReading({
           collection.push(character);
           localStorage.setItem('collection', JSON.stringify(collection));
           alert(`¡Has desbloqueado la carta de ${character.name}!`);
-          console.log(`Unlocked character: ${character.name}`, { collection });
-        } else {
-          console.log(`Character already in collection: ${character.name}`);
         }
-      } else {
-        console.log(`No character found for ${bookName} ${chapterNumber}`);
       }
     }
   };
@@ -133,6 +124,81 @@ function BibleReading({
       setSelectedChapter(null);
     } else if (selectedBook) {
       setSelectedBook(null);
+    }
+  };
+
+  const togglePrayerMenu = (verse, x, y) => {
+    setPrayerMenu({
+      visible: !prayerMenu.visible || prayerMenu.verse !== verse,
+      verse,
+      x,
+      y,
+    });
+    setContextMenu({ visible: false });
+  };
+
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorderRef.current = new MediaRecorder(stream);
+      audioChunksRef.current = [];
+
+      mediaRecorderRef.current.ondataavailable = (event) => {
+        audioChunksRef.current.push(event.data);
+      };
+
+      mediaRecorderRef.current.onstop = () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        const reader = new FileReader();
+        reader.readAsDataURL(audioBlob);
+        reader.onloadend = () => {
+          const audioData = reader.result;
+          const prayerKey = `prayer_${selectedBook.name}_${selectedChapter.chapter}_${prayerMenu.verse.verse}`;
+          const duration = audioChunksRef.current.reduce((acc, chunk) => acc + chunk.size, 0) / (128 * 1024 / 8); // Aproximación en segundos
+          const newPrayers = {
+            ...prayers,
+            [prayerKey]: {
+              audio: audioData,
+              unlockDate,
+              recordDate: formatDate(),
+              duration: Math.round(duration),
+            },
+          };
+          setPrayers(newPrayers);
+          localStorage.setItem('prayers', JSON.stringify(newPrayers));
+          setRecording(false);
+          setPrayerMenu({ visible: false });
+          stream.getTracks().forEach((track) => track.stop());
+        };
+      };
+
+      mediaRecorderRef.current.start();
+      setRecording(true);
+    } catch (error) {
+      console.error('Error starting recording:', error);
+      alert('No se pudo iniciar la grabación. Verifica los permisos de micrófono.');
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && recording) {
+      mediaRecorderRef.current.stop();
+    }
+  };
+
+  const handlePrayerClick = (verse) => {
+    const prayerKey = `prayer_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
+    const prayer = prayers[prayerKey];
+    if (prayer) {
+      const unlockDate = new Date(prayer.unlockDate);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (unlockDate <= today) {
+        const audio = new Audio(prayer.audio);
+        audio.play().catch((error) => console.error('Error playing audio:', error));
+      } else {
+        alert(`Oración bloqueada hasta ${prayer.unlockDate}\nGrabada el: ${prayer.recordDate}\nDuración: ${prayer.duration}s`);
+      }
     }
   };
 
@@ -189,22 +255,39 @@ function BibleReading({
             const highlightKey = `highlight_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
             const noteKey = `note_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
             const commentKey = `comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_${verseComments[`comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
+            const prayerKey = `prayer_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
             return (
               <div
                 key={verse.verse}
                 className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
                 onContextMenu={(e) => {
                   handleContextMenu(e, verse);
-                  console.log('Reading verse context menu:', verse);
+                  togglePrayerMenu(verse, e.clientX, e.clientY);
                 }}
                 onTouchStart={(e) => {
                   handleTouchStart(e, verse);
-                  console.log('Reading verse touch start:', verse);
+                  togglePrayerMenu(verse, e.touches[0].clientX, e.touches[0].clientY);
                 }}
+                style={{ position: 'relative' }}
               >
                 <p>
                   <strong>{verse.verse}</strong>: {verse.text}
                 </p>
+                {prayers[prayerKey] && (
+                  <span
+                    className="prayer-icon"
+                    onClick={() => handlePrayerClick(verse)}
+                    style={{
+                      position: 'absolute',
+                      top: '5px',
+                      right: '5px',
+                      cursor: 'pointer',
+                      fontSize: '16px',
+                    }}
+                  >
+                    ▶️🔒
+                  </span>
+                )}
                 {verseComments[commentKey] && (
                   <p className="comment-wrapper">
                     <span className="comment">
@@ -353,6 +436,40 @@ function BibleReading({
                     )}
                   </div>
                 )}
+              </div>
+              <div
+                className="menu-item"
+                onClick={() => togglePrayerMenu(contextMenu.verse, contextMenu.x, contextMenu.y)}
+              >
+                Oración
+              </div>
+            </div>
+          )}
+          {prayerMenu.visible && prayerMenu.verse && (
+            <div
+              className="prayer-menu"
+              style={{ top: prayerMenu.y, left: prayerMenu.x, position: 'fixed', zIndex: 1000 }}
+            >
+              <div className="prayer-menu-content">
+                <button
+                  className="record-button"
+                  onClick={recording ? stopRecording : startRecording}
+                  disabled={!unlockDate}
+                >
+                  {recording ? 'Detener Grabación' : 'Grabar Oración'}
+                </button>
+                <input
+                  type="date"
+                  value={unlockDate}
+                  onChange={(e) => setUnlockDate(e.target.value)}
+                  min={new Date().toISOString().split('T')[0]}
+                />
+                <button
+                  className="close-prayer"
+                  onClick={() => setPrayerMenu({ visible: false })}
+                >
+                  X
+                </button>
               </div>
             </div>
           )}
