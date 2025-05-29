@@ -29,6 +29,7 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .dropdown-menu {
@@ -37,187 +38,111 @@ h1 {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  z-index: 1000;
 }
 
 .dropdown-menu a {
   padding: 10px;
   text-decoration: none;
   color: black;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #ccc;
 }
 
-.dropdown-menu a:hover,
-.dropdown-menu a {
-  background-color: #f0f9f9;
-}
-
-.dropdown-menu li {
-  list-style: none;
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
 }
 
 .bible-reading {
-  margin-bottom: 20px;
   text-align: left;
 }
 
 .back-button {
-.button {
   background-color: #ccc;
   border: none;
   padding: 8px;
-  margin-bottom: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
- cursor: pointer;
-
-.book-list {
-  display: list;
-  list-style: none;
-  margin: 0;
-  margin-bottom: 10px;
+.book-list, .chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .book-item, .chapter-item {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
 .verse-list {
-  display: none;
-  list-style: none;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
 .verse {
-  background-color: #f0f9f9;
+  background-color: #f9f9f9;
   padding: 10px;
-  margin-bottom: 2px;
-  border-radius: 2px;
+  border-radius: 4px;
+  position: relative;
 }
 
 .selected-verse {
-  border-bottom: none 2px solid;
+  border: 2px dashed #333;
 }
 
-.highlighted-red { background-color: rgba(255,0,0,0.2); }
-.highlighted-green { background-color: rgba(0,255,0,0.2); }
-.highlighted-pink { background-color: rgba(255,192,192,255,0.5); }
-.highlighted-blue { background-color: rgba(0,0,255,0.2); }
-.highlighted-cyan { background-color: rgba(0,255,255,0.5); }
-.highlighted-purple { background-color: rgba(128,0,128,0.2); }
-.highlighted-yellow { background-color: rgba(255,255,0,0.2); }
+.highlighted-red { background-color: rgba(255, 0, 0, 0.2); }
+.highlighted-green { background-color: rgba(0, 255, 0, 0.2); }
+.highlighted-pink { background-color: rgba(255, 192, 203, 0.5); }
+.highlighted-blue { background-color: rgba(0, 0, 255, 0.2); }
+.highlighted-cyan { background-color: rgba(0, 255, 255, 0.5); }
+.highlighted-purple { background-color: rgba(128, 0, 128, 0.2); }
+.highlighted-yellow { background-color: rgba(255, 255, 0, 0.2); }
 
 .note, .comment-wrapper {
-  margin-top: 4px;
-  font-size: 14px;
   margin-top: 10px;
+  font-size: 14px;
+  color: #555;
 }
 
-.note-input-wrapper {
-  margin-top: 2px;
+.note-input {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 10px;
 }
 
-.note-input-wrapper input {
-  width: auto;
+.note-input textarea {
+  width: 100%;
   height: 100px;
-  padding: 2px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.close-note, .close-comment .close-btn {
-  button {
-    background-color: #333333;
-    color: 4px;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 3px;
+.close-note, .close-comment, .close-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .close-menu-button {
-  background-color: #333;
+  background-color: #ff4444;
   color: white;
   border: none;
-  padding: 10px 10px;
+  padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.context-menu-container {
-  display: none;
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  top: 0;
-  margin-bottom: 2rem;
-  background-color: #fff;
-  padding-bottom: 10px;
-}
-
-.menu-buttons a.menu-button {
- display: flex;
-  gap: 1;
-  display: flex;
-  margin-bottom: center;
- justify-content: justify;
-}
-
-.menu-button {
-  background-color: none;
-  color: none;
- cursor: pointer;
-
-}
-
-.submenu {
-  display: flex;
-  list-style: none;
-  margin-bottom: center;
-  wrap;
-  margin-top;
- none;
-
-}
-
-.pmenu-item {
-  color: none;
-  text-decoration: none;
-}
-
-.submenu-item {
-  background-color: #333;
-  color: white;
-  padding-bottom: 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size:  14px;
-}
-
- font-size: .14em;
-
- button {
-  margin-top: 14px;
- }
-
- color: black;
-}
-
-@keyframes-submenu-button {
-  display: none;
-}
-
-.submenu-item ul {
- color: white333;
- background-color: none;
-}
-
 }
 
 .context-menu {
@@ -226,74 +151,69 @@ h1 {
   left: 0;
   right: 0;
   background-color: white;
-  margin-bottom: 10px;
-  padding: 0px;
-  background-color: -webkit-box-shadow;
-0 -2px 2px rgba(0,0,0,0.2);
-  z-index: 2;
-  -webkit-animation-name: slide-up;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slide-up 0.3s ease-out forwards;
 }
 
 @keyframes slide-up {
-  from { margin-bottom: -100%; }
-  to { transform: none; }
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 @keyframes slide-down {
-  from { margin-bottom: 0; }
-  to {
- margin-bottom;
- -2;
-}
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
 }
 
 .menu-buttons {
   display: flex;
   gap: 15px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .menu-button {
-  background-color: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-
- background: none;
 
 .menu-button img {
-  width: block;
+  width: 40px;
   height: 40px;
-  background-color: contain;
-  object-fit: cover;
+  object-fit: contain;
 }
 
-.menu-buttons {
-  display: block;
+.color-submenu, .comment-submenu, .concordance-submenu {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
   margin-top: 10px;
 }
 
 .color-button {
   background: none;
   border: none;
-  cursor: none;
+  cursor: pointer;
 }
 
 .color-button img {
-  width: block;
+  width: 30px;
   height: 30px;
-  background-color: object-fit;
-  object-fit: cover;
-
+  object-fit: contain;
 }
 
 .submenu-item {
-  padding: 10px;
+  padding: 8px;
   background-color: #007bff;
-  border-bottom: none;
-  border-radius: 0;
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .submenu-item:hover {
@@ -301,29 +221,23 @@ h1 {
 }
 
 .prayer-menu {
-  background-color: #333;
-  border: none1px solid #000;
-  border-radius: #ccc5px;
-  background-color: -webkit-box-shadow;
- 0 4px 8px;
- 4px: 8px;
-  margin-bottom: 16px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
   min-width: 200px;
 }
 
- margin-bottom: .16em;
-
-}
-
-.pr-menu-menu {
-  content-bottom: flex;
+.prayer-menu-content {
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .prayer-button {
   padding: 10px;
-  background-color: #333333;
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
@@ -336,7 +250,7 @@ h1 {
 }
 
 .prayer-icon {
-  cursor: inline-block;
+  cursor: pointer;
   font-size: 18px;
   line-height: 1;
 }
