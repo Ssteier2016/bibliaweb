@@ -1,0 +1,375 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f8f8f8;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+select, input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.verse {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  position: relative;
+}
+
+.highlighted-yellow { background-color: rgba(255, 255, 0, 0.3); }
+.highlighted-green { background-color: rgba(0, 255, 0, 0.3); }
+.highlighted-blue { background-color: rgba(0, 0, 255, 0.3); }
+.highlighted-pink { background-color: rgba(255, 192, 203, 0.3); }
+
+.context-menu {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.submenu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.submenu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.note-input {
+  margin-top: 10px;
+}
+
+.note-input textarea {
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.close-note, .close-comment {
+  margin-left: 10px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.note {
+  color: #555;
+  font-style: italic;
+}
+
+.comment-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.comment {
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.bible-reading {
+  padding: 20px;
+}
+
+.book-list, .chapter-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.book-item, .chapter-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.book-item input, .chapter-item input {
+  margin-right: 10px;
+}
+
+.book-item span, .chapter-item span {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 16px;
+}
+
+.book-item span.date, .chapter-item span.date {
+  color: #666;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.verse-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Nuevos estilos para la funcionalidad de colección */
+.collection {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(34, 50px);
+  gap: 5px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.grid-item {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.grid-item.unlocked {
+  background-color: #e0f7fa;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-details {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px;
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.card-details img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card-details h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.verse.read {
+  background-color: rgba(0, 255, 0, 0.1); /* Fondo verde claro para versículos leídos */
+}
+
+.bible-reading {
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.selector {
+  margin-bottom: 20px;
+}
+
+.selector select,
+.search-input {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.verse {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.verse.selected-verse {
+  border: 2px dashed #007bff;
+}
+
+.highlighted-red { background-color: rgba(255, 0, 0, 0.2); }
+.highlighted-green { background-color: rgba(0, 255, 0, 0.2); }
+.highlighted-yellow { background-color: rgba(255, 255, 0, 0.2); }
+
+.note, .note-input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #f9f9f9;
+}
+
+.note-input textarea {
+  width: 100%;
+  min-height: 60px;
+}
+
+.context-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-buttons, .color-submenu {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.menu-button img, .color-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.book-list, .chapter-list {
+  margin-top: 20px;
+}
+
+.book-item, .chapter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px 0;
+}
+
+.back-button {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+}
+
+.prayer-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prayer-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.prayer-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
