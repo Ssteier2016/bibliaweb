@@ -32,7 +32,7 @@ function Collection() {
                   alt={character.name}
                   style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                   onError={(e) => {
-                    e.target.src = 'https://placehold.co/50x50?text=Error';
+                    e.target.src = 'https://cdn.pixabay.com/photo/2016/11/29/08/43/biblical-1868760_960_720.jpg';
                     console.log(`Error loading image for ${character.name}: ${character.image}`);
                   }}
                 />
@@ -75,7 +75,7 @@ function Collection() {
                 objectFit: 'contain',
               }}
               onError={(e) => {
-                e.target.src = 'https://placehold.co/300x300?text=Error';
+                e.target.src = 'https://cdn.pixabay.com/photo/2016/11/29/08/43/biblical-1868760_960_720.jpg';
                 console.log(`Error loading modal image for ${selectedCharacter.name}`);
               }}
             />
