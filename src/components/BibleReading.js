@@ -242,32 +242,37 @@ function BibleReading({
     return results;
   };
 
-  const verses = isHome ? searchVerses() : (selectedChapterObj?.verses?.map((verse) => ({
-    ...verse,
-    book: selectedBookObj.name,
-    chapter: selectedChapterObj.chapter,
-  })) || []);
+  // Corrección del error en la línea ~270
+  const verses = isHome
+    ? searchVerses()
+    : (selectedChapterObj?.verses?.map((verse) => ({
+        ...verse,
+        book: selectedBookObj?.name, // Coma añadida
+        chapter: selectedChapterObj?.chapter, // Coma añadida
+      })) || []);
 
   return (
     <div className="bible-reading">
       {isHome ? (
         <div className="main-content">
           <div className="selector">
-            <select
-              value={selectedBook}
-              onChange={(e) => setSelectedBook(e.target.value)}
-            >
+            <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
+              <option value="">Selecciona un libro</option>
               {bibleData.books.map((book) => (
-                <option key={book.name} value={book.name}>{book.name}</option>
+                <option key={book.name} value={book.name}>
+                  {book.name}
+                </option>
               ))}
             </select>
-            <select
-              value={selectedChapter}
-              onChange={(e) => setSelectedChapter(Number(e.target.value))}
-            >
-              {bibleData.books.find((b => b.name === selectedBook)?.chapters.map((chapter) => (
-                <option key={chapter.chapter} value={chapter.chapter}>{chapter.chapter}</option>
-              ))}
+            <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
+              <option value="">Selecciona un capítulo</option>
+              {bibleData.books
+                .find((b) => b.name === selectedBook)
+                ?.chapters.map((chapter) => (
+                  <option key={chapter.chapter} value={chapter.chapter}>
+                    {chapter.chapter}
+                  </option>
+                ))}
             </select>
           </div>
           <input
@@ -328,9 +333,7 @@ function BibleReading({
                       </button>
                     </p>
                   )}
-                  {notes[noteKey] && (
-                    <p className="note">Nota: {notes[noteKey]}</p>
-                  )}
+                  {notes[noteKey] && <p className="note">Nota: {notes[noteKey]}</p>}
                   {noteInput.visible && noteInput.verse && verse.verse === noteInput.verse?.verse && noteInput.verse?.book === verse.book && verse.chapter === noteInput.verse?.chapter && (
                     <div className="note-input">
                       <textarea
@@ -339,7 +342,9 @@ function BibleReading({
                         onChange={(e) => handleNoteChange(verse, e.target.value)}
                         autoFocus
                       />
-                      <button className="close-note" onClick={closeNoteInput}>X</button>
+                      <button className="close-note" onClick={closeNoteInput}>
+                        X
+                      </button>
                     </div>
                   )}
                 </div>
@@ -476,7 +481,13 @@ function BibleReading({
             {prayerMenu.visible && prayerMenu.verse && (
               <div
                 className="prayer-menu"
-                style={{ position: 'fixed', bottom: '120px', left: '50%', transform: 'translateX(-50%)', zIndex: '1001' }}
+                style={{
+                  position: 'fixed',
+                  bottom: '120px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  zIndex: '1001',
+                }}
               >
                 <div className="prayer-menu-content">
                   <button
@@ -552,7 +563,7 @@ function BibleReading({
               <h2>
                 {selectedBookObj.name} {selectedChapterObj.chapter}
               </h2>
-              {verses.map((verse) => {
+              {verses.map((verse, index) => {
                 const highlightKey = `highlight_${verse.book}_${verse.chapter}_${verse.verse}`;
                 const noteKey = `note_${verse.book}_${verse.chapter}_${verse.verse}`;
                 const commentKey = `comment_${verse.book}_${verse.chapter}_${verse.verse}_${verseComments[`comment_${verse.book}_${verse.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
@@ -560,7 +571,7 @@ function BibleReading({
                 const isSelected = selectedVerse && verse.verse === selectedVerse.verse && verse.book === selectedVerse.book && verse.chapter === selectedVerse.chapter;
                 return (
                   <div
-                    key={`${verse.book}_${verse.chapter}_${verse.verse}`}
+                    key={`${verse.book}_${verse.chapter}_${verse.verse}_${index}`}
                     className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''} ${isSelected ? 'selected-verse' : ''}`}
                     onClick={() => handleVerseClick(verse)}
                     onTouchStart={(e) => handleTouchStart(e, verse)}
@@ -610,7 +621,9 @@ function BibleReading({
                           onChange={(e) => handleNoteChange(verse, e.target.value)}
                           autoFocus
                         />
-                        <button className="close-note" onClick={closeNoteInput}>X</button>
+                        <button className="close-note" onClick={closeNoteInput}>
+                          X
+                        </button>
                       </div>
                     )}
                   </div>
@@ -747,7 +760,13 @@ function BibleReading({
               {prayerMenu.visible && prayerMenu.verse && (
                 <div
                   className="prayer-menu"
-                  style={{ position: 'fixed', bottom: '120px', left: '50%', transform: 'translateX(-50%)', zIndex: '1001' }}
+                  style={{
+                    position: 'fixed',
+                    bottom: '120px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    zIndex: '1001',
+                  }}
                 >
                   <div className="prayer-menu-content">
                     <button
