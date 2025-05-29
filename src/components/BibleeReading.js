@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 import charactersData from '../data/characters.json';
 
 function BibleReading({
@@ -12,21 +13,21 @@ function BibleReading({
   handleNoteChange,
   closeNoteInput,
   handleShare,
-  togglePrayerSubmenu,
-  handlePrayerRecord,
+  handlePrayer,
+  closePrayerModal,
+  handleConcordance,
   contextMenu,
   setContextMenu,
   noteInput,
   setNoteInput,
+  prayerModal,
+  setPrayerModal,
   notes,
   setNotes,
   highlightedVerses,
   setHighlightedVerses,
   highlightSubmenu,
   setHighlightSubmenu,
-  prayerSubmenu,
-  setPrayerSubmenu,
-  contextMenuRef,
   selectedBook,
   setSelectedBook,
   selectedChapter,
@@ -42,6 +43,7 @@ function BibleReading({
   const [selectedVerse, setSelectedVerse] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const [prayerAudio, setPrayerAudio] = useState(null);
+  const [lockDate, setLockDate] = useState(null);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const navigate = useNavigate();
@@ -63,7 +65,7 @@ function BibleReading({
 
   const toggleBookCompletion = (bookName) => {
     if (!bookName) return;
-    const newCompletedBooks = { // Añadido 'const'
+    const newCompletedBooks = {
       ...completedBooks,
       [bookName]: {
         completed: !completedBooks[bookName]?.completed,
@@ -153,14 +155,11 @@ function BibleReading({
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/mp3' });
         const audioUrl = URL.createObjectURL(audioBlob);
         setPrayerAudio(audioUrl);
-        const key = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
-        localStorage.setItem(key, audioUrl);
         stream.getTracks().forEach((track) => track.stop());
       };
 
       mediaRecorderRef.current.start();
       setIsRecording(true);
-      handlePrayerRecord(verse);
     } catch (error) {
       console.error('Error al iniciar grabación:', error);
       alert('No se pudo iniciar la grabación. Verifica los permisos de micrófono.');
@@ -172,6 +171,27 @@ function BibleReading({
       mediaRecorderRef.current.stop();
       setIsRecording(false);
     }
+  };
+
+  const savePrayer = (verse) => {
+    if (!verse || !prayerAudio || !lockDate) {
+      alert('Graba una oración y selecciona una fecha.');
+      return;
+    }
+    const prayerKey = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
+    const lockKey = `prayer_lock_${verse.book}_${verse.chapter}_${verse.verse}`;
+    localStorage.setItem(prayerKey, prayerAudio);
+    localStorage.setItem(lockKey, lockDate.getTime().toString());
+    closePrayerModal();
+    setPrayerAudio(null);
+    setLockDate(null);
+  };
+
+  const isPrayerLocked = (verse) => {
+    if (!verse) return false;
+    const lockKey = `prayer_lock_${verse.book}_${verse.chapter}_${verse.verse}`;
+    const lockDateMs = localStorage.getItem(lockKey);
+    return lockDateMs && Date.now() < parseInt(lockDateMs);
   };
 
   const searchVerses = () => {
@@ -274,7 +294,12 @@ function BibleReading({
                   </p>
                   {notes[noteKey] && <p className="note">Nota: {notes[noteKey]}</p>}
                   {localStorage.getItem(prayerKey) && (
-                    <audio controls src={localStorage.getItem(prayerKey)} style={{ marginTop: '5px' }} />
+                    <audio
+                      controls
+                      src={localStorage.getItem(prayerKey)}
+                      style={{ marginTop: '5px' }}
+                      disabled={isPrayerLocked(verse)}
+                    />
                   )}
                   {noteInput.visible &&
                     noteInput.verse &&
@@ -322,7 +347,10 @@ function BibleReading({
                   <button className="menu-button" onClick={() => handleShare(contextMenu.verse)}>
                     <img src="/assets/icons/compartir.png" alt="Compartir" />
                   </button>
-                  <button className="menu-button" onClick={() => togglePrayerSubmenu()}>
+                  <button className="menu-button" onClick={() => handleConcordance(contextMenu.verse)}>
+                    <img src="/assets/icons/concordancia.png" alt="Concordancia" />
+                  </button>
+                  <button className="menu-button" onClick={() => handlePrayer(contextMenu.verse)}>
                     <img src="/assets/icons/orar.png" alt="Orar" />
                   </button>
                 </div>
@@ -337,17 +365,6 @@ function BibleReading({
                     <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>
                       <img src="/assets/icons/amarillo.png" alt="Amarillo" />
                     </button>
-                  </div>
-                )}
-                {prayerSubmenu && (
-                  <div className="prayer-submenu">
-                    <button
-                      className="prayer-button"
-                      onClick={() => (isRecording ? stopRecording() : startRecording(contextMenu.verse))}
-                    >
-                      {isRecording ? 'Detener Grabación' : 'Grabar Oración'}
-                    </button>
-                    {prayerAudio && <audio controls src={prayerAudio} style={{ marginTop: '5px' }} />}
                   </div>
                 )}
                 <button
@@ -367,6 +384,60 @@ function BibleReading({
                 >
                   X
                 </button>
+              </div>
+            )}
+            {prayerModal.visible && prayerModal.verse && (
+              <div
+                className="prayer-modal"
+                style={{
+                  position: 'fixed',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  backgroundColor: 'white',
+                  padding: '20px',
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                  zIndex: '2000',
+                  borderRadius: '5px',
+                  maxWidth: '90%',
+                  width: '400px',
+                }}
+              >
+                <h3>Grabar Oración</h3>
+                <button
+                  className="prayer-button"
+                  onClick={() => (isRecording ? stopRecording() : startRecording(prayerModal.verse))}
+                  disabled={isPrayerLocked(prayerModal.verse)}
+                >
+                  {isRecording ? 'Detener Grabación' : 'Grabar Oración'}
+                </button>
+                {prayerAudio && <audio controls src={prayerAudio} style={{ margin: '10px 0', width: '100%' }} />}
+                <div style={{ margin: '10px 0' }}>
+                  <label>Bloquear hasta:</label>
+                  <DatePicker
+                    selected={lockDate}
+                    onChange={(date) => setLockDate(date)}
+                    minDate={new Date()}
+                    dateFormat="dd/MM/yyyy"
+                    placeholderText="Selecciona una fecha"
+                    disabled={isPrayerLocked(prayerModal.verse)}
+                  />
+                </div>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <button
+                    onClick={() => savePrayer(prayerModal.verse)}
+                    disabled={isPrayerLocked(prayerModal.verse)}
+                    style={{ padding: '5px 10px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '3px' }}
+                  >
+                    Guardar
+                  </button>
+                  <button
+                    onClick={closePrayerModal}
+                    style={{ padding: '5px 10px', backgroundColor: '#ff4444', color: 'white', border: 'none', borderRadius: '3px' }}
+                  >
+                    Cancelar
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -442,7 +513,12 @@ function BibleReading({
                     </p>
                     {notes[noteKey] && <p className="note">Nota: {notes[noteKey]}</p>}
                     {localStorage.getItem(prayerKey) && (
-                      <audio controls src={localStorage.getItem(prayerKey)} style={{ marginTop: '5px' }} />
+                      <audio
+                        controls
+                        src={localStorage.getItem(prayerKey)}
+                        style={{ marginTop: '5px' }}
+                        disabled={isPrayerLocked(verse)}
+                      />
                     )}
                     {noteInput.visible &&
                       noteInput.verse &&
@@ -490,7 +566,10 @@ function BibleReading({
                     <button className="menu-button" onClick={() => handleShare(contextMenu.verse)}>
                       <img src="/assets/icons/compartir.png" alt="Compartir" />
                     </button>
-                    <button className="menu-button" onClick={() => togglePrayerSubmenu()}>
+                    <button className="menu-button" onClick={() => handleConcordance(contextMenu.verse)}>
+                      <img src="/assets/icons/concordancia.png" alt="Concordancia" />
+                    </button>
+                    <button className="menu-button" onClick={() => handlePrayer(contextMenu.verse)}>
                       <img src="/assets/icons/orar.png" alt="Orar" />
                     </button>
                   </div>
@@ -505,17 +584,6 @@ function BibleReading({
                       <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>
                         <img src="/assets/icons/amarillo.png" alt="Amarillo" />
                       </button>
-                    </div>
-                  )}
-                  {prayerSubmenu && (
-                    <div className="prayer-submenu">
-                      <button
-                        className="prayer-button"
-                        onClick={() => (isRecording ? stopRecording() : startRecording(contextMenu.verse))}
-                      >
-                        {isRecording ? 'Detener Grabación' : 'Grabar Oración'}
-                      </button>
-                      {prayerAudio && <audio controls src={prayerAudio} style={{ marginTop: '5px' }} />}
                     </div>
                   )}
                   <button
@@ -536,13 +604,68 @@ function BibleReading({
                     X
                   </button>
                 </div>
+              ))}
+              {prayerModal.visible && prayerModal.verse && (
+                <div
+                  className="prayer-modal"
+                  className="prayer-modal",
+                  style={{
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: 'white',
+                    padding: '20px',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                    zIndex: '2000',
+                    borderRadius: '5px',
+                    maxWidth: '90%',
+                    width: '400px',
+                  }}
+                >
+                  <h3>Grabar Oración</h3>
+                  <button
+                    className="prayer-button"
+                    onClick={() => (isRecording ? stopRecording() : startRecording(prayerModal?.verse))}
+                    disabled={isPrayerLocked(prayerModal?.verse)}
+                    >
+                    {isRecording ? 'Detener Grabación' : 'Grabar Oración'}
+                  </button>
+                  {prayerAudio && <audio controls src={prayerAudio} style={{ margin: '10px 0', width: '100%' }} />}
+                  <div style={{ margin: '10px 0' }}>
+                    <label>Bloquear hasta:</label>
+                    <DatePicker
+                      selected={lockDate}
+                      onChange={(date) => setLockDate(date)}
+                      minDate={new Date()}
+                      dateFormat="dd/MM/yyyy"
+                      placeholderText="Selecciona una fecha"
+                      disabled={isPrayerLocked(prayerModal?.verse)}
+                    />
+                  </div>
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <button
+                      onClick={() => savePrayer(prayerModal?.verse)}
+                      disabled={isPrayerLocked(prayerModal?.verse)}
+                      style={{ padding: '5px 10px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '3px' }}
+                    >
+                      Guardar
+                    </button>
+                    <button
+                      onClick={closePrayerModal}
+                      style={{ padding: '5px 10px', backgroundColor: '#ff4444', color: 'white', border: 'none', borderRadius: '3px' }}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
               )}
             </div>
           )}
-        </>
-      )}
+        </div>
+      ))}
     </div>
-  );
+  )};
 }
 
 export default BibleReading;
