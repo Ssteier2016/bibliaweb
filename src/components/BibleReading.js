@@ -49,7 +49,6 @@ function BibleReading({
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
     const storedChapters = JSON.parse(localStorage.getItem('completedChapters') || '{}');
-    const storedCollection = JSON.parse(localStorage.getItem('collection') || '[]');
     setCompletedBooks(storedBooks);
     setCompletedChapters(storedChapters);
   }, []);
@@ -225,7 +224,71 @@ function BibleReading({
               </div>
             );
           })}
-          {/* ... (resto del código del contextMenu sin cambios) */}
+          {contextMenu.visible && contextMenu.verse && (
+            <div
+              className="context-menu"
+              style={{ top: contextMenu.y, left: contextMenu.x, position: 'fixed', zIndex: 1000 }}
+              ref={contextMenuRef}
+            >
+              <div className="menu-item" onClick={toggleHighlightSubmenu}>
+                Subrayar
+                {highlightSubmenu && (
+                  <div className="submenu">
+                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>Amarillo</div>
+                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'green')}>Verde</div>
+                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'blue')}>Azul</div>
+                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'pink')}>Rosa</div>
+                  </div>
+                )}
+              </div>
+              <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
+                Anotar
+              </div>
+              <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
+                Compartir
+              </div>
+              <div className="menu-item" onClick={toggleCommentSubmenu}>
+                Comentario
+                {commentSubmenu && (
+                  <div className="submenu">
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>Lingüística</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>Cultural</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>Histórica</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>Teológica</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')>.Geográfica</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>Paleolítica</div>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>Arqueológica</div>
+                  </div>
+                )}
+              </div>
+              <div className="menu-item" onClick={toggleConcordanceSubmenu}>
+                Concordancia
+                {concordanceSubmenu && (
+                  <div className="submenu">
+                    {loadingConcordance ? (
+                      <div className="submenu-item">Cargando...</div>
+                    ) : (
+                      getConcordances(contextMenu.verse).then(related =>
+                        related.length === 0 ? (
+                          <div className="submenu-item">No hay concordancias</div>
+                        ) : (
+                          related.map((rel, index) => (
+                            <div
+                              key={index}
+                              className="submenu-item"
+                              onClick={() => handleConcordanceSelect(rel)}
+                            >
+                              {rel.book} {rel.chapter}:{rel.verse}
+                            </div>
+                          ))
+                        )
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
