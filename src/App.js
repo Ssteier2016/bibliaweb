@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useSearchParams } from 'react-router-dom';
 import BibleReading from './components/BibleReading';
 import ErrorBoundary from './components/ErrorBoundary';
-import reinaValeraData from './data/reina_valera.json'; // Corrige importación
+import reinaValeraData from './data/reina_valera.json';
 import './App.css';
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
   const [notes, setNotes] = useState({});
   const [highlightedVerses, setHighlightedVerses] = useState({});
   const [highlightSubmenu, setHighlightSubmenu] = useState(false);
+  const [prayerSubmenu, setPrayerSubmenu] = useState(false);
   const contextMenuRef = useRef(null);
 
   useEffect(() => {
@@ -50,6 +51,7 @@ function App() {
 
   const toggleHighlightSubmenu = () => {
     setHighlightSubmenu(!highlightSubmenu);
+    setPrayerSubmenu(false);
   };
 
   const handleNote = (verse) => {
@@ -86,6 +88,17 @@ function App() {
     setContextMenu({ visible: false, verse: null });
   };
 
+  const togglePrayerSubmenu = () => {
+    setPrayerSubmenu(!prayerSubmenu);
+    setHighlightSubmenu(false);
+  };
+
+  const handlePrayerRecord = (verse) => {
+    if (!verse) return;
+    setContextMenu({ visible: false, verse: null });
+    // La lógica de grabación se maneja en BibleReading.js
+  };
+
   return (
     <Router>
       <ErrorBoundary>
@@ -94,7 +107,7 @@ function App() {
             path="/"
             element={
               <BibleReading
-                bibleData={reinaValeraData} // Usa reina_valera.json
+                bibleData={reinaValeraData}
                 handleContextMenu={handleContextMenu}
                 handleTouchStart={handleTouchStart}
                 handleHighlight={handleHighlight}
@@ -103,6 +116,8 @@ function App() {
                 handleNoteChange={handleNoteChange}
                 closeNoteInput={closeNoteInput}
                 handleShare={handleShare}
+                togglePrayerSubmenu={togglePrayerSubmenu}
+                handlePrayerRecord={handlePrayerRecord}
                 contextMenu={contextMenu}
                 setContextMenu={setContextMenu}
                 noteInput={noteInput}
@@ -113,6 +128,8 @@ function App() {
                 setHighlightedVerses={setHighlightedVerses}
                 highlightSubmenu={highlightSubmenu}
                 setHighlightSubmenu={setHighlightSubmenu}
+                prayerSubmenu={prayerSubmenu}
+                setPrayerSubmenu={setPrayerSubmenu}
                 contextMenuRef={contextMenuRef}
                 selectedBook={selectedBook}
                 setSelectedBook={setSelectedBook}
@@ -128,7 +145,7 @@ function App() {
             path="/reading"
             element={
               <BibleReading
-                bibleData={reinaValeraData} // Usa reina_valera.json
+                bibleData={reinaValeraData}
                 handleContextMenu={handleContextMenu}
                 handleTouchStart={handleTouchStart}
                 handleHighlight={handleHighlight}
@@ -137,6 +154,8 @@ function App() {
                 handleNoteChange={handleNoteChange}
                 closeNoteInput={closeNoteInput}
                 handleShare={handleShare}
+                togglePrayerSubmenu={togglePrayerSubmenu}
+                handlePrayerRecord={handlePrayerRecord}
                 contextMenu={contextMenu}
                 setContextMenu={setContextMenu}
                 noteInput={noteInput}
@@ -147,6 +166,8 @@ function App() {
                 setHighlightedVerses={setHighlightedVerses}
                 highlightSubmenu={highlightSubmenu}
                 setHighlightSubmenu={setHighlightSubmenu}
+                prayerSubmenu={prayerSubmenu}
+                setPrayerSubmenu={setPrayerSubmenu}
                 contextMenuRef={contextMenuRef}
                 selectedBook={selectedBook}
                 setSelectedBook={setSelectedBook}
