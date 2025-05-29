@@ -308,3 +308,48 @@ select, input[type="text"] {
   margin: 5px 0;
   font-size: 14px;
 }
+
+.prayer-menu {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  padding: 10px;
+  min-width: 200px;
+}
+
+.prayer-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.record-button {
+  padding: 8px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.record-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.close-prayer {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.prayer-icon {
+  font-size: 16px;
+  cursor: pointer;
+}
