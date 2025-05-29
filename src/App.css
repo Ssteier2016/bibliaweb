@@ -69,12 +69,60 @@ select, input[type="text"] {
   border-radius: 4px;
 }
 
+.bible-reading {
+  padding: 20px;
+}
+
+.book-list, .chapter-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.book-item, .chapter-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.book-item input, .chapter-item input {
+  margin-right: 10px;
+}
+
+.book-item span, .chapter-item span {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 16px;
+}
+
+.book-item span.date, .chapter-item span.date {
+  color: #666;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.chapter-item input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.verse-list {
+  max-width: 600px;
+  margin: 0 auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
 .verse {
   margin: 10px 0;
   padding: 10px;
   border: 1px solid #eee;
   border-radius: 4px;
   position: relative;
+}
+
+.verse p {
+  margin: 0;
 }
 
 .highlighted-yellow { background-color: rgba(255, 255, 0, 0.3); }
@@ -145,6 +193,10 @@ select, input[type="text"] {
 .note {
   color: #555;
   font-style: italic;
+  background: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
 .comment-wrapper {
@@ -159,43 +211,6 @@ select, input[type="text"] {
   padding: 5px 10px;
   border-radius: 4px;
   flex-grow: 1;
-}
-
-.bible-reading {
-  padding: 20px;
-}
-
-.book-list, .chapter-list {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.book-item, .chapter-item {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.book-item input, .chapter-item input {
-  margin-right: 10px;
-}
-
-.book-item span, .chapter-item span {
-  flex-grow: 1;
-  text-align: left;
-  font-size: 16px;
-}
-
-.book-item span.date, .chapter-item span.date {
-  color: #666;
-  font-size: 14px;
-  margin-left: 10px;
-}
-
-.verse-list {
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .back-button {
@@ -214,7 +229,7 @@ select, input[type="text"] {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(34, 50px);
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   gap: 5px;
   max-height: 500px;
   overflow-y: auto;
@@ -222,27 +237,6 @@ select, input[type="text"] {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-}
-
-/* Añadir al final si no está */
-.grid-item img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  display: block;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  zIndex: 1000;
 }
 
 .grid-item {
@@ -265,6 +259,26 @@ select, input[type="text"] {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.grid-item span {
+  display: block;
+  font-size: 24px;
+  color: #888;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .card-details {
@@ -293,10 +307,4 @@ select, input[type="text"] {
 .card-details p {
   margin: 5px 0;
   font-size: 14px;
-}
-
-/* Nuevo estilo para checkbox deshabilitado */
-.chapter-item input:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
