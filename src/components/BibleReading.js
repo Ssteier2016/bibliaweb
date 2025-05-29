@@ -44,10 +44,12 @@ function BibleReading({
   const [selectedChapter, setSelectedChapter] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
-  const [prayerMenu, setPrayerMenu] = useState({ visible: false, verse: null, x: 0, y: 0 });
+  const [prayerMenu, setPrayerMenu] = useState({ visible: false, verse: null });
   const [prayers, setPrayers] = useState({});
   const [recording, setRecording] = useState(false);
   const [unlockDate, setUnlockDate] = useState('');
+  const [selectedVerse, setSelectedVerse] = useState(null);
+  const [menuVisible, setMenuVisible] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -127,14 +129,22 @@ function BibleReading({
     }
   };
 
-  const togglePrayerMenu = (verse, x, y) => {
+  const handleVerseClick = (verse) => {
+    setSelectedVerse(verse);
+    setMenuVisible(true);
+    setContextMenu({ visible: false });
+    setPrayerMenu({ visible: false });
+    setHighlightSubmenu(false);
+    setCommentSubmenu(false);
+    setConcordanceSubmenu(false);
+  };
+
+  const togglePrayerMenu = (verse) => {
     setPrayerMenu({
       visible: !prayerMenu.visible || prayerMenu.verse !== verse,
       verse,
-      x,
-      y,
     });
-    setContextMenu({ visible: false });
+    setMenuVisible(false);
   };
 
   const startRecording = async () => {
@@ -154,7 +164,7 @@ function BibleReading({
         reader.onloadend = () => {
           const audioData = reader.result;
           const prayerKey = `prayer_${selectedBook.name}_${selectedChapter.chapter}_${prayerMenu.verse.verse}`;
-          const duration = audioChunksRef.current.reduce((acc, chunk) => acc + chunk.size, 0) / (128 * 1024 / 8); // Aproximación en segundos
+          const duration = audioChunksRef.current.reduce((acc, chunk) => acc + chunk.size, 0) / (128 * 1024 / 8);
           const newPrayers = {
             ...prayers,
             [prayerKey]: {
@@ -256,38 +266,36 @@ function BibleReading({
             const noteKey = `note_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
             const commentKey = `comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_${verseComments[`comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
             const prayerKey = `prayer_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
+            const isSelected = selectedVerse?.verse === verse.verse;
             return (
               <div
                 key={verse.verse}
-                className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
-                onContextMenu={(e) => {
-                  handleContextMenu(e, verse);
-                  togglePrayerMenu(verse, e.clientX, e.clientY);
-                }}
-                onTouchStart={(e) => {
-                  handleTouchStart(e, verse);
-                  togglePrayerMenu(verse, e.touches[0].clientX, e.touches[0].clientY);
-                }}
-                style={{ position: 'relative' }}
+                className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''} ${isSelected ? 'selected-verse' : ''}`}
+                onClick={() => handleVerseClick(verse)}
+                onTouchStart={() => handleVerseClick(verse)}
+                style={{ position: 'relative', padding: '10px' }}
               >
-                <p>
-                  <strong>{verse.verse}</strong>: {verse.text}
-                </p>
                 {prayers[prayerKey] && (
                   <span
                     className="prayer-icon"
-                    onClick={() => handlePrayerClick(verse)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrayerClick(verse);
+                    }}
                     style={{
                       position: 'absolute',
-                      top: '5px',
-                      right: '5px',
+                      top: '2px',
+                      right: '2px',
                       cursor: 'pointer',
-                      fontSize: '16px',
+                      fontSize: '12px',
                     }}
                   >
                     ▶️🔒
                   </span>
                 )}
+                <p style={{ margin: '0', padding: '0 20px' }}>
+                  <strong>{verse.verse}</strong>: {verse.text}
+                </p>
                 {verseComments[commentKey] && (
                   <p className="comment-wrapper">
                     <span className="comment">
@@ -319,136 +327,167 @@ function BibleReading({
               </div>
             );
           })}
-          {contextMenu.visible && contextMenu.verse && (
-            <div
-              className="context-menu"
-              style={{ top: contextMenu.y, left: contextMenu.x, position: 'fixed', zIndex: 1000 }}
-              ref={contextMenuRef}
-            >
-              <div className="menu-item" onClick={toggleHighlightSubmenu}>
-                Subrayar
-                {highlightSubmenu && (
-                  <div className="submenu">
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleHighlight(contextMenu.verse, 'yellow')}
-                    >
-                      Amarillo
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleHighlight(contextMenu.verse, 'green')}
-                    >
-                      Verde
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleHighlight(contextMenu.verse, 'blue')}
-                    >
-                      Azul
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleHighlight(contextMenu.verse, 'pink')}
-                    >
-                      Rosa
-                    </div>
-                  </div>
-                )}
+          {menuVisible && selectedVerse && (
+            <div className="slide-menu">
+              <div className="menu-buttons">
+                <button
+                  className="menu-button"
+                  onClick={() => toggleHighlightSubmenu()}
+                >
+                  <img src="/assets/icons/subrayar.png" alt="Subrayar" />
+                </button>
+                <button
+                  className="menu-button"
+                  onClick={() => handleNote(selectedVerse)}
+                >
+                  <img src="/assets/icons/anotar.png" alt="Anotar" />
+                </button>
+                <button
+                  className="menu-button"
+                  onClick={() => handleShare(selectedVerse)}
+                >
+                  <img src="/assets/icons/compartir.png" alt="Compartir" />
+                </button>
+                <button
+                  className="menu-button"
+                  onClick={() => toggleCommentSubmenu()}
+                >
+                  <img src="/assets/icons/comentarios.png" alt="Comentarios" />
+                </button>
+                <button
+                  className="menu-button"
+                  onClick={() => toggleConcordanceSubmenu()}
+                >
+                  <img src="/assets/icons/concordancia.png" alt="Concordancia" />
+                </button>
+                <button
+                  className="menu-button"
+                  onClick={() => togglePrayerMenu(selectedVerse)}
+                >
+                  <img src="/assets/icons/oracion.png" alt="Oración" />
+                </button>
               </div>
-              <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
-                Anotar
-              </div>
-              <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
-                Compartir
-              </div>
-              <div className="menu-item" onClick={toggleCommentSubmenu}>
-                Comentario
-                {commentSubmenu && (
-                  <div className="submenu">
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}
-                    >
-                      Lingüística
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}
-                    >
-                      Cultural
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}
-                    >
-                      Histórica
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}
-                    >
-                      Teológica
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}
-                    >
-                      Geográfica
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}
-                    >
-                      Paleolítica
-                    </div>
-                    <div
-                      className="submenu-item"
-                      onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}
-                    >
-                      Arqueológica
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="menu-item" onClick={toggleConcordanceSubmenu}>
-                Concordancia
-                {concordanceSubmenu && (
-                  <div className="submenu">
-                    {loadingConcordance ? (
-                      <div className="submenu-item">Cargando...</div>
-                    ) : (
-                      getConcordances(contextMenu.verse).then((related) =>
-                        related.length === 0 ? (
-                          <div className="submenu-item">No hay concordancias</div>
-                        ) : (
-                          related.map((rel, index) => (
-                            <div
-                              key={index}
-                              className="submenu-item"
-                              onClick={() => handleConcordanceSelect(rel)}
-                            >
-                              {rel.book} {rel.chapter}:{rel.verse}
-                            </div>
-                          ))
-                        )
+              {highlightSubmenu && (
+                <div className="color-submenu">
+                  <button
+                    className="color-button"
+                    onClick={() => handleHighlight(selectedVerse, 'red')}
+                  >
+                    <img src="/assets/icons/rojo.png" alt="Rojo" />
+                  </button>
+                  <button
+                    className="color-button"
+                    onClick={() => handleHighlight(selectedVerse, 'green')}
+                  >
+                    <img src="/assets/icons/verde.png" alt="Verde" />
+                  </button>
+                  <button
+                    className="color-button"
+                    onClick={() => handleHighlight(selectedVerse, 'pink')}
+                  >
+                    <img src="/assets/icons/rosa.png" alt="Rosa" />
+                  </button>
+                  <button
+                    className="color-button"
+                    onClick={() => handleHighlight(selectedVerse, 'cyan')}
+                  >
+                    <img src="/assets/icons/celeste.png" alt="Celeste" />
+                  </button>
+                  <button
+                    className="color-button"
+                    onClick={() => handleHighlight(selectedVerse, 'blue')}
+                  >
+                    <img src="/assets/icons/azul.png" alt="Azul" />
+                  </button>
+                  <button
+                    className="color-button"
+                    onClick={() => handleHighlight(selectedVerse, 'purple')}
+                  >
+                    <img src="/assets/icons/violeta.png" alt="Violeta" />
+                  </button>
+                  <button
+                    className="color-button"
+                    onClick={() => handleHighlight(selectedVerse, 'yellow')}
+                  >
+                    <img src="/assets/icons/amarillo.png" alt="Amarillo" />
+                  </button>
+                </div>
+              )}
+              {commentSubmenu && (
+                <div className="comment-submenu">
+                  <button
+                    className="comment-button"
+                    onClick={() => handleCommentSelect(selectedVerse, 'lingüístico')}
+                  >
+                    Lingüística
+                  </button>
+                  <button
+                    className="comment-button"
+                    onClick={() => handleCommentSelect(selectedVerse, 'cultural')}
+                  >
+                    Cultural
+                  </button>
+                  <button
+                    className="comment-button"
+                    onClick={() => handleCommentSelect(selectedVerse, 'histórico')}
+                  >
+                    Histórica
+                  </button>
+                  <button
+                    className="comment-button"
+                    onClick={() => handleCommentSelect(selectedVerse, 'teológico')}
+                  >
+                    Teológica
+                  </button>
+                  <button
+                    className="comment-button"
+                    onClick={() => handleCommentSelect(selectedVerse, 'geográfico')}
+                  >
+                    Geográfica
+                  </button>
+                  <button
+                    className="comment-button"
+                    onClick={() => handleCommentSelect(selectedVerse, 'paleolítico')}
+                  >
+                    Paleolítica
+                  </button>
+                  <button
+                    className="comment-button"
+                    onClick={() => handleCommentSelect(selectedVerse, 'arqueológico')}
+                  >
+                    Arqueológica
+                  </button>
+                </div>
+              )}
+              {concordanceSubmenu && (
+                <div className="concordance-submenu">
+                  {loadingConcordance ? (
+                    <div className="submenu-item">Cargando...</div>
+                  ) : (
+                    getConcordances(selectedVerse).then((related) =>
+                      related.length === 0 ? (
+                        <div className="submenu-item">No hay concordancias</div>
+                      ) : (
+                        related.map((rel, index) => (
+                          <div
+                            key={index}
+                            className="submenu-item"
+                            onClick={() => handleConcordanceSelect(rel)}
+                          >
+                            {rel.book} {rel.chapter}:{rel.verse}
+                          </div>
+                        ))
                       )
-                    )}
-                  </div>
-                )}
-              </div>
-              <div
-                className="menu-item"
-                onClick={() => togglePrayerMenu(contextMenu.verse, contextMenu.x, contextMenu.y)}
-              >
-                Oración
-              </div>
+                    )
+                  )}
+                </div>
+              )}
             </div>
           )}
           {prayerMenu.visible && prayerMenu.verse && (
             <div
               className="prayer-menu"
-              style={{ top: prayerMenu.y, left: prayerMenu.x, position: 'fixed', zIndex: 1000 }}
+              style={{ position: 'fixed', bottom: '120px', left: '50%', transform: 'translateX(-50%)', zIndex: 1000 }}
             >
               <div className="prayer-menu-content">
                 <button
