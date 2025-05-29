@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import charactersData from '../data/characters.json';
 
 function BibleReading({
   bibleData,
-  concordances,
   handleContextMenu,
   handleTouchStart,
   handleHighlight,
@@ -12,12 +12,8 @@ function BibleReading({
   handleNoteChange,
   closeNoteInput,
   handleShare,
-  handleCommentSelect,
-  toggleCommentSubmenu,
-  handleCloseComment,
-  toggleConcordanceSubmenu,
-  handleConcordanceSelect,
-  getConcordances,
+  togglePrayerSubmenu,
+  handlePrayerRecord,
   contextMenu,
   setContextMenu,
   noteInput,
@@ -28,23 +24,27 @@ function BibleReading({
   setHighlightedVerses,
   highlightSubmenu,
   setHighlightSubmenu,
-  commentSubmenu,
-  setCommentSubmenu,
-  concordanceSubmenu,
-  setConcordanceSubmenu,
-  verseComments,
-  setVerseComments,
-  loadingComment,
-  setLoadingComment,
-  loadingConcordance,
-  setLoadingConcordance,
+  prayerSubmenu,
+  setPrayerSubmenu,
   contextMenuRef,
+  selectedBook,
+  setSelectedBook,
+  selectedChapter,
+  setSelectedChapter,
+  searchQuery,
+  setSearchQuery,
+  isHome,
 }) {
-  const [selectedBook, setSelectedBook] = useState(null);
-  const [selectedChapter, setSelectedChapter] = useState(null);
+  const [selectedBookObj, setSelectedBookObj] = useState(null);
+  const [selectedChapterObj, setSelectedChapterObj] = useState(null);
   const [completedBooks, setCompletedBooks] = useState({});
   const [completedChapters, setCompletedChapters] = useState({});
-  const [readVerses, setReadVerses] = useState(new Set());
+  const [selectedVerse, setSelectedVerse] = useState(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [prayerAudio, setPrayerAudio] = useState(null);
+  const mediaRecorderRef = useRef(null);
+  const audioChunksRef = useRef([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem('completedBooks') || '{}');
@@ -62,7 +62,8 @@ function BibleReading({
   };
 
   const toggleBookCompletion = (bookName) => {
-    const newCompletedBooks = {
+    if (!bookName) return;
+    const newCompletedBooks = { // Añadido 'const'
       ...completedBooks,
       [bookName]: {
         completed: !completedBooks[bookName]?.completed,
@@ -74,16 +75,12 @@ function BibleReading({
   };
 
   const toggleChapterCompletion = (bookName, chapterNumber) => {
+    if (!bookName || !chapterNumber) return;
     const key = `${bookName}_${chapterNumber}`;
     const chapter = bibleData.books
-      .find(book => book.name === bookName)
-      ?.chapters.find(ch => ch.chapter === chapterNumber);
+      .find((book) => book.name === bookName)
+      ?.chapters.find((ch) => ch.chapter === chapterNumber);
     if (!chapter) return;
-
-    if (!readVerses.size || readVerses.size < chapter.verses.length) {
-      alert('Debes leer todos los versículos del capítulo antes de marcarlo como leído.');
-      return;
-    }
 
     const newCompletedChapters = {
       ...completedChapters,
@@ -92,202 +89,457 @@ function BibleReading({
         date: !completedChapters[key]?.completed ? formatDate() : completedChapters[key]?.date || null,
       },
     };
-    setCompletedBooks(newCompletedBooks);
+    setCompletedChapters(newCompletedChapters);
     localStorage.setItem('completedChapters', JSON.stringify(newCompletedChapters));
 
     if (!completedChapters[key]?.completed) {
-      const character = charactersData.find(c => c.chapter === `${bookName} ${chapterNumber}`);
+      const character = charactersData.find((c) => c.chapter === `${bookName} ${chapterNumber}`);
       if (character) {
         const collection = JSON.parse(localStorage.getItem('collection') || '[]');
-        if (!collection.some(c => c.name === character.name)) {
+        if (!collection.some((c) => c.name === character.name)) {
           collection.push(character);
           localStorage.setItem('collection', JSON.stringify(collection));
           alert(`¡Has desbloqueado la carta de ${character.name}!`);
         }
       }
     }
-    setReadVerses(new Set());
-  };
-
-  const markVerseRead = (verseNumber) => {
-    setReadVerses(prev => new Set(prev).add(verseNumber));
   };
 
   const handleBookClick = (book) => {
-    setSelectedBook(book);
-    setSelectedChapter(null);
-    setReadVerses(new Set());
+    if (!book?.name) return;
+    setSelectedBookObj(book);
+    setSelectedChapterObj(null);
+    navigate(book.name ? `/reading?book=${encodeURIComponent(book.name)}` : '/reading');
   };
 
   const handleChapterClick = (chapter) => {
-    setSelectedChapter(chapter);
-    setReadVerses(new Set());
+    if (!chapter?.chapter || !selectedBookObj?.name) return;
+    setSelectedChapterObj(chapter);
+    navigate(
+      selectedBookObj.name && chapter.chapter
+        ? `/reading?book=${encodeURIComponent(selectedBookObj.name)}&chapter=${chapter.chapter}`
+        : '/reading'
+    );
   };
 
   const handleBack = () => {
-    if (selectedChapter) {
-      setSelectedChapter(null);
-      setReadVerses(new Set());
-    } else if (selectedBook) {
-      setSelectedBook(null);
+    if (selectedChapterObj && selectedBookObj?.name) {
+      setSelectedChapterObj(null);
+      navigate(selectedBookObj.name ? `/reading?book=${encodeURIComponent(selectedBookObj.name)}` : '/reading');
+    } else if (selectedBookObj) {
+      setSelectedBookObj(null);
+      navigate('/reading');
     }
   };
 
+  const handleVerseClick = (verse) => {
+    if (!verse) return;
+    setSelectedVerse(verse);
+    handleContextMenu(null, verse);
+  };
+
+  const startRecording = async (verse) => {
+    if (!verse) return;
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorderRef.current = new MediaRecorder(stream);
+      audioChunksRef.current = [];
+
+      mediaRecorderRef.current.ondataavailable = (event) => {
+        audioChunksRef.current.push(event.data);
+      };
+
+      mediaRecorderRef.current.onstop = () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/mp3' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        setPrayerAudio(audioUrl);
+        const key = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
+        localStorage.setItem(key, audioUrl);
+        stream.getTracks().forEach((track) => track.stop());
+      };
+
+      mediaRecorderRef.current.start();
+      setIsRecording(true);
+      handlePrayerRecord(verse);
+    } catch (error) {
+      console.error('Error al iniciar grabación:', error);
+      alert('No se pudo iniciar la grabación. Verifica los permisos de micrófono.');
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
+
+  const searchVerses = () => {
+    if (!searchQuery?.trim()) {
+      const book = bibleData.books.find((b) => b.name === selectedBook);
+      const chapter = book?.chapters?.find((c) => c.chapter === selectedChapter);
+      return (
+        chapter?.verses?.map((verse) => ({
+          ...verse,
+          book: book?.name,
+          chapter: chapter?.chapter,
+        })) || []
+      );
+    }
+
+    const results = [];
+    bibleData.books.forEach((book) => {
+      book.chapters.forEach((chapter) => {
+        chapter.verses.forEach((verse) => {
+          if (verse.text.toLowerCase().includes(searchQuery.toLowerCase())) {
+            results.push({
+              ...verse,
+              book: book.name,
+              chapter: chapter.chapter,
+            });
+          }
+        });
+      });
+    });
+    return results;
+  };
+
+  const verses = isHome
+    ? searchVerses()
+    : (selectedChapterObj?.verses?.map((verse) => ({
+        ...verse,
+        book: selectedBookObj?.name,
+        chapter: selectedChapterObj?.chapter,
+      })) || []);
+
+  if (!bibleData?.books) {
+    return <div>Cargando datos de la Biblia...</div>;
+  }
+
   return (
     <div className="bible-reading">
-      <button className="back-button" onClick={handleBack} style={{ display: selectedBook ? 'block' : 'none' }}>
-        ← Volver
-      </button>
-      {!selectedBook ? (
-        <div className="book-list">
-          <h2>Libros de la Biblia</h2>
-          {bibleData.books.map(book => (
-            <div key={book.name} className="book-item">
-              <input
-                type="checkbox"
-                checked={!!completedBooks[book.name]?.completed}
-                onChange={() => toggleBookCompletion(book.name)}
-              />
-              <span onClick={() => handleBookClick(book)}>
-                {book.name}
-                {completedBooks[book.name]?.date && ` - Marcado el ${completedBooks[book.name].date}`}
-              </span>
-            </div>
-          ))}
-        </div>
-      ) : !selectedChapter ? (
-        <div className="chapter-list">
-          <h2>Capítulos de {selectedBook.name}</h2>
-          {selectedBook.chapters.map(chapter => (
-            <div key={chapter.chapter} className="chapter-item">
-              <input
-                type="checkbox"
-                checked={!!completedChapters[`${selectedBook.name}_${chapter.chapter}`]?.completed}
-                onChange={() => toggleChapterCompletion(selectedBook.name, chapter.chapter)}
-              />
-              <span onClick={() => handleChapterClick(chapter)}>
-                Capítulo {chapter.chapter}
-                {completedChapters[`${selectedBook.name}_${chapter.chapter}`]?.date &&
-                  ` - Marcado el ${completedChapters[`${selectedBook.name}_${chapter.chapter}`].date}`}
-              </span>
-            </div>
-          ))}
+      {isHome ? (
+        <div className="main-content">
+          <div className="selector">
+            <select value={selectedBook || ''} onChange={(e) => setSelectedBook(e.target.value)}>
+              <option value="">Selecciona un libro</option>
+              {bibleData.books.map((book) => (
+                <option key={book.name} value={book.name}>
+                  {book.name}
+                </option>
+              ))}
+            </select>
+            <select value={selectedChapter || ''} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
+              <option value="">Selecciona un capítulo</option>
+              {bibleData.books
+                .find((b) => b.name === selectedBook)
+                ?.chapters.map((chapter) => (
+                  <option key={chapter.chapter} value={chapter.chapter}>
+                    {chapter.chapter}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <input
+            type="text"
+            placeholder="Buscar en toda la Biblia..."
+            value={searchQuery || ''}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          <div className="verse-list" style={{ maxHeight: '500px', overflowY: 'auto' }}>
+            {verses.length === 0 && searchQuery && <p>No se encontraron resultados.</p>}
+            {verses.map((verse, index) => {
+              const highlightKey = `highlight_${verse.book}_${verse.chapter}_${verse.verse}`;
+              const noteKey = `note_${verse.book}_${verse.chapter}_${verse.verse}`;
+              const prayerKey = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
+              const isSelected =
+                selectedVerse &&
+                verse.verse === selectedVerse.verse &&
+                verse.book === selectedVerse.book &&
+                verse.chapter === selectedVerse.chapter;
+              return (
+                <div
+                  key={`${verse.book}_${verse.chapter}_${verse.verse}_${index}`}
+                  className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''} ${isSelected ? 'selected-verse' : ''}`}
+                  onClick={() => handleVerseClick(verse)}
+                  onTouchStart={(e) => handleTouchStart(e, verse)}
+                  style={{ position: 'relative', padding: '10px' }}
+                >
+                  <p style={{ margin: '0', padding: '0 20px' }}>
+                    <strong>
+                      {verse.book} {verse.chapter}:{verse.verse}
+                    </strong>
+                    : {verse.text}
+                  </p>
+                  {notes[noteKey] && <p className="note">Nota: {notes[noteKey]}</p>}
+                  {localStorage.getItem(prayerKey) && (
+                    <audio controls src={localStorage.getItem(prayerKey)} style={{ marginTop: '5px' }} />
+                  )}
+                  {noteInput.visible &&
+                    noteInput.verse &&
+                    verse.verse === noteInput.verse?.verse &&
+                    verse.book === noteInput.verse?.book &&
+                    verse.chapter === noteInput.verse?.chapter && (
+                      <div className="note-input">
+                        <textarea
+                          placeholder="Escribe tu nota..."
+                          defaultValue={notes[noteKey] || ''}
+                          onChange={(e) => handleNoteChange(verse, e.target.value)}
+                          autoFocus
+                        />
+                        <button className="close-note" onClick={closeNoteInput}>
+                          X
+                        </button>
+                      </div>
+                    )}
+                </div>
+              );
+            })}
+            {contextMenu.visible && contextMenu.verse && (
+              <div
+                className="context-menu"
+                ref={contextMenuRef}
+                style={{
+                  position: 'fixed',
+                  bottom: '0',
+                  left: '0',
+                  right: '0',
+                  backgroundColor: 'white',
+                  padding: '10px',
+                  boxShadow: '0 -2px 5px rgba(0,0,0,0.2)',
+                  zIndex: '1000',
+                  animation: 'slideUp 0.3s ease-out forwards',
+                }}
+              >
+                <div className="menu-buttons">
+                  <button className="menu-button" onClick={() => toggleHighlightSubmenu()}>
+                    <img src="/assets/icons/subrayar.png" alt="Subrayar" />
+                  </button>
+                  <button className="menu-button" onClick={() => handleNote(contextMenu.verse)}>
+                    <img src="/assets/icons/anotar.png" alt="Anotar" />
+                  </button>
+                  <button className="menu-button" onClick={() => handleShare(contextMenu.verse)}>
+                    <img src="/assets/icons/compartir.png" alt="Compartir" />
+                  </button>
+                  <button className="menu-button" onClick={() => togglePrayerSubmenu()}>
+                    <img src="/assets/icons/orar.png" alt="Orar" />
+                  </button>
+                </div>
+                {highlightSubmenu && (
+                  <div className="color-submenu">
+                    <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'red')}>
+                      <img src="/assets/icons/rojo.png" alt="Rojo" />
+                    </button>
+                    <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'green')}>
+                      <img src="/assets/icons/verde.png" alt="Verde" />
+                    </button>
+                    <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>
+                      <img src="/assets/icons/amarillo.png" alt="Amarillo" />
+                    </button>
+                  </div>
+                )}
+                {prayerSubmenu && (
+                  <div className="prayer-submenu">
+                    <button
+                      className="prayer-button"
+                      onClick={() => (isRecording ? stopRecording() : startRecording(contextMenu.verse))}
+                    >
+                      {isRecording ? 'Detener Grabación' : 'Grabar Oración'}
+                    </button>
+                    {prayerAudio && <audio controls src={prayerAudio} style={{ marginTop: '5px' }} />}
+                  </div>
+                )}
+                <button
+                  className="close-menu-button"
+                  onClick={() => setContextMenu({ visible: false, verse: null })}
+                  style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    padding: '5px 10px',
+                    backgroundColor: '#ff4444',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '3px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  X
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       ) : (
-        <div className="verse-list">
-          <h2>{selectedBook.name} {selectedChapter.chapter}</h2>
-          {selectedChapter.verses.map(verse => {
-            const highlightKey = `highlight_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
-            const noteKey = `note_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}`;
-            const commentKey = `comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_${verseComments[`comment_${selectedBook.name}_${selectedChapter.chapter}_${verse.verse}_type`]?.type || 'unknown'}`;
-            return (
-              <div
-                key={verse.verse}
-                className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''} ${readVerses.has(verse.verse) ? 'read' : ''}`}
-                onContextMenu={(e) => {
-                  handleContextMenu(e, verse);
-                  console.log('Reading verse context menu:', verse);
-                }}
-                onTouchStart={(e) => {
-                  handleTouchStart(e, verse);
-                  console.log('Reading verse touch start:', verse);
-                }}
-                onTouchEnd={(e) => e.preventDefault()}
-                onClick={() => markVerseRead(verse.verse)}
-              >
-                <p><strong>{verse.verse}</strong>: {verse.text}</p>
-                {verseComments[commentKey] && (
-                  <p className="comment-wrapper">
-                    <span className="comment">
-                      Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
-                      {loadingComment === commentKey && ' (Cargando...)'}
-                    </span>
-                    <button className="close-comment" onClick={() => handleCloseComment(verse, verseComments[commentKey].type)}>X</button>
-                  </p>
-                )}
-                {notes[noteKey] && (
-                  <p className="note">Nota: {notes[noteKey]}</p>
-                )}
-                {noteInput.visible && noteInput.verse?.verse === verse.verse && (
-                  <div className="note-input">
-                    <textarea
-                      placeholder="Escribe tu nota..."
-                      defaultValue={notes[noteKey] || ''}
-                      onChange={(e) => handleNoteChange(verse, e.target.value)}
-                      autoFocus
-                    />
-                    <button className="close-note" onClick={closeNoteInput}>X</button>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-          {contextMenu.visible && contextMenu.verse && (
-            <div
-              className="context-menu"
-              style={{ top: contextMenu.y, left: contextMenu.x, position: 'fixed', zIndex: 1000 }}
-              ref={contextMenuRef}
-            >
-              <div className="menu-item" onClick={toggleHighlightSubmenu}>
-                Subrayar
-                {highlightSubmenu && (
-                  <div className="submenu">
-                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>Amarillo</div>
-                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'green')}>Verde</div>
-                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'blue')}>Azul</div>
-                    <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'pink')}>Rosa</div>
-                  </div>
-                )}
-              </div>
-              <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
-                Anotar
-              </div>
-              <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
-                Compartir
-              </div>
-              <div className="menu-item" onClick={toggleCommentSubmenu}>
-                Comentario
-                {commentSubmenu && (
-                  <div className="submenu">
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>Lingüística</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>Cultural</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>Histórica</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>Teológica</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>Geográfica</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>Paleolítica</div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>Arqueológica</div>
-                  </div>
-                )}
-              </div>
-              <div className="menu-item" onClick={toggleConcordanceSubmenu}>
-                Concordancia
-                {concordanceSubmenu && (
-                  <div className="submenu">
-                    {loadingConcordance ? (
-                      <div className="submenu-item">Cargando...</div>
-                    ) : (
-                      getConcordances(contextMenu.verse).then(related =>
-                        related.length === 0 ? (
-                          <div className="submenu-item">No hay concordancias</div>
-                        ) : (
-                          related.map((rel, index) => (
-                            <div
-                              key={index}
-                              className="submenu-item"
-                              onClick={() => handleConcordanceSelect(rel)}
-                            >
-                              {rel.book} {rel.chapter}:{rel.verse}
-                            </div>
-                          ))
-                        )
-                      )
+        <>
+          <button
+            className="back-button"
+            onClick={handleBack}
+            style={{ display: selectedBookObj ? 'block' : 'none' }}
+          >
+            ← Volver
+          </button>
+          {!selectedBookObj ? (
+            <div className="book-list">
+              <h2>Libros de la Biblia</h2>
+              {bibleData.books.map((book) => (
+                <div key={book.name} className="book-item">
+                  <input
+                    type="checkbox"
+                    checked={!!completedBooks[book.name]?.completed}
+                    onChange={() => toggleBookCompletion(book.name)}
+                  />
+                  <span onClick={() => handleBookClick(book)}>
+                    {book.name}
+                    {completedBooks[book.name]?.date && ` - Marcado el ${completedBooks[book.name].date}`}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : !selectedChapterObj ? (
+            <div className="chapter-list">
+              <h2>Capítulos de {selectedBookObj.name}</h2>
+              {selectedBookObj.chapters.map((chapter) => (
+                <div key={chapter.chapter} className="chapter-item">
+                  <input
+                    type="checkbox"
+                    checked={!!completedChapters[`${selectedBookObj.name}_${chapter.chapter}`]?.completed}
+                    onChange={() => toggleChapterCompletion(selectedBookObj.name, chapter.chapter)}
+                  />
+                  <span onClick={() => handleChapterClick(chapter)}>
+                    Capítulo {chapter.chapter}
+                    {completedChapters[`${selectedBookObj.name}_${chapter.chapter}`]?.date &&
+                      ` - Marcado el ${completedChapters[`${selectedBookObj.name}_${chapter.chapter}`].date}`}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="verse-list" style={{ maxHeight: '500px', overflowY: 'auto' }}>
+              <h2>
+                {selectedBookObj.name} {selectedChapterObj.chapter}
+              </h2>
+              {verses.map((verse, index) => {
+                const highlightKey = `highlight_${verse.book}_${verse.chapter}_${verse.verse}`;
+                const noteKey = `note_${verse.book}_${verse.chapter}_${verse.verse}`;
+                const prayerKey = `prayer_${verse.book}_${verse.chapter}_${verse.verse}`;
+                const isSelected =
+                  selectedVerse &&
+                  verse.verse === selectedVerse.verse &&
+                  verse.book === selectedVerse.book &&
+                  verse.chapter === selectedVerse.chapter;
+                return (
+                  <div
+                    key={`${verse.book}_${verse.chapter}_${verse.verse}_${index}`}
+                    className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''} ${isSelected ? 'selected-verse' : ''}`}
+                    onClick={() => handleVerseClick(verse)}
+                    onTouchStart={(e) => handleTouchStart(e, verse)}
+                    style={{ position: 'relative', padding: '10px' }}
+                  >
+                    <p style={{ margin: '0', padding: '0 20px' }}>
+                      <strong>{verse.verse}</strong>: {verse.text}
+                    </p>
+                    {notes[noteKey] && <p className="note">Nota: {notes[noteKey]}</p>}
+                    {localStorage.getItem(prayerKey) && (
+                      <audio controls src={localStorage.getItem(prayerKey)} style={{ marginTop: '5px' }} />
                     )}
+                    {noteInput.visible &&
+                      noteInput.verse &&
+                      verse.verse === noteInput.verse?.verse &&
+                      verse.book === noteInput.verse?.book &&
+                      verse.chapter === noteInput.verse?.chapter && (
+                        <div className="note-input">
+                          <textarea
+                            placeholder="Escribe tu nota..."
+                            defaultValue={notes[noteKey] || ''}
+                            onChange={(e) => handleNoteChange(verse, e.target.value)}
+                            autoFocus
+                          />
+                          <button className="close-note" onClick={closeNoteInput}>
+                            X
+                          </button>
+                        </div>
+                      )}
                   </div>
-                )}
-              </div>
+                );
+              })}
+              {contextMenu.visible && contextMenu.verse && (
+                <div
+                  className="context-menu"
+                  ref={contextMenuRef}
+                  style={{
+                    position: 'fixed',
+                    bottom: '0',
+                    left: '0',
+                    right: '0',
+                    backgroundColor: 'white',
+                    padding: '10px',
+                    boxShadow: '0 -2px 5px rgba(0,0,0,0.2)',
+                    zIndex: '1000',
+                    animation: 'slideUp 0.3s ease-out forwards',
+                  }}
+                >
+                  <div className="menu-buttons">
+                    <button className="menu-button" onClick={() => toggleHighlightSubmenu()}>
+                      <img src="/assets/icons/subrayar.png" alt="Subrayar" />
+                    </button>
+                    <button className="menu-button" onClick={() => handleNote(contextMenu.verse)}>
+                      <img src="/assets/icons/anotar.png" alt="Anotar" />
+                    </button>
+                    <button className="menu-button" onClick={() => handleShare(contextMenu.verse)}>
+                      <img src="/assets/icons/compartir.png" alt="Compartir" />
+                    </button>
+                    <button className="menu-button" onClick={() => togglePrayerSubmenu()}>
+                      <img src="/assets/icons/orar.png" alt="Orar" />
+                    </button>
+                  </div>
+                  {highlightSubmenu && (
+                    <div className="color-submenu">
+                      <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'red')}>
+                        <img src="/assets/icons/rojo.png" alt="Rojo" />
+                      </button>
+                      <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'green')}>
+                        <img src="/assets/icons/verde.png" alt="Verde" />
+                      </button>
+                      <button className="color-button" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>
+                        <img src="/assets/icons/amarillo.png" alt="Amarillo" />
+                      </button>
+                    </div>
+                  )}
+                  {prayerSubmenu && (
+                    <div className="prayer-submenu">
+                      <button
+                        className="prayer-button"
+                        onClick={() => (isRecording ? stopRecording() : startRecording(contextMenu.verse))}
+                      >
+                        {isRecording ? 'Detener Grabación' : 'Grabar Oración'}
+                      </button>
+                      {prayerAudio && <audio controls src={prayerAudio} style={{ marginTop: '5px' }} />}
+                    </div>
+                  )}
+                  <button
+                    className="close-menu-button"
+                    onClick={() => setContextMenu({ visible: false, verse: null })}
+                    style={{
+                      position: 'absolute',
+                      top: '10px',
+                      right: '10px',
+                      padding: '5px 10px',
+                      backgroundColor: '#ff4444',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '3px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
+              )}
             </div>
           )}
-        </div>
+        </>
       )}
     </div>
   );
