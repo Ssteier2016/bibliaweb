@@ -1,0 +1,268 @@
+.App {
+  margin: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  transition: background-color 0.3s, font-family 0.3s, font-size 0.3s, background-image 0.3s;
+}
+
+header {
+  background-color: #f8f8f8;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.dropdown-menu a, .dropdown-menu .menu-item {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown-menu a:hover, .dropdown-menu .menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.main-content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+select, input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.settings-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.settings-item {
+  margin-bottom: 15px;
+}
+
+.settings-item label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.settings-item input[type="color"],
+.settings-item select,
+.settings-item input[type="range"] {
+  width: 100%;
+  padding: 8px;
+  border: 4px;
+  border-radius: 4px;
+}
+
+.settings-item input[type="range"] {
+  width: 150px;
+  margin-right: 10px;
+}
+
+.close-settings {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-settings:hover {
+  background-color: #cc0000;
+}
+
+.continuous-text {
+  line-height: 1.6;
+  display: inline;
+}
+
+.verse {
+  display: inline;
+}
+
+.verse-number {
+  vertical-align: super;
+  font-size: 0.8em;
+  color: #555;
+  margin-right: 5px;
+}
+
+.verse-text {
+  display: inline;
+}
+
+.selected-verse {
+  border: 2px dashed #007bff;
+}
+
+.highlighted-yellow {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.highlighted-green {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.highlighted-blue {
+  background-color: rgba(0, 0, 255, 0.3);
+}
+
+.highlighted-pink {
+  background-color: rgba(255, 255, 203, 0.3);
+}
+
+.context-menu {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.submenu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.submenu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.note-input {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.note-input textarea {
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.close-note, .close-comment {
+  margin-left: 10px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.note {
+  display: inline-block;
+  color: #555;
+  margin-left: italic;
+  margin: 10px;
+}
+
+.comment-wrapper {
+  display: inline-block;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.comment {
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.prayer {
+  margin-left: 20px;
+}
+
+/* Estilos para la funcionalidad de colección */
+.collection {
+  display: flex;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
