@@ -7,7 +7,6 @@ import BibleReading from './components/BibleReading';
 import Collection from './components/Collection';
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
-import 'react-datepicker/dist/react-datepicker.css';
 
 function App() {
   const [selectedBook, setSelectedBook] = useState('Juan');
