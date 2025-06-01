@@ -7,6 +7,7 @@ import BibleReading from './components/BibleReading';
 import Collection from './components/Collection';
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function App() {
   const [selectedBook, setSelectedBook] = useState('Juan');
@@ -24,8 +25,10 @@ function App() {
   const [loadingComment, setLoadingComment] = useState(null);
   const [loadingConcordance, setLoadingConcordance] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  // Nuevos estados para personalización
+  const [settingsOpen, setSettingsOpen] = useState(false); // Estado para el modal de configuración
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
+  const [backgroundImage, setBackgroundImage] = useState('');
+  const [customBackgroundImage, setCustomBackgroundImage] = useState('');
   const [fontFamily, setFontFamily] = useState('Arial');
   const [fontSize, setFontSize] = useState(16);
   const contextMenuRef = useRef(null);
@@ -36,19 +39,35 @@ function App() {
   const chapter = book?.chapters.find(c => c.chapter === selectedChapter);
   const verses = chapter?.verses.filter(v => v.text.toLowerCase().includes(searchQuery.toLowerCase())) || [];
 
+  // Imágenes de fondo predefinidas
+  const backgroundImages = [
+    { name: 'Ninguna', url: '' },
+    { name: 'Cielo', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e' },
+    { name: 'Montaña', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b' },
+    { name: 'Mar', url: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0' },
+  ];
+
   // Cargar configuraciones desde localStorage
   useEffect(() => {
     const settings = JSON.parse(localStorage.getItem('bibleSettings')) || {};
     setBackgroundColor(settings.backgroundColor || '#ffffff');
+    setBackgroundImage(settings.backgroundImage || '');
+    setCustomBackgroundImage(settings.customBackgroundImage || '');
     setFontFamily(settings.fontFamily || 'Arial');
     setFontSize(settings.fontSize || 16);
   }, []);
 
   // Guardar configuraciones en localStorage
   useEffect(() => {
-    const settings = { backgroundColor, fontFamily, fontSize };
+    const settings = {
+      backgroundColor,
+      backgroundImage,
+      customBackgroundImage,
+      fontFamily,
+      fontSize,
+    };
     localStorage.setItem('bibleSettings', JSON.stringify(settings));
-  }, [backgroundColor, fontFamily, fontSize]);
+  }, [backgroundColor, backgroundImage, customBackgroundImage, fontFamily, fontSize]);
 
   // Cargar notas, resaltados y comentarios
   useEffect(() => {
@@ -336,15 +355,38 @@ function App() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    setSettingsOpen(false); // Cerrar configuración al abrir/cerrar menú
+  };
+
+  const toggleSettings = () => {
+    setSettingsOpen(!settingsOpen);
+    setMenuOpen(false); // Cerrar menú hamburguesa al abrir configuración
+  };
+
+  const handleCustomImageApply = () => {
+    if (customBackgroundImage) {
+      setBackgroundImage(customBackgroundImage);
+      setBackgroundColor('#ffffff'); // Restablecer color si se usa imagen
+    }
   };
 
   return (
     <ErrorBoundary>
-      <div className="App" style={{ backgroundColor, fontFamily, fontSize: `${fontSize}px` }}>
+      <div
+        className="App"
+        style={{
+          backgroundColor,
+          backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          fontFamily,
+          fontSize: `${fontSize}px`,
+        }}
+      >
         <header>
           <h1>Bibl-ia</h1>
           <div className="menu-container">
-            <button className="menu-button" onClick={toggleMenu}>
+            <button className="menu-button" onClick={toggleMenu} aria-label="Abrir menú">
               ☰
             </button>
             {menuOpen && (
@@ -352,39 +394,90 @@ function App() {
                 <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
                 <Link to="/reading" onClick={() => setMenuOpen(false)}>Lectura Bíblica</Link>
                 <Link to="/collection" onClick={() => setMenuOpen(false)}>Colección</Link>
+                <div className="menu-item" onClick={toggleSettings} aria-label="Abrir configuración">Configuración</div>
               </div>
             )}
           </div>
         </header>
-        <div className="controls">
-          <label htmlFor="backgroundColor">Color de fondo:</label>
-          <input
-            type="color"
-            id="backgroundColor"
-            value={backgroundColor}
-            onChange={(e) => setBackgroundColor(e.target.value)}
-          />
-          <label htmlFor="fontFamily">Tipografía:</label>
-          <select
-            id="fontFamily"
-            value={fontFamily}
-            onChange={(e) => setFontFamily(e.target.value)}
-          >
-            <option value="Arial">Arial</option>
-            <option value="Times New Roman">Times New Roman</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Roboto">Roboto</option>
-          </select>
-          <label htmlFor="fontSize">Tamaño de letra:</label>
-          <input
-            type="range"
-            id="fontSize"
-            min="12"
-            max="24"
-            value={fontSize}
-            onChange={(e) => setFontSize(Number(e.target.value))}
-          />
-        </div>
+        {settingsOpen && (
+          <div className="settings-modal">
+            <div className="settings-content">
+              <h2>Configuración</h2>
+              <div className="settings-item">
+                <label htmlFor="backgroundColor">Color de fondo:</label>
+                <input
+                  type="color"
+                  id="backgroundColor"
+                  value={backgroundColor}
+                  onChange={(e) => {
+                    setBackgroundColor(e.target.value);
+                    setBackgroundImage(''); // Desactivar imagen si se elige color
+                    setCustomBackgroundImage('');
+                  }}
+                />
+              </div>
+              <div className="settings-item">
+                <label htmlFor="backgroundImage">Imagen de fondo:</label>
+                <select
+                  id="backgroundImage"
+                  value={backgroundImage}
+                  onChange={(e) => {
+                    setBackgroundImage(e.target.value);
+                    setBackgroundColor('#ffffff'); // Restablecer color si se elige imagen
+                    setCustomBackgroundImage('');
+                  }}
+                >
+                  {backgroundImages.map((img) => (
+                    <option key={img.url} value={img.url}>{img.name}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="settings-item">
+                <label htmlFor="customBackgroundImage">URL de imagen personalizada:</label>
+                <input
+                  type="text"
+                  id="customBackgroundImage"
+                  value={customBackgroundImage}
+                  onChange={(e) => setCustomBackgroundImage(e.target.value)}
+                  placeholder="Pega la URL de una imagen"
+                />
+                <button onClick={handleCustomImageApply} disabled={!customBackgroundImage}>
+                  Aplicar URL
+                </button>
+              </div>
+              <div className="settings-item">
+                <label htmlFor="fontFamily">Tipografía:</label>
+                <select
+                  id="fontFamily"
+                  value={fontFamily}
+                  onChange={(e) => setFontFamily(e.target.value)}
+                >
+                  <option value="Arial">Arial</option>
+                  <option value="Roboto">Roboto</option>
+                  <option value="Open Sans">Open Sans</option>
+                  <option value="Lora">Lora</option>
+                  <option value="Montserrat">Montserrat</option>
+                  <option value="Georgia">Georgia</option>
+                </select>
+              </div>
+              <div className="settings-item">
+                <label htmlFor="fontSize">Tamaño de letra:</label>
+                <input
+                  type="range"
+                  id="fontSize"
+                  min="12"
+                  max="24"
+                  value={fontSize}
+                  onChange={(e) => setFontSize(Number(e.target.value))}
+                />
+                <span>{fontSize}px</span>
+              </div>
+              <button className="close-settings" onClick={toggleSettings}>
+                Cerrar
+              </button>
+            </div>
+          </div>
+        )}
         <Routes>
           <Route
             path="/"
@@ -579,6 +672,7 @@ function App() {
                 setLoadingConcordance={setLoadingConcordance}
                 contextMenuRef={contextMenuRef}
                 backgroundColor={backgroundColor}
+                backgroundImage={backgroundImage}
                 fontFamily={fontFamily}
                 fontSize={fontSize}
               />
