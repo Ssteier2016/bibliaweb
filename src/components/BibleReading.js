@@ -49,6 +49,7 @@ function BibleReading({
   backgroundColor,
   fontFamily,
   fontSize,
+  backgroundImage, // Nueva prop para imagen de fondo
 }) {
   const [selectedBookObj, setSelectedBookObj] = useState(null);
   const [selectedChapterObj, setSelectedChapterObj] = useState(null);
@@ -68,6 +69,17 @@ function BibleReading({
     setCompletedBooks(storedBooks);
     setCompletedChapters(storedChapters);
   }, []);
+
+  useEffect(() => {
+    // Limpieza al desmontar el componente
+    return () => {
+      if (mediaRecorderRef.current && isRecording) {
+        mediaRecorderRef.current.stop();
+        mediaRecorderRef.current = null;
+      }
+      audioChunksRef.current = [];
+    };
+  }, [isRecording]);
 
   const formatDate = () => {
     const now = new Date();
@@ -162,7 +174,9 @@ function BibleReading({
       audioChunksRef.current = [];
 
       mediaRecorderRef.current.ondataavailable = (event) => {
-        audioChunksRef.current.push(event.data);
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data);
+        }
       };
 
       mediaRecorderRef.current.onstop = () => {
@@ -223,6 +237,9 @@ function BibleReading({
       className="bible-reading"
       style={{
         backgroundColor,
+        backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         fontFamily,
         fontSize: `${fontSize}px`,
       }}
