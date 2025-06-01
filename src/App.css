@@ -1,0 +1,295 @@
+.App {
+  margin: 20px;
+  padding: 20px;
+  transition: background-color 0.3s, font-family 0.3s, font-size 0.3s;
+}
+
+header {
+  background-color: #f8f8f8;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.main-content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+select, input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.controls {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls label {
+  font-weight: bold;
+}
+
+.continuous-text {
+  line-height: 1.6;
+  display: inline;
+}
+
+.verse {
+  display: inline;
+}
+
+.verse-number {
+  vertical-align: super;
+  font-size: 0.8em;
+  color: #555;
+  margin-right: 5px;
+}
+
+.verse-text {
+  display: inline;
+}
+
+.verse.selected-verse {
+  border: 2px dashed #007bff;
+}
+
+.highlighted-yellow {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.highlighted-green {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.highlighted-blue {
+  background-color: rgba(0, 0, 255, 0.3);
+}
+
+.highlighted-pink {
+  background-color: rgba(255, 192, 203, 0.3);
+}
+
+.context-menu {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.submenu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.submenu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.note-input {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.note-input textarea {
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.close-note, .close-comment {
+  margin-left: 10px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.note {
+  display: inline-block;
+  color: #555;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.comment-wrapper {
+  display: inline-block;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.comment {
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.prayer-modal {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* Estilos para la funcionalidad de colección */
+.collection {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(34, 50px);
+  gap: 5px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.grid-item {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.grid-item.unlocked {
+  background-color: #e0f7fa;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-details {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.card-details img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card-details h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
