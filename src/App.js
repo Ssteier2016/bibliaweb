@@ -25,12 +25,13 @@ function App() {
   const [loadingComment, setLoadingComment] = useState(null);
   const [loadingConcordance, setLoadingConcordance] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false); // Estado para el modal de configuración
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
   const [backgroundImage, setBackgroundImage] = useState('');
   const [customBackgroundImage, setCustomBackgroundImage] = useState('');
   const [fontFamily, setFontFamily] = useState('Arial');
   const [fontSize, setFontSize] = useState(16);
+  const [textColor, setTextColor] = useState('#000000'); // Nuevo estado para color de letra
   const contextMenuRef = useRef(null);
   const touchStartPos = useRef(null);
   const navigate = useNavigate();
@@ -39,7 +40,6 @@ function App() {
   const chapter = book?.chapters.find(c => c.chapter === selectedChapter);
   const verses = chapter?.verses.filter(v => v.text.toLowerCase().includes(searchQuery.toLowerCase())) || [];
 
-  // Imágenes de fondo predefinidas
   const backgroundImages = [
     { name: 'Ninguna', url: '' },
     { name: 'Cielo', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e' },
@@ -55,6 +55,7 @@ function App() {
     setCustomBackgroundImage(settings.customBackgroundImage || '');
     setFontFamily(settings.fontFamily || 'Arial');
     setFontSize(settings.fontSize || 16);
+    setTextColor(settings.textColor || '#000000'); // Cargar color de letra
   }, []);
 
   // Guardar configuraciones en localStorage
@@ -65,9 +66,10 @@ function App() {
       customBackgroundImage,
       fontFamily,
       fontSize,
+      textColor, // Guardar color de letra
     };
     localStorage.setItem('bibleSettings', JSON.stringify(settings));
-  }, [backgroundColor, backgroundImage, customBackgroundImage, fontFamily, fontSize]);
+  }, [backgroundColor, backgroundImage, customBackgroundImage, fontFamily, fontSize, textColor]);
 
   // Cargar notas, resaltados y comentarios
   useEffect(() => {
@@ -97,11 +99,11 @@ function App() {
   }, [selectedBook, selectedChapter]);
 
   const handleContextMenu = (e, verse) => {
-    if (e.cancelable) {
+    if (e?.cancelable) {
       e.preventDefault();
     }
-    const x = e.clientX || (e.touches && e.touches[0].clientX);
-    const y = e.clientY || (e.touches && e.touches[0].clientY);
+    const x = e?.clientX || (e?.touches && e.touches[0].clientX) || 0;
+    const y = e?.clientY || (e?.touches && e.touches[0].clientY) || 0;
     setContextMenu({ visible: true, x, y, verse });
     setHighlightSubmenu(false);
     setCommentSubmenu(false);
@@ -355,18 +357,18 @@ function App() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    setSettingsOpen(false); // Cerrar configuración al abrir/cerrar menú
+    setSettingsOpen(false);
   };
 
   const toggleSettings = () => {
     setSettingsOpen(!settingsOpen);
-    setMenuOpen(false); // Cerrar menú hamburguesa al abrir configuración
+    setMenuOpen(false);
   };
 
   const handleCustomImageApply = () => {
     if (customBackgroundImage) {
       setBackgroundImage(customBackgroundImage);
-      setBackgroundColor('#ffffff'); // Restablecer color si se usa imagen
+      setBackgroundColor('#ffffff');
     }
   };
 
@@ -381,6 +383,7 @@ function App() {
           backgroundPosition: 'center',
           fontFamily,
           fontSize: `${fontSize}px`,
+          color: textColor, // Aplicar color de letra
         }}
       >
         <header>
@@ -411,7 +414,7 @@ function App() {
                   value={backgroundColor}
                   onChange={(e) => {
                     setBackgroundColor(e.target.value);
-                    setBackgroundImage(''); // Desactivar imagen si se elige color
+                    setBackgroundImage('');
                     setCustomBackgroundImage('');
                   }}
                 />
@@ -423,7 +426,7 @@ function App() {
                   value={backgroundImage}
                   onChange={(e) => {
                     setBackgroundImage(e.target.value);
-                    setBackgroundColor('#ffffff'); // Restablecer color si se elige imagen
+                    setBackgroundColor('#ffffff');
                     setCustomBackgroundImage('');
                   }}
                 >
@@ -471,6 +474,15 @@ function App() {
                   onChange={(e) => setFontSize(Number(e.target.value))}
                 />
                 <span>{fontSize}px</span>
+              </div>
+              <div className="settings-item">
+                <label htmlFor="textColor">Color de letra:</label>
+                <input
+                  type="color"
+                  id="textColor"
+                  value={textColor}
+                  onChange={(e) => setTextColor(e.target.value)}
+                />
               </div>
               <button className="close-settings" onClick={toggleSettings}>
                 Cerrar
@@ -548,7 +560,7 @@ function App() {
                         )}
                         {prayerModal.visible && prayerModal.verse?.verse === verse.verse && (
                           <div className="prayer-modal">
-                            {/* Implementar en BibleReading.js */}
+                            {/* Implementado en BibleReading.js */}
                           </div>
                         )}
                       </span>
@@ -675,6 +687,7 @@ function App() {
                 backgroundImage={backgroundImage}
                 fontFamily={fontFamily}
                 fontSize={fontSize}
+                textColor={textColor} // Pasar color de letra
               />
             }
           />
