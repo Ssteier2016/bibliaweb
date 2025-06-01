@@ -1,13 +1,18 @@
 .bible-reading {
   padding: 20px;
   min-height: 100vh;
-  transition: background-color 0.3s, font-family 0.3s, font-size 0.3s, background-image 0.3s;
+  transition: background-color 0.3s, font-family 0.3s, font-size 0.3s, background-image 0.3s, color 0.3s;
 }
 
-.book-list, .chapter-list, .verse-list {
+.book-list,
+.chapter-list,
+.verse-list {
   max-width: 800px;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para legibilidad */
+  padding: 10px;
+  border-radius: 4px;
+  color: inherit; /* Heredar color de letra */
 }
 
 .continuous-text {
@@ -22,7 +27,7 @@
 .verse-number {
   vertical-align: super;
   font-size: 0.8em;
-  color: #555;
+  color: #555; /* Color fijo para legibilidad */
   margin-right: 5px;
 }
 
@@ -50,20 +55,28 @@
   background-color: rgba(255, 192, 203, 0.3);
 }
 
-.comment-wrapper, .note {
+.comment-wrapper,
+.note {
   display: inline-block;
   margin-left: 10px;
   font-size: 0.9em;
-  color: #666;
+  color: inherit; /* Heredar color de letra */
 }
 
-.note-input, .prayer-modal {
+.note-input,
+.prayer-modal {
   display: inline-block;
   margin-left: 10px;
 }
 
-.close-note, .close-comment {
+.close-note,
+.comment-button {
   margin-left: 5px;
+  padding: 2px 6px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -77,7 +90,8 @@
   cursor: pointer;
 }
 
-.book-item, .chapter-item {
+.book-item,
+.chapter-item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -85,7 +99,8 @@
   cursor: pointer;
 }
 
-.book-item:hover, .chapter-item:hover {
+.book-item:hover,
+.chapter-item:hover {
   background-color: #f0f0f0;
 }
 
