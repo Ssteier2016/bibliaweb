@@ -47,9 +47,10 @@ function BibleReading({
   setLoadingConcordance,
   contextMenuRef,
   backgroundColor,
+  backgroundImage,
   fontFamily,
   fontSize,
-  backgroundImage, // Nueva prop para imagen de fondo
+  textColor, // Nueva prop para color de letra
 }) {
   const [selectedBookObj, setSelectedBookObj] = useState(null);
   const [selectedChapterObj, setSelectedChapterObj] = useState(null);
@@ -71,7 +72,6 @@ function BibleReading({
   }, []);
 
   useEffect(() => {
-    // Limpieza al desmontar el componente
     return () => {
       if (mediaRecorderRef.current && isRecording) {
         mediaRecorderRef.current.stop();
@@ -242,6 +242,7 @@ function BibleReading({
         backgroundPosition: 'center',
         fontFamily,
         fontSize: `${fontSize}px`,
+        color: textColor, // Aplicar color de letra
       }}
     >
       <button
@@ -460,7 +461,7 @@ function BibleReading({
                 Comentario
                 {commentSubmenu && (
                   <div className="submenu">
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingü')}>
                       Lingüística
                     </div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>
@@ -476,9 +477,9 @@ function BibleReading({
                       Geográfica
                     </div>
                     <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>
-                      Paleolítica
+                      Paleol
                     </div>
-                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>
+                    <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arque')}>
                       Arqueológica
                     </div>
                   </div>
