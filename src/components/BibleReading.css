@@ -1,11 +1,13 @@
 .bible-reading {
   padding: 20px;
-  transition: background-color 0.3s, font-family 0.3s, font-size 0.3s;
+  min-height: 100vh;
+  transition: background-color 0.3s, font-family 0.3s, font-size 0.3s, background-image 0.3s;
 }
 
 .book-list, .chapter-list, .verse-list {
   max-width: 800px;
   margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para legibilidad */
 }
 
 .continuous-text {
@@ -33,19 +35,19 @@
 }
 
 .highlighted-yellow {
-  background-color: #ffff99;
+  background-color: rgba(255, 255, 0, 0.3);
 }
 
 .highlighted-green {
-  background-color: #99ff99;
+  background-color: rgba(0, 255, 0, 0.3);
 }
 
 .highlighted-blue {
-  background-color: #99ccff;
+  background-color: rgba(0, 0, 255, 0.3);
 }
 
 .highlighted-pink {
-  background-color: #ffccff;
+  background-color: rgba(255, 192, 203, 0.3);
 }
 
 .comment-wrapper, .note {
@@ -127,7 +129,7 @@
   background-color: #007bff;
   color: white;
   border: none;
-  borderRadius: 3px;
+  border-radius: 3px;
   cursor: pointer;
   margin: 10px 0;
 }
