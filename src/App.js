@@ -5,6 +5,7 @@ import bibleData from './data/reina_valera.json';
 import concordances from './data/concordances.json';
 import BibleReading from './components/BibleReading';
 import Collection from './components/Collection';
+import ContentFilter from './components/ContentFilter'; // Nueva importación
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -31,7 +32,7 @@ function App() {
   const [customBackgroundImage, setCustomBackgroundImage] = useState('');
   const [fontFamily, setFontFamily] = useState('Arial');
   const [fontSize, setFontSize] = useState(16);
-  const [textColor, setTextColor] = useState('#000000'); // Nuevo estado para color de letra
+  const [textColor, setTextColor] = useState('#000000');
   const contextMenuRef = useRef(null);
   const touchStartPos = useRef(null);
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ function App() {
     setCustomBackgroundImage(settings.customBackgroundImage || '');
     setFontFamily(settings.fontFamily || 'Arial');
     setFontSize(settings.fontSize || 16);
-    setTextColor(settings.textColor || '#000000'); // Cargar color de letra
+    setTextColor(settings.textColor || '#000000');
   }, []);
 
   // Guardar configuraciones en localStorage
@@ -66,7 +67,7 @@ function App() {
       customBackgroundImage,
       fontFamily,
       fontSize,
-      textColor, // Guardar color de letra
+      textColor,
     };
     localStorage.setItem('bibleSettings', JSON.stringify(settings));
   }, [backgroundColor, backgroundImage, customBackgroundImage, fontFamily, fontSize, textColor]);
@@ -383,7 +384,7 @@ function App() {
           backgroundPosition: 'center',
           fontFamily,
           fontSize: `${fontSize}px`,
-          color: textColor, // Aplicar color de letra
+          color: textColor,
         }}
       >
         <header>
@@ -397,6 +398,7 @@ function App() {
                 <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
                 <Link to="/reading" onClick={() => setMenuOpen(false)}>Lectura Bíblica</Link>
                 <Link to="/collection" onClick={() => setMenuOpen(false)}>Colección</Link>
+                <Link to="/filter" onClick={() => setMenuOpen(false)}>Filtro de Bienestar</Link> {/* Nuevo enlace */}
                 <div className="menu-item" onClick={toggleSettings} aria-label="Abrir configuración">Configuración</div>
               </div>
             )}
@@ -687,7 +689,7 @@ function App() {
                 backgroundImage={backgroundImage}
                 fontFamily={fontFamily}
                 fontSize={fontSize}
-                textColor={textColor} // Pasar color de letra
+                textColor={textColor}
               />
             }
           />
@@ -695,6 +697,18 @@ function App() {
             path="/collection"
             element={<Collection />}
           />
+          <Route
+            path="/filter"
+            element={
+              <ContentFilter
+                backgroundColor={backgroundColor}
+                backgroundImage={backgroundImage}
+                fontFamily={fontFamily}
+                fontSize={fontSize}
+                textColor={textColor}
+              />
+            }
+          /> {/* Nueva ruta */}
         </Routes>
       </div>
     </ErrorBoundary>
