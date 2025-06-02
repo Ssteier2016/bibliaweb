@@ -1,0 +1,31 @@
+.content-filter {
+  padding: 20px;
+  background-color: #1a1a1a; /* Fondo oscuro como en tu tienda */
+  color: #ffffff;
+  border-radius: 10px;
+  margin: 20px;
+  font-family: 'Roboto', sans-serif; /* Usando Google Fonts de tu app */
+}
+
+.content-filter h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.content-filter input {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+.stats {
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+.stats p {
+  margin: 5px 0;
+}
