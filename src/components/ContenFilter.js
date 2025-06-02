@@ -9,15 +9,17 @@ const ContentFilter = ({ backgroundColor, backgroundImage, fontFamily, fontSize,
   const [verse, setVerse] = useState('');
   const [consented, setConsented] = useState(false);
 
-  // Cargar el modelo NSFW.js al montar el componente
+  // Cargar el modelo NSFW.js desde un CDN
   useEffect(() => {
     async function loadModel() {
       await tf.ready();
       try {
-        const loadedModel = await nsfwjs.load('/models/nsfwjs/');
+        // Cargar el modelo desde el CDN de NSFW.js
+        const loadedModel = await nsfwjs.load('https://cdn.jsdelivr.net/npm/nsfwjs@2.4.2/models/inception_v3/');
         setModel(loadedModel);
       } catch (error) {
         console.error('Error loading NSFW.js model:', error);
+        alert('No se pudo cargar el modelo de detección. Verifica tu conexión.');
       }
     }
     loadModel();
