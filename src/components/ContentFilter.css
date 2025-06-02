@@ -1,10 +1,8 @@
 .content-filter {
   padding: 20px;
-  background-color: #1a1a1a; /* Fondo oscuro como en tu tienda */
-  color: #ffffff;
-  border-radius: 10px;
   margin: 20px;
-  font-family: 'Roboto', sans-serif; /* Usando Google Fonts de tu app */
+  border-radius: 10px;
+  font-family: inherit;
 }
 
 .content-filter h2 {
@@ -12,13 +10,31 @@
   margin-bottom: 10px;
 }
 
+.content-filter p {
+  margin: 10px 0;
+}
+
 .content-filter input {
   margin: 10px 0;
   padding: 10px;
-  background-color: #333;
-  color: #fff;
   border: 1px solid #555;
   border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: inherit;
+}
+
+.content-filter button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.content-filter button:hover {
+  background-color: #0056b3;
 }
 
 .stats {
