@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bibleData from './data/reina_valera.json';
 import concordances from './data/concordances.json';
 import BibleReading from './components/BibleReading';
 import Collection from './components/Collection';
-import ContentFilter from './components/ContentFilter';
 import ErrorBoundary from './ErrorBoundary';
+import { auth, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, doc, setDoc, getDoc, collection, addDoc } from './firebase';
 import './App.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -33,6 +33,14 @@ function App() {
   const [fontFamily, setFontFamily] = useState('Arial');
   const [fontSize, setFontSize] = useState(16);
   const [textColor, setTextColor] = useState('#000000');
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [authOpen, setAuthOpen] = useState(false);
+  const [monitorCode, setMonitorCode] = useState('');
+  const [monitorStatus, setMonitorStatus] = useState(false);
+  const [observerUid, setObserverUid] = useState(null);
+  const [alerts, setAlerts] = useState([]);
   const contextMenuRef = useRef(null);
   const touchStartPos = useRef(null);
   const navigate = useNavigate();
@@ -43,12 +51,32 @@ function App() {
 
   const backgroundImages = [
     { name: 'Ninguna', url: '' },
-    { name: 'Cielo', url: '/assets/backgrounds/sky.jpg' },
-    { name: 'Montaña', url: '/assets/backgrounds/mountain.jpg' },
-    { name: 'Mar', url: '/assets/backgrounds/sea.jpg' },
+    { name: 'Cielo', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e' },
+    { name: 'Montaña', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b' },
+    { name: 'Mar', url: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0' },
   ];
 
-  // Cargar configuraciones desde localStorage
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          setMonitorCode(data.monitorCode || '');
+          setMonitorStatus(data.monitorStatus || false);
+          setObserverUid(data.observerUid || null);
+        }
+      } else {
+        setUser(null);
+        setMonitorCode('');
+        setMonitorStatus(false);
+        setObserverUid(null);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
   useEffect(() => {
     const settings = JSON.parse(localStorage.getItem('bibleSettings')) || {};
     setBackgroundColor(settings.backgroundColor || '#ffffff');
@@ -59,7 +87,6 @@ function App() {
     setTextColor(settings.textColor || '#000000');
   }, []);
 
-  // Guardar configuraciones en localStorage
   useEffect(() => {
     const settings = {
       backgroundColor,
@@ -72,37 +99,119 @@ function App() {
     localStorage.setItem('bibleSettings', JSON.stringify(settings));
   }, [backgroundColor, backgroundImage, customBackgroundImage, fontFamily, fontSize, textColor]);
 
-  // Cargar notas, resaltados y comentarios optimizado
   useEffect(() => {
-    const storedNotes = {};
-    const storedHighlights = {};
-    const storedComments = {};
-    if (book && chapter) {
-      chapter.verses.forEach(verse => {
-        const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
-        const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
-        const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}`;
-        const note = localStorage.getItem(noteKey);
-        const highlight = localStorage.getItem(highlightKey);
-        const comment = localStorage.getItem(commentKey);
-        if (note) storedNotes[noteKey] = note;
-        if (highlight) storedHighlights[highlightKey] = JSON.parse(highlight);
-        if (comment) storedComments[commentKey] = JSON.parse(comment);
-      });
+    if (user) {
+      const storedNotes = {};
+      const storedHighlights = {};
+      const storedComments = {};
+      const currentBook = bibleData.books.find(b => b.name === selectedBook);
+      if (currentBook) {
+        const currentChapter = currentBook.chapters.find(c => c.chapter === selectedChapter);
+        if (currentChapter) {
+          currentChapter.verses.forEach(verse => {
+            const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user.uid}`;
+            const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user.uid}`;
+            const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${user.uid}`;
+            const note = localStorage.getItem(noteKey);
+            const highlight = localStorage.getItem(highlightKey);
+            const comment = localStorage.getItem(commentKey);
+            if (note) storedNotes[noteKey] = note;
+            if (highlight) storedHighlights[highlightKey] = JSON.parse(highlight);
+            if (comment) storedComments[commentKey] = JSON.parse(comment);
+          });
+        }
+      }
       setNotes(storedNotes);
       setHighlightedVerses(storedHighlights);
       setVerseComments(storedComments);
     }
-  }, [selectedBook, selectedChapter]);
+  }, [selectedBook, selectedChapter, user]);
 
-  // Validar clave API
-  useEffect(() => {
-    if (!process.env.REACT_APP_HF_API_KEY) {
-      console.warn('Hugging Face API key is missing. Comment and concordance features may not work.');
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      setAuthOpen(false);
+    } catch (error) {
+      alert('Error al iniciar sesión: ' + error.message);
     }
-  }, []);
+  };
 
-  const handleContextMenu = useCallback((e, verse) => {
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      const code = Math.random().toString(36).substring(2, 10);
+      await setDoc(doc(db, 'users', user.uid), {
+        email,
+        monitorCode: code,
+        monitorStatus: false,
+        observerUid: null,
+      });
+      setMonitorCode(code);
+      setAuthOpen(false);
+    } catch (error) {
+      alert('Error al registrarse: ' + error.message);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setMenuOpen(false);
+    } catch (error) {
+      alert('Error al cerrar sesión: ' + error.message);
+    }
+  };
+
+  const toggleMonitor = async () => {
+    if (!user) return;
+    const newStatus = !monitorStatus;
+    setMonitorStatus(newStatus);
+    await setDoc(doc(db, 'users', user.uid), { monitorStatus: newStatus }, { merge: true });
+    if (observerUid && !newStatus) {
+      await addDoc(collection(db, 'alerts'), {
+        observerUid,
+        message: `El usuario ${email} ha desactivado el monitoreo.`,
+        timestamp: new Date(),
+      });
+    }
+  };
+
+  const generateMonitorCode = async () => {
+    if (!user) return;
+    const newCode = Math.random().toString(36).substring(2, 10);
+    setMonitorCode(newCode);
+    await setDoc(doc(db, 'users', user.uid), { monitorCode: newCode }, { merge: true });
+  };
+
+  const revokeMonitor = async () => {
+    if (!user || !observerUid) return;
+    await setDoc(doc(db, 'users', user.uid), { observerUid: null }, { merge: true });
+    await addDoc(collection(db, 'alerts'), {
+      observerUid,
+      message: `El usuario ${email} ha revocado el monitoreo.`,
+      timestamp: new Date(),
+    });
+    setObserverUid(null);
+  };
+
+  const linkObserver = async (code) => {
+    if (!user) return;
+    const usersRef = collection(db, 'users');
+    const snapshot = await usersRef.where('monitorCode', '==', code).get();
+    if (!snapshot.empty) {
+      const observer = snapshot.docs[0];
+      await setDoc(doc(db, 'users', user.uid), { observerUid: observer.id }, { merge: true });
+      setObserverUid(observer.id);
+      alert('Observador vinculado con éxito.');
+    } else {
+      alert('Código inválido.');
+    }
+  };
+
+  const handleContextMenu = (e, verse) => {
     if (e?.cancelable) {
       e.preventDefault();
     }
@@ -112,7 +221,7 @@ function App() {
     setHighlightSubmenu(false);
     setCommentSubmenu(false);
     setConcordanceSubmenu(false);
-  }, []);
+  };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -132,7 +241,7 @@ function App() {
     };
   }, []);
 
-  const handleTouchStart = useCallback((e, verse) => {
+  const handleTouchStart = (e, verse) => {
     const touch = e.touches[0];
     touchStartPos.current = { x: touch.clientX, y: touch.clientY };
     const timeout = setTimeout(() => {
@@ -148,68 +257,68 @@ function App() {
       clearTimeout(timeout);
       touchStartPos.current = null;
     };
-  }, [handleContextMenu]);
+  };
 
-  const handleHighlight = useCallback((verse, color) => {
-    const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
+  const handleHighlight = (verse, color) => {
+    if (!user) return;
+    const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user.uid}`;
     const newHighlight = highlightedVerses[key]?.color === color ? null : { color };
-    setHighlightedVerses(prev => ({ ...prev, [key]: newHighlight }));
+    setHighlightedVerses({ ...highlightedVerses, [key]: newHighlight });
     localStorage.setItem(key, JSON.stringify(newHighlight));
     setContextMenu({ visible: false, verse: null });
     setHighlightSubmenu(false);
-  }, [selectedBook, selectedChapter, highlightedVerses]);
+  };
 
-  const toggleHighlightSubmenu = useCallback(() => {
-    setHighlightSubmenu(prev => !prev);
+  const toggleHighlightSubmenu = () => {
+    setHighlightSubmenu(!highlightSubmenu);
     setCommentSubmenu(false);
     setConcordanceSubmenu(false);
-  }, []);
+  };
 
-  const handleNote = useCallback((verse) => {
+  const handleNote = (verse) => {
     setNoteInput({ visible: true, verse });
     setContextMenu({ visible: false, verse: null });
-  }, []);
+  };
 
-  const handleNoteChange = useCallback((verse, value) => {
-    const key = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
-    setNotes(prev => ({ ...prev, [key]: value }));
+  const handleNoteChange = (verse, value) => {
+    if (!user) return;
+    const key = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user.uid}`;
+    setNotes({ ...notes, [key]: value });
     localStorage.setItem(key, value);
-  }, [selectedBook, selectedChapter]);
+  };
 
-  const closeNoteInput = useCallback(() => {
+  const closeNoteInput = () => {
     setNoteInput({ visible: false, verse: null });
-  }, []);
+  };
 
-  const handleShare = useCallback(async (verse) => {
+  const handleShare = async (verse) => {
     const text = `${selectedBook} ${selectedChapter}:${verse.verse} - ${verse.text}`;
     try {
       if (navigator.share) {
-        await navigator.share({ title: 'Biblia Web', text });
+        await navigator.share({ title: 'Biblia', text });
       } else {
-        navigator.clipboard.writeText(text);
-        alert('Versículo copiado al portapapeles: ' + text);
+        alert('Copia: ' + text);
       }
     } catch (error) {
       if (error.name !== 'AbortError') {
         console.error('Error al compartir:', error);
-        alert('Error al compartir. Versículo copiado: ' + text);
-        navigator.clipboard.writeText(text);
       }
     }
     setContextMenu({ visible: false, verse: null });
-  }, [selectedBook, selectedChapter]);
+  };
 
-  const handleCommentSelect = useCallback(async (verse, type) => {
-    const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}`;
+  const handleCommentSelect = async (verse, type) => {
+    if (!user) return;
+    const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}_${user.uid}`;
     const cachedComment = localStorage.getItem(key);
     if (cachedComment) {
-      setVerseComments(prev => ({ ...prev, [key]: JSON.parse(cachedComment) }));
+      setVerseComments({ ...verseComments, [key]: JSON.parse(cachedComment) });
       setLoadingComment(null);
       setContextMenu({ visible: false, verse: null });
       setCommentSubmenu(false);
       return;
     }
-    setLoadingComment(key);
+    setLoading(true);
     try {
       const prompt = `
         Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro, con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
@@ -225,9 +334,8 @@ function App() {
         },
         {
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY || ''}`,
+            Authorization: `Bearer ${process.env.REACT_APP_HF_API_KEY}`,
             'Content-Type': 'application/json',
-            'x-wait-for-model': 'true',
           },
           timeout: 30000,
         }
@@ -238,150 +346,95 @@ function App() {
       }
       commentText = commentText.split(' ').slice(0, 100).join(' ');
       const comment = { type, text: commentText };
-      setVerseComments(prev => ({ ...prev, [key]: comment }));
+      setVerseComments({ ...verseComments, [key]: comment });
       localStorage.setItem(key, JSON.stringify(comment));
     } catch (error) {
-      console.error('Error fetching comment:', error);
-      let errorMessage = 'Error al obtener el comentario. Verifica tu conexión o la clave API.';
-      if (error.code === 'ERR_NETWORK') {
-        errorMessage = 'Error de red: No se pudo conectar con Hugging Face.';
-      } else if (error.response) {
-        errorMessage = `Error ${error.response.status}: ${error.response.data?.error || 'Error desconocido'}`;
-      }
-      setVerseComments(prev => ({
-        ...prev,
-        [key]: { type, text: errorMessage }
-      }));
+      console.error('Error:', error);
+      setVerseComments({
+        ...verseComments,
+        [key]: { type, text: 'Error al obtener comentario.' },
+      });
     }
     setLoadingComment(null);
     setContextMenu({ visible: false, verse: null });
     setCommentSubmenu(false);
-  }, [selectedBook, selectedChapter]);
+  };
 
-  const generateConcordance = useCallback(async (verse) => {
-    const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
-    const key = `concordance_${reference}`;
-    const cachedConcordance = localStorage.getItem(key);
-    if (cachedConcordance) {
-      return JSON.parse(cachedConcordance);
-    }
-    setLoadingConcordance(reference);
-    try {
-      const prompt = `
-        Eres un experto en estudios bíblicos. Proporciona hasta 3 referencias cruzadas (concordancias) para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en la Biblia. Cada referencia debe incluir libro, capítulo, versículo y un fragmento breve del texto (máximo 20 palabras). Responde solo con un array JSON de ejemplos:
-        [
-          {"book": "Génesis", "chapter": 1, "verse": 1, "text": "En el principio creó Dios..."},
-          {"book": "Colosenses", "chapter": 1, "verse": 16, "text": "Porque en él fueron creadas..."}
-        ]
-      `;
-      const response = await axios.post(
-        'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
-        {
-          inputs: prompt,
-          max_tokens: 300,
-          temperature: 0.7,
-        },
-        {
-          headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY || ''}`,
-            'Content-Type': 'application/json',
-            'x-wait-for-model': 'true',
-          },
-          timeout: 30000,
-        }
-      );
-      let concordanceText = response.data?.[0]?.generated_text?.trim() || '[]';
-      let related = [];
-      try {
-        related = JSON.parse(concordanceText);
-        if (!Array.isArray(related)) throw new Error('Invalid format');
-      } catch (e) {
-        console.error('Invalid concordance response:', concordanceText);
-        related = [];
-      }
-      if (related.length > 0) {
-        localStorage.setItem(key, JSON.stringify(related));
-      }
-      setLoadingConcordance(null);
-      return related;
-    } catch (error) {
-      console.error('Error generating concordance:', error);
-      setLoadingConcordance(null);
-      return [];
-    }
-  }, [selectedBook, selectedChapter]);
-
-  const toggleCommentSubmenu = useCallback(() => {
-    setCommentSubmenu(prev => !prev);
+  const toggleCommentSubmenu = () => {
+    setCommentSubmenu(!commentSubmenu);
     setHighlightSubmenu(false);
     setConcordanceSubmenu(false);
-  }, []);
+  };
 
-  const handleCloseComment = useCallback((verse, type) => {
-    const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}`;
-    setVerseComments(prev => {
-      const newComments = { ...prev };
-      delete newComments[key];
-      return newComments;
-    });
+  const handleCloseComment = (verse, type) => {
+    if (!user) return;
+    const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}_${user.uid}`;
+    const newComments = { ...verseComments };
+    delete newComments[key];
+    setVerseComments(newComments);
     localStorage.removeItem(key);
-  }, [selectedBook, selectedChapter]);
+  };
 
-  const toggleConcordanceSubmenu = useCallback(() => {
-    setConcordanceSubmenu(prev => !prev);
+  const toggleConcordanceSubmenu = () => {
+    setConcordanceSubmenu(!concordanceSubmenu);
     setHighlightSubmenu(false);
     setCommentSubmenu(false);
-  }, []);
+  };
 
-  const handleConcordanceSelect = useCallback((relatedVerse) => {
+  const handleConcordanceSelect = (relatedVerse) => {
     setSelectedBook(relatedVerse.book);
     setSelectedChapter(relatedVerse.chapter);
     navigate('/');
     setContextMenu({ visible: false, verse: null });
     setConcordanceSubmenu(false);
-  }, [navigate]);
-
-  const getConcordances = useCallback(async (verse) => {
-    const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
-    const entry = concordances.concordances.find(c => c.reference === reference);
-    if (entry) return entry.related;
-    const generated = await generateConcordance(verse);
-    return generated;
-  }, [selectedBook, selectedChapter, generateConcordance]);
-
-  const handlePrayer = useCallback((verse) => {
-    setPrayerModal({ visible: true, verse });
-    setContextMenu({ visible: false, verse: null });
-  }, []);
-
-  const closePrayerModal = useCallback(() => {
-    setPrayerModal({ visible: false, verse: null });
-  }, []);
-
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(prev => !prev);
-    setSettingsOpen(false);
-  }, []);
-
-  const toggleSettings = useCallback(() => {
-    setSettingsOpen(prev => !prev);
-    setMenuOpen(false);
-  }, []);
-
-  const handleCustomImageApply = useCallback(() => {
-    if (customBackgroundImage) {
-      setBackgroundImage(customBackgroundImage);
-      setBackgroundColor('#ffffff');
-    }
-  }, [customBackgroundImage]);
-
-  // Manejo de errores para imágenes de fondo
-  const handleImageError = (e) => {
-    console.warn('Error loading background image:', e.target.src);
-    setBackgroundImage('');
-    setBackgroundColor('#ffffff');
   };
 
+  const getConcordances = async (verse) => {
+    const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
+    const entry = concordances.find(c => c.reference === reference);
+    return entry ? entry.related : [];
+  };
+
+  const handlePrayer = (verse) => {
+    setPrayerModal({ visible: true, verse });
+    setContextMenu({ visible: false, verse: null });
+  };
+
+  const closePrayerModal = () => {
+    setPrayerModal({ visible: false, verse: null });
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    setSettingsOpen(false);
+    setAuthOpen(false);
+  };
+
+  const toggleSettings = () => {
+    setSettingsOpen(!settingsOpen);
+    setMenuOpen(false);
+    setAuthOpen(false);
+  };
+
+  const toggleAuth = () => {
+    e.preventDefault();
+    setAuthOpen(!authOpen);
+    setMenuOpen(false);
+    setSettingsOpen(false);
+  };
+
+  const handleCustomImageApply = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event => {
+        const imageUrl = event.target.result;
+        setBackgroundImage(imageUrl);
+        setBackgroundColor('#ffffff');
+        setCustomBackgroundImage(imageUrl);
+      reader.readAsDataURL(file);
+    });
+    }
   return (
     <ErrorBoundary>
       <div
@@ -397,37 +450,69 @@ function App() {
         }}
       >
         <header>
-          <h1>Bibl-ia</h1>
+          <h1>Bibl.ia</h1>
           <div className="menu-container">
-            <button
-              className="menu-button"
-              onClick={toggleMenu}
-              aria-label="Abrir menú"
-              aria-expanded={menuOpen}
-            >
+            <button className="menu-button" onClick={toggleMenu} aria-label="Open menu">
               ☰
             </button>
             {menuOpen && (
-              <nav className="dropdown-menu" role="navigation">
-                <Link to="/" onClick={toggleMenu}>Inicio</Link>
-                <Link to="/reading" onClick={toggleMenu}>Lectura Bíblica</Link>
-                <Link to="/collection" onClick={toggleMenu}>Colección</Link>
-                <Link to="/filter" onClick={toggleMenu}>Filtro de Bienestar</Link>
-                <button
-                  className="menu-item"
-                  onClick={toggleSettings}
-                  aria-label="Abrir configuración"
-                >
-                  Configuración
-                </button>
-              </nav>
+              <div className="dropdown-menu">
+                <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
+                <Link to="/reading" onClick={() => setMenuOpen(false)}>Lectura Bíblica</Link>
+                <Link to="/collection" onClick={() => setMenuOpen(false)}>Colección</Link>)
+                <div className="menu-item" onClick={toggleSettings} aria-label="Open settings">Configuración</div>
+                {user ? (
+                  <>
+                    <div className="menu-item" onClick={toggleMonitor}>
+                      {monitorStatus ? 'Desactivar Monitoreo' : 'Activar Monitoreo'}
+                    </div>
+                    <div className="menu-item" onClick={generateMonitorCode}>Generar Código de Monitoreo</div>
+                    <div className="menu-item" onClick={revokeMonitor}>Revocar Monitoreo</div>
+                    <div className="menu-item" onClick={toggleAuth}>Cerrar Sesión</div>
+                  </>
+                ) : (
+                  <div className="menu-item" onClick={toggleAuth}>Iniciar Sesión / Registrarse</div>
+                )}
+              </div>
             )}
           </div>
         </header>
+        {authOpen && (
+          <div className="auth-modal">
+            <div className="auth-content">
+              <h2>Autenticación</h2>
+              <form onSubmit={handleLogin}>
+                <div className="form-group">
+                  <label htmlFor="email">Correo:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Contraseña:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit" type="submit">Iniciar Sesión</button>
+                <button type="button" onClick={handleRegister}>Registrarse</button>
+                <button type="button" onClick={() => setAuthOpen(false)}>Cerrar</button>
+              </div>
+            </div>
+          </div>
+        )}
         {settingsOpen && (
-          <div className="settings-modal" role="dialog" aria-labelledby="settings-title">
+          <div className="settings-modal">
             <div className="settings-content">
-              <h2 id="settings-title">Configuración</h2>
+              <h2>Configuración</h2>
               <div className="settings-item">
                 <label htmlFor="backgroundColor">Color de fondo:</label>
                 <input
@@ -439,7 +524,6 @@ function App() {
                     setBackgroundImage('');
                     setCustomBackgroundImage('');
                   }}
-                  aria-label="Seleccionar color de fondo"
                 />
               </div>
               <div className="settings-item">
@@ -452,7 +536,6 @@ function App() {
                     setBackgroundColor('#ffffff');
                     setCustomBackgroundImage('');
                   }}
-                  aria-label="Seleccionar imagen de fondo"
                 >
                   {backgroundImages.map((img) => (
                     <option key={img.url} value={img.url}>{img.name}</option>
@@ -460,22 +543,13 @@ function App() {
                 </select>
               </div>
               <div className="settings-item">
-                <label htmlFor="customBackgroundImage">URL de imagen personalizada:</label>
+                <label htmlFor="customBackgroundImage">Subir fondo personalizado:</label>
                 <input
-                  type="text"
+                  type="file"
                   id="customBackgroundImage"
-                  value={customBackgroundImage}
-                  onChange={(e) => setCustomBackgroundImage(e.target.value)}
-                  placeholder="Pega la URL de una imagen"
-                  aria-label="Ingresar URL de imagen personalizada"
+                  onChange={handleCustomImageApply}
+                  accept="image/*"
                 />
-                <button
-                  onClick={handleCustomImageApply}
-                  disabled={!customBackgroundImage}
-                  aria-label="Aplicar imagen personalizada"
-                >
-                  Aplicar URL
-                </button>
               </div>
               <div className="settings-item">
                 <label htmlFor="fontFamily">Tipografía:</label>
@@ -483,7 +557,6 @@ function App() {
                   id="fontFamily"
                   value={fontFamily}
                   onChange={(e) => setFontFamily(e.target.value)}
-                  aria-label="Seleccionar tipografía"
                 >
                   <option value="Arial">Arial</option>
                   <option value="Roboto">Roboto</option>
@@ -501,8 +574,7 @@ function App() {
                   min="12"
                   max="24"
                   value={fontSize}
-                  onChange={(e) => setFontSize(Number(e.target.value))}
-                  aria-label="Ajustar tamaño de letra"
+                  onChange={(e) => setFontSize(Number(e.target.value)))}
                 />
                 <span>{fontSize}px</span>
               </div>
@@ -512,15 +584,31 @@ function App() {
                   type="color"
                   id="textColor"
                   value={textColor}
-                  onChange={(e) => setTextColor(e.target.value)}
-                  aria-label="Seleccionar color de letra"
+                  onChange={(e) => setTextColor(e.target.value))}
                 />
               </div>
-              <button
-                className="close-settings"
-                onClick={toggleSettings}
-                aria-label="Cerrar configuración"
-              >
+              {user && (
+                <div className="settings-item">
+                  <label htmlFor="monitorCode">Código de monitoreo:</label>
+                  <input
+                    type="text"
+                    id="monitorCode"
+                    value={monitorCode}
+                    disabled
+                  />
+                  <button type="button" onClick={() => navigator.clipboard.writeText(monitorCode)}>
+                    Copiar Código
+                  </button>
+                  <label htmlFor="linkObserver">Vincular observador:</label>
+                  <input
+                    type="text"
+                    id="linkObserver"
+                    placeholder="Ingresa el código del observador"
+                    onChange={(e) => linkObserver(e.target.value)}
+                  />
+                </div>
+              )}
+              <button class="close-settings" onClick={() => setSettingsOpen(false)}>
                 Cerrar
               </button>
             </div>
@@ -530,23 +618,15 @@ function App() {
           <Route
             path="/"
             element={
-              <main className="main-content" role="main">
+              <div className="main-content">
                 <div className="selector">
-                  <select
-                    value={selectedBook}
-                    onChange={(e) => setSelectedBook(e.target.value)}
-                    aria-label="Seleccionar libro de la Biblia"
-                  >
-                    {bibleData.books.map(book => (
-                      <option key={book.name} value={book.name}>{book.name}</option>
+                  <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
+                    {bibibleData.books.map((book) => (
+                      <option key={book.name} value={book.name">{book.name}</option>
                     ))}
                   </select>
-                  <select
-                    value={selectedChapter}
-                    onChange={(e) => setSelectedChapter(Number(e.target.value))}
-                    aria-label="Seleccionar capítulo"
-                  >
-                    {book?.chapters.map(chapter => (
+                  <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
+                    {book?.chapters.map((chapter) => (
                       <option key={chapter.chapter} value={chapter.chapter}>{chapter.chapter}</option>
                     ))}
                   </select>
@@ -556,73 +636,42 @@ function App() {
                   placeholder="Buscar versículos..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label="Buscar versículos"
                 />
                 <div className="continuous-text">
                   {verses.map((verse) => {
-                    const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}`;
-                    const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
-                    const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments[`comment_${selectedBook}_${selectedChapter}_${verse.verse}_type`]?.type || 'unknown'}`;
-                    const prayerKey = `prayer_${selectedBook}_${selectedChapter}_${verse.verse}`;
+                    const highlightKey = `highlight_${selectedBook}_${selected}_${verse.verse}_${user?.uid || 'guest'}`;
+                    const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
+                    const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments?.[`comment_${verse.verse}_${selectedChapter}_${selectedBook}_type_${user?.uid || 'guest'}_type`]?.type || 'unknown'}_${user?.uid || 'guest'}`;
                     return (
                       <span
                         key={verse.verse}
-                        className={`verse ${highlightedVerses[highlightKey] ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
+                        className={`verse ${highlightedVerses[highlightKey]?.color ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
                         onContextMenu={(e) => handleContextMenu(e, verse)}
-                        onTouchStart={(e) => handleTouchStart(e, verse)}
-                        role="button"
-                        tabIndex={0}
-                        aria-label={`Versículo ${verse.verse}: ${verse.text}`}
+                        onTouchStart={(e => handleTouchStart(e, verse))}
                       >
                         <span className="verse-number">{verse.verse}</span>
                         <span className="verse-text">{verse.text} </span>
-                        {verseComments[commentKey] && (
+                        {verseComments[commentKey]?.text && (
                           <span className="comment-wrapper">
                             <span className="comment">
                               Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
                               {loadingComment === commentKey && ' (Cargando...)'}
                             </span>
-                            <button
-                              className="close-comment"
-                              onClick={() => handleCloseComment(verse, verseComments[commentKey].type)}
-                              aria-label="Cerrar comentario"
-                            >
-                              X
-                            </button>
+                            <button className="close-comment" onClick={() => handleCloseComment(verse, verseComments[commentKey]?.type)}>X</button>
                           </span>
                         )}
                         {notes[noteKey] && (
                           <span className="note">Nota: {notes[noteKey]}</span>
                         )}
-                        {localStorage.getItem(prayerKey) && (
-                          <audio
-                            controls
-                            src={localStorage.getItem(prayerKey)}
-                            style={{ marginTop: '5px' }}
-                            aria-label="Reproducir oración grabada"
-                          />
-                        )}
-                        {noteInput.visible && noteInput.verse?.verse === verse.verse && (
+                        {noteInput?.visible && noteInput?.verse?.verse === verse.verse && (
                           <div className="note-input">
                             <textarea
                               placeholder="Escribe tu nota..."
                               defaultValue={notes[noteKey] || ''}
                               onChange={(e) => handleNoteChange(verse, e.target.value)}
                               autoFocus
-                              aria-label="Escribir nota para el versículo"
                             />
-                            <button
-                              className="close-note"
-                              onClick={closeNoteInput}
-                              aria-label="Cerrar nota"
-                            >
-                              X
-                            </button>
-                          </div>
-                        )}
-                        {prayerModal.visible && prayerModal.verse?.verse === verse.verse && (
-                          <div className="prayer-modal">
-                            {/* Implementado en BibleReading.js */}
+                            <button className="close-note" onClick={closeNoteInput}>X</button>
                           </div>
                         )}
                       </span>
@@ -634,73 +683,92 @@ function App() {
                     className="context-menu"
                     style={{ top: contextMenu.y, left: contextMenu.x }}
                     ref={contextMenuRef}
-                    role="menu"
-                    aria-label="Menú contextual del versículo"
                   >
-                    <div className="menu-item" onClick={toggleHighlightSubmenu} role="menuitem">
+                    <div className="menu-item" onClick={toggleHighlightSubmenu}>
                       Subrayar
                       {highlightSubmenu && (
-                        <div className="submenu" role="menu">
-                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'yellow')} role="menuitem">Amarillo</div>
-                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'green')} role="menuitem">Verde</div>
-                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'blue')} role="menuitem">Azul</div>
-                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'pink')} role="menuitem">Rosa</div>
+                        <div className="submenu">
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>
+                            Amarillo
+                          </div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'green')}>
+                            Verde
+                          </div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'blue')}>
+                            Azul
+                          </div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'pink')}>
+                            Rosa
+                          </div>
                         </div>
                       )}
                     </div>
-                    <div className="menu-item" onClick={() => handleNote(contextMenu.verse)} role="menuitem">
+                    <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
                       Anotar
                     </div>
-                    <div className="menu-item" onClick={() => handleShare(contextMenu.verse)} role="menuitem">
+                    <div className="menu-item" onClick={() => handleShare(contextMenu.verse)}>
                       Compartir
                     </div>
-                    <div className="menu-item" onClick={toggleCommentSubmenu} role="menuitem">
+                    <div className="menu-item" onClick={toggleCommentSubmenu}>
                       Comentario
                       {commentSubmenu && (
-                        <div className="submenu" role="menu">
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')} role="menuitem">Lingüística</div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')} role="menuitem">Cultural</div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')} role="menuitem">Histórica</div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')} role="menuitem">Teológica</div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')} role="menuitem">Geográfica</div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')} role="menuitem">Paleolítica</div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')} role="menuitem">Arqueológica</div>
+                        <div className="submenu">
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'lingüístico')}>
+                            Lingüística
+                          </div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'cultural')}>
+                            Cultural
+                          </div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'histórico')}>
+                            Histórica
+                          </div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>
+                            Teológica
+                          </div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>
+                            Geográfica
+                          </div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>
+                            Paleolítica
+                          </div>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>
+                            Arqueológica
+                          </div>
                         </div>
                       )}
                     </div>
-                    <div className="menu-item" onClick={toggleConcordanceSubmenu} role="menuitem">
+                    <div classNamelead-item" onClick={toggleConcordanceSubmenu}>
                       Concordancia
                       {concordanceSubmenu && (
-                        <div className="submenu" role="menu">
+                        <div className="submenu">
                           {loadingConcordance ? (
-                            <div className="submenu-item" role="menuitem">Cargando...</div>
+                            <div className="submenu-item">Cargando...</div>
                           ) : (
                             getConcordances(contextMenu.verse).then(related =>
                               related.length === 0 ? (
-                                <div className="submenu-item" role="menuitem">No hay concordancias</div>
+                                <div className="submenu-item">No hay concordancias</div>
                               ) : (
                                 related.map((rel, index) => (
                                   <div
                                     key={index}
                                     className="submenu-item"
                                     onClick={() => handleConcordanceSelect(rel)}
-                                    role="menuitem"
                                   >
                                     {rel.book} {rel.chapter}:{rel.verse}
                                   </div>
                                 ))
-                              )
+                              </div>
                             )
                           )}
                         </div>
                       )}
                     </div>
-                    <div className="menu-item" onClick={() => handlePrayer(contextMenu.verse)} role="menuitem">
+                    <div className="menu-item" onClick={() => handlePrayer(contextMenu.verse)}>
                       Orar
                     </div>
                   </div>
                 )}
-              </main>
+              </div>
             }
           />
           <Route
@@ -753,31 +821,12 @@ function App() {
                 fontFamily={fontFamily}
                 fontSize={fontSize}
                 textColor={textColor}
+                userId={user?.uid || null}
               />
             }
           />
-          <Route
-            path="/collection"
-            element={<Collection />}
-          />
-          <Route
-            path="/filter"
-            element={
-              <ContentFilter
-                backgroundColor={backgroundColor}
-                backgroundImage={backgroundImage}
-                fontFamily={fontFamily}
-                fontSize={fontSize}
-                textColor={textColor}
-              />
-            }
-          />
+          <Route path="/collection" element={<Collection />} />
         </Routes>
-        {/* Fallback en caso de error de carga */}
-        <div id="fallback" style={{ display: 'none' }}>
-          <h1>Error al cargar la aplicación</h1>
-          <p>Por favor, recarga la página o verifica tu conexión.</p>
-        </div>
       </div>
     </ErrorBoundary>
   );
