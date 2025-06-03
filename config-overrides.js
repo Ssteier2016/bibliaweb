@@ -4,6 +4,7 @@ module.exports = function override(config) {
     path: require.resolve('path'),
     stream: require.resolve('stream'),
     assert: require.resolve('assert'),
+    zlib: require.resolve('browserify-zlib'),
   };
   return config;
 };
