@@ -14,8 +14,7 @@ const ContentFilter = ({ backgroundColor, backgroundImage, fontFamily, fontSize,
     async function loadModel() {
       await tf.ready();
       try {
-        // Cargar el modelo desde el CDN de NSFW.js
-        const loadedModel = await nsfwjs.load('https://cdn.jsdelivr.net/npm/nsfwjs@2.4.2/models/inception_v3/');
+        const loadedModel = await nsfwjs.load('https://unpkg.com/nsfwjs@2.4.0/models/inception_v3/');
         setModel(loadedModel);
       } catch (error) {
         console.error('Error loading NSFW.js model:', error);
