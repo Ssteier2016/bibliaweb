@@ -1,150 +1,40 @@
-.bible-reading {
+.content-filter {
   padding: 20px;
-  min-height: 100vh;
-  transition: background-color 0.3s, font-family 0.3s, font-size 0.3s, background-image 0.3s, color 0.3s;
+  margin: 20px;
+  border-radius: 10px;
+  font-family: inherit;
 }
-
-.book-list,
-.chapter-list,
-.verse-list {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para legibilidad */
-  padding: 10px;
-  border-radius: 4px;
-  color: inherit; /* Heredar color de letra */
-}
-
-.continuous-text {
-  line-height: 1.6;
-  display: inline;
-}
-
-.verse {
-  display: inline;
-}
-
-.verse-number {
-  vertical-align: super;
-  font-size: 0.8em;
-  color: #555; /* Color fijo para legibilidad */
-  margin-right: 5px;
-}
-
-.verse-text {
-  display: inline;
-}
-
-.selected-verse {
-  background-color: #e0e0e0;
-}
-
-.highlighted-yellow {
-  background-color: rgba(255, 255, 0, 0.3);
-}
-
-.highlighted-green {
-  background-color: rgba(0, 255, 0, 0.3);
-}
-
-.highlighted-blue {
-  background-color: rgba(0, 0, 255, 0.3);
-}
-
-.highlighted-pink {
-  background-color: rgba(255, 192, 203, 0.3);
-}
-
-.comment-wrapper,
-.note {
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 0.9em;
-  color: inherit; /* Heredar color de letra */
-}
-
-.note-input,
-.prayer-modal {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-.close-note,
-.comment-button {
-  margin-left: 5px;
-  padding: 2px 6px;
-  background-color: #ff4444;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.back-button {
+.content-filter h2 {
+  font-size: 1.5em;
   margin-bottom: 10px;
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
 }
-
-.book-item,
-.chapter-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.book-item:hover,
-.chapter-item:hover {
-  background-color: #f0f0f0;
-}
-
-.context-menu {
-  position: absolute;
-  background: white;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-.menu-item {
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.menu-item:hover {
-  background: #f0f0f0;
-}
-
-.submenu {
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background: white;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.submenu-item {
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.submenu-item:hover {
-  background: #f0f0f0;
-}
-
-.prayer-button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+.content-filter p {
   margin: 10px 0;
+}
+.content-filter input {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: inherit;
+}
+.content-filter button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.content-filter button:hover {
+  background-color: #0056b3;
+}
+.stats {
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+.stats p {
+  margin: 5px 0;
 }
