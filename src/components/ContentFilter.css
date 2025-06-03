@@ -4,16 +4,13 @@
   border-radius: 10px;
   font-family: inherit;
 }
-
 .content-filter h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
-
 .content-filter p {
   margin: 10px 0;
 }
-
 .content-filter input {
   margin: 10px 0;
   padding: 10px;
@@ -22,7 +19,6 @@
   background-color: rgba(255, 255, 255, 0.1);
   color: inherit;
 }
-
 .content-filter button {
   padding: 10px 20px;
   margin: 10px 0;
@@ -32,16 +28,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
 .content-filter button:hover {
   background-color: #0056b3;
 }
-
 .stats {
   margin-top: 20px;
   font-size: 0.9em;
 }
-
 .stats p {
   margin: 5px 0;
 }
