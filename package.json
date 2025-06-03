@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "assert": "^2.1.0",
     "axios": "^1.7.7",
+    "browserify-zlib": "^0.2.0",
     "date-fns": "^4.1.0",
     "nsfwjs": "^2.4.0",
     "path": "^0.12.7",
