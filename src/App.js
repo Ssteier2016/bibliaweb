@@ -43,9 +43,9 @@ function App() {
 
   const backgroundImages = [
     { name: 'Ninguna', url: '' },
-    { name: 'Cielo', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e' },
-    { name: 'Montaña', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b' },
-    { name: 'Mar', url: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0' },
+    { name: 'Cielo', url: '/assets/backgrounds/sky.jpg' },
+    { name: 'Montaña', url: '/assets/backgrounds/mountain.jpg' },
+    { name: 'Mar', url: '/assets/backgrounds/sea.jpg' },
   ];
 
   // Cargar configuraciones desde localStorage
@@ -225,7 +225,7 @@ function App() {
         },
         {
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY || ''}`,
             'Content-Type': 'application/json',
             'x-wait-for-model': 'true',
           },
@@ -268,7 +268,7 @@ function App() {
     setLoadingConcordance(reference);
     try {
       const prompt = `
-        Eres un experto en estudios bíblicos. Proporciona hasta 3 referencias cruzadas (concordancias) para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en la Biblia. Cada referencia debe incluir libro, capítulo, versículo y un fragmento breve del texto (máximo 20 palabras). Responde solo con un array JSON de objetos, por ejemplo:
+        Eres un experto en estudios bíblicos. Proporciona hasta 3 referencias cruzadas (concordancias) para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en la Biblia. Cada referencia debe incluir libro, capítulo, versículo y un fragmento breve del texto (máximo 20 palabras). Responde solo con un array JSON de ejemplos:
         [
           {"book": "Génesis", "chapter": 1, "verse": 1, "text": "En el principio creó Dios..."},
           {"book": "Colosenses", "chapter": 1, "verse": 16, "text": "Porque en él fueron creadas..."}
@@ -283,7 +283,7 @@ function App() {
         },
         {
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_HF_API_KEY || ''}`,
             'Content-Type': 'application/json',
             'x-wait-for-model': 'true',
           },
@@ -773,16 +773,11 @@ function App() {
             }
           />
         </Routes>
-        {/* Pre-cargar imágenes de fondo para evitar errores */}
-        {backgroundImages.map(img => img.url && (
-          <img
-            key={img.url}
-            src={img.url}
-            alt=""
-            style={{ display: 'none' }}
-            onError={handleImageError}
-          />
-        ))}
+        {/* Fallback en caso de error de carga */}
+        <div id="fallback" style={{ display: 'none' }}>
+          <h1>Error al cargar la aplicación</h1>
+          <p>Por favor, recarga la página o verifica tu conexión.</p>
+        </div>
       </div>
     </ErrorBoundary>
   );
