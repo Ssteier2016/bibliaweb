@@ -1,27 +1,31 @@
+// src/firebase.js
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { getFirestore, doc, setDoc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';
 
+// Configuración de Firebase usando variables de entorno
 const firebaseConfig = {
-  apiKey: "AIzaSyBsemzWe2LUcKhAJg9UU9N_3YNcmrphiCk",
-  authDomain: "bibl-ia-fa5b1.firebaseapp.com",
-  databaseURL: "https://bibl-ia-fa5b1-default-rtdb.firebaseio.com",
-  projectId: "bibl-ia-fa5b1",
-  storageBucket: "bibl-ia-fa5b1.firebasestorage.app",
-  messagingSenderId: "472775758204",
-  appId: "1:472775758204:web:df943b09264376dca594f9",
-  measurementId: "G-RB7SW3JV2X"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const analytics = getAnalytics(app);
 
 export {
+  app,
   auth,
   db,
+  analytics,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -29,5 +33,5 @@ export {
   setDoc,
   getDoc,
   collection,
-  addDoc
+  addDoc,
 };
