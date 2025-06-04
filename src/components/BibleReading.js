@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // Importar estilos de DatePicker
-import charactersData from '../data/characters.json'; // Ajustado a src/data/
+import 'react-datepicker/dist/react-datepicker.css';
+import charactersData from '../data/characters.json'; // Ruta corregida
 import './BibleReading.css';
 
 function BibleReading({
