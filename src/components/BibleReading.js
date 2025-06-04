@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import charactersData from '../data/characters.json';
 import './BibleReading.css';
 
@@ -68,7 +67,6 @@ function BibleReading({
   const audioChunksRef = useRef([]);
   const navigate = useNavigate();
 
-  // Cargar libros y capítulos completados desde localStorage
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem(`completedBooks_${userId}`) || '{}');
     const storedChapters = JSON.parse(localStorage.getItem(`completedChapters_${userId}`) || '{}');
@@ -76,7 +74,6 @@ function BibleReading({
     setCompletedChapters(storedChapters);
   }, [userId]);
 
-  // Limpiar grabación al desmontar el componente
   useEffect(() => {
     return () => {
       if (mediaRecorderRef.current && isRecording) {
@@ -86,7 +83,6 @@ function BibleReading({
     };
   }, [isRecording]);
 
-  // Manejar concordancias cuando se abre el submenú
   useEffect(() => {
     if (concordanceSubmenu && contextMenu.verse) {
       setLoadingConcordance(true);
