@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import charactersData from '../data/characters.json'; // Ruta correcta para src/data/
+import charactersData from '../data/characters.json';
 import './BibleReading.css';
 
 function BibleReading({
   bibleData,
-  concordances, // Prop que causaba conflicto
+  concordances,
   handleContextMenu,
   handleTouchStart,
   handleHighlight,
@@ -62,7 +63,7 @@ function BibleReading({
   const [isRecording, setIsRecording] = useState(false);
   const [prayerAudio, setPrayerAudio] = useState(null);
   const [lockDate, setLockDate] = useState(null);
-  const [verseConcordances, setVerseConcordances] = useState([]); // Renombrado para evitar conflicto
+  const [verseConcordances, setVerseConcordances] = useState([]);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const navigate = useNavigate();
@@ -91,7 +92,7 @@ function BibleReading({
       setLoadingConcordance(true);
       getConcordances(contextMenu.verse)
         .then((related) => {
-          setVerseConcordances(related || []); // Usar verseConcordances
+          setVerseConcordances(related || []);
           setLoadingConcordance(false);
         })
         .catch((error) => {
@@ -329,7 +330,7 @@ function BibleReading({
                   onContextMenu={(e) => handleContextMenu(e, verse)}
                   onTouchStart={(e) => handleTouchStart(e, verse)}
                 >
-                  <span className="verse-number">{verse.number}</span>
+                  <span className="verse-number">{verse.verse}</span>
                   <span className="verse-text">{verse.text} </span>
                   {verseComments[commentKey]?.text && (
                     <span className="comment-wrapper">
@@ -536,5 +537,111 @@ function BibleReading({
     </div>
   );
 }
+
+BibleReading.propTypes = {
+  bibleData: PropTypes.shape({
+    books: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        chapters: PropTypes.arrayOf(
+          PropTypes.shape({
+            chapter: PropTypes.number,
+            verses: PropTypes.arrayOf(
+              PropTypes.shape({
+                verse: PropTypes.number,
+                text: PropTypes.string,
+              })
+            ),
+          })
+        ),
+      })
+    ),
+  }).isRequired,
+  concordances: PropTypes.arrayOf(
+    PropTypes.shape({
+      reference: PropTypes.string,
+      related: PropTypes.arrayOf(
+        PropTypes.shape({
+          book: PropTypes.string,
+          chapter: PropTypes.number,
+          verse: PropTypes.number,
+        })
+      ),
+    })
+  ).isRequired,
+  handleContextMenu: PropTypes.func.isRequired,
+  handleTouchStart: PropTypes.func.isRequired,
+  handleHighlight: PropTypes.func.isRequired,
+  toggleHighlightSubmenu: PropTypes.func.isRequired,
+  handleNote: PropTypes.func.isRequired,
+  handleNoteChange: PropTypes.func.isRequired,
+  closeNoteInput: PropTypes.func.isRequired,
+  handleShare: PropTypes.func.isRequired,
+  handleCommentSelect: PropTypes.func.isRequired,
+  toggleCommentSubmenu: PropTypes.func.isRequired,
+  handleCloseComment: PropTypes.func.isRequired,
+  toggleConcordanceSubmenu: PropTypes.func.isRequired,
+  handleConcordanceSelect: PropTypes.func.isRequired,
+  getConcordances: PropTypes.func.isRequired,
+  handlePrayer: PropTypes.func.isRequired,
+  closePrayerModal: PropTypes.func.isRequired,
+  contextMenu: PropTypes.shape({
+    visible: PropTypes.bool,
+    x: PropTypes.number,
+    y: PropTypes.number,
+    verse: PropTypes.shape({
+      book: PropTypes.string,
+      chapter: PropTypes.number,
+      verse: PropTypes.number,
+      text: PropTypes.string,
+    }),
+  }).isRequired,
+  setContextMenu: PropTypes.func.isRequired,
+  noteInput: PropTypes.shape({
+    visible: PropTypes.bool,
+    verse: PropTypes.shape({
+      book: PropTypes.string,
+      chapter: PropTypes.number,
+      verse: PropTypes.number,
+      text: PropTypes.string,
+    }),
+  }).isRequired,
+  setNoteInput: PropTypes.func.isRequired,
+  prayerModal: PropTypes.shape({
+    visible: PropTypes.bool,
+    verse: PropTypes.shape({
+      book: PropTypes.string,
+      chapter: PropTypes.number,
+      verse: PropTypes.number,
+      text: PropTypes.string,
+    }),
+  }).isRequired,
+  setPrayerModal: PropTypes.func.isRequired,
+  notes: PropTypes.object.isRequired,
+  setNotes: PropTypes.func.isRequired,
+  highlightedVerses: PropTypes.object.isRequired,
+  setHighlightedVerses: PropTypes.func.isRequired,
+  highlightSubmenu: PropTypes.bool.isRequired,
+  setHighlightSubmenu: PropTypes.func.isRequired,
+  commentSubmenu: PropTypes.bool.isRequired,
+  setCommentSubmenu: PropTypes.func.isRequired,
+  concordanceSubmenu: PropTypes.bool.isRequired,
+  setConcordanceSubmenu: PropTypes.func.isRequired,
+  verseComments: PropTypes.object.isRequired,
+  setVerseComments: PropTypes.func.isRequired,
+  loadingComment: PropTypes.string,
+  setLoadingComment: PropTypes.func.isRequired,
+  loadingConcordance: PropTypes.bool,
+  setLoadingConcordance: PropTypes.func.isRequired,
+  contextMenuRef: PropTypes.shape({
+    current: PropTypes.any,
+  }).isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string.isRequired,
+  fontFamily: PropTypes.string.isRequired,
+  fontSize: PropTypes.number.isRequired,
+  textColor: PropTypes.string.isRequired,
+  userId: PropTypes.string,
+};
 
 export default BibleReading;
