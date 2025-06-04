@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import './InstallPrompt.css'; // Asegúrate de que este archivo CSS exista o crea uno vacío
+import React, { useState, useEffect } from 'react';
+import './InstallPrompt.css';
 
 function InstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -25,7 +25,7 @@ function InstallPrompt() {
         console.log('PWA instalada');
       }
       setDeferredPrompt(null);
-    }
+    };
   };
 
   if (!deferredPrompt) return null;
