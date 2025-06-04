@@ -78,7 +78,6 @@
 }
 
 .submenu-item {
-  style={{ fontFamily: 'Arial', fontSize: '16px' }}
   padding: 10px;
   cursor: pointer;
 }
