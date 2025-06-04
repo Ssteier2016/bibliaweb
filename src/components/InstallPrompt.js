@@ -1,15 +1,41 @@
-useEffect(() => {
-  const handler = (e) => {
-    e.preventDefault();
-    setDeferredPrompt(e);
-    setTimeout(() => {
-      e.prompt();
-      e.userChoice.then((choiceResult) => {
-        console.log(choiceResult.outcome === 'accepted' ? 'Instalada' : 'Rechazada');
-        setDeferredPrompt(null);
-      });
-    }, 10000); // Mostrar tras 10 segundos
+import { useState, useEffect } from 'react';
+import './InstallPrompt.css'; // Asegúrate de que este archivo CSS exista o crea uno vacío
+
+function InstallPrompt() {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handler);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handler);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('PWA instalada');
+      }
+      setDeferredPrompt(null);
+    }
   };
-  window.addEventListener('beforeinstallprompt', handler);
-  return () => window.removeEventListener('beforeinstallprompt', handler);
-}, []);
+
+  if (!deferredPrompt) return null;
+
+  return (
+    <div className="install-prompt">
+      <p>¡Instala Bibl.ia en tu dispositivo!</p>
+      <button onClick={handleInstallClick}>Instalar</button>
+    </div>
+  );
+}
+
+export default InstallPrompt;
