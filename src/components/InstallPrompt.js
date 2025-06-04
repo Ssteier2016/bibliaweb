@@ -25,7 +25,7 @@ function InstallPrompt() {
         console.log('PWA instalada');
       }
       setDeferredPrompt(null);
-    };
+    }
   };
 
   if (!deferredPrompt) return null;
