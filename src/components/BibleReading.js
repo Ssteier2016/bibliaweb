@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import charactersData from '../data/characters.json'; // Ruta corregida
+import charactersData from '../data/characters.json'; // Ruta corregida para src/data/
 import './BibleReading.css';
 
 function BibleReading({
@@ -62,10 +62,12 @@ function BibleReading({
   const [isRecording, setIsRecording] = useState(false);
   const [prayerAudio, setPrayerAudio] = useState(null);
   const [lockDate, setLockDate] = useState(null);
+  const [concordances, setConcordances] = useState([]); // Estado para concordancias
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const navigate = useNavigate();
 
+  // Cargar libros y capítulos completados desde localStorage
   useEffect(() => {
     const storedBooks = JSON.parse(localStorage.getItem(`completedBooks_${userId}`) || '{}');
     const storedChapters = JSON.parse(localStorage.getItem(`completedChapters_${userId}`) || '{}');
@@ -73,6 +75,7 @@ function BibleReading({
     setCompletedChapters(storedChapters);
   }, [userId]);
 
+  // Limpiar grabación al desmontar el componente
   useEffect(() => {
     return () => {
       if (mediaRecorderRef.current && isRecording) {
@@ -81,6 +84,23 @@ function BibleReading({
       audioChunksRef.current = [];
     };
   }, [isRecording]);
+
+  // Manejar concordancias cuando se abre el submenú
+  useEffect(() => {
+    if (concordanceSubmenu && contextMenu.verse) {
+      setLoadingConcordance(true);
+      getConcordances(contextMenu.verse)
+        .then((related) => {
+          setConcordances(related || []);
+          setLoadingConcordance(false);
+        })
+        .catch((error) => {
+          console.error('Error al cargar concordancias:', error);
+          setConcordances([]);
+          setLoadingConcordance(false);
+        });
+    }
+  }, [concordanceSubmenu, contextMenu.verse, getConcordances, setLoadingConcordance]);
 
   const formatDate = () => {
     const now = new Date();
@@ -490,22 +510,18 @@ function BibleReading({
                   <div className="submenu">
                     {loadingConcordance ? (
                       <div className="submenu-item">Cargando...</div>
+                    ) : concordances.length === 0 ? (
+                      <div className="submenu-item">No hay concordancias</div>
                     ) : (
-                      getConcordances(contextMenu.verse).then((related) =>
-                        related.length === 0 ? (
-                          <div className="submenu-item">No hay concordancias</div>
-                        ) : (
-                          related.map((rel, index) => (
-                            <div
-                              key={index}
-                              className="submenu-item"
-                              onClick={() => handleConcordanceSelect(rel)}
-                            >
-                              {rel.book} {rel.chapter}:{rel.verse}
-                            </div>
-                          ))
-                        )
-                      )
+                      concordances.map((rel, index) => (
+                        <div
+                          key={index}
+                          className="submenu-item"
+                          onClick={() => handleConcordanceSelect(rel)}
+                        >
+                          {rel.book} {rel.chapter}:{rel.verse}
+                        </div>
+                      ))
                     )}
                   </div>
                 )}
