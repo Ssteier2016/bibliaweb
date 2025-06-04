@@ -5,7 +5,7 @@ import bibleData from './data/reina_valera.json';
 import concordances from './data/concordances.json';
 import BibleReading from './components/BibleReading';
 import Collection from './components/Collection';
-import InstallPrompt from './components/InstallPrompt'; // Nueva importación
+import InstallPrompt from './components/InstallPrompt';
 import ErrorBoundary from './ErrorBoundary';
 import { auth, db } from './firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, doc, setDoc, getDoc, collection, addDoc, getDocs } from 'firebase/firestore';
@@ -618,6 +618,7 @@ function App() {
             </div>
           </div>
         )}
+        <InstallPrompt /> {/* Añadido aquí */}
         <Routes>
           <Route
             path="/"
