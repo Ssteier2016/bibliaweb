@@ -73,12 +73,16 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        const userDoc = await getDoc(doc(db, 'users', user.uid));
-        if (userDoc.exists()) {
-          const data = userDoc.data();
-          setMonitorCode(data.monitorCode || '');
-          setMonitorStatus(data.monitorStatus || false);
-          setObserverUid(data.observerUid || null);
+        try {
+          const userDoc = await getDoc(doc(db, 'users', user.uid));
+          if (userDoc.exists()) {
+            const data = userDoc.data();
+            setMonitorCode(data.monitorCode || '');
+            setMonitorStatus(data.monitorStatus || false);
+            setObserverUid(data.observerUid || null);
+          }
+        } catch (error) {
+          console.error('Error al obtener datos del usuario:', error);
         }
       } else {
         setUser(null);
@@ -183,13 +187,17 @@ function App() {
     if (!user) return;
     const newStatus = !monitorStatus;
     setMonitorStatus(newStatus);
-    await setDoc(doc(db, 'users', user.uid), { monitorStatus: newStatus }, { merge: true });
-    if (observerUid && !newStatus) {
-      await addDoc(collection(db, 'alerts'), {
-        observerUid,
-        message: `El usuario ${email} ha desactivado el monitoreo.`,
-        timestamp: new Date(),
-      });
+    try {
+      await setDoc(doc(db, 'users', user.uid), { monitorStatus: newStatus }, { merge: true });
+      if (observerUid && !newStatus) {
+        await addDoc(collection(db, 'alerts'), {
+          observerUid,
+          message: `El usuario ${email} ha desactivado el monitoreo.`,
+          timestamp: new Date(),
+        });
+      }
+    } catch (error) {
+      console.error('Error al actualizar monitoreo:', error);
     }
   };
 
@@ -197,31 +205,44 @@ function App() {
     if (!user) return;
     const newCode = Math.random().toString(36).substring(2, 10);
     setMonitorCode(newCode);
-    await setDoc(doc(db, 'users', user.uid), { monitorCode: newCode }, { merge: true });
+    try {
+      await setDoc(doc(db, 'users', user.uid), { monitorCode: newCode }, { merge: true });
+    } catch (error) {
+      console.error('Error al generar código de monitoreo:', error);
+    }
   };
 
   const revokeMonitor = async () => {
     if (!user || !observerUid) return;
-    await setDoc(doc(db, 'users', user.uid), { observerUid: null }, { merge: true });
-    await addDoc(collection(db, 'alerts'), {
-      observerUid,
-      message: `El usuario ${email} ha revocado el monitoreo.`,
-      timestamp: new Date(),
-    });
-    setObserverUid(null);
+    try {
+      await setDoc(doc(db, 'users', user.uid), { observerUid: null }, { merge: true });
+      await addDoc(collection(db, 'alerts'), {
+        observerUid,
+        message: `El usuario ${email} ha revocado el monitoreo.`,
+        timestamp: new Date(),
+      });
+      setObserverUid(null);
+    } catch (error) {
+      console.error('Error al revocar monitoreo:', error);
+    }
   };
 
   const linkObserver = async (code) => {
     if (!user) return;
-    const usersRef = collection(db, 'users');
-    const snapshot = await getDocs(usersRef.where('monitorCode', '==', code));
-    if (!snapshot.empty) {
-      const observer = snapshot.docs[0];
-      await setDoc(doc(db, 'users', user.uid), { observerUid: observer.id }, { merge: true });
-      setObserverUid(observer.id);
-      alert('Observador vinculado con éxito.');
-    } else {
-      alert('Código inválido.');
+    try {
+      const usersRef = collection(db, 'users');
+      const snapshot = await getDocs(usersRef.where('monitorCode', '==', code));
+      if (!snapshot.empty) {
+        const observer = snapshot.docs[0];
+        await setDoc(doc(db, 'users', user.uid), { observerUid: observer.id }, { merge: true });
+        setObserverUid(observer.id);
+        alert('Observador vinculado con éxito.');
+      } else {
+        alert('Código inválido.');
+      }
+    } catch (error) {
+      console.error('Error al vincular observador:', error);
+      alert('Error al vincular observador.');
     }
   };
 
@@ -312,7 +333,8 @@ function App() {
       if (navigator.share) {
         await navigator.share({ title: 'Biblia', text });
       } else {
-        navigator.clipboard.writeText(text).then(() => alert('Copiado: ' + text));
+        await navigator.clipboard.writeText(text);
+        alert('Copiado: ' + text);
       }
     } catch (error) {
       if (error.name !== 'AbortError') {
@@ -364,7 +386,7 @@ function App() {
       setVerseComments({ ...verseComments, [key]: comment });
       localStorage.setItem(key, JSON.stringify(comment));
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error al obtener comentario:', error);
       setVerseComments({
         ...verseComments,
         [key]: { type, text: 'Error al obtener comentario.' },
@@ -449,6 +471,9 @@ function App() {
         setBackgroundImage(imageUrl);
         setBackgroundColor('#ffffff');
         setCustomBackgroundImage(imageUrl);
+      };
+      reader.onerror = (error) => {
+        console.error('Error al cargar imagen personalizada:', error);
       };
       reader.readAsDataURL(file);
     }
