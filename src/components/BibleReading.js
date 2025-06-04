@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // Asegúrate de importar los estilos de DatePicker
-import charactersData from './data/characters.json';
+import 'react-datepicker/dist/react-datepicker.css'; // Importar estilos de DatePicker
+import charactersData from '../data/characters.json'; // Ajustado a src/data/
 import './BibleReading.css';
 
 function BibleReading({
@@ -295,7 +295,7 @@ function BibleReading({
               }_${userId}`;
               const prayerKey = `prayer_${verse.book}_${verse.chapter}_${verse.verse}_${userId}`;
               const isSelected =
-                selected東京都Verse &&
+                selectedVerse &&
                 verse.verse === selectedVerse.verse &&
                 verse.book === selectedVerse.book &&
                 verse.chapter === selectedVerse.chapter;
