@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Bibl.ia Content Monitor",
+  "version": "1.0.0",
+  "description": "Extensión de Bibl.ia para detectar contenido explícito y monitorear progreso.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "identity",
+    "https://*.firebasedatabase.app/*",
+    "https://*.googleapis.com/*"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["https://cdn.jsdelivr.net/npm/@tensorflow/nsfwjs@2.4.0/dist/nsfwjs.min.js", "content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
