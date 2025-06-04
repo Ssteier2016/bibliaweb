@@ -170,13 +170,14 @@ input[type="file"] {
   background-color: #cc0000;
 }
 
-.continuous-text {
+.verses-container {
   line-height: 1.6;
-  display: inline;
+  display: block;
 }
 
 .verse {
-  display: inline;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .verse-number {
@@ -294,4 +295,8 @@ input[type="file"] {
 .prayer-modal {
   display: inline-block;
   margin-left: 10px;
+}
+
+.login-page {
+  text-align: center;
 }
