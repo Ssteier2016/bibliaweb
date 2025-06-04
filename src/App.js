@@ -19,7 +19,7 @@ import {
   collection,
   addDoc,
   getDocs,
-} from './firebase'; // Import from firebase.js
+} from './firebase';
 import './App.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -213,7 +213,7 @@ function App() {
   const linkObserver = async (code) => {
     if (!user) return;
     const usersRef = collection(db, 'users');
-    const snapshot = await usersRef.where('monitorCode', '==', code).get();
+    const snapshot = await getDocs(usersRef.where('monitorCode', '==', code));
     if (!snapshot.empty) {
       const observer = snapshot.docs[0];
       await setDoc(doc(db, 'users', user.uid), { observerUid: observer.id }, { merge: true });
@@ -548,7 +548,7 @@ function App() {
                   value={backgroundImage}
                   onChange={(e) => {
                     setBackgroundImage(e.target.value);
-                    setBackgroundColor('');
+                    setBackgroundColor('#ffffff');
                     setCustomBackgroundImage('');
                   }}
                 >
@@ -569,7 +569,7 @@ function App() {
               <div className="settings-item">
                 <label htmlFor="fontFamily">Tipografía:</label>
                 <select
-                  id="familyName"
+                  id="fontFamily"
                   value={fontFamily}
                   onChange={(e) => setFontFamily(e.target.value)}
                 >
@@ -586,8 +586,8 @@ function App() {
                 <input
                   type="range"
                   id="fontSize"
-                  min="0"
-                  max="0"
+                  min="12"
+                  max="24"
                   value={fontSize}
                   onChange={(e) => setFontSize(Number(e.target.value))}
                 />
@@ -620,58 +620,52 @@ function App() {
                     id="linkObserver"
                     placeholder="Ingresa el código del observador"
                     onChange={(e) => linkObserver(e.target.value)}
-                  >
-                />
-              </div>
-            )}
-            <button className="close-settings" onClick={() => setSettingsOpen(false)}>
-              Cerrar
-            </button>
+                  />
+                </div>
+              )}
+              <button className="close-settings" onClick={() => setSettingsOpen(false)}>
+                Cerrar
+              </button>
+            </div>
           </div>
         )}
         <InstallPrompt />
         <Routes>
           <Route
-            path="/>
+            path="/"
             element={
               <div className="main-content">
                 <div className="selector">
-                  <div className="selector">
-                    <select value="value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
-                      {bibleData.books.map((book) => (
-                        <option key="key={book.name}" value={book.name}>{book.title}</option>
-                      ))}
-                    </select>
-                    <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
-                      {book?.chapters.map((chapter) => (
-                        <option key={chapter.chapter} value={chapter.chapter}>{chapter.title}></option>
-                      ))}
-                    </select>
-                  </div>
+                  <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
+                    {bibleData.books.map((book) => (
+                      <option key={book.name} value={book.name}>{book.name}</option>
+                    ))}
+                  </select>
+                  <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
+                    {book?.chapters.map((chapter) => (
+                      <option key={chapter.chapter} value={chapter.chapter}>{chapter.chapter}</option>
+                    ))}
+                  </select>
                 </div>
                 <input
                   type="text"
-                  placeholder="Search verses..."
+                  placeholder="Buscar versículos..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <div className="continuous-text">
                   {verses.map((verse) => {
-                    const highlightKey = verseData_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || ''guest_uid''};
                     const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
-                    const noteKey = note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || ''guest_uid''};
                     const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
-                    const commentKey = comment_${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments?.[comment_${verse.verse}_${selectedChapter}_${selectedBook}_type_${user?.uid || ''guest_uid''}_type${user?.uid || 'guest'}_type}]?.type || ''unknown_type''}_${user?.uid || ''guest_uid''};
                     const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments?.[`comment_${verse.verse}_${selectedChapter}_${selectedBook}_type_${user?.uid || 'guest'}_type`]?.type || 'unknown'}_${user?.uid || 'guest'}`;
                     return (
                       <span
                         key={verse.verse}
-                        key={verse.key}
                         className={`verse ${highlightedVerses[highlightKey]?.color ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
                         onContextMenu={(e) => handleContextMenu(e, verse)}
                         onTouchStart={(e) => handleTouchStart(e, verse)}
                       >
-                        <span className="verse-number">{verse.number}</span>
+                        <span className="verse-number">{verse.verse}</span>
                         <span className="verse-text">{verse.text} </span>
                         {verseComments[commentKey]?.text && (
                           <span className="comment-wrapper">
@@ -688,9 +682,9 @@ function App() {
                         {noteInput?.visible && noteInput?.verse?.verse === verse.verse && (
                           <div className="note-input">
                             <textarea
-                              placeholder="Write your note..."
+                              placeholder="Escribe tu nota..."
                               defaultValue={notes[noteKey] || ''}
-                              onChange={(e) => handleNoteChange(verse, (e.target.value)}
+                              onChange={(e) => handleNoteChange(verse, e.target.value)}
                               autoFocus
                             />
                             <button className="close-note" onClick={closeNoteInput}>X</button>
@@ -713,13 +707,17 @@ function App() {
                           <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'yellow')}>
                             Amarillo
                           </div>
-                          <div className="submenu-item">
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'green')}>
                             Verde
-                            </div>
-                            </>
-                          ))}
+                          </div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'blue')}>
+                            Azul
+                          </div>
+                          <div className="submenu-item" onClick={() => handleHighlight(contextMenu.verse, 'pink')}>
+                            Rosa
+                          </div>
                         </div>
-                      })}
+                      )}
                     </div>
                     <div className="menu-item" onClick={() => handleNote(contextMenu.verse)}>
                       Anotar
@@ -753,7 +751,7 @@ function App() {
                             Arqueológica
                           </div>
                         </div>
-                      })}
+                      )}
                     </div>
                     <div className="menu-item" onClick={toggleConcordanceSubmenu}>
                       Concordancia
@@ -779,13 +777,13 @@ function App() {
                             )
                           )}
                         </div>
-                      })}
+                      )}
                     </div>
                     <div className="menu-item" onClick={() => handlePrayer(contextMenu.verse)}>
                       Orar
                     </div>
                   </div>
-                })}
+                )}
               </div>
             }
           />
@@ -815,7 +813,7 @@ function App() {
                 setContextMenu={setContextMenu}
                 noteInput={noteInput}
                 setNoteInput={setNoteInput}
-                modal={modal}
+                prayerModal={prayerModal}
                 setPrayerModal={setPrayerModal}
                 notes={notes}
                 setNotes={setNotes}
@@ -841,7 +839,7 @@ function App() {
                 textColor={textColor}
                 userId={user?.uid || null}
               />
-            )}
+            }
           />
           <Route path="/collection" element={<Collection />} />
         </Routes>
