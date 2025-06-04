@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import charactersData from '../data/characters.json'; // Ruta corregida para src/data/
+import charactersData from '../data/characters.json'; // Ruta correcta para src/data/
 import './BibleReading.css';
 
 function BibleReading({
   bibleData,
-  concordances,
+  concordances, // Prop que causaba conflicto
   handleContextMenu,
   handleTouchStart,
   handleHighlight,
@@ -62,7 +62,7 @@ function BibleReading({
   const [isRecording, setIsRecording] = useState(false);
   const [prayerAudio, setPrayerAudio] = useState(null);
   const [lockDate, setLockDate] = useState(null);
-  const [concordances, setConcordances] = useState([]); // Estado para concordancias
+  const [verseConcordances, setVerseConcordances] = useState([]); // Renombrado para evitar conflicto
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const navigate = useNavigate();
@@ -91,12 +91,12 @@ function BibleReading({
       setLoadingConcordance(true);
       getConcordances(contextMenu.verse)
         .then((related) => {
-          setConcordances(related || []);
+          setVerseConcordances(related || []); // Usar verseConcordances
           setLoadingConcordance(false);
         })
         .catch((error) => {
           console.error('Error al cargar concordancias:', error);
-          setConcordances([]);
+          setVerseConcordances([]);
           setLoadingConcordance(false);
         });
     }
@@ -173,7 +173,7 @@ function BibleReading({
       navigate(`/reading?book=${encodeURIComponent(selectedBookObj.name)}`);
     } else if (selectedBookObj) {
       setSelectedBookObj(null);
-      navigate('/reading');
+      navigate('/home');
     }
   };
 
@@ -510,10 +510,10 @@ function BibleReading({
                   <div className="submenu">
                     {loadingConcordance ? (
                       <div className="submenu-item">Cargando...</div>
-                    ) : concordances.length === 0 ? (
+                    ) : verseConcordances.length === 0 ? (
                       <div className="submenu-item">No hay concordancias</div>
                     ) : (
-                      concordances.map((rel, index) => (
+                      verseConcordances.map((rel, index) => (
                         <div
                           key={index}
                           className="submenu-item"
