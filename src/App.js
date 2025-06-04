@@ -318,7 +318,7 @@ function App() {
       setCommentSubmenu(false);
       return;
     }
-    setLoading(true);
+    setLoadingComment(key);
     try {
       const prompt = `
         Eres un experto en exégesis bíblica. Proporciona un comentario de tipo "${type}" para el versículo ${selectedBook} ${selectedChapter}:${verse.verse} ("${verse.text}") en español. El comentario debe ser detallado, claro, con un máximo de 100 palabras, relevante al contexto bíblico. Ejemplo:
@@ -416,25 +416,27 @@ function App() {
     setAuthOpen(false);
   };
 
-  const toggleAuth = () => {
+  const toggleAuth = (e) => {
     e.preventDefault();
     setAuthOpen(!authOpen);
     setMenuOpen(false);
     setSettingsOpen(false);
   };
 
-  const handleCustomImageApply = async (e) => {
+  const handleCustomImageApply = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (event => {
+      reader.onload = (event) => {
         const imageUrl = event.target.result;
         setBackgroundImage(imageUrl);
         setBackgroundColor('#ffffff');
         setCustomBackgroundImage(imageUrl);
+      };
       reader.readAsDataURL(file);
-    });
     }
+  };
+
   return (
     <ErrorBoundary>
       <div
@@ -459,7 +461,7 @@ function App() {
               <div className="dropdown-menu">
                 <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
                 <Link to="/reading" onClick={() => setMenuOpen(false)}>Lectura Bíblica</Link>
-                <Link to="/collection" onClick={() => setMenuOpen(false)}>Colección</Link>)
+                <Link to="/collection" onClick={() => setMenuOpen(false)}>Colección</Link>
                 <div className="menu-item" onClick={toggleSettings} aria-label="Open settings">Configuración</div>
                 {user ? (
                   <>
@@ -468,7 +470,7 @@ function App() {
                     </div>
                     <div className="menu-item" onClick={generateMonitorCode}>Generar Código de Monitoreo</div>
                     <div className="menu-item" onClick={revokeMonitor}>Revocar Monitoreo</div>
-                    <div className="menu-item" onClick={toggleAuth}>Cerrar Sesión</div>
+                    <div className="menu-item" onClick={handleLogout}>Cerrar Sesión</div>
                   </>
                 ) : (
                   <div className="menu-item" onClick={toggleAuth}>Iniciar Sesión / Registrarse</div>
@@ -502,10 +504,10 @@ function App() {
                     required
                   />
                 </div>
-                <button type="submit" type="submit">Iniciar Sesión</button>
-                <button type="button" onClick={handleRegister}>Registrarse</button>
-                <button type="button" onClick={() => setAuthOpen(false)}>Cerrar</button>
-              </div>
+                <button type="submit">Iniciar Sesión</button>
+              </form>
+              <button type="button" onClick={handleRegister}>Registrarse</button>
+              <button type="button" onClick={() => setAuthOpen(false)}>Cerrar</button>
             </div>
           </div>
         )}
@@ -574,7 +576,7 @@ function App() {
                   min="12"
                   max="24"
                   value={fontSize}
-                  onChange={(e) => setFontSize(Number(e.target.value)))}
+                  onChange={(e) => setFontSize(Number(e.target.value))}
                 />
                 <span>{fontSize}px</span>
               </div>
@@ -584,7 +586,7 @@ function App() {
                   type="color"
                   id="textColor"
                   value={textColor}
-                  onChange={(e) => setTextColor(e.target.value))}
+                  onChange={(e) => setTextColor(e.target.value)}
                 />
               </div>
               {user && (
@@ -608,7 +610,7 @@ function App() {
                   />
                 </div>
               )}
-              <button class="close-settings" onClick={() => setSettingsOpen(false)}>
+              <button className="close-settings" onClick={() => setSettingsOpen(false)}>
                 Cerrar
               </button>
             </div>
@@ -621,8 +623,8 @@ function App() {
               <div className="main-content">
                 <div className="selector">
                   <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
-                    {bibibleData.books.map((book) => (
-                      <option key={book.name} value={book.name">{book.name}</option>
+                    {bibleData.books.map((book) => (
+                      <option key={book.name} value={book.name}>{book.name}</option>
                     ))}
                   </select>
                   <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
@@ -639,7 +641,7 @@ function App() {
                 />
                 <div className="continuous-text">
                   {verses.map((verse) => {
-                    const highlightKey = `highlight_${selectedBook}_${selected}_${verse.verse}_${user?.uid || 'guest'}`;
+                    const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
                     const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
                     const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments?.[`comment_${verse.verse}_${selectedChapter}_${selectedBook}_type_${user?.uid || 'guest'}_type`]?.type || 'unknown'}_${user?.uid || 'guest'}`;
                     return (
@@ -647,7 +649,7 @@ function App() {
                         key={verse.verse}
                         className={`verse ${highlightedVerses[highlightKey]?.color ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
                         onContextMenu={(e) => handleContextMenu(e, verse)}
-                        onTouchStart={(e => handleTouchStart(e, verse))}
+                        onTouchStart={(e) => handleTouchStart(e, verse)}
                       >
                         <span className="verse-number">{verse.verse}</span>
                         <span className="verse-text">{verse.text} </span>
@@ -737,7 +739,7 @@ function App() {
                         </div>
                       )}
                     </div>
-                    <div classNamelead-item" onClick={toggleConcordanceSubmenu}>
+                    <div className="menu-item" onClick={toggleConcordanceSubmenu}>
                       Concordancia
                       {concordanceSubmenu && (
                         <div className="submenu">
@@ -757,7 +759,7 @@ function App() {
                                     {rel.book} {rel.chapter}:{rel.verse}
                                   </div>
                                 ))
-                              </div>
+                              )
                             )
                           )}
                         </div>
