@@ -36,8 +36,8 @@
     "build": "npm run copy-images && react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "copy-images": "mkdir -p public/assets/characters && cp -r src/assets/characters/*.png public/assets/characters/ || true"
-  },
+    "copy-images": "mkdir -p public/assets/characters && cp -r src/assets/characters/*.png public/assets/characters/ || true && mkdir -p public/assets/backgrounds && cp -r src/assets/backgrounds/*.jpg public/assets/backgrounds/ || true",
+}
   "eslintConfig": {
     "extends": [
       "react-app",
