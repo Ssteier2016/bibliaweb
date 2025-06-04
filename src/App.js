@@ -657,7 +657,7 @@ function App() {
                   {verses.map((verse) => {
                     const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
                     const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
-                    const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${verseComments?.[`comment_${selectedBook}_${selectedChapter}_${verse.verse}_type_${user?.uid || 'guest'}_type`]?.type || 'unknown'}_${user?.uid || 'guest'}`;
+                    const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
                     return (
                       <span
                         key={verse.verse}
