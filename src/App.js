@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import bibleData from './data/reina_valera.json';
 import concordances from './data/concordances.json';
@@ -21,7 +21,6 @@ import {
   getDocs,
 } from './firebase';
 import './App.css';
-import 'react-datepicker/dist/react-datepicker.css';
 
 function App() {
   const [selectedBook, setSelectedBook] = useState('Juan');
@@ -37,7 +36,7 @@ function App() {
   const [concordanceSubmenu, setConcordanceSubmenu] = useState(false);
   const [verseComments, setVerseComments] = useState({});
   const [loadingComment, setLoadingComment] = useState(null);
-  const [loadingConcordance, setLoadingConcordance] = useState(null);
+  const [loadingConcordance, setLoadingConcordance] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
@@ -57,6 +56,7 @@ function App() {
   const contextMenuRef = useRef(null);
   const touchStartPos = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const book = bibleData.books.find(b => b.name === selectedBook);
   const chapter = book?.chapters.find(c => c.chapter === selectedChapter);
@@ -64,9 +64,9 @@ function App() {
 
   const backgroundImages = [
     { name: 'Ninguna', url: '' },
-    { name: 'Cielo', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e' },
-    { name: 'Montaña', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b' },
-    { name: 'Mar', url: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0' },
+    { name: 'Cielo', url: '/assets/backgrounds/cielo.jpg' },
+    { name: 'Montaña', url: '/assets/backgrounds/montana.jpg' },
+    { name: 'Mar', url: '/assets/backgrounds/mar.jpg' },
   ];
 
   useEffect(() => {
@@ -85,10 +85,11 @@ function App() {
         setMonitorCode('');
         setMonitorStatus(false);
         setObserverUid(null);
+        navigate('/login');
       }
     });
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const settings = JSON.parse(localStorage.getItem('bibleSettings')) || {};
@@ -273,7 +274,7 @@ function App() {
   };
 
   const handleHighlight = (verse, color) => {
-    if (!user) return;
+    if (!user || !verse) return;
     const key = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user.uid}`;
     const newHighlight = highlightedVerses[key]?.color === color ? null : { color };
     setHighlightedVerses({ ...highlightedVerses, [key]: newHighlight });
@@ -294,7 +295,7 @@ function App() {
   };
 
   const handleNoteChange = (verse, value) => {
-    if (!user) return;
+    if (!user || !verse) return;
     const key = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user.uid}`;
     setNotes({ ...notes, [key]: value });
     localStorage.setItem(key, value);
@@ -305,12 +306,13 @@ function App() {
   };
 
   const handleShare = async (verse) => {
+    if (!verse) return;
     const text = `${selectedBook} ${selectedChapter}:${verse.verse} - ${verse.text}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: 'Biblia', text });
       } else {
-        alert('Copia: ' + text);
+        navigator.clipboard.writeText(text).then(() => alert('Copiado: ' + text));
       }
     } catch (error) {
       if (error.name !== 'AbortError') {
@@ -321,7 +323,7 @@ function App() {
   };
 
   const handleCommentSelect = async (verse, type) => {
-    if (!user) return;
+    if (!user || !verse) return;
     const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}_${user.uid}`;
     const cachedComment = localStorage.getItem(key);
     if (cachedComment) {
@@ -380,7 +382,7 @@ function App() {
   };
 
   const handleCloseComment = (verse, type) => {
-    if (!user) return;
+    if (!user || !verse) return;
     const key = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${type}_${user.uid}`;
     const newComments = { ...verseComments };
     delete newComments[key];
@@ -395,14 +397,16 @@ function App() {
   };
 
   const handleConcordanceSelect = (relatedVerse) => {
+    if (!relatedVerse) return;
     setSelectedBook(relatedVerse.book);
     setSelectedChapter(relatedVerse.chapter);
-    navigate('/');
+    navigate(`/reading?book=${encodeURIComponent(relatedVerse.book)}&chapter=${relatedVerse.chapter}`);
     setContextMenu({ visible: false, verse: null });
     setConcordanceSubmenu(false);
   };
 
-  const getConcordances = async (verse) => {
+  const getConcordances = (verse) => {
+    if (!verse) return [];
     const reference = `${selectedBook} ${selectedChapter}:${verse.verse}`;
     const entry = concordances.find(c => c.reference === reference);
     return entry ? entry.related : [];
@@ -562,7 +566,7 @@ function App() {
                 <input
                   type="file"
                   id="customBackgroundImage"
-                  onChange={handleCustomImageApply}
+                  onChange={handleCustomImage}
                   accept="image/*"
                 />
               </div>
@@ -575,9 +579,6 @@ function App() {
                 >
                   <option value="Arial">Arial</option>
                   <option value="Roboto">Roboto</option>
-                  <option value="Open Sans">Open Sans</option>
-                  <option value="Lora">Lora</option>
-                  <option value="Montserrat">Montserrat</option>
                   <option value="Georgia">Georgia</option>
                 </select>
               </div>
@@ -632,17 +633,21 @@ function App() {
         <InstallPrompt />
         <Routes>
           <Route
+            path="/login"
+            element={<div className="main-content login-page">Página de Login</div>}
+          />
+          <Route
             path="/"
             element={
               <div className="main-content">
                 <div className="selector">
                   <select value={selectedBook} onChange={(e) => setSelectedBook(e.target.value)}>
-                    {bibleData.books.map((book) => (
+                    {bibleData.books?.map((book) => (
                       <option key={book.name} value={book.name}>{book.name}</option>
                     ))}
                   </select>
                   <select value={selectedChapter} onChange={(e) => setSelectedChapter(Number(e.target.value))}>
-                    {book?.chapters.map((chapter) => (
+                    {book?.chapters?.map((chapter) => (
                       <option key={chapter.chapter} value={chapter.chapter}>{chapter.chapter}</option>
                     ))}
                   </select>
@@ -653,7 +658,7 @@ function App() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <div className="continuous-text">
+                <div className="verses-container">
                   {verses.map((verse) => {
                     const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
                     const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
@@ -673,7 +678,7 @@ function App() {
                               Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
                               {loadingComment === commentKey && ' (Cargando...)'}
                             </span>
-                            <button className="close-comment" onClick={() => handleCloseComment(verse, verseComments[commentKey]?.type)}>X</button>
+                            <button className="close-comment" onClick={() => handleCloseComment(verse, verseComments[commentKey].type)}>X</button>
                           </span>
                         )}
                         {notes[noteKey] && (
@@ -694,7 +699,7 @@ function App() {
                     );
                   })}
                 </div>
-                {contextMenu.visible && (
+                {contextMenu.visible && contextMenu.verse && (
                   <div
                     className="context-menu"
                     style={{ top: contextMenu.y, left: contextMenu.x }}
@@ -741,13 +746,13 @@ function App() {
                           <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'teológico')}>
                             Teológica
                           </div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfico')}>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'geográfica')}>
                             Geográfica
                           </div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítico')}>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'paleolítica')}>
                             Paleolítica
                           </div>
-                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológico')}>
+                          <div className="submenu-item" onClick={() => handleCommentSelect(contextMenu.verse, 'arqueológica')}>
                             Arqueológica
                           </div>
                         </div>
@@ -760,20 +765,18 @@ function App() {
                           {loadingConcordance ? (
                             <div className="submenu-item">Cargando...</div>
                           ) : (
-                            getConcordances(contextMenu.verse).then(related =>
-                              related.length === 0 ? (
-                                <div className="submenu-item">No hay concordancias</div>
-                              ) : (
-                                related.map((rel, index) => (
-                                  <div
-                                    key={index}
-                                    className="submenu-item"
-                                    onClick={() => handleConcordanceSelect(rel)}
-                                  >
-                                    {rel.book} {rel.chapter}:{rel.verse}
-                                  </div>
-                                ))
-                              )
+                            getConcordances(contextMenu.verse).length === 0 ? (
+                              <div className="submenu-item">No hay concordancias</div>
+                            ) : (
+                              getConcordances(contextMenu.verse).map((rel, index) => (
+                                <div
+                                  key={index}
+                                  className="submenu-item"
+                                  onClick={() => handleConcordanceSelect(rel)}
+                                >
+                                  {rel.book} {rel.chapter}:{rel.verse}
+                                </div>
+                              ))
                             )
                           )}
                         </div>
