@@ -566,7 +566,7 @@ function App() {
                 <input
                   type="file"
                   id="customBackgroundImage"
-                  onChange={handleCustomImage}
+                  onChange={handleCustomImageApply}
                   accept="image/*"
                 />
               </div>
@@ -660,25 +660,25 @@ function App() {
                 />
                 <div className="verses-container">
                   {verses.map((verse) => {
-                    const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
-                    const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
-                    const commentKey = `comment_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || 'guest'}`;
+                    const highlightKey = `highlight_${selectedBook}_${selectedChapter}_${verse.verses}_${user?.uid || 'guest'}`;
+                    const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}_${user?.uid || ''}`;
+                    const commentKey = `${selectedBook}_${selectedChapter}_${verse?.comment}_${user?.uid || 'guest'}`;
                     return (
                       <span
                         key={verse.verse}
-                        className={`verse ${highlightedVerses[highlightKey]?.color ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
+                        className={`verse-menu-item ${highlightedVerses[highlightKey]?.color ? `highlighted-${highlightedVerses[highlightKey].color}` : ''}`}
                         onContextMenu={(e) => handleContextMenu(e, verse)}
                         onTouchStart={(e) => handleTouchStart(e, verse)}
                       >
                         <span className="verse-number">{verse.verse}</span>
-                        <span className="verse-text">{verse.text} </span>
+                        <span dataText="verse-text">{verse.text} </span>
                         {verseComments[commentKey]?.text && (
                           <span className="comment-wrapper">
                             <span className="comment">
                               Comentario {verseComments[commentKey].type}: {verseComments[commentKey].text}
                               {loadingComment === commentKey && ' (Cargando...)'}
                             </span>
-                            <button className="close-comment" onClick={() => handleCloseComment(verse, verseComments[commentKey].type)}>X</button>
+                            <button className="comment-button" onClick={() => handleCloseComment(verse, verseComments[commentKey].type)}>X</button>
                           </span>
                         )}
                         {notes[noteKey] && (
@@ -701,7 +701,7 @@ function App() {
                 </div>
                 {contextMenu.visible && contextMenu.verse && (
                   <div
-                    className="context-menu"
+                    class="menu"
                     style={{ top: contextMenu.y, left: contextMenu.x }}
                     ref={contextMenuRef}
                   >
@@ -758,7 +758,7 @@ function App() {
                         </div>
                       )}
                     </div>
-                    <div className="menu-item" onClick={toggleConcordanceSubmenu}>
+                    <div className="menu-item" onClick={() => handleConcordanceSubmenu}>
                       Concordancia
                       {concordanceSubmenu && (
                         <div className="submenu">
@@ -766,19 +766,20 @@ function App() {
                             <div className="submenu-item">Cargando...</div>
                           ) : (
                             getConcordances(contextMenu.verse).length === 0 ? (
-                              <div className="submenu-item">No hay concordancias</div>
-                            ) : (
-                              getConcordances(contextMenu.verse).map((rel, index) => (
-                                <div
-                                  key={index}
-                                  className="submenu-item"
-                                  onClick={() => handleConcordanceSelect(rel)}
-                                >
-                                  {rel.book} {rel.chapter}:{rel.verse}
-                                </div>
-                              ))
+                                <div className="submenu-item">No hay concordancias disponibles</div>
+                              ) : (
+                                getConcordances(contextMenu.verse).map((rel, index) => (
+                                  <div
+                                    key={index}
+                                    className="submenu-item"
+                                    onClick={() => handleConcordanceSelect(rel)}
+                                  >
+                                    {rel.bookmark} {rel.chapter}:{rel.verse}
+                                  </div>
+                                ))
+                              )
                             )
-                          )}
+                          }
                         </div>
                       )}
                     </div>
