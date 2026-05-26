@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import { COMMENTARY } from './data/commentary';
-import AuthScreen from './AuthScreen';
-import UserMenu   from './UserMenu';
-import { onAuthChange, loadUserData, saveUserData } from './firebase';
+import AuthScreen    from './AuthScreen';
+import UserMenu      from './UserMenu';
+import CommentsPanel from './CommentsPanel';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser } from './firebase';
 
 const BOOK_NAMES = {
   gn:'Génesis', ex:'Éxodo', lv:'Levítico', nm:'Números', dt:'Deuteronomio',
@@ -71,7 +72,7 @@ function fromFirestore(data) {
   Object.entries(data.notes      || {}).forEach(([k, v]) => { nt[`note_${k}`] = v; });
   Object.entries(data.bookmarks  || {}).forEach(([k, v]) => { bm[`bm_${k}`]   = v; });
   Object.entries(data.shared     || {}).forEach(([k, v]) => { sh[`sh_${k}`]   = v; });
-  return { hl, nt, bm, sh };
+  return { hl, nt, bm, sh, following: data.following || [] };
 }
 
 // ── Íconos SVG ────────────────────────────────────────────────────────────────
@@ -124,6 +125,14 @@ function ReferenceIcon() {
   );
 }
 
+function PublicCommentIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  );
+}
+
 function ShareIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -147,11 +156,12 @@ function CommentaryIcon() {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, user, following, onFollowToggle }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
   const [showCommentary, setShowCommentary] = useState(false);
+  const [showComments,   setShowComments]   = useState(false);
   const [activeTab,      setActiveTab]      = useState(null);
   const [noteVal,        setNoteVal]        = useState(note || '');
   const [copied,         setCopied]         = useState(false);
@@ -196,7 +206,8 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
   }
 
   const bgColor = highlight ? HIGHLIGHT_COLORS.find(c => c.id === highlight)?.hex : undefined;
-  const highlightStyle = bgColor ? { backgroundColor: bgColor, borderRadius: '10px' } : {};
+  // color siempre oscuro cuando hay subrayado, para que sea legible en modo oscuro
+  const highlightStyle = bgColor ? { backgroundColor: bgColor, borderRadius: '10px', color: '#1c1917' } : {};
 
   return (
     <div className="verse-card">
@@ -269,6 +280,14 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
               <CommentaryIcon />
             </button>
           )}
+
+          <button
+            className={`icon-btn ${showComments ? 'active' : ''}`}
+            onClick={() => { setShowComments(v => !v); setShowColors(false); setShowNote(false); setShowCommentary(false); }}
+            title="Comentarios públicos"
+          >
+            <PublicCommentIcon />
+          </button>
         </div>
       )}
 
@@ -309,6 +328,15 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
             {noteVal.trim() ? '✓ Se guarda automáticamente' : 'Escribe para guardar'}
           </div>
         </div>
+      )}
+
+      {showComments && (
+        <CommentsPanel
+          verseKey={`${bookName}_${chapter}_${verse.verse}`}
+          user={user}
+          following={following}
+          onFollowToggle={onFollowToggle}
+        />
       )}
 
       {showCommentary && (
@@ -399,6 +427,7 @@ export default function App() {
   const [notes,           setNotes]          = useState({});
   const [bookmarks,       setBookmarks]      = useState({});
   const [shared,          setShared]         = useState({});
+  const [following,       setFollowing]      = useState([]);
   const [showMenu,        setShowMenu]       = useState(false);
 
   // Aplicar tema
@@ -420,16 +449,21 @@ export default function App() {
       .catch(() => setBibleLoading(false));
   }, []);
 
-  // Auth state
+  // Auth state + carga de datos
   useEffect(() => {
     return onAuthChange(async (firebaseUser) => {
-      setUser(firebaseUser);
       if (firebaseUser && !firebaseUser.isAnonymous) {
         const data = await loadUserData(firebaseUser.uid);
-        const { hl, nt, bm, sh } = fromFirestore(data);
-        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
-      } else {
-        // Invitado → cargar desde localStorage
+        const { hl, nt, bm, sh, following } = fromFirestore(data);
+        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh); setFollowing(following);
+        // Guardar perfil y presencia
+        await savePresence(firebaseUser.uid, {
+          displayName: firebaseUser.displayName || data.displayName || '',
+          email:       firebaseUser.email || '',
+          photoURL:    firebaseUser.photoURL || '',
+          createdAt:   data.createdAt || firebaseUser.metadata.creationTime || new Date().toISOString(),
+        });
+      } else if (firebaseUser?.isAnonymous) {
         const hl = {}, nt = {}, bm = {};
         for (let i = 0; i < localStorage.length; i++) {
           const k = localStorage.key(i);
@@ -437,10 +471,20 @@ export default function App() {
           if (k?.startsWith('note_')) nt[k] = lsGet(k);
           if (k?.startsWith('bm_'))   bm[k] = lsGet(k);
         }
-        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({});
+        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({}); setFollowing([]);
+      } else {
+        setHighlights({}); setNotes({}); setBookmarks({}); setShared({}); setFollowing([]);
       }
+      setUser(firebaseUser);
     });
   }, []);
+
+  // Actualizar presencia cada 2 minutos
+  useEffect(() => {
+    if (!user || user.isAnonymous) return;
+    const id = setInterval(() => savePresence(user.uid, {}), 2 * 60 * 1000);
+    return () => clearInterval(id);
+  }, [user]);
 
   // Sincronizar con Firestore cuando cambia el usuario
   async function syncFirestore(hl, nt, bm, sh, uid) {
@@ -506,6 +550,18 @@ export default function App() {
     setBookmarks(newBm);
     if (isCloud) syncFirestore(highlights, notes, newBm, shared, user.uid);
   }, [selectedBook, selectedChapter, highlights, notes, bookmarks, shared, user, isCloud]);
+
+  const handleFollowToggle = useCallback(async (targetUid) => {
+    if (!user || user.isAnonymous) return;
+    const isFollowing = following.includes(targetUid);
+    if (isFollowing) {
+      await unfollowUser(user.uid, targetUid);
+      setFollowing(f => f.filter(uid => uid !== targetUid));
+    } else {
+      await followUser(user.uid, targetUid);
+      setFollowing(f => [...f, targetUid]);
+    }
+  }, [user, following]);
 
   const handleShare = useCallback((verseNum) => {
     const key = `sh_${selectedBook}_${selectedChapter}_${verseNum}`;
@@ -619,6 +675,9 @@ export default function App() {
                 onNote={handleNote}
                 onBookmark={handleBookmark}
                 onShare={handleShare}
+                user={user}
+                following={following}
+                onFollowToggle={handleFollowToggle}
               />
             );
           })
@@ -633,11 +692,13 @@ export default function App() {
           highlights={highlights}
           notes={notes}
           shared={shared}
+          following={following}
           onClose={() => setShowMenu(false)}
           onNavigate={(bookName, chapterNum) => {
             changeBook(bookName);
             setTimeout(() => changeChapter(chapterNum), 50);
           }}
+          onFollowingChange={setFollowing}
         />
       )}
     </div>
