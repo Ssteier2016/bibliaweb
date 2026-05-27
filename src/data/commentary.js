@@ -1321,6 +1321,246 @@ export const COMMENTARY = {
     comentarios: `Este versículo ha sido leído en miles de funerales como promesa de esperanza. La imagen es intensamente personal: Dios mismo enjuga cada lágrima, no las elimina estadísticamente sino una por una. C.S. Lewis: el cielo no es mero escape del dolor sino la transformación de todo sufrimiento pasado en algo glorioso. El dolor no es negado sino redimido.`,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     LEVÍTICO
+  ══════════════════════════════════════════════════════════════ */
+
+  'Levítico_19_18': {
+    linguistico: `"Amarás a tu prójimo como a ti mismo." "Re'akha" (רֵעֲךָ): prójimo, compañero, pero la LXX usa "plesion" que Jesús extendió a todo ser humano (Lc 10:29-37). "Kamocha" (כָּמוֹךָ): como tú mismo — la propia autoestima es el estándar del amor al prójimo.`,
+    historico: `El rabino Hillel (s. I a.C.) resumió toda la Torá en esta frase: "Lo que te es odioso no lo hagas a tu prójimo; el resto es comentario." Jesús lo convirtió en el segundo mandamiento más importante (Mt 22:39), superando incluso las leyes de pureza ritual.`,
+    referencia: `Mateo 22:39. Marcos 12:31. Romanos 13:9 (el que ama al prójimo cumple la ley). Gálatas 5:14. Santiago 2:8 (la "ley real"). Lucas 10:27.`,
+    comentarios: `Martin Buber: el amor al prójimo es posible solo si primero reconocemos que el otro es un "tú" y no un "ello" — una persona, no un objeto. La ética bíblica nace de la relacionalidad, no de reglas abstractas.`,
+  },
+
+  'Levítico_23_3': {
+    historico: `El sábado (Shabbat) precede a todas las fiestas en el calendario levítico. Su institución semanal es la más antigua y universal de las fiestas bíblicas. El descanso divino del séptimo día (Gn 2:2-3) se convirtió en mandato social: también los siervos, extranjeros y animales descansaban.`,
+    linguistico: `"Shabbaton" (שַׁבָּתוֹן): reposo solemne, intensivo de Shabbat. "Miqra qodesh" (מִקְרָא קֹדֶשׁ): convocación santa — el sábado no es solo descanso privado sino asamblea pública de adoración. "Melacha" (מְלָאכָה): trabajo, obra — el mismo término usado para la creación divina en Gn 2.`,
+    referencia: `Éxodo 20:8-11. Isaías 58:13-14 (el sábado como deleite). Marcos 2:27 ("el sábado fue hecho por causa del hombre"). Hebreos 4:9-10 (reposo sabático para el pueblo de Dios). Génesis 2:2.`,
+    comentarios: `Abraham Heschel en "El Sábado" (1951) lo llamó "una catedral en el tiempo, no en el espacio". El sábado es la afirmación de que el ser humano no es esclavo de la productividad — una revolución social antigua que no tiene paralelo en las culturas vecinas.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     JOSUÉ
+  ══════════════════════════════════════════════════════════════ */
+
+  'Josué_24_15': {
+    linguistico: `"Yo y mi casa serviremos a Jehová." "Ve'anoki ubeyti" (וְאָנֹכִי וּבֵיתִי): yo y mi casa — "bayit" incluye familia extendida, siervos, toda la esfera de influencia. La declaración es personal y corporativa a la vez. "Na'avod" (נַעֲבֹד): serviremos — futuro de servicio voluntario.`,
+    historico: `Este discurso en Siquem cierra el ciclo de conquista de Canaán. Siquem era el lugar donde Abraham recibió la primera promesa (Gn 12:6-7). Josué convoca a Israel en ese mismo sitio para renovar el pacto, conectando el inicio y el fin de la historia patriarcal.`,
+    referencia: `Deuteronomio 30:19 ("escoge la vida"). Rut 1:16 (fidelidad de Rut). Josué 1:9 (sed fuertes y valientes). 1 Reyes 18:21 (Elías en el Carmelo: "¿hasta cuándo claudicaréis?"). Mateo 6:24 ("no podéis servir a dos señores").`,
+    comentarios: `Calvino: la decisión de Josué es profética — el líder que declara su lealtad personal inspira a la comunidad. La fe no se hereda automáticamente; cada generación debe elegir. El texto cierra con Israel renovando el pacto libremente, no por coerción.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     RUT
+  ══════════════════════════════════════════════════════════════ */
+
+  'Rut_2_12': {
+    linguistico: `"Jehová recompense tu obra, y tu remuneración sea cumplida de parte de Jehová Dios de Israel, bajo cuyas alas has venido a refugiarte." "Shalom meshulamet" (שָׁלֵם תִּהְיֶה מַשְׂכֻּרְתֵּךְ): tu recompensa sea completa — verbo raíz shalom, integridad total. "Kanafayim" (כְּנָפָיו): alas — imagen del águila que protege (Dt 32:11) y del querubín en el templo.`,
+    historico: `La expresión "refugiarse bajo las alas de Dios" era una metáfora de conversión al judaísmo. Booz reconoce en Rut a una conversa genuina. El mismo Booz, que la bendice, será el "go'el" (pariente redentor) que cumple esa bendición con actos concretos.`,
+    referencia: `Deuteronomio 32:11 (Dios como águila que protege). Salmo 91:4 ("con sus plumas te cubrirá"). Rut 3:9 (Rut pide a Booz que extienda su manto sobre ella). Efesios 2:12-13 (extranjeros incorporados al pacto). Mateo 1:5.`,
+    comentarios: `La imagen de "las alas de Dios" recorre toda la Escritura: desde el Espíritu sobre las aguas (Gn 1:2) hasta Jesús que quiso reunir a Jerusalén como la gallina a sus polluelos (Mt 23:37). Rut, al acogerse a ese refugio, se convierte en símbolo de todo el que abandona sus dioses y busca al Dios vivo.`,
+  },
+
+  'Salmos_23_4': {
+    linguistico: `"Aunque ande en valle de sombra de muerte, no temeré mal alguno, porque tú estarás conmigo." "Ge tsalmavel" (גֵּיא צַלְמָוֶת): valle de sombra de muerte — literalmente "oscuridad profunda", no solo valle oscuro. El "ki atta imadi" (כִּי־אַתָּה עִמָּדִי): porque tú estás conmigo — el fundamento de la valentía no es la ausencia de peligro sino la presencia divina.`,
+    historico: `Los pastores hebreos conocían los barrancos del desierto de Judá donde los rebaños caían en emboscadas de depredadores y ladrones. David habla desde la experiencia del pastor-guerrero. El versículo ha sido recitado en hospitales, cárceles y campos de batalla de todas las épocas.`,
+    referencia: `Isaías 43:2 ("cuando pases por las aguas, yo estaré contigo"). Josué 1:9. Hebreos 13:5 ("no te desampararé, ni te dejaré"). Romanos 8:38-39. Juan 14:27 ("mi paz os doy"). Salmo 46:1.`,
+    comentarios: `Dietrich Bonhoeffer escribió sobre este versículo desde la celda de Tegel: "No somos llamados a no tener miedo sino a no dejar que el miedo nos dicte. Cristo camina con nosotros en el valle." Agustín: la presencia de Dios no cambia el peligro del valle — cambia al que lo atraviesa.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 REYES
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Reyes_18_21': {
+    linguistico: `"¿Hasta cuándo claudicaréis vosotros entre dos pensamientos?" "Pesachim" (פֹּסְחִים): cojeando, saltando de un pie al otro — origen de la palabra "Pascua" (Pesach). La imagen es de alguien que no puede decidir entre dos opciones. "Ba'al o Jehová": la elección planteada por Elías es binaria.`,
+    historico: `El Carmelo era considerado territorio del Baal fenicé introducido por Jezabel. Elías convoca un "concurso divino" en terreno simbólicamente hostil. La sequía de tres años (1R 17:1) era entendida como juicio sobre el dios que supuestamente controlaba la lluvia.`,
+    referencia: `Josué 24:15 (elegid hoy a quién serviréis). Mateo 6:24 ("no podéis servir a dos señores"). Apocalipsis 3:15-16 (ni frío ni caliente). Santiago 1:8 (el hombre de doble ánimo). Romanos 8:6.`,
+    comentarios: `Spurgeon: la "cojera espiritual" es más peligrosa que el rechazo abierto, porque mantiene al creyente en un limbo que no produce ni conversión ni persecución. La tibieza religiosa fue la mayor advertencia de Elías, no el paganismo abierto.`,
+  },
+
+  '1 Reyes_19_12': {
+    linguistico: `"Y tras el terremoto un fuego; pero Jehová no estaba en el fuego. Y tras el fuego un silbo apacible y delicado." "Qol demamah daqah" (קֹול דְּמָמָה דַקָּה): voz de silencio fino/delgado — paradoja intraducible: la voz del silencio. La LXX dice "voz de brisa suave". Dios habla donde no se espera encontrarlo.`,
+    historico: `Elías está en el Horeb (Sinaí), el mismo monte donde Dios habló a Moisés en fuego, truenos y terremoto (Ex 19). El contraste es deliberado: la nueva revelación a Elías supera a la antigua en intimidad. El profeta exhausto encuentra a Dios no en lo espectacular sino en el susurro.`,
+    referencia: `Éxodo 19:16-19 (Dios en el Sinaí con truenos). Job 40:6 (Dios en el torbellino). Isaías 30:15 ("en quietud y en confianza será vuestra fortaleza"). Salmo 46:10 ("Estad quietos, y conoced que yo soy Dios"). Zacarías 4:6.`,
+    comentarios: `Thomas Merton: este texto es el fundamento bíblico de la tradición contemplativa. Dios no siempre está en los grandes movimientos históricos ni en los espectáculos religiosos — a veces habla en el espacio interior, en el silencio que requiere aprenderse a habitar.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ESTER
+  ══════════════════════════════════════════════════════════════ */
+
+  'Ester_4_14': {
+    linguistico: `"¿Y quién sabe si para esta hora has llegado al reino?" "Umi yodea" (וּמִי יוֹדֵעַ): ¿y quién sabe? — fórmula de posibilidad abierta, no afirmación dogmática. Dios no es mencionado en todo el libro de Ester, pero la providencia está implícita en cada pregunta. "Et-kazot" (כָּעֵת הַזֹּאת): para un tiempo como este.`,
+    historico: `El libro de Ester es el único libro del AT donde el nombre de Dios no aparece explícitamente, lo que algunos consideraron razón para excluirlo del canon. Sin embargo, la providencia divina opera en cada coincidencia del relato. La fiesta de Purim (Est 9:26) celebra esta historia hasta hoy.`,
+    referencia: `Romanos 8:28 (todo coopera para bien). Génesis 50:20 (lo que intentaron para mal, Dios lo usó para bien). Isaías 45:3 (te daré los tesoros escondidos). Efesios 1:11 (el plan eterno de Dios). Proverbios 19:21.`,
+    comentarios: `Dietrich Bonhoeffer citó este versículo antes de ser ejecutado. La pregunta de Mardoqueo se convirtió en el fundamento de la ética de responsabilidad histórica: cada persona llega a su posición providencialmente para ser instrumento en el momento decisivo. El texto afirma que la historia tiene dirección, aunque no siempre se vea.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     JOB
+  ══════════════════════════════════════════════════════════════ */
+
+  'Job_38_4': {
+    linguistico: `"¿Dónde estabas tú cuando yo fundaba la tierra?" "Eyfo hayita" (אֵיפֹה הָיִיתָ): ¿dónde estabas? — pregunta retórica que reorienta la perspectiva humana. El capítulo 38 es una serie de preguntas divinas desde el torbellino. Dios no responde el problema del sufrimiento de Job con argumentos — responde con una revelación de su grandeza cósmica.`,
+    historico: `Job ha reclamado juicio divino durante 37 capítulos. La respuesta de Dios es inesperada: no explica el sufrimiento sino que muestra su gobierno sobre la creación (astronomía, meteorología, zoología). La teodicea bíblica no es un argumento intelectual sino una experiencia de encuentro con Dios.`,
+    referencia: `Job 40:4 ("He aquí que yo soy vil; ¿qué te responderé?"). Isaías 40:12-14 (¿quién enseñó al Espíritu de Dios?). Romanos 11:33-34 ("¡Oh profundidad de las riquezas...! ¿Quién conoció la mente del Señor?"). Salmo 8:3-4. Proverbios 3:19.`,
+    comentarios: `G.K. Chesterton: el discurso divino del torbellino es el más audaz de la Biblia — Dios responde a la pregunta del sufrimiento con el misterio de la creación. Job queda satisfecho no porque tenga respuestas sino porque tuvo un encuentro. La fe madura a veces se nutre de preguntas, no de explicaciones.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     SALMOS (adicionales)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Salmos_46_10': {
+    linguistico: `"Estad quietos, y conoced que yo soy Dios." "Harpu" (הַרְפּוּ): aflojad, soltad, dejaos estar — imperativo de relajar la tensión. No es meditación pasiva sino acto de confianza activa. "Deu ki anoki Elohim" (דְּעוּ כִּי־אָנֹכִי אֱלֹהִים): sabed/conoced que yo soy Dios — el conocimiento surge de la quietud.`,
+    historico: `El Salmo 46 fue compuesto probablemente tras la liberación milagrosa de Jerusalén del ejército asirio (701 a.C., 2R 19:35). Lutero se inspiró en él para escribir "Castillo Fuerte" (Ein feste Burg, 1529) durante la Reforma. El contexto es de guerra y caos — y en ese contexto surge el mandato de quietud.`,
+    referencia: `Isaías 30:15 ("en quietud y en confianza será vuestra fortaleza"). 1 Reyes 19:12 (la voz suave en el silencio). Filipenses 4:7 (la paz que sobrepasa todo entendimiento). Salmo 62:1. Zacarías 2:13.`,
+    comentarios: `Thomas Merton: este versículo es la invitación más poderosa a la oración contemplativa en todo el AT. La quietud no es vacío sino atención. Agustín: "Nuestro corazón está inquieto hasta que descanse en ti" — la quietud de Dios es el destino del alma humana.`,
+  },
+
+  'Salmos_51_10': {
+    linguistico: `"Crea en mí, oh Dios, un corazón limpio." "Bara" (בְּרָא): el mismo verbo de Génesis 1:1, exclusivo de la acción creadora de Dios. David no pide reforma sino creación nueva — reconoce que solo Dios puede hacer algo nuevo donde hay corrupción profunda. "Lev tahor" (לֵב טָהֹור): corazón puro, íntegro.`,
+    historico: `El Salmo 51 lleva la subscripción "Cuando fue a él el profeta Natán, después que David fue a Betsabé" (2 Sam 12). Es el más profundo de los salmos penitenciales y el fundamento litúrgico de la confesión en el judaísmo y el cristianismo.`,
+    referencia: `2 Samuel 12:1-13 (Nathan confronta a David). Ezequiel 36:26 ("os daré corazón nuevo"). Jeremías 31:33 (la ley en el corazón). Romanos 3:23. 1 Juan 1:9. Lamentaciones 3:22-23.`,
+    comentarios: `Agustín: "tardíamente te amé, hermosura tan antigua y tan nueva; tardíamente te amé" — su conversión reflejada en el espejo de este salmo. Bonhoeffer: la diferencia entre arrepentimiento barato y costoso es que el primero pide perdón sin querer cambio; el segundo implora ser rehecho.`,
+  },
+
+  'Salmos_139_1': {
+    linguistico: `"Oh Jehová, tú me has examinado y conocido." "Chaqartani" (חֲקַרְתַּנִי): me has sondeado, explorado en profundidad — verbo de minería o investigación exhaustiva. "Yada'ta" (יָדַעְתָּ): conocido — en hebreo yada' implica conocimiento íntimo y relacional, no solo informativo. Dios conoce al ser humano desde adentro.`,
+    cientifico: `El salmo describe un conocimiento divino que anticipa el pensamiento, el movimiento y la formación prenatal (v.13-16). La neurociencia moderna confirma que el cerebro forma pensamientos antes de que la conciencia los registre — Dios conoce incluso ese nivel preconsciente.`,
+    referencia: `Jeremías 1:5 ("antes que te formase en el vientre te conocí"). Lucas 12:7 ("aun los cabellos de vuestra cabeza están contados"). Mateo 6:8 (el Padre sabe lo que necesitamos). 1 Juan 3:20. Salmo 44:21.`,
+    comentarios: `Karl Barth: ser conocido por Dios no es amenazante sino liberador — el ser humano encuentra su identidad más profunda no en su autoconocimiento sino en ser conocido por Dios. C.S. Lewis en "Los Salmos": el escondite del universo no existe — y eso es buena noticia para quien ha dejado de huir.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     MARCOS (adicionales)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Marcos_12_30': {
+    linguistico: `"Amarás al Señor tu Dios con todo tu corazón, y con toda tu alma, y con toda tu mente y con todas tus fuerzas." Cita del Shemá (Dt 6:4-5). Marcos añade "con toda tu mente" (dianoia, διανοία) al original hebreo — expandiendo el mandamiento para incluir la dimensión intelectual del amor a Dios.`,
+    historico: `El Shemá era la oración recitada dos veces al día por todo judío. Jesús no reemplaza la Torá sino la resume. La respuesta del escriba (v.32-34) muestra que Jesús y él están de acuerdo: el amor supera al sacrificio ritual (cf. Oseas 6:6). Jesús lo declara "no lejos del reino de Dios".`,
+    referencia: `Deuteronomio 6:4-5 (el Shemá original). Levítico 19:18 (amarás al prójimo). Mateo 22:37-40 ("de estos dos mandamientos depende toda la Ley y los Profetas"). Romanos 13:10 (el amor es el cumplimiento de la ley). 1 Juan 4:19.`,
+    comentarios: `Agustín: "ama y haz lo que quieras" — su famosa frase resume este mandamiento. Si el amor a Dios es total, los actos resultantes serán buenos. La ética cristiana no es un catálogo de reglas sino una sola fuente: el amor.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     LUCAS (adicionales)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Lucas_6_27': {
+    linguistico: `"Amad a vuestros enemigos, haced bien a los que os aborrecen." "Agapate tous echthrous hymōn" (ἀγαπᾶτε τοὺς ἐχθρούς ὑμῶν): imperativo presente — acción continua. "Agapao" (ἀγαπάω) no es emoción romántica (eros) ni afecto familiar (philia) sino amor decidido de la voluntad. Se puede ordenar porque no depende del sentimiento.`,
+    historico: `Este mandamiento no tiene paralelo en la ética antigua: ni el estoicismo ni el judaísmo rabínico pedían amar al enemigo — sí tolerarlo o perdonarlo. La novedad radical de Jesús fue hacer del amor al enemigo la marca distintiva del discípulo. Ningún sistema ético previo llegó tan lejos.`,
+    referencia: `Mateo 5:44 (versión del Sermón del Monte). Romanos 12:20 ("si tu enemigo tuviere hambre, dale de comer"). Proverbios 25:21 (misma idea en el AT). 1 Pedro 3:9 (no devolver mal por mal). Efesios 4:32 (sed benignos, misericordiosos, perdonándoos).`,
+    comentarios: `Martin Luther King citó este pasaje como la base teológica de la resistencia no violenta. C.S. Lewis: el amor al enemigo no es un sentimiento — es una decisión de querer el bien del otro aunque duela. La paradoja es que practicar este amor muchas veces produce, con el tiempo, el sentimiento correspondiente.`,
+  },
+
+  'Lucas_22_42': {
+    linguistico: `"Padre, si quieres, pasa de mí esta copa; pero no se haga mi voluntad, sino la tuya." "Plēn mē to thelēma mou alla to son ginesthō" (πλὴν μὴ τὸ θέλημά μου ἀλλὰ τὸ σὸν γινέσθω): el "plēn" (sin embargo) crea la tensión entre dos voluntades reales. Jesús no niega su renuencia sino que la subordina libremente.`,
+    historico: `Getsemaní — "prensa de aceitunas" — era un huerto al pie del Monte de los Olivos, fuera de Jerusalén. Lucas añade el detalle del "sudor como gotas de sangre" (v.44, hematidrosis) — fenómeno médico documentado bajo estrés extremo. La oración ocurre pocas horas antes de la crucifixión.`,
+    referencia: `Mateo 26:39 (versión paralela). Hebreos 5:7-8 ("aprendió la obediencia por lo que padeció"). Juan 12:27 ("ahora está turbada mi alma"). Filipenses 2:8 ("se humilló a sí mismo, haciéndose obediente hasta la muerte"). Isaías 53:10.`,
+    comentarios: `Hans Urs von Balthasar: en Getsemaní se resuelve el misterio de la voluntad divina y la voluntad humana — no suprimiéndola sino uniéndola libremente a la del Padre. Barth: la oración de Jesús no es capitulación sino el acto supremo de la libertad divina-humana.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 CORINTIOS
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Corintios_5_17': {
+    linguistico: `"De modo que si alguno está en Cristo, nueva criatura es; las cosas viejas pasaron; he aquí todas son hechas nuevas." "Ktisis kainē" (κτίσις καινή): nueva creación — no solo nuevo individuo sino nueva realidad cósmica. "Kainē" (καινός): nuevo en calidad/naturaleza, no solo en tiempo. El creyente no es mejorado sino recreado.`,
+    referencia: `Isaías 65:17 ("he aquí que yo creo nuevos cielos y nueva tierra"). Gálatas 6:15 ("ni la circuncisión vale algo, ni la incircuncisión, sino una nueva creación"). Efesios 4:24. Génesis 1:1. Apocalipsis 21:5 ("He aquí, yo hago nuevas todas las cosas"). Ezequiel 36:26.`,
+    comentarios: `Barth: la nueva creación no es solo restauración del Edén sino algo radicalmente nuevo que supera el estado original. Pablo no dice que el convertido "intente" mejorar, sino que ya "es" nueva creación — el indicativo teológico precede al imperativo ético.`,
+  },
+
+  '2 Corintios_12_9': {
+    linguistico: `"Bástate mi gracia; porque mi poder se perfecciona en la debilidad." "Arkei soi hē charis mou" (ἀρκεῖ σοι ἡ χάρις μου): me basta (arkei: presente — sigue siendo suficiente). "Dynamis en astheneia teleitai" (δύναμις ἐν ἀσθενείᾳ τελεῖται): el poder se perfecciona/completa en la debilidad — paradoja central paulina.`,
+    historico: `El "aguijón en la carne" (v.7) ha sido interpretado como epilepsia, problema ocular, persecuciones, o tentación. Pablo ora tres veces (como Jesús en Getsemaní) y recibe no sanidad sino gracia. Este patrón definió la espiritualidad cristiana: Dios no siempre remueve el problema sino que transforma al que lo padece.`,
+    referencia: `Filipenses 4:11-13 (contentamiento en toda situación). 2 Corintios 4:7 ("tenemos este tesoro en vasos de barro"). Romanos 5:3-5 (la tribulación produce esperanza). 1 Corintios 1:27 (lo necio del mundo avergüenza al sabio). Isaías 40:29.`,
+    comentarios: `Simone Weil: la experiencia del límite y la debilidad puede ser el punto de encuentro más profundo con Dios. La "teología de la cruz" de Lutero se funda en este principio: Dios se revela sub contraria specie — bajo su contrario aparente.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     COLOSENSES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Colosenses_3_23': {
+    linguistico: `"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres." "Ean poiēte" (ἐάν ποιῆτε): cualquier cosa que hagan — universalidad. "Ek psychēs" (ἐκ ψυχῆς): desde el alma, de corazón — el centro de la voluntad y emoción. "Hōs tō kyriō" (ὡς τῷ Κυρίῳ): como para el Señor — el verdadero empleador es Dios.`,
+    historico: `Colosenses fue escrita a una comunidad amenazada por filosofías sincréticas (2:8) que diferenciaban entre lo sagrado y lo secular. Pablo responde con una teología del trabajo ordinario: todo acto hecho a la gloria de Dios es sagrado, incluyendo el trabajo de los esclavos (v.22).`,
+    referencia: `1 Corintios 10:31 ("haced todo para la gloria de Dios"). Efesios 6:7. 1 Pedro 4:11. Romanos 12:11. Proverbios 22:29 (el hombre diligente en su trabajo). Deuteronomio 8:18.`,
+    comentarios: `Martin Luther: destruyó la distinción medieval entre vocaciones sagradas (sacerdocio) y seculares. Todo trabajo honesto es "vocación" (Beruf) — llamado divino. Calvino: la santificación ocurre en el taller, en el campo, en la cocina — no solo en el templo.`,
+  },
+
+  'Colosenses_1_17': {
+    linguistico: `"Y él es antes de todas las cosas, y todas las cosas en él subsisten." "Autos estin pro pantōn" (αὐτός ἐστιν πρὸ πάντων): él es — presente eterno, no "fue" — antes de todas las cosas. "Synestēken" (συνέστηκεν): subsisten, son mantenidas unidas — término de coherencia cósmica. Cristo no solo creó sino que sostiene activamente el universo.`,
+    cientifico: `La física cuántica ha mostrado que el universo necesita una "constante cosmológica" y leyes finamente ajustadas para existir. Algunos físicos como Paul Davies hablan de un "principio antrópico" que implica diseño. La afirmación de que todo "subsiste" en Cristo es coherente con la idea de una inteligencia sostenedora.`,
+    referencia: `Juan 1:3 ("sin él nada de lo que ha sido hecho, fue hecho"). Hebreos 1:3 ("sustentando todas las cosas con la palabra de su poder"). Génesis 1:1. Apocalipsis 1:8. Romanos 11:36 ("por él, y para él, son todas las cosas").`,
+    comentarios: `Teilhard de Chardin: la visión de Cristo cósmico en Colosenses es el fundamento de su "Punto Omega" — Cristo como convergencia de toda la evolución cósmica. Para Barth, la preexistencia de Cristo significa que la creación fue pensada desde el principio como escenario de la gracia.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 TESALONICENSES
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Tesalonicenses_5_17': {
+    linguistico: `"Orad sin cesar." "Adialeiptōs proseuchesthe" (ἀδιαλείπτως προσεύχεσθε): orad ininterrumpidamente — el adverbio "adialeiptōs" denota continuidad sin pausa. Pablo no ordena oración continua verbal sino una orientación constante del corazón hacia Dios. Es el mandamiento más breve del NT (dos palabras en griego).`,
+    referencia: `Lucas 18:1 (siempre orar y no desmayar). Filipenses 4:6 ("en toda situación, con oración y ruego... sean hechas conocidas vuestras peticiones"). Efesios 6:18 (orar en el Espíritu en todo tiempo). Romanos 8:26 (el Espíritu intercede por nosotros). Salmo 55:17.`,
+    comentarios: `Evagrio Póntico: la oración continua es el ideal de la vida monástica — llegar a un estado de consciencia donde toda actividad es ante Dios. Brother Lawrence en "La práctica de la presencia de Dios" (1692) convirtió lavar platos en oración. La idea no es rezar constantemente sino vivir constantemente consciente de Dios.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 TIMOTEO
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Timoteo_3_16': {
+    linguistico: `"Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia." "Theopneustos" (θεόπνευστος): literalmente "espirado por Dios" — compuesto de theos (Dios) y pneō (soplar). El mismo vocabulario del soplo divino en Génesis 2:7. La Escritura es "aliento" de Dios, no simplemente dictado.`,
+    historico: `Pablo escribe desde la prisión romana, probablemente su último escrito antes del martirio (~67 d.C.). Las "Sagradas Escrituras" que menciona (v.15) eran el AT: el canon del NT aún estaba formándose. La iglesia del siglo II extendió la aplicación de este principio a los escritos apostólicos.`,
+    referencia: `2 Pedro 1:21 ("los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo"). Hebreos 4:12 (la palabra de Dios es viva y eficaz). Salmo 19:7-11 (la perfección de la ley de Dios). Mateo 5:17-18 (ni una jota de la ley pasará). Juan 17:17 ("tu palabra es verdad").`,
+    comentarios: `La doctrina de la inspiración bíblica no implica dictado mecánico — los estilos literarios de Pablo, Lucas o Juan son distintos. Significa que el Espíritu obró a través de las personalidades humanas para producir lo que Dios quería comunicar. Calvino: la Escritura es el "lente" que corrige nuestra visión distorsionada de Dios.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     TITO
+  ══════════════════════════════════════════════════════════════ */
+
+  'Tito_3_5': {
+    linguistico: `"Nos salvó, no por obras de justicia que nosotros hubiéramos hecho, sino por su misericordia, por el lavamiento de la regeneración y por la renovación en el Espíritu Santo." "Loutrou palingenesias" (λουτροῦ παλιγγενεσίας): lavamiento de regeneración — "palingenesia" (renacimiento) es usado solo aquí y en Mateo 19:28 para la renovación del cosmos.`,
+    referencia: `Efesios 2:8-9 (salvados por gracia, no por obras). Romanos 3:24 (justificados gratuitamente). Juan 3:5 (nacer del agua y del Espíritu). 1 Pedro 1:3 (regenerados por la resurrección). 2 Corintios 5:17 (nueva creación). Ezequiel 36:25-27.`,
+    comentarios: `La teología de la gracia de Pablo en Tito condensa lo que Romanos y Gálatas desarrollan: la salvación es iniciativa divina de principio a fin. Agustín usó este texto en la controversia pelagiana: si hubiera una obra humana que contribuyera a la salvación, Dios no sería soberano sobre ella.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     CANTARES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Cantares_8_7': {
+    linguistico: `"Las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos." "Mayim rabbim" (מַיִם רַבִּים): las grandes aguas — en la cosmología semítica, el caos primordial. El amor (ahavah, אַהֲבָה) resiste las fuerzas más destructivas del universo. "Lo yukhal lekhabotah" (לֹא יוּכְלוּ לְכַבּוֹתָהּ): no pueden extinguirlo.`,
+    historico: `El Cantar de los Cantares fue debatido intensamente antes de ser aceptado en el canon rabínico. El rabino Akiva (~135 d.C.) defendió su canonicidad: "Todo el AT es sagrado, pero el Cantar es el Santo de los Santos." Orígenes escribió el primer gran comentario alegórico: el amor es figura del amor de Dios por el alma.`,
+    referencia: `Romanos 8:38-39 ("nada nos separará del amor de Dios"). Juan 3:16 (Dios amó al mundo). 1 Corintios 13:8 ("el amor nunca deja de ser"). Efesios 3:18-19 (la anchura, longitud, profundidad y altura del amor de Cristo). Oseas 3:1.`,
+    comentarios: `Juan de la Cruz y Teresa de Ávila basaron su espiritualidad mística en el Cantar. La poesía del amor humano se convierte en lenguaje del amor divino — no porque el amor humano sea inferior, sino porque es la imagen más cercana de cómo Dios ama: con apasionada, persistente, inextinguible fidelidad.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ZACARÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Zacarías_4_6': {
+    linguistico: `"No con ejército, ni con fuerza, sino con mi Espíritu, ha dicho Jehová de los ejércitos." "Lo bechayil velo bekoach ki im beruchi" (לֹא בְחַיִל וְלֹא בְכֹחַ כִּי אִם־בְּרוּחִי): la negación doble refuerza la exclusividad del Espíritu. "Chayil" (ejército, fuerza militar) y "koach" (fuerza física) son descartados — la obra divina no depende de recursos humanos.`,
+    historico: `Zacarías profetiza durante la reconstrucción del Templo (~520 a.C.), cuando el pequeño grupo de regresados del exilio enfrentaba oposición política y desánimo. Zorobabel debía reconstruir el Templo sin ejército ni recursos suficientes — la visión del olivo y los candelabros (4:1-5) promete provisión sobrenatural.`,
+    referencia: `Hechos 1:8 ("recibiréis poder cuando haya venido sobre vosotros el Espíritu Santo"). Isaías 31:1 (ay de los que confían en caballos y carros). Salmo 20:7. 2 Corintios 10:4 (las armas de nuestra milicia no son carnales). Zacarías 4:7 (montaña delante de Zorobabel).`,
+    comentarios: `Agustín: el Espíritu actúa a través de la debilidad humana porque así la gloria es de Dios, no del instrumento. En la historia de la Iglesia, los grandes avivamientos no surgieron de poder político o económico sino de comunidades pequeñas que se vaciaron de sus propios recursos.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     LAMENTACIONES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Lamentaciones_3_22': {
+    linguistico: `"Por la misericordia de Jehová no hemos sido consumidos, porque nunca decayeron sus misericordias." "Chasdey Adonai" (חַסְדֵי יְהוָה): las misericordias (plural) de Jehová — "hesed" es la lealtad del pacto, amor inquebrantable. "Lo tamnu" (לֹא תָמְנוּ): no hemos sido consumidos — afirmación asombrosa en medio de las ruinas de Jerusalén.`,
+    historico: `Lamentaciones fue escrito en el caos posterior a la destrucción de Jerusalén por Babilonia (586 a.C.). Es una de las obras más honestas de dolor en la Biblia: describe a Dios mismo como el que hirió a Jerusalén (1:12-13). Desde ese abismo, el capítulo 3 ofrece una confesión de esperanza que no niega el dolor sino que lo supera.`,
+    referencia: `Números 23:19 ("Dios no es hombre para que mienta"). Salmo 30:5 ("por la noche durará el lloro, y a la mañana vendrá la alegría"). Isaías 43:2 ("cuando pases por las aguas, yo estaré contigo"). Malaquías 3:6 ("yo Jehová no cambio"). 1 Juan 1:9.`,
+    comentarios: `Este versículo fue puesto en música como el himno "Grande es tu fidelidad" (Thomas Chisholm, 1923) — escrito no en circunstancias de bienestar sino de enfermedad crónica. La esperanza bíblica no nace de circunstancias favorables sino de la naturaleza inmutable de Dios que se mantiene aunque todo cambie.`,
+  },
+
   'Apocalipsis_22_20': {
     linguistico: `"El que da testimonio de estas cosas dice: 'Sí, vengo en breve.' Amén; sí, ven, Señor Jesús." "Erchomai tachy" (ἔρχομαι ταχύ): vengo pronto/rápido — "tachy" implica certeza e inmediatez cuando llegue, no necesariamente que sea en el próximo siglo. La respuesta "Amén; ven, Señor Jesús" es la plegaria más antigua de la iglesia (en arameo: Maranatha, 1 Co 16:22).`,
     historico: `El Apocalipsis cierra el canon bíblico con esta oración. La frase "Maranatha" (Señor, ven) era probablemente parte de la liturgia eucarística de las primeras comunidades (Didaché, ca. 100 d.C.), convirtiendo cada comunión en una anticipación del regreso de Cristo.`,

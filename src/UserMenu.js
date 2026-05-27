@@ -319,8 +319,11 @@ function generateReadingPlan(books) {
 function ReadingPlan({ user, books, onNavigate, onClose }) {
   const [startDate,     setStartDate]     = useState(null);
   const [completedDays, setCompletedDays] = useState([]);
+  const [readingLog,    setReadingLog]    = useState({});
+  const [viewingDay,    setViewingDay]    = useState(null); // null = hoy
   const [loading,       setLoading]       = useState(true);
   const [saving,        setSaving]        = useState(false);
+  const [showAllHistory,setShowAllHistory]= useState(false);
 
   const plan = useMemo(() => generateReadingPlan(books), [books]);
 
@@ -329,6 +332,7 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
     loadUserData(user.uid).then(data => {
       setStartDate(data.planStartDate || null);
       setCompletedDays(data.planCompletedDays || []);
+      setReadingLog(data.planReadingLog || {});
       setLoading(false);
     });
   }, [user]);
@@ -336,39 +340,57 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
   if (loading) return <div className="menu-empty">Cargando plan…</div>;
   if (!user || user.isAnonymous) return <div className="menu-empty">Iniciá sesión para acceder al plan de lectura.</div>;
 
-  const todayStr = new Date().toISOString().split('T')[0];
-  const daysSince = startDate
-    ? Math.floor((new Date(todayStr) - new Date(startDate)) / 86400000)
-    : 0;
-  const currentDay   = Math.min(Math.max(daysSince + 1, 1), 365);
-  const todayPlan    = plan[currentDay - 1];
-  const isCompleted  = completedDays.includes(currentDay);
+  const todayStr   = new Date().toISOString().split('T')[0];
+  const daysSince  = startDate ? Math.floor((new Date(todayStr) - new Date(startDate)) / 86400000) : 0;
+  const currentDay = Math.min(Math.max(daysSince + 1, 1), 365);
+  const activeDay  = viewingDay ?? currentDay;
+  const dayPlan    = plan[activeDay - 1];
+  const isCompleted = completedDays.includes(activeDay);
   const completedCnt = completedDays.length;
-  const pct          = Math.round((completedCnt / 365) * 100);
+  const pct = Math.round((completedCnt / 365) * 100);
+
+  function dayLabel(dayNum) {
+    if (!startDate) return '';
+    const d = new Date(startDate + 'T00:00:00');
+    d.setDate(d.getDate() + dayNum - 1);
+    return d.toLocaleDateString('es-AR', { weekday: 'short', day: 'numeric', month: 'short' });
+  }
+  function shortDate(iso) {
+    if (!iso) return '';
+    return new Date(iso + 'T00:00:00').toLocaleDateString('es-AR', { day: 'numeric', month: 'short' });
+  }
 
   async function startPlan() {
     setSaving(true);
-    setStartDate(todayStr);
-    setCompletedDays([]);
-    await saveUserData(user.uid, { planStartDate: todayStr, planCompletedDays: [] });
+    setStartDate(todayStr); setCompletedDays([]); setReadingLog({}); setViewingDay(null);
+    await saveUserData(user.uid, { planStartDate: todayStr, planCompletedDays: [], planReadingLog: {} });
     setSaving(false);
   }
 
-  async function markToday() {
-    if (isCompleted) return;
+  async function markDay(dayNum) {
+    if (completedDays.includes(dayNum)) return;
     setSaving(true);
-    const next = [...completedDays, currentDay];
-    setCompletedDays(next);
-    await saveUserData(user.uid, { planCompletedDays: next });
+    const nextC = [...completedDays, dayNum];
+    const nextL = { ...readingLog, [String(dayNum)]: todayStr };
+    setCompletedDays(nextC); setReadingLog(nextL);
+    await saveUserData(user.uid, { planCompletedDays: nextC, planReadingLog: nextL });
+    setSaving(false);
+  }
+
+  async function unmarkDay(dayNum) {
+    setSaving(true);
+    const nextC = completedDays.filter(d => d !== dayNum);
+    const nextL = { ...readingLog }; delete nextL[String(dayNum)];
+    setCompletedDays(nextC); setReadingLog(nextL);
+    await saveUserData(user.uid, { planCompletedDays: nextC, planReadingLog: nextL });
     setSaving(false);
   }
 
   async function resetPlan() {
-    if (!window.confirm('¿Reiniciar el plan? Se perderá el progreso.')) return;
+    if (!window.confirm('¿Reiniciar el plan? Se perderá todo el progreso.')) return;
     setSaving(true);
-    setStartDate(null);
-    setCompletedDays([]);
-    await saveUserData(user.uid, { planStartDate: null, planCompletedDays: [] });
+    setStartDate(null); setCompletedDays([]); setReadingLog({}); setViewingDay(null);
+    await saveUserData(user.uid, { planStartDate: null, planCompletedDays: [], planReadingLog: {} });
     setSaving(false);
   }
 
@@ -393,8 +415,13 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
     );
   }
 
+  const historyItems = [...completedDays]
+    .sort((a, b) => b - a)
+    .slice(0, showAllHistory ? 999 : 7);
+
   return (
     <div className="plan-panel">
+      {/* Progreso */}
       <div className="plan-progress-wrap">
         <div className="plan-progress-bar">
           <div className="plan-progress-fill" style={{ width: `${pct}%` }} />
@@ -402,18 +429,23 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
         <div className="plan-progress-label">{completedCnt} / 365 días · {pct}%</div>
       </div>
 
-      <div className="plan-day-header">
-        <span className="plan-day-number">Día {currentDay}</span>
-        {isCompleted && <span className="plan-day-done">✓ Completado</span>}
+      {/* Navegación de días */}
+      <div className="plan-nav-row">
+        <button className="plan-nav-btn" onClick={() => setViewingDay(Math.max(1, activeDay - 1))} disabled={activeDay <= 1}>←</button>
+        <div className="plan-day-info">
+          <span className="plan-day-number">Día {activeDay}</span>
+          {startDate && <span className="plan-day-date">{dayLabel(activeDay)}</span>}
+        </div>
+        <button className="plan-nav-btn" onClick={() => setViewingDay(Math.min(365, activeDay + 1))} disabled={activeDay >= 365}>→</button>
+        {activeDay !== currentDay && (
+          <button className="plan-today-btn" onClick={() => setViewingDay(null)}>Hoy</button>
+        )}
       </div>
 
+      {/* Capítulos del día */}
       <div className="plan-chapters-list">
-        {todayPlan?.chapters.map(({ book, chapter }, i) => (
-          <button
-            key={i}
-            className="plan-chapter-btn"
-            onClick={() => { onNavigate(book, chapter); onClose(); }}
-          >
+        {dayPlan?.chapters.map(({ book, chapter }, i) => (
+          <button key={i} className="plan-chapter-btn" onClick={() => { onNavigate(book, chapter); onClose(); }}>
             <span className="plan-chapter-icon">📖</span>
             <span>{book} {chapter}</span>
             <span className="plan-chapter-arrow">→</span>
@@ -421,13 +453,44 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
         ))}
       </div>
 
-      {!isCompleted ? (
-        <button className="plan-mark-btn" onClick={markToday} disabled={saving}>
-          {saving ? '…' : '✓ Marcar día como leído'}
-        </button>
+      {/* Estado del día */}
+      {isCompleted ? (
+        <div className="plan-completed-row">
+          <span className="plan-day-done">
+            ✓ Leído{readingLog[String(activeDay)] ? ` el ${shortDate(readingLog[String(activeDay)])}` : ''}
+          </span>
+          <button className="plan-unmark-btn" onClick={() => unmarkDay(activeDay)} disabled={saving}>
+            Desmarcar
+          </button>
+        </div>
       ) : (
-        <div className="plan-congrats">
-          ¡Excelente! Seguí con el día {Math.min(currentDay + 1, 365)} mañana 🎉
+        <button className="plan-mark-btn" onClick={() => markDay(activeDay)} disabled={saving}>
+          {saving ? '…' : '✓ Marcar como leído'}
+        </button>
+      )}
+
+      {/* Historial */}
+      {completedDays.length > 0 && (
+        <div className="plan-history">
+          <div className="plan-history-title">Historial ({completedCnt} días leídos)</div>
+          {historyItems.map(d => {
+            const chs = plan[d - 1]?.chapters || [];
+            return (
+              <div key={d} className="plan-history-row" onClick={() => setViewingDay(d)}>
+                <span className="plan-history-day">Día {d}</span>
+                <span className="plan-history-chs">
+                  {chs.slice(0, 2).map(c => `${c.book.split(' ').slice(-1)[0]} ${c.chapter}`).join(', ')}
+                  {chs.length > 2 ? ` +${chs.length - 2}` : ''}
+                </span>
+                <span className="plan-history-date">{shortDate(readingLog[String(d)])}</span>
+              </div>
+            );
+          })}
+          {completedDays.length > 7 && (
+            <button className="plan-history-more" onClick={() => setShowAllHistory(v => !v)}>
+              {showAllHistory ? 'Ver menos' : `Ver todos (${completedCnt})`}
+            </button>
+          )}
         </div>
       )}
 
