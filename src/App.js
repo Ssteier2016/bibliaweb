@@ -78,6 +78,8 @@ const COMMENT_TYPES = [
   { key: 'arquitectonico', label: 'Arquitectónico', icon: '🏛️' },
   { key: 'cientifico',     label: 'Científico',     icon: '🔬' },
   { key: 'costumbres',     label: 'Costumbres',     icon: '🏺' },
+  { key: 'geografico',     label: 'Geografía',      icon: '🗺️' },
+  { key: 'tipologia',      label: 'Tipología',      icon: '🔁' },
   { key: 'comentarios',    label: 'Comentarios',    icon: '💬' },
 ];
 
@@ -567,6 +569,7 @@ export default function App() {
     publicProfile: true, followers: true, following: true,
   });
   const [showMenu,        setShowMenu]       = useState(false);
+  const [globalSearch,    setGlobalSearch]   = useState('');
 
   // Aplicar tema
   useEffect(() => {
@@ -682,6 +685,24 @@ export default function App() {
     }))
     .filter(v => !searchQuery.trim() || v.text.toLowerCase().includes(searchQuery.toLowerCase()));
   const totalChapters = book?.chapters.length || 1;
+
+  // Búsqueda global — escanea todos los libros cuando se activa
+  const globalResults = React.useMemo(() => {
+    const q = globalSearch.trim().toLowerCase();
+    if (q.length < 3) return [];
+    const results = [];
+    for (const b of books) {
+      for (const ch of b.chapters) {
+        for (const v of ch.verses) {
+          if (v.text.toLowerCase().includes(q)) {
+            results.push({ bookName: b.name, chapter: ch.chapter, verse: v.verse, text: v.text });
+            if (results.length >= 60) return results;
+          }
+        }
+      }
+    }
+    return results;
+  }, [globalSearch, books]);
 
   function changeBook(name) {
     setSelectedBook(name); setSelectedChapter(1); setSearchQuery('');
@@ -839,11 +860,57 @@ export default function App() {
         <input
           className="search-input"
           type="text"
-          placeholder="Buscar en este capítulo…"
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
+          placeholder="Buscar… (Enter = toda la Biblia)"
+          value={globalSearch || searchQuery}
+          onChange={e => {
+            if (globalSearch) setGlobalSearch(e.target.value);
+            else setSearchQuery(e.target.value);
+          }}
+          onKeyDown={e => {
+            if (e.key === 'Enter') {
+              const q = e.target.value.trim();
+              if (q.length >= 3) { setGlobalSearch(q); setSearchQuery(''); }
+            }
+            if (e.key === 'Escape') { setGlobalSearch(''); setSearchQuery(''); }
+          }}
         />
+        {(globalSearch || searchQuery) && (
+          <button className="search-clear-btn" onClick={() => { setGlobalSearch(''); setSearchQuery(''); }} title="Limpiar búsqueda">×</button>
+        )}
+        <button
+          className="search-global-btn"
+          onClick={() => {
+            const q = (globalSearch || searchQuery).trim();
+            if (q.length >= 3) { setGlobalSearch(q); setSearchQuery(''); }
+          }}
+          title="Buscar en toda la Biblia"
+        >🔍</button>
       </div>
+
+      {globalSearch && (
+        <div className="global-results">
+          <div className="global-results-header">
+            {globalResults.length === 0
+              ? `Sin resultados para "${globalSearch}"`
+              : `${globalResults.length === 60 ? '60+' : globalResults.length} resultado${globalResults.length !== 1 ? 's' : ''} para "${globalSearch}"`}
+          </div>
+          {globalResults.map((r, i) => (
+            <button
+              key={i}
+              className="global-result-item"
+              onClick={() => {
+                setGlobalSearch('');
+                setSearchQuery('');
+                changeBook(r.bookName);
+                setTimeout(() => changeChapter(r.chapter), 50);
+              }}
+            >
+              <span className="global-result-ref">{r.bookName} {r.chapter}:{r.verse}</span>
+              <span className="global-result-text">{r.text}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="verses-container">
         <div className="chapter-title">

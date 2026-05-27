@@ -190,10 +190,13 @@ input, textarea { font-family: inherit; }
   padding: 10px 20px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .search-input {
-  width: 100%;
+  flex: 1;
   padding: 9px 14px 9px 38px;
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -206,6 +209,66 @@ input, textarea { font-family: inherit; }
   background-position: 12px center;
 }
 .search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+
+.search-clear-btn {
+  font-size: 1.1rem;
+  color: var(--text3);
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition: color var(--transition);
+}
+.search-clear-btn:hover { color: var(--text); }
+
+.search-global-btn {
+  font-size: 1rem;
+  padding: 6px 10px;
+  background: var(--accent-light);
+  color: var(--accent-btn);
+  border-radius: 999px;
+  font-family: sans-serif;
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+.search-global-btn:hover { background: var(--border); }
+
+/* ── Resultados de búsqueda global ───────────────────────── */
+.global-results {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 16px;
+}
+.global-results-header {
+  font-size: 0.8rem;
+  color: var(--text3);
+  font-family: sans-serif;
+  padding: 12px 4px 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.global-result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background var(--transition);
+  gap: 2px;
+}
+.global-result-item:hover { background: var(--surface2); }
+.global-result-ref {
+  font-size: 0.78rem;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: var(--accent-btn);
+  letter-spacing: 0.02em;
+}
+.global-result-text {
+  font-size: 0.93rem;
+  color: var(--text);
+  line-height: 1.5;
+}
 
 /* ── Contenedor de versículos ────────────────────────────── */
 .verses-container {

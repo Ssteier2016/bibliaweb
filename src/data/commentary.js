@@ -2086,4 +2086,123 @@ export const COMMENTARY = {
     fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 14' },
   },
 
+
+  /* ══════════════════════════════════════════════════════════════
+     GEOGRAFIA — Contexto geográfico de lugares bíblicos
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_12_1': {
+    geografico: `Ur de los Caldeos, ciudad natal de Abraham, estaba situada en la desembocadura del Éufrates (actual Iraq sur). Era una metrópolis sumeria de primer nivel: con zigurat, sistema de alcantarillado, biblioteca y comercio marítimo. El llamado de Dios lleva a Abraham desde esta civilización avanzada hacia Canaán, tierra de pastores nómadas — un movimiento de civilización a fe.`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  'Génesis_28_10': {
+    geografico: `Betel ("Casa de Dios") estaba a unos 18 km al norte de Jerusalén, en la zona montañosa central de Canaán, a ~880 m sobre el nivel del mar. Era un cruce de caminos entre el norte y el sur del país. La ruta que Jacob tomó hacia Harán pasaba por este punto antes de descender al valle del Jordán. El lugar ya había sido visitado por Abraham (Gn 12:8), y se convierte en uno de los santuarios más importantes del reino del norte.`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  'Éxodo_14_22': {
+    geografico: `El paso por el Mar Rojo (heb. Yam Suph, "mar de juncos") probablemente designa la zona de los Lagos Amargos o el extremo norte del Golfo de Suez. El delta del Nilo oriental era una región de pantanos y lagunas que podía estar sujeta a vientos fuertes del este. Independientemente del punto exacto, el texto ubica el evento en la frontera entre Egipto y el desierto del Sinaí — umbral geográfico y espiritual del éxodo.`,
+    fuentes: { geografico: 'Kitchen, K.A. — On the Reliability of the Old Testament' },
+  },
+
+  'Josué_3_17': {
+    geografico: `El Jordán, único río de importancia en Palestina, nace en el Hermón (2.800 m) y muere en el Mar Muerto (–430 m), el punto más bajo de la Tierra. En el vado de Adán (Tell ed-Damiyeh, ~40 km al norte de Jericó), el río baja por un cauce serpenteante de arcilla y puede desviarse por derrumbes de sus barrancas. Ese mecanismo natural explica que el Jordán se haya cortado históricamente en ese punto (1267 d.C., 1927 d.C.).`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  '1 Reyes_18_19': {
+    geografico: `El Monte Carmelo (547 m) es una cadena montañosa que se extiende 39 km hacia el Mediterráneo, formando el promontorio que divide la llanura de Esdraelón al norte del monte Hefe al sur. Su vegetación densa y sus fuentes de agua lo hacían un lugar de culto desde la antigüedad. El duelo entre Elías y los profetas de Baal en la cima era visible para todo el norte de Israel reunido en el valle abajo.`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  'Salmos_48_1': {
+    geografico: `El Monte Sión designa originalmente la ciudadela jebusea conquistada por David (la colina SE de Jerusalén). Con el tiempo el nombre se amplió para cubrir toda Jerusalén y el Monte del Templo. La ciudad estaba emplazada estratégicamente: protegida al este por el valle del Cedrón, al sur y oeste por el valle del Hinom (Gehenna), y conectada al norte por el único flanco vulnerable que los asirios y babilonios atacaron.`,
+    fuentes: { geografico: 'Rogerson, J.W. — Atlas of the Bible' },
+  },
+
+  'Mateo_4_13': {
+    geografico: `Capernaúm (heb. Kfar Nahum, "aldea de Nahúm") estaba en la orilla norte del Mar de Galilea, a unos 2,5 km del Jordán. Era un importante nudo comercial: la Vía Maris (camino del mar) pasaba por allí, había aduana (Mt 9:9), guarnición romana (Lc 7:2) y una sinagoga pagada por un centurión. Jesús trasladó allí su centro de operaciones, convirtiendo esta ciudad cosmopolita en base de su ministerio galilleo.`,
+    fuentes: { geografico: 'Rousseau, J.J. & Arav, R. — Jesus and His World' },
+  },
+
+  'Juan_4_4': {
+    geografico: `Samaria ocupaba la región montañosa central entre Galilea al norte y Judea al sur. Los judíos piadosos evitaban cruzarla rodeándola por el Jordán. El pozo de Jacob en Siquem (moderna Nablus) estaba a unos 40 m de profundidad — notable para la región — y sigue existiendo hoy. Siquem era el umbilical de la historia israelita: allí Abraham levantó su primer altar (Gn 12:6) y allí enterraron los huesos de José (Jos 24:32).`,
+    fuentes: { geografico: 'Rousseau, J.J. & Arav, R. — Jesus and His World' },
+  },
+
+  'Lucas_10_30': {
+    geografico: `El camino de Jerusalén a Jericó desciende ~1.000 metros en apenas 27 km, atravesando el desierto de Judea, una zona de barrancos calcáreos (wadi Qilt) infestada de salteadores en el siglo I. La ruta era inevitable para viajeros que bajaban al Jordán o al norte. La "bajada a Jericó" era un dicho popular para designar un trayecto peligroso; el contexto geográfico hace creíble el relato del buen samaritano.`,
+    fuentes: { geografico: 'Rousseau, J.J. & Arav, R. — Jesus and His World' },
+  },
+
+  'Mateo_21_1': {
+    geografico: `El Monte de los Olivos (818 m) se alza al este de Jerusalén separado por el valle del Cedrón. Desde su cumbre se domina toda la ciudad, el Monte del Templo y el desierto de Judea hasta el Mar Muerto. Era el camino obligado para quien llegaba de Jericó o de Betania (Lázaro vivía allí). La profecía de Zacarías 14:4 decía que el Mesías pisaría ese monte, lo que cargaba el descenso triumphal de Jesús con un simbolismo inequívoco.`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  'Hechos_9_3': {
+    geografico: `El camino a Damasco desde Jerusalén cruzaba Galilea y el valle del Hule antes de ascender al Anti-Líbano. La distancia era de unos 240 km, entre 5-7 días a pie. Damasco era la capital de la provincia siria romana y sede de la comunidad judía más activa fuera de Palestina; la persecución de Saulo se extendía al diáspora. El evento de Damasco ocurre literalmente en el umbral entre el mundo judío y el gentil.`,
+    fuentes: { geografico: 'Hengel, M. — Between Jesus and Paul' },
+  },
+
+  'Apocalipsis_16_16': {
+    geografico: `Armagedón (gr. Harmagedón) deriva del heb. Har Megiddo, "montaña/colina de Meguido". Meguido era una ciudad-fortaleza que dominaba el paso del Monte Carmelo hacia la llanura de Esdraelón — el corredor estratégico más importante de Palestina. Allí se libraron batallas decisivas desde la antigüedad: Tutmosis III (1457 a.C.), el rey Josías (609 a.C., 2 R 23:29). La llanura de Meguido/Jezreel era para la imaginación bíblica el teatro natural de la batalla final de la historia.`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     TIPOLOGIA — Prefiguraciones del AT en el NT
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_22_2': {
+    tipologia: `El sacrificio de Isaac es el tipo más explícito de la pasión de Cristo en el AT. Puntos de contacto: padre que entrega al hijo único amado (Jn 3:16); tres días de camino antes de "recibirlo" (Hb 11:19 habla de resurrección figurada); el hijo carga la leña sobre sus hombros (Jn 19:17); la víctima es sustituida por un carnero enviado por Dios. Agustín y los Padres ven en el Monte Moriah (identificado con Jerusalén) el mismo lugar de la crucifixión.`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Éxodo_12_3': {
+    tipologia: `El cordero pascual es la tipología soteriológica más central del AT. El NT la aplica directamente a Cristo: "Cristo, nuestra pascua, ya fue sacrificado" (1 Co 5:7). Juan el Bautista lo llama "el Cordero de Dios" (Jn 1:29); Juan cuida de que los huesos de Jesús no se rompan cumpliendo Éx 12:46 (Jn 19:36). El Apocalipsis retoma la imagen del Cordero degollado como símbolo central del trono celestial (Ap 5:6). La Eucaristía es la nueva "cena pascual".`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Números_21_9': {
+    tipologia: `La serpiente de bronce levantada por Moisés es la única tipología que el mismo Jesús explica: "Como Moisés levantó la serpiente en el desierto, así es necesario que el Hijo del Hombre sea levantado" (Jn 3:14). Los israelitas mordidos miraban al símbolo del veneno clavado en alto y vivían; el creyente mira al que "fue hecho pecado por nosotros" (2 Co 5:21) crucificado y tiene vida eterna. La imagen es paradójica: lo que mata, levantado, sana.`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Éxodo_16_4': {
+    tipologia: `El maná en el desierto es tipo del pan de vida. Jesús lo desarrolla explícitamente en Juan 6:31-35: los judíos invocan el maná como precedente de señal mesiánica; Jesús responde que el verdadero pan del cielo no fue Moisés sino el Padre, y que ese pan es Él mismo. Puntos de paralelo: viene del cielo, es suficiente para cada día (cf. Mt 6:11), es gratuito, y cesa cuando se llega a la tierra prometida — tipo que apunta más allá de sí mismo hacia algo permanente.`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Éxodo_17_6': {
+    tipologia: `"Hiere la roca, y saldrá agua de ella." Pablo lee este evento como tipología cristológica directa: "bebían de la roca espiritual que los seguía, y la roca era Cristo" (1 Co 10:4). La roca golpeada para dar agua de vida prefigura a Cristo herido en la cruz para dar el Espíritu (Jn 7:38-39; 19:34). Calvino y la tradición reformada extendieron la imagen: el agua que brota de la roca es el mismo Espíritu que brota del costado de Cristo.`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Génesis_14_18': {
+    tipologia: `Melquisedec, rey de Salem y sacerdote del Dios Altísimo, aparece sin genealogía ni registro de muerte — y bendice a Abraham. Hebreos 7 desarrolla la tipología: "sin padre, sin madre, sin genealogía; que ni tiene principio de días, ni fin de vida, sino hecho semejante al Hijo de Dios" (Hb 7:3). Cristo es sacerdote "según el orden de Melquisedec" (Sal 110:4), es decir, su sacerdocio no es aarónico-levítico sino eterno, anterior y superior a la ley. El gesto de ofrecer pan y vino es también leído como anticipo eucarístico por los Padres.`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Jonás_1_17': {
+    tipologia: `Jonás en el vientre del pez tres días y tres noches es el único tipo mesiánico que el mismo Jesús nombra: "la señal de Jonás el profeta" (Mt 12:39-40). El paralelismo es doble: muerte aparente y resurrección al tercer día, y misión universal a los gentiles (Nínive) después de la "resurrección". El libro de Jonás termina con Dios preguntando si no debe compadecer a Nínive — apertura universal que el NT entiende como anticipo de la misión gentil.`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Salmos_22_1': {
+    tipologia: `El Salmo 22 es la tipología profética más densa de la pasión de Cristo en el AT. Jesús lo cita desde la cruz ("Dios mío, Dios mío, ¿por qué me has abandonado?", Mt 27:46). El texto describe: abandono divino, burlas verbales idénticas (Sal 22:8 = Mt 27:43), sed (Sal 22:15 = Jn 19:28), manos y pies horadados (Sal 22:16), ropa repartida por suertes (Sal 22:18 = Jn 19:24), y termina con un canto de victoria y proclamación universal. Es a la vez lamento de David y libreto de la crucifixión.`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Isaías_53_7': {
+    tipologia: `El cuarto canto del Siervo sufriente (Is 52:13–53:12) es la tipología profética más citada en el NT. El libro de Hechos muestra al eunuco etíope leyendo este texto y Felipe explicando que habla de Jesús (Hch 8:32-35). El texto describe: nacimiento humilde, desprecio, sufrimiento vicario ("herido por nuestras rebeliones"), silencio ante los acusadores (cf. Mt 27:14), muerte entre transgresores (Is 53:12 = Lc 22:37), sepultura con los ricos (Is 53:9 = Mt 27:57-60), y resurrección implícita ("verá su descendencia").`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+  'Rut_1_16': {
+    tipologia: `Rut la moabita, extranjera que abandona su pueblo y dioses para adherirse al pueblo de Israel, es tipo de la iglesia gentil. Su "no me dejes, porque a donde quieras que vayas, yo iré" es la confesión del gentil que abraza al Dios de Israel. Booz como "pariente redentor" (heb. goel) es tipo de Cristo que redime al que no podía redimirse a sí mismo. La unión de Booz con Rut prefigura la unión de Cristo con la iglesia gentil, produciendo la línea davídica que lleva a Jesús (Mt 1:5).`,
+    fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
 };
