@@ -77,6 +77,7 @@ const COMMENT_TYPES = [
   { key: 'paleontologico', label: 'Paleontológico', icon: '🦕' },
   { key: 'arquitectonico', label: 'Arquitectónico', icon: '🏛️' },
   { key: 'cientifico',     label: 'Científico',     icon: '🔬' },
+  { key: 'costumbres',     label: 'Costumbres',     icon: '🏺' },
   { key: 'comentarios',    label: 'Comentarios',    icon: '💬' },
 ];
 
@@ -229,7 +230,23 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
   const commentKey = verseKey;
   const verseData  = COMMENTARY[commentKey];
   const bhBook     = BIBLEHUB_BOOK[bookName];
-  const sourceUrl  = bhBook ? `https://biblehub.com/${bhBook}/${chapter}-${verse.verse}.htm` : null;
+  const biblehubUrl = bhBook ? `https://biblehub.com/${bhBook}/${chapter}-${verse.verse}.htm` : null;
+
+  // Resuelve la fuente para el tab activo:
+  // 1. Si el comentario tiene fuentes por tab → usa esa
+  // 2. Si no, fallback a BibleHub (referencia cruzada general)
+  function resolveSource(tab) {
+    const tabFuente = verseData?.fuentes?.[tab];
+    if (tabFuente) {
+      if (typeof tabFuente === 'string' && tabFuente.startsWith('http')) {
+        return { url: tabFuente, label: '🔗 Ver fuente' };
+      }
+      if (typeof tabFuente === 'object') return tabFuente;
+      // Texto de atribución sin URL
+      return { url: null, label: `📖 ${tabFuente}` };
+    }
+    return biblehubUrl ? { url: biblehubUrl, label: '🔗 Referencias en BibleHub' } : null;
+  }
 
   function toggleActions() {
     const next = !showActions;
@@ -449,8 +466,8 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
                   Ver comentario completo →
                 </button>
               )}
-              {sourceUrl && (
-                <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="commentary-source">
+              {biblehubUrl && (
+                <a href={biblehubUrl} target="_blank" rel="noopener noreferrer" className="commentary-source">
                   🔗 Ver en BibleHub
                 </a>
               )}
@@ -480,11 +497,16 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
                     {COMMENT_TYPES.find(t => t.key === activeTab)?.label}
                   </div>
                   {verseData[activeTab]}
-                  {sourceUrl && (
-                    <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="commentary-source">
-                      🔗 Ver fuentes en BibleHub
-                    </a>
-                  )}
+                  {(() => {
+                    const src = resolveSource(activeTab);
+                    if (!src) return null;
+                    if (src.url) return (
+                      <a href={src.url} target="_blank" rel="noopener noreferrer" className="commentary-source">
+                        {src.label}
+                      </a>
+                    );
+                    return <span className="commentary-source">{src.label}</span>;
+                  })()}
                 </div>
               )}
             </>

@@ -1936,4 +1936,154 @@ export const COMMENTARY = {
     comentarios: `El último versículo con voz divina en la Biblia es una promesa de retorno; la última voz humana es una oración de anhelo. La Biblia termina no con un tratado sino con un encuentro anhelado: la novia anhela al esposo. Agustín: toda la historia humana es el período entre la promesa y el cumplimiento — la Iglesia vive en ese "entre".`,
   },
 
+
+  /* ══════════════════════════════════════════════════════════════
+     USOS Y COSTUMBRES — Fred H. Wight
+  ══════════════════════════════════════════════════════════════ */
+
+  'Marcos_2_4': {
+    costumbres: `Los amigos del paralítico "abrieron el techo" donde estaba Jesús y lo bajaron en su camilla. Las casas palestinas de la época tenían techos planos de vigas de madera cubiertas con ramas y barro apisonado. Era sencillo remover las capas superiores para crear una abertura. Las escaleras exteriores daban acceso directo al techo, de modo que bajar a un enfermo con sogas era práctica factible, no un acto extraordinario.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 5' },
+  },
+
+  'Lucas_5_19': {
+    costumbres: `El techo plano (heb. gag) era parte esencial de la vida cotidiana israelita. La ley de Deuteronomio 22:8 mandaba construir una balaustrada para proteger a quienes lo usaban, lo que confirma su uso habitual como terraza, lugar de oración, descanso y hasta almacenaje. Bajar a una persona a través de él requería solo apartar las capas de adobe y ramas; la "cubierta de tejas" que menciona Lucas refleja el término griego para el material superior.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 5' },
+  },
+
+  'Hechos_10_9': {
+    costumbres: `Pedro "subió a la azotea para orar" a la hora sexta (mediodía). El techo plano era un espacio privado por excelencia: Elías oró en él, los profetas dormían allí y la iglesia primitiva lo usaba para devoción personal. La escalera exterior (fuera de la casa) permitía acceder al techo sin interrumpir la vida interior del hogar.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 5' },
+  },
+
+  'Deuteronomio_22_8': {
+    costumbres: `"Cuando edifiques una casa nueva, harás pretil a tu terrado, para que no pongas sobre tu casa culpa de sangre." El pretil o balaustrada del techo plano era obligación legal, pues la azotea se usaba como habitación al aire libre: dormir en noches cálidas, descansar, recibir visitas, secar el lino (Jos 2:6) y orar. Sin protección, las caídas eran un riesgo real.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 5' },
+  },
+
+  'Mateo_6_11': {
+    costumbres: `"El pan nuestro de cada día, dánoslo hoy." El pan de trigo o cebada se horneaba diariamente en el hogar palestino porque sin conservantes se endurecía rápido. Las mujeres molían el grano al amanecer (Mt 24:41) y cocían tortas planas en horno de barro (tannur) o sobre piedras calientes. Pedir pan "de hoy" era pedir la ración justa del día, sin acumulación.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 6' },
+  },
+
+  'Juan_6_35': {
+    costumbres: `"Yo soy el pan de vida." El pan era el alimento central de la mesa palestina: se partía, no se cortaba, y cada comensal recibía su trozo de la misma hogaza, simbolizando comunión. Mojar el pan en un plato común (Jn 13:26) era el gesto de máxima familiaridad. Que Jesús se llame "pan de vida" alude a la subsistencia más básica y cotidiana de su cultura.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 6' },
+  },
+
+  'Mateo_15_2': {
+    costumbres: `Los fariseos objetaron que los discípulos comían "sin lavarse las manos." Este lavado ritual no era higiene sino pureza ceremonial: agua derramada sobre las manos con las palmas hacia abajo, no sumergidas. Los rabinos habían elaborado reglas detalladas sobre la cantidad de agua (al menos un cuarto de log) y el procedimiento. Omitirlo equivalía a comer "con manos impuras" ante la ley oral.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 6' },
+  },
+
+  'Lucas_14_23': {
+    costumbres: `"Sal a los caminos y vallados, y fuérzalos a entrar." En Oriente, la hospitalidad obliga al anfitrión a insistir repetidamente para que el invitado acepte. Un solo "sí" al primer llamado sería descortés; el huésped debe resistir hasta la tercera o cuarta invitación. Así el siervo de la parábola no está siendo violento sino siguiendo el protocolo oriental de hospitalidad que exige persuasión insistente.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 7' },
+  },
+
+  'Juan_13_4': {
+    costumbres: `Jesús "se levantó de la cena, se quitó su manto, y tomando una toalla, se la ciñó." El lavado de pies era tarea del esclavo más bajo del hogar o de la esposa ante su marido. Los discípulos habían disputado sobre grandeza (Lc 22:24); ninguno tomó la toalla. Al hacerlo Jesús, invirtió dramáticamente la jerarquía doméstica: el Señor hace el oficio del último esclavo para enseñar que el servicio define el liderazgo en su reino.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 7' },
+  },
+
+  'Lucas_7_38': {
+    costumbres: `La mujer "estando detrás de él a sus pies, llorando, comenzó a regar con lágrimas sus pies, y los enjugaba con sus cabellos." En los banquetes orientales se reclinaba a la mesa con los pies hacia atrás, haciendo accesibles las plantas a quien se acercara desde atrás. Soltar el cabello en público era señal de duelo o humillación extrema; esta mujer usó lo más íntimo de sí misma para honrar a Jesús donde debería haber habido un esclavo con agua.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 7' },
+  },
+
+  'Lucas_6_38': {
+    costumbres: `"Medida buena, apretada, remecida y rebosando darán en vuestro regazo." El "regazo" (gr. kolpos) alude al pliegue que forma la túnica oriental sobre el pecho cuando se ciñe: los campesinos lo usaban como bolsa improvisada para llevar grano, frutos o monedas. El mercader generoso llenaba ese pliegue hasta derramarse; la imagen era cotidiana y visualmente concreta para cualquier oyente del siglo I.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 8' },
+  },
+
+  'Génesis_24_65': {
+    costumbres: `Rebeca "tomó el velo, y se cubrió" al ver a Isaac. El velo de la novia (tsaif) cubría el rostro en la primera presentación al novio. En algunas tradiciones el novio no veía el rostro de su prometida hasta la consumación. Esto explica cómo Labán sustituyó a Lea por Raquel (Gn 29:23-25): la oscuridad y el velo hicieron posible el engaño.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 8' },
+  },
+
+  'Lucas_15_8': {
+    costumbres: `La mujer "enciende una lámpara, y barre la casa, y busca con diligencia hasta encontrarla." Las monedas del collar de una mujer casada (posiblemente las diez dracmas) eran su seguro personal, inamovible aun en divorcio. Perder una era más que perder dinero: era perder parte de la garantía de su futuro. Las casas palestinas tenían suelos de tierra oscura; la lámpara de aceite y la escoba de palma eran las herramientas usuales para buscar objetos pequeños.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 8' },
+  },
+
+  'Mateo_23_5': {
+    costumbres: `"Ensanchan sus filacterias, y extienden los flecos de sus mantos." Las filacterias (tephillin) eran cajitas de cuero con fragmentos del Pentateuco (Éx 13:1-10; Dt 6:4-9), atadas al brazo izquierdo y a la frente durante la oración matutina. Los flecos (tzitzit) en las esquinas del manto recordaban los mandamientos (Nm 15:38-40). Hacerlos más grandes era exhibir mayor piedad ante los hombres — exactamente la hipocresía que Jesús denuncia.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 9' },
+  },
+
+  'Gálatas_3_24': {
+    costumbres: `"La ley fue nuestro ayo para llevarnos a Cristo." El paidagogos griego-romano no era el maestro sino el esclavo encargado de acompañar al niño a la escuela, vigilar su conducta y llevarlo de vuelta a casa. No enseñaba, custodiaba. Pablo dice que la ley cumplió esa función de custodia y escolta hasta que llegara Cristo-maestro; entonces el ayo ya no es necesario para los que han llegado al destino.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 9' },
+  },
+
+  'Hechos_22_3': {
+    costumbres: `Pablo dice haber sido "instruido a los pies de Gamaliel." La expresión es literal: los discípulos se sentaban en el suelo ante el rabino entronizado, o en bancos bajos ante él. El maestro estaba físicamente "por encima" del alumno. Estudiar "a los pies de" alguien implicaba total sumisión intelectual y personal; el alumno tomaba nota, repetía y debatía lo que el maestro enseñaba.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 9' },
+  },
+
+  'Mateo_3_4': {
+    costumbres: `Juan el Bautista "tenía su vestido de pelo de camello, y un cinto de cuero alrededor de sus lomos; y su comida era langostas y miel silvestre." El pelo de camello tejido era la tela más basta y barata; el cinto de cuero era el de los pobres (los ricos llevaban cinto bordado o de lino). Las langostas (arbe) eran alimento legal (Lv 11:22) y fuente proteíca para los pobres del desierto. La imagen total es la del profeta de los márgenes, sin dependencia de los sistemas de poder.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 10' },
+  },
+
+  'Mateo_13_3': {
+    costumbres: `"El sembrador salió a sembrar." En Palestina se sembraba antes de arar, no después: el sembrador esparcía el grano a voleo sobre el campo sin limpiar, y luego el arado lo enterraba. Por eso la semilla caía en el camino (caminos que cruzaban el campo arado), en pedregales y entre espinos, que aún no habían sido volteados. No era descuido del sembrador sino el método agrícola estándar de la región.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 10' },
+  },
+
+  'Mateo_13_25': {
+    costumbres: `"Su enemigo vino y sembró cizaña entre el trigo." La cizaña (gr. zizanion; heb. zonin) es el Lolium temulentum, hierba que en sus primeras semanas es indistinguible del trigo. Sembrar cizaña en el campo ajeno era sabotaje conocido; el derecho romano (Lex Cornelia) lo penalizaba. Separar ambas plantas solo era posible en la cosecha, cuando las espigas delatan la diferencia: trigo lleno y cizaña vacía.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 10' },
+  },
+
+  'Mateo_3_12': {
+    costumbres: `"Su aventador está en su mano, y limpiará su era." La trilla oriental: los bueyes arrastraban un trineo de madera con pedernales incrustados sobre las gavillas extendidas en la era circular. Luego el labrador lanzaba al aire la mezcla con la pala aventadora (gr. ptyon): el viento llevaba la paja liviana lejos, y el grano pesado caía al pie del aventador. Finalmente se cribaba para eliminar el cascabillo. Toda la secuencia es la metáfora del juicio final en boca del Bautista.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 10' },
+  },
+
+  'Lucas_22_31': {
+    costumbres: `"Simón, Simón, Satanás os ha pedido para zarandearos como a trigo." El zarandeo (gr. siniazo) era el cribado final del grano: pasarlo por un cedazo para separar el polvo y la arena fina del grano limpio. Era el último y más fino proceso de purificación. El trigo "zarandeado" es el trigo más puro; Jesús transforma la imagen de ataque satánico en proceso de refinamiento que hará a Pedro más firme, no lo destruirá.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 10' },
+  },
+
+  'Lucas_13_6': {
+    costumbres: `"Tenía un higuera plantada en su viña." Era práctica corriente en Palestina plantar higueras entre las vides: la higuera daba sombra a los racimos en el calor veraniego y sus frutos ocupaban tiempos distintos al de la vendimia. La vid y la higuera juntas eran el símbolo bíblico de prosperidad y paz (1 R 4:25; Mi 4:4). Que la higuera de la parábola sea estéril tres años es señal de fracaso inaceptable en un sistema que funciona de manera integrada.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 11' },
+  },
+
+  'Mateo_24_32': {
+    costumbres: `"De la higuera aprended la parábola: cuando ya su rama se enternece, y brotan las hojas, sabéis que el verano está cerca." La higuera perdía todas sus hojas en invierno y era la última en retoñar en primavera. Su primer brote en marzo-abril era la señal más segura de que el verano se acercaba en Palestina. Los aldeanos observaban la higuera como un calendário vegetal más confiable que el cálculo astronómico.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 11' },
+  },
+
+  'Marcos_6_3': {
+    costumbres: `"¿No es éste el carpintero, hijo de María?" El término griego tekton abarca al artesano de la madera y también de la piedra. En Nazaret, aldea sin grandes bosques, un tekton probablemente trabajaba yugos, arados, puertas, marcos y posiblemente muros de piedra. Era un oficio manual respetable pero sin prestigio académico, lo que hacía más sorprendente su enseñanza con autoridad. Jesús conocía el peso de la herramienta, el grano de la madera y la medida justa.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 12' },
+  },
+
+  'Salmos_118_22': {
+    costumbres: `"La piedra que desecharon los edificadores ha venido a ser cabeza del ángulo." El proceso de construcción en piedra en Palestina comenzaba seleccionando la piedra angular, que debía ser perfectamente escuadrada para marcar la orientación de toda la estructura. Los constructores la inspeccionaban y descartaban las imperfectas. Jesús aplica este versículo a sí mismo (Mt 21:42): rechazado por los líderes religiosos, se convierte en la piedra que determina la alineación de todo el edificio espiritual.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 12' },
+  },
+
+  'Job_31_17': {
+    costumbres: `"Si comí mi bocado solo, sin que comiera de él el huérfano." La hospitalidad oriental prohíbe comer solo cuando hay alguien necesitado a la puerta. Compartir la mesa era obligación moral, no opcional. Comer "solo" (biyaddi levaddi) mientras otros pasaban hambre era uno de los crímenes sociales más graves en la cultura semita. Job enumera esta práctica generosa como parte de su defensa de integridad: nunca hizo de la mesa un privilegio exclusivo.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 7' },
+  },
+
+  '1 Corintios_9_24': {
+    costumbres: `"¿No sabéis que los que corren en el estadio, todos a la verdad corren, pero uno solo se lleva el premio?" Pablo alude a los Juegos Ístmicos celebrados en Corinto cada dos años, uno de los cuatro grandes festivales atléticos griegos. Los corintios los conocían bien. El ganador recibía una corona de pino (no de oro), honor efímero comparado con la "corona incorruptible" del cristiano fiel. Los atletas se sometían a diez meses de entrenamiento estricto solo por ese laurel perecedero.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 13' },
+  },
+
+  'Filipenses_3_14': {
+    costumbres: `"Prosigo hacia la meta, al premio del supremo llamamiento de Dios en Cristo Jesús." La metáfora es del corredor que se inclina hacia adelante en el tramo final, sin mirar atrás, concentrado en la cinta de llegada. En las carreras griegas el árbitro (brabeutés) llamaba al vencedor desde la meta; Pablo juega con esa imagen: el "llamamiento de lo alto" es la voz del árbitro divino que convoca al ganador al podio celestial.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 13' },
+  },
+
+  'Levítico_16_22': {
+    costumbres: `"Y aquel macho cabrío llevará sobre sí todas las iniquidades de ellos a tierra inhabitada." El ritual del Yom Kippur incluía dos machos cabríos: uno sacrificado y otro "para Azazel." El sumo sacerdote ponía ambas manos sobre el segundo, confesaba los pecados de Israel, y lo enviaba al desierto con un guía. La comunidad veía literalmente sus pecados "marcharse" sobre el animal. Este "chivo expiatorio" (scapegoat en inglés, término acuñado por Tyndale) explica visualmente la transferencia de culpa central en la teología del sacrificio.`,
+    fuentes: { costumbres: 'Fred H. Wight — Usos y Costumbres de las Tierras Bíblicas, cap. 14' },
+  },
+
 };
