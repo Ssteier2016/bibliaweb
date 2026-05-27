@@ -2224,4 +2224,278 @@ export const COMMENTARY = {
     fuentes: { historico: 'Answers in Genesis — Enuma Elish: Did It Influence Genesis 1?' },
   },
 
+
+  /* ══════════════════════════════════════════════════════════════
+     MARCOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Marcos_1_1': {
+    linguistico: `"Evangelio" (gr. euangelion, εὐαγγέλιον): en el mundo greco-romano designaba el anuncio oficial de una victoria militar o del nacimiento de un emperador. El Heraldo Imperial (angelos) proclamaba la "buena noticia" del nuevo soberano. Marcos toma ese vocabulario imperial y lo subvierte: el verdadero evangelio es el de Jesús, no el de César. La inscripción en monedas de Augusto: "evangelio del dios Augusto" — Marcos responde directamente a ese título.`,
+    historico: `Marcos es el evangelio más antiguo (ca. 65-70 d.C.) según el consenso académico. Papías de Hierápolis (ca. 130 d.C.) afirma que Marcos escribió fielmente los recuerdos de Pedro, sin orden cronológico estricto. La viveza narrativa del texto (imperfectos griegos, detalle visual, término "inmediatamente" 42 veces) reflejan testimonios oculares.`,
+    referencia: `Isaías 40:3 ("voz que clama en el desierto"). Romanos 1:16 ("no me avergüenzo del evangelio"). Lucas 4:18-19. Apocalipsis 14:6 ("el evangelio eterno").`,
+  },
+
+  'Marcos_4_30': {
+    linguistico: `"Grano de mostaza" (gr. kokkos sinapeos): la mostaza negra (Sinapis nigra) cultivada en Galilea. La semilla medía ~1-2 mm. Jesús usa el superlativo popular "la más pequeña de todas las semillas" (mikroteron panton ton spermaton) — un hipérbole didáctica conocida en las escuelas rabínicas para indicar la cosa más ínfima.`,
+    cientifico: `La mostaza negra en Galilea alcanzaba 2-4 metros en una sola temporada, con ramificación densa que efectivamente permitía a las aves anidar en sus ramas. El contraste semilla/árbol es biológicamente preciso: tasa de crecimiento de hasta 2.000% en proporción al tamaño inicial. La planta era además invasiva — una vez establecida, difícil de erradicar — rasgo que no pasaba inadvertido al oyente.`,
+    referencia: `Daniel 4:12 (el árbol donde habitan las aves, imagen mesiánica). Ezequiel 17:22-23 (el cedro que crece y alberga aves). Mateo 13:32. Lucas 13:19.`,
+    comentarios: `Agustín: el Reino comienza pequeño para poner a prueba la fe. N.T. Wright: la imagen del árbol que alberga "aves" (naciones) alude deliberadamente a Daniel 4 y Ezequiel 17 — el árbol mesiánico que reúne a los gentiles. El Reino no crece por poder sino por vitalidad orgánica propia.`,
+  },
+
+  'Marcos_8_29': {
+    linguistico: `"¿Quién decís que soy yo?" — la pregunta está en segunda persona plural enfático (hymeis de tina me legete einai): "vosotros, precisamente vosotros". Pedro responde: "Tú eres el Cristo" (ho Christos) — el Ungido, la forma griega del hebreo Mashiach. En Marcos esto es una revelación de Pedro sin la declaración sobre la Iglesia presente en Mateo 16:18, mostrando la sobriedad histórica del relato marcano.`,
+    historico: `Cesarea de Filipo era una ciudad helenística construida por Filipo el Tetrarca junto a la fuente del Jordán, en el extremo norte de Israel. Tenía un enorme templo de Pan y otro dedicado a Augusto. Que Jesús elija ese entorno pagano para la confesión de su identidad mesiánica es simbólicamente significativo: el Mesías es reconocido en territorio de dioses extranjeros.`,
+    referencia: `Isaías 61:1 (el ungido del Espíritu). Salmos 2:2 ("sus ungidos"). Mateo 16:16-17. Juan 6:69. Lucas 9:20.`,
+    comentarios: `Martín Kähler: todo el evangelio de Marcos es una "narración de la pasión con prólogo extendido" — la identidad de Jesús se revela plena solo desde la cruz. Esta confesión en 8:29 es el punto de inflexión: desde aquí Jesús comienza a anunciar su muerte.`,
+  },
+
+  'Marcos_10_45': {
+    linguistico: `"Rescate" (gr. lytron, λύτρον): precio pagado para liberar a un esclavo o prisionero. "En lugar de muchos" (anti pollon): preposición anti indica sustitución directa — no "a favor de" sino "en lugar de". El mismo término aparece en las leyes de manumisión griegas y romanas. Pablo usa el compuesto antilytron en 1 Ti 2:6.`,
+    historico: `La "copa" que Jesús bebe (Mc 10:38) y el bautismo del sufrimiento evocan el lenguaje de los Cánticos del Siervo de Isaías 52-53. El versículo 45 ha sido llamado "la cristología comprimida de Marcos" — resume la función del Hijo del Hombre en términos de servicio redentor sin elaborar ninguna doctrina teológica explícita.`,
+    tipologia: `"El Hijo del Hombre" conecta con Daniel 7:13-14, donde el hijo de hombre recibe dominio eterno. Marcos funde dos imágenes aparentemente contradictorias: el gobernante exaltado de Daniel y el Siervo sufriente de Isaías 53 — Jesús redefine la grandeza mesiánica como servicio sacrificial.`,
+    referencia: `Isaías 53:11-12 ("justificará a muchos... llevó el pecado de muchos"). Daniel 7:13-14. Marcos 10:38. 1 Timoteo 2:6. Tito 2:14.`,
+  },
+
+  'Marcos_15_34': {
+    linguistico: `"Eloi, Eloi, lama sabactani" — arameo, no hebreo. Transcripción directa de las palabras de Jesús en su lengua materna: Elahi (mi Dios) en arameo vs. Eli en hebreo (Sal 22:1 en la LXX usa Dios mío / ho Theos mou). La elección del arameo en lugar del hebreo litúrgico indica que Jesús ora en su lengua cotidiana, no en cita formal — es grito personal, no recitación.`,
+    tipologia: `El Salmo 22 comienza con ese mismo grito de abandono y termina (v. 24-31) en victoria y adoración universal. Jesús, que conocía los Salmos de memoria, al citar el primer versículo evoca todo el arco del poema. El "abandono" no es separación trinitaria sino la experiencia de cargar el pecado humano — la misma oscuridad que el pecado produce entre Dios y el hombre.`,
+    historico: `Crucifixión romana: el condenado moría de asfixia progresiva, incapaz de sostener el peso corporal para exhalar. La narrativa de Marcos conserva detalle de testigos oculares: la oscuridad, la hora (la nona = 3 pm), el ofrecimiento de vinagre, el centurión romano presente.`,
+    referencia: `Salmos 22:1 (la cita exacta). Isaías 53:6 ("el Señor cargó en él el pecado de todos nosotros"). 2 Corintios 5:21. Hebreos 2:9.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     DANIEL
+  ══════════════════════════════════════════════════════════════ */
+
+  'Daniel_7_13': {
+    linguistico: `"Como hijo de hombre" (aram. bar enash): figura humana en contraste con las cuatro bestias de los versículos anteriores. En arameo es una expresión idiomática para "ser humano", pero el contexto lo eleva a título mesiánico. Jesús usa la expresión "el Hijo del Hombre" (ho huios tou anthrōpou) más de 80 veces en los evangelios, siempre como autorreferencia, y en el juicio ante el Sanedrín (Mc 14:62) cita explícitamente este versículo.`,
+    historico: `El libro de Daniel fue escrito durante la crisis de Antíoco IV Epífanes (167-164 a.C.) según la mayoría de los críticos, o en el siglo VI a.C. según la tradición. En ambos casos, la visión del "hijo de hombre" recibiendo "dominio eterno" es una respuesta a los imperios que perseguían al pueblo de Dios: ningún poder humano es final.`,
+    tipologia: `Es la tipología más explícita del NT: Jesús se identifica con esta figura en el momento decisivo de su juicio. "Verán al Hijo del Hombre viniendo en las nubes del cielo" (Mt 26:64) es cita directa de Dn 7:13, y el Sanedrín la interpreta como blasfemia — es decir, como afirmación de divinidad, no solo de humanidad.`,
+    referencia: `Daniel 7:14 ("le fue dado dominio y gloria y reino"). Mateo 26:64. Apocalipsis 1:13 ("uno semejante al Hijo del Hombre"). Marcos 14:62. Lucas 21:27.`,
+  },
+
+  'Daniel_9_27': {
+    linguistico: `Las "setenta semanas" (heb. shavuim, שָׁבֻעִים) son literalmente "setenta sietes" — unidades de siete años. La frase "hasta que venga el Ungido, el Príncipe" (ad mashiach nagid) contiene el único uso explícito del sustantivo Mashiach como título en el AT. El verbo "cortar" (karat) para el Ungido puede traducirse también como "ser cortado/eliminado" — anticipando la muerte violenta del Mesías.`,
+    historico: `La cronología tradicional cuenta desde el decreto de Artajerjes I (458 a.C., Esd 7) o el de Nehemías (445 a.C., Ne 2) hasta la primera semana de Jesucristo. Harold Hoehner (Chronological Aspects of the Life of Christ, 1977) calculó 69 "semanas" de 7 años desde Nehemías 2:1 hasta la entrada triunfal de Jesús en Jerusalén (9 nisan, 33 d.C.) con una precisión notable.`,
+    referencia: `Nehemías 2:1-8. Mateo 21:1-11. Lucas 19:41-44 (Jesús llora por Jerusalén). Daniel 9:24-26. Hebreos 9:26.`,
+    comentarios: `La interpretación de las 70 semanas ha generado más bibliografía que cualquier otro pasaje profético del AT. Las grandes escuelas (historicismo, preterismo, futurismo) difieren en si la "semana 70" fue cumplida en el siglo I o aguarda aún. Lo indiscutible: la llegada del Mashiach está fechada dentro de este período.`,
+  },
+
+  'Daniel_2_31': {
+    historico: `La estatua de cuatro metales en el sueño de Nabucodonosor ha sido identificada por intérpretes desde Josefo con cuatro imperios: Babilonia (oro), Medo-Persia (plata), Grecia (bronce), Roma (hierro/barro). Esta interpretación no es forzada: el texto mismo dice que la cabeza de oro representa a Nabucodonosor y su reino (Dn 2:38), por lo que los sucesivos metales refieren a reinos que le seguirán.`,
+    cientifico: `La secuencia oro → plata → bronce → hierro es progresión de metales por dureza creciente pero valor decreciente — imagen de imperios cada vez más fuertes militarmente pero menos cohesionados culturalmente. La mezcla de hierro y barro en los pies refleja alianzas políticas inestables: "se mezclarán por matrimonios pero no se unirán" (Dn 2:43).`,
+    tipologia: `"Una piedra cortada no con manos" golpea la estatua y crece hasta llenar la tierra (Dn 2:34-35). Los Padres de la Iglesia la identifican unánimemente con Cristo: "cortada sin manos" = concepción virginal; "piedra que llena la tierra" = el Reino de Dios que reemplaza todos los reinos humanos. Pablo cita la "piedra" mesiánica en Romanos 9:33 y Efesios 2:20.`,
+    referencia: `Daniel 2:34-35. Salmos 118:22. Isaías 28:16. Mateo 21:44. Romanos 9:33. Efesios 2:20.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     EZEQUIEL
+  ══════════════════════════════════════════════════════════════ */
+
+  'Ezequiel_37_1': {
+    linguistico: `"Me llevó en el espíritu" (ruach YHWH): la misma palabra ruach significa espíritu, viento y aliento. El "valle" (biqah) es un llano abierto. Los "huesos muy secos" (yabbeshim meod) subrayan que no había ninguna posibilidad natural de vida. El verbo para "vivir" (chayah) es el mismo que en Génesis 2:7 — la creación del hombre.`,
+    historico: `La visión ocurre durante el exilio babilónico (597-538 a.C.). Los huesos secos representan a "toda la casa de Israel" que decía: "nuestros huesos se secaron, y pereció nuestra esperanza" (Ez 37:11). El capítulo es respuesta profética a la desesperación colectiva del exilio: la nación destruida, el templo en ruinas, el rey en cautiverio. La pregunta "¿vivirán estos huesos?" (v. 3) refleja la incredulidad del mismo Ezequiel.`,
+    cientifico: `Ezequiel describe un proceso de reconstitución anatómicamente ordenado: tendones → carne → piel → aliento. La secuencia sigue el orden inverso a la descomposición cadavérica, y es también el orden de la embriogénesis: primero estructuras internas, luego tejido muscular, finalmente piel. Que el texto anticipe esa secuencia "correcta" sin ser un tratado médico es notable.`,
+    tipologia: `Los primeros cristianos interpretaron Ez 37 como imagen de la resurrección general (cf. Mt 27:52-53, donde "muchos santos resucitaron" al morir Cristo). Pablo usa la imagen del "muerto en delitos" que cobra vida (Ef 2:1-5). La doble insuflación (viento del Espíritu + nishmat chayyim) paralela a Génesis 2:7 señala que la regeneración espiritual es tan creativa como la creación original.`,
+    referencia: `Génesis 2:7 (insuflación de vida). Juan 11:25 ("yo soy la resurrección y la vida"). Juan 20:22 (Jesús sopla y dice "recibid el Espíritu Santo"). Romanos 8:11. Efesios 2:1.`,
+  },
+
+  'Ezequiel_36_26': {
+    linguistico: `"Corazón de piedra" (lev even) vs "corazón de carne" (lev basar): antítesis radical. El corazón (lev) en hebreo es el centro de la voluntad, la inteligencia y las emociones — no solo sede de sentimientos. "Piedra" = inamovible, impermeable, sin respuesta. "Carne" = vivo, sensible, maleable. La promesa no es mejorar el corazón existente sino reemplazarlo: "quitaré / daré" — cirugía divina, no reforma humana.`,
+    historico: `La profecía pertenece al "libro de consolación" de Ezequiel (caps. 33-48), escrito durante el exilio babilónico. Paralela a Jeremías 31:31-34 (el nuevo pacto), ambas prometen una transformación interna de Israel que la ley exterior jamás pudo producir. Pablo en 2 Corintios 3:3 aplica directamente esta imagen: los corintios son "carta de Cristo, escrita no con tinta sino con el Espíritu del Dios vivo, no en tablas de piedra sino en tablas de carne del corazón".`,
+    referencia: `Jeremías 31:33 ("pondré mi ley en su mente"). 2 Corintios 3:3. Romanos 2:29 (la circuncisión del corazón). Hebreos 8:10. Ezequiel 11:19.`,
+    comentarios: `Calvino: la imagen del corazón de piedra refuta toda teología de cooperación humana en la salvación — nadie puede ablandarse a sí mismo. El cambio es monergístico (solo Dios lo opera). John Wesley, por contraste, interpretó la promesa como habilitación de la voluntad humana para cooperar con la gracia.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     NÚMEROS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Números_6_24': {
+    linguistico: `La bendición aarónica (6:24-26) tiene estructura poética en tres líneas con expansión progresiva: 3 palabras / 5 palabras / 7 palabras. El nombre divino YHWH aparece tres veces — posiblemente anticipando la fórmula trinitaria. "Te guarde" (yishmereka): protección activa, custodiar. "Haga resplandecer su rostro" (yaer panav): imagen de favor real — en el Antiguo Cercano Oriente "ver el rostro del rey" significaba ser recibido con gracia.`,
+    historico: `En 1979, arqueólogos israelíes descubrieron dos rollos de plata diminutos en la necrópolis de Ketef Hinom (Jerusalén), datados en el siglo VII a.C. — el texto bíblico más antiguo conocido, anterior a cualquier manuscrito de Qumrán. Contenían la bendición aarónica de Números 6:24-26. Esto demuestra que el texto fue copiado y usado litúrgicamente siglos antes de lo que algunos críticos postulaban como fecha de redacción.`,
+    costumbres: `En el templo de Jerusalén, el sumo sacerdote pronunciaba esta bendición diariamente al final del servicio matutino, extendiendo las manos hacia el pueblo. Actualmente los kohenim (descendientes de sacerdotes) la recitan en la sinagoga durante las festividades, con las manos cubiertas por el talit para no ver la "gloria" divina durante la bendición.`,
+    referencia: `Levítico 9:22 (Aarón bendice al pueblo). Deuteronomio 10:8 (la tribu de Leví separada para bendecir). Lucas 24:50 (Jesús bendice a sus discípulos al ascender). 2 Corintios 13:14 (la bendición apostólica trinitaria).`,
+  },
+
+  'Números_13_33': {
+    linguistico: `"Nefilim" (נְפִילִים): del verbo nafal (caer). La LXX los traduce como gigantes (gigantes). Los espías dicen: "éramos como langostas a nuestros propios ojos, y así éramos ante ellos" — hipérbole psicológica, no afirmación astronómica. El texto de Génesis 6:4 menciona nefilim antes del diluvio; aquí los espías los invocan en Canaán, lo que ha generado debate textual.`,
+    historico: `Los anaquitas eran, según el registro arqueológico, una población cananea de estatura considerable concentrada en la región de Hebrón (Tell Rumeidah). La excavación de sitios cananeos del Bronce Tardío muestra guerreros equipados con armamento pesado — impresionantes para pueblos nómadas sin experiencia bélica formal como Israel. El miedo de los espías tiene base contextual aunque el informe esté deliberadamente exagerado.`,
+    referencia: `Génesis 6:4 (los nefilim antes del diluvio). Josué 14:12-15 (Caleb solicita Hebrón donde estaban los anaquitas). Deuteronomio 1:28 ("ciudades grandes y amuralladas hasta el cielo"). Números 14:9 (Caleb y Josué desmienten el informe negativo).`,
+    comentarios: `El episodio es teológicamente crucial: la misma tierra prometida ya reconocida (Gn 12) ahora se ve como inalcanzable. Hebreos 3:19 cita este fracaso como el ejemplo paradigmático de incredulidad — "no pudieron entrar a causa de su incredulidad".`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 Y 2 SAMUEL
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Samuel_17_40': {
+    costumbres: `David toma "cinco piedras lisas del arroyo". Los pastores palestinos eran honderos expertos desde la infancia — la honda era herramienta de trabajo, no arma de guerra improvisada. Una piedra de honda lanzada a alta velocidad genera una fuerza equivalente a un proyectil de arma de fuego pequeña. El Libro de los Jueces menciona setecientos beniaminitas "que tiraban con la honda a un cabello y no erraban" (Jud 20:16). Cinco piedras no indica inseguridad — era dotación estándar para un combate prolongado.`,
+    historico: `Los gigantes (Goliat, ~2,80 m según el TM; ~2 m según manuscritos de Qumrán y la LXX) son mencionados en el contexto filisteo. Los filisteos, de origen egeo (Pueblos del Mar, ca. 1200 a.C.), introdujeron en Canaán metalurgia del hierro, cerámica distinta y armamento superior. Goliat lleva equipo hoplita griego: casco de bronce, coraza, grebas, jabalina y espada — armamento foráneo para Israel, acostumbrado a guerras de guerrillas.`,
+    tipologia: `La victoria de David sobre Goliat es leída en el NT como tipo de la victoria de Cristo sobre Satán: el campeón representativo que pelea en nombre de su pueblo. Igual que la derrota de Goliat liberó a Israel sin que ellos pelearan, la victoria de Cristo en la cruz libera a los creyentes de una batalla que no podían ganar solos.`,
+    referencia: `Jueces 20:16. 1 Samuel 17:47 ("la batalla es del Señor"). Efesios 6:12 ("nuestra lucha no es contra sangre y carne"). Colosenses 2:15.`,
+  },
+
+  '2 Samuel_7_12': {
+    linguistico: `"Levantaré después de ti a tu descendencia" (heb. zar'aka, זַרְעֲךָ): literalmente "tu simiente" — término de pacto con deliberada ambigüedad entre descendiente singular y linaje colectivo. El mismo vocablo en Génesis 3:15 y en Gálatas 3:16, donde Pablo argumenta que "simiente" singular apunta a Cristo. "Afirmaré su reino" y "afianzaré su trono para siempre" son promesas de eternidad imposibles para cualquier rey humano.`,
+    historico: `El Pacto Davídico (2 Sm 7:12-16) es el fundamento de toda la esperanza mesiánica del AT. Todos los profetas posteriores — Isaías, Jeremías, Amós, Miqueas — anclan sus profecías mesiánicas en esta promesa. Cuando el linaje davídico termina con el exilio babilónico (Sedequías, ca. 586 a.C.), la esperanza no muere sino se transescatonifica: el Mesías será el David definitivo del más allá de la historia.`,
+    tipologia: `El NT abre con "Jesucristo, hijo de David" (Mt 1:1) — cumplimiento explícito del pacto davídico. Los ángeles anuncian "el trono de David su padre... y su reino no tendrá fin" (Lc 1:32-33). Pedro en Pentecostés afirma que David "profetizó acerca de la resurrección del Cristo" (Hch 2:30) citando el Salmo 16 — el Pacto Davídico resuelto en la resurrección.`,
+    referencia: `Salmos 89:3-4 (confirmación poética del pacto). Isaías 11:1 ("renuevo del tronco de Isaí"). Lucas 1:32-33. Hechos 2:30-31. Apocalipsis 22:16 ("la raíz y el linaje de David").`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     CANTARES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Cantares_8_6': {
+    linguistico: `"Fuerte como la muerte es el amor" (az ka-mavet ahavah): la comparación eleva el amor a la categoría de la única fuerza que los humanos consideraban invencible — la muerte. "Cruel como el Seol los celos" (qashah ki-sheol qin'ah): el Seol es el reino de los muertos, igualmente irresistible. "Llama de Dios" (shalhevet-yah): el sufijo -yah puede ser el nombre divino, haciendo literalmente "llama del Señor" — el único lugar en el libro donde aparece el nombre divino.`,
+    historico: `El Cantar de los Cantares fue aceptado en el canon hebreo en el Concilio de Jamnia (ca. 90 d.C.) tras debate: el rabino Akiva declaró que "todo el mundo no es digno del día en que el Cantar fue dado a Israel, pues todos los Escritos son santos, pero el Cantar es el Santísimo". La tradición rabínica lo interpretó alegóricamente como el amor de Dios por Israel; los Padres de la Iglesia, como el amor de Cristo por la Iglesia.`,
+    comentarios: `Agustín citó este versículo en sus Confesiones: el amor de Dios es la única fuerza que puede vencer la tendencia del corazón a dispersarse. Orígenes escribió diez volúmenes de comentario sobre el Cantar — la obra de amor divino más extensa de la patrística. Karl Barth: el libro prueba que el amor humano puede ser auténtico icono del amor divino sin necesidad de alegorización — lo humano no es negado sino asumido.`,
+    referencia: `Romanos 8:38-39 ("ni la muerte... podrá separarnos del amor de Dios"). Juan 15:13 ("mayor amor no tiene nadie que este"). Apocalipsis 19:7 (las bodas del Cordero).`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ISAÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Isaías_6_1': {
+    linguistico: `"El año en que murió el rey Uzías" ancla la visión históricamente. "Serafines" (serafim, שְׂרָפִים): del verbo saraf (quemar/arder) — seres ígneos. "Cada uno tenía seis alas": dos para cubrir el rostro (ante la gloria), dos para cubrirse los pies (ante la santidad), dos para volar (para el servicio). El Trisagio "Santo, santo, santo" (tres veces) es la única aclamación triple en el AT — intensificación superlativa del hebreo que carece de superlativo gramatical.`,
+    historico: `Uzías murió ca. 740 a.C. Su reinado de 52 años fue el más próspero de Judá en dos siglos (2 Cr 26). Su muerte dejó un vacío político inmenso. La visión de Isaías responde: aunque el trono terreno quedó vacío, el Trono celestial permanece ocupado ("vi al Señor sentado"). Es la respuesta de Dios a la crisis: la soberanía divina no depende de la continuidad política humana.`,
+    tipologia: `Juan 12:41 afirma explícitamente que Isaías vio la gloria de Cristo. El Trisagio resuena en Apocalipsis 4:8 — los cuatro seres vivientes repiten sin cesar "Santo, santo, santo, Señor Dios Todopoderoso". La liturgia cristiana (Sanctus de la Misa, Trisagion oriental) deriva directamente de este versículo.`,
+    referencia: `Juan 12:41. Apocalipsis 4:8. Ezequiel 1:26. Isaías 57:15. 1 Reyes 22:19.`,
+    comentarios: `Agustín: la triple santidad es la primera vislumbre trinitaria del AT. Karl Barth: la reacción de Isaías ("¡Ay de mí!") muestra que el encuentro real con la santidad de Dios produce primero conciencia de impureza — la experiencia de la gracia comienza con la experiencia del pecado propio.`,
+  },
+
+  'Isaías_7_14': {
+    linguistico: `"Alma" (heb. almah, עַלְמָה): mujer joven en edad de casarse, presumiblemente virgen. El término específico para virgen es betulah (בְּתוּלָה). La LXX (Septuaginta, ca. 250 a.C.) tradujo almah como parthenos (παρθένος) — virgen específica — decisión de traductores judíos pre-cristiana. Mateo 1:23 cita la versión griega. El debate lingüístico: ¿almah implica virginidad? Contexto: en las 7 apariciones del término en el AT, siempre refiere a mujeres jóvenes no casadas.`,
+    historico: `En su contexto inmediato (ca. 734 a.C.), la señal era para el rey Acaz durante la crisis siro-efraímita: un niño nacería pronto como señal de que los reyes enemigos serían derrotados antes de que el niño supiera distinguir bien y mal. El "cumplimiento" doble (tipológico) es práctica hermenéutica normal en el AT: una señal inmediata y un significado pleno más adelante.`,
+    referencia: `Mateo 1:23 (cumplimiento en el nacimiento de Jesús). Miqueas 5:2 (nacimiento en Belén). Lucas 1:34-35 ("¿cómo será esto, pues no conozco varón?"). Génesis 3:15 ("simiente de la mujer").`,
+    comentarios: `La discusión sobre almah/betulah es uno de los debates filológicos más antiguos entre judaísmo y cristianismo. Justino Mártir (Diálogo con Trifón, ca. 150 d.C.) registra el debate: los judíos post-Akiva comenzaron a preferir "joven" para distanciarse de la lectura cristiana. Los manuscritos de Qumrán (1QIsa) usan almah sin variante, confirmando el texto masorético.`,
+  },
+
+  'Isaías_40_31': {
+    linguistico: `"Los que esperan en el Señor" (qavah, קָוָה): verbo que originalmente significa "retorcer/trenzar" como cuerdas — quien espera tensa su ser hacia Dios. "Renovarán sus fuerzas" (yachaliphu koah): yachaliphu viene de chalaf (cambiar, reemplazar) — literalmente "cambiarán su fuerza", no la acumularán sino que la intercambiarán por una nueva. "Volarán como águilas": no la tortolita sino el nesher (נֶשֶׁר) — buitre real o águila imperial, símbolo de poder imponente.`,
+    cientifico: `El nesher aprovecha las corrientes térmicas ascendentes para planear horas sin mover las alas — el vuelo que menos energía consume en la naturaleza. El texto describe exactamente esa economía: quien confía en Dios no gasta su propia energía, sino que se eleva sobre la corriente externa. La metáfora es biológicamente precisa y teológicamente poderosa.`,
+    historico: `El Deutero-Isaías (caps. 40-55) fue escrito para los exiliados en Babilonia, exhaustos y sin esperanza después de décadas de cautiverio. El versículo anterior (40:30) dice "se fatigan los jóvenes y se cansan los muchachos" — incluso los más fuertes quedan sin recursos. La promesa no es para los fuertes sino para los que renuncian a su propia fortaleza.`,
+    referencia: `Salmos 103:5 ("renueva tu juventud como el águila"). Deuteronomio 32:11 (Dios como águila). Éxodo 19:4 ("os llevé sobre alas de águilas"). Hebreos 12:1-2. Mateo 11:28-30.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 CORINTIOS
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Corintios_1_23': {
+    linguistico: `"Cristo crucificado" (Christon estaurōmenon): el participio perfecto pasivo subraya el estado permanente de Cristo como el Crucificado — no un evento pasado superado, sino su identidad permanente. "Escándalo" (skandalon): trampa, tropiezo — el Mesías crucificado era un oxímoron para el judaísmo (el Mesías triunfa, no muere en la cruz). "Necedad" (mōria): locura irresponsable para la cultura griega, que esperaba demostración filosófica, no ejecución romana.`,
+    historico: `Corinto era la ciudad más cosmopolita de Grecia: puerto comercial, sede de los Juegos Ístmicos, con templo de Afrodita y comunidades judía y griega numerosas. Pablo llega en 50-51 d.C. (fechado por el proconsulado de Galión, Hch 18:12). La dinámica social de Corinto hacía el mensaje especialmente chocante: crucifixión era castigo de esclavos y rebeldes, no de figuras heroicas.`,
+    cientifico: `Martin Hengel (Crucifixion, 1977) documentó que la crucifixión era considerada en el mundo romano la forma más vergonzante de muerte — "la más cruel y horrorosa" (Cicerón). Predicar a un crucificado como Señor del cosmos era, objetivamente, la afirmación más contraintuitiva imaginable en el siglo I.`,
+    referencia: `Gálatas 3:13 ("maldito todo el que es colgado en un madero"). Deuteronomio 21:23. 1 Corintios 2:2. Filipenses 2:8. Colosenses 2:14-15.`,
+    comentarios: `Lutero construyó su "teología de la cruz" (theologia crucis) sobre este versículo en oposición a la "teología de la gloria": Dios se revela en lo que parece debilidad y fracaso, no en el poder y la gloria. Esto aplica tanto a la cristología como a la vida del creyente — la cruz es el patrón del obrar divino en la historia.`,
+  },
+
+  '1 Corintios_13_1': {
+    linguistico: `El griego tiene cuatro palabras para amor: storge (familiar), filia (amistad), eros (romántico), agape (entrega incondicional). Pablo usa agape (ἀγάπη) exclusivamente en el cap. 13. El término era infrecuente en el griego clásico — los LXX lo adoptan para traducir el amor de Dios (ahavah). En el NT agape designa específicamente el amor que nace del carácter de Dios y no de la cualidad del objeto amado.`,
+    costumbres: `"Lenguas de ángeles": en el judaísmo del siglo I había tradición de un lenguaje celestial (Testamento de Job, cap. 48-50). "Tímbalo que retiña": los instrumentos de percusión acompañaban en Corinto el culto de Cibeles y Dionisio — ruidosos, extáticos, vacíos de contenido moral. Pablo contrasta el carisma sin amor con el ruido pagano: sonar mucho sin significar nada.`,
+    referencia: `Juan 13:35 ("en esto conocerán que sois mis discípulos"). Romanos 13:10 ("el amor es el cumplimiento de la ley"). 1 Juan 4:8 ("Dios es amor"). Mateo 22:37-40.`,
+    comentarios: `C.S. Lewis (Los cuatro amores) señala que agape es el único amor que no disminuye al darse — todos los demás se desgastan con el uso. Wittgenstein: Pablo no da aquí una definición lógica del amor sino una demostración ostensiva — muestra cómo actúa. El capítulo 13 es a la ética lo que Juan 1:1 a la cristología: una afirmación absoluta expresada en forma poética.`,
+  },
+
+  '1 Corintios_15_3': {
+    historico: `"Lo que recibí... lo que también os he enseñado" indica una fórmula de tradición oral (gr. parelabon / paredōka — recibí / transmití): vocabulario técnico rabínico para transmisión fiel de tradición. Pablo recibió esta fórmula dentro de los 3-5 años posteriores a la crucifixión (ca. 33-36 d.C.), cuando visitó a Pedro y Santiago en Jerusalén (Gá 1:18). Es el credo cristológico más antiguo conocido.`,
+    linguistico: `"Conforme a las Escrituras" aparece dos veces — para la muerte y para la resurrección — anclando ambos eventos en el cumplimiento del AT. "Fue sepultado" confirma la muerte real (no aparente). "Al tercer día resucitó": el perfecto griego (egēgertai) indica estado presente resultado de acción pasada — "ha sido levantado y permanece levantado".`,
+    cientifico: `El historiador Gerd Lüdemann (crítico, no apologeta) fecha la tradición de 1 Co 15:3-5 en "no más de dos años" después de la crucifixión — demasiado temprano para ser leyenda desarrollada. N.T. Wright (The Resurrection of the Son of God, 900 pp.) concluye que la combinación de tumba vacía + apariciones a múltiples testigos es históricamente la mejor explicación disponible del origen del cristianismo.`,
+    referencia: `Isaías 53:5-6 (murió por nuestros pecados). Oseas 6:2 ("al tercer día nos resucitará"). Salmos 16:10 (no abandonarás mi alma al Seol). Lucas 24:46. Hechos 2:24.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     HEBREOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Hebreos_4_12': {
+    linguistico: `"Viva" (zōsa): participio presente — la Palabra sigue viva mientras actúa. "Eficaz" (energes): de donde viene "energía" — activa, operante. "Más cortante que toda espada de dos filos" (machaira): la machaira era el cuchillo de carnicero, no la espada de batalla — instrumento de disección precisa. "Pensamientos e intenciones del corazón" (ennoion kai ennoion kardias): los elementos más íntimos y ocultos de la vida interior.`,
+    historico: `El destinatario hebreo conocía el papel de la Palabra en la creación (Gn 1), en la ley (Éx 20) y en los profetas. El autor de Hebreos eleva esa comprensión: la Palabra no solo comunica sino penetra y discierne — actúa como cirujano de la conciencia. En Qumrán, la comunidad del Mar Muerto también atribuía poder discernidor a la Palabra divina en sus textos de sabiduría.`,
+    referencia: `Isaías 49:2 ("puso mi boca como espada aguda"). Apocalipsis 1:16; 19:15 (la espada que sale de la boca del Hijo del Hombre). Efesios 6:17 ("espada del Espíritu, que es la Palabra de Dios"). 2 Timoteo 3:16.`,
+    comentarios: `Juan Calvino: el texto describe la función de la Palabra en la convicción de pecado — antes de sanar, la Palabra expone. No hay regeneración sin primero la honesta confrontación con uno mismo que la Palabra produce. Martín Lutero: "la Palabra de Dios en mis manos es un martillo, pero en las manos de Dios es un bisturí".`,
+  },
+
+  'Hebreos_11_1': {
+    linguistico: `"Fe" (pistis): confianza activa, no mera creencia intelectual. "Certeza" (hypostasis, ὑπόστασις): literalmente "lo que está debajo como base" — fundamento sólido, también "título de propiedad" en papiros griegos del siglo I. "Evidencia" (elegchos): término legal — prueba que convence en el tribunal. La fe es entonces: el título de propiedad de cosas esperadas, la prueba legal de realidades invisibles.`,
+    historico: `El capítulo 11 es el "Salón de la Fama" de la fe: recorre desde Abel hasta los Macabeos sin nombrarlos a todos. El autor escribe a judeocristianos tentados a volver al judaísmo ante la persecución (ca. 60-70 d.C.). Les recuerda que todos sus héroes vivieron y murieron en la fe sin ver el cumplimiento prometido: la fe no necesita ver para ser real.`,
+    referencia: `Romanos 8:24-25 ("esperamos lo que no vemos"). 2 Corintios 5:7 ("caminamos por fe, no por vista"). Hebreos 11:13 ("conforme a la fe murieron todos estos sin recibir lo prometido"). Juan 20:29.`,
+    comentarios: `Kierkegaard: la fe no es el grado inferior del conocimiento sino otra forma de relación con la realidad — la relación de la criatura con su Creador no puede reducirse a evidencia empírica. Tomás de Aquino: la fe no reemplaza la razón sino la dirige más allá de lo que la razón sola puede alcanzar.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     EFESIOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Efesios_2_8': {
+    linguistico: `"Por gracia" (chariti): dativo instrumental — la gracia es el instrumento, el medio. "Sois salvos" (este sesōsmenoi): participio perfecto pasivo perifrástico — estado presente resultante de acción pasada, énfasis en la permanencia de la salvación. "Por fe" (dia pisteōs): la fe es el canal, no la causa. "No es de vosotros" (kai touto ouk ex hymōn): "touto" en griego no puede referirse a "fe" (pistis, femenino) sino al conjunto de la salvación — la gracia, la fe y la salvación son todas don divino.`,
+    historico: `La ciudad de Éfeso tenía el templo de Artemisa, una de las Siete Maravillas del Mundo. El culto de Artemisa requería pagos, méritos rituales y favores de los sacerdotes. Pablo proclama en ese contexto una salvación completamente gratuita — sin compra, sin mérito, sin intermediario sacerdotal. La "obra" excluida (v. 9) se entiende mejor como sistema de méritos religiosos del mundo greco-romano.`,
+    referencia: `Romanos 3:24 ("siendo justificados gratuitamente por su gracia"). Gálatas 2:16. Tito 3:5 ("no por obras de justicia que nosotros hubiéramos hecho"). Juan 6:29 ("esta es la obra de Dios: que creáis en el que él envió").`,
+    comentarios: `La Reforma protestante (Lutero, Calvino) ancló el principio sola gratia / sola fide en este versículo. El Concilio de Trento (1545-63) respondió que la fe implica cooperación con la gracia, no pasividad. La New Perspective on Paul (Sanders, Wright) propone que "obras" en Pablo se refieren específicamente a "obras de la ley" (marcadores de identidad judía), no a méritos morales en general.`,
+  },
+
+  'Efesios_6_11': {
+    historico: `"La armadura completa de Dios" (panoplia tou theou): el término técnico romano para el equipo completo del legionario pesado. Pablo, escribiendo desde la prisión romana, tenía guardias en armadura literalmente frente a él. Componentes del equipo: cinturón (verdad), coraza (justicia), calzado (evangelio), escudo thyreós —el grande, rectangular, para cubrir todo el cuerpo—, casco y espada corta. Cada pieza tiene paralelo en el armamento romano que Pablo veía diariamente.`,
+    linguistico: `"Las asechanzas del diablo" (tas methodias tou diabolou): methodias de methodos — procedimiento, estrategia. El diablo no solo ataca sino que tiene un método calculado. El término es único en Pablo y sugiere combate de inteligencia, no solo fuerza bruta. "Potestades" (archai), "dominios" (exousiai), "huestes espirituales" (kosmokratores): terminología de rangos militares aplicada al mundo espiritual invisible.`,
+    referencia: `Isaías 59:17 (Dios se viste de justicia y salvación como armadura — fuente del pasaje). Romanos 13:12. 1 Tesalonicenses 5:8. 2 Corintios 10:4.`,
+    comentarios: `Orígenes: la armadura es defensiva en su mayor parte (5 de 6 piezas) — el énfasis es resistir, no atacar. La única arma ofensiva es la Palabra (espada del Espíritu). Ello sugiere que la vida cristiana es fundamentalmente postura de resistencia a la erosión espiritual, no cruzada de conquista.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     COLOSENSES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Colosenses_1_15': {
+    linguistico: `"Imagen del Dios invisible" (eikōn tou theou tou aoratou): eikōn designa imagen que comparte la naturaleza del original — no mera semejanza sino representación ontológica. En Génesis 1:26, el ser humano fue creado a imagen (tselem) de Dios; aquí Cristo es la imagen primordial de Dios. "Primogénito de toda creación" (prōtotokos pasēs ktiseōs): la clave es que en el NT prōtotokos denota preeminencia (cf. Sal 89:27 donde David es "primogénito" por preeminencia, no por nacimiento), no que Cristo sea la primera criatura.`,
+    historico: `El himno de Colosenses 1:15-20 es posiblemente una pieza litúrgica pre-paulina usada en el culto de la iglesia primitiva. Filón de Alejandría desarrolló una teología del Logos como "imagen de Dios" en el judaísmo helenístico; Pablo supera ese concepto: Cristo no es mediación platónica abstracta sino persona histórica encarnada que reconcilia mediante su sangre.`,
+    tipologia: `Adán fue creado a imagen de Dios y la perdió parcialmente por el pecado; Cristo es la imagen perfecta e inalterable de Dios — el Adán escatológico que restaura lo que el primero dañó. Pablo elabora esto en 1 Co 15:45-49: el "primer Adán" (psíquico, de la tierra) y el "segundo Adán" (espiritual, celestial).`,
+    referencia: `Génesis 1:26-27. Juan 1:1-3. Juan 14:9 ("el que me ha visto a mí, ha visto al Padre"). Hebreos 1:3 ("resplandor de su gloria e imagen misma de su sustancia"). 2 Corintios 4:4.`,
+  },
+
+  'Colosenses_2_14': {
+    linguistico: `"Acta de los decretos" (cheirographon tois dogmasin): cheirographon era el documento escrito de puño y letra que certificaba una deuda — el "pagaré" del mundo antiguo. El deudor reconocía su obligación firmando con su propia mano. Pablo dice que Dios canceló (exaleipsas) ese documento y lo clavó en la cruz. "Exaleipsas" es el término para borrar la escritura de cera o lavar el papiro — cancelación total.`,
+    historico: `En el mundo romano, cuando un reo era crucificado, se clavaba sobre su cabeza el titulus — el letrero con sus crímenes. El titulus de Jesús decía "Rey de los Judíos" (Jn 19:19). Colosenses 2:14 sugiere que lo que realmente estaba clavado era el registro de deuda humana — la acusación de toda la humanidad. La cruz no es solo lugar de muerte sino lugar de cancelación jurídica del cargo de culpa.`,
+    referencia: `Juan 19:19-22 (el titulus sobre la cruz). Romanos 8:3 ("condenó al pecado en la carne"). Efesios 2:15. Gálatas 3:13. Hebreos 10:10.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 REYES
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Reyes_5_14': {
+    historico: `Naamán, general del ejército sirio, sufría de tzara'at (a menudo traducido "lepra" pero que en el AT designa diversas enfermedades de piel). Su proceso de sanación involucra tres resistencias: la resistencia política (¿por qué al profeta de Israel?), la resistencia del orgullo (¿por qué el Jordán y no los ríos de Damasco?), y la resistencia teológica (la salvación viene de donde no se espera). Solo cuando sus siervos lo persuaden a la humildad, actúa.`,
+    costumbres: `Sumergirse siete veces en el río Jordán no era procedimiento médico conocido. Los ríos Abaná y Farfar de Damasco eran objetivamente más caudalosos y limpios. La orden de Eliseo desafía toda lógica sanitaria y nacional para que la obediencia sea pura fe, no confirmación de expectativas previas.`,
+    tipologia: `Jesús cita este episodio en Lucas 4:27 para ilustrar que "ningún leproso fue limpiado en Israel... sino Naamán el sirio" — la gracia de Dios desborda las fronteras nacionales y religiosas. Naamán, el primer gentil curado por un profeta israelita, prefigura la misión universal del evangelio.`,
+    referencia: `Lucas 4:27. 2 Reyes 5:1-19. Romanos 10:12 ("el mismo Señor de todos, es rico para con todos los que le invocan"). Hechos 10:34-35 ("Dios no hace acepción de personas").`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     PROVERBIOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Proverbios_3_5': {
+    linguistico: `"Confiar" (batach, בָּטַח): recostarse sobre, apoyarse en — imagen de quien se recuesta sin temor sobre algo sólido. "Con todo tu corazón" (bekhol libbeka): lev en hebreo es el centro intelectual y volitivo, no solo emocional. "No te apoyes en tu propia prudencia" (al-tishan'al binateka): binateka es entendimiento analítico; la prohibición no es anti-intelectual sino contra la autosuficiencia cognitiva que excluye la dependencia divina.`,
+    costumbres: `El proverbio pertenece a la sabiduría de instrucción paterna (Prov 1-9 son cartas del padre al hijo). En Israel la educación ética comenzaba en el hogar; el padre transmitía la sabiduría de la alianza. La confianza en YHWH no era opción personal sino fundamento del orden familiar y social: el rey "justo" confía en Dios (Prov 21:1), el comerciante honesto confía en Dios (Prov 11:1).`,
+    referencia: `Jeremías 17:7-8 ("bendito el hombre que confía en el Señor"). Salmos 37:5. Isaías 26:3-4. Mateo 6:33. Filipenses 4:6-7.`,
+    comentarios: `Blaise Pascal: el corazón tiene razones que la razón no conoce — la confianza en Dios no es irracionalismo sino el reconocimiento de que hay una facultad más profunda que el análisis. Dietrich Bonhoeffer: "confiar" es la forma cotidiana de la fe — no experiencia mística sino disposición práctica de entregar cada decisión.`,
+  },
+
+  'Proverbios_31_10': {
+    linguistico: `"Mujer virtuosa" (eshet chayil, אֵשֶׁת חַיִל): "mujer de fuerza/valor" — el mismo chayil usado para los "hombres de valor" militares (Rut 2:1, Booz como gibbor chayil). No es elogio de docilidad sino de fortaleza activa. El poema es acróstico hebreo — cada versículo comienza con una letra del alfabeto (alef a tav). Estructura memorística para enseñanza oral.`,
+    historico: `El poema describe la economía doméstica de una familia de clase media-alta israelita: comercio de tejidos, administración de personal, inversión inmobiliaria, cuidado de pobres, instrucción de hijos. La mujer aquí no es "ama de casa" en sentido moderno sino directora de una empresa familiar. El marido "conocido en las puertas" (v.23) se dedica a la vida cívica mientras ella administra la economía del hogar.`,
+    costumbres: `"Lino y púrpura es su vestido" (v.22): la púrpura (argaman) era el tejido más costoso del mundo antiguo, producido de murex (molusco). Su ropa refleja el nivel económico que ella misma ha creado. "Extiende la mano al pobre" (v.20): la caridad no es externalidad sino parte del ciclo productivo del hogar virtuoso.`,
+    referencia: `Rut 3:11 ("toda la gente sabe que eres mujer virtuosa"). Proverbios 12:4. Lucas 10:38-42 (Marta y María — el servicio activo también tiene valor). Efesios 5:25-28.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 PEDRO / JUDAS
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Pedro_3_8': {
+    linguistico: `"Para con el Señor un día es como mil años, y mil años como un día" — estructura quiástica intencional. La fuente es Salmos 90:4 ("mil años delante de tus ojos son como el día de ayer que pasó"). Pedro no da aquí una fórmula de conversión para calcular fechas; el punto es la asimetría entre el tiempo humano y la eternidad divina. Dios no está "atrasado" porque no está en la misma relación temporal que las criaturas.`,
+    cientifico: `Hugh Ross y otros astrofísicos teístas han señalado que el tiempo cosmológico transcurre de forma diferente según el punto de referencia (relatividad especial). Desde un marco de referencia de alta energía o campo gravitacional extremo, los "seis días" del Génesis podrían corresponder a miles de millones de años terrestres. Pedro anticipa intuitivamente la no-linealidad del tiempo desde la perspectiva divina.`,
+    referencia: `Salmos 90:4. Eclesiástes 3:11 ("todo lo hizo hermoso en su tiempo... puso eternidad en el corazón de ellos"). Romanos 8:18. Apocalipsis 20:2-7 (el "milenio").`,
+  },
+
 };
