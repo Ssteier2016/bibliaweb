@@ -1077,4 +1077,255 @@ export const COMMENTARY = {
     comentarios: `Este versículo es el resumen más completo de la misión cristiana en el NT: apertura de ojos, giro desde las tinieblas, liberación de un poder, perdón de pecados y herencia eterna. Es simultáneamente la descripción de la conversión individual y el mandato de la misión universal. Karl Barth: la Iglesia existe para ser el instrumento de este mismo propósito — llevar a la humanidad del dominio de las tinieblas al señorío de Cristo.`,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     ROMANOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Romanos_1_16': {
+    linguistico: `"No me avergüenzo del evangelio" — "epaischunomai" (ἐπαισχύνομαι): avergonzarse, ocultar. En el mundo greco-romano, la crucifixión era vergüenza máxima. "Poder de Dios" (dynamis Theou): no simple influencia moral sino potencia transformadora. "Para todo aquel que cree" (panti tō pisteuonti): sin distinción étnica o social.`,
+    historico: `Roma era la capital del Imperio, centro intelectual y político del mundo antiguo. Predicar allí un evangelio centrado en un crucificado judío era culturalmente escandaloso. La carta fue escrita ca. 57 d.C. desde Corinto.`,
+    referencia: `1 Corintios 1:18 ("la palabra de la cruz es locura para los que se pierden, pero para nosotros es poder de Dios"). 2 Timoteo 1:8. Marcos 8:38. Romanos 10:11 (el que crea en él no será avergonzado). Isaías 28:16.`,
+    comentarios: `Martín Lutero leyó este versículo y Romanos 1:17 como el núcleo de toda la carta — la justicia divina no como ira sino como don gratuito. Este texto fue la chispa de la Reforma Protestante (1517). Calvino: el evangelio no es una propuesta para mejorar la moral, sino la única fuente de salvación.`,
+  },
+
+  'Romanos_3_23': {
+    linguistico: `"Por cuanto todos pecaron, y están destituidos de la gloria de Dios." "Hēmarton" (ἥμαρτον): aoristo — acto histórico específico (en Adán). "Husterountai" (ὑστεροῦνται): presente continuo, estado resultante. "Doxa Theou": gloria de Dios — la imagen divina originalmente presente que el pecado oscureció.`,
+    referencia: `Génesis 3:6-7 (la caída de Adán). Romanos 5:12 ("el pecado entró en el mundo por un hombre"). Salmos 14:3 ("no hay quien haga lo bueno, no hay ni siquiera uno"). Isaías 53:6. Romanos 6:23. Efesios 2:1.`,
+    comentarios: `"Todos" (pantes) no tiene excepciones. Agustín usó este versículo para formular el pecado original: toda la humanidad participó de la caída de Adán. Karl Barth: la universalidad del pecado es la sombra que hace brillar más la universalidad de la gracia (Romanos 5:18-19).`,
+  },
+
+  'Romanos_5_8': {
+    linguistico: `"Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros." "Sunistēsin" (συνίστησιν): demuestra, establece, presenta — el amor no es sentimiento privado sino demostración histórica objetiva. "Eti" (ἔτι): aún, todavía — en el momento de la Cruz, no éramos amigos sino enemigos (v.10).`,
+    referencia: `Juan 3:16. Romanos 5:6-10 (contexto: débiles, impíos, pecadores, enemigos). 1 Juan 4:10 ("no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros"). Efesios 2:4-5. Gálatas 2:20.`,
+    comentarios: `Este versículo define el amor cristiano (agapē) por oposición al amor natural: los humanos aman a quien los merece; Dios ama a quienes no lo merecen. C.S. Lewis: el amor divino no es una reacción a nuestra bondad sino la fuente de ella. El amor de Dios no fue motivado por lo que somos, sino que transforma lo que somos.`,
+  },
+
+  'Romanos_6_23': {
+    linguistico: `"La paga del pecado es muerte, mas la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro." "Opsōnia" (ὀψώνια): salario del soldado, paga ganada y merecida. "Charisma" (χάρισμα): don gratuito, no merecido. El contraste es preciso: el pecado paga lo que mereces; Dios da lo que no mereces.`,
+    referencia: `Génesis 2:17 ("el día que de él comieres, ciertamente morirás"). Santiago 1:15 ("el pecado... da a luz la muerte"). Juan 3:16. Romanos 5:21. Efesios 2:8-9 (por gracia, no por obras). 1 Corintios 15:56.`,
+    comentarios: `La estructura antitética (paga/don, pecado/gracia, muerte/vida) es el núcleo del evangelio. La muerte como "salario" implica que es lo justamente ganado — no una injusticia de Dios sino la consecuencia natural del rechazo de la fuente de vida. La vida eterna, en cambio, nunca puede ganarse — solo recibirse.`,
+  },
+
+  'Romanos_8_1': {
+    linguistico: `"Ninguna condenación hay para los que están en Cristo Jesús." "Ouden katakrima" (οὐδὲν κατάκριμα): literalmente "ninguna condenación" — veredicto legal absolutorio. "En Christō Iēsou" (ἐν Χριστῷ Ἰησοῦ): posición de unión vital, no solo influencia moral. El capítulo 8 es la cumbre teológica de Romanos.`,
+    referencia: `Romanos 5:1 ("justificados por la fe, tenemos paz con Dios"). Juan 5:24 ("el que oye mi palabra... no vendrá a condenación"). Romanos 8:31-34. Isaías 50:8-9. 1 Juan 3:21. Colosenses 1:22.`,
+    comentarios: `Martín Lutero: este versículo fue el momento en que comprendió que la "justicia de Dios" en el evangelio no es la ira juzgadora sino el regalo que Dios da. El creyente no está bajo juicio sino bajo gracia. Calvino: la "condenación" incluye tanto la culpa del pecado pasado como el poder del pecado presente — en Cristo ambos son rotos.`,
+  },
+
+  'Romanos_8_28': {
+    linguistico: `"Sabemos que a los que aman a Dios, todas las cosas les ayudan a bien." "Synergei" (συνεργεῖ): cooperan, trabajan juntas — no que todas las cosas sean buenas en sí, sino que Dios las coordina. "Panta" (πάντα): absolutamente todas — dolor, pérdida, traición, enfermedad. "Los llamados conforme a su propósito" define quiénes son los beneficiarios.`,
+    referencia: `Génesis 50:20 (José: "vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien"). Romanos 8:29-30 (la cadena de la predestinación). Jeremías 29:11. Salmos 37:23. Filipenses 1:6. 1 Pedro 5:10.`,
+    comentarios: `Spurgeon: Dios no promete que todas las cosas serán agradables, sino que todas — incluso las más dolorosas — serán trabajadas para nuestro bien eterno. Este versículo ha sostenido a creyentes en persecuciones, cárceles y duelos. No es optimismo ingenuo sino confianza en la soberanía de Dios sobre la historia.`,
+  },
+
+  'Romanos_8_38': {
+    linguistico: `"Por lo cual estoy seguro de que ni la muerte, ni la vida... ni lo presente, ni lo por venir... ni ninguna otra cosa creada nos podrá separar del amor de Dios." Pablo enumera ocho pares de opuestos — una lista deliberadamente exhaustiva. "Dynēsetai" (δυνήσεται): podrá — certeza absoluta sobre el futuro. "Chōrisai" (χωρίσαι): separar, cortar, divorciar.`,
+    referencia: `Juan 10:28-29 ("yo les doy vida eterna; y no perecerán jamás"). Salmos 139:7-10 ("¿a dónde me iré de tu Espíritu?"). Romanos 8:1. Hebreos 13:5 ("no te desampararé"). Deuteronomio 31:8. Mateo 28:20.`,
+    comentarios: `Este es uno de los versículos más consoladores de toda la Biblia. Es la respuesta definitiva de Pablo a las tribulaciones listadas en v.35. La seguridad del creyente no depende de sus circunstancias ni de su fidelidad, sino del amor inquebrantable de Dios revelado en Cristo. Spurgeon: si la muerte no puede separarnos, ¿qué podrá?`,
+  },
+
+  'Romanos_10_9': {
+    linguistico: `"Si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo." "Homologēsēs" (ὁμολογήσῃς): confesar, declarar públicamente — en el mundo romano, decir "Kyrios Iēsous" era una declaración política y religiosa. "Kyrios" (κύριος): el título reservado al César y a Yahvé en la LXX.`,
+    referencia: `Filipenses 2:9-11 ("toda lengua confiese que Jesucristo es el Señor"). Juan 11:25-27 (la confesión de Marta). 1 Corintios 12:3. Romanos 10:13 ("todo aquel que invocare el nombre del Señor, será salvo"). Hechos 16:31.`,
+    comentarios: `La fórmula "Jesús es el Señor" fue probablemente el credo bautismal más antiguo de la iglesia (ca. 40-50 d.C.). Confesar a Jesús como "Kyrios" significaba negarle ese título al César — un acto con consecuencias civiles. La combinación confesión-corazón muestra que la salvación no es solo intelectual ni solo emocional, sino total.`,
+  },
+
+  'Romanos_12_1': {
+    linguistico: `"Que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional." "Parakalō" (παρακαλῶ): os ruego, apelo — lenguaje de gracia, no mandato legal. "Thysia zōsa" (θυσία ζῶσα): sacrificio vivo — paradoja: el sacrificio judío se mataba, el cristiano vive. "Logikēn latreia" (λογικήν λατρεία): culto racional/espiritual — adoración cotidiana, no solo ritual.`,
+    referencia: `1 Pedro 2:5 ("ofrezcáis sacrificios espirituales agradables a Dios"). Hebreos 13:15-16. 1 Corintios 6:19-20 ("vuestro cuerpo es templo del Espíritu Santo"). Efesios 4:1. Colosenses 3:17.`,
+    comentarios: `Calvino: este versículo es la "ética" que sigue a la "dogmática" de Romanos 1-11. La respuesta al evangelio es la entrega total del yo. El cuerpo no es enemigo del espíritu (gnosticismo) sino el instrumento de la adoración. Agustín: "todo nuestro ser, alma y cuerpo, debe ser ofrenda a Dios".`,
+  },
+
+  'Romanos_12_2': {
+    linguistico: `"No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento." "Syschēmatizesthe" (συσχηματίζεσθε): conformaos — del mismo molde, presión externa. "Metamorphousthe" (μεταμορφοῦσθε): transformaos — cambio desde adentro (misma raíz de "metamorfosis"). "Anakainōsei" (ἀνακαινώσει): renovación — proceso nuevo y continuo.`,
+    referencia: `1 Juan 2:15-17 ("no améis al mundo"). Efesios 4:22-24 (renovaos en el espíritu de vuestra mente). Colosenses 3:10. Filipenses 4:8 (pensad en todo lo verdadero). 2 Corintios 3:18 (transformados de gloria en gloria).`,
+    comentarios: `La "renovación del entendimiento" es el proceso de santificación: la mente cristiana ve la realidad desde la perspectiva de Dios, no del zeitgeist cultural. J.B. Phillips: la presión del mundo es constante — conformar el cristiano a sus moldes. La resistencia requiere una mente activamente renovada por la Palabra y el Espíritu.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 CORINTIOS
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Corintios_1_18': {
+    linguistico: `"La palabra de la cruz es locura a los que se pierden; pero a los que se salvan, esto es, a nosotros, es poder de Dios." "Mōria" (μωρία): necedad, idiotez — el término técnico griego para lo carente de valor intelectual. "Dynamis Theou" (δύναμις Θεοῦ): poder de Dios — la misma potencia creadora y resurrección.`,
+    historico: `Corinto era centro de filosofía (influencia griega) y poder (colonia romana). La crucifixión era la muerte más vergonzosa posible — reservada a esclavos y criminales. Predicar al crucificado como Salvador era triple escándalo: religioso (maldito por Deuteronomio 21:23), filosófico (absurdo) y político (subversivo).`,
+    referencia: `1 Corintios 2:2 ("me propuse no saber algo entre vosotros, sino a Jesucristo, y a éste crucificado"). Gálatas 3:13. Romanos 1:16. Isaías 29:14 ("destruiré la sabiduría de los sabios"). 1 Corintios 1:23-24.`,
+    comentarios: `El evangelio invierte todos los valores: el poder en la debilidad, la victoria en la derrota, la vida en la muerte. Kierkegaard: la necedad de la Cruz es el "escándalo" necesario — no puede racionalizarse sin perder su esencia. Barth: la Cruz es la crisis de toda sabiduría humana precisamente porque revela que Dios actúa donde menos esperamos.`,
+  },
+
+  '1 Corintios_13_4': {
+    linguistico: `"El amor es sufrido, es benigno; el amor no tiene envidia, el amor no es jactancioso, no se envanece." Pablo usa catorce predicados para describir el amor (agapē), todos verbales — no cualidades abstractas sino acciones observables. "Makrothymei" (μακροθυμεῖ): sufre largo tiempo, se contiene. "Chrēsteuetai" (χρηστεύεται): es útil, servicial, benigno.`,
+    referencia: `Juan 13:34-35. Gálatas 5:22 (el amor es el primer fruto del Espíritu). Romanos 5:5. Colosenses 3:14 ("el amor, que es el vínculo de la perfección"). 1 Juan 4:7-8. Mateo 5:44.`,
+    comentarios: `El himno al amor (1 Co 13) fue compuesto en un contexto de división y competencia carismática en Corinto. Agustín: si lees cada predicado del amor sustituyendo "el amor" por "Cristo", el texto describe perfectamente la vida de Jesús. Pablo no describe un ideal inalcanzable sino a Cristo mismo como modelo y fuente del amor.`,
+  },
+
+  '1 Corintios_15_3': {
+    linguistico: `"Cristo murió por nuestros pecados, conforme a las Escrituras." Esta es la fórmula más antigua del kerygma cristiano (ca. 35 d.C., antes que los Evangelios escritos). "Apethanen" (ἀπέθανεν): murió — aoristo de hecho histórico. "Hyper" (ὑπέρ): por, en beneficio de — preposición sustitutoria. "Kata tas Graphas" (κατὰ τὰς Γραφάς): según las Escrituras — la muerte no fue accidente sino cumplimiento del plan divino.`,
+    historico: `Pablo indica que "recibió" (parelabon) y "transmitió" (paredōka) esta tradición — vocabulario técnico rabínico de transmisión oral. La fórmula fue transmitida a Pablo probablemente en su visita a Jerusalén (ca. 35 d.C., Gálatas 1:18), apenas 5 años después de la crucifixión.`,
+    referencia: `Isaías 53:4-6. 1 Corintios 15:1-8 (el contexto: la lista de apariciones de resurrección). 1 Pedro 3:18. 2 Corintios 5:21. Romanos 4:25. Gálatas 1:4.`,
+    comentarios: `El historiador N.T. Wright considera esta fórmula como el dato más antiguo verificable del mensaje cristiano — anterior a cualquier evangelio escrito. Su antigüedad excluye que la resurrección fuera una leyenda desarrollada con el tiempo. Moltmann: la muerte "por nuestros pecados" es la clave hermenéutica de toda la Biblia — el AT apunta hacia ella; el NT la proclama.`,
+  },
+
+  '1 Corintios_15_55': {
+    linguistico: `"¿Dónde está, oh muerte, tu aguijón? ¿Dónde, oh sepulcro, tu victoria?" "Kentron" (κέντρον): aguijón de escorpión o abeja — el instrumento de muerte. Pablo cita Oseas 13:14 y lo transforma en pregunta triunfal. El tiempo verbal es aoristo: la victoria ya fue ganada (en la resurrección de Cristo).`,
+    referencia: `Oseas 13:14 (la profecía original). 1 Corintios 15:20-23 (Cristo, primicias de la resurrección). Apocalipsis 20:14 ("la muerte y el Hades fueron lanzados al lago de fuego"). Juan 11:25. Romanos 8:37. Hebreos 2:14-15.`,
+    comentarios: `Pablo lanza el desafío a la muerte después de razonar toda la resurrección (vv.1-54). Es un grito de victoria, no de negación del dolor. La muerte sigue ocurriendo, pero ya no tiene la última palabra. Donne en su soneto "Death Be Not Proud" (1610) amplifica este versículo: la muerte misma morirá. La Pascua cristiana es el fundamento de este triunfo.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     GÁLATAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Gálatas_2_20': {
+    linguistico: `"Con Cristo estoy juntamente crucificado, y ya no vivo yo, mas vive Cristo en mí." "Synestaurōmai" (συνεσταύρωμαι): perfecto pasivo — fui crucificado con él y permanezco en ese estado. "Zō de ouketi egō" (ζῶ δὲ οὐκέτι ἐγώ): la negación del yo antiguo. "Zē de en emoi Christos" (ζῇ δὲ ἐν ἐμοί Χριστός): Cristo vive en mí — la nueva identidad.`,
+    referencia: `Romanos 6:4-6 (bautizados en su muerte). Colosenses 3:3 ("vuestra vida está escondida con Cristo en Dios"). 2 Corintios 5:17 ("si alguno está en Cristo, nueva criatura es"). Filipenses 1:21 ("para mí el vivir es Cristo"). Juan 15:5.`,
+    comentarios: `Este es el versículo más autobiográfico de Pablo y uno de los más radicales del NT. No describe un ideal místico sino la realidad jurídica de la unión con Cristo: el creyente participó en la crucifixión de Cristo y ahora es animado por su vida. Lutero: Gálatas 2:20 fue "su" versículo — en él encontró la libertad del legalismo y la certeza de la gracia.`,
+  },
+
+  'Gálatas_5_22': {
+    linguistico: `"Mas el fruto del Espíritu es amor, gozo, paz, paciencia, benignidad, bondad, fe, mansedumbre, templanza." "Karpos" (καρπός): fruto — singular, no plural. No son nueve virtudes separadas sino un único carácter producido por el Espíritu. El contraste con "obras" (v.19) es deliberado: las obras del pecado son esfuerzo humano; el fruto es resultado de la vida del Espíritu.`,
+    referencia: `Juan 15:5 ("sin mí nada podéis hacer"). Romanos 8:9. 1 Corintios 13:4-7 (el amor como descripción del fruto). Efesios 5:9. Colosenses 3:12-15. Filipenses 4:4-9.`,
+    comentarios: `La imagen del fruto es revolucionaria: el árbol no produce fruto por esfuerzo sino siendo lo que es. El creyente no produce virtud por disciplina moral sino "permaneciendo en la vid" (Jn 15). D.L. Moody: el fruto del Espíritu no es diez cosas que debo hacer, sino la reproducción del carácter de Cristo en mi vida.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     EFESIOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Efesios_2_8': {
+    linguistico: `"Por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios." "Charis" (χάρις): gracia — favor inmerecido. "Sesōsmenoi" (σεσῳσμένοι): perfecto participio — estado permanente, ya salvos y seguros en esa salvación. "Touto" (τοῦτο): esto — neutro, refiere a todo el conjunto (gracia + fe), no solo a la fe, evitando que la fe se vuelva mérito.`,
+    referencia: `Romanos 3:24 ("justificados gratuitamente por su gracia"). Romanos 11:6 ("si por gracia, ya no es por obras; de otra manera la gracia ya no es gracia"). Tito 3:5-7. Juan 1:12-13. Filipenses 1:29.`,
+    comentarios: `Agustín contra Pelagio: la gracia no es la ayuda divina al esfuerzo humano, sino el origen mismo de la fe y la salvación. La fe no es la contribución humana que activa la gracia; la fe misma es don de Dios. Lutero: "sola gratia, sola fide" — solo gracia, solo fe — el corazón de la Reforma nace de este versículo.`,
+  },
+
+  'Efesios_6_12': {
+    linguistico: `"No tenemos lucha contra sangre y carne, sino contra principados, contra potestades, contra los gobernadores de las tinieblas de este siglo." "Palē" (πάλη): lucha cuerpo a cuerpo, combate cercano. "Archas, exousias, kosmokratoras" (ἀρχάς, ἐξουσίας, κοσμοκράτορας): estructura jerárquica de poderes espirituales. El creyente enfrenta un orden de realidad que no es reducible a lo material.`,
+    referencia: `Daniel 10:13 (el príncipe del reino de Persia que resistía al ángel). Colosenses 2:15 ("habiendo despojado a los principados y potestades... triunfó sobre ellos en la cruz"). 1 Pedro 5:8. Apocalipsis 12:7-9. Lucas 10:18.`,
+    comentarios: `Esta cosmovisión bíblica distingue el plano visible del invisible — no como dualismo sino como dos dimensiones de la misma realidad. C.S. Lewis: el mayor truco del diablo es convencer a la gente de que no existe. Pablo no llama al creyente a ignorar lo espiritual sino a la armadura (vv.13-17): verdad, justicia, fe, salvación, Palabra y oración.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     FILIPENSES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Filipenses_4_7': {
+    linguistico: `"La paz de Dios, que sobrepasa todo entendimiento, guardará vuestros corazones y vuestros pensamientos en Cristo Jesús." "Hyperechousa" (ὑπερέχουσα): que excede, supera. "Phrourēsei" (φρουρήσει): guardará — verbo militar: un centinela apostado. La paz no es ausencia de problemas sino protección activa de la mente y el corazón.`,
+    referencia: `Juan 14:27 ("mi paz os doy; yo no os la doy como el mundo la da"). Colosenses 3:15 ("la paz de Dios gobierne en vuestros corazones"). Isaías 26:3. Salmos 29:11. 2 Tesalonicenses 3:16. Romanos 5:1.`,
+    comentarios: `Pablo escribe sobre la paz desde la cárcel romana. La paradoja es deliberada: sin libertad física, experimentaba libertad interior. La paz divina no surge de circunstancias favorables sino de la certeza de que Dios tiene control. Es militarmente "guardada" — el centinela divino protege la mente del pánico, la desesperación y el miedo.`,
+  },
+
+  'Filipenses_4_13': {
+    linguistico: `"Todo lo puedo en Cristo que me fortalece." "Panta ischyō" (πάντα ἰσχύω): lo puedo todo — no omnipotencia sino capacidad en cualquier circunstancia. El contexto es inmediato: saber estar abatido y tener abundancia (v.12). "En tō endunamounti me" (ἐν τῷ ἐνδυναμοῦντί με): en/mediante el que me fortalece — la fuente es externa, no interna.`,
+    referencia: `Filipenses 4:11-12 (el contexto: Pablo aprendió a contentarse). 2 Corintios 12:9-10 ("cuando soy débil, entonces soy fuerte"). Juan 15:5 ("sin mí nada podéis hacer"). Efesios 3:16. Isaías 40:31.`,
+    comentarios: `Este versículo es frecuentemente descontextualizado: Pablo no promete éxito en todo emprendimiento humano, sino capacidad para afrontar tanto la escasez como la abundancia. El "todo" se refiere a todas las circunstancias de la vida, no a todos los deseos. Spurgeon: la fuente de la fortaleza es Cristo, no el creyente — es promesa de gracia suficiente, no de éxito garantizado.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     HEBREOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Hebreos_4_12': {
+    linguistico: `"La palabra de Dios es viva y eficaz, y más cortante que toda espada de dos filos." "Zōn" (ζῶν): viva — presente activo, la Palabra tiene vida intrínseca. "Energēs" (ἐνεργής): eficaz, activa — de donde "energía". "Tomōteros" (τομώτερος): más cortante, mayor capacidad de corte. "Machaira" (μάχαιρα): espada corta, de cirujano — no destruye, discierne.`,
+    referencia: `Isaías 55:11 ("así será mi palabra... no volverá a mí vacía"). Juan 6:63 ("las palabras que yo os he hablado son espíritu y son vida"). Efesios 6:17 ("la espada del Espíritu, que es la palabra de Dios"). 2 Timoteo 3:16-17. Salmos 119:105.`,
+    comentarios: `La metáfora quirúrgica es precisa: la Palabra divide lo que el ojo humano no puede distinguir — la motivación real de un acto aparentemente piadoso. Agustín: la Palabra de Dios nos lee a nosotros antes que nosotros la leamos a ella. No es instrumento inerte sino agente divino activo que penetra donde ningún análisis psicológico puede llegar.`,
+  },
+
+  'Hebreos_11_1': {
+    linguistico: `"La fe es la certeza de lo que se espera, la convicción de lo que no se ve." "Hypostasis" (ὑπόστασις): en griego clásico, "sustancia" — en documentos legales romanos, "título de propiedad". La fe es el documento que garantiza lo prometido. "Elegchos" (ἔλεγχος): prueba legal, argumento que demuestra — convicción no emocional sino evidencial.`,
+    referencia: `Romanos 8:24-25 ("en esperanza fuimos salvos"). Romanos 1:17 ("el justo por la fe vivirá"). Juan 20:29 ("los que no vieron, y creyeron"). 2 Corintios 4:18 ("las cosas que se ven son temporales, pero las que no se ven son eternas"). Hebreos 11:6.`,
+    comentarios: `El capítulo 11 es la "galería de la fe" — héroes del AT que actuaron sobre promesas no cumplidas en su tiempo. La fe bíblica no es credulidad ciega ni optimismo sentimental, sino confianza razonada en la fidelidad de Dios. Calvino: la fe es el conocimiento del beneplácito divino que, aunque invisible, es más sólido que todo lo visible.`,
+  },
+
+  'Hebreos_13_8': {
+    linguistico: `"Jesucristo es el mismo ayer, y hoy, y por los siglos." La oración griega carece de verbo — "estin" (ἐστιν) está implícito, dando la sensación de una verdad atemporal. "Echthes" (ἐχθές): ayer. "Sēmeron" (σήμερον): hoy. "Eis tous aiōnas" (εἰς τοὺς αἰῶνας): por los siglos — eternidad futura. Los tres tiempos abarcan toda la historia.`,
+    referencia: `Apocalipsis 1:8 ("el que es y que era y que ha de venir"). Malaquías 3:6 ("yo Jehová no cambio"). Santiago 1:17 ("en el cual no hay mudanza, ni sombra de variación"). Salmos 102:26-27. Éxodo 3:14. Juan 8:58.`,
+    comentarios: `En el contexto de Hebreos 13, este versículo establece que el Cristo que actuó en el pasado (encarnación, muerte, resurrección) actúa igualmente en el presente y lo hará en el futuro. La inmutabilidad de Cristo es fundamento de la confianza del creyente: él no cambia sus promesas, su carácter ni su poder.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     SANTIAGO
+  ══════════════════════════════════════════════════════════════ */
+
+  'Santiago_1_2': {
+    linguistico: `"Tened por sumo gozo, hermanos míos, cuando os halléis en diversas pruebas." "Pasan charan" (πᾶσαν χαράν): todo gozo, gozo completo — no resignación sino actitud deliberada y total. "Peirasmois" (πειρασμοῖς): pruebas/tentaciones — puede referirse a presión externa o interna. "Peripipto" (περιπίπτω): caer en medio de, rodear.`,
+    referencia: `Romanos 5:3-5 (la tribulación produce paciencia). 1 Pedro 1:6-7 (la fe probada como oro). 2 Corintios 12:10 ("cuando soy débil, entonces soy fuerte"). Mateo 5:11-12. Job 1:21. Hebreos 12:11.`,
+    comentarios: `Santiago no pide que consideremos las pruebas como gozo (ilusión) sino que las consideremos como productoras de gozo (realismo). El gozo cristiano no surge de las circunstancias sino de saber qué producen. Jacobo mismo murió mártir (Hechos 12:2) — escribió desde la experiencia de haber elegido el gozo en el sufrimiento.`,
+  },
+
+  'Santiago_2_26': {
+    linguistico: `"La fe sin obras está muerta." "Necra" (νεκρά): muerta — no dormida, sino sin vida. La analogía con el cuerpo sin espíritu es precisa: la fe sin obras es lo que parece fe pero no lo es. Santiago no contradice a Pablo (sola fide) sino que ataca la "fe" que no transforma el comportamiento.`,
+    referencia: `Santiago 2:14-25 (el argumento completo). Gálatas 5:6 ("la fe que obra por el amor"). Mateo 7:21 ("no todo el que me dice: Señor, Señor, entrará en el reino"). Lucas 6:46. Tito 1:16.`,
+    comentarios: `Lutero llamó a Santiago "epístola de paja", malentendiendo el argumento. Pablo (Romanos 3-4) habla de la fuente de la salvación — solo la fe, no las obras de la Ley. Santiago habla de la evidencia de la fe — la fe genuina necesariamente produce obras. No es contradicción: uno explica el origen, el otro el resultado. Calvino: somos justificados solo por fe, pero la fe justificante nunca está sola.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 PEDRO
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Pedro_2_9': {
+    linguistico: `"Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios." Cuatro títulos tomados del Éxodo 19:5-6. "Genos eklekton" (γένος ἐκλεκτόν): linaje elegido — no por mérito sino por elección divina. "Basileion hierateuma" (βασίλειον ἱεράτευμα): sacerdocio real — todos los creyentes, no solo una casta.`,
+    historico: `Pedro escribe a creyentes dispersos en Ponto, Galacia, Capadocia (Asia Menor), ca. 62-64 d.C. bajo el reinado de Nerón, cuando los cristianos eran extranjeros sociales sin estatus. La carta les da una identidad teológica que supera la marginación social.`,
+    referencia: `Éxodo 19:5-6 (la vocación original de Israel). Apocalipsis 1:6; 5:10 (sacerdotes y reyes). 1 Corintios 3:16. Tito 2:14. Deuteronomio 7:6. Efesios 1:4-5.`,
+    comentarios: `La "democratización del sacerdocio" aquí es radical: en el sistema levítico, solo ciertos hombres de la tribu de Leví podían ser sacerdotes. Pedro aplica toda esa dignidad a cada creyente. La Reforma Protestante recuperó este principio del "sacerdocio de todos los creyentes" como fundamento eclesiológico.`,
+  },
+
+  '1 Pedro_5_7': {
+    linguistico: `"Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros." "Epiripsantes" (ἐπιρίψαντες): arrojando — imagen de lanzar un peso. "Pasan tēn merimnān" (πᾶσαν τὴν μέριμναν): toda la ansiedad — sin reservas. "Melei autō" (μέλει αὐτῷ): le importa, le preocupa — Dios no es indiferente al sufrimiento humano.`,
+    referencia: `Salmos 55:22 ("Echa sobre Jehová tu carga, y él te sustentará"). Mateo 6:25-34 (no os afanéis). Filipenses 4:6-7 (no os afanéis por nada, sino en oración). Salmos 37:5. Isaías 43:2.`,
+    comentarios: `El versículo es respuesta práctica a la exhortación a humillarse (v.6): la humildad incluye reconocer que no podemos cargar nuestras preocupaciones solos. La ansiedad crónica puede ser, en parte, el orgullo de creer que todo depende de nosotros. Spurgeon: Dios invita al creyente a transferirle sus cargas — no es debilidad hacerlo, es fe.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 JUAN
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Juan_1_9': {
+    linguistico: `"Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad." "Homologōmen" (ὁμολογῶμεν): si confesamos — subjuntivo presente, condición abierta y continua. "Pistos kai dikaios" (πιστός καί δίκαιος): fiel y justo — no solo misericordioso, sino comprometido por su naturaleza a perdonar.`,
+    referencia: `Salmos 32:5 ("mi pecado te declaré... y tú perdonaste la maldad de mi pecado"). Lucas 15:21 (la confesión del hijo pródigo). 1 Juan 2:1-2. Hebreos 4:16. Proverbios 28:13.`,
+    comentarios: `La confesión bíblica (homologeō) significa "decir lo mismo que Dios" sobre el pecado — no minimizarlo ni excusarlo sino verlo como él lo ve. El fundamento del perdón no es la emoción del penitente sino la fidelidad de Dios a su promesa y la justicia satisfecha por la Cruz. Calvino: la confesión no gana el perdón — lo recibe de quien ya lo ha obtenido para nosotros.`,
+  },
+
+  '1 Juan_4_8': {
+    linguistico: `"El que no ama, no ha conocido a Dios; porque Dios es amor." "Agapē" (ἀγάπη): amor de entrega. "Ho theos agapē estin" (ὁ θεός ἀγάπη ἐστίν): ecuación con sujeto definido — Dios es amor (no simplemente amoroso). Esta es la definición más radical de la naturaleza divina en toda la Escritura.`,
+    referencia: `1 Juan 4:16 ("Dios es amor; y el que permanece en amor, permanece en Dios"). Juan 3:16. Romanos 5:8. 1 Juan 3:1 ("mirad cuál amor nos ha dado el Padre"). 1 Corintios 13. Juan 17:26.`,
+    comentarios: `Agustín: "Ama y haz lo que quieras" — si el amor es genuinamente el de Dios, todo lo que desearás será coherente con la voluntad divina. Este versículo no es un sentimiento sino una declaración ontológica: el ser de Dios es amor, no una propiedad que Dios tiene sino lo que Dios es. Barth: la doctrina de la Trinidad es el intento de explicar filosóficamente cómo Dios puede ser amor antes de la creación.`,
+  },
+
+  '1 Juan_4_19': {
+    linguistico: `"Nosotros le amamos a él, porque él nos amó primero." "Hēmeis agapōmen" (ἡμεῖς ἀγαπῶμεν): nosotros amamos — indicativo, afirmación de hecho. "Hoti autos prōtos ēgapēsen hēmas" (ὅτι αὐτὸς πρῶτος ἠγάπησεν ἡμᾶς): porque él primero nos amó. El amor humano a Dios es respuesta, no iniciativa — está fundado y motivado por el amor previo divino.`,
+    referencia: `Romanos 5:8. Juan 3:16. 1 Juan 4:10 ("no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros"). Efesios 2:4-5. Deuteronomio 7:8.`,
+    comentarios: `Este versículo cierra el ciclo teológico de 1 Juan 4: Dios es amor (v.8) → se manifestó en la misión del Hijo (v.9) → el amor de Dios precede al nuestro (v.10) → nosotros amamos en respuesta (v.19). No hay amor humano auténtico a Dios que no sea respuesta a su amor previo. Agustín: "el amor de Dios es gratuito; el nuestro es siempre 'porque'".`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     APOCALIPSIS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Apocalipsis_1_8': {
+    linguistico: `"Yo soy el Alfa y la Omega, principio y fin, dice el Señor, el que es y que era y que ha de venir, el Todopoderoso." "Alpha kai Ōmega" (Ἄλφα καὶ Ὦ): primera y última letra del alfabeto griego — en hebreo: Alef y Tav, el principio y el fin de toda realidad. "Pantokratōr" (παντοκράτωρ): Todopoderoso — gobierno absoluto.`,
+    historico: `Apocalipsis fue escrito ca. 95 d.C. durante la persecución de Domiciano, quien exigía el título "Dominus et Deus" (Señor y Dios). Juan le da todos esos títulos a Cristo — una declaración política y teológica explosiva para sus destinatarios.`,
+    referencia: `Isaías 44:6 ("yo soy el primero, y yo soy el último"). Isaías 41:4. Apocalipsis 22:13. Hebreos 13:8 (el mismo ayer, hoy y siempre). Romanos 11:36. Colosenses 1:17.`,
+    comentarios: `El Alfa y Omega no solo describe la eternidad de Cristo sino su soberanía sobre la historia: él está en el inicio y el final de toda narración. Para una comunidad perseguida, este título era consuelo: el que tiene la última palabra ya tiene la victoria. Barth: si Cristo es Alfa y Omega, entonces el presente — por oscuro que sea — es solo una letra intermedia.`,
+  },
+
+  'Apocalipsis_3_20': {
+    linguistico: `"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo." "Hestēka" (ἕστηκα): estoy de pie — perfecto, lleva tiempo esperando. "Krouō" (κρούω): llamo, golpeo continuamente. La iniciativa es de Cristo; la respuesta es humana.`,
+    historico: `Esta carta va dirigida a Laodicea — ciudad rica, autosuficiente (v.17: "soy rico... y no tengo necesidad de nada"). El mensaje divino enfrenta la mayor amenaza para la vida espiritual: no la persecución sino la comodidad. La iglesia rica que no necesita a Dios.`,
+    referencia: `Lucas 12:36 (esperando al señor que llama). Cantar de los Cantares 5:2 ("¡Ábreme, hermana mía!"). Juan 14:23 ("si alguno me ama, mi Padre le amará, y vendremos a él"). Apocalipsis 22:17.`,
+    comentarios: `Holman Hunt pintó "La Luz del Mundo" (1853) basándose en este versículo — la puerta sin manija exterior: solo se puede abrir desde adentro. Spurgeon: Dios tiene toda la dignidad del universo y sin embargo llama a la puerta del corazón humano — la mayor condescendencia de la historia.`,
+  },
+
+  'Apocalipsis_21_4': {
+    linguistico: `"Enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni habrá más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron." "Exaleipsei" (ἐξαλείψει): borrará, limpiará completamente — no solo consolará. "Ouketi" (οὐκέτι): ya no más — negación absoluta del futuro. La lista (muerte, llanto, clamor, dolor) son los cuatro grandes males de la condición humana.`,
+    referencia: `Isaías 25:8 ("destruirá la muerte para siempre; y enjugará el Señor Dios toda lágrima"). Isaías 35:10. Apocalipsis 7:17. 1 Corintios 15:55-57. Romanos 8:18.`,
+    comentarios: `Este versículo ha sido leído en miles de funerales como promesa de esperanza. La imagen es intensamente personal: Dios mismo enjuga cada lágrima, no las elimina estadísticamente sino una por una. C.S. Lewis: el cielo no es mero escape del dolor sino la transformación de todo sufrimiento pasado en algo glorioso. El dolor no es negado sino redimido.`,
+  },
+
+  'Apocalipsis_22_20': {
+    linguistico: `"El que da testimonio de estas cosas dice: 'Sí, vengo en breve.' Amén; sí, ven, Señor Jesús." "Erchomai tachy" (ἔρχομαι ταχύ): vengo pronto/rápido — "tachy" implica certeza e inmediatez cuando llegue, no necesariamente que sea en el próximo siglo. La respuesta "Amén; ven, Señor Jesús" es la plegaria más antigua de la iglesia (en arameo: Maranatha, 1 Co 16:22).`,
+    historico: `El Apocalipsis cierra el canon bíblico con esta oración. La frase "Maranatha" (Señor, ven) era probablemente parte de la liturgia eucarística de las primeras comunidades (Didaché, ca. 100 d.C.), convirtiendo cada comunión en una anticipación del regreso de Cristo.`,
+    referencia: `1 Corintios 16:22 ("Maranatha"). Filipenses 4:5 ("el Señor está cerca"). 1 Tesalonicenses 4:16-17. Tito 2:13 ("esperando la esperanza bienaventurada"). Zacarías 14:4.`,
+    comentarios: `El último versículo con voz divina en la Biblia es una promesa de retorno; la última voz humana es una oración de anhelo. La Biblia termina no con un tratado sino con un encuentro anhelado: la novia anhela al esposo. Agustín: toda la historia humana es el período entre la promesa y el cumplimiento — la Iglesia vive en ese "entre".`,
+  },
+
 };

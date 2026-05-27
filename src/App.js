@@ -255,14 +255,16 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
         <div className="verse-text-row">
           <span className="verse-num">{verse.verse}</span>
           <span className="verse-text">{verse.text}</span>
-          <button
-            className={`heart-btn ${iLiked ? 'liked' : ''}`}
-            onClick={e => { e.stopPropagation(); onLike?.(verseKey); }}
-            title={iLiked ? 'Quitar corazón' : 'Me gusta'}
-          >
-            {iLiked ? '♥' : '♡'}
-            {likeCount > 0 && <span className="heart-count">{likeCount}</span>}
-          </button>
+          {(showActions || likeCount > 0) && (
+            <button
+              className={`heart-btn ${iLiked ? 'liked' : ''}`}
+              onClick={e => { e.stopPropagation(); onLike?.(verseKey); }}
+              title={iLiked ? 'Quitar corazón' : 'Me gusta'}
+            >
+              {iLiked ? '♥' : '♡'}
+              {likeCount > 0 && <span className="heart-count">{likeCount}</span>}
+            </button>
+          )}
           <button
             className={`expand-btn ${showActions ? 'open' : ''}`}
             onClick={toggleActions}
