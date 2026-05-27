@@ -4,7 +4,7 @@ import { COMMENTARY } from './data/commentary';
 import AuthScreen    from './AuthScreen';
 import UserMenu      from './UserMenu';
 import CommentsPanel from './CommentsPanel';
-import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak } from './firebase';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, toggleLike, loadChapterLikes } from './firebase';
 
 const BOOK_NAMES = {
   gn:'Génesis', ex:'Éxodo', lv:'Levítico', nm:'Números', dt:'Deuteronomio',
@@ -181,7 +181,7 @@ function CommentaryIcon() {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, user, following, onFollowToggle, darkMode }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeUids, user, following, onFollowToggle, darkMode }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
@@ -191,8 +191,22 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
   const [noteVal,        setNoteVal]        = useState(note || '');
   const [copied,         setCopied]         = useState(false);
 
-  const commentKey  = `${bookName}_${chapter}_${verse.verse}`;
-  const verseData   = COMMENTARY[commentKey];
+  const verseKey   = `${bookName}_${chapter}_${verse.verse}`;
+  const commentKey = verseKey;
+  const verseData  = COMMENTARY[commentKey];
+  const likeCount  = (likeUids || []).length;
+  const iLiked     = !!(user && !user.isAnonymous && (likeUids || []).includes(user.uid));
+
+  function toggleActions() {
+    const next = !showActions;
+    setShowActions(next);
+    if (!next) {
+      setShowColors(false);
+      setShowNote(false);
+      setShowCommentary(false);
+      setShowComments(false);
+    }
+  }
   const allTabs     = verseData ? COMMENT_TYPES.filter(t => verseData[t.key]) : [];
   const nonRefTabs  = allTabs.filter(t => t.key !== 'referencia');
   const hasRef      = !!verseData?.referencia;
@@ -242,8 +256,16 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
           <span className="verse-num">{verse.verse}</span>
           <span className="verse-text">{verse.text}</span>
           <button
+            className={`heart-btn ${iLiked ? 'liked' : ''}`}
+            onClick={e => { e.stopPropagation(); onLike?.(verseKey); }}
+            title={iLiked ? 'Quitar corazón' : 'Me gusta'}
+          >
+            {iLiked ? '♥' : '♡'}
+            {likeCount > 0 && <span className="heart-count">{likeCount}</span>}
+          </button>
+          <button
             className={`expand-btn ${showActions ? 'open' : ''}`}
-            onClick={() => setShowActions(v => !v)}
+            onClick={toggleActions}
             title="Opciones"
           >
             <ChevronIcon />
@@ -467,6 +489,7 @@ export default function App() {
   const [shared,          setShared]         = useState({});
   const [following,       setFollowing]      = useState([]);
   const [followers,       setFollowers]      = useState([]);
+  const [likes,           setLikes]          = useState({});
   const [streak,          setStreak]         = useState(0);
   const [privacy,         setPrivacy]        = useState({
     notes: false, highlights: false, bookmarks: false,
@@ -533,6 +556,14 @@ export default function App() {
     const id = setInterval(() => savePresence(user.uid, {}), 2 * 60 * 1000);
     return () => clearInterval(id);
   }, [user]);
+
+  // Cargar corazones del capítulo actual
+  useEffect(() => {
+    const chapterData = books.find(b => b.name === selectedBook)
+      ?.chapters.find(c => c.chapter === selectedChapter);
+    if (!chapterData) return;
+    loadChapterLikes(selectedBook, selectedChapter, chapterData.verses).then(setLikes);
+  }, [selectedBook, selectedChapter, books]);
 
   // Sincronizar con Firestore cuando cambia el usuario
   async function syncFirestore(hl, nt, bm, sh, uid) {
@@ -610,6 +641,18 @@ export default function App() {
       setFollowing(f => [...f, targetUid]);
     }
   }, [user, following]);
+
+  const handleLike = useCallback(async (verseKey) => {
+    if (!user || user.isAnonymous) return;
+    const newUids = await toggleLike(verseKey, user.uid);
+    if (newUids === null) return;
+    setLikes(prev => {
+      if (newUids.length === 0) {
+        const next = { ...prev }; delete next[verseKey]; return next;
+      }
+      return { ...prev, [verseKey]: newUids };
+    });
+  }, [user]);
 
   const handleShare = useCallback((verseNum) => {
     const key = `sh_${selectedBook}_${selectedChapter}_${verseNum}`;
@@ -719,10 +762,12 @@ export default function App() {
                 highlight={highlights[hlKey] || null}
                 note={notes[noteKey] || ''}
                 bookmark={!!bookmarks[bmKey]}
+                likeUids={likes[`${selectedBook}_${selectedChapter}_${verse.verse}`] || []}
                 onHighlight={handleHighlight}
                 onNote={handleNote}
                 onBookmark={handleBookmark}
                 onShare={handleShare}
+                onLike={handleLike}
                 user={user}
                 following={following}
                 onFollowToggle={handleFollowToggle}

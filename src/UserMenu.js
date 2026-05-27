@@ -306,6 +306,7 @@ export default function UserMenu({
 }) {
   const [section,       setSection]       = useState('bookmarks');
   const [shareMsg,      setShareMsg]      = useState('');
+  const touchStartX = useRef(null);
   const [editingName,   setEditingName]   = useState(false);
   const [nameVal,       setNameVal]       = useState('');
   const [nameSaving,    setNameSaving]    = useState(false);
@@ -330,17 +331,29 @@ export default function UserMenu({
     ...(isAdmin ? [{ key: 'admin', label: 'Admin', icon: '🛡️' }] : []),
   ];
 
+  const sectionKeys = allSections.map(s => s.key);
+  const currentIdx  = sectionKeys.indexOf(section);
+
+  function goPrev() { if (currentIdx > 0) setSection(sectionKeys[currentIdx - 1]); }
+  function goNext() { if (currentIdx < sectionKeys.length - 1) setSection(sectionKeys[currentIdx + 1]); }
+
   useEffect(() => {
     function onKey(e) {
       if (e.key === 'Escape') {
-        if (chatWith)     { setChatWith(null); return; }
-        if (viewingUid)   { setViewingUid(null); return; }
+        if (chatWith)   { setChatWith(null); return; }
+        if (viewingUid) { setViewingUid(null); return; }
         onClose();
+        return;
       }
+      const tag = document.activeElement?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' && currentIdx < sectionKeys.length - 1) setSection(sectionKeys[currentIdx + 1]);
+      if (e.key === 'ArrowLeft'  && currentIdx > 0)                       setSection(sectionKeys[currentIdx - 1]);
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose, viewingUid, chatWith]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onClose, viewingUid, chatWith, currentIdx]);
 
   useEffect(() => {
     if (editingName && nameInputRef.current) nameInputRef.current.focus();
@@ -520,27 +533,39 @@ export default function UserMenu({
           </div>
         </div>
 
-        {/* Tabs */}
-        <div className="menu-tabs">
-          {allSections.map(s => (
-            <button
-              key={s.key}
-              className={`menu-tab ${section === s.key ? 'active' : ''}`}
-              onClick={() => setSection(s.key)}
-            >
-              {s.icon} {s.label}
-              {s.key === 'mensajes' && mutuals.length > 0 && (
-                <span className="menu-tab-count">{mutuals.length}</span>
-              )}
-              {lists[s.key] !== undefined && lists[s.key].length > 0 && (
-                <span className="menu-tab-count">{lists[s.key].length}</span>
-              )}
-            </button>
-          ))}
+        {/* Tabs + flechitas */}
+        <div className="menu-tabs-wrapper">
+          <button className="tabs-arrow" onClick={goPrev} disabled={currentIdx === 0}>‹</button>
+          <div className="menu-tabs">
+            {allSections.map(s => (
+              <button
+                key={s.key}
+                className={`menu-tab ${section === s.key ? 'active' : ''}`}
+                onClick={() => setSection(s.key)}
+              >
+                {s.icon} {s.label}
+                {s.key === 'mensajes' && mutuals.length > 0 && (
+                  <span className="menu-tab-count">{mutuals.length}</span>
+                )}
+                {lists[s.key] !== undefined && lists[s.key].length > 0 && (
+                  <span className="menu-tab-count">{lists[s.key].length}</span>
+                )}
+              </button>
+            ))}
+          </div>
+          <button className="tabs-arrow" onClick={goNext} disabled={currentIdx === sectionKeys.length - 1}>›</button>
         </div>
 
-        {/* Content */}
-        <div className="menu-content">
+        {/* Content — swipeable */}
+        <div className="menu-content"
+          onTouchStart={e => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={e => {
+            if (touchStartX.current === null) return;
+            const delta = e.changedTouches[0].clientX - touchStartX.current;
+            if (Math.abs(delta) > 55) { delta < 0 ? goNext() : goPrev(); }
+            touchStartX.current = null;
+          }}
+        >
 
           {/* Datos bíblicos */}
           {['bookmarks','highlights','notes','shared'].includes(section) && (

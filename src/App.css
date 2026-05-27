@@ -596,7 +596,7 @@ input, textarea { font-family: inherit; }
 .menu-user-text { min-width: 0; }
 .menu-user-name { font-size: 1rem; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .menu-user-email { font-size: 0.8rem; color: var(--text3); font-family: sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.menu-tabs { display: flex; overflow-x: auto; border-bottom: 1px solid var(--border); scrollbar-width: none; padding: 0 4px; background: var(--surface2); }
+.menu-tabs { display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 2px; }
 .menu-tabs::-webkit-scrollbar { display: none; }
 .menu-tab {
   display: flex; align-items: center; gap: 5px; padding: 10px 12px;
@@ -955,6 +955,39 @@ input, textarea { font-family: inherit; }
   position: absolute; inset: 0; opacity: 0; cursor: pointer;
   width: 100%; height: 100%; border: none; padding: 0;
 }
+
+/* ── Botón de corazón ────────────────────────────────────────── */
+.heart-btn {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 2px 5px; border-radius: 999px; border: none; background: transparent;
+  font-size: 1rem; color: var(--text3); cursor: pointer;
+  transition: color var(--transition), transform 0.15s;
+  flex-shrink: 0; line-height: 1;
+}
+.heart-btn:hover { color: #ef4444; transform: scale(1.15); }
+.heart-btn.liked { color: #ef4444; }
+.heart-count {
+  font-size: 0.72rem; font-family: sans-serif; font-weight: 600;
+  color: inherit; line-height: 1;
+}
+
+/* ── Tabs wrapper con flechitas ──────────────────────────────── */
+.menu-tabs-wrapper {
+  display: flex; align-items: center;
+  border-bottom: 1px solid var(--border); background: var(--surface2);
+}
+.tabs-arrow {
+  flex-shrink: 0; width: 28px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: var(--text3); background: transparent; border: none;
+  cursor: pointer; transition: color var(--transition);
+}
+.tabs-arrow:disabled { opacity: 0.2; cursor: default; }
+.tabs-arrow:not(:disabled):hover { color: var(--accent); }
+.menu-tabs {
+  flex: 1; display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 2px;
+}
+.menu-tabs::-webkit-scrollbar { display: none; }
 
 /* ── Contadores sociales en menú ─────────────────────────────── */
 .menu-social-counts {

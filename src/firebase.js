@@ -163,6 +163,45 @@ export async function getAllUsers() {
   } catch { return []; }
 }
 
+// ── Corazones por versículo ──────────────────────────────────────
+
+export async function toggleLike(verseKey, uid) {
+  try {
+    const likeRef = doc(db, 'likes', verseKey);
+    const snap    = await getDoc(likeRef);
+    const uids    = snap.exists() ? (snap.data().uids || []) : [];
+    let newUids;
+    if (uids.includes(uid)) {
+      newUids = uids.filter(u => u !== uid);
+      if (newUids.length === 0) {
+        const { deleteDoc } = await import('firebase/firestore');
+        await deleteDoc(likeRef);
+      } else {
+        await updateDoc(likeRef, { uids: arrayRemove(uid) });
+      }
+    } else {
+      newUids = [...uids, uid];
+      await setDoc(likeRef, { uids: arrayUnion(uid) }, { merge: true });
+    }
+    return newUids;
+  } catch { return null; }
+}
+
+export async function loadChapterLikes(bookName, chapterNum, verses) {
+  try {
+    const keys  = verses.map(v => `${bookName}_${chapterNum}_${v.verse}`);
+    const snaps = await Promise.all(keys.map(k => getDoc(doc(db, 'likes', k))));
+    const result = {};
+    snaps.forEach((snap, i) => {
+      if (snap.exists()) {
+        const uids = snap.data().uids || [];
+        if (uids.length > 0) result[keys[i]] = uids;
+      }
+    });
+    return result;
+  } catch { return {}; }
+}
+
 // ── Chat entre amigos ────────────────────────────────────────────
 
 export function getChatId(uid1, uid2) {
