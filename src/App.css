@@ -148,6 +148,21 @@ input, textarea { font-family: inherit; }
 }
 .nav-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
 
+.translation-selector {
+  display: flex; gap: 3px; align-items: center; flex-shrink: 0;
+}
+.translation-btn {
+  padding: 6px 11px; border-radius: var(--radius);
+  border: 1px solid var(--border); background: var(--surface2);
+  color: var(--text3); font-size: 0.82rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition); white-space: nowrap;
+  font-family: inherit;
+}
+.translation-btn:hover { border-color: var(--accent); color: var(--accent); }
+.translation-btn.active {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+
 .nav-chapter-bar {
   display: flex;
   align-items: center;
@@ -965,6 +980,11 @@ input, textarea { font-family: inherit; }
   flex-shrink: 0; line-height: 1;
 }
 .heart-btn:hover { color: #ef4444; transform: scale(1.15); }
+.heart-btn.has-likes {
+  background: rgba(239, 68, 68, 0.15); color: #ef4444; padding: 2px 7px;
+}
+.heart-btn.has-likes:hover { background: rgba(239, 68, 68, 0.28); }
+.heart-btn.has-likes.liked { background: #ef4444; color: #fff; }
 .heart-btn.liked { color: #ef4444; }
 .heart-count {
   font-size: 0.72rem; font-family: sans-serif; font-weight: 600;

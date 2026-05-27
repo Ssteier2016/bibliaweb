@@ -58,8 +58,20 @@ const COMMENT_TYPES = [
   { key: 'comentarios',    label: 'Comentarios',    icon: '💬' },
 ];
 
+// Número de libro 1-66 para la API de bolls.life
+const BOLLS_NUM = {
+  gn:1,ex:2,lv:3,nm:4,dt:5,js:6,jud:7,rt:8,'1sm':9,'2sm':10,
+  '1kgs':11,'2kgs':12,'1ch':13,'2ch':14,ezr:15,ne:16,et:17,job:18,ps:19,
+  prv:20,ec:21,so:22,is:23,jr:24,lm:25,ez:26,dn:27,ho:28,jl:29,am:30,
+  ob:31,jn:32,mi:33,na:34,hk:35,zp:36,hg:37,zc:38,ml:39,mt:40,
+  mk:41,lk:42,jo:43,act:44,rm:45,'1co':46,'2co':47,gl:48,eph:49,ph:50,
+  cl:51,'1ts':52,'2ts':53,'1tm':54,'2tm':55,tt:56,phm:57,hb:58,jm:59,
+  '1pe':60,'2pe':61,'1jo':62,'2jo':63,'3jo':64,jd:65,re:66,
+};
+
 function convertBible(raw) {
   return raw.map(book => ({
+    abbrev: book.abbrev,
     name: BOOK_NAMES[book.abbrev] || book.abbrev,
     chapters: book.chapters.map((verses, ci) => ({
       chapter: ci + 1,
@@ -257,7 +269,7 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
           <span className="verse-text">{verse.text}</span>
           {(showActions || likeCount > 0) && (
             <button
-              className={`heart-btn ${iLiked ? 'liked' : ''}`}
+              className={`heart-btn ${likeCount > 0 ? 'has-likes' : ''} ${iLiked ? 'liked' : ''}`}
               onClick={e => { e.stopPropagation(); onLike?.(verseKey); }}
               title={iLiked ? 'Quitar corazón' : 'Me gusta'}
             >
@@ -492,6 +504,9 @@ export default function App() {
   const [following,       setFollowing]      = useState([]);
   const [followers,       setFollowers]      = useState([]);
   const [likes,           setLikes]          = useState({});
+  const [translation,     setTranslation]    = useState(() => lsGet('bible_translation') || 'rvr');
+  const [ntvVerses,       setNtvVerses]      = useState({});
+  const [ntvLoading,      setNtvLoading]     = useState(false);
   const [streak,          setStreak]         = useState(0);
   const [privacy,         setPrivacy]        = useState({
     notes: false, highlights: false, bookmarks: false,
@@ -504,6 +519,9 @@ export default function App() {
     document.body.classList.toggle('dark', darkMode);
     lsSet('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
+
+  // Guardar preferencia de traducción
+  useEffect(() => { lsSet('bible_translation', translation); }, [translation]);
 
   // Cargar Biblia
   useEffect(() => {
@@ -567,6 +585,31 @@ export default function App() {
     loadChapterLikes(selectedBook, selectedChapter, chapterData.verses).then(setLikes);
   }, [selectedBook, selectedChapter, books]);
 
+  // Cargar NTV desde bolls.life API con caché en localStorage
+  useEffect(() => {
+    if (translation !== 'ntv') { setNtvVerses({}); return; }
+    const currentBook = books.find(b => b.name === selectedBook);
+    if (!currentBook) return;
+    const bookNum = BOLLS_NUM[currentBook.abbrev];
+    if (!bookNum) return;
+    const cacheKey = `ntv_${bookNum}_${selectedChapter}`;
+    const cached = lsGet(cacheKey);
+    if (cached) {
+      try { setNtvVerses(JSON.parse(cached)); return; } catch {}
+    }
+    setNtvLoading(true);
+    fetch(`https://bolls.life/get-text/NTV/${bookNum}/${selectedChapter}/`)
+      .then(r => r.json())
+      .then(data => {
+        const map = {};
+        data.forEach(v => { map[v.verse] = v.text.replace(/<[^>]*>/g, '').trim(); });
+        lsSet(cacheKey, JSON.stringify(map));
+        setNtvVerses(map);
+        setNtvLoading(false);
+      })
+      .catch(() => setNtvLoading(false));
+  }, [translation, selectedBook, selectedChapter, books]);
+
   // Sincronizar con Firestore cuando cambia el usuario
   async function syncFirestore(hl, nt, bm, sh, uid) {
     if (!uid) return;
@@ -577,13 +620,18 @@ export default function App() {
 
   const book         = books.find(b => b.name === selectedBook);
   const chapter      = book?.chapters.find(c => c.chapter === selectedChapter);
-  const verses       = (chapter?.verses || []).filter(v =>
-    !searchQuery.trim() || v.text.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const rawVerses    = chapter?.verses || [];
+  const displayVerses = rawVerses
+    .map(v => ({
+      ...v,
+      text: (translation === 'ntv' && ntvVerses[v.verse]) ? ntvVerses[v.verse] : v.text,
+    }))
+    .filter(v => !searchQuery.trim() || v.text.toLowerCase().includes(searchQuery.toLowerCase()));
   const totalChapters = book?.chapters.length || 1;
 
   function changeBook(name) {
     setSelectedBook(name); setSelectedChapter(1); setSearchQuery('');
+    lsSet('bible_translation', translation);
   }
   function changeChapter(n) {
     setSelectedChapter(n); setSearchQuery('');
@@ -716,6 +764,18 @@ export default function App() {
               <option key={c.chapter} value={c.chapter}>Capítulo {c.chapter}</option>
             ))}
           </select>
+          <div className="translation-selector">
+            <button
+              className={`translation-btn ${translation === 'rvr' ? 'active' : ''}`}
+              onClick={() => setTranslation('rvr')}
+              title="Reina-Valera 1960"
+            >RVR</button>
+            <button
+              className={`translation-btn ${translation === 'ntv' ? 'active' : ''}`}
+              onClick={() => setTranslation('ntv')}
+              title="Nueva Traducción Viviente"
+            >{ntvLoading ? 'NTV…' : 'NTV'}</button>
+          </div>
         </div>
         <div className="nav-chapter-bar">
           <button className="nav-btn" disabled={selectedChapter <= 1} onClick={() => changeChapter(selectedChapter - 1)}>
@@ -746,12 +806,12 @@ export default function App() {
           <p>Capítulo {selectedChapter} — {chapter?.verses.length || 0} versículos</p>
         </div>
 
-        {verses.length === 0 ? (
+        {displayVerses.length === 0 ? (
           <div className="no-results">
             {searchQuery ? `Sin resultados para "${searchQuery}"` : 'Capítulo sin versículos'}
           </div>
         ) : (
-          verses.map(verse => {
+          displayVerses.map(verse => {
             const hlKey   = `hl_${selectedBook}_${selectedChapter}_${verse.verse}`;
             const noteKey = `note_${selectedBook}_${selectedChapter}_${verse.verse}`;
             const bmKey   = `bm_${selectedBook}_${selectedChapter}_${verse.verse}`;
