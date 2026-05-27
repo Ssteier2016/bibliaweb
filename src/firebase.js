@@ -7,7 +7,7 @@ import {
 import {
   getFirestore, doc, getDoc, setDoc, updateDoc,
   collection, addDoc, getDocs, query, orderBy,
-  serverTimestamp, arrayUnion, arrayRemove,
+  serverTimestamp, arrayUnion, arrayRemove, onSnapshot,
 } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -161,4 +161,30 @@ export async function getAllUsers() {
     const snap = await getDocs(collection(db, 'users'));
     return snap.docs.map(d => ({ uid: d.id, ...d.data() }));
   } catch { return []; }
+}
+
+// ── Chat entre amigos ────────────────────────────────────────────
+
+export function getChatId(uid1, uid2) {
+  return [uid1, uid2].sort().join('_');
+}
+
+export async function sendMessage(chatId, uid, displayName, photoURL, text) {
+  await addDoc(collection(db, 'chats', chatId, 'messages'), {
+    uid,
+    displayName: displayName || 'Usuario',
+    photoURL:    photoURL    || '',
+    text,
+    timestamp: serverTimestamp(),
+  });
+}
+
+export function subscribeToChat(chatId, callback) {
+  const q = query(
+    collection(db, 'chats', chatId, 'messages'),
+    orderBy('timestamp', 'asc'),
+  );
+  return onSnapshot(q, snap => {
+    callback(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+  });
 }

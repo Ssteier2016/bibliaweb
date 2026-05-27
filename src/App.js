@@ -90,9 +90,13 @@ function fromFirestore(data) {
   Object.entries(data.shared     || {}).forEach(([k, v]) => { sh[`sh_${k}`]   = v; });
   return {
     hl, nt, bm, sh,
-    following: data.following || [],
-    streak:    data.streak    || 0,
-    privacy:   data.privacy   || { notes: false, highlights: false, bookmarks: false, publicProfile: true },
+    following:  data.following  || [],
+    followers:  data.followers  || [],
+    streak:     data.streak     || 0,
+    privacy:    data.privacy    || {
+      notes: false, highlights: false, bookmarks: false,
+      publicProfile: true, followers: true, following: true,
+    },
   };
 }
 
@@ -462,8 +466,12 @@ export default function App() {
   const [bookmarks,       setBookmarks]      = useState({});
   const [shared,          setShared]         = useState({});
   const [following,       setFollowing]      = useState([]);
+  const [followers,       setFollowers]      = useState([]);
   const [streak,          setStreak]         = useState(0);
-  const [privacy,         setPrivacy]        = useState({ notes: false, highlights: false, bookmarks: false, publicProfile: true });
+  const [privacy,         setPrivacy]        = useState({
+    notes: false, highlights: false, bookmarks: false,
+    publicProfile: true, followers: true, following: true,
+  });
   const [showMenu,        setShowMenu]       = useState(false);
 
   // Aplicar tema
@@ -490,9 +498,9 @@ export default function App() {
     return onAuthChange(async (firebaseUser) => {
       if (firebaseUser && !firebaseUser.isAnonymous) {
         const data = await loadUserData(firebaseUser.uid);
-        const { hl, nt, bm, sh, following, streak, privacy } = fromFirestore(data);
+        const { hl, nt, bm, sh, following, followers, streak, privacy } = fromFirestore(data);
         setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
-        setFollowing(following); setStreak(streak); setPrivacy(privacy);
+        setFollowing(following); setFollowers(followers); setStreak(streak); setPrivacy(privacy);
         // Racha de lectura
         const newStreak = await updateReadingStreak(firebaseUser.uid, streak, data.lastReadDate);
         setStreak(newStreak);
@@ -511,9 +519,9 @@ export default function App() {
           if (k?.startsWith('note_')) nt[k] = lsGet(k);
           if (k?.startsWith('bm_'))   bm[k] = lsGet(k);
         }
-        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({}); setFollowing([]);
+        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({}); setFollowing([]); setFollowers([]);
       } else {
-        setHighlights({}); setNotes({}); setBookmarks({}); setShared({}); setFollowing([]);
+        setHighlights({}); setNotes({}); setBookmarks({}); setShared({}); setFollowing([]); setFollowers([]);
       }
       setUser(firebaseUser);
     });
@@ -734,6 +742,7 @@ export default function App() {
           notes={notes}
           shared={shared}
           following={following}
+          followers={followers}
           streak={streak}
           privacy={privacy}
           onPrivacyChange={setPrivacy}

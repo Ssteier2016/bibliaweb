@@ -3,6 +3,7 @@ import {
   logout, updateUserDisplayName, getAllUsers, getUserProfile,
   uploadProfilePhoto, updatePrivacy, followUser, unfollowUser,
 } from './firebase';
+import ChatPanel from './ChatPanel';
 
 const ADMIN_EMAIL = 'rodrigo.n.arena@hotmail.com';
 
@@ -12,6 +13,7 @@ const SECTIONS = [
   { key: 'notes',      label: 'Notas',       icon: '📝' },
   { key: 'shared',     label: 'Compartidos', icon: '↗️' },
   { key: 'amigos',     label: 'Amigos',      icon: '👥' },
+  { key: 'mensajes',   label: 'Mensajes',    icon: '💬' },
   { key: 'config',     label: 'Config',      icon: '⚙️' },
 ];
 
@@ -79,7 +81,7 @@ function Avatar({ photoURL, displayName, size = 36 }) {
 
 // ── Vista de perfil de otro usuario ───────────────────────────
 
-function ProfileView({ targetUid, myUid, books, following, onFollowToggle, onBack, darkMode }) {
+function ProfileView({ targetUid, myUid, books, following, onFollowToggle, onBack }) {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -92,16 +94,19 @@ function ProfileView({ targetUid, myUid, books, following, onFollowToggle, onBac
 
   const isMe        = targetUid === myUid;
   const isFollowing = following.includes(targetUid);
-  const followers   = profile.followers || [];
-  const canView     = isMe || profile.privacy?.publicProfile !== false || isFollowing;
+  const privacy     = profile.privacy || {};
+  const canView     = isMe || privacy.publicProfile !== false || isFollowing;
 
-  const bkList = canView && profile.privacy?.bookmarks
+  const showFollowers = isMe || privacy.followers !== false || isFollowing;
+  const showFollowing = isMe || privacy.following !== false || isFollowing;
+
+  const bkList = canView && privacy.bookmarks
     ? Object.keys(profile.bookmarks || {}).map(k => parseKey(k, books)).filter(Boolean)
     : [];
-  const hlList = canView && profile.privacy?.highlights
+  const hlList = canView && privacy.highlights
     ? Object.entries(profile.highlights || {}).map(([k, v]) => ({ item: parseKey(k, books), color: v })).filter(x => x.item)
     : [];
-  const ntList = canView && profile.privacy?.notes
+  const ntList = canView && privacy.notes
     ? Object.entries(profile.notes || {}).map(([k, v]) => ({ item: parseKey(k, books), note: v })).filter(x => x.item)
     : [];
 
@@ -116,7 +121,7 @@ function ProfileView({ targetUid, myUid, books, following, onFollowToggle, onBac
         </div>
         <div className="profile-info">
           <div className="profile-name">{profile.displayName || '(sin nombre)'}</div>
-          {profile.privacy?.publicProfile !== false && (
+          {privacy.publicProfile !== false && (
             <div className="profile-email">{profile.email}</div>
           )}
           <div className="profile-streak">🔥 {profile.streak || 0} días seguidos</div>
@@ -141,14 +146,18 @@ function ProfileView({ targetUid, myUid, books, following, onFollowToggle, onBac
           <span className="profile-stat-num">{Object.keys(profile.highlights || {}).length}</span>
           <span className="profile-stat-label">subrayados</span>
         </div>
-        <div className="profile-stat">
-          <span className="profile-stat-num">{Object.keys(profile.notes || {}).length}</span>
-          <span className="profile-stat-label">notas</span>
-        </div>
-        <div className="profile-stat">
-          <span className="profile-stat-num">{followers.length}</span>
-          <span className="profile-stat-label">seguidores</span>
-        </div>
+        {showFollowing && (
+          <div className="profile-stat">
+            <span className="profile-stat-num">{(profile.following || []).length}</span>
+            <span className="profile-stat-label">siguiendo</span>
+          </div>
+        )}
+        {showFollowers && (
+          <div className="profile-stat">
+            <span className="profile-stat-num">{(profile.followers || []).length}</span>
+            <span className="profile-stat-label">seguidores</span>
+          </div>
+        )}
       </div>
 
       {!canView ? (
@@ -244,28 +253,77 @@ function AdminPanel() {
   );
 }
 
+// Mini fila para un usuario que seguís
+function FollowingRow({ uid, onView, onToggle, isMutual, onChat }) {
+  const [profile, setProfile] = useState(null);
+  useEffect(() => { getUserProfile(uid).then(setProfile); }, [uid]);
+  if (!profile) return <div className="amigo-row"><div className="menu-empty">…</div></div>;
+  return (
+    <div className="amigo-row">
+      <button className="amigo-avatar" onClick={onView}>
+        <Avatar photoURL={profile.photoURL} displayName={profile.displayName} size={36} />
+      </button>
+      <div className="amigo-info" onClick={onView}>
+        <div className="amigo-name">{profile.displayName || '(sin nombre)'}</div>
+        <div className="amigo-sub-row">
+          {isOnline(profile.lastSeen) && <span className="amigo-online">● En línea</span>}
+          {isMutual && <span className="amigo-mutual">Amigos</span>}
+        </div>
+      </div>
+      {isMutual && (
+        <button className="amigo-chat-btn" onClick={onChat} title="Chatear">💬</button>
+      )}
+      <button className="amigo-follow-btn following" onClick={onToggle}>Siguiendo</button>
+    </div>
+  );
+}
+
+// Mini fila para un amigo mutuo en la sección Mensajes
+function MutualRow({ uid, myFollowers, onChat, onView }) {
+  const [profile, setProfile] = useState(null);
+  useEffect(() => { getUserProfile(uid).then(setProfile); }, [uid]);
+  if (!profile) return null;
+  return (
+    <div className="amigo-row" onClick={onChat} style={{ cursor: 'pointer' }}>
+      <div className="amigo-avatar">
+        <Avatar photoURL={profile.photoURL} displayName={profile.displayName} size={36} />
+      </div>
+      <div className="amigo-info">
+        <div className="amigo-name">{profile.displayName || '(sin nombre)'}</div>
+        {isOnline(profile.lastSeen) && <span className="amigo-online">● En línea</span>}
+      </div>
+      <button className="amigo-chat-btn" onClick={e => { e.stopPropagation(); onChat(profile); }} title="Chatear">💬</button>
+    </div>
+  );
+}
+
 // ── UserMenu principal ─────────────────────────────────────────
 
 export default function UserMenu({
   user, books, bookmarks, highlights, notes, shared,
-  following, streak, privacy, darkMode,
+  following, followers, streak, privacy, darkMode,
   onClose, onNavigate, onFollowingChange, onPrivacyChange,
 }) {
-  const [section,      setSection]      = useState('bookmarks');
-  const [shareMsg,     setShareMsg]     = useState('');
-  const [editingName,  setEditingName]  = useState(false);
-  const [nameVal,      setNameVal]      = useState('');
-  const [nameSaving,   setNameSaving]   = useState(false);
-  const [searchTerm,   setSearchTerm]   = useState('');
-  const [searchResults,setSearchResults]= useState([]);
-  const [searching,    setSearching]    = useState(false);
-  const [viewingUid,   setViewingUid]   = useState(null);
-  const nameInputRef = useRef(null);
+  const [section,       setSection]       = useState('bookmarks');
+  const [shareMsg,      setShareMsg]      = useState('');
+  const [editingName,   setEditingName]   = useState(false);
+  const [nameVal,       setNameVal]       = useState('');
+  const [nameSaving,    setNameSaving]    = useState(false);
+  const [searchTerm,    setSearchTerm]    = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [searching,     setSearching]     = useState(false);
+  const [viewingUid,    setViewingUid]    = useState(null);
+  const [chatWith,      setChatWith]      = useState(null); // { uid, displayName, photoURL }
+  const nameInputRef  = useRef(null);
   const photoInputRef = useRef(null);
-  const [photoLoading, setPhotoLoading] = useState(false);
+  const [photoLoading, setPhotoLoading]  = useState(false);
+  const [privacyLocal, setPrivacyLocal]  = useState(privacy);
 
   const isAdmin = user?.email === ADMIN_EMAIL;
   const isGuest = !user || user.isAnonymous;
+
+  // Amigos mutuos: yo los sigo Y ellos me siguen
+  const mutuals = following.filter(uid => (followers || []).includes(uid));
 
   const allSections = [
     ...SECTIONS,
@@ -273,14 +331,22 @@ export default function UserMenu({
   ];
 
   useEffect(() => {
-    function onKey(e) { if (e.key === 'Escape') { if (viewingUid) setViewingUid(null); else onClose(); } }
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        if (chatWith)     { setChatWith(null); return; }
+        if (viewingUid)   { setViewingUid(null); return; }
+        onClose();
+      }
+    }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose, viewingUid]);
+  }, [onClose, viewingUid, chatWith]);
 
   useEffect(() => {
     if (editingName && nameInputRef.current) nameInputRef.current.focus();
   }, [editingName]);
+
+  useEffect(() => { setPrivacyLocal(privacy); }, [privacy]);
 
   const displayName  = user?.displayName || (isGuest ? 'Invitado' : user?.email?.split('@')[0] || 'Usuario');
   const displayEmail = isGuest ? 'Modo invitado' : (user?.email || '');
@@ -330,14 +396,11 @@ export default function UserMenu({
   }
 
   async function handlePrivacyToggle(key) {
-    const newP = { ...privacy, [key]: !privacy[key] };
-    setPrivacy_local(newP);
+    const newP = { ...privacyLocal, [key]: !privacyLocal[key] };
+    setPrivacyLocal(newP);
     await updatePrivacy(user.uid, newP);
     onPrivacyChange(newP);
   }
-
-  const [privacyLocal, setPrivacy_local] = useState(privacy);
-  useEffect(() => { setPrivacy_local(privacy); }, [privacy]);
 
   function buildList(obj, prefix) {
     return Object.entries(obj).map(([k]) => {
@@ -361,7 +424,23 @@ export default function UserMenu({
     } catch {}
   }
 
-  // Sub-vista: perfil de otro usuario
+  // ── Sub-vista: chat ────────────────────────────────────────
+  if (chatWith) {
+    return (
+      <>
+        <div className="menu-overlay" onClick={() => setChatWith(null)} />
+        <div className="user-menu">
+          <ChatPanel
+            myUser={user}
+            otherUser={chatWith}
+            onBack={() => setChatWith(null)}
+          />
+        </div>
+      </>
+    );
+  }
+
+  // ── Sub-vista: perfil de otro usuario ──────────────────────
   if (viewingUid) {
     return (
       <>
@@ -374,7 +453,6 @@ export default function UserMenu({
             following={following}
             onFollowToggle={handleFollowToggle}
             onBack={() => setViewingUid(null)}
-            darkMode={darkMode}
           />
         </div>
       </>
@@ -430,6 +508,13 @@ export default function UserMenu({
               </div>
             )}
             <div className="menu-user-email">{displayEmail}</div>
+            {!isGuest && (
+              <div className="menu-social-counts">
+                <span>{following.length} siguiendo</span>
+                <span className="menu-social-sep">·</span>
+                <span>{(followers || []).length} seguidores</span>
+              </div>
+            )}
             {streak > 0 && <div className="menu-streak">🔥 {streak} día{streak !== 1 ? 's' : ''} seguido{streak !== 1 ? 's' : ''}</div>}
             {isAdmin && <div className="menu-admin-badge">Administrador</div>}
           </div>
@@ -444,7 +529,10 @@ export default function UserMenu({
               onClick={() => setSection(s.key)}
             >
               {s.icon} {s.label}
-              {lists[s.key] !== undefined && (
+              {s.key === 'mensajes' && mutuals.length > 0 && (
+                <span className="menu-tab-count">{mutuals.length}</span>
+              )}
+              {lists[s.key] !== undefined && lists[s.key].length > 0 && (
                 <span className="menu-tab-count">{lists[s.key].length}</span>
               )}
             </button>
@@ -506,6 +594,9 @@ export default function UserMenu({
                             <div className="amigo-name">{u.displayName || '(sin nombre)'}</div>
                             <div className="amigo-email">{u.privacy?.publicProfile !== false ? u.email : ''}</div>
                           </div>
+                          {mutuals.includes(u.uid) && (
+                            <button className="amigo-chat-btn" onClick={() => setChatWith({ uid: u.uid, displayName: u.displayName, photoURL: u.photoURL })} title="Chatear">💬</button>
+                          )}
                           <button
                             className={`amigo-follow-btn ${following.includes(u.uid) ? 'following' : ''}`}
                             onClick={() => handleFollowToggle(u.uid)}
@@ -523,12 +614,49 @@ export default function UserMenu({
                         <FollowingRow
                           key={uid}
                           uid={uid}
-                          isFollowing={true}
+                          isMutual={mutuals.includes(uid)}
                           onView={() => setViewingUid(uid)}
                           onToggle={() => handleFollowToggle(uid)}
+                          onChat={async () => {
+                            const p = await getUserProfile(uid);
+                            if (p) setChatWith({ uid, displayName: p.displayName, photoURL: p.photoURL });
+                          }}
                         />
                       ))
                   }
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Mensajes */}
+          {section === 'mensajes' && (
+            <div className="amigos-panel">
+              {isGuest ? (
+                <div className="menu-empty">Iniciá sesión para chatear.</div>
+              ) : mutuals.length === 0 ? (
+                <div className="menu-empty">
+                  Cuando vos y otro usuario se sigan mutuamente, podrán chatear aquí. 💬
+                </div>
+              ) : (
+                <>
+                  <div className="amigos-section-title">Amigos mutuos ({mutuals.length})</div>
+                  {mutuals.map(uid => (
+                    <MutualRow
+                      key={uid}
+                      uid={uid}
+                      myFollowers={followers}
+                      onView={() => setViewingUid(uid)}
+                      onChat={async (profile) => {
+                        if (profile) {
+                          setChatWith({ uid, displayName: profile.displayName, photoURL: profile.photoURL });
+                        } else {
+                          const p = await getUserProfile(uid);
+                          if (p) setChatWith({ uid, displayName: p.displayName, photoURL: p.photoURL });
+                        }
+                      }}
+                    />
+                  ))}
                 </>
               )}
             </div>
@@ -539,10 +667,12 @@ export default function UserMenu({
             <div className="config-panel">
               <div className="config-title">Privacidad</div>
               {[
-                { key: 'publicProfile', label: 'Perfil público',         desc: 'Cualquiera puede ver tu perfil' },
-                { key: 'bookmarks',     label: 'Compartir guardados',     desc: 'Seguidores ven tus versículos guardados' },
-                { key: 'highlights',    label: 'Compartir subrayados',    desc: 'Seguidores ven tus subrayados' },
-                { key: 'notes',         label: 'Compartir notas',         desc: 'Seguidores ven tus notas' },
+                { key: 'publicProfile', label: 'Perfil público',          desc: 'Cualquiera puede ver tu perfil' },
+                { key: 'followers',     label: 'Mostrar seguidores',       desc: 'Otros ven cuántos te siguen' },
+                { key: 'following',     label: 'Mostrar a quién seguís',   desc: 'Otros ven cuántos seguís' },
+                { key: 'bookmarks',     label: 'Compartir guardados',      desc: 'Seguidores ven tus versículos guardados' },
+                { key: 'highlights',    label: 'Compartir subrayados',     desc: 'Seguidores ven tus subrayados' },
+                { key: 'notes',         label: 'Compartir notas',          desc: 'Seguidores ven tus notas' },
               ].map(item => (
                 <div key={item.key} className="config-row">
                   <div className="config-row-text">
@@ -571,24 +701,5 @@ export default function UserMenu({
         </div>
       </div>
     </>
-  );
-}
-
-// Mini componente para mostrar un usuario que seguís (carga su nombre)
-function FollowingRow({ uid, onView, onToggle }) {
-  const [profile, setProfile] = useState(null);
-  useEffect(() => { getUserProfile(uid).then(setProfile); }, [uid]);
-  if (!profile) return <div className="amigo-row"><div className="menu-empty">…</div></div>;
-  return (
-    <div className="amigo-row">
-      <button className="amigo-avatar" onClick={onView}>
-        <Avatar photoURL={profile.photoURL} displayName={profile.displayName} size={36} />
-      </button>
-      <div className="amigo-info" onClick={onView}>
-        <div className="amigo-name">{profile.displayName || '(sin nombre)'}</div>
-        {isOnline(profile.lastSeen) && <span className="amigo-online">● En línea</span>}
-      </div>
-      <button className="amigo-follow-btn following" onClick={onToggle}>Siguiendo</button>
-    </div>
   );
 }
