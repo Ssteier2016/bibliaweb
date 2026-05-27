@@ -1109,3 +1109,87 @@ input, textarea { font-family: inherit; }
 }
 .chat-send-btn:hover:not(:disabled) { opacity: 0.85; transform: scale(1.08); }
 .chat-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Amigo offline ───────────────────────────────────────────── */
+.amigo-offline {
+  font-size: 0.72rem; font-family: sans-serif; color: var(--text3);
+}
+
+/* ── Plan de lectura anual ───────────────────────────────────── */
+.plan-panel {
+  padding: 16px; display: flex; flex-direction: column; gap: 12px;
+}
+.plan-intro {
+  align-items: center; text-align: center; padding: 24px 20px;
+}
+.plan-intro-icon { font-size: 3rem; line-height: 1; }
+.plan-intro-title {
+  font-size: 1.15rem; font-weight: 700; color: var(--text); font-family: sans-serif;
+}
+.plan-intro-desc {
+  font-size: 0.9rem; color: var(--text2); font-family: sans-serif; line-height: 1.6;
+}
+.plan-intro-stats {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  font-size: 0.8rem; color: var(--text3); font-family: sans-serif;
+}
+.plan-start-btn {
+  margin-top: 8px; padding: 12px 28px; background: var(--accent-btn); color: #fff;
+  border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: opacity var(--transition); font-family: inherit;
+}
+.plan-start-btn:hover:not(:disabled) { opacity: 0.88; }
+.plan-start-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.plan-progress-wrap { display: flex; flex-direction: column; gap: 4px; }
+.plan-progress-bar {
+  height: 8px; border-radius: 999px; background: var(--border); overflow: hidden;
+}
+.plan-progress-fill {
+  height: 100%; border-radius: 999px; background: var(--accent-btn);
+  transition: width 0.5s ease;
+}
+.plan-progress-label {
+  font-size: 0.78rem; color: var(--text3); font-family: sans-serif; text-align: right;
+}
+.plan-day-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.plan-day-number {
+  font-size: 1.1rem; font-weight: 700; color: var(--text); font-family: sans-serif;
+}
+.plan-day-done {
+  font-size: 0.82rem; font-weight: 700; color: #16a34a;
+  background: #dcfce7; padding: 3px 10px; border-radius: 999px; font-family: sans-serif;
+}
+.dark .plan-day-done { background: #14532d; color: #86efac; }
+.plan-chapters-list { display: flex; flex-direction: column; gap: 6px; }
+.plan-chapter-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; background: var(--surface2);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 0.92rem; color: var(--text); cursor: pointer;
+  transition: all var(--transition); text-align: left; font-family: inherit;
+  width: 100%;
+}
+.plan-chapter-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+.plan-chapter-icon { font-size: 1rem; flex-shrink: 0; }
+.plan-chapter-arrow { margin-left: auto; color: var(--text3); font-size: 0.85rem; }
+.plan-mark-btn {
+  padding: 12px; background: var(--accent-btn); color: #fff;
+  border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 700;
+  cursor: pointer; transition: opacity var(--transition); font-family: inherit;
+}
+.plan-mark-btn:hover:not(:disabled) { opacity: 0.88; }
+.plan-mark-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.plan-congrats {
+  padding: 12px; background: #dcfce7; color: #15803d; border-radius: var(--radius);
+  font-size: 0.9rem; text-align: center; font-family: sans-serif; font-weight: 600;
+}
+.dark .plan-congrats { background: #14532d; color: #86efac; }
+.plan-reset-btn {
+  padding: 8px; background: transparent; color: var(--text3);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 0.8rem; cursor: pointer; font-family: inherit;
+  transition: all var(--transition);
+}
+.plan-reset-btn:hover { color: #ef4444; border-color: #ef4444; }

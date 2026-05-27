@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   logout, updateUserDisplayName, getAllUsers, getUserProfile,
   uploadProfilePhoto, updatePrivacy, followUser, unfollowUser,
+  loadUserData, saveUserData,
 } from './firebase';
 import ChatPanel from './ChatPanel';
 
@@ -14,6 +15,7 @@ const SECTIONS = [
   { key: 'shared',     label: 'Compartidos', icon: '↗️' },
   { key: 'amigos',     label: 'Amigos',      icon: '👥' },
   { key: 'mensajes',   label: 'Mensajes',    icon: '💬' },
+  { key: 'plan',       label: 'Plan',        icon: '📅' },
   { key: 'config',     label: 'Config',      icon: '⚙️' },
 ];
 
@@ -297,6 +299,143 @@ function MutualRow({ uid, myFollowers, onChat, onView }) {
   );
 }
 
+// ── Plan de lectura anual ──────────────────────────────────────
+
+function generateReadingPlan(books) {
+  const chapters = [];
+  books.forEach(b => b.chapters.forEach(c => chapters.push({ book: b.name, chapter: c.chapter })));
+  const plan = [];
+  const base  = Math.floor(chapters.length / 365);
+  const extra = chapters.length % 365;
+  let idx = 0;
+  for (let day = 1; day <= 365; day++) {
+    const count = day <= extra ? base + 1 : base;
+    plan.push({ day, chapters: chapters.slice(idx, idx + count) });
+    idx += count;
+  }
+  return plan;
+}
+
+function ReadingPlan({ user, books, onNavigate, onClose }) {
+  const [startDate,     setStartDate]     = useState(null);
+  const [completedDays, setCompletedDays] = useState([]);
+  const [loading,       setLoading]       = useState(true);
+  const [saving,        setSaving]        = useState(false);
+
+  const plan = useMemo(() => generateReadingPlan(books), [books]);
+
+  useEffect(() => {
+    if (!user || user.isAnonymous) { setLoading(false); return; }
+    loadUserData(user.uid).then(data => {
+      setStartDate(data.planStartDate || null);
+      setCompletedDays(data.planCompletedDays || []);
+      setLoading(false);
+    });
+  }, [user]);
+
+  if (loading) return <div className="menu-empty">Cargando plan…</div>;
+  if (!user || user.isAnonymous) return <div className="menu-empty">Iniciá sesión para acceder al plan de lectura.</div>;
+
+  const todayStr = new Date().toISOString().split('T')[0];
+  const daysSince = startDate
+    ? Math.floor((new Date(todayStr) - new Date(startDate)) / 86400000)
+    : 0;
+  const currentDay   = Math.min(Math.max(daysSince + 1, 1), 365);
+  const todayPlan    = plan[currentDay - 1];
+  const isCompleted  = completedDays.includes(currentDay);
+  const completedCnt = completedDays.length;
+  const pct          = Math.round((completedCnt / 365) * 100);
+
+  async function startPlan() {
+    setSaving(true);
+    setStartDate(todayStr);
+    setCompletedDays([]);
+    await saveUserData(user.uid, { planStartDate: todayStr, planCompletedDays: [] });
+    setSaving(false);
+  }
+
+  async function markToday() {
+    if (isCompleted) return;
+    setSaving(true);
+    const next = [...completedDays, currentDay];
+    setCompletedDays(next);
+    await saveUserData(user.uid, { planCompletedDays: next });
+    setSaving(false);
+  }
+
+  async function resetPlan() {
+    if (!window.confirm('¿Reiniciar el plan? Se perderá el progreso.')) return;
+    setSaving(true);
+    setStartDate(null);
+    setCompletedDays([]);
+    await saveUserData(user.uid, { planStartDate: null, planCompletedDays: [] });
+    setSaving(false);
+  }
+
+  if (!startDate) {
+    return (
+      <div className="plan-panel plan-intro">
+        <div className="plan-intro-icon">📖</div>
+        <div className="plan-intro-title">Plan de lectura anual</div>
+        <div className="plan-intro-desc">
+          Leé la Biblia completa en 365 días.<br />
+          Cada día tendrás 3–4 capítulos asignados.
+        </div>
+        <div className="plan-intro-stats">
+          <span>📚 1.189 capítulos</span>
+          <span>📅 365 días</span>
+          <span>⏱ ~10 min/día</span>
+        </div>
+        <button className="plan-start-btn" onClick={startPlan} disabled={saving}>
+          {saving ? '…' : 'Comenzar plan'}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="plan-panel">
+      <div className="plan-progress-wrap">
+        <div className="plan-progress-bar">
+          <div className="plan-progress-fill" style={{ width: `${pct}%` }} />
+        </div>
+        <div className="plan-progress-label">{completedCnt} / 365 días · {pct}%</div>
+      </div>
+
+      <div className="plan-day-header">
+        <span className="plan-day-number">Día {currentDay}</span>
+        {isCompleted && <span className="plan-day-done">✓ Completado</span>}
+      </div>
+
+      <div className="plan-chapters-list">
+        {todayPlan?.chapters.map(({ book, chapter }, i) => (
+          <button
+            key={i}
+            className="plan-chapter-btn"
+            onClick={() => { onNavigate(book, chapter); onClose(); }}
+          >
+            <span className="plan-chapter-icon">📖</span>
+            <span>{book} {chapter}</span>
+            <span className="plan-chapter-arrow">→</span>
+          </button>
+        ))}
+      </div>
+
+      {!isCompleted ? (
+        <button className="plan-mark-btn" onClick={markToday} disabled={saving}>
+          {saving ? '…' : '✓ Marcar día como leído'}
+        </button>
+      ) : (
+        <div className="plan-congrats">
+          ¡Excelente! Seguí con el día {Math.min(currentDay + 1, 365)} mañana 🎉
+        </div>
+      )}
+
+      <button className="plan-reset-btn" onClick={resetPlan}>Reiniciar plan</button>
+    </div>
+  );
+}
+
 // ── UserMenu principal ─────────────────────────────────────────
 
 export default function UserMenu({
@@ -307,6 +446,7 @@ export default function UserMenu({
   const [section,       setSection]       = useState('bookmarks');
   const [shareMsg,      setShareMsg]      = useState('');
   const touchStartX = useRef(null);
+  const tabsRef     = useRef(null);
   const [editingName,   setEditingName]   = useState(false);
   const [nameVal,       setNameVal]       = useState('');
   const [nameSaving,    setNameSaving]    = useState(false);
@@ -314,7 +454,10 @@ export default function UserMenu({
   const [searchResults, setSearchResults] = useState([]);
   const [searching,     setSearching]     = useState(false);
   const [viewingUid,    setViewingUid]    = useState(null);
-  const [chatWith,      setChatWith]      = useState(null); // { uid, displayName, photoURL }
+  const [chatWith,      setChatWith]      = useState(null);
+  const [allUsersList,  setAllUsersList]  = useState([]);
+  const [allUsersLoaded,setAllUsersLoaded]= useState(false);
+  const [localPhotoURL, setLocalPhotoURL] = useState(null);
   const nameInputRef  = useRef(null);
   const photoInputRef = useRef(null);
   const [photoLoading, setPhotoLoading]  = useState(false);
@@ -361,6 +504,22 @@ export default function UserMenu({
 
   useEffect(() => { setPrivacyLocal(privacy); }, [privacy]);
 
+  // Scroll la tab activa al centro cuando cambia la sección
+  useEffect(() => {
+    if (!tabsRef.current) return;
+    const active = tabsRef.current.querySelector('.menu-tab.active');
+    if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [section]);
+
+  // Cargar todos los usuarios cuando se abre la sección Amigos
+  useEffect(() => {
+    if (section !== 'amigos' || allUsersLoaded) return;
+    getAllUsers().then(list => {
+      setAllUsersList(list.filter(u => u.uid !== user?.uid));
+      setAllUsersLoaded(true);
+    });
+  }, [section, allUsersLoaded, user]);
+
   const displayName  = user?.displayName || (isGuest ? 'Invitado' : user?.email?.split('@')[0] || 'Usuario');
   const displayEmail = isGuest ? 'Modo invitado' : (user?.email || '');
 
@@ -377,8 +536,13 @@ export default function UserMenu({
     if (!file || !user) return;
     setPhotoLoading(true);
     const url = await uploadProfilePhoto(user.uid, file);
-    if (!url) alert('Error al subir la foto. Verificá las reglas de Firebase Storage.');
+    if (url) {
+      setLocalPhotoURL(url);
+    } else {
+      alert('Error al subir la foto.\n\nEn Firebase Console → Storage → Rules, asegurate de tener:\nmatch /profilePhotos/{uid}/{f} {\n  allow read: if true;\n  allow write: if request.auth.uid == uid;\n}');
+    }
     setPhotoLoading(false);
+    e.target.value = '';
   }
 
   async function handleSearch(term) {
@@ -489,7 +653,7 @@ export default function UserMenu({
             <div className="menu-avatar">
               {photoLoading
                 ? <span className="menu-avatar-initials">…</span>
-                : <Avatar photoURL={user?.photoURL} displayName={displayName} size={52} />
+                : <Avatar photoURL={localPhotoURL || user?.photoURL} displayName={displayName} size={52} />
               }
             </div>
             {!isGuest && (
@@ -536,7 +700,7 @@ export default function UserMenu({
         {/* Tabs + flechitas */}
         <div className="menu-tabs-wrapper">
           <button className="tabs-arrow" onClick={goPrev} disabled={currentIdx === 0}>‹</button>
-          <div className="menu-tabs">
+          <div className="menu-tabs" ref={tabsRef}>
             {allSections.map(s => (
               <button
                 key={s.key}
@@ -632,10 +796,10 @@ export default function UserMenu({
                       ))
               ) : (
                 <>
-                  <div className="amigos-section-title">Siguiendo ({following.length})</div>
-                  {following.length === 0
-                    ? <div className="menu-empty">No seguís a nadie todavía. Buscá usuarios arriba.</div>
-                    : following.map(uid => (
+                  {following.length > 0 && (
+                    <>
+                      <div className="amigos-section-title">Siguiendo ({following.length})</div>
+                      {following.map(uid => (
                         <FollowingRow
                           key={uid}
                           uid={uid}
@@ -647,7 +811,37 @@ export default function UserMenu({
                             if (p) setChatWith({ uid, displayName: p.displayName, photoURL: p.photoURL });
                           }}
                         />
-                      ))
+                      ))}
+                    </>
+                  )}
+                  <div className="amigos-section-title">
+                    Usuarios registrados ({allUsersList.length})
+                    {!allUsersLoaded && ' …'}
+                  </div>
+                  {allUsersLoaded && allUsersList.length === 0 && (
+                    <div className="menu-empty">No hay otros usuarios registrados aún.</div>
+                  )}
+                  {[...allUsersList]
+                    .sort((a, b) => (isOnline(b.lastSeen) ? 1 : 0) - (isOnline(a.lastSeen) ? 1 : 0))
+                    .filter(u => !following.includes(u.uid))
+                    .map(u => (
+                      <div key={u.uid} className="amigo-row">
+                        <button className="amigo-avatar" onClick={() => setViewingUid(u.uid)}>
+                          <Avatar photoURL={u.photoURL} displayName={u.displayName} size={36} />
+                        </button>
+                        <div className="amigo-info" onClick={() => setViewingUid(u.uid)}>
+                          <div className="amigo-name">{u.displayName || '(sin nombre)'}</div>
+                          <div className="amigo-sub-row">
+                            {isOnline(u.lastSeen) && <span className="amigo-online">● En línea</span>}
+                            {!isOnline(u.lastSeen) && <span className="amigo-offline">Visto {timeAgo(u.lastSeen)}</span>}
+                          </div>
+                        </div>
+                        <button
+                          className="amigo-follow-btn"
+                          onClick={() => handleFollowToggle(u.uid)}
+                        >+ Seguir</button>
+                      </div>
+                    ))
                   }
                 </>
               )}
@@ -685,6 +879,16 @@ export default function UserMenu({
                 </>
               )}
             </div>
+          )}
+
+          {/* Plan de lectura */}
+          {section === 'plan' && (
+            <ReadingPlan
+              user={user}
+              books={books}
+              onNavigate={onNavigate}
+              onClose={onClose}
+            />
           )}
 
           {/* Configuración */}
