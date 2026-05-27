@@ -1561,6 +1561,374 @@ export const COMMENTARY = {
     comentarios: `Este versículo fue puesto en música como el himno "Grande es tu fidelidad" (Thomas Chisholm, 1923) — escrito no en circunstancias de bienestar sino de enfermedad crónica. La esperanza bíblica no nace de circunstancias favorables sino de la naturaleza inmutable de Dios que se mantiene aunque todo cambie.`,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     JUECES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Jueces_2_10': {
+    historico: `"Y toda aquella generación también fue reunida a sus padres. Y se levantó después de ellos otra generación que no conocía a Jehová, ni la obra que él había hecho por Israel." Este versículo describe el mecanismo del ciclo de Jueces: apostasía → opresión → clamor → liberación → paz → apostasía. La pérdida de memoria histórica colectiva es la raíz del colapso espiritual.`,
+    linguistico: `"Lo yada et-Adonai" (לֹא־יָדַע אֶת־יְהוָה): no conocía a Jehová — "yada" en hebreo implica conocimiento experiencial, no solo informativo. Una generación puede "saber de" Dios sin haberlo "conocido" en la experiencia del pacto. La diferencia es decisiva.`,
+    referencia: `Deuteronomio 6:7 (enseñarás estas cosas a tus hijos). Salmo 78:4 (no encubriremos a sus hijos). Proverbios 22:6 (instruye al niño en su camino). Josué 4:21-22 (las piedras como memorial). 2 Timoteo 1:5 (la fe de Timoteo transmitida por su abuela).`,
+    comentarios: `Este versículo es el diagnóstico bíblico del declive intergeneracional de la fe. La transmisión de la fe no es automática — requiere intencionalidad pedagógica. James Hunter en "Cultura: cómo hacer que perdure" señala que las instituciones culturales y la narración comunitaria son los vehículos de transmisión: si callan, la siguiente generación empieza de cero.`,
+  },
+
+  'Jueces_16_28': {
+    linguistico: `"Señor Jehová, acuérdate ahora de mí, y fortaléceme." "Zekhreni na" (זָכְרֵנִי נָא): acuérdate de mí — la misma fórmula del ladrón en la cruz (Lc 23:42). La oración de Sansón en el momento final es la más breve y desnuda del AT: sin argumentos, sin méritos, solo el nombre y la necesidad.`,
+    historico: `Sansón es el juez más contradictorio: gran fuerza física, debilidad moral persistente. Su historia termina con una victoria en la derrota: ciego, humillado, encadenado. La fuerza divina regresa cuando se acaba la confianza en sí mismo. Fil 4:13 ("todo lo puedo en Cristo") tiene su contrapunto aquí.`,
+    referencia: `Lucas 23:42 ("acuérdate de mí cuando vengas en tu reino"). Hebreos 11:32 (Sansón en la nube de testigos). 1 Corintios 1:27 (Dios escogió lo débil del mundo para avergonzar a lo fuerte). 2 Corintios 12:9 (el poder en la debilidad). Salmo 22:11.`,
+    comentarios: `Gregorio Magno: la derrota de Sansón ilustra cómo el mayor enemigo del hombre de Dios no es el mundo exterior sino su propia concupiscencia. Sin embargo, su oración final muestra que la gracia no prescribe: el arrepentimiento es siempre posible. C.S. Lewis: Dios puede usar incluso los fracasos humanos para sus propósitos.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 REYES
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Reyes_6_16': {
+    linguistico: `"No tengas miedo, porque más son los que están con nosotros que los que están con ellos." "Al tira" (אַל־תִּירָא): no temas — fórmula divina de aliento que aparece 365 veces en la Biblia (una por día, según muchos predicadores). El plural "con nosotros" señala una realidad espiritual invisible pero real.`,
+    historico: `Elíseo y su criado están rodeados por el ejército sirio en Dotán. El criado ve solo el ejército enemigo; Elíseo ve los carros de fuego del ejército celestial. La oración de Elíseo ("ábrele los ojos") no es para cambiar la realidad sino para permitir verla. La realidad espiritual ya existía — era la percepción lo que faltaba.`,
+    referencia: `2 Reyes 6:17 (los caballos y carros de fuego). Romanos 8:31 ("si Dios es por nosotros, ¿quién contra nosotros?"). Hebreos 1:14 (ángeles ministros). Salmo 34:7 ("el ángel de Jehová acampa alrededor de los que le temen"). Daniel 6:22 (el ángel cierra la boca de los leones).`,
+    comentarios: `Agustín: la fe no es ver lo invisible — es actuar como si lo invisible fuera más real que lo visible. El criado de Elíseo representa al creyente que necesita que sus ojos espirituales sean abiertos para operar desde la perspectiva de la abundancia divina, no desde la escasez humana.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 CRÓNICAS
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Crónicas_4_10': {
+    linguistico: `"Y llamó Jabes al Dios de Israel, diciendo: ¡Oh, si me dieras bendición, y ensancharas mi territorio, y si tu mano estuviera conmigo, y me libraras de mal, para que no me dañe!" "Berakhta" (בֵּרַכְתַּנִי): que me bendijeras — optativo. La oración es audaz: pide expansión, protección y presencia simultáneamente. Dios concedió todo (v.10b).`,
+    historico: `Jabes aparece solo dos versículos en toda la Biblia (vv. 9-10), en medio de una lista genealógica árida. Su nombre significa "dolor" — ya que su madre lo parió "con dolor". La oración de Jabes convierte una identidad marcada por el dolor en una historia de transformación divina.`,
+    referencia: `Efesios 3:20 (Dios puede hacer abundantemente más de lo que pedimos). Juan 16:24 ("pedid, y recibiréis"). Mateo 7:7-8 (pedid y se os dará). Santiago 4:2 ("no tenéis lo que deseáis porque no pedís"). Génesis 26:22 (Rehoboth: Jehová nos ha dado espacio).`,
+    comentarios: `Bruce Wilkinson convirtió este pasaje en un fenómeno editorial con "La oración de Jabes" (2000). Más allá del debate sobre la "teología de la prosperidad", el texto genuinamente enseña que la identidad no tiene por qué ser el destino: la oración puede romper el techo determinista del nombre y la historia familiar.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 CRÓNICAS
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Crónicas_7_14': {
+    linguistico: `"Si se humillare mi pueblo, sobre el cual mi nombre es invocado, y oraren, y buscaren mi rostro, y se convirtieren de sus malos caminos; entonces yo oiré desde los cielos, y perdonaré sus pecados, y sanaré su tierra." Cuatro condiciones verbales en cadena: humillarse, orar, buscar, convertirse. La respuesta divina también es cuádruple: oír, perdonar, sanar.`,
+    historico: `Pronunciado por Dios en la dedicación del Templo de Salomón (~950 a.C.). La fórmula "mi pueblo sobre el cual mi nombre es invocado" es lenguaje de posesión y alianza — la nación lleva el nombre de Dios como una esposa lleva el apellido del esposo. El texto fue escrito para una nación pero ha sido apropiado por la historia de los avivamientos (siglos XVIII y XIX).`,
+    referencia: `1 Reyes 8:46-50 (la oración de Salomón). Jeremías 29:12-13 ("me buscaréis y me hallaréis"). Joel 2:12-13 ("convertíos a mí con todo vuestro corazón"). Santiago 4:10 (humillaos delante del Señor). Salmo 80:3 (restáuranos, oh Dios).`,
+    comentarios: `Este versículo fue invocado por los Padres Fundadores de EE.UU. en momentos de crisis. Jonathan Edwards lo predicó en los avivamientos del siglo XVIII. La condición "sanar su tierra" es única en el AT: la reconciliación espiritual tiene consecuencias físicas, sociales y ecológicas. La fe no es solo interior.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ESDRAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Esdras_7_10': {
+    linguistico: `"Porque Esdras había preparado su corazón para inquirir la ley de Jehová, y para cumplirla, y para enseñar en Israel sus estatutos y decretos." "Hekin libbo" (הֵכִין לְבָבוֹ): preparó, afirmó su corazón — raíz kûn, la misma de "establecer" o "fundar". La secuencia es triple: estudiar → practicar → enseñar. El orden es esencial: enseñar sin practicar es hipocresía.`,
+    historico: `Esdras regresa del exilio babilónico ~458 a.C. con autorización del rey Artajerjes I para reformar la comunidad judía en Judá. Es uno de los primeros "escribas" — un rol nuevo en Israel que surgió del exilio: conservar la Torá cuando no había tierra ni templo. La sinagoga nació de esta necesidad.`,
+    referencia: `Nehemías 8:1-8 (la lectura pública de la Ley). 2 Timoteo 2:15 ("procura con diligencia presentarte a Dios aprobado"). Josué 1:8 (el libro de la ley en tu boca). Santiago 1:22 ("sed hacedores de la palabra, y no tan solamente oidores"). Juan 7:17.`,
+    comentarios: `La figura de Esdras como "escriba diligente" se convirtió en el modelo del maestro cristiano medieval y del pastor reformado. Calvino comentó que el orden de Esdras (conocer, practicar, enseñar) es el único modelo auténtico de magisterio: quien enseña lo que no practica produce fariseos, no discípulos.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     OSEAS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Oseas_6_6': {
+    linguistico: `"Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos." "Chesed chafatsti" (חֶסֶד חָפַצְתִּי): misericordia quiero — "chesed" es amor leal del pacto, fidelidad activa, más que emoción. El contraste no niega el culto sino su separación de la ética: el ritual sin el corazón es ruido.`,
+    historico: `Jesús cita este versículo dos veces (Mt 9:13; 12:7) en contextos donde los fariseos critican su compasión. El profeta Oseas lo pronuncia ~750 a.C. cuando Israel mantiene el culto externo pero ha roto el pacto ético. La adoración sin justicia es abominación — no neutralidad.`,
+    referencia: `Amós 5:21-24 (Dios rechaza los festivales sin justicia). Miqueas 6:8 (misericordia, justicia y humildad). 1 Samuel 15:22 ("¿se complace Jehová tanto en holocaustos como en obediencia?"). Mateo 9:13. Salmo 51:16-17.`,
+    comentarios: `Martin Luther King: este versículo es el corazón de la profecía bíblica — religión que no produce justicia social es fariseísmo. Walter Brueggemann llama a los profetas del AT "poetas de la alternativa": enuncian una realidad diferente frente al status quo sacral-político. La profecía bíblica siempre es incómoda para el establishment religioso.`,
+  },
+
+  'Oseas_11_8': {
+    linguistico: `"¿Cómo podré abandonarte, oh Efraín? ¿Te entregaré yo, Israel? [...] Mi corazón se conmueve dentro de mí, se inflama toda mi compasión." "Nikhmeru nikhumay" (נִכְמְרוּ נִחוּמָי): se conmueven mis compasiones — verbo intensivo, casi físico. El texto revela un Dios emocionalmente comprometido, no impasible.`,
+    historico: `Oseas profetiza durante el colapso político del norte de Israel, siglo VIII a.C. La metáfora del libro es el matrimonio roto — Israel como esposa infiel — pero aquí cambia a padre-hijo. El monólogo divino en el capítulo 11 es uno de los textos más personales de Dios en todo el AT.`,
+    referencia: `Lucas 15:20 (el padre que corre hacia el hijo pródigo). Jeremías 31:20 (las entrañas de Dios se conmueven por Efraín). Romanos 11:29 ("irrevocables son los dones y el llamamiento de Dios"). Isaías 49:15 ("¿olvidará la mujer a su hijo?"). 1 Juan 4:8.`,
+    comentarios: `Terence Fretheim ("The Suffering of God"): este texto es la base bíblica para hablar de las emociones divinas — no como debilidad sino como expresión del amor que sufre por la rebeldía del amado. El Dios bíblico no es el motor inmóvil de Aristóteles sino un Dios que se arriesga al dolor al amar libremente.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     AMÓS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Amós_5_24': {
+    linguistico: `"Pero corra el juicio como las aguas, y la justicia como impetuoso arroyo." "Yigal kemayim mishpat" (יִגַּל כַּמַּיִם מִשְׁפָּט): que ruede el juicio como aguas — "galal" implica movimiento natural, inevitable, continuo. No un acto puntual sino un flujo constante. "Ethan" (אֵיתָן): arroyo perenne, no estacional.`,
+    historico: `Amós (~760 a.C.) era pastor, no profeta de escuela. Anuncia el juicio contra Israel en su prosperidad máxima bajo Jeroboam II. Los versículos 21-23 listan todo lo que Dios rechaza: festivales, música litúrgica, holocaustos. La religión sin justicia social es ofensiva a Dios, no meritoria.`,
+    referencia: `Miqueas 6:8 (hacer justicia, amar misericordia). Isaías 1:17 ("aprended a hacer el bien, buscad el juicio"). Mateo 23:23 (lo más importante: justicia, misericordia y fe). Santiago 1:27 (la religión pura y sin mancha). Oseas 6:6.`,
+    comentarios: `Martin Luther King usó exactamente este versículo en su discurso "I Have a Dream" (1963). La justicia bíblica no es solo distributiva (dar a cada uno lo suyo) sino restauradora: incluye a los marginados en la corriente de la vida comunitaria. Amós es el profeta de la justicia social — y Dios lo habla desde el desierto, no desde el palacio.`,
+  },
+
+  'Amós_3_7': {
+    linguistico: `"Porque no hará nada Jehová el Señor, sin que revele su secreto a sus siervos los profetas." "Sodo" (סוֹדוֹ): su secreto, su consejo íntimo — raíz de "sod" (círculo íntimo, consejo privado). La profecía no es adivinación sino admisión al consejo divino. El profeta es el "sod" (confidente) de Dios.`,
+    historico: `La profecía bíblica se distingue radicalmente de la adivinación mesopotámica (entrañas, astros) y griega (Delfos): es Dios quien toma la iniciativa de comunicar, no el humano quien arranca secretos a los dioses. Amós mismo fue interrumpido por la visión mientras cuidaba ovejas — la profecía es convocación, no búsqueda.`,
+    referencia: `Génesis 18:17 ("¿ocultaré a Abraham lo que voy a hacer?"). Juan 15:15 ("ya no os llamaré siervos... os he llamado amigos; porque os he dado a conocer todo lo que oí de mi Padre"). Efesios 3:3-5 (el misterio revelado). Números 12:6 (Dios habla en visiones a los profetas).`,
+    comentarios: `Abraham Heschel en "Los Profetas": el profeta es alguien que comparte los sentimientos de Dios hacia la historia — no solo sus planes. La profecía bíblica nunca es neutral: viene acompañada de urgencia, llamado y costo personal. Quien recibe el "sod" divino no puede callar (cf. Am 3:8: "habla el Señor, ¿quién no profetizará?").`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     JONÁS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Jonás_2_9': {
+    linguistico: `"La salvación es de Jehová." "Layehova hayeshua" (לַיהוָה הַיְשׁוּעָה): el artículo definido en "la salvación" hace de esto una afirmación absoluta. Dicha desde el vientre del pez, es el punto de inflexión: el hombre que huía de Dios declara la soberanía divina sobre la salvación.`,
+    historico: `El libro de Jonás es único: el profeta huye, fracasa, es tragado por un pez y luego obedece pero de mala gana. La oración del capítulo 2 usa lenguaje de los Salmos — Jonás cita la tradición en el momento de necesidad. La ironía final del libro (capítulo 4) muestra que Jonás sigue sin comprender la compasión divina.`,
+    referencia: `Salmo 3:8 ("la salvación pertenece a Jehová"). Apocalipsis 7:10 ("la salvación pertenece a nuestro Dios"). Mateo 12:40 (Jesús usa a Jonás como tipo de su resurrección). Juan 3:16. Hechos 4:12 ("no hay otro nombre... por el que podamos ser salvos").`,
+    comentarios: `C.S. Lewis: el libro de Jonás es la historia de un hombre religioso que prefiere que Dios castigue al pagano antes que lo perdone. Es una crítica de la religión exclusivista. La última pregunta de Dios (4:11: "¿y no tendré yo piedad de Nínive?") queda sin respuesta — invitando al lector a contestar en su lugar.`,
+  },
+
+  'Jonás_4_11': {
+    linguistico: `"¿Y no tendré yo piedad de Nínive, aquella gran ciudad donde hay más de ciento veinte mil personas que no saben discernir entre su mano derecha y su mano izquierda?" "Lo achuss al Ninveh" (לֹא אָחוּס עַל נִינְוֵה): ¿no me apiadará? — "chus" (חוּס) es compasión por el vulnerable, piedad maternal. Los 120.000 que "no saben discernir" son probablemente niños — Dios los ve primero.`,
+    historico: `Nínive era la capital del Imperio Asirio — el enemigo más brutal y temido de Israel. Que Dios se apiade de Nínive es teológicamente escandaloso en el contexto bíblico. El libro cierra sin respuesta de Jonás — una estructura literaria abierta que obliga al lector a decidir su propia posición.`,
+    referencia: `Lucas 15:7 (alegría en el cielo por un pecador que se arrepiente). Mateo 5:45 (Dios hace salir el sol sobre malos y buenos). Romanos 9:15 ("tendré misericordia del que yo tenga misericordia"). Juan 3:17 ("no envió Dios a su Hijo para condenar al mundo"). Lucas 11:29-32.`,
+    comentarios: `Karl Barth: el libro de Jonás es la refutación bíblica del nacionalismo religioso — la gracia de Dios no puede ser privatizada por ningún pueblo. Teresa de Ávila: "Dios no tiene fronteras; somos nosotros los que las ponemos." Jonás es la autobiografía de toda teología que prefiere la condenación del otro a su redención.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     NAHÚM
+  ══════════════════════════════════════════════════════════════ */
+
+  'Nahúm_1_7': {
+    linguistico: `"Jehová es bueno, fortaleza en el día de la angustia; y conoce a los que en él confían." "Tov Adonai" (טוֹב יְהוָה): Jehová es bueno — declaración en medio de un oráculo de juicio sobre Nínive (la misma ciudad que Jonás). La bondad de Dios no es ingenuidad: el mismo Dios que juzga al opresor es refugio del oprimido.`,
+    historico: `Nahúm profetiza la caída de Nínive (~612 a.C.) unos 150 años después de la predicación de Jonás. Si Jonás celebra el arrepentimiento de Nínive, Nahúm anuncia su juicio final cuando recae en su brutalidad. La historia muestra que la misericordia no anula la justicia: el tiempo del arrepentimiento es limitado.`,
+    referencia: `Salmo 34:8 ("gustad y ved que es bueno Jehová"). Romanos 2:4 (la bondad de Dios te guía al arrepentimiento). Hebreos 13:6 ("el Señor es mi ayudador; no temeré"). Salmo 46:1 (Dios, nuestro refugio en las tribulaciones). Nahúm 1:3 (Jehová es tardo para la ira).`,
+    comentarios: `El nombre "Nahúm" significa "consuelo" — y su profecía de juicio al opresor es consuelo para el oprimido. La teodicea bíblica no explica el sufrimiento sino que promete que el Dios que conoce a sus hijos intervendrá. Agustín: la bondad de Dios es más evidente en el rescate de los débiles que en la prosperidad de los poderosos.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     HABACUC (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Habacuc_3_2': {
+    linguistico: `"Señor, he oído tu palabra, y temí." "Shama'ti shim'acha vaira" (שָׁמַעְתִּי שִׁמְעֲךָ וָאִירָא): oí tu fama y me espanté. "Yira" (יָרָא): temor reverencial ante lo sagrado — no miedo pánico sino asombro ante la majestad divina. Habacuc pide que en la ira Dios recuerde la misericordia: "berogez rachem tizkor" (בְּרֹגֶז רַחֵם תִּזְכֹּר).`,
+    historico: `El capítulo 3 es una teofanía — una visión de Dios que avanza en poder histórico. Habacuc, tras el diálogo tenso de los capítulos 1-2, cierra con una oración de rendición. En la Comunidad de Qumrán se hallaron comentarios (pesharim) de Habacuc; el libro era considerado clave para entender la tribulación del justo fiel.`,
+    referencia: `Salmo 77:11-12 (meditaré en todas tus proezas). Éxodo 15:1-18 (el cántico de Moisés, otra teofanía). Deuteronomio 32:39. Apocalipsis 15:3 (cántico de Moisés y del Cordero). Miqueas 7:18 (¿qué Dios como tú, que perdona la maldad?).`,
+    comentarios: `El teólogo Rudolf Otto llamó a este tipo de experiencia "lo numinoso" — el encuentro con el mysterium tremendum et fascinans: lo sagrado que aterra y atrae simultáneamente. Habacuc representa al creyente maduro que no pide que Dios cambie sus planes sino que en ellos recuerde al pueblo amado. La oración madura no exige — intercede y se rinde.`,
+  },
+
+  'Habacuc_3_17': {
+    linguistico: `"Aunque la higuera no florezca, ni en las vides haya frutos... con todo, yo me alegraré en Jehová." "Ve'ani b'Adonai a'alozah" (וְאַנִי בַּיהוָה אֶעֱלוֹזָה): me alegraré en el Señor — "alaz" (עָלַץ) es alegría exuberante, jubilosa. La conjunción "aunque... con todo" es la estructura lógica de la fe bajo prueba: el gozo no depende de las circunstancias sino de la persona de Dios.`,
+    referencia: `Filipenses 4:11-13 (aprendí a contentarme). Job 13:15 ("aunque me matare, en él esperaré"). 1 Tesalonicenses 5:16 ("estad siempre gozosos"). Salmo 46:3. Romanos 5:3-5 (gloriarnos en las tribulaciones). 2 Corintios 6:10 ("como tristes, mas siempre gozosos").`,
+    comentarios: `Este texto es una de las más altas cumbres de la espiritualidad bíblica: el gozo sin fundamento material, la alabanza sin argumento circunstancial. C.S. Lewis llamó a este tipo de fe "el alegre rendimiento" — no el esfuerzo por ser feliz sino el descubrimiento de que Dios es suficiente cuando todo lo demás falla. Es la espiritualidad de la contemplación en medio del vacío.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     SOFONÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Sofonías_3_17': {
+    linguistico: `"Jehová está en medio de ti, poderoso, él salvará; se gozará sobre ti con alegría, callará de amor, se regocijará sobre ti con cánticos." "Yarón alayikh berina" (יָרוֹן עָלַיִךְ בְּרִנָּה): cantará sobre ti con cántico de júbilo — imagen única en el AT: Dios cantando sobre su pueblo. La raíz "ranan" (רָנַן) es el cántico de alegría desbordante.`,
+    historico: `Sofonías profetiza durante el reinado de Josías (~630 a.C.), antes de la reforma religiosa. El libro es uno de los más oscuros en cuanto a juicio, pero culmina con este verso de restauración. El "Día del Señor" que anuncia no es solo juicio sino también renovación del amor divino.`,
+    referencia: `Isaías 62:5 ("como el esposo se regocija sobre la esposa, así se regocijará tu Dios sobre ti"). Juan 15:11 (para que mi gozo esté en vosotros). Salmo 149:4 ("Jehová tiene contentamiento en su pueblo"). Efesios 1:6 (para alabanza de la gloria de su gracia). Lucas 15:10.`,
+    comentarios: `Thomas Chalmers: el "amor que calla" de Dios es tan elocuente como el que canta — a veces el amor más profundo no necesita palabras sino presencia. La imagen de Dios cantando sobre su pueblo invierte los roles de la liturgia: no solo el creyente alaba a Dios, sino que Dios mismo se deleita en su pueblo con cántico. Es la imagen más tierna de la relación divino-humana en el AT.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     HAGEO
+  ══════════════════════════════════════════════════════════════ */
+
+  'Hageo_2_9': {
+    linguistico: `"La gloria de esta casa postrera será mayor que la de la primera, ha dicho Jehová de los ejércitos; y daré paz en este lugar." "Gadol yihyeh kevod habbayit hazeh" (גָּדוֹל יִהְיֶה כְּבוֹד הַבַּיִת הַזֶּה): la gloria de esta casa será mayor — profecía que supera lo que los ojos ven: el segundo templo era visiblemente más modesto que el de Salomón.`,
+    historico: `Los exiliados regresados lloran al comparar el nuevo templo con la memoria del glorioso templo de Salomón (Esd 3:12). La profecía de Hageo los consuela: la gloria no está en la arquitectura sino en la Presencia que lo habitará. Los rabinos interpretaron que la "gloria mayor" fue el hecho de que Jesús enseñó allí.`,
+    referencia: `Hageo 2:7 ("y vendrá el Deseado de todas las naciones"). Malaquías 3:1 ("el Señor al que buscáis vendrá súbitamente a su templo"). Juan 2:20-21 (el cuerpo de Jesús como templo). 1 Corintios 6:19 (nuestros cuerpos como templo del Espíritu). Apocalipsis 21:22.`,
+    comentarios: `Karl Barth: la promesa de Hageo se cumple en Cristo, que es el Templo definitivo — la morada de Dios con los hombres. Toda arquitectura religiosa apunta a una presencia que la trasciende; toda institución eclesiástica es provisional ante la gloria que viene. La esperanza bíblica siempre supera la memoria.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     GÁLATAS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Gálatas_3_28': {
+    linguistico: `"Ya no hay judío ni griego; no hay esclavo ni libre; no hay varón ni mujer; porque todos vosotros sois uno en Cristo Jesús." "Ouk eni" (οὐκ ἔνι): no existe — más enfático que "no hay". Pablo no dice que las diferencias desaparecen sino que no determinan el estatus de valor ante Dios. La unidad en Cristo trasciende sin abolir la diversidad.`,
+    historico: `Esta fórmula tripartita (judío/griego, esclavo/libre, varón/mujer) corresponde exactamente a las tres dicotomías que una oración judía masculina agradecía evitar: "Gracias porque no me hiciste gentil, esclavo ni mujer" (Tosefta Berajot 7:18). Pablo invierte la jerarquía religiosa de su tiempo.`,
+    referencia: `Efesios 2:14-15 (Cristo derribó el muro divisorio). Colosenses 3:11 (no hay griego ni judío). Romanos 10:12 (no hay diferencia entre judío y griego). 1 Corintios 12:13 (todos bautizados en un cuerpo). Juan 17:21 (que todos sean uno).`,
+    comentarios: `Esta es la "Magna Carta" de la igualdad cristiana, según F.F. Bruce. No abolió inmediatamente la esclavitud (Plm) ni las diferencias de rol (1 Tm 2), pero plantó la semilla teológica que eventualmente hizo imposible justificar la esclavitud o la discriminación desde el evangelio. La historia mostró que las semillas bíblicas brotan con siglos de demora.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     EFESIOS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Efesios_3_18': {
+    linguistico: `"Para que seáis plenamente capaces de comprender con todos los santos cuál sea la anchura, la longitud, la profundidad y la altura, y de conocer el amor de Cristo, que excede a todo conocimiento." "Hyperballousan tēs gnōseōs agapēn" (ὑπερβάλλουσαν τῆς γνώσεως ἀγάπην): el amor que excede/sobrepasa el conocimiento — paradoja: conocer lo que excede al conocimiento. Las cuatro dimensiones no tienen objeto explícito — es el amor mismo que tiene dimensiones cósmicas.`,
+    referencia: `Juan 3:16. Romanos 8:38-39 (nada nos separará del amor de Dios). 1 Juan 4:16 (Dios es amor). Efesios 1:18-19 (ojos del corazón alumbrados). Salmo 103:11-12 (tan grande como la distancia del cielo). Colosenses 1:19.`,
+    comentarios: `Esta es la mayor oración de Pablo en todas sus cartas — y la pide a las "rodillas" (v.14). Los Padres de la Iglesia (Orígenes, Agustín) usaron las cuatro dimensiones como mapa de la teología: anchura = universal; longitud = eterna; profundidad = descenso a los infiernos; altura = ascensión. C.S. Lewis: el amor divino no puede ser contenido en ninguna categoría humana — solo se conoce cuando excede.`,
+  },
+
+  'Efesios_4_32': {
+    linguistico: `"Antes sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo." "Charizomenoi" (χαριζόμενοι): perdonando — participio de "charizomai", de la misma raíz que "charis" (gracia). El perdón cristiano no es simplemente dejar pasar la ofensa: es acto de gracia derivada de la Gracia recibida.`,
+    referencia: `Mateo 18:21-22 (perdonar setenta veces siete). Colosenses 3:13 (de la manera que Cristo os perdonó). Lucas 7:47 (quien mucho es perdonado, mucho ama). Romanos 15:7. Lucas 23:34 ("Padre, perdónalos"). Marcos 11:25.`,
+    comentarios: `Lewis B. Smedes: perdonar es "soltar al prisionero para descubrir que el prisionero eras tú". El imperativo de Pablo no es sentimental — el "como Dios os perdonó" provee el fundamento objetivo. La incapacidad de perdonar es teológicamente inconsistente con haber recibido el perdón divino. El perdón no niega el daño; lo absorbe sin devolverlo.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     FILIPENSES (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Filipenses_2_7': {
+    linguistico: `"Sino que se despojó a sí mismo, tomando forma de siervo, hecho semejante a los hombres." "Heauton ekenōsen" (ἑαυτὸν ἐκένωσεν): se vació a sí mismo — raíz de "kenōsis" (vacío). No vaciamiento de la naturaleza divina sino de su ejercicio independiente. "Morphēn doulou labōn" (μορφὴν δούλου λαβών): tomando forma de esclavo — el que poseía "morphē Theou" (forma de Dios) toma la forma más baja de la jerarquía social romana.`,
+    historico: `El himno cristológico de Filipenses 2:6-11 es posiblemente uno de los textos más antiguos del NT (~50 d.C.), anterior a las epístolas. Sigue una estructura quiástica: descenso (vv.6-8) y ascenso (vv.9-11). La "kenosis" se convirtió en categoría teológica central en el siglo XIX para explicar la encarnación.`,
+    referencia: `Juan 1:14 ("y el Verbo se hizo carne"). 2 Corintios 8:9 ("siendo rico, se hizo pobre por vosotros"). Isaías 53:2-3 (el siervo sufriente). Hebreos 2:9 ("vemos a Jesús... hecho un poco menor que los ángeles"). Marcos 10:45.`,
+    comentarios: `Hans Urs von Balthasar: la kenosis no es solo la encarnación sino el estilo eterno del amor divino — el Hijo siempre se "vacía" al Padre en la Trinidad. La encarnación revela lo que Dios siempre fue: amor que se da sin reservarse nada. La misma kenosis que define a Cristo define a la Iglesia auténtica.`,
+  },
+
+  'Filipenses_3_14': {
+    linguistico: `"Prosigo al blanco, al premio del supremo llamamiento de Dios en Cristo Jesús." "Kata skopon diōkō" (κατὰ σκοπὸν διώκω): persigo hacia el blanco — "skopon" es el punto donde el corredor fija su mirada. "Brabeia" (βραβεῖον): premio — término de los juegos olímpicos. Pablo usa metáforas deportivas para la vida espiritual.`,
+    historico: `Pablo escribe desde prisión (~60-62 d.C.) a la comunidad que más lo amaba. El contexto inmediato (vv.7-11) lista todo lo que abandonó — su estatus fariseo, su curriculum religioso — para "ganar a Cristo". La imagen del corredor que olvida lo que queda atrás y estira hacia lo que está delante es una de las más poderosas del AT/NT.`,
+    referencia: `1 Corintios 9:24-27 (corred para obtener el premio). Hebreos 12:1-2 (correr con paciencia). 2 Timoteo 4:7 (he acabado la carrera). Lucas 9:62 (el que pone la mano en el arado y mira atrás). Génesis 19:26 (la esposa de Lot).`,
+    comentarios: `Agustín: "nuestro corazón está inquieto hasta que descanse en ti" — el "blanco" de Filipenses 3 es el descanso en Dios después de la carrera. C.S. Lewis: el cristiano no mira hacia atrás al pecado pasado ni se detiene en los logros pasados — ambos son igualmente distractores. El presente siempre apunta al futuro en la escatología cristiana.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 TIMOTEO
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Timoteo_2_5': {
+    linguistico: `"Porque hay un solo Dios, y un solo mediador entre Dios y los hombres, Jesucristo hombre." "Heis gar Theos, heis kai mesitēs" (εἷς γὰρ Θεός, εἷς καὶ μεσίτης): la palabra "mesitēs" (mediador) implica alguien que está en el medio de dos partes — en el derecho romano, el árbitro que podía garantizar un acuerdo. Solo Cristo puede ser "el medio" porque es plenamente Dios y plenamente hombre.`,
+    referencia: `Hebreos 8:6 (Cristo mediador de un mejor pacto). Hebreos 9:15 (mediador del nuevo testamento). Job 9:33 (Job clama por un árbitro entre él y Dios). Gálatas 3:19-20. Juan 14:6 ("yo soy el camino... nadie viene al Padre sino por mí"). 1 Juan 2:1.`,
+    comentarios: `La afirmación de un solo mediador tiene consecuencias cristológicas y ecuménicas. En el debate católico-protestante sobre la intercesión de los santos, este texto es central: la mediación de Cristo no excluye la intercesión de creyentes por otros (Rm 15:30), pero sí excluye cualquier mediación salvífica paralela. Atanasio: solo el que es Dios puede dar lo que Dios da; solo el que es hombre puede representar lo que el hombre necesita.`,
+  },
+
+  '1 Timoteo_6_12': {
+    linguistico: `"Pelea la buena batalla de la fe, echa mano de la vida eterna." "Agōnizou ton kalon agōna tēs pisteōs" (ἀγωνίζου τὸν καλὸν ἀγῶνα τῆς πίστεως): pelea la buena lucha de la fe — "agōn" es el certamen atlético o la batalla. "Epilabou" (ἐπιλαβοῦ): echa mano de, agarra — la vida eterna es algo que se alcanza activamente, no solo se recibe pasivamente.`,
+    referencia: `2 Timoteo 4:7 ("he peleado la buena batalla"). Efesios 6:10-18 (la armadura de Dios). 1 Corintios 9:25-27. Hebreos 12:1 (correr con paciencia). Santiago 1:3-4 (la prueba de la fe produce paciencia). Juan 10:10 ("vine para que tengan vida").`,
+    comentarios: `El "agōn" de la fe en Pablo no es batallas contra adversarios externos sino la lucha interior de la fidelidad sostenida. Kierkegaard: la fe no es un estado sino una acción; no es posesión sino repetición — cada mañana hay que "echar mano" de nuevo. La vida eterna no es solo destino futuro sino calidad de vida presente que hay que apropiarse activamente.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 TESALONICENSES
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Tesalonicenses_3_3': {
+    linguistico: `"Pero fiel es el Señor, que os afirmará y guardará del mal." "Pistos de estin ho Kyrios" (πιστός δέ ἐστιν ὁ Κύριος): fiel es el Señor — "pistos" (fiel) es la misma raíz de "pisteúō" (creer). La fidelidad de Dios es el fundamento de la fe humana: creemos porque él es confiable. "Stērixei" (στηρίξει): afirmará, pondrá firme.`,
+    referencia: `1 Corintios 10:13 ("fiel es Dios, que no os dejará ser tentados más de lo que podéis resistir"). Números 23:19 (Dios no miente ni se arrepiente). Hebreos 10:23 ("fiel es el que prometió"). Lamentaciones 3:22-23 (nuevas cada mañana son sus misericordias). Apocalipsis 19:11 (Cristo llamado "Fiel y Verdadero").`,
+    comentarios: `La fidelidad divina ("emet" en hebreo, "pistos" en griego) es el atributo más invocado en la oración bíblica — más que la omnipotencia. Quien ora no invoca el poder de Dios sino su fidelidad: "has prometido y eres fiel". Charles Spurgeon: la fidelidad de Dios es la almohada sobre la que descansa el creyente en la noche de la incertidumbre.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 PEDRO
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Pedro_1_4': {
+    linguistico: `"Por medio de las cuales nos ha dado preciosas y grandísimas promesas, para que por ellas llegaseis a ser participantes de la naturaleza divina." "Theias koinōnoi physeōs" (θείας κοινωνοὶ φύσεως): participantes de la naturaleza divina — "koinōnos" (participante, compartidor). No fusión de naturalezas (panteísmo) sino participación real en la vida divina, lo que los teólogos orientales llaman "theosis".`,
+    historico: `La doctrina de la "theosis" o divinización fue central en la teología oriental (Atanasio: "Dios se hizo hombre para que el hombre llegara a ser Dios"). En occidente fue minimizada, pero 2 Pedro 1:4 es su base bíblica más explícita. C.S. Lewis en "Mero Cristianismo" la recupera en el capítulo "Más allá de la personalidad".`,
+    referencia: `1 Juan 3:2 ("seremos semejantes a él"). Romanos 8:29 (predestinados para ser conformes a la imagen de su Hijo). 2 Corintios 3:18 (transformados de gloria en gloria). Juan 17:21-23 (que sean uno como nosotros somos uno). Génesis 1:26.`,
+    comentarios: `Agustín: "nos hiciste para ti, y nuestro corazón está inquieto hasta que descanse en ti" — la "participación en la naturaleza divina" es el destino final del ser humano. Lewis: si el Evangelio es verdad, la humanidad está siendo invitada a participar en la vida trinitaria — algo incomparablemente mayor que cualquier "mejoramiento moral".`,
+  },
+
+  '2 Pedro_3_9': {
+    linguistico: `"El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento." "Mē boulomenos tinas apolesthai" (μὴ βουλόμενος τινὰς ἀπολέσθαι): no queriendo que ninguno perezca — "boulomenos" expresa la voluntad deliberada, el deseo profundo. La paciencia de Dios tiene propósito salvífico.`,
+    referencia: `1 Timoteo 2:4 ("quiere que todos los hombres sean salvos y vengan al conocimiento de la verdad"). Ezequiel 18:23 ("¿quiero yo la muerte del impío?"). Juan 3:16. Lamentaciones 3:33 ("no aflige ni entristece voluntariamente a los hijos de los hombres"). Romanos 2:4.`,
+    comentarios: `Este texto es central en el debate entre calvinismo y arminianismo sobre la "voluntad salvífica de Dios". Ambas tradiciones lo interpretan diferente, pero coinciden en que la demora del juicio divino tiene propósito misericordioso. Barth: el tiempo que Dios da antes del juicio es gracia — cada día es una nueva invitación.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     FILEMÓN
+  ══════════════════════════════════════════════════════════════ */
+
+  'Filemón_1_16': {
+    linguistico: `"No ya como esclavo, sino como más que esclavo, como hermano amado... cuánto más para ti, tanto en la carne como en el Señor." "Ouketi hōs doulon" (οὐκέτι ὡς δοῦλον): ya no como esclavo — el "ya no" (ouketi) implica un cambio ontológico, no solo de trato. "Adelphon agapēton" (ἀδελφὸν ἀγαπητόν): hermano amado — el vínculo de fraternidad en Cristo supera la categoría legal de la esclavitud.`,
+    historico: `Onésimo era un esclavo fugitivo de Filemón que encontró a Pablo en prisión y se convirtió. Pablo lo devuelve a su dueño con esta carta — la más breve y personal de sus epístolas. Nunca ordena a Filemón que libere a Onésimo, pero la lógica de la carta hace que la esclavitud sea insostenible en la fraternidad cristiana.`,
+    referencia: `Gálatas 3:28 (no hay esclavo ni libre en Cristo). 1 Corintios 7:21-22 (el esclavo del Señor es libre). Efesios 6:9 (los amos no amenacen a sus siervos). Colosenses 4:1. Génesis 50:20 (lo que fue para mal, Dios lo convirtió en bien).`,
+    comentarios: `John Chrysostom: la carta a Filemón es el modelo de la intercesión pastoral — Pablo no coacciona sino persuade por el amor. Históricamente, algunos argumentan que Filemón liberó a Onésimo, quien luego se convirtió en obispo de Éfeso (Ignacio de Antioquía menciona a un Onésimo obispo). La semilla del abolicionismo está implícita en este breve texto.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     JUDAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Judas_1_3': {
+    linguistico: `"Que contendáis ardientemente por la fe que ha sido una vez dada a los santos." "Epagōnizesthai tē hapax paradotheisē tois hagiois pistei" (ἐπαγωνίζεσθαι τῇ ἅπαξ παραδοθείσῃ τοῖς ἁγίοις πίστει): contender — "epagōnizomai" es el verbo compuesto de lucha. "Hapax" (ἅπαξ): una vez por todas — la fe entregada no puede ser mejorada ni corregida por revelaciones posteriores.`,
+    historico: `Judas, hermano de Santiago y probable hermano de Jesús, escribe contra enseñanzas que pervertían la gracia (v.4). Es el documento más antiguo que usa el término "fe" para referirse al cuerpo doctrinal del evangelio — lo que después se llamará la "regla de fe" o el "canon". La defensa de la ortodoxia tiene raíces apostólicas.`,
+    referencia: `1 Timoteo 6:12 (pelea la buena batalla de la fe). Gálatas 1:6-9 (otra predicación diferente sea anatema). 2 Timoteo 4:2-4 (predica la palabra, en toda estación). Hebreos 13:8 (Jesucristo, el mismo ayer, hoy y siempre). 2 Juan 1:9.`,
+    comentarios: `Judas muestra que la defensa de la verdad doctrinal es acto de amor, no de intolerancia — lo que se protege es "la fe de los santos", el tesoro entregado a la comunidad. Chesterton: el dogma es la democracia de los muertos — dar voto a todas las generaciones anteriores, no solo a las modernas.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 CORINTIOS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Corintios_2_9': {
+    linguistico: `"Cosas que ojo no vio, ni oído oyó, ni han subido en corazón de hombre, son las que Dios ha preparado para los que le aman." Cita libre de Isaías 64:4. "Hētoimas en ho Theos" (ἡτοίμασεν ὁ Θεός): Dios ha preparado — perfecto: ya está hecho, no es promesa futura incierta. Las bendiciones divinas superan toda categoría de experiencia o imaginación humana.`,
+    referencia: `Isaías 64:4 (fuente del texto). Juan 14:2-3 ("voy a preparar lugar para vosotros"). Apocalipsis 21:4-5 (la nueva creación). 2 Corintios 4:17 (el eterno peso de gloria). Romanos 8:18 ("las aflicciones del tiempo presente no son comparables"). 1 Juan 3:2.`,
+    comentarios: `C.S. Lewis en "El Peso de la Gloria": si tomamos en serio este versículo, los placeres que conocemos aquí son solo la sombra, el facsímil de lo que Dios ha preparado. La nostalgia humana por algo que no hemos experimentado — la Sehnsucht de los románticos alemanes — es el eco de ese "país al que pertenecemos". Agustín: nuestros mejores gozos son apenas el alfabeto del idioma de la eternidad.`,
+  },
+
+  '1 Corintios_3_16': {
+    linguistico: `"¿No sabéis que sois templo de Dios, y que el Espíritu de Dios mora en vosotros?" "Naos Theou este" (ναὸς Θεοῦ ἐστε): sois templo de Dios — "naos" es el santuario interior, no el edificio exterior ("hieron"). Aquí el pronombre es plural: la comunidad cristiana como un todo es el templo. En 1 Co 6:19 el cuerpo individual también es templo.`,
+    historico: `Para los corintios educados en la cultura griega y judía, la afirmación de que la comunidad es el templo de Dios era radicalmente nueva. El Templo de Jerusalén era la morada de la Shekiná. Pablo transfiere esa presencia a la comunidad de creyentes — teología con consecuencias éticas inmediatas (v.17: si alguien destruye el templo de Dios, Dios le destruirá).`,
+    referencia: `Juan 2:19-21 (el cuerpo de Jesús como templo). Efesios 2:21-22 (edificio... para morada de Dios en el Espíritu). 2 Corintios 6:16 (somos templo del Dios viviente). 1 Pedro 2:5 (piedras vivas del templo espiritual). Apocalipsis 21:22.`,
+    comentarios: `La "espiritualidad del templo" de Pablo tiene consecuencias éticas directas: cualquier comportamiento que dañe la comunidad atenta contra el templo de Dios. La ética comunitaria no es externa a la doctrina — ES la doctrina aplicada. Lutero: la Iglesia no es el edificio donde se reúnen los creyentes; la Iglesia SON los creyentes reunidos en Cristo.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ROMANOS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Romanos_11_33': {
+    linguistico: `"¡Oh profundidad de las riquezas de la sabiduría y de la ciencia de Dios! ¡Cuán insondables son sus juicios, e inescrutables sus caminos!" "Bathos" (βάθος): profundidad — el mismo término de las "profundidades del mar". "Anexeraunēta" (ἀνεξερεύνητα): insondables, literalmente inrastreables. Pablo concluye el argumento más denso del NT (capítulos 9-11) con un himno de asombro: la mente llega al límite y se rinde a la adoración.`,
+    referencia: `Isaías 55:8-9 ("mis pensamientos no son vuestros pensamientos"). Job 38:4 (¿dónde estabas cuando fundé la tierra?). 1 Corintios 1:25 (la locura de Dios es más sabia que los hombres). Salmo 139:6 (conocimiento maravilloso, alto es). Romanos 11:36.`,
+    comentarios: `Este pasaje muestra que la teología genuina termina en doxología — la mente que ha razonado bien sobre Dios llega no a conclusiones sino a adoración. Tomás de Aquino al final de su vida tuvo una visión y dijo: "Todo lo que he escrito me parece como paja comparado con lo que he visto." La teología es el camino; la contemplación es la meta.`,
+  },
+
+  'Romanos_15_13': {
+    linguistico: `"Y el Dios de esperanza os llene de todo gozo y paz en el creer, para que abundéis en esperanza por el poder del Espíritu Santo." "Ho de Theos tēs elpidos" (ὁ δὲ Θεὸς τῆς ἐλπίδος): el Dios de la esperanza — uno de los nombres divinos más bellos de Pablo. Dios no solo da esperanza sino que su ser es la fuente de la esperanza. "Perisseuein en tē elpidi" (περισσεύειν ἐν τῇ ἐλπίδι): abundar en esperanza — no sobrevivir con esperanza sino rebosar de ella.`,
+    referencia: `Romanos 5:2-5 (la esperanza no avergüenza). Salmo 42:11 (espera en Dios). Hebreos 6:19 (la esperanza como ancla del alma). 1 Pedro 1:3 (nueva vida para una esperanza viva). Lamentaciones 3:24-25. Jeremías 29:11.`,
+    comentarios: `Jürgen Moltmann en "Teología de la Esperanza" (1964): la esperanza cristiana no es optimismo (que todo saldrá bien) sino certeza basada en la resurrección de Cristo. El futuro de Dios ya ha comenzado en la resurrección — la esperanza no es una actitud sino una convicción ontológica. "El Dios de la esperanza" es el nombre de Dios más necesario en el siglo de los totalitarismos.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     HEBREOS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Hebreos_12_1': {
+    linguistico: `"Por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos... corramos con paciencia la carrera que tenemos por delante." "Nephos martyrōn" (νέφος μαρτύρων): nube de testigos — el capítulo 11 lista a los "testigos" (mártires) de la fe. Son "testigos" en doble sentido: han dado testimonio y ven nuestra carrera. "Hypomenēs" (ὑπομονῆς): paciencia, resistencia — el término del atleta de larga distancia.`,
+    historico: `El capítulo 11 de Hebreos ("el salón de la fama de la fe") lista a Abel, Enoc, Noé, Abraham, Isaac, Jacob, José, Moisés, Rahab y muchos más. El capítulo 12 nos coloca como corredores en el mismo estadio donde ellos corrieron — el tiempo bíblico es lineal pero la comunión trasciende el tiempo.`,
+    referencia: `Filipenses 3:12-14 (prosigo al blanco). 2 Timoteo 4:7 (he acabado la carrera). Hebreos 11:1 (la fe de los patriarcas). 1 Corintios 9:24-27 (corred para obtener). Salmo 27:1 (Jehová es mi luz).`,
+    comentarios: `Para el cristiano perseguido, la imagen de la "nube de testigos" es inmensamente consoladora: los que ya corrieron y vencieron son nuestra compañía, no solo modelos distantes. Moltmann: la comunión de los santos no es arqueología religiosa — es la comunidad real en la que vivimos, que incluye a los que ya están "del otro lado".`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     SANTIAGO (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Santiago_4_8': {
+    linguistico: `"Acercaos a Dios, y él se acercará a vosotros." "Engisate tō Theō kai engiei hymin" (ἐγγίσατε τῷ Θεῷ καὶ ἐγγιεῖ ὑμῖν): el imperativo humano ("acercaos") y el futuro divino ("se acercará") — la reciprocidad sin mecanicismo: Dios no está encadenado a nuestra iniciativa, pero responde a ella. El "movimiento" es bidireccional.`,
+    referencia: `Jeremías 29:13 ("me buscaréis y me hallaréis"). Salmo 145:18 ("cercano está Jehová a todos los que le invocan"). Hebreos 4:16 (acerquémonos confiadamente al trono de la gracia). Mateo 7:7-8 (pedid, buscad, llamad). Isaías 55:6 ("buscad a Jehová mientras puede ser hallado").`,
+    comentarios: `La reciprocidad de acercamiento en Santiago tiene raíces en el concepto bíblico de "búsqueda mutua": Dios busca al ser humano (Gn 3:9: "¿dónde estás?") y el ser humano busca a Dios (Sal 27:8). La oración no es monólogo sino encuentro. Thomas à Kempis: "Muchos se preguntan dónde está Dios, pero pocos se preguntan si ellos mismos se han acercado."`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 CORINTIOS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Corintios_4_17': {
+    linguistico: `"Porque esta leve tribulación momentánea produce en nosotros un cada vez más excelente y eterno peso de gloria." "Parautika... elaphron... aionion baros doxēs" (παραυτίκα... ἐλαφρόν... αἰώνιον βάρος δόξης): el contraste es total: momentáneo vs. eterno; leve vs. peso; tribulación vs. gloria. En hebreo, "gloria" (kabod) significa literalmente "peso" — Pablo juega con eso.`,
+    referencia: `Romanos 8:18 ("las aflicciones del tiempo presente no son comparables con la gloria venidera"). 1 Pedro 5:10 (un poco de padecimiento antes de la gloria eterna). Apocalipsis 21:4 (toda lágrima enjugada). Salmo 30:5 ("por la noche durará el lloro"). 1 Corintios 2:9.`,
+    comentarios: `C.S. Lewis en "El Peso de la Gloria" (1941) toma este versículo como punto de partida: si el sufrimiento tiene peso, la gloria tiene un peso infinitamente mayor que lo compensa. El dolor presente es "real pero relativo"; la gloria futura es "real y absoluta". Lewis: "Yo no creo que Dios quiera que nos quedemos sufriendo; quiere que seamos glorificados — y que ese proceso comience aquí."`,
+  },
+
+  '2 Corintios_3_18': {
+    linguistico: `"Por tanto, nosotros todos, mirando a cara descubierta como en un espejo la gloria del Señor, somos transformados de gloria en gloria en la misma imagen." "Metamorphoumetha apo doxēs eis doxan" (μεταμορφούμεθα ἀπὸ δόξης εἰς δόξαν): transformados — presente pasivo: acción continua, recibida, no producida por esfuerzo. "Apo doxēs eis doxan": de gloria en gloria — proceso incremental y ascendente.`,
+    referencia: `Romanos 8:29 (predestinados para ser conformes a la imagen de su Hijo). 2 Pedro 1:4 (participantes de la naturaleza divina). Filipenses 3:21 (transformará el cuerpo de nuestra humillación). 1 Juan 3:2 (seremos semejantes a él). Juan 17:24.`,
+    comentarios: `La transformación "de gloria en gloria" describe el proceso de santificación como contemplación: mirando al Señor, nos parecemos a él — como quien pasa mucho tiempo con alguien y adopta sus maneras. Thomas à Kempis: "De qué sirve hablar profundamente sobre la Trinidad si careces de humildad?" La contemplación que forma el carácter es superior a la especulación que satisface la curiosidad.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     MARCOS (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Marcos_8_34': {
+    linguistico: `"Si alguno quiere venir en pos de mí, niéguese a sí mismo, y tome su cruz, y sígame." "Aparnēsasthō heauton" (ἀπαρνησάσθω ἑαυτόν): niéguese a sí mismo — el mismo verbo que Pedro usará para negar a Jesús (14:68). Negarse a sí mismo es decir "no sé quién soy" al yo autorreferencial. "Aratō ton stauron" (ἀράτω τὸν σταυρόν): tome su cruz — imperativo, acción deliberada.`,
+    historico: `Para el oyente del siglo I, "tomar la cruz" tenía una imagen concreta: el condenado a muerte llevaba su propio instrumento de ejecución por la calle. Jesús lo convierte en metáfora de la vida cristiana antes de ir él mismo a la cruz — dando al símbolo del fracaso absoluto un significado de seguimiento liberador.`,
+    referencia: `Mateo 10:38 (el que no toma su cruz no es digno de mí). Lucas 9:23 (cada día). Juan 12:24-25 (el grano de trigo que muere, mucho fruto da). Gálatas 2:20 ("con Cristo estoy juntamente crucificado"). Romanos 6:6 (crucificado el viejo hombre).`,
+    comentarios: `Dietrich Bonhoeffer en "El precio de la gracia": "Cuando Cristo llama a un hombre, le invita a venir y morir." La cruz no es el inconveniente de ser cristiano sino su definición. Bonhoeffer escribió esto y luego vivió su propio camino hacia la horca. El seguimiento de Cristo no es una metáfora: tiene consecuencias reales.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 PEDRO (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Pedro_1_18': {
+    linguistico: `"Sabiendo que fuisteis rescatados de vuestra vana manera de vivir, la cual recibisteis de vuestros padres, no con cosas corruptibles, como oro o plata, sino con la sangre preciosa de Cristo, como de un cordero sin mancha y sin contaminación." "Elytrōthēte" (ἐλυτρώθητε): fuisteis rescatados — raíz "lytron" (precio de rescate). El vocabulario es el de la manumisión de esclavos en el mundo romano.`,
+    historico: `La manumisión en Roma requería que alguien pagara el precio de libertad del esclavo. Pedro usa esa metáfora para describir la salvación. La referencia al "cordero sin mancha" conecta con el cordero pascual (Ex 12) y con el siervo sufriente de Isaías 53 — el AT anticipa el precio de la redención.`,
+    referencia: `Éxodo 12:5 (cordero sin defecto). Isaías 53:7 (como oveja al matadero). Apocalipsis 5:9 ("fuiste muerto, y con tu sangre nos has redimido para Dios"). Efesios 1:7 ("en quien tenemos redención por su sangre"). Hebreos 9:12.`,
+    comentarios: `El "precio de rescate" cristiano invierte la lógica del mercado: no fue el esclavo quien pagó su libertad sino el Señor quien pagó por el esclavo. Anselmo de Canterbury desarrolló la "teoría de la satisfacción" basada en este tipo de textos: el honor de Dios requería un pago que solo Dios-hombre podía hacer. Independientemente de la teoría, el texto afirma que la libertad del creyente tiene un costo infinito.`,
+  },
+
   'Apocalipsis_22_20': {
     linguistico: `"El que da testimonio de estas cosas dice: 'Sí, vengo en breve.' Amén; sí, ven, Señor Jesús." "Erchomai tachy" (ἔρχομαι ταχύ): vengo pronto/rápido — "tachy" implica certeza e inmediatez cuando llegue, no necesariamente que sea en el próximo siglo. La respuesta "Amén; ven, Señor Jesús" es la plegaria más antigua de la iglesia (en arameo: Maranatha, 1 Co 16:22).`,
     historico: `El Apocalipsis cierra el canon bíblico con esta oración. La frase "Maranatha" (Señor, ven) era probablemente parte de la liturgia eucarística de las primeras comunidades (Didaché, ca. 100 d.C.), convirtiendo cada comunión en una anticipación del regreso de Cristo.`,
