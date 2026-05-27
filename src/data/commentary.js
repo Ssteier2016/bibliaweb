@@ -2498,4 +2498,322 @@ export const COMMENTARY = {
     referencia: `Salmos 90:4. Eclesiástes 3:11 ("todo lo hizo hermoso en su tiempo... puso eternidad en el corazón de ellos"). Romanos 8:18. Apocalipsis 20:2-7 (el "milenio").`,
   },
 
+
+  /* ══════════════════════════════════════════════════════════════
+     2 SAMUEL
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Samuel_11_2': {
+    linguistico: `"Levantándose David de su lecho, se paseó sobre el terrado." El techo plano (gag) era el espacio privado por excelencia — el mismo donde Eliseo hospedaba a la sunamita y Pedro oraba. El verbo "se paseó" (hit-hallek) es frecuentativo: caminaba de un lado a otro, inquieto, incapaz de dormir. "Y vio desde el terrado a una mujer que se estaba bañando" — el texto no culpa a Betsabé; el énfasis moral recae sobre el que mira y actúa.`,
+    historico: `El relato ocurre "cuando los reyes salen a la guerra" — y David no salió (2 Sm 11:1). La narrativa sitúa el pecado en la ociosidad del poder. El profeta Natán confronta al rey con la parábola del cordero (2 Sm 12:1-7), técnica de acusación indirecta habitual en la antigüedad oriental para hablar verdad al poder sin exponerse a represalia inmediata.`,
+    comentarios: `El Salmo 51 es la oración de David tras este episodio ("contra ti, contra ti solo he pecado"). Dostoievski citó este texto como ejemplo de que la grandeza moral no protege del pecado más bajo — la misma persona puede escribir los Salmos y cometer adulterio y homicidio. La honestidad del texto bíblico al no ocultar los fallos de sus héroes es un argumento histórico de su autenticidad.`,
+    referencia: `Salmos 51:1-4. 2 Samuel 12:7 ("tú eres aquel hombre"). Números 32:23 ("tened por cierto que vuestro pecado os alcanzará"). Santiago 1:14-15.`,
+  },
+
+  '2 Samuel_22_3': {
+    linguistico: `"Dios mío, roca mía" — el capítulo 22 es casi idéntico al Salmo 18, probablemente versión del mismo poema en tradiciones distintas. Los títulos de Dios acumulados: roca (sela), fortaleza (metsudah), libertador (mefalti), escudo (magen), cuerno de salvación (qeren yish'i), alto refugio (misgab). Siete imágenes militares en un versículo — vocabulario del hombre de guerra que convierte su experiencia bélica en teología.`,
+    historico: `Este cántico celebra la victoria de David sobre sus enemigos, incluyendo a Saúl. "Cuerno de salvación": en el mundo antiguo los cuernos del altar eran el lugar de refugio legal — quien los tomaba obtenía asilo temporal (1 R 1:50). La imagen une poder militar (cuerno del toro) con santuario sagrado.`,
+    referencia: `Salmos 18:2. Lucas 1:69 ("cuerno de salvación en la casa de David" — el ángel a María). Deuteronomio 32:4 ("él es la Roca, cuya obra es perfecta"). 1 Corintios 10:4.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ZACARÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Zacarías_9_9': {
+    linguistico: `"Tu rey vendrá a ti... humilde, montado sobre un asno." "Humilde" (ani, עָנִי): pobre, afligido, manso — el rey mesiánico contrasta con los reyes de guerra que llegaban a caballo. El asno (chamor) era montura real en tiempo de paz (Gn 49:11; Jue 10:4) — símbolo de gobierno pacífico. "Justo y victorioso" (tsaddiq ve-nosha): el participio nosha es pasivo — "salvado/liberado por Dios", no por su propio poder. Es rey que recibe la victoria de lo alto.`,
+    tipologia: `El cumplimiento en la entrada triunfal (Mt 21:1-9; Jn 12:14-15) es de los más explícitos del NT: Juan cita el versículo directamente. El contraste es deliberado: Jesús entra en Jerusalén cinco días antes de la Pascua, cuando peregrinos de toda Judea entraban también — el momento de máxima visibilidad, pero en asno, no en caballo de guerra.`,
+    geografico: `El Monte de los Olivos — desde donde inicia la entrada — era el lugar donde Zacarías profetizaba que el Mesías pisaría (Zac 14:4). Los peregrinos que venían de Jericó subían precisamente por esa ruta. La geografía del evento no es casual: cada metro del trayecto cumplía expectativa profética conocida por el público.`,
+    referencia: `Mateo 21:1-9. Juan 12:14-15. Génesis 49:11 (Judá ata su asno a la vid). Lucas 19:38 ("¡Bendito el rey que viene en el nombre del Señor!"). Apocalipsis 19:11 (el caballo blanco del Cristo victorioso — contraste con el asno humilde).`,
+  },
+
+  'Zacarías_12_10': {
+    linguistico: `"Mirarán a mí, a quien traspasaron" — el texto masorético dice literalmente "mirarán a MÍ a quien ellos traspasaron" (we-hibitu elay et asher-daqaru): Dios habla en primera persona y dice que le traspasaron a ÉL. Juan 19:37 cita este versículo al describir la lanzada en el costado de Jesús: el que es traspasado es YHWH encarnado. El verbo dakar (דָּקַר) = atravesar, traspasar con instrumento punzante.`,
+    tipologia: `Es una de las profecías más asombrosas del AT: YHWH describe su propio traspasamiento y el duelo que seguirá. Juan lo aplica a la crucifixión de forma explícita (Jn 19:37). Apocalipsis 1:7 lo cita en contexto de la segunda venida: "todo ojo le verá, y los que le traspasaron". La primera lectura es histórica (Israel ante el Mesías crucificado), la segunda escatológica.`,
+    referencia: `Juan 19:34-37. Apocalipsis 1:7. Zacarías 13:1 ("habrá una fuente abierta para la casa de David"). Isaías 53:5 ("por sus heridas somos sanados"). Lucas 2:35 ("una espada atravesará tu misma alma").`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     MIQUEAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Miqueas_5_2': {
+    linguistico: `"Belén Efrata, pequeña para estar entre los millares de Judá" — Efrata distingue esta Belén (hay otra en Zabulón) y recuerda el sepulcro de Raquel (Gn 35:19). "De ti saldrá el que será Señor en Israel, y cuyos orígenes son desde los tiempos antiguos, desde los días de la eternidad" (miqqedem mimey olam): olam indica eternidad absoluta, no solo antigüedad. El gobernante que nace en Belén tiene origen eterno — paradoja deliberada.`,
+    tipologia: `Los sacerdotes y escribas citan este versículo a Herodes sin dudar (Mt 2:5-6): era la profecía mesiánica de lugar de nacimiento más conocida del judaísmo del siglo I. El Evangelio de Juan registra debate entre los que conocen Belén (Jn 7:42) y los que creen que Jesús es galileo — la profecía era conocida pero muchos ignoraban el dato del nacimiento en Belén.`,
+    historico: `Miqueas profetizó ca. 740-700 a.C., contemporáneo de Isaías y Oseas. Belén era una aldea insignificante de la tribu de Judá — su importancia residía solo en ser ciudad de David (1 Sm 17:12). La elección profética del lugar más humilde de Judá para el nacimiento del Mesías sigue la lógica bíblica de Dios que elige lo débil para avergonzar lo fuerte (1 Co 1:27).`,
+    referencia: `Mateo 2:5-6. Juan 7:42. Lucas 2:4-7. Rut 4:11 (Belén como ciudad de Raquel y Lea). 1 Samuel 17:12 (David nació en Belén). Miqueas 5:4-5.`,
+  },
+
+  'Miqueas_6_8': {
+    linguistico: `"¿Qué pide el Señor de ti sino solo hacer justicia, amar misericordia, y humillarte ante tu Dios?" Tres términos técnicos: mishpat (מִשְׁפָּט) = justicia en el sentido de dar a cada uno lo suyo; chesed (חֶסֶד) = fidelidad amorosa, lealtad de pacto — la palabra más rica del AT para el amor divino; hatsnea (צְנָעָה) = caminar con discreción, humildad concreta en la vida cotidiana. El versículo comprime toda la ética del AT en tres sustantivos.`,
+    historico: `El contexto es un "juicio" (rib) divino: Dios lleva a Israel a juicio usando los montes y colinas como testigos (6:1-2). Israel pregunta qué ofrecer — holocaustos, millares de carneros, aceite en ríos, el primogénito (6:6-7). Dios responde con estos tres verbos: no ritos sino relación. La inversión profética es radical: la religión no sustituye la ética.`,
+    referencia: `Amós 5:24 ("corra el juicio como las aguas"). Oseas 6:6 ("misericordia quiero y no sacrificio"). Mateo 23:23 (Jesús cita justicia, misericordia y fe como "lo más importante de la ley"). Deuteronomio 10:12.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     MALAQUÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Malaquías_3_1': {
+    linguistico: `"He aquí yo envío a mi mensajero, y él preparará el camino delante de mí." Tres identificaciones: "mi mensajero" (mal'aki) — el ángel precursor; "el Señor" que vendrá a su templo; "el ángel del pacto" (malak habberit) — el Mesías mismo. Los tres pueden ser el mismo o sucesivos. El NT identifica al "mensajero" con Juan el Bautista (Mt 11:10; Mc 1:2-3; Lc 7:27), citando este versículo fundido con Isaías 40:3.`,
+    tipologia: `"El Señor vendrá súbitamente a su templo" — Juan en el templo (Jn 2:13-16) y la purificación son cumplimiento implícito. Más importante: Malaquías es el último profeta del AT; el siguiente hablante profético en la cronología canónica es Juan el Bautista, 400 años después. El silencio entre ambos es el período intertestamentario.`,
+    historico: `Malaquías profetizó ca. 450-430 a.C., después de la reconstrucción del templo bajo Zorobabel. El problema ya no es el exilio sino la tibieza religiosa: sacerdotes que ofrecen animales defectuosos, hombres que repudian a sus esposas para casarse con extranjeras, diezmos retenidos. La promesa del mensajero es también advertencia: la venida de YHWH será purificadora, no meramente gloriosa.`,
+    referencia: `Mateo 11:10. Marcos 1:2-3. Lucas 1:17 ("irá delante de él con el espíritu y poder de Elías"). Malaquías 4:5. Isaías 40:3.`,
+  },
+
+  'Malaquías_4_5': {
+    linguistico: `"He aquí os envío al profeta Elías, antes que venga el día grande y terrible del Señor." Este versículo cerró el canon hebreo durante siglos — el último libro del AT termina con una promesa/amenaza y el nombre de Elías. La tradición judía dejaba una silla vacía para Elías en el Séder de Pascua y en las circuncisiones. El NT responde con Juan el Bautista como "Elías que había de venir" (Mt 11:14; 17:12), cumplimiento en espíritu y poder (Lc 1:17), no reencarnación literal.`,
+    tipologia: `El cierre del AT con "Elías vendrá" y la apertura del NT con Juan el Bautista "en el espíritu de Elías" (Lc 1:17) es la bisagra teológica entre los dos testamentos. El "día grande y terrible" (yom gadol ve-nora) conecta con la escatología del Día del Señor que recorre todo el AT profético desde Amós.`,
+    referencia: `Mateo 11:14 ("él es el Elías que había de venir"). Marcos 9:12-13. Lucas 1:17. Apocalipsis 11:3-6 (los dos testigos con poderes de Elías y Moisés).`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     JOEL
+  ══════════════════════════════════════════════════════════════ */
+
+  'Joel_2_28': {
+    linguistico: `"Derramaré mi Espíritu sobre toda carne." "Derramar" (shafak): verbo del vaciado total de un recipiente — imagen de abundancia sin restricción. "Toda carne" (kol basar): expresión universalista que incluye ancianos, jóvenes, siervos y siervas — sin distinción de edad, clase o género. Las cuatro categorías sociales cubren toda la pirámide humana: la profecía democratiza el don del Espíritu que en el AT era selectivo (reyes, profetas, jueces).`,
+    tipologia: `Pedro cita este versículo en Pentecostés (Hch 2:16-21) como cumplimiento inmediato del fenómeno del Espíritu Santo. "Esto es lo dicho por el profeta Joel" — la primera interpretación apostólica de un texto profético veterotestamentario. Pablo en Gálatas 3:28 aplica el principio universalista: "ya no hay judío ni griego, esclavo ni libre, varón ni mujer".`,
+    historico: `Joel profetizó probablemente siglo IX a.C. (reinado de Joás) o en el período postexílico — el debate permanece abierto porque el libro no menciona rey. El contexto inmediato es una plaga de langostas devastadora que sirve de imagen del "Día del Señor" venidero. La promesa del Espíritu viene como respuesta al arrepentimiento colectivo descrito en los versículos previos.`,
+    referencia: `Hechos 2:16-21. Isaías 44:3 ("derramaré aguas sobre el sediento"). Ezequiel 36:27 ("pondré mi Espíritu dentro de vosotros"). Números 11:29 ("¡ojalá todo el pueblo del Señor fuese profeta!").`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     LAMENTACIONES
+  ══════════════════════════════════════════════════════════════ */
+
+  'Lamentaciones_3_22': {
+    linguistico: `"Por la misericordia de Jehová no hemos sido consumidos, porque nunca decayeron sus misericordias." "Misericordias" (chasdey YHWH, חַסְדֵּי יְהוָה): plural de chesed — fidelidades amorosas del pacto. "Nuevas son cada mañana" (chadashim la-bqarim): el adjetivo chadash (nuevo, fresco) se usa para la luna nueva y el vino recién hecho — la misericordia de Dios no es residuo de ayer sino producción fresca cada amanecer. "Grande es tu fidelidad" (rabbah emunateka): emunah = solidez, confiabilidad estructural.`,
+    historico: `El libro de Lamentaciones fue escrito en medio de la destrucción de Jerusalén por Babilonia (586 a.C.). Los cinco poemas son acrósticos hebreos — estructura que contrasta con el caos descrito: la destrucción total se vierte en forma perfectamente ordenada. El capítulo 3 es el corazón del libro: en el punto de máxima desesperación surge esta declaración de confianza. El contexto hace el versículo aún más impactante: todo ha sido destruido, y sin embargo la fidelidad de Dios es "grande".`,
+    referencia: `Salmos 30:5 ("por la noche durará el lloro, y a la mañana vendrá la alegría"). Deuteronomio 32:4 ("todo justo y recto es él, fiel y sin ninguna iniquidad"). Isaías 40:28. Romanos 8:38-39.`,
+    comentarios: `Este versículo es la base del himno "Grande es tu fidelidad" (Great is Thy Faithfulness, Thomas Chisholm, 1923), escrito no desde un momento de triunfo sino desde la reflexión cotidiana sobre la bondad sostenida de Dios. La paradoja de Lamentaciones: el género literario es el llanto, pero en su centro hay alabanza — la fe no requiere ausencia de dolor para expresarse.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     HAGEO
+  ══════════════════════════════════════════════════════════════ */
+
+  'Hageo_2_7': {
+    linguistico: `"Haré temblar a todas las naciones, y vendrá el Deseado de todas las naciones" — la traducción "Deseado" (chemdat, חֶמְדַּת) es debatida. Chemdat es singular colectivo que puede significar "lo precioso/deseable de las naciones" — sus tesoros — o ser título mesiánico. La LXX traduce "electa de todas las naciones". La Vulgata: "veniet Desideratus cunctis gentibus" — la tradición mesiánica directa que adoptó la Iglesia.`,
+    historico: `Hageo profetizó en 520 a.C., durante la reconstrucción del segundo templo bajo Zorobabel. Los ancianos lloraban comparando el nuevo edificio con la gloria del primero (v.3). Dios responde: la gloria postrera de esta casa será mayor que la primera (v.9) — promesa cumplida si el segundo templo sería el lugar donde Jesús enseñó y fue presentado como niño.`,
+    referencia: `Lucas 2:22-32 (presentación de Jesús en el templo). Malaquías 3:1 ("vendrá el Señor a su templo"). Juan 2:19-21 (el verdadero templo es su cuerpo). Hebreos 12:26-27 (cita de Hageo 2:6 en contexto escatológico).`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     SOFONÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Sofonías_3_17': {
+    linguistico: `"El Señor tu Dios está en medio de ti, poderoso, él salvará; se gozará sobre ti con alegría, callará de amor, se regocijará sobre ti con cánticos." Secuencia emocional divina extraordinaria: gibbor (guerrero poderoso que salva), yasos (se alegrará con júbilo), yachariesh (callará — literalmente "enmudecerá de amor", como quien está tan lleno que no puede hablar), yagil (se regocijará con gritos de alegría). Dios pasa de guerrero a amante silencioso a cantante jubiloso — tres dimensiones de amor paternal.`,
+    historico: `Sofonías profetizó ca. 630 a.C. bajo el rey Josías, en el contexto de la reforma religiosa que precedió a la destrucción de Jerusalén. El libro comienza con uno de los textos de juicio más severos del AT ("consumiré todas las cosas de sobre la faz de la tierra") y termina con este cuadro de ternura radical. La inversión de tono entre capítulo 1 y 3 ilustra la doble naturaleza del Dios bíblico: santo que juzga y padre que canta.`,
+    referencia: `Deuteronomio 30:9 ("el Señor se gozará sobre ti para bien"). Isaías 62:5 ("como el gozo del esposo con la esposa"). Lucas 15:24 (el padre que corre y celebra). Isaías 65:19.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     NEHEMÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Nehemías_4_6': {
+    historico: `La reconstrucción del muro de Jerusalén en 52 días (445 a.C.) bajo Nehemías es uno de los logros organizacionales más notables de la antigüedad. El capítulo 3 asigna cada sección del muro a su comunidad adyacente: cada familia reparaba el tramo frente a su casa. Arqueología del siglo XX confirmó que el muro reconstruido era considerablemente más estrecho que el destruido — se priorizó velocidad sobre grosor.`,
+    costumbres: `"Tenía el pueblo corazón para trabajar" — literalmente "el pueblo tuvo un corazón para hacer". La oposición de Sanbalat y Tobías usaba dos estrategias: el ridículo ("si una zorra sube se derribará su muro", 4:3) y la amenaza militar. Nehemías respondió con oración, vigilancia permanente y trabajo en turnos — mitad construía mientras la otra mitad sostenía lanzas.`,
+    referencia: `Nehemías 6:15 ("el muro fue terminado en 52 días"). Nehemías 4:14 ("acordaos del Señor, grande y terrible"). Salmos 127:1 ("si el Señor no edifica la casa, en vano trabajan los que la edifican"). 1 Corintios 3:9.`,
+  },
+
+  'Nehemías_8_8': {
+    costumbres: `"Leían en el libro de la ley de Dios claramente, y ponían el sentido, de modo que entendiesen la lectura." Esta escena (445 a.C.) es el primer registro de lectura pública de la Torah con traducción e interpretación. Los levitas "ponían el sentido" (meforash): posiblemente traduciendo del hebreo al arameo (targum oral), ya que el pueblo había olvidado el hebreo durante el exilio babilónico.`,
+    historico: `El evento de Nehemías 8 es el origen histórico de la sinagoga y de la homilía: reunión pública, lectura de la Torah, traducción comprensible, aplicación práctica. El pueblo estaba en pie "desde el alba hasta el mediodía" — seis horas de atención a la lectura. La respuesta fue llanto de compunción y luego gozo ("el gozo del Señor es vuestra fuerza", 8:10).`,
+    referencia: `Deuteronomio 31:11 ("leerás esta ley delante de todo Israel"). Lucas 4:16-20 (Jesús lee en la sinagoga de Nazaret — el mismo modelo). Hechos 15:21 ("Moisés tiene en cada ciudad quien lo predique"). 2 Timoteo 3:16-17.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ESTER
+  ══════════════════════════════════════════════════════════════ */
+
+  'Ester_4_14': {
+    historico: `El libro de Ester es el único del canon hebreo que no menciona el nombre de Dios — pero su ausencia es teológicamente elocuente: Dios actúa detrás de cada coincidencia (la hermosura de Ester, el insomnio del rey, el momento exacto de la intervención). El Imperio Persa bajo Asuero (Jerjes I, 486-465 a.C.) es el contexto histórico: la corte de Susa, confirmada arqueológicamente en las excavaciones de Marcel Dieulafoy (1884-86).`,
+    linguistico: `"¿Quién sabe si para esta hora has llegado al reino?" La pregunta de Mardoqueo no afirma certeza — usa el optativo hebreo mi yodea ("quién sabe"). Es una invitación a la fe sin garantías. "Espacio y liberación vendrán de alguna otra parte" — Mardoqueo confía en que la providencia actuará con o sin Ester; la pregunta es si Ester querrá ser el instrumento o perderse el honor de serlo.`,
+    referencia: `Romanos 8:28 ("todas las cosas les ayudan a bien"). Proverbios 21:1 ("el corazón del rey está en manos del Señor"). Génesis 50:20 ("vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien"). Lucas 12:12.`,
+    comentarios: `Martín Lutero cuestionó la canonicidad de Ester precisamente por la ausencia del nombre de Dios. Pero la tradición patrística y rabínica la leyó como modelo de providencia oculta — Dios que actúa sin anunciarse. Dietrich Bonhoeffer desarrolló en la prisión nazi el concepto de "el Dios que actúa en el mundo sin ser visto" basándose parcialmente en este texto.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     SALMOS (adicionales)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Salmos_23_1': {
+    linguistico: `"El Señor es mi pastor" — seis palabras en hebreo: YHWH ro'i (יְהוָה רֹעִי). "Pastor" (ro'eh): el mismo participio que designa el oficio de David antes de ser rey. El salmo usa vocabulario técnico del pastoreo: "no me faltará nada" (lo echsar) = el rebaño está completo, no falta ningún animal. "Aguas de reposo" (mey menuchot): literalmente "aguas de quietud" — los pastores buscaban agua que no corriese fuerte para que las ovejas bebieran sin miedo.`,
+    costumbres: `El pastor palestino no conducía el rebaño desde atrás (como en Occidente) sino que caminaba adelante y el rebaño lo seguía conociendo su voz (Jn 10:4). "Vara y cayado" (shevet ve-mish'en): distintos objetos con funciones distintas — la vara (shevet) era para defender de depredadores; el cayado (mish'en) para guiar y rescatar ovejas atrapadas. "Me consuelan" (yenachamuni): literalmente me-hacen-respirar, me-alivian — la presencia del pastor es fuente de paz.`,
+    historico: `El Salmo 23 es probablemente el texto bíblico más memorizado y citado en todas las culturas. Arqueológicamente, el "valle de sombra de muerte" (tsalmavet, צַלְמָוֶת) puede referirse a los wadis (barrancos) profundos del desierto de Judea donde los pastores guiaban sus rebaños — lugares realmente peligrosos con depredadores.`,
+    referencia: `Juan 10:11 ("yo soy el buen pastor"). Isaías 40:11 ("como pastor apacentará su rebaño"). Ezequiel 34:11-15. Apocalipsis 7:17 ("el Cordero los pastoreará"). Lucas 15:4-6.`,
+    comentarios: `Spurgeon: este es "el Psalm of the Shepherd, sung by the shepherd". C.S. Lewis señaló que la paradoja del versículo 5 — "preparas mesa en presencia de mis angustiadores" — invierte la narrativa de la víctima: el perseguido banquetea frente a quienes lo acechan, transformando la humillación en triunfo.`,
+  },
+
+  'Salmos_46_1': {
+    linguistico: `"Dios es nuestro refugio y fortaleza, nuestro pronto auxilio en las tribulaciones." "Refugio" (machseh, מַחְסֶה): del verbo chaseh, confiar/buscar refugio — el mismo verbo que usa el Salmo 2:12 y que aparece en la fórmula "dichosos los que en él confían". "Fortaleza" (oz): poder, potencia. "Pronto auxilio" (ezrah venimtsa meod): literalmente "ayuda encontrada/probada abundantemente" — no promesa abstracta sino confianza en ayuda ya experimentada.`,
+    historico: `La tradición asocia el Salmo 46 con la liberación de Jerusalén cuando el ángel del Señor destruyó al ejército asirio de Senaquerib en una noche (2 R 19:35, 701 a.C.). Martín Lutero se inspiró en este salmo para escribir "Castillo fuerte es nuestro Dios" (Ein feste Burg, 1529), el himno de la Reforma. La ciudad de Dios que "no será conmovida" es la Sión indestructible.`,
+    referencia: `2 Reyes 19:35. Mateo 7:24-25 (la casa sobre la roca). Romanos 8:31 ("si Dios es por nosotros, ¿quién contra nosotros?"). Deuteronomio 33:27 ("el Dios eterno es tu refugio").`,
+  },
+
+  'Salmos_139_13': {
+    linguistico: `"Tú formaste mis entrañas" (kilyotai, כִּלְיֹתַי): riñones — en hebreo bíblico el centro de las emociones y los pensamientos más profundos (cf. "escudriña riñones y corazón", Sal 7:9). "Me tejiste en el vientre de mi madre" (tesukeni): tejiste, entrelazaste — metáfora del tejido artesanal aplicada al proceso de gestación. El verbo sugeriere proceso activo y artístico, no mecánico.`,
+    cientifico: `La formación embrionaria fue un misterio total hasta el siglo XVII (Van Leeuwenhoek descubrió los espermatozoides en 1677). El salmo describe el proceso de gestación como obra directa de Dios, no por eso menos real: "mis huesos no te fueron desconocidos, cuando en lo más recóndito era yo formado" (v.15). La neurociencia moderna ha documentado que el cerebro fetal desarrolla sinapsis ya en la semana 27 — la persona emerge dentro del vientre.`,
+    referencia: `Jeremías 1:5 ("antes que te formase en el vientre te conocí"). Job 10:8-12. Lucas 1:44 ("el bebé saltó de alegría en mi vientre"). Isaías 44:2 ("el que te formó desde el vientre").`,
+    comentarios: `El pasaje es ampliamente citado en el debate bioético sobre el inicio de la persona. Lo que el texto afirma teológicamente es la continuidad de la identidad personal desde antes del nacimiento: el "yo" del salmista adulto es el mismo que Dios conocía en el vientre. Esa continuidad de identidad es el argumento fundamental del texto.`,
+  },
+
+  'Salmos_91_11': {
+    linguistico: `"Pues a sus ángeles mandará acerca de ti, que te guarden en todos tus caminos." El versículo fue citado por Satanás a Jesús en la tercera tentación (Mt 4:6; Lc 4:10-11) — prueba de que la Escritura puede ser usada fuera de contexto para justificar presunción. En el Salmo, la promesa es de protección para quien habita "al abrigo del Altísimo" (v.1) — no una garantía incondicional de invulnerabilidad sino el cuidado providencial de quien vive en relación con Dios.`,
+    historico: `El Salmo 91 era en el judaísmo del siglo I un texto usado como amuleto protector. Se copiaba en pergaminos para llevarlos en el cuerpo o colgarse en puertas. Los manuscritos de Qumrán incluyen copias del Salmo 91 en contexto de exorcismo (11Q11). La respuesta de Jesús a Satanás ("no tentarás al Señor tu Dios") distingue entre confianza en Dios y presunción que lo pone a prueba.`,
+    referencia: `Mateo 4:6. Lucas 4:10-11. Hebreos 1:14 ("ángeles, espíritus ministradores enviados para servicio"). 2 Reyes 6:16-17 (los ángeles que rodean a Eliseo). Daniel 6:22.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     PROVERBIOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Proverbios_4_23': {
+    linguistico: `"Sobre toda cosa guardada, guarda tu corazón, porque de él mana la vida." "Sobre toda cosa guardada" (mikol-mishmar, מִכׇּל-מִשְׁמָר): "más que cualquier custodia" — superlativo de prioridad. "Guarda" (natzor): guardia activa y permanente. "De él mana la vida" (ki-mimenu totsaot chayyim): totsaot = salidas, fuentes, manantiales. El corazón-lev (sede de la voluntad e inteligencia) es la fuente de la que brotan todos los comportamientos visibles.`,
+    referencia: `Marcos 7:21-23 ("del corazón de los hombres salen los malos pensamientos"). Mateo 15:18-19. Lucas 6:45 ("de la abundancia del corazón habla la boca"). Ezequiel 36:26.`,
+    comentarios: `Agustín en las Confesiones: "nuestro corazón está inquieto hasta que descanse en ti" — el guardarlo no es supresión de deseos sino reorientación de ellos hacia su destino correcto. Pascal: el corazón tiene razones que la razón no conoce — por eso su custodia no puede ser solo intelectual.`,
+  },
+
+  'Proverbios_11_1': {
+    linguistico: `"La balanza falsa es abominación al Señor, pero el peso exacto le agrada." "Abominación" (to'evah, תּוֹעֵבָה): el término más fuerte de repudio moral en el AT — usado para la idolatría, la injusticia sexual y, aquí, para el fraude comercial. La colocación del comercio deshonesto en la misma categoría que la idolatría es intencional: engañar con pesos es tratar a la persona como objeto.`,
+    costumbres: `Las balanzas del Antiguo Oriente usaban pesas de piedra o metal que el mercader llevaba en una bolsa. Tener "pesa grande y pesa chica" (Dt 25:13) — una para comprar y otra para vender — era fraude sistemático. Excavaciones en Laquis, Gezer y otros sitios han hallado colecciones de pesas con variaciones deliberadas. La legislación bíblica sobre pesas justas (Lv 19:35-36; Dt 25:13-15) era respuesta a una práctica extendida.`,
+    referencia: `Levítico 19:35-36. Deuteronomio 25:13-15. Amós 8:5 ("achicando la medida y engrandeciendo el siclo"). Miqueas 6:10-11. Lucas 19:8 (Zaqueo restituye cuatro veces lo defraudado).`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     GÁLATAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Gálatas_5_22': {
+    linguistico: `"El fruto del Espíritu" (ho karpos tou pneumatos): singular colectivo — "fruto", no "frutos". Los nueve atributos son un único fruto con nueve expresiones, no nueve logros independientes. La lista contrasta con la anterior (obras de la carne, v.19-21) donde se usa "obras" (erga, plural). El fruto es producción orgánica; las obras son manufactura humana. "Amor, gozo, paz, paciencia, benignidad, bondad, fe, mansedumbre, templanza".`,
+    historico: `La carta a los Gálatas responde a una crisis doctrina: judaizantes exigían la circuncisión como requisito para la plena salvación. Pablo responde con dos principios: la libertad en Cristo (cap. 5) y la vida según el Espíritu (cap. 5-6). El "fruto" es la evidencia natural de la vida nueva — así como el árbol produce fruta según su naturaleza, el cristiano produce estas cualidades cuando está injertado en Cristo.`,
+    referencia: `Juan 15:5 ("yo soy la vid, vosotros los pámpanos"). Romanos 8:9. Efesios 5:9 ("el fruto del Espíritu es en toda bondad, justicia y verdad"). Mateo 7:16 ("por sus frutos los conoceréis").`,
+    comentarios: `C.S. Lewis: estos atributos no son virtudes que practicamos como ejercicios espirituales, sino el carácter natural de la nueva criatura en Cristo. La diferencia entre cultivar virtudes y producir fruto es la diferencia entre un árbol que "hace" manzanas esforzándose y uno que las produce porque es manzano.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     SANTIAGO
+  ══════════════════════════════════════════════════════════════ */
+
+  'Santiago_1_2': {
+    linguistico: `"Tened por sumo gozo cuando os halléis en diversas pruebas." "Sumo gozo" (charan pasan, χαρὰν πᾶσαν): literalmente "alegría toda" — la totalidad de la alegría posible, no un gozo parcial. "Os halléis" (peripesete): caer rodeado, ser envuelto — no es que uno elija las pruebas, sino que de repente se encuentra rodeado por ellas. El imperativo es de perspectiva, no de sentimiento: "considerad, tened por" — no "sientan alegría" sino "interpreten con alegría".`,
+    referencia: `Romanos 5:3-5 ("nos gloriamos en las tribulaciones"). 1 Pedro 1:6-7. 2 Corintios 12:10 ("me gozo en las debilidades"). Hebreos 12:11 ("ninguna disciplina al presente parece ser causa de gozo"). Mateo 5:11-12.`,
+    comentarios: `Viktor Frankl (Man's Search for Meaning), sobreviviente de Auschwitz, llegó a la misma conclusión desde la psicología: el sufrimiento que encuentra significado pierde su poder destructor. Santiago no pide anestesiar el dolor sino resignificar las pruebas como prueba de que hay fe real que puede ser refinada.`,
+  },
+
+  'Santiago_2_17': {
+    linguistico: `"La fe sin obras está muerta." "Muerta" (nekra, νεκρά): no dormida ni enferma, sino cadáver. La polémica con Pablo es más aparente que real: Pablo en Romanos habla de la fe que justifica frente al sistema de méritos; Santiago habla de la fe que demuestra ser real frente a quien dice creer pero no actúa. Pablo mismo dice "la fe que obra por el amor" (Gá 5:6). Martín Lutero, que inicialmente rechazó Santiago como "epístola de paja", reconoció después que ambos autores hablan de etapas distintas: justificación (Pablo) y verificación (Santiago).`,
+    historico: `La carta de Santiago refleja comunidades judeocristianas de la diáspora (antes del 50 d.C.), donde el problema práctico era la discriminación de los pobres en la asamblea (2:1-7) y la generosidad verbal sin acción concreta ("id en paz, calentaos y saciaos", 2:16). Santiago responde con exigencia ética radical enraizada en la ley del amor (2:8).`,
+    referencia: `Mateo 7:21 ("no todo el que me dice Señor entrará en el reino"). Lucas 10:36-37 (el buen samaritano — fe en acción). Hebreos 11 (los héroes de la fe que actuaron). 1 Juan 3:18 ("no amemos de palabra ni de lengua, sino de hecho y en verdad").`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ROMANOS (adicionales)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Romanos_1_20': {
+    linguistico: `"Sus atributos invisibles se hacen claramente visibles desde la creación del mundo, siendo entendidos por medio de las cosas hechas." "Claramente visibles" (kathoratai, καθοράται): ver hacia abajo con claridad — una paradoja: lo invisible se ve claramente. "Atributos invisibles" (ahorata): poder eterno (aidios dynamis) y naturaleza divina (theiotes). "Theiotes" es la única vez que aparece este término en el NT — divinidad como cualidad, no como persona.`,
+    cientifico: `Tomás de Aquino construyó sobre este versículo las "cinco vías" para la existencia de Dios, incluyendo el argumento cosmológico: todo efecto requiere causa, la cadena de causas no puede ser infinita, por lo tanto existe una Primera Causa. La cosmología moderna (Fine-Tuning del universo, las constantes físicas ajustadas para permitir vida) ha renovado el interés en el argumento del diseño que Pablo anticipa: "las cosas hechas" llevan firma de su hacedor.`,
+    referencia: `Salmos 19:1 ("los cielos cuentan la gloria de Dios"). Job 38-39. Hechos 14:17 ("no se dejó sin testimonio"). Hechos 17:26-28 ("en él vivimos, nos movemos y somos"). Hebreos 11:3.`,
+    comentarios: `El versículo establece la base de la teología natural: existe conocimiento de Dios accesible a todos los humanos por la razón. Por eso "no tienen excusa" (v.20b) — no porque Dios sea severo, sino porque la evidencia fue dada universalmente. Karl Barth criticó la teología natural como peligrosa, pero este versículo ha permanecido como fundamento para el diálogo entre fe y ciencia.`,
+  },
+
+  'Romanos_5_8': {
+    linguistico: `"Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros." "Muestra" (synistēsin, συνίστησιν): presenta, exhibe, da a conocer con claridad — presente histórico que convierte el evento pasado de la cruz en demostración permanente. "Siendo aún pecadores" (eti hamartolon onton hemon): el énfasis temporal ("aún", "todavía") es lo decisivo: el amor no esperó la mejora moral — llegó primero.`,
+    historico: `Pablo contrasta (v.7) la conducta humana ordinaria: difícilmente alguien moriría por un justo, quizás por alguien bueno. La muerte de Cristo "por el impío" (v.6) invierte completamente la lógica del sacrificio heroico humano. El filósofo Celsus, crítico pagano del cristianismo (siglo II d.C.), se burlaba de que un dios muriera por delincuentes — y sin querer identificó exactamente el escándalo que Pablo proclama.`,
+    referencia: `Juan 3:16. 1 Juan 4:10 ("en esto consiste el amor: no en que nosotros hayamos amado a Dios, sino en que él nos amó"). Lucas 15:20 (el padre que corre hacia el hijo pródigo todavía en el camino). Efesios 2:4-5.`,
+  },
+
+  'Romanos_8_28': {
+    linguistico: `"Sabemos que a los que aman a Dios, todas las cosas les ayudan a bien." "Sabemos" (oidamen, οἴδαμεν): no fe ciega sino conocimiento — Pablo usa el verbo que designa saber por experiencia acumulada. "Todas las cosas" (panta): sin excepción — incluyendo el sufrimiento descrito en v.18-27. "Cooperan" (synergei): trabajan juntas — imagen de engranajes que individualmente parecen moverse en direcciones distintas pero producen un resultado unificado.`,
+    historico: `El versículo no promete que todo sea bueno, sino que Dios hace trabajar en bien incluso lo que no es bueno. Corrie ten Boom, sobreviviente del Holocausto, fue la divulgadora más conocida de este principio en el siglo XX: su experiencia en el campo de concentración de Ravensbrück, incluida la muerte de su hermana Betsie, fue reencuadrada como plataforma de su ministerio global de perdón.`,
+    referencia: `Génesis 50:20 (José a sus hermanos: "vosotros pensasteis mal, Dios lo encaminó a bien"). Filipenses 4:11-13 (contentamiento en toda circunstancia). Ester 4:14. 2 Corintios 4:17 ("leve tribulación... produce un eterno peso de gloria").`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 TESALONICENSES
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Tesalonicenses_4_16': {
+    linguistico: `"El Señor mismo descenderá del cielo con voz de mando, con voz de arcángel, y con trompeta de Dios." "Voz de mando" (keleusma, κέλευσμα): orden de comandante militar que pone en movimiento a sus tropas — voz de autoridad absoluta. "Voz de arcángel" y "trompeta de Dios": dos sonidos que en el AT acompañan las teofanías decisivas (Éx 19:16; Dn 12:1). La acumulación de tres señales sonoras indica evento cósmico sin ambigüedad posible.`,
+    historico: `La carta a los Tesalonicenses es la más antigua de Pablo (ca. 51 d.C.). La comunidad se angustiaba por los creyentes que habían muerto — ¿se perderían la segunda venida? Pablo responde con esta enseñanza escatológica: los muertos resucitarán primero, luego los vivos serán arrebatados. El término "arrebatados" (harpazo, ἁρπάζω) es la base del concepto latinizado "rapto" (raptus en la Vulgata de Jerónimo).`,
+    referencia: `1 Corintios 15:51-52 ("en un momento, en un abrir y cerrar de ojos..."). Daniel 12:1-2. Mateo 24:31. Apocalipsis 1:10 ("una gran voz como de trompeta"). Juan 5:28-29.`,
+  },
+
+  '1 Tesalonicenses_5_18': {
+    linguistico: `"Dad gracias en todo" (en panti eucharisteite): "en todo", no "por todo" — distinción crucial. La gratitud no requiere llamar buenas a las circunstancias malas, sino encontrar a Dios activo dentro de ellas. "Esto es la voluntad de Dios para con vosotros en Cristo Jesús" — la gratitud no es temperamento natural sino disposición cultivada que Pablo llama "voluntad de Dios".`,
+    referencia: `Filipenses 4:6-7. Efesios 5:20. Colosenses 3:17. Salmos 34:1 ("bendeciré al Señor en todo tiempo"). Habacuc 3:17-18 (alabanza cuando todo falla).`,
+    comentarios: `G.K. Chesterton: la gratitud es la forma más básica de la humildad — reconocer que lo que tenemos es don, no mérito. Viktor Frankl observó que los prisioneros que mantenían gratitud por lo pequeño sobrevivían mejor psicológicamente. La gratitud no niega el sufrimiento sino que mantiene abierta la percepción de lo recibido aun en el dolor.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 TIMOTEO
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Timoteo_3_16': {
+    linguistico: `"Toda la Escritura es inspirada por Dios" (pasa graphe theopneustos, πᾶσα γραφὴ θεόπνευστος): theopneustos = teo (Dios) + pneustos (soplado/espirado) — hápax legomenon, único uso en el NT. No "Dios sopló sobre la Escritura" sino que la Escritura es "exhalación divina" — el Espíritu de Dios es el origen mismo del texto. "Útil para enseñar, redargüir, corregir, instruir en justicia": cuatro funciones pedagógicas progresivas.`,
+    historico: `Pablo escribe a Timoteo desde su segunda prisión romana (ca. 66-67 d.C.), poco antes de su ejecución. Las "sagradas Escrituras" que Timoteo conoció desde niño (v.15) son el AT — el NT aún no estaba canonizado. Pedro en 2 Pe 3:16 coloca ya las cartas de Pablo junto a "las otras Escrituras", indicando que el proceso de reconocimiento canónico comenzó en vida de los apóstoles.`,
+    referencia: `2 Pedro 1:21 ("los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo"). Juan 17:17 ("tu Palabra es verdad"). Hebreos 4:12. Deuteronomio 8:3 ("de toda palabra que sale de la boca de Dios vivirá el hombre").`,
+  },
+
+  '2 Timoteo_4_7': {
+    linguistico: `"He peleado la buena batalla, he acabado la carrera, he guardado la fe." Tres perfectos griegos: nenomika (he luchado y el combate está librado), teteleka (he completado y la carrera está terminada), tetēreka (he guardado y la fe permanece guardada). El atleta no habla de lo que hará — habla de lo que ya es inamovible. "La buena batalla" (ton kalon agona): agona = el certamen atlético formal, no solo pelea — lucha agonística con reglas y juez.`,
+    historico: `Escrita desde la prisión romana, ca. 66-67 d.C., meses antes del martirio de Pablo. Nerón perseguía a los cristianos después del incendio de Roma (64 d.C.). El tono es testamentario: Pablo sabe que su ejecución es inminente (v.6 "el tiempo de mi partida es llegado"). La corona de justicia prometida (v.8) era el laurel del vencedor en los juegos griegos — ahora resignificada como galardón eterno.`,
+    referencia: `Hechos 20:24 ("con tal que acabe mi carrera con gozo"). Filipenses 3:14. Hebreos 12:1-2. 1 Timoteo 6:12. 2 Corintios 11:23-28 (el currículum del sufrimiento apostólico).`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     TITO
+  ══════════════════════════════════════════════════════════════ */
+
+  'Tito_2_13': {
+    linguistico: `"Esperando la esperanza bienaventurada y la manifestación gloriosa de nuestro gran Dios y Salvador Jesucristo." El debate gramatical del "Giro Granville Sharp": en griego, dos sustantivos unidos por "y" (kai) precedidos por un solo artículo comparten referente — "el gran Dios y Salvador" designa a una sola persona: Jesucristo. Este texto es uno de los más fuertes argumentos gramaticales para la divinidad de Cristo en el NT.`,
+    referencia: `Juan 1:1. Colosenses 2:9 ("en él habita toda la plenitud de la Deidad"). 2 Pedro 1:1 (misma construcción gramatical: "Dios y Salvador Jesucristo"). Romanos 9:5. 1 Juan 5:20.`,
+    comentarios: `El gramático Granville Sharp (1798) sistematizó la regla del artículo griego que lleva su nombre. Daniel Wallace (Greek Grammar Beyond the Basics) confirma que la regla se aplica aquí sin excepción. La implicación teológica es directa: Tito 2:13 afirma la divinidad de Cristo con la misma claridad que Juan 1:1, pero desde la gramática griega ordinaria.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     FILEMÓN
+  ══════════════════════════════════════════════════════════════ */
+
+  'Filemón_1_16': {
+    linguistico: `"No ya como esclavo, sino como más que esclavo, como hermano amado." La progresión paulina: esclavo → hermano amado. "Hermano amado" (adelphon agapeton): adelphon = hermano de sangre en el uso griego habitual — Pablo no usa la forma diluida "hermano en la fe" sino la más íntima. "Tanto más en la carne como en el Señor" — la fraternidad espiritual no anula la relación natural: es en ambas esferas.`,
+    historico: `Onésimo era esclavo de Filemón (cristiano de Colosas) que había huido, quizás robando algo. Pablo, preso en Roma, lo recibió, lo convirtió y lo envió de vuelta con esta carta personal — la más breve y más personal de sus cartas. La esclavitud en el Imperio Romano era institución omnipresente: uno de cada tres habitantes de Roma era esclavo. Pablo no pide la abolición pero siembra la semilla lógica: si esclavo y amo son hermanos, la jerarquía del sistema es insostenible.`,
+    referencia: `Gálatas 3:28 ("ya no hay esclavo ni libre"). 1 Corintios 7:21-22. Efesios 6:9 ("no hay acepción de personas ante él"). Colosenses 4:1. Génesis 1:26 (toda persona porta la imagen de Dios).`,
+    comentarios: `Historiadores como N.T. Wright señalan que la carta a Filemón es el texto que inició la larga dinámica que eventualmente llevó a la abolición de la esclavitud en el mundo cristiano, no porque Pablo la decretó, sino porque plantó la semana de una igualdad espiritual que tarde o temprano tuvo que volverse también social.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     1 JUAN (adicional)
+  ══════════════════════════════════════════════════════════════ */
+
+  '1 Juan_1_9': {
+    linguistico: `"Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados." "Confesamos" (homologomen, ὁμολογῶμεν): homo + logos = "decir lo mismo" — confesar es estar de acuerdo con Dios en que el pecado es pecado. No convencer a Dios de algo que no sabe, sino alinear nuestra perspectiva con la suya. "Fiel y justo" (pistos kai dikaios): ambos términos son inesperados — se esperaría "misericordioso", pero Pablo fundamenta el perdón en la fidelidad al pacto y en la justicia que ya fue satisfecha en la cruz.`,
+    referencia: `1 Juan 2:1-2 ("si alguno hubiere pecado, abogado tenemos... y él es la propiciación por nuestros pecados"). Hebreos 4:15-16. Salmos 32:5 ("mi pecado te declaré... y tú perdonaste"). Lucas 15:21 (el hijo pródigo confiesa).`,
+    comentarios: `La frase "fiel y justo para perdonar" invierte la expectativa humana: no "misericordioso y compasivo" (que sería lo esperado) sino "fiel" (cumplirá su promesa de perdón) y "justo" (el pecado ya fue juzgado en la cruz — perdonar no sería injusto sino cumplimiento del pago ya realizado). El perdón divino no pasa por alto el pecado; lo absorbió en el Hijo.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     2 CRÓNICAS
+  ══════════════════════════════════════════════════════════════ */
+
+  '2 Crónicas_7_14': {
+    linguistico: `"Si se humillare mi pueblo, sobre el cual mi nombre es invocado, y oraren, y buscaren mi rostro, y se convirtieren de sus malos caminos; entonces yo oiré desde los cielos, y perdonaré sus pecados, y sanaré su tierra." Cuatro verbos en la condición: humillarse, orar, buscar, convertirse. Cuatro verbos en la promesa divina: oiré, perdonaré, sanaré. La sanidad de "su tierra" (eretz) es colectiva y geopolítica — la salud espiritual de un pueblo afecta su territorio.`,
+    historico: `El contexto es la dedicación del templo de Salomón (ca. 957 a.C.). Dios responde de noche a Salomón con esta promesa que convierte el templo en casa de intercesión nacional. La teología política israelita era teocrática: la conducta moral del pueblo tiene consecuencias sobre la tierra (lluvia, sequía, invasiones). Los profetas aplicaron constantemente este principio histórico.`,
+    referencia: `1 Reyes 8:46-50 (la oración de Salomón que precede a esta promesa). Jeremías 29:12-14 ("me buscaréis y me hallaréis"). Santiago 4:10 ("humillaos delante del Señor y él os exaltará"). Salmos 34:18.`,
+  },
+
+  /* ══════════════════════════════════════════════════════════════
+     ESDRAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Esdras_7_10': {
+    linguistico: `"Esdras había preparado su corazón para inquirir la ley del Señor y para cumplirla, y para enseñar en Israel sus estatutos y decretos." Triple movimiento: inquirir (darash = buscar con diligencia), cumplir (asah = hacer, practicar), enseñar (lamed = instruir). El orden es deliberado: la enseñanza auténtica viene de quien primero escudriñó y luego practicó — el maestro no antecede al discípulo.`,
+    historico: `Esdras era sacerdote y escriba (sofer) de la élite intelectual judía de Babilonia, instruido en la ley durante el exilio. Artajerjes I le dio autorización y financiamiento para regresar a Jerusalén (458 a.C.) con una misión educativa y judicial. Su obra paralela a Nehemías restituyó la identidad hebrea de la comunidad postexílica. La tradición rabínica lo considera el segundo Moisés.`,
+    referencia: `Nehemías 8:1-8 (Esdras lee la ley ante el pueblo). Deuteronomio 17:18-19 (el rey debe leer la ley todos los días). 2 Timoteo 2:15 ("procura con diligencia presentarte a Dios aprobado"). Lucas 2:46-47 (Jesús escucha y pregunta a los maestros).`,
+  },
+
 };
