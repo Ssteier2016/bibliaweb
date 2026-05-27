@@ -7,7 +7,7 @@ import {
 import {
   getFirestore, doc, getDoc, setDoc, updateDoc,
   collection, addDoc, getDocs, query, orderBy,
-  serverTimestamp, arrayUnion, arrayRemove, onSnapshot,
+  serverTimestamp, arrayUnion, arrayRemove, onSnapshot, increment,
 } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -165,26 +165,10 @@ export async function getAllUsers() {
 
 // ── Corazones por versículo ──────────────────────────────────────
 
-export async function toggleLike(verseKey, uid) {
+export async function incrementLike(verseKey) {
   try {
-    const likeRef = doc(db, 'likes', verseKey);
-    const snap    = await getDoc(likeRef);
-    const uids    = snap.exists() ? (snap.data().uids || []) : [];
-    let newUids;
-    if (uids.includes(uid)) {
-      newUids = uids.filter(u => u !== uid);
-      if (newUids.length === 0) {
-        const { deleteDoc } = await import('firebase/firestore');
-        await deleteDoc(likeRef);
-      } else {
-        await updateDoc(likeRef, { uids: arrayRemove(uid) });
-      }
-    } else {
-      newUids = [...uids, uid];
-      await setDoc(likeRef, { uids: arrayUnion(uid) }, { merge: true });
-    }
-    return newUids;
-  } catch { return null; }
+    await setDoc(doc(db, 'likes', verseKey), { count: increment(1) }, { merge: true });
+  } catch {}
 }
 
 export async function loadChapterLikes(bookName, chapterNum, verses) {
@@ -194,8 +178,8 @@ export async function loadChapterLikes(bookName, chapterNum, verses) {
     const result = {};
     snaps.forEach((snap, i) => {
       if (snap.exists()) {
-        const uids = snap.data().uids || [];
-        if (uids.length > 0) result[keys[i]] = uids;
+        const count = snap.data().count || 0;
+        if (count > 0) result[keys[i]] = count;
       }
     });
     return result;

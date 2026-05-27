@@ -4,7 +4,7 @@ import { COMMENTARY } from './data/commentary';
 import AuthScreen    from './AuthScreen';
 import UserMenu      from './UserMenu';
 import CommentsPanel from './CommentsPanel';
-import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, toggleLike, loadChapterLikes } from './firebase';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes } from './firebase';
 
 const BOOK_NAMES = {
   gn:'Génesis', ex:'Éxodo', lv:'Levítico', nm:'Números', dt:'Deuteronomio',
@@ -22,6 +22,28 @@ const BOOK_NAMES = {
   '1tm':'1 Timoteo', '2tm':'2 Timoteo', tt:'Tito', phm:'Filemón',
   hb:'Hebreos', jm:'Santiago', '1pe':'1 Pedro', '2pe':'2 Pedro',
   '1jo':'1 Juan', '2jo':'2 Juan', '3jo':'3 Juan', jd:'Judas', re:'Apocalipsis',
+};
+
+const BIBLEHUB_BOOK = {
+  'Génesis':'genesis','Éxodo':'exodus','Levítico':'leviticus','Números':'numbers',
+  'Deuteronomio':'deuteronomy','Josué':'joshua','Jueces':'judges','Rut':'ruth',
+  '1 Samuel':'1_samuel','2 Samuel':'2_samuel','1 Reyes':'1_kings','2 Reyes':'2_kings',
+  '1 Crónicas':'1_chronicles','2 Crónicas':'2_chronicles','Esdras':'ezra',
+  'Nehemías':'nehemiah','Ester':'esther','Job':'job','Salmos':'psalms',
+  'Proverbios':'proverbs','Eclesiastés':'ecclesiastes','Cantares':'song_of_songs',
+  'Isaías':'isaiah','Jeremías':'jeremiah','Lamentaciones':'lamentations',
+  'Ezequiel':'ezekiel','Daniel':'daniel','Oseas':'hosea','Joel':'joel','Amós':'amos',
+  'Abdías':'obadiah','Jonás':'jonah','Miqueas':'micah','Nahúm':'nahum',
+  'Habacuc':'habakkuk','Sofonías':'zephaniah','Hageo':'haggai','Zacarías':'zechariah',
+  'Malaquías':'malachi','Mateo':'matthew','Marcos':'mark','Lucas':'luke','Juan':'john',
+  'Hechos':'acts','Romanos':'romans','1 Corintios':'1_corinthians',
+  '2 Corintios':'2_corinthians','Gálatas':'galatians','Efesios':'ephesians',
+  'Filipenses':'philippians','Colosenses':'colossians',
+  '1 Tesalonicenses':'1_thessalonians','2 Tesalonicenses':'2_thessalonians',
+  '1 Timoteo':'1_timothy','2 Timoteo':'2_timothy','Tito':'titus','Filemón':'philemon',
+  'Hebreos':'hebrews','Santiago':'james','1 Pedro':'1_peter','2 Pedro':'2_peter',
+  '1 Juan':'1_john','2 Juan':'2_john','3 Juan':'3_john','Judas':'jude',
+  'Apocalipsis':'revelation',
 };
 
 const HIGHLIGHT_COLORS = [
@@ -193,7 +215,7 @@ function CommentaryIcon() {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeUids, user, following, onFollowToggle, darkMode }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, user, following, onFollowToggle, darkMode }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
@@ -206,8 +228,8 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
   const verseKey   = `${bookName}_${chapter}_${verse.verse}`;
   const commentKey = verseKey;
   const verseData  = COMMENTARY[commentKey];
-  const likeCount  = (likeUids || []).length;
-  const iLiked     = !!(user && !user.isAnonymous && (likeUids || []).includes(user.uid));
+  const bhBook     = BIBLEHUB_BOOK[bookName];
+  const sourceUrl  = bhBook ? `https://biblehub.com/${bhBook}/${chapter}-${verse.verse}.htm` : null;
 
   function toggleActions() {
     const next = !showActions;
@@ -269,11 +291,11 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
           <span className="verse-text">{verse.text}</span>
           {(showActions || likeCount > 0) && (
             <button
-              className={`heart-btn ${likeCount > 0 ? 'has-likes' : ''} ${iLiked ? 'liked' : ''}`}
+              className={`heart-btn ${likeCount > 0 ? 'has-likes' : ''}`}
               onClick={e => { e.stopPropagation(); onLike?.(verseKey); }}
-              title={iLiked ? 'Quitar corazón' : 'Me gusta'}
+              title="Me gusta"
             >
-              {iLiked ? '♥' : '♡'}
+              {likeCount > 0 ? '♥' : '♡'}
               {likeCount > 0 && <span className="heart-count">{likeCount}</span>}
             </button>
           )}
@@ -427,6 +449,11 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
                   Ver comentario completo →
                 </button>
               )}
+              {sourceUrl && (
+                <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="commentary-source">
+                  🔗 Ver en BibleHub
+                </a>
+              )}
             </div>
           ) : (
             <>
@@ -453,6 +480,11 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
                     {COMMENT_TYPES.find(t => t.key === activeTab)?.label}
                   </div>
                   {verseData[activeTab]}
+                  {sourceUrl && (
+                    <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="commentary-source">
+                      🔗 Ver fuentes en BibleHub
+                    </a>
+                  )}
                 </div>
               )}
             </>
@@ -694,14 +726,8 @@ export default function App() {
 
   const handleLike = useCallback(async (verseKey) => {
     if (!user || user.isAnonymous) return;
-    const newUids = await toggleLike(verseKey, user.uid);
-    if (newUids === null) return;
-    setLikes(prev => {
-      if (newUids.length === 0) {
-        const next = { ...prev }; delete next[verseKey]; return next;
-      }
-      return { ...prev, [verseKey]: newUids };
-    });
+    setLikes(prev => ({ ...prev, [verseKey]: (prev[verseKey] || 0) + 1 }));
+    await incrementLike(verseKey);
   }, [user]);
 
   const handleShare = useCallback((verseNum) => {
@@ -764,18 +790,15 @@ export default function App() {
               <option key={c.chapter} value={c.chapter}>Capítulo {c.chapter}</option>
             ))}
           </select>
-          <div className="translation-selector">
-            <button
-              className={`translation-btn ${translation === 'rvr' ? 'active' : ''}`}
-              onClick={() => setTranslation('rvr')}
-              title="Reina-Valera 1960"
-            >RVR</button>
-            <button
-              className={`translation-btn ${translation === 'ntv' ? 'active' : ''}`}
-              onClick={() => setTranslation('ntv')}
-              title="Nueva Traducción Viviente"
-            >{ntvLoading ? 'NTV…' : 'NTV'}</button>
-          </div>
+          <select
+            className="translation-select"
+            value={translation}
+            onChange={e => setTranslation(e.target.value)}
+            title="Versión bíblica"
+          >
+            <option value="rvr">RVR 1960</option>
+            <option value="ntv">{ntvLoading ? 'NTV (cargando…)' : 'NTV'}</option>
+          </select>
         </div>
         <div className="nav-chapter-bar">
           <button className="nav-btn" disabled={selectedChapter <= 1} onClick={() => changeChapter(selectedChapter - 1)}>
@@ -824,7 +847,7 @@ export default function App() {
                 highlight={highlights[hlKey] || null}
                 note={notes[noteKey] || ''}
                 bookmark={!!bookmarks[bmKey]}
-                likeUids={likes[`${selectedBook}_${selectedChapter}_${verse.verse}`] || []}
+                likeCount={likes[`${selectedBook}_${selectedChapter}_${verse.verse}`] || 0}
                 onHighlight={handleHighlight}
                 onNote={handleNote}
                 onBookmark={handleBookmark}
