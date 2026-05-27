@@ -801,3 +801,157 @@ input, textarea { font-family: inherit; }
   .comments-header, .comments-loading, .comments-empty, .comments-guest-note { padding-left: 36px; }
   .comment-input-row { padding-left: 36px; }
 }
+
+/* ── Toggle switch ───────────────────────────────────────────── */
+.toggle-switch {
+  position: relative; width: 42px; height: 24px; border-radius: 999px;
+  background: var(--border); transition: background 0.2s ease;
+  flex-shrink: 0; border: none; padding: 0; cursor: pointer;
+}
+.toggle-switch.on { background: var(--accent-btn); }
+.toggle-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+.toggle-switch.on .toggle-thumb { transform: translateX(18px); }
+
+/* ── Racha en menú ───────────────────────────────────────────── */
+.menu-streak {
+  font-size: 0.78rem; font-family: sans-serif; color: var(--accent);
+  font-weight: 600; margin-top: 3px;
+}
+
+/* ── Avatar wrapper + cambio de foto ─────────────────────────── */
+.menu-avatar-wrapper {
+  position: relative; flex-shrink: 0; width: 52px; height: 52px;
+}
+.avatar-camera-btn {
+  position: absolute; bottom: -2px; right: -4px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--surface2); border: 1px solid var(--border);
+  font-size: 0.7rem; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all var(--transition); padding: 0;
+}
+.avatar-camera-btn:hover { background: var(--accent); border-color: var(--accent); }
+.photo-file-input { display: none; }
+
+/* ── Vista de perfil ─────────────────────────────────────────── */
+.profile-view { display: flex; flex-direction: column; gap: 0; flex: 1; overflow-y: auto; }
+.profile-back-btn {
+  margin: 14px 16px 6px; font-size: 0.82rem; font-family: sans-serif;
+  color: var(--accent); background: none; border: none; cursor: pointer;
+  text-align: left; padding: 0; font-weight: 600;
+}
+.profile-back-btn:hover { text-decoration: underline; }
+.profile-header {
+  display: flex; gap: 14px; align-items: center;
+  padding: 12px 16px 16px; border-bottom: 1px solid var(--border);
+}
+.profile-avatar-wrap { position: relative; flex-shrink: 0; }
+.profile-info { min-width: 0; }
+.profile-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+.profile-email { font-size: 0.78rem; color: var(--text3); font-family: sans-serif; margin-top: 2px; }
+.profile-streak { font-size: 0.8rem; color: var(--accent); font-family: sans-serif; font-weight: 600; margin-top: 3px; }
+.profile-follow-btn {
+  display: block; margin: 12px 16px; padding: 9px;
+  background: var(--accent-btn); color: #fff; border-radius: 10px;
+  font-size: 0.88rem; font-family: sans-serif; font-weight: 600;
+  text-align: center; border: none; cursor: pointer; transition: all var(--transition);
+}
+.profile-follow-btn:hover { opacity: 0.85; }
+.profile-follow-btn.following {
+  background: var(--surface2); color: var(--text2);
+  border: 1px solid var(--border);
+}
+.profile-stats {
+  display: flex; justify-content: space-around;
+  padding: 14px 8px; border-bottom: 1px solid var(--border);
+}
+.profile-stat { text-align: center; }
+.profile-stat-num { display: block; font-size: 1.15rem; font-weight: 700; color: var(--text); }
+.profile-stat-label { display: block; font-size: 0.72rem; color: var(--text3); font-family: sans-serif; }
+.profile-private {
+  margin: 24px 16px; padding: 16px; text-align: center;
+  font-size: 0.9rem; font-family: sans-serif; color: var(--text3);
+  background: var(--surface2); border-radius: 12px; border: 1px solid var(--border);
+}
+.profile-data { display: flex; flex-direction: column; gap: 0; }
+.profile-section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.profile-section-title {
+  font-size: 0.78rem; font-family: sans-serif; font-weight: 700;
+  color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;
+}
+.profile-verse-row {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 7px 0; border-bottom: 1px solid var(--border);
+  font-size: 0.82rem; font-family: sans-serif;
+}
+.profile-verse-row:last-child { border-bottom: none; }
+.profile-verse-row strong { color: var(--accent); }
+.profile-verse-text { color: var(--text3); font-size: 0.8rem; }
+
+/* ── Panel de amigos ─────────────────────────────────────────── */
+.amigos-panel { display: flex; flex-direction: column; gap: 0; }
+.amigos-search-row { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.amigos-search-input {
+  width: 100%; padding: 8px 12px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface2);
+  color: var(--text); font-size: 0.88rem; font-family: sans-serif;
+  outline: none; transition: border-color var(--transition);
+}
+.amigos-search-input:focus { border-color: var(--accent); }
+.amigos-section-title {
+  padding: 10px 16px 4px; font-size: 0.75rem; font-family: sans-serif;
+  font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em;
+}
+.amigo-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+.amigo-row:hover { background: var(--surface2); }
+.amigo-avatar {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+  overflow: hidden; padding: 0; border: none; background: transparent;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.amigo-info { flex: 1; min-width: 0; cursor: pointer; }
+.amigo-name { font-size: 0.85rem; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.amigo-email { font-size: 0.75rem; color: var(--text3); font-family: sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.amigo-online { font-size: 0.72rem; color: #22c55e; font-family: sans-serif; font-weight: 600; }
+.amigo-follow-btn {
+  flex-shrink: 0; font-size: 0.75rem; font-family: sans-serif; font-weight: 600;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1px solid var(--accent); color: var(--accent); background: transparent;
+  cursor: pointer; transition: all var(--transition); white-space: nowrap;
+}
+.amigo-follow-btn:hover { background: var(--accent); color: #fff; }
+.amigo-follow-btn.following { background: var(--surface2); color: var(--text2); border-color: var(--border); }
+
+/* ── Panel de configuración ──────────────────────────────────── */
+.config-panel { padding: 8px 0; }
+.config-title {
+  padding: 12px 16px 8px; font-size: 0.78rem; font-family: sans-serif;
+  font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em;
+}
+.config-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+.config-row:hover { background: var(--surface2); }
+.config-row-text { flex: 1; min-width: 0; }
+.config-row-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.config-row-desc { font-size: 0.75rem; color: var(--text3); font-family: sans-serif; margin-top: 2px; }
+
+/* ── Color personalizado (paleta) ────────────────────────────── */
+.color-custom-swatch {
+  position: relative; overflow: hidden;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.color-custom-input {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  width: 100%; height: 100%; border: none; padding: 0;
+}

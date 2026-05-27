@@ -9,6 +9,7 @@ import {
   collection, addDoc, getDocs, query, orderBy,
   serverTimestamp, arrayUnion, arrayRemove,
 } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBsemzWe2LUcKhAJg9UU9N_3YNcmrphiCk",
@@ -21,8 +22,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db   = getFirestore(app);
+export const auth    = getAuth(app);
+export const db      = getFirestore(app);
+export const storage = getStorage(app);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -97,17 +99,62 @@ export async function deleteComment(verseKey, commentId) {
   } catch {}
 }
 
+// ── Racha de lectura ───────────────────────────────────────────
+
+export async function updateReadingStreak(uid, currentStreak = 0, lastReadDate = '') {
+  const today     = new Date().toISOString().split('T')[0];
+  if (lastReadDate === today) return currentStreak;
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  const newStreak = lastReadDate === yesterday ? currentStreak + 1 : 1;
+  try { await updateDoc(doc(db, 'users', uid), { streak: newStreak, lastReadDate: today }); } catch {}
+  return newStreak;
+}
+
+// ── Privacidad ──────────────────────────────────────────────────
+
+export async function updatePrivacy(uid, privacy) {
+  try { await setDoc(doc(db, 'users', uid), { privacy }, { merge: true }); } catch {}
+}
+
+// ── Perfil público ──────────────────────────────────────────────
+
+export async function getUserProfile(uid) {
+  try {
+    const snap = await getDoc(doc(db, 'users', uid));
+    return snap.exists() ? { uid, ...snap.data() } : null;
+  } catch { return null; }
+}
+
+// ── Foto de perfil ──────────────────────────────────────────────
+
+export async function uploadProfilePhoto(uid, file) {
+  try {
+    const storageRef = ref(storage, `profilePhotos/${uid}/avatar`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    if (auth.currentUser) await updateProfile(auth.currentUser, { photoURL: url });
+    await updateDoc(doc(db, 'users', uid), { photoURL: url });
+    return url;
+  } catch (e) { console.error('Error subiendo foto:', e); return null; }
+}
+
 // ── Seguir / dejar de seguir ────────────────────────────────────
 
 export async function followUser(myUid, targetUid) {
-  try { await updateDoc(doc(db, 'users', myUid), { following: arrayUnion(targetUid) }); } catch {}
+  try {
+    await updateDoc(doc(db, 'users', myUid),    { following:  arrayUnion(targetUid) });
+    await updateDoc(doc(db, 'users', targetUid), { followers: arrayUnion(myUid) });
+  } catch {}
 }
 
 export async function unfollowUser(myUid, targetUid) {
-  try { await updateDoc(doc(db, 'users', myUid), { following: arrayRemove(targetUid) }); } catch {}
+  try {
+    await updateDoc(doc(db, 'users', myUid),    { following:  arrayRemove(targetUid) });
+    await updateDoc(doc(db, 'users', targetUid), { followers: arrayRemove(myUid) });
+  } catch {}
 }
 
-// ── Admin ───────────────────────────────────────────────────────
+// ── Admin / usuarios ────────────────────────────────────────────
 
 export async function getAllUsers() {
   try {

@@ -4,7 +4,7 @@ import { COMMENTARY } from './data/commentary';
 import AuthScreen    from './AuthScreen';
 import UserMenu      from './UserMenu';
 import CommentsPanel from './CommentsPanel';
-import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser } from './firebase';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak } from './firebase';
 
 const BOOK_NAMES = {
   gn:'Génesis', ex:'Éxodo', lv:'Levítico', nm:'Números', dt:'Deuteronomio',
@@ -25,13 +25,29 @@ const BOOK_NAMES = {
 };
 
 const HIGHLIGHT_COLORS = [
-  { id: 'yellow', hex: '#fef08a', label: 'Amarillo' },
-  { id: 'green',  hex: '#bbf7d0', label: 'Verde'    },
-  { id: 'blue',   hex: '#bae6fd', label: 'Azul'     },
-  { id: 'pink',   hex: '#fecdd3', label: 'Rosa'     },
-  { id: 'orange', hex: '#fed7aa', label: 'Naranja'  },
-  { id: 'purple', hex: '#e9d5ff', label: 'Morado'   },
+  { id: 'yellow', light: '#fef08a', dark: '#78350f', label: 'Amarillo' },
+  { id: 'green',  light: '#bbf7d0', dark: '#14532d', label: 'Verde'    },
+  { id: 'blue',   light: '#bae6fd', dark: '#1e3a5f', label: 'Azul'     },
+  { id: 'pink',   light: '#fecdd3', dark: '#881337', label: 'Rosa'     },
+  { id: 'orange', light: '#fed7aa', dark: '#7c2d12', label: 'Naranja'  },
+  { id: 'purple', light: '#e9d5ff', dark: '#4c1d95', label: 'Morado'   },
+  { id: 'red',    light: '#fca5a5', dark: '#7f1d1d', label: 'Rojo'     },
+  { id: 'teal',   light: '#99f6e4', dark: '#134e4a', label: 'Turquesa' },
 ];
+
+function getHighlightBg(colorId, darkMode) {
+  if (!colorId) return null;
+  // Color personalizado (hex directo)
+  if (colorId.startsWith('#')) {
+    if (!darkMode) return colorId;
+    const r = parseInt(colorId.slice(1, 3), 16);
+    const g = parseInt(colorId.slice(3, 5), 16);
+    const b = parseInt(colorId.slice(5, 7), 16);
+    return `rgb(${Math.round(r * 0.28)},${Math.round(g * 0.28)},${Math.round(b * 0.28)})`;
+  }
+  const c = HIGHLIGHT_COLORS.find(x => x.id === colorId);
+  return c ? (darkMode ? c.dark : c.light) : null;
+}
 
 const COMMENT_TYPES = [
   { key: 'historico',      label: 'Historia',       icon: '📜' },
@@ -58,10 +74,10 @@ function lsSet(key, val) { try { localStorage.setItem(key, val) } catch {} }
 // Convierte estado interno (con prefijos) a objeto Firestore (sin prefijos)
 function toFirestore(highlights, notes, bookmarks, shared) {
   const hl = {}, nt = {}, bm = {}, sh = {};
-  Object.entries(highlights).forEach(([k, v]) => { if (k.startsWith('hl_'))   hl[k.slice(3)]  = v; });
-  Object.entries(notes)     .forEach(([k, v]) => { if (k.startsWith('note_')) nt[k.slice(5)]  = v; });
-  Object.entries(bookmarks) .forEach(([k, v]) => { if (k.startsWith('bm_'))   bm[k.slice(3)]  = v; });
-  Object.entries(shared)    .forEach(([k, v]) => { if (k.startsWith('sh_'))   sh[k.slice(3)]  = v; });
+  Object.entries(highlights).forEach(([k, v]) => { if (k.startsWith('hl_')) hl[k.slice(3)] = v; });
+  Object.entries(notes).forEach(([k, v]) => { if (k.startsWith('note_')) nt[k.slice(5)] = v; });
+  Object.entries(bookmarks).forEach(([k, v]) => { if (k.startsWith('bm_')) bm[k.slice(3)] = v; });
+  Object.entries(shared).forEach(([k, v]) => { if (k.startsWith('sh_')) sh[k.slice(3)] = v; });
   return { highlights: hl, notes: nt, bookmarks: bm, shared: sh };
 }
 
@@ -72,7 +88,12 @@ function fromFirestore(data) {
   Object.entries(data.notes      || {}).forEach(([k, v]) => { nt[`note_${k}`] = v; });
   Object.entries(data.bookmarks  || {}).forEach(([k, v]) => { bm[`bm_${k}`]   = v; });
   Object.entries(data.shared     || {}).forEach(([k, v]) => { sh[`sh_${k}`]   = v; });
-  return { hl, nt, bm, sh, following: data.following || [] };
+  return {
+    hl, nt, bm, sh,
+    following: data.following || [],
+    streak:    data.streak    || 0,
+    privacy:   data.privacy   || { notes: false, highlights: false, bookmarks: false, publicProfile: true },
+  };
 }
 
 // ── Íconos SVG ────────────────────────────────────────────────────────────────
@@ -156,7 +177,7 @@ function CommentaryIcon() {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, user, following, onFollowToggle }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, user, following, onFollowToggle, darkMode }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
@@ -205,9 +226,10 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
     } catch {}
   }
 
-  const bgColor = highlight ? HIGHLIGHT_COLORS.find(c => c.id === highlight)?.hex : undefined;
-  // color siempre oscuro cuando hay subrayado, para que sea legible en modo oscuro
-  const highlightStyle = bgColor ? { backgroundColor: bgColor, borderRadius: '10px', color: '#1c1917' } : {};
+  const bgColor = getHighlightBg(highlight, darkMode);
+  const highlightStyle = bgColor
+    ? { backgroundColor: bgColor, borderRadius: '10px', color: darkMode ? '#f5f0eb' : '#1c1917' }
+    : {};
 
   return (
     <div className="verse-card">
@@ -298,7 +320,7 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
             <button
               key={c.id}
               className={`color-dot ${highlight === c.id ? 'selected' : ''}`}
-              style={{ backgroundColor: c.hex }}
+              style={{ backgroundColor: darkMode ? c.dark : c.light }}
               title={c.label}
               onClick={() => {
                 onHighlight(verse.verse, highlight === c.id ? null : c.id);
@@ -306,6 +328,18 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
               }}
             />
           ))}
+          <label
+            className={`color-dot color-custom-swatch ${highlight?.startsWith('#') ? 'selected' : ''}`}
+            style={{ background: highlight?.startsWith('#') ? getHighlightBg(highlight, darkMode) : 'conic-gradient(red,yellow,lime,cyan,blue,magenta,red)' }}
+            title="Color personalizado"
+          >
+            <input
+              type="color"
+              className="color-custom-input"
+              value={highlight?.startsWith('#') ? highlight : '#fbbf24'}
+              onChange={e => onHighlight(verse.verse, e.target.value)}
+            />
+          </label>
           {highlight && (
             <button className="remove-color-btn" onClick={() => { onHighlight(verse.verse, null); setShowColors(false); }}>
               ✕ Quitar
@@ -428,6 +462,8 @@ export default function App() {
   const [bookmarks,       setBookmarks]      = useState({});
   const [shared,          setShared]         = useState({});
   const [following,       setFollowing]      = useState([]);
+  const [streak,          setStreak]         = useState(0);
+  const [privacy,         setPrivacy]        = useState({ notes: false, highlights: false, bookmarks: false, publicProfile: true });
   const [showMenu,        setShowMenu]       = useState(false);
 
   // Aplicar tema
@@ -454,8 +490,12 @@ export default function App() {
     return onAuthChange(async (firebaseUser) => {
       if (firebaseUser && !firebaseUser.isAnonymous) {
         const data = await loadUserData(firebaseUser.uid);
-        const { hl, nt, bm, sh, following } = fromFirestore(data);
-        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh); setFollowing(following);
+        const { hl, nt, bm, sh, following, streak, privacy } = fromFirestore(data);
+        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
+        setFollowing(following); setStreak(streak); setPrivacy(privacy);
+        // Racha de lectura
+        const newStreak = await updateReadingStreak(firebaseUser.uid, streak, data.lastReadDate);
+        setStreak(newStreak);
         // Guardar perfil y presencia
         await savePresence(firebaseUser.uid, {
           displayName: firebaseUser.displayName || data.displayName || '',
@@ -678,6 +718,7 @@ export default function App() {
                 user={user}
                 following={following}
                 onFollowToggle={handleFollowToggle}
+                darkMode={darkMode}
               />
             );
           })
@@ -693,6 +734,10 @@ export default function App() {
           notes={notes}
           shared={shared}
           following={following}
+          streak={streak}
+          privacy={privacy}
+          onPrivacyChange={setPrivacy}
+          darkMode={darkMode}
           onClose={() => setShowMenu(false)}
           onNavigate={(bookName, chapterNum) => {
             changeBook(bookName);

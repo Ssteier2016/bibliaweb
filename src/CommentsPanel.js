@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { loadComments, addComment, deleteComment, followUser, unfollowUser } from './firebase';
+import { loadComments, addComment, deleteComment } from './firebase';
 
 function timeAgo(ts) {
   if (!ts) return '';
