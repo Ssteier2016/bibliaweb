@@ -306,7 +306,15 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
     <div className="verse-card">
       <div className="verse-body" style={highlightStyle}>
         <div className="verse-text-row">
-          <span className="verse-num">{verse.verse}</span>
+          <span className="verse-num">
+            {verse.verse}
+            {(hasCommentary || hasRef) && (
+              <span className="verse-badges">
+                {hasCommentary && <span className="verse-badge badge-commentary" title="Tiene comentario">📖</span>}
+                {hasRef        && <span className="verse-badge badge-ref"        title="Tiene referencias">🔗</span>}
+              </span>
+            )}
+          </span>
           <span className="verse-text">{verse.text}</span>
           {(showActions || likeCount > 0) && (
             <button

@@ -344,6 +344,29 @@ input, textarea { font-family: inherit; }
   padding-top: 3px;
   font-family: sans-serif;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.verse-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.verse-badge {
+  font-size: 0.6rem;
+  line-height: 1;
+  opacity: 0.55;
+  transition: opacity var(--transition);
+}
+
+.verse-card:hover .verse-badge,
+.verse-body:hover .verse-badge {
+  opacity: 0.85;
 }
 
 .verse-text {
