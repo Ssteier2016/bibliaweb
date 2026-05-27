@@ -25,6 +25,7 @@ export const COMMENTARY = {
   'Génesis_1_26': {
     linguistico: `"Hagamos" (na'ăśeh): plural deliberativo o de majestad. "Imagen" (ṣelem): en el Antiguo Cercano Oriente designaba la estatua de un rey. "Semejanza" (demût): representación análoga. El texto democratiza el concepto real: toda la humanidad porta la imagen divina.`,
     historico: `En Egipto y Mesopotamia solo el faraón era "imagen" de los dioses. El Génesis extiende esa dignidad a toda persona humana, siendo la base del concepto occidental de igualdad e inviolabilidad de la vida.`,
+    cientifico: `La paleontología moderna confirma que los neandertales — extintos hace ~40.000 años — enterraban a sus muertos, cuidaban enfermos y producían arte simbólico. Un individuo neandertal con síndrome de Down encontrado en el yacimiento de La Ferrassie (Francia) sobrevivió años gracias al cuidado del grupo. Que seres anatómicamente distintos al Homo sapiens exhibieran conducta moral sugiere que la capacidad para la compasión y el cuidado del otro no es un subproducto evolutivo tardío, sino una característica profunda de lo humano.`,
     referencia: `Génesis 9:6 (matar a un ser humano es atacar la imagen de Dios). Santiago 3:9 (no maldecir a hombres hechos a imagen de Dios). Colosenses 3:10 ("el nuevo hombre... conforme a la imagen del que lo creó"). 1 Corintios 15:49.`,
     comentarios: `Ireneo de Lyon distinguió entre "imagen" (racionalidad) y "semejanza" (comunión espiritual). Karl Barth interpretó la imagen de Dios como relacionalidad: "varón y hembra los creó", reflejando la naturaleza relacional de Dios.`,
   },
@@ -2203,6 +2204,24 @@ export const COMMENTARY = {
   'Rut_1_16': {
     tipologia: `Rut la moabita, extranjera que abandona su pueblo y dioses para adherirse al pueblo de Israel, es tipo de la iglesia gentil. Su "no me dejes, porque a donde quieras que vayas, yo iré" es la confesión del gentil que abraza al Dios de Israel. Booz como "pariente redentor" (heb. goel) es tipo de Cristo que redime al que no podía redimirse a sí mismo. La unión de Booz con Rut prefigura la unión de Cristo con la iglesia gentil, produciendo la línea davídica que lleva a Jesús (Mt 1:5).`,
     fuentes: { tipologia: 'Beale, G.K. & Carson, D.A. — Commentary on the New Testament Use of the Old Testament' },
+  },
+
+
+  /* ── Génesis 1 — Enuma Elish y astros ─────────────────────── */
+
+  'Génesis_1_6': {
+    linguistico: `"Bóveda" (raqia', רָקִיעַ): del verbo raqа' (extender, golpear como una lámina de metal). Algunos traductores modernos optan por "expansión" o "espacio". No implica una cúpula sólida — el mismo término describe el cielo abierto por donde vuelan las aves (Gn 1:20). La "separación de las aguas" describe la distinción funcional entre océanos y atmósfera.`,
+    historico: `El texto contrasta deliberadamente con el Enuma Elish babilónico, donde el dios Marduk divide el cadáver de la diosa Tiamat para crear los cielos. El hebreo tǝhôm ("las profundidades", Gn 1:2) es etimológicamente relacionado con Tiamat, pero el Génesis lo despoja de todo carácter divino: es simplemente agua creada. Moisés, "instruido en toda la sabiduría de los egipcios" (Hch 7:22), conocía estas cosmogonías y las refutó sistemáticamente presentando al Dios único actuando por su palabra, sin violencia ni panteón.`,
+    referencia: `Job 26:10 ("puso límite a la superficie de las aguas"). Salmos 104:2 ("que extiendes los cielos como una cortina"). Proverbios 8:27 ("cuando formaba los cielos, allí estaba yo"). Jeremías 10:12.`,
+    fuentes: { historico: 'Answers in Genesis — Enuma Elish: Did It Influence Genesis 1?' },
+  },
+
+  'Génesis_1_14': {
+    linguistico: `El texto hebreo llama al sol "la gran luminaria" (ha-maor ha-gadol) y a la luna "la luminaria menor" (ha-maor ha-qaton) — nunca por sus nombres propios Shemesh (sol) y Yarêah (luna). En todo el Antiguo Cercano Oriente, sol y luna eran divinidades: Shemesh (Mesopotamia), Ra (Egipto), Sin (Babilonia). El Génesis los rebaja a objetos funcionales — "para señales, estaciones, días y años" — eliminando cualquier base para su adoración.`,
+    historico: `La ausencia de nombres propios para los astros es un gesto polémico deliberado. Cada nación vecina de Israel tenía un panteón astral elaborado. Al reducir a sol y luna a simples "luminarias" al servicio de la humanidad, el texto hace imposible la deificación que rodeaba a Israel. La prohibición de "levantar los ojos al cielo y ver el sol, la luna y las estrellas y ser llevado a inclinarlos" (Dt 4:19) es la aplicación ética directa de este texto cosmológico.`,
+    cientifico: `La función calendárica de los astros (Gn 1:14b) es precisa: la luna define el mes sinódico (29,5 días), el sol el año solar (365,25 días). Los calendarios lunisolar hebreo y babilónico dependían de este ciclo. La expresión "señales" (otot) puede incluir fenómenos astronómicos usados para la navegación, algo que los navegantes fenicios, vecinos de Israel, practicaban con sofisticación.`,
+    referencia: `Deuteronomio 4:19 (prohibición de adorar los astros). Salmos 19:1 ("los cielos cuentan la gloria de Dios"). Jeremías 31:35 (Dios que da el sol de día y la luna de noche). Romanos 1:25 (adorar la criatura en lugar del Creador).`,
+    fuentes: { historico: 'Answers in Genesis — Enuma Elish: Did It Influence Genesis 1?' },
   },
 
 };
