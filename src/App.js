@@ -143,6 +143,62 @@ const GEO_LUGARES = {
     { nombre: 'Laodicea', lat: 37.8333, lng: 29.1000, zoom: 13 },
   ],
   'Apocalipsis_16_16': [{ nombre: 'Meguido — Armagedón', lat: 32.5889, lng: 35.1857, zoom: 13 }],
+
+  // ─── Zacarías ──────────────────────────────────────────────
+  'Zacarías_9_9':   [{ nombre: 'Monte de los Olivos — entrada mesiánica', lat: 31.7780, lng: 35.2435, zoom: 14 }],
+
+  // ─── Génesis ───────────────────────────────────────────────
+  'Génesis_19_24':  [
+    { nombre: 'Sodoma y Gomorra — sur del Mar Muerto', lat: 31.0500, lng: 35.4700, zoom: 10 },
+    { nombre: 'Mar Muerto', lat: 31.5000, lng: 35.5000, zoom: 9 },
+  ],
+  'Génesis_22_2':   [{ nombre: 'Monte Moriah — Monte del Templo', lat: 31.7782, lng: 35.2360, zoom: 16 }],
+
+  // ─── Números / Josué ───────────────────────────────────────
+  'Números_13_23':  [
+    { nombre: 'Valle de Escol — Hebrón', lat: 31.5326, lng: 35.0998, zoom: 13 },
+    { nombre: 'Cades-barnea (partida de los espías)', lat: 30.6700, lng: 34.4400, zoom: 11 },
+  ],
+  'Josué_24_1':     [{ nombre: 'Siquem — lugar del pacto', lat: 32.2225, lng: 35.2628, zoom: 14 }],
+
+  // ─── Jueces / Rut / Samuel ─────────────────────────────────
+  'Jueces_4_14':    [
+    { nombre: 'Monte Tabor', lat: 32.6872, lng: 35.3919, zoom: 13 },
+    { nombre: 'Llanura de Esdraelón — campo de batalla', lat: 32.5833, lng: 35.2833, zoom: 11 },
+  ],
+  'Rut_1_1':        [
+    { nombre: 'Belén', lat: 31.7054, lng: 35.2024, zoom: 13 },
+    { nombre: 'Moab', lat: 31.1667, lng: 35.7167, zoom: 9 },
+  ],
+  '1 Samuel_17_2':  [{ nombre: 'Valle de Ela', lat: 31.7033, lng: 34.9444, zoom: 13 }],
+
+  // ─── Evangelios ────────────────────────────────────────────
+  'Mateo_3_1':      [
+    { nombre: 'Desierto de Judea', lat: 31.7000, lng: 35.4000, zoom: 10 },
+    { nombre: 'Río Jordán — Betabara', lat: 31.8297, lng: 35.5644, zoom: 13 },
+  ],
+  'Lucas_2_4':      [
+    { nombre: 'Nazaret', lat: 32.7028, lng: 35.2956, zoom: 13 },
+    { nombre: 'Belén', lat: 31.7054, lng: 35.2024, zoom: 13 },
+  ],
+  'Lucas_4_16':     [{ nombre: 'Nazaret — sinagoga', lat: 32.7028, lng: 35.2956, zoom: 15 }],
+  'Mateo_14_25':    [{ nombre: 'Mar de Galilea', lat: 32.8333, lng: 35.5833, zoom: 11 }],
+  'Mateo_26_36':    [{ nombre: 'Getsemaní', lat: 31.7796, lng: 35.2402, zoom: 17 }],
+  'Juan_11_1':      [{ nombre: 'Betania — tumba de Lázaro', lat: 31.7697, lng: 35.2627, zoom: 15 }],
+
+  // ─── Hechos ────────────────────────────────────────────────
+  'Hechos_17_22':   [
+    { nombre: 'Areópago — Atenas', lat: 37.9755, lng: 23.7242, zoom: 16 },
+    { nombre: 'Ágora de Atenas', lat: 37.9758, lng: 23.7225, zoom: 16 },
+  ],
+  'Hechos_18_1':    [{ nombre: 'Corinto', lat: 37.9088, lng: 22.8798, zoom: 13 }],
+  'Hechos_27_27':   [
+    { nombre: 'Malta — bahía de San Pablo', lat: 35.9375, lng: 14.3754, zoom: 11 },
+    { nombre: 'Cesarea Marítima (punto de partida)', lat: 32.5018, lng: 34.8953, zoom: 13 },
+  ],
+
+  // ─── Apocalipsis ───────────────────────────────────────────
+  'Apocalipsis_1_9': [{ nombre: 'Isla de Patmos', lat: 37.3167, lng: 26.5500, zoom: 12 }],
 };
 
 

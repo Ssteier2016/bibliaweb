@@ -2950,4 +2950,128 @@ export const COMMENTARY = {
     comentarios: `C.S. Lewis en "El Problema del Dolor": el sufrimiento es el megáfono de Dios para despertar a un mundo sordo — no lo quiere, pero lo usa. Víctor Frankl, sobreviviente de Auschwitz: el sufrimiento con sentido se vuelve soportable; el sin sentido destruye. La disciplina divina es sufrimiento con propósito, lo que lo convierte en formación.`,
   },
 
+
+  /* ══════════════════════════════════════════════════════════════
+     COMENTARIOS GEOGRÁFICOS — SEGUNDA TANDA
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_19_24': {
+    historico: `Las ciudades de la llanura (Sodoma, Gomorra, Admá, Zeboím y Bela/Zoar) se ubican en la tradición al sur del Mar Muerto. Evidencias arqueológicas de finales del Bronce Temprano (~2350-2067 a.C.) en Tall el-Hammam (Jordania) — una ciudad destruida abruptamente y abandonada por siglos — han sido propuestas por Steven Collins (2018) como el posible sitio de Sodoma. El Mar Muerto tiene el yacimiento de azufre natural más grande del Levante.`,
+    geografico: `El Mar Muerto (–430 m) es el punto más bajo de la Tierra. La región sur, hoy salinas y pozos de betún, era conocida en la antigüedad como "Valle de Siddim" (Gn 14:3). Flavio Josefo en el siglo I describía todavía las ruinas bajo el agua. La alta concentración de azufre, sal y brea en la región hace geológicamente posible una catástrofe ígnea o sísmica que destruyera asentamientos en esta zona.`,
+    referencia: `Génesis 13:10 (la llanura era "como el huerto de Jehová"). Deuteronomio 29:23 (Sodoma como paradigma del juicio). Lucas 17:28-29 (Jesús compara el fin con los días de Lot). Judas 1:7 (Sodoma como ejemplo de juicio eterno). Isaías 1:9.`,
+    fuentes: { geografico: 'Collins, S. & Scott, L. — Discovering the City of Sodom (2013)' },
+  },
+
+  'Génesis_22_2': {
+    geografico: `El Monte Moriah es identificado en 2 Crónicas 3:1 como el lugar donde Salomón edificó el Templo de Jerusalén — el mismo monte donde Abraham ofreció a Isaac. Hoy este cerro alberga la Cúpula de la Roca (688 d.C.), uno de los edificios más antiguos del Islam, construido sobre la gran roca que la tradición judía identifica como el altar del Templo y el lugar del sacrificio de Abraham. Es el metro cuadrado más disputado del mundo: sagrado para el judaísmo, el islam y el cristianismo simultáneamente.`,
+    referencia: `2 Crónicas 3:1 ("Salomón comenzó a edificar en Jerusalén, en el Monte Moriah"). Juan 3:16 ("de tal manera amó Dios al mundo que dio a su Hijo unigénito"). Hebreos 11:17-19. Romanos 8:32 ("el que no escatimó ni a su propio Hijo").`,
+    fuentes: { geografico: 'Ritmeyer, L. — The Quest: Revealing the Temple Mount in Jerusalem (2006)' },
+  },
+
+  'Números_13_23': {
+    historico: `Los doce espías recorrieron Canaán durante 40 días, desde el Neguev hasta Rehob en el norte (Lebo-Hamat). El Valle de Escol ("racimo") está cerca de Hebrón, en la región montañosa de Judea conocida aún hoy por sus uvas. El informe mayoritario (10 espías) fue de terror: "los gigantes... éramos nosotros, como langostas" — mientras Caleb y Josué dieron un informe de fe. La contradicción de informes ante el mismo paisaje ilustra que la geografía es interpretada a través del corazón.`,
+    geografico: `Hebrón (al-Jalil) está a 30 km al sur de Jerusalén, a ~930 m de altitud, en la región vitícola más fértil de Judá. Es una de las ciudades más antiguas del mundo habitada continuamente: allí David reinó 7 años antes de tomar Jerusalén. La Cueva de Macpela (sepultura de los patriarcas, Gn 23) está en Hebrón; sobre ella se alza la Mezquita de Ibrahim / Tumba de los Patriarcas, lugar de peregrinación para judíos y musulmanes.`,
+    referencia: `Números 14:6-9 (Caleb y Josué: "la tierra es buena"). Josué 14:12 (Caleb pide Hebrón a los 85 años). 2 Samuel 2:1-4 (David ungido rey en Hebrón). Génesis 23:19 (Abraham sepultado en Hebrón).`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  'Josué_24_1': {
+    historico: `El pacto de Siquem es el momento constitucional de Israel como nación bajo el liderazgo de Josué. "Escoged hoy a quién sirváis" (v.15) es la declaración de identidad más poderosa del AT. Siquem había sido ya lugar de primer contacto de Abraham con Canaán (Gn 12:6), sitio del altar de Jacob (Gn 33:20) y lugar donde enterraron los huesos de José (Jos 24:32). La elección de Siquem no es casual: es el centro geográfico de la tierra prometida.`,
+    geografico: `Siquem (heb. "espalda/hombro") está en el paso entre los montes Ebal y Gerizim, en el corazón de Canaán. Hoy es Nablus (West Bank), la segunda ciudad más grande de Cisjordania. El Tell Balata es el sitio arqueológico de la Siquem bíblica. Las excavaciones de Ernst Sellin (1913) y G.E. Wright (1956-1973) revelaron templos, murallas y depósitos desde el Bronce Medio. El pozo de Jacob sigue siendo visible en la cripta de la iglesia ortodoxa griega.`,
+    referencia: `Génesis 12:6-7 (Abraham en Siquem). Génesis 33:20 (Jacob construye altar). Juan 4:4-5 (Jesús en Siquem con la samaritana). Josué 24:32. Hechos 7:16.`,
+    fuentes: { geografico: 'Wright, G.E. — Shechem: The Biography of a Biblical City (1965)' },
+  },
+
+  'Jueces_4_14': {
+    historico: `La batalla del Monte Tabor fue la victoria más espectacular del período de los Jueces: la profetisa y jueza Débora dirigió al general Barac contra Sísara, comandante del ejército de Jabín rey de Canaán. Los 900 carros de hierro cananeos —tecnología militar superior— fueron inutilizados por una inundación repentina del río Cisón (Jue 5:21), confirmando la geografía estratégica del relato.`,
+    geografico: `El Monte Tabor (588 m) es un cono volcánico perfectamente simétrico que domina la llanura de Esdraelón (Jezreel). Visible desde 50 km en todas direcciones, era el punto de concentración natural de tropas del norte. Al norte del Tabor, el río Cisón drena la llanura hacia el Mediterráneo: en invierno las lluvias lo convierten en torrente impasable para carros. La iglesia de la Transfiguración en la cumbre marca también el posible sitio de Mateo 17:1.`,
+    referencia: `Jueces 5:1-31 (Cántico de Débora). Salmos 89:12 ("el Tabor y el Hermón"). Oseas 5:1 (Tabor como lugar de apostasía). Mateo 17:1-2 (la Transfiguración, posiblemente en el Tabor).`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  'Rut_1_1': {
+    historico: `El libro de Rut está ambientado en Belén en tiempos de los Jueces (~siglo XII a.C.). Elimélec emigró a Moab por una hambruna — a pocos días de camino cruzando el Jordán y el desierto de Judá. Moab era un reino vecino con el que Israel tenía relaciones complicadas (Dt 23:3 excluía a los moabitas de la asamblea hasta la décima generación). Que Rut moabita sea bisabuela de David es un dato teológico deliberado: la gracia trasciende las fronteras étnicas.`,
+    geografico: `Belén está a 9 km al sur de Jerusalén, en la franja de tierra fértil entre el desierto de Judá al este y la Sefela al oeste. Moab se extendía al este del Mar Muerto y el río Arnón (Wadi Mujib, Jordan), región hoy en el centro-sur de Jordania. El viaje de vuelta de Noemí con Rut atravesaría el Jordán posiblemente por Jericó — el camino más transitado desde el este.`,
+    referencia: `Rut 4:17 (Rut es abuela de David). Mateo 1:5 (Rut en la genealogía de Jesús). Gálatas 3:28 ("ya no hay... judío ni griego"). Efesios 2:14 ("él es nuestra paz, que de ambos pueblos hizo uno").`,
+    fuentes: { geografico: 'Aharoni, Y. — The Land of the Bible: A Historical Geography' },
+  },
+
+  '1 Samuel_17_2': {
+    historico: `El Valle de Ela ("terebinto") fue el campo de batalla del duelo más famoso de la historia bíblica. Las excavaciones en Khirbet Qeiyafa (Fortaleza de Elah, 2007-2013, Yosef Garfinkel) descubrieron una ciudad israelita del siglo X a.C. con vista directa al valle, que algunos identifican con Efes-damim o Sa'araim (1 S 17:52), contemporánea al período de David.`,
+    geografico: `El Valle de Ela se abre entre las colinas de Judea ~25 km al suroeste de Jerusalén, en la Sefela (piedemontes de Judá). Era la ruta natural de invasión filistea desde la costa hacia Judá. El arroyo del valle — donde David recogió las cinco piedras (1 S 17:40) — sigue fluyendo estacionalmente. Gat, ciudad natal de Goliat, está a ~12 km al oeste, identificada con Tell es-Safi.`,
+    referencia: `1 Samuel 17:40 ("escogió cinco piedras lisas del arroyo"). 1 Crónicas 20:5 (otro gigante de Gat caído por hermano de David). Salmos 144:1 ("el que adiestra mis manos para la guerra"). Efesios 6:10-11 (armadura espiritual contra gigantes).`,
+    fuentes: { geografico: 'Garfinkel, Y. — Footsteps of King David (2011)' },
+  },
+
+  'Mateo_3_1': {
+    historico: `Juan el Bautista vivió en el desierto de Judea vestido de pelo de camello y comiendo langostas y miel silvestre (Mt 3:4), en directa alusión al profeta Elías (2 Re 1:8). Bautizaba en el Jordán: el sitio de Betabara (Jn 1:28), hoy identificado con Al-Maghtas en la orilla jordana (~8 km al norte del Mar Muerto), fue declarado Patrimonio de la Humanidad por la UNESCO en 2015. Aquí bautizó a Jesús y aquí el Jordán tiene solo ~30 m de ancho.`,
+    geografico: `El Desierto de Judea es una franja árida de ~100 km de largo que desciende desde las montañas de Jerusalén (800 m) hasta el Mar Muerto (–430 m) en apenas 20-25 km. Recibe menos de 100 mm de lluvia anual. Era el refugio de ascetas, esenios (Qumrán está a 3 km del río) y rebeldes políticos. El Jordán en su tramo final mide solo 4-12 m de profundidad — se puede cruzar a pie en verano.`,
+    referencia: `Malaquías 3:1 ("yo envío mi mensajero"). Isaías 40:3 ("voz que clama en el desierto"). Lucas 1:80 (Juan "estaba en lugares desiertos hasta el día de su manifestación"). Juan 1:23. Marcos 1:4.`,
+    fuentes: { geografico: 'Rousseau, J.J. & Arav, R. — Jesus and His World' },
+  },
+
+  'Lucas_2_4': {
+    historico: `El viaje de Nazaret a Belén (aprox. 150 km en línea recta, 3-4 días) se hizo para el empadronamiento romano decretado por Augusto. Los historiadores debaten la datación exacta del censo de Quirino (Lc 2:2), pero los padrones por ciudad de origen (según la costumbre judía, no romana) explican el viaje de José a "su ciudad", Belén, ciudad de David. María, en término de embarazo, haría el viaje en asno.`,
+    geografico: `Nazaret (hoy ciudad árabe israelí de 77.000 hab.) está en la Baja Galilea, en un valle a 350 m de altitud. En el siglo I era un pueblo de apenas 400-500 personas, no mencionado fuera del NT ni en el AT. Belén, al sur, está a 750 m. La excavación de la Iglesia de la Anunciación en Nazaret reveló casas del siglo I talladas en la roca. El camino entre ambas ciudades atraviesa Samaria o el valle del Jordán.`,
+    referencia: `Miqueas 5:2 (Belén como lugar del Mesías). Lucas 2:7 (no había lugar en el mesón). Mateo 2:6 (Belén citado como cumplimiento de Miqueas). Juan 7:42 (debate sobre el origen galilleo de Jesús). Isaías 9:1-2 (Galilea de los gentiles).`,
+    fuentes: { geografico: "Murphy-O'Connor, J. — The Holy Land: An Oxford Archaeological Guide (2008)" },
+  },
+
+  'Lucas_4_16': {
+    historico: `La sinagoga de Nazaret era el centro de la vida comunitaria judía en el siglo I. Los rollos del AT se leían en hebreo y se traducían oralmente al arameo (Targum). Jesús leyó Isaías 61:1-2 y declaró "hoy se ha cumplido esta Escritura delante de vosotros" — un anuncio de identidad mesiánica que la congregación primero admiró (v.22) y luego rechazó (v.28-29), queriendo despeñarlo en el precipicio al norte del pueblo.`,
+    geografico: `Nazaret está sobre una colina cuyo borde norte cae abruptamente ~50 m hacia el valle (el posible "precipicio" del v.29). Las excavaciones de la Basílica de la Anunciación (s. IV, reconstruida en 1969) revelaron estructuras domésticas del siglo I bajo la iglesia actual. La Sinagoga del s. I no ha sido localizada con certeza arqueológica, pero la Iglesia de la Sinagoga data al menos del s. V sobre un sitio venerado.`,
+    referencia: `Isaías 61:1-2 (pasaje leído por Jesús). Lucas 2:51-52 (Jesús creció en Nazaret). Juan 1:46 ("¿De Nazaret puede salir algo bueno?"). Marcos 6:3 (escándalo en la sinagoga de Nazaret). Mateo 13:54-58.`,
+    fuentes: { geografico: 'Bagatti, B. — Excavations in Nazareth (1969)' },
+  },
+
+  'Mateo_14_25': {
+    historico: `El Mar de Galilea (heb. Kinneret, "arpa" por su forma) es un lago de agua dulce de 21×13 km a –210 m de altitud, rodeado de colinas que canalizan vientos hacia su superficie. Las tormentas repentinas son características del lago: el aire frío del norte choca con el aire cálido y húmedo del lago, generando olas de hasta 4 m con poca anticipación. Jesús y sus discípulos cruzaban regularmente este lago de una orilla a otra como parte de su ministerio.`,
+    geografico: `Las costas del Kinneret albergaban las ciudades más importantes del ministerio galileo: Capernaúm (noreste), Betsaida (norte), Magdala/Tarichea (oeste), Tiberias (suroeste). La barca galilei del siglo I, descubierta en 1986 en el barro de la orilla occidental, mide 8,2 m y fue datada al período de Jesús. El Mar de Galilea provee el 25% del agua potable de Israel.`,
+    referencia: `Marcos 4:39 (Jesús calma la tempestad). Mateo 4:18 (llamada de Pedro y Andrés a orillas del lago). Juan 21:1-14 (aparición post-resurrección en la orilla). Lucas 5:1-11 (pesca milagrosa). Marcos 6:48 ("los veía que se fatigaban remando").`,
+    fuentes: { geografico: 'Rousseau, J.J. & Arav, R. — Jesus and His World' },
+  },
+
+  'Mateo_26_36': {
+    historico: `Getsemaní ("prensa de aceitunas" en arameo) estaba al pie del Monte de los Olivos, al cruzar el valle del Cedrón desde Jerusalén —un minuto a pie del muro de la ciudad. Los olivos del huerto pueden tener 900-2000 años (los actuales son medievales, pero sus raíces probablemente son anteriores). En la noche del jueves, Jesús oró aquí durante 3-4 horas antes del arresto. Los soldados romanos + guardias del Templo llegaron por la ruta conocida de la Vía Dolorosa.`,
+    geografico: `El Cedrón es un valle seco (wadi) que separa Jerusalén del Monte de los Olivos. Getsemaní está en la ladera occidental del Olivos, a ~100 m del Cedrón. La Iglesia de las Naciones (diseñada por Antonio Barluzzi, 1924) conserva la roca de la "agonía" mencionada en Lucas 22:44. Los ocho olivos milenarios del jardín adyacente son el corazón botánico más visitado del mundo cristiano.`,
+    referencia: `Lucas 22:39-46 (oración en el huerto). Juan 18:1-3 (el huerto del Cedrón). Marcos 14:32-42. Hebreos 5:7 ("Cristo ofreció ruegos y súplicas con gran clamor y lágrimas"). Isaías 53:3 ("varón de dolores").`,
+    fuentes: { geografico: "Murphy-O'Connor, J. — The Holy Land: An Oxford Archaeological Guide (2008)" },
+  },
+
+  'Juan_11_1': {
+    historico: `Betania era el hogar de Lázaro, María y Marta, la familia más íntima del ministerio de Jesús (Lc 10:38-42; Jn 11). Jesús se alojaba allí cuando visitaba Jerusalén (Mt 21:17). La resurrección de Lázaro fue el milagro que precipitó la decisión del Sanedrín de matar a Jesús (Jn 11:53). El sitio es hoy el pueblo árabe de Al-Azariyya ("el lugar de Lázaro"), con una tumba venerada del siglo I.`,
+    geografico: `Betania está a 3 km al este de Jerusalén, en la ladera oriental del Monte de los Olivos, en la ruta a Jericó. Era el último pueblo antes de descender al desierto de Judá. La Tumba de Lázaro, accesible por 24 peldaños excavados en la roca, fue venerada ya en el siglo IV (Eusebio de Cesarea, 313 d.C. la menciona). La Iglesia Franciscana actual fue construida en 1954.`,
+    referencia: `Mateo 21:17 (Jesús pernoctaba en Betania). Marcos 11:11. Lucas 10:38-42 (María y Marta). Juan 12:1-8 (unción de Jesús en Betania). Lucas 24:50 (Jesús asciende "hacia Betania").`,
+    fuentes: { geografico: "Murphy-O'Connor, J. — The Holy Land: An Oxford Archaeological Guide (2008)" },
+  },
+
+  'Hechos_17_22': {
+    historico: `El discurso del Areópago (Hch 17:22-31) es el modelo paulino de evangelización en contexto filosófico pagano. Atenas en el siglo I era la capital intelectual del mundo, sede de la Academia, el Liceo, el Pórtico (estoicos) y el Jardín (epicúreos). Pablo fue llevado al Areópago — el tribunal de la colina de Ares que juzgaba asuntos filosóficos y religiosos — para explicar "esta nueva enseñanza" (v.19).`,
+    geografico: `El Areópago (Colina de Ares) es un afloramiento rocoso de mármol a 156 m de altitud, al noroeste de la Acrópolis de Atenas. En el siglo I tenía vistas directas al Partenón, al Erecteión y a los altares de dioses griegos. Los peldaños tallados en la roca por los que se subía son aún visitables. Bajo la colina estaba el Ágora, centro comercial y social donde Pablo "disputaba en la plaza cada día" (v.17) con filósofos.`,
+    referencia: `Romanos 1:20 ("lo invisible de Dios se conoce por las cosas creadas"). Hechos 14:15-17 (discurso similar en Listra). Tito 1:12 (Pablo cita a un poeta cretense). 1 Corintios 1:22-23 ("los griegos buscan sabiduría").`,
+    fuentes: { geografico: 'Gill, D. — The Roman Empire in the First Century (2001)' },
+  },
+
+  'Hechos_18_1': {
+    historico: `Corinto fue destruida por Roma en 146 a.C. y refundada por Julio César en 44 a.C. como colonia romana. En el siglo I era la capital de la provincia de Acaya, sede del gobernador Galión (Hch 18:12). Era un centro comercial de primer orden con dos puertos: Lequeo (golfo de Corinto) y Cencreas (golfo Sarônico), que permitían evitar el peligroso Cabo Malea. La piedra del bema (tribunal) de Galión fue excavada en 1935.`,
+    geografico: `Corinto está en el istmo que une la Grecia continental con el Peloponeso — el punto más estrecho entre los mares Egeo y Adriático (6 km). El Acrocorinto (575 m) dominaba la ciudad: en su cima había un templo de Afrodita. El canal de Corinto (1893) exactamente donde los griegos ya arrastraban barcos sobre troncos (diolkos). Pablo trabajó aquí 18 meses fabricando tiendas con Aquila y Priscila, el ministerio más largo de sus viajes.`,
+    referencia: `1 Corintios 1:2 (la iglesia de Corinto). 2 Corintios 12:14 (tercera visita). Romanos 16:1 (Febe, diaconisa de Cencreas). 1 Corintios 9:24 ("¿no sabéis que los que corren en el estadio...?"). Hechos 18:11.`,
+    fuentes: { geografico: "Murphy-O'Connor, J. — St. Paul's Corinth: Texts and Archaeology (2002)" },
+  },
+
+  'Hechos_27_27': {
+    historico: `El naufragio de Pablo en Malta (c. 60 d.C.) es descrito con extraordinario detalle náutico que convenció al historiador James Smith (1848) de su autenticidad histórica: los vientos, la deriva, el anclaje, la profundidad, la bahía — todo coincide con la bahía de San Pablo en Malta. Los romanos lo llamaban el "Euro-Aquilón" (viento noreste, Hch 27:14), exactamente el que desvía las rutas Creto-Sicilia.`,
+    geografico: `Malta (316 km²) está en el Mediterráneo central, a 93 km al sur de Sicilia y 290 km al norte de Libia. La Bahía de San Pablo (San Paul's Bay, norte de Malta) conserva el nombre del apóstol. Pablo pasó tres meses en la isla (Hch 28:11), sanó al padre del oficial romano Publio, y la tradición ubica su prisión en la Grotta di San Paolo. La comunidad cristiana de Malta se considera la más antigua de Europa, fundada por el propio Pablo.`,
+    referencia: `Hechos 27:14-44 (la tormenta). Hechos 28:1-10 (en Malta). 2 Corintios 11:25 ("tres veces he padecido naufragio"). Jonás 1:15 (el mar como escenario de providencia). Romanos 8:28.`,
+    fuentes: { geografico: 'Smith, J. — The Voyage and Shipwreck of Saint Paul (1848)' },
+  },
+
+  'Apocalipsis_1_9': {
+    historico: `Juan fue desterrado a Patmos —una isla volcánica árida de 34 km² en el mar Egeo— probablemente durante la persecución de Domiciano (81-96 d.C.). Patmos era una isla de exilio usada por Roma para criminales peligrosos; la tradición sitúa a Juan en la Cueva del Apocalipsis, a media ladera entre el puerto de Skala y la ciudad de Chora. El Monasterio de San Juan (1088 d.C.) y la Cueva de la Apocalipsis son Patrimonio de la Humanidad desde 1999.`,
+    geografico: `Patmos está en el archipiélago del Dodecaneso, a 56 km de la costa turca de Mileto y 190 km de Éfeso —sede de la iglesia más importante de Juan. Su posición geográfica, lejos de los centros de poder y sin valor estratégico, la hacía ideal como lugar de exilio. La Cueva del Apocalipsis, excavada en la roca, es el lugar donde la tradición dice que Juan recibió sus visiones. La vista del mar desde allí —"el mar ya no existirá más" (Ap 21:1)— da al texto una resonancia geográfica intensa.`,
+    referencia: `Apocalipsis 1:1-3 (prólogo). Juan 21:20-23 (destino del discípulo amado). Apocalipsis 22:20 ("Sí, ven, Señor Jesús"). 2 Timoteo 4:6-8 (Pablo a punto de morir: metáfora del atleta). Apocalipsis 21:1 ("el mar ya no existirá más").`,
+    fuentes: { geografico: 'Aune, D.E. — Revelation 1-5, Word Biblical Commentary (1997)' },
+  },
+
+
 };
