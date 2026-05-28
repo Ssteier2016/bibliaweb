@@ -3073,5 +3073,148 @@ export const COMMENTARY = {
     fuentes: { geografico: 'Aune, D.E. — Revelation 1-5, Word Biblical Commentary (1997)' },
   },
 
+  // ═══════════════════════════════════════════════════════════════════════
+  // BLOQUE GEO 3 — 20 nuevos versículos con comentario geográfico
+  // ═══════════════════════════════════════════════════════════════════════
+
+  'Génesis_32_22': {
+    historico: `El río Jaboc (heb. Yabboq) marca un punto de quiebre en la narrativa de Jacob. La noche anterior a su encuentro con Esaú, Jacob se quedó solo y luchó con un "varón" hasta el alba. La dislocación de su cadera y el cambio de nombre a "Israel" (el que lucha con Dios) convierten este episodio en el nacimiento simbólico del pueblo hebreo. La lucha dura "hasta que rayó el alba", detalle que sugiere una experiencia liminar entre la noche del miedo y el día de la reconciliación.`,
+    geografico: `El Jaboc (actual Wadi Zarqa, Jordania) nace en las colinas transjordanas y fluye 96 km hacia el oeste hasta unirse al Jordán. El vado de Peniel ("el que vio a Dios", Gn 32:30) se identifica con Tulul adh-Dhahab, dos colinas gemelas junto al río. El Jaboc marcaba la frontera norte del territorio de Rubén y Gad (Nm 21:24) y la frontera meridional del reino de Basán. El valle es profundo y angosto, con barrancos de hasta 200 m, lo que lo hacía un vado estratégico en las rutas transjordanas.`,
+    referencia: `Génesis 32:24-32 (lucha con el ángel). Génesis 33:1-11 (encuentro con Esaú al día siguiente). Oseas 12:3-4 (Jacob luchó con Dios y venció). Romanos 9:12-13 (el mayor servirá al menor). Efesios 6:12 (lucha no contra carne ni sangre).`,
+    fuentes: { geografico: 'Sarna, N. — Genesis, JPS Torah Commentary (1989)' },
+  },
+
+  'Génesis_46_28': {
+    historico: `La migración de Jacob y sus 70 descendientes a Egipto marca el inicio del período que culminará en el Éxodo. José envió a Judá por delante para preparar Gosén. La reunión de padre e hijo tras 22 años de separación es uno de los relatos más emotivos del Génesis. La estadía en Gosén —fértil, separada de los egipcios— permite que Israel se desarrolle como pueblo diferenciado dentro de la superpotencia de la época.`,
+    geografico: `Gosén (bíblico Gesem) se identifica con el Wadi Tumilat y la región del delta nororiental del Nilo. Las excavaciones de Manfred Bietak en Tell el-Dab'a revelan una ciudad con cerámica cananea-levantina del Bronce Medio (1800-1550 a.C.), compatible con el período patriarcal. Pi-Ramsés (Qantir), la futura capital de Ramsés II, está a 10 km al norte. La separación geográfica de Gosén del Alto Egipto explicaría por qué las plagas no afectaron a Israel (Éx 8:22).`,
+    referencia: `Génesis 45:10 (José promete la tierra de Gosén). Éxodo 8:22 (la plaga no llega a Gosén). Éxodo 9:26 (tampoco el granizo). Éxodo 12:37 (salida desde Rameses, en Gosén). Hechos 7:9-15 (Esteban recuerda la entrada a Egipto).`,
+    fuentes: { geografico: 'Bietak, M. — Avaris, the Capital of the Hyksos (1996)' },
+  },
+
+  'Éxodo_1_11': {
+    historico: `Las ciudades de Rameses y Pitón son las únicas referencias arqueológicas concretas del relato del Éxodo. Israel fue convertido en mano de obra forzada para los grandes proyectos constructivos del faraón. Ramsés II (1279-1213 a.C.) es el candidato más citado como faraón del Éxodo, aunque la datación bíblica de 1 Reyes 6:1 apunta a c. 1446 a.C. (período de Tutmosis III). La arqueología no ha hallado evidencia directa de la esclavitud israelita, pero sí de poblaciones semitas en el delta.`,
+    geografico: `Rameses se identifica con Pi-Ramsés (Qantir, Egipto), capital de Ramsés II, "la ciudad más grande del mundo" en el siglo XIII a.C. con ~300.000 habitantes. Las excavaciones austriacas (Bietak, desde 1966) revelaron Tel el-Dab'a / Avaris, capital hicsa, predecesora de Pi-Ramsés, con pinturas minóicas en el palacio y un "barrio de trabajadores" de posible identidad semita. Pitón es identificada con Tell el-Maskhuta o Tell er-Retaba, ambas en el Wadi Tumilat.`,
+    referencia: `Éxodo 12:37 (los israelitas parten de Rameses). Números 33:3 (primera etapa del Éxodo). Génesis 47:11 (José instala a su familia en "tierra de Ramsés"). Salmos 105:23 (Jacob en Egipto). Éxodo 5:7-9 (ladrillos sin paja).`,
+    fuentes: { geografico: 'Hoffmeier, J.K. — Israel in Egypt: The Evidence for the Authenticity of the Exodus Tradition (1996)' },
+  },
+
+  'Números_22_1': {
+    historico: `Las llanuras de Moab (Arboth-Moab) frente a Jericó fueron el campamento final de Israel antes de cruzar el Jordán. Allí Balaán intentó maldecir a Israel por encargo de Balac, rey de Moab, pero pronunció cuatro oráculos de bendición, incluyendo la profecía de la "estrella de Jacob" (Nm 24:17), aplicada mesiánicamente en el Documento de Damasco y posiblemente por los magos de Mateo 2. En estas llanuras Moisés dio sus discursos finales (libro de Deuteronomio) y Josué fue ordenado como sucesor.`,
+    geografico: `Las llanuras de Moab estaban en la orilla oriental del Jordán, en el actual Jordania, frente a Jericó. El Monte Nebo, desde donde Moisés vio Canaán, está a 15 km al norte. El Arnón (Wadi Mujib) marcaba la frontera sur con Moab, y el Jaboc la norte. Las excavaciones en Tall es-Saidiyeh y Pella (Jordania) revelan ciudades importantes del Bronce Tardío en esta región. El Jordán aquí es un río manso antes de desembocar en el Mar Muerto.`,
+    referencia: `Números 24:17 (estrella de Jacob — profecía mesiánica). Deuteronomio 1:1 (Moisés habla en las llanuras de Moab). Josué 13:32 (distribución del territorio transjordano). Mateo 2:2 (la estrella de los magos). Marcos 10:1 (Jesús en la región al otro lado del Jordán).`,
+    fuentes: { geografico: 'Milgrom, J. — Numbers, JPS Torah Commentary (1990)' },
+  },
+
+  'Deuteronomio_34_1': {
+    historico: `Moisés subió al Monte Nebo a los 120 años, prohibido de entrar a Canaán por el incidente de Meriba (Nm 20:12). Desde la cima vio toda la tierra prometida: el Jordán, Jericó, el Mediterráneo, el Neguev y el Líbano. Murió allí y "fue enterrado en el valle en Moab, y ningún hombre sabe su sepultura hasta hoy" (Dt 34:6): el ocultamiento de la tumba previene la idolatría. El NT alude a una disputa angélica sobre su cuerpo (Jud 1:9), y Moisés aparece en la Transfiguración (Mt 17:3).`,
+    geografico: `Monte Nebo (Jebel Neba, 817 m) está en la Meseta Moabita, Jordania, a 10 km noroeste de Madaba. Los días claros, se ven Jerusalén, el Mar Muerto, Jericó y las colinas de Judea. La Iglesia del Memorial de Moisés (siglo IV-VI), con mosaicos bizantinos excepcionales, fue adquirida por los franciscanos en 1932. El papa Juan Pablo II visitó el sitio en 2000 para inaugurar el Jubileo. La "Serpiente de Bronce" (estela esculpida) a la entrada combina el símbolo bíblico con la cruz cristiana.`,
+    referencia: `Números 20:12 (Moisés no entrará a Canaán). Deuteronomio 3:27 (contemplar desde el Pisga). Mateo 17:3 (Moisés en la Transfiguración). Judas 1:9 (Miguel disputa el cuerpo de Moisés). Hebreos 11:29 (cruzaron el Mar Rojo por fe).`,
+    fuentes: { geografico: 'Piccirillo, M. — The Mosaics of Jordan (1993)' },
+  },
+
+  'Josué_10_12': {
+    historico: `La batalla de Gabaón fue la mayor victoria de Israel en Canaán. Los cinco reyes amorreos atacaron a Gabaón, aliada de Israel. Josué marchó toda la noche desde Gilgal (35 km) y sorprendió al ejército enemigo al alba. El texto bíblico refiere el "sol se detuvo sobre Gabaón" como parte de un poema citado del Libro del Justo (Jue 10:13). Académicos proponen distintas interpretaciones: fenómeno astronómico, eclipsis, tormenta de granizo (v.11), o lenguaje poético de victoria total típico del Antiguo Oriente.`,
+    geografico: `Gabaón (hoy El-Jib, Cisjordania) está a 9 km al norte de Jerusalén, en las colinas de Benjamín. Las excavaciones de James Pritchard (1956-1962) descubrieron una cisterna circular excavada en la roca de 11 m de diámetro — el "gran estanque de Gabaón" (2 Sm 2:13) — y un sistema de túneles de agua. Se hallaron 31 jarras con inscripciones "gb'n" (Gabaón), la primera identificación arqueológica directa de una ciudad del Libro de Josué.`,
+    referencia: `Josué 10:6-15 (la batalla completa). Josué 9:3-15 (el engaño de los gabaonitas). 2 Samuel 21:1-9 (el crimen de Saúl contra los gabaonitas). 1 Reyes 3:4-5 (Salomón sacrifica en Gabaón; Dios se le aparece). Isaías 28:21 (Dios actuó en Gabaón).`,
+    fuentes: { geografico: 'Pritchard, J.B. — Gibeon, Where the Sun Stood Still (1962)' },
+  },
+
+  '1 Reyes_17_9': {
+    historico: `Sarepta fue el refugio de Elías durante 3,5 años de sequía. La viuda que lo hospedó era fenicia, pagana — Elías fue enviado fuera de Israel, subversión teológica que Jesús citó en Lucas 4:25-26 para escandalizar a Nazaret. El milagro de la harina y el aceite inagotables (1 Re 17:14-16) y la resurrección del hijo de la viuda (v.17-24) — el primer milagro de resurrección en la Biblia — establecen a Elías como prototipo de los ministerios proféticos posteriores.`,
+    geografico: `Sarepta (hoy Sarafand, sur de Líbano) estaba a mitad de camino entre Tiro y Sidón, en la costa mediterránea fenicia. Las excavaciones de James Pritchard (1969-1974) revelaron un santuario dedicado a Tanit-Astarté del siglo VII a.C., con inscripciones únicas en el mundo fenicio. La ciudad era centro de producción de vidrio, cerámica y tinte de púrpura. En el siglo I tenía un puerto activo y era conocida por sus vinos.`,
+    referencia: `Lucas 4:25-26 (Jesús cita a Elías en Sarepta). 1 Reyes 17:17-24 (resurrección del hijo). Lucas 7:11-17 (resurrección en Naín, paralelo). Hebreos 11:35 (mujeres que recibieron sus muertos por resurrección). 1 Reyes 18:1 (Elías regresa a Israel).`,
+    fuentes: { geografico: 'Pritchard, J.B. — Recovering Sarepta, a Phoenician City (1978)' },
+  },
+
+  '2 Reyes_5_14': {
+    historico: `Naamán, general sirio, era leproso. Al principio rechazó la orden de Eliseo de bañarse siete veces en el Jordán: "¿no son mejores Abana y Farfar, ríos de Damasco?" — orgullo nacional frente a la humillación de obedecer al profeta de un reino menor. Sus siervos lo persuadieron, y al bañarse la séptima vez "su carne se volvió como la de un niño". Naamán declaró: "No hay Dios en toda la tierra, sino en Israel" (v.15) — primera confesión monoteísta de un gentil en el AT.`,
+    geografico: `El Río Jordán nace en el Monte Hermón (fuentes del Dan, Banias y Hatzbani) y desemboca en el Mar Muerto. El sector norte, donde probablemente se bañó Naamán al venir desde Damasco, es el más caudaloso: el Jordán pre-bíblico tenía aquí hasta 40 m de ancho antes de las derivaciones modernas. Actualmente el Jordán está reducido al 2% de su caudal original por obras hidráulicas israelíes y jordanas. El punto de Qasr el-Yahud es venerado como lugar del bautismo de Jesús y posiblemente el área de Naamán.`,
+    referencia: `2 Reyes 5:1-19 (relato completo). Lucas 4:27 (Jesús cita a Naamán como gracia a los gentiles). Mateo 3:6 (bautismo en el Jordán). Josué 3:17 (Israel cruza el Jordán en seco). Juan 1:28 (bautismo en Betabara, al otro lado del Jordán).`,
+    fuentes: { geografico: 'Gray, J. — I & II Kings, Old Testament Library (1963)' },
+  },
+
+  'Ester_1_2': {
+    historico: `Susa fue la capital de invierno del Imperio Persa Aqueménida. Asuero se identifica con Jerjes I (486-465 a.C.): el "banquete de 180 días" (Est 1:4) puede interpretarse como una reunión de sátrapas para planear la invasión de Grecia (480 a.C.). El libro de Ester no menciona a Dios explícitamente —anomalía única en el canon— pero la providencia se percibe en cada coincidencia narrativa. La fiesta de Purim (Est 9:28) celebra hasta hoy la liberación del pueblo.`,
+    geografico: `Susa (hoy Shush, Irán, provincia de Juzestán) fue capital del Elam antes de los persas. Las excavaciones francesas (1884-1979) descubrieron el Código de Hammurabi (1901), relieves del palacio de Darío y la sala de audiencias con 1.000 m² de columnas. El palacio de Darío inscribe los materiales traídos de todo el Imperio: cedro del Líbano, lapislázuli de Sogdiana, marfil de Etiopía. Nehemías sirvió aquí como copero del rey (Neh 1:1) antes de regresar a Jerusalén.`,
+    referencia: `Nehemías 1:1 (Nehemías en Susa). Daniel 8:2 (visión de Daniel en Susa). Esdras 1:1-4 (decreto de Ciro, también en Persia). Ester 4:16 (Ester ante el rey). Isaías 21:2 (Elam/Persia en la profecía).`,
+    fuentes: { geografico: 'Perrot, J. (ed.) — The Palace of Darius at Susa (2013)' },
+  },
+
+  'Jeremías_1_1': {
+    historico: `Jeremías fue llamado "antes de que nacieras" (Jr 1:5), anticipando el lenguaje paulino de Gálatas 1:15. Su ministerio abarcó 40 años (627-587 a.C.), desde el rey Josías hasta la caída de Jerusalén. Anatot era una ciudad sacerdotal donde vivían descendientes de Abiatar, exiliado por Salomón (1 Re 2:26). Los sacerdotes de su propia ciudad lo amenazaron de muerte por sus profecías (Jr 11:21-23). El "profeta llorón" compró un campo en Anatot (Jr 32:7-9) como acto simbólico de esperanza en la restauración futura.`,
+    geografico: `Anatot se identifica con Ras el-Kharrubeh, junto a la actual Anata (Cisjordania), a 5 km al norte-nordeste de Jerusalén. Era una ciudad levítica en el territorio de Benjamín, asignada a los descendientes de Aarón (Jos 21:18). Las excavaciones han producido sellos de arcilla (bullae) del período del Hierro II (siglos VIII-VI a.C.), contemporáneos de Jeremías. Desde las colinas de Anatot se divisa directamente la Ciudad de David y el Monte del Templo.`,
+    referencia: `Jeremías 11:21-23 (amenaza de los sacerdotes de Anatot). 1 Reyes 2:26 (Abiatar desterrado a Anatot). Gálatas 1:15 (Pablo evoca el llamado prenatal). Jeremías 32:7-9 (compra el campo como acto profético). Josué 21:18 (Anatot ciudad levítica).`,
+    fuentes: { geografico: 'Holladay, W.L. — Jeremiah 1, Hermeneia (1986)' },
+  },
+
+  'Ezequiel_1_1': {
+    historico: `Ezequiel fue deportado a Babilonia en 597 a.C. (segunda deportación, con el rey Joaquín). La visión inicial de los cuatro seres vivientes —"Merkavá" (carro de Dios)— se convirtió en el núcleo de la mística judía posterior. La fecha exacta "año cinco del rey Joaquín, en el mes cuarto, el quinto día" es la más precisa del AT profético: 31 de julio de 593 a.C. según el cálculo moderno. La visión afirma que Dios no está limitado al Templo de Jerusalén: su trono es móvil, universal.`,
+    geografico: `El Quebar (acadio: nâr kabari, "el gran canal") era un canal navegable que partía del Éufrates al norte de Babilonia. Tel-Abib ("colina de la inundación", del acadio tel abubi) se identifica con Tell Abib, a ~80 km al sur de Babilonia actual. Tablillas cuneiformes de Babilonia mencionan "raciones de aceite para Yaukin rey de Yauda" —el rey Joaquín de 2 Re 25:27— confirmando la presencia del exilio judío en la región.`,
+    referencia: `Ezequiel 3:15 (siete días con los exiliados en Tel-Abib). Salmos 137:1 ("junto a los ríos de Babilonia"). 2 Reyes 24:14-15 (deportación de Joaquín). Apocalipsis 4:6-8 (visión paralela de los cuatro seres vivientes). Isaías 6:1-4 (visión del trono: paralelo con Ezequiel 1).`,
+    fuentes: { geografico: 'Block, D.I. — Ezekiel 1-24, NICOT (1997)' },
+  },
+
+  'Jonás_1_3': {
+    historico: `Jonás intentó huir de Dios viajando desde Jaffa en dirección opuesta a Nínive: hacia Tarsis (posiblemente Tartessos en España o Cerdeña, la ruta mediterránea más larga). La tormenta, el sorteo, la confesión de Jonás y el gran pez forman una narrativa teológica de humor e ironía: nadie puede escapar de la presencia divina. Nínive era capital del Imperio Asirio, el enemigo más temido. Que Dios se compadezca de Nínive —y no solo de Israel— es el punto teológico central del libro.`,
+    geografico: `Jaffa (hoy barrio de Tel Aviv) es uno de los puertos más antiguos del mundo, mencionado en documentos egipcios del siglo XV a.C. La madera del Líbano para el Templo llegó a Jaffa (2 Cr 2:16). Nínive (hoy Mosul, Iraq) era una metrópoli de 7,5 km² en su apogeo (siglos VIII-VII a.C.), con el palacio de Senaquerib de 80 salas decoradas con relieves al norte del actual Mosul. Fue destruida en 612 a.C. por medos y babilonios, exactamente como anunció Nahúm.`,
+    referencia: `Mateo 12:40 (Jesús cita la señal de Jonás — tres días en el vientre). Lucas 11:30. Nahúm 1:1 (profecía contra Nínive). Hechos 9:36 (Dorcas vivía en Jaffa). Hechos 10:5-6 (Pedro en Jaffa recibe la visión de Cornelio).`,
+    fuentes: { geografico: 'Limburg, J. — Jonah, Old Testament Library (1993)' },
+  },
+
+  'Juan_2_1': {
+    historico: `Las bodas de Caná son el "arché tōn sēmeiōn" —el primero de los signos (Jn 2:11)—, la primera manifestación pública de la gloria de Jesús. La transformación de agua en vino (120-180 litros) escandalizó al maestresala por su calidad superior. El episodio revela la intercesión de María ("no tienen vino", Jn 2:3) y la obediencia antes de comprender: "Haced lo que él os dijere" (Jn 2:5). Los comentaristas relacionan el vino nuevo con la nueva alianza que Jesús inaugura.`,
+    geografico: `Caná de Galilea se identifica con Kafr Kanna (8 km al nordeste de Nazaret) o Khirbet Qana (9 km al norte). La Iglesia Franciscana de Kafr Kanna (1905) conserva una piedra votiva del siglo IV y tinajas de la época. Khirbet Qana tiene evidencia arqueológica del siglo I más sólida (mikveh, cerámica del Hierro II-período romano), pero menos accesible. La región de Galilea era conocida por sus viñedos; el vino galileo era exportado a Siria y Egipto.`,
+    referencia: `Juan 2:11 (el primero de los signos). Juan 4:46 (Jesús regresa a Caná). Juan 21:2 (Natanael era de Caná). Isaías 62:5 (el gozo del novio: metáfora de la alianza). Apocalipsis 19:9 (las bodas del Cordero como cumplimiento final).`,
+    fuentes: { geografico: 'Freyne, S. — Galilee, Jesus and the Gospels (1988)' },
+  },
+
+  'Marcos_5_1': {
+    historico: `Jesús cruzó el Mar de Galilea y llegó a la región de los Gerasenos (variantes textuales: Gadarenos, Gergesenos). Expulsó una legión de demonios (6.000 soldados en una legión romana: la cantidad es hiperbólica) que entró en una piara de cerdos. Los cerdos —impuros para los judíos— señalan un contexto gentil: Decápolis. El endemoniado liberado fue el primer misionero a las Diez Ciudades (Mc 5:20), sembrando el terreno para el ministerio de Jesús en la región (Mc 7:31).`,
+    geografico: `El sitio tradicional es Kursi (costa nordeste del Mar de Galilea), donde excavaciones israelíes (1971) revelaron un monasterio bizantino del siglo V con mosaicos y sala de bautismo. La barranca desde el acantilado al lago es visible en el sitio. La Decápolis era una federación de diez ciudades helenísticas: Damasco, Filadelfia, Gerasa (Jerash), Gadara, Escitópolis, Hippos, Dion, Pela, Canata y Rafael. Gadara (Umm Qays, Jordania) está a 10 km del lago.`,
+    referencia: `Mateo 8:28-34 (versión con dos endemoniados). Lucas 8:26-39. Marcos 7:31 (Jesús regresa a la Decápolis). Marcos 5:20 (el liberado proclama en Decápolis). Isaías 65:4 (los que "entre los sepulcros... comen carne de cerdo").`,
+    fuentes: { geografico: 'Tzaferis, V. — The Excavations of Kursi-Gergesa (1983)' },
+  },
+
+  'Marcos_8_27': {
+    historico: `"¿Quién dicen los hombres que soy yo?" y la respuesta de Pedro ("Tú eres el Cristo") constituyen el punto central de los Evangelios Sinópticos. La escena ocurre deliberadamente en Cesarea de Filipos, epicentro del culto pagano a Pan y sede de un templo a Augusto Divinizado: el máximo contraste posible para una declaración mesiánica. Jesús responde con el único uso de "ekklesia" (iglesia) en los Evangelios y anuncia, por primera vez, su pasión inminente.`,
+    geografico: `Cesarea de Filipos (hoy Banias, Altos del Golán israelí) está al pie del Monte Hermón, donde la fuente del Banias brota de una cueva natural dedicada al dios Pan (Paneion). Herodes Filipo II (hijo de Herodes el Grande) la reconstruyó y la renombró en honor de Augusto y de sí mismo. Los nichos votivos tallados en la roca del acantilado conservan inscripciones griegas a Pan y Eco. El parque nacional conserva restos del Templo de Pan, el templo herodiano y el palacio de Agripas II.`,
+    referencia: `Mateo 16:13-20 (versión de Mateo: "sobre esta piedra edificaré mi iglesia"). Lucas 9:18-21. Juan 6:68-69 (confesión similar de Pedro). Mateo 17:1-9 (Transfiguración posiblemente en el Monte Hermón). Isaías 9:1 (Galilea de los gentiles, donde surge la luz).`,
+    fuentes: { geografico: 'Wilson, J.F. — Caesarea Philippi: Banias, the Lost City of Pan (2004)' },
+  },
+
+  'Lucas_19_1': {
+    historico: `Zaqueo era jefe de publicanos en Jericó, ciudad aduanera sobre la ruta transjordana. Era rico pero excluido socialmente. Subió al sicómoro (Ficus sycomorus, hasta 15 m) porque era de baja estatura y la multitud lo bloqueaba. La conversión de Zaqueo —restaurar cuádruples las defraudaciones y dar el 50% a los pobres— excede los requisitos legales del Levítico. Jesús declara: "También éste es hijo de Abraham" (Lc 19:9), rehabilitando su pertenencia al pueblo elegido.`,
+    geografico: `Jericó (Tell es-Sultan) está a 258 m bajo el nivel del mar, la ciudad habitada más antigua conocida (~9.000 a.C.). En el siglo I era una ciudad herodiana con palacios de invierno (excavados por Ehud Netzer): jardines botánicos, piscinas, y el "Palacio de Invierno" de Herodes el Grande a 2 km del centro. El sicómoro venerado en el centro de la ciudad moderna, aunque de autenticidad simbólica, es genuinamente antiguo (varios siglos).`,
+    referencia: `Lucas 18:35-43 (curación del ciego Bartimeo, en camino a Jericó). Josué 6:1-20 (caída de Jericó). 1 Reyes 16:34 (maldición de la reconstrucción de Jericó). Lucas 10:30 (el camino Jerusalén-Jericó). Números 13:22 (Jericó, "ciudad de las palmeras").`,
+    fuentes: { geografico: 'Netzer, E. — The Architecture of Herod, the Great Builder (2006)' },
+  },
+
+  'Lucas_24_13': {
+    historico: `El camino de Emaús es uno de los relatos más literariamente elaborados del NT. Dos discípulos (Cleofás y otro) caminaban abatidos desde Jerusalén. Jesús resucitado se unió a ellos como desconocido, explicó las Escrituras desde Moisés y los profetas, y fue reconocido en "la fracción del pan" (communio eucharistica): el primer rito eucarístico post-resurrección. El instante del reconocimiento coincide con su desaparición, sugiriendo que la presencia de Cristo es litúrgica antes que visible.`,
+    geografico: `La ubicación de Emaús es debatida: el texto griego dice "60 estadios" (~11 km), apuntando a Emmaus Nicopolis (Latrun, 30 km). Algunos manuscritos dicen "160 estadios" (~28 km), compatibles con Nicopolis. El pueblo de Abu Ghosh (12 km) y Qubeibe (11 km, con restos de una villa del siglo I) son alternativas. La más sólida arqueológicamente es Emmaus/Nicopolis (Tell Latrun), con basílica del siglo IV sobre el sitio venerado.`,
+    referencia: `Lucas 24:13-35 (relato completo). Marcos 16:12-13 (mención paralela). 1 Corintios 11:23-26 (fracción del pan como anamnesis). Génesis 18:1-8 (Abraham acoge a tres visitantes: inversión en Emaús). Juan 20:14-16 (María no reconoce a Jesús resucitado).`,
+    fuentes: { geografico: 'Finegan, J. — The Archaeology of the New Testament (1992)' },
+  },
+
+  'Hechos_1_9': {
+    historico: `La Ascensión ocurre 40 días después de la Resurrección (Hch 1:3), frente a Betania en el Monte de los Olivos (Lc 24:50). Los discípulos reciben la promesa del Espíritu Santo antes de la partida: serán testigos "hasta lo último de la tierra" (Hch 1:8). Dos ángeles anuncian el retorno en la misma forma. El número 40 en la Biblia señala períodos de preparación (diluvio, desierto, cuaresma). Lucas escribe la Ascensión dos veces: como final de su Evangelio y como inicio de Hechos.`,
+    geografico: `El Monte de los Olivos (826 m) es el punto más alto al este de Jerusalén, separado por el valle del Cedrón. La Iglesia de la Ascensión (Imjardim, hoy mezquita), construida por los cruzados en el siglo XII sobre una capilla del siglo IV de Elena, conserva una piedra con una "huella" atribuida a Cristo. El día de la Ascensión, miles de peregrinos suben desde Betfagé replicando la ruta del Domingo de Ramos a la inversa. Zacarías 14:4 profetiza que el Mesías plantará sus pies en el Monte de los Olivos.`,
+    referencia: `Lucas 24:50-53 (Ascensión según Lucas). Marcos 16:19 (breve mención). Efesios 4:8-10 (Pablo interpreta la Ascensión teológicamente). Hebreos 9:24 (Cristo entró en el santuario celestial). Zacarías 14:4 (el Monte de los Olivos en el fin de los tiempos).`,
+    fuentes: { geografico: "Murphy-O'Connor, J. — The Holy Land: An Oxford Archaeological Guide (2008)" },
+  },
+
+  'Hechos_16_9': {
+    historico: `En Troas, Pablo recibió la visión del "varón macedonio" que lo llamaba a Europa. Este momento marca el cruce decisivo del evangelio de Asia al mundo occidental. En Filipos fundó la primera iglesia europea. Lidia de Tiatira, comerciante de púrpura, fue la primera conversa europea registrada. Pablo y Silas fueron encarcelados y liberados por un terremoto: el carcelero y su familia fueron bautizados esa misma noche.`,
+    geografico: `Troas (Alejandría Troas, Turquía costera) estaba a 25 km de los Dardanelos —el estrecho que separa Asia de Europa. Filipos (actual Kavala, NE de Grecia) fue fundada por Filipo II de Macedonia en 356 a.C. sobre minas de oro del Monte Pangeo. La Vía Egnacia, la autopista romana Roma-Bizancio, cruzaba la ciudad. Las excavaciones francesas revelaron el foro romano, el teatro adaptado al gladiatorio, una basílica paleocristiana sobre el pretorio y el río Gangites (lugar del bautismo de Lidia, 1 km oeste).`,
+    referencia: `Hechos 16:11-40 (misión completa en Filipos). Filipenses 1:3-6 (el afecto de Pablo por Filipos). 2 Corintios 2:12-13 (Pablo regresa a Troas). 2 Timoteo 4:13 (capote dejado en Troas). Hechos 20:5-12 (Pablo en Troas, Eutico cae de la ventana).`,
+    fuentes: { geografico: 'Oakes, P. — Philippians: From People to Letter (2001)' },
+  },
+
+  'Romanos_1_7': {
+    historico: `La carta a los Romanos (c. 57 d.C.) fue escrita desde Corinto antes de la primera visita de Pablo a Roma. La comunidad cristiana romana existía antes de Pablo: probablemente fundada por judíos convertidos en Pentecostés (Hch 2:10), entre ellos Aquila y Priscila (Hch 18:2). Pablo llegó a Roma como prisionero (c. 60 d.C.) y pasó dos años en arresto domiciliario predicando libremente (Hch 28:30). La tradición ubica su martirio c. 67 d.C. en la Vía Ostiense.`,
+    geografico: `Roma en el siglo I tenía ~1 millón de habitantes, la mayor ciudad del mundo occidental. La Vía Apia conectaba Roma con Brindisi; Pablo fue recibido en Tres Tabernas (Forum Apii, a 65 km de Roma, Hch 28:15). Las catacumbas romanas (siglos II-IV) son los cementerios subterráneos más extensos del mundo cristiano antiguo y conservan las primeras imágenes de Cristo (c. 200 d.C.). La Basílica de San Pablo Extramuros (via Ostiense) marca la tumba tradicional del apóstol.`,
+    referencia: `Hechos 28:14-31 (llegada y ministerio en Roma). Romanos 16:3-5 (Aquila y Priscila en Roma). 2 Timoteo 4:6-8 (Pablo ante el martirio en Roma). Filipenses 1:13 (el pretorio/guardia imperial). 1 Clemente 5:4-7 (martirio de Pedro y Pablo, c. 95 d.C.).`,
+    fuentes: { geografico: 'Jewett, R. — Romans: A Commentary, Hermeneia (2007)' },
+  },
 
 };

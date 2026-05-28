@@ -199,6 +199,63 @@ const GEO_LUGARES = {
 
   // ─── Apocalipsis ───────────────────────────────────────────
   'Apocalipsis_1_9': [{ nombre: 'Isla de Patmos', lat: 37.3167, lng: 26.5500, zoom: 12 }],
+
+  // ─── Patriarcas / Pentateuco ───────────────────────────────────
+  'Génesis_32_22':   [{ nombre: 'Río Jaboc — vado de Peniel', lat: 32.2167, lng: 35.6000, zoom: 13 }],
+  'Génesis_46_28':   [
+    { nombre: 'Gosén — delta del Nilo oriental', lat: 30.7500, lng: 31.9167, zoom: 10 },
+    { nombre: 'Tell el-Dab\u0027a / Avaris (sede de José)', lat: 30.7833, lng: 31.8333, zoom: 13 },
+  ],
+  'Éxodo_1_11':      [
+    { nombre: 'Pi-Ramsés / Qantir (ciudad de los esclavos)', lat: 30.7959, lng: 31.8231, zoom: 13 },
+    { nombre: 'Pitón — Tell el-Maskhuta', lat: 30.5528, lng: 32.0992, zoom: 13 },
+  ],
+  'Números_22_1':    [{ nombre: 'Llanuras de Moab — frente a Jericó', lat: 31.8500, lng: 35.5500, zoom: 11 }],
+  'Deuteronomio_34_1': [
+    { nombre: 'Monte Nebo — cima del Pisga', lat: 31.7617, lng: 35.7303, zoom: 13 },
+    { nombre: 'Tierra Prometida (panorámica desde Nebo)', lat: 31.7500, lng: 35.2000, zoom: 8 },
+  ],
+
+  // ─── Conquista / Monarquía ─────────────────────────────────────
+  'Josué_10_12':     [{ nombre: 'Gabaón — El-Jib', lat: 31.8406, lng: 35.1694, zoom: 14 }],
+  '1 Reyes_17_9':    [{ nombre: 'Sarepta de Sidón — Sarafand (Líbano)', lat: 33.4578, lng: 35.3019, zoom: 13 }],
+  '2 Reyes_5_14':    [
+    { nombre: 'Río Jordán — zona norte (Naamán)', lat: 32.6000, lng: 35.5833, zoom: 12 },
+    { nombre: 'Damasco (origen de Naamán)', lat: 33.5138, lng: 36.2765, zoom: 11 },
+  ],
+
+  // ─── Persia / Profetas ─────────────────────────────────────────
+  'Ester_1_2':       [{ nombre: 'Susa — Palacio de Asuero / Shush (Irán)', lat: 32.1907, lng: 48.2566, zoom: 13 }],
+  'Jeremías_1_1':    [{ nombre: 'Anatot — Ras el-Kharrubeh (Benjamín)', lat: 31.8167, lng: 35.2667, zoom: 14 }],
+  'Ezequiel_1_1':    [
+    { nombre: 'Río Quebar — Tel-Abib (Babilonia)', lat: 32.4500, lng: 44.5500, zoom: 10 },
+    { nombre: 'Canal nâr kabari (Éufrates sur)', lat: 32.3833, lng: 44.4167, zoom: 9 },
+  ],
+  'Jonás_1_3':       [
+    { nombre: 'Jaffa — puerto de Jonás (Tel Aviv)', lat: 32.0537, lng: 34.7522, zoom: 14 },
+    { nombre: 'Nínive — Mosul (Iraq)', lat: 36.3611, lng: 43.1564, zoom: 12 },
+  ],
+
+  // ─── Evangelios ────────────────────────────────────────────────
+  'Juan_2_1':        [{ nombre: 'Caná de Galilea — Kafr Kanna', lat: 32.7486, lng: 35.3510, zoom: 14 }],
+  'Marcos_5_1':      [
+    { nombre: 'Kursi — Gadara / costa este del Mar de Galilea', lat: 32.8597, lng: 35.6533, zoom: 14 },
+    { nombre: 'Decápolis — región helenística (vista)', lat: 32.6500, lng: 35.8000, zoom: 9 },
+  ],
+  'Marcos_8_27':     [{ nombre: 'Cesarea de Filipos — Banias', lat: 33.2497, lng: 35.6961, zoom: 14 }],
+  'Lucas_19_1':      [{ nombre: 'Jericó — ciudad de Zaqueo', lat: 31.8607, lng: 35.4607, zoom: 14 }],
+  'Lucas_24_13':     [
+    { nombre: 'Emaús — Emmaus Nicopolis / Latrun', lat: 31.8386, lng: 35.0117, zoom: 13 },
+    { nombre: 'Jerusalén (punto de partida)', lat: 31.7683, lng: 35.2137, zoom: 12 },
+  ],
+
+  // ─── Hechos / Epístolas ────────────────────────────────────────
+  'Hechos_1_9':      [{ nombre: 'Monte de los Olivos — lugar de la Ascensión', lat: 31.7780, lng: 35.2435, zoom: 15 }],
+  'Hechos_16_9':     [
+    { nombre: 'Troas — puerto de partida hacia Europa', lat: 39.7564, lng: 26.1678, zoom: 13 },
+    { nombre: 'Filipos — primera iglesia europea (Macedonia)', lat: 41.0119, lng: 24.2875, zoom: 14 },
+  ],
+  'Romanos_1_7':     [{ nombre: 'Roma — comunidad cristiana del siglo I', lat: 41.9028, lng: 12.4964, zoom: 12 }],
 };
 
 
