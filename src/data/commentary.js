@@ -2816,4 +2816,138 @@ export const COMMENTARY = {
     referencia: `Nehemías 8:1-8 (Esdras lee la ley ante el pueblo). Deuteronomio 17:18-19 (el rey debe leer la ley todos los días). 2 Timoteo 2:15 ("procura con diligencia presentarte a Dios aprobado"). Lucas 2:46-47 (Jesús escucha y pregunta a los maestros).`,
   },
 
+
+  /* ══════════════════════════════════════════════════════════════
+     NUEVOS COMENTARIOS — GEOGRÁFICO + OTRAS CATEGORÍAS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_2_8': {
+    geografico: `El "oriente" donde Dios plantó el Edén se asocia con Mesopotamia: el texto menciona cuatro ríos, dos de los cuales son el Tigris (Hidekel) y el Éufrates. La región del golfo Pérsico contaba, hace 10.000 años, con tierras fértiles hoy sumergidas bajo el mar. El arqueólogo y teólogo Juris Zarins propuso que el Edén original podría ubicarse en el fondo del golfo, cubierto por el ascenso del mar tras el fin de la última glaciación (~8000 a.C.), lo que explicaría por qué no puede "encontrarse" en el presente.`,
+    fuentes: { geografico: 'Zarins, J. — The Quest for the Lost Garden (1994)' },
+  },
+
+  'Génesis_11_4': {
+    historico: `Los zigurats mesopotámicos —torres piramidales escalonadas con templo en la cima— son el trasfondo arquitectónico más probable de la "torre de Babel". El Gran Zigurat de Ur (siglo XXI a.C., reconstruido por Nabonido en el VI a.C.) era el centro administrativo y religioso de la ciudad, visible a kilómetros en la llanura. La inscripción del zigurat de Borsippa dice: "Su cúspide no he levantado alto; a la morada de los dioses no he apuntado".`,
+    geografico: `Babel ("puerta del dios" en acadio, "confusión" en hebreo) se identifica con Babilonia, en el Éufrates a ~90 km al sur de Bagdad. La ciudad concentraba el poder político, económico y religioso del mundo antiguo: el nombre mismo se convierte en símbolo de ambición humana y orgullo civilizacional. Koldewey excavó Babilonia entre 1899 y 1917, revelando la Puerta de Istar, la Avenida de las Procesiones y los cimientos del gigantesco zigurat Etemenanki.`,
+    fuentes: { geografico: 'Parrot, A. — Babel et la Tour de Babel (1953)' },
+  },
+
+  'Génesis_37_17': {
+    historico: `Dotán era un nodo en la ruta norte de las caravanas entre Damasco y Egipto. Las excavaciones de Joseph Free (1953-1960) revelaron 11 capas de ocupación desde el Calcolítico. Aquí fue también donde el ejército sirio rodeó al profeta Eliseo (2 Re 6:13), y el sirviente vio "el monte lleno de caballos y carros de fuego". La misma geografía —cruce de caminos, visibilidad estratégica— marca dos historias de providencia separadas por 700 años.`,
+    geografico: `Dotán está a ~22 km al norte de Siquem (Nablus), en la llanura que conecta el valle de Jezreel con las colinas de Samaria. La ruta caravanera pasaba obligatoriamente por este punto al descender hacia la costa y continuar al sur hacia Egipto. Desde Dotán, José fue llevado ~400 km hasta el delta del Nilo, un viaje que cambiaría la historia de Israel.`,
+    fuentes: { geografico: 'Free, J.P. — Excavations at Dothan, Biblical Archaeologist (1954)' },
+  },
+
+  'Éxodo_3_1': {
+    historico: `Moisés pastoreaba el rebaño de su suegro Jetro, sacerdote madianita, cuando recibió la revelación más importante del AT: el nombre de Dios. Madián era una confederación de tribus seminómadas en el noroeste de Arabia y la Península del Sinaí. La teoría "kenita" sugiere que el culto a YHWH pudo haber tenido raíces en las tradiciones religiosas madianitas que Moisés conoció durante sus 40 años de exilio.`,
+    geografico: `El Monte Horeb/Sinaí es el lugar más sagrado del AT. La tradición más antigua lo ubica en Jebel Musa (2.285 m, Sinaí sur), sede del Monasterio de Santa Catalina desde el siglo VI. Otros estudiosos proponen Jebel al-Lawz en Arabia (al-Hijaz), al este del golfo de Aqaba, donde Flavio Josefo también lo ubicaba. La ambigüedad geográfica puede ser intencional: el lugar sagrado trasciende su localización física.`,
+    fuentes: { geografico: 'Har-El, M. — The Sinai Journeys (1983)' },
+  },
+
+  'Josué_6_1': {
+    historico: `Jericó es considerada la ciudad continuamente habitada más antigua del mundo (~9000 a.C.). Las excavaciones de Kathleen Kenyon (1952-1958) revelaron torres y muros del Neolítico previos a la cerámica. El relato bíblico de la conquista ha sido debatido: Kenyon no encontró muros de la época del Bronce Tardío (~1400 a.C.). Sin embargo, la fecha más alta de la Éxodo (~1446 a.C.) o la baja (~1250 a.C.) produce resultados arqueológicos distintos, manteniendo vivo el debate.`,
+    geografico: `Jericó se encuentra a –258 m sobre el nivel del mar, siendo una de las ciudades más bajas de la Tierra, en la entrada de Canaán desde el este. Su posición la convertía en la primera conquista necesaria para cualquier ejército que cruzara el Jordán. La fuente de Elisha (Ein as-Sultan), mencionada en 2 Reyes 2:19-22, sigue fluyendo hoy junto al tell arqueológico.`,
+    referencia: `Números 22:1 (campamento en las llanuras de Moab frente a Jericó). Josué 2:1 (los espías). Hebreos 11:30 ("por la fe cayeron los muros de Jericó"). Lucas 19:1-10 (Zaqueo, en Jericó). Marcos 10:46 (ciego Bartimeo en Jericó).`,
+    fuentes: { geografico: 'Kenyon, K.M. — Digging Up Jericho (1957)' },
+  },
+
+  '2 Samuel_5_6': {
+    historico: `La conquista de Jerusalén por David (~1003 a.C.) fue la decisión política más brillante de su reinado. La ciudad jebusea era un enclave independiente entre las tribus de Judá y Benjamín, nunca conquistado. Al elegirla como capital, David evitó rivalidades tribales creando una capital "neutral" sin historia tribal previa. Las excavaciones de Eilat Mazar (2005-2010) han identificado una gran estructura del siglo X como posible Palacio de David.`,
+    geografico: `La Ciudad de David original ocupaba la colina SE de la actual Jerusalén, una lengua de roca de 4 ha delimitada por el Cedrón al este y el Tiropeón al oeste. A 754 m sobre el nivel del mar, con valles profundos en tres flancos, era naturalmente inexpugnable. Hoy las excavaciones de la Ciudad de David son uno de los sitios arqueológicos más activos de Israel, revelando el sistema hídrico (Tunel de Ezequías) y estructuras de la época monárquica.`,
+    fuentes: { geografico: 'Mazar, E. — The Palace of King David (2009)' },
+  },
+
+  'Salmos_137_1': {
+    historico: `El Salmo 137 nació del trauma del exilio babilónico (586-539 a.C.) tras la destrucción de Jerusalén por Nabucodonosor II. Textos cuneiformes del siglo VI a.C. mencionan raciones entregadas a prisioneros de "Ja-a-hu-da-a-ia" (Judá) en Babilonia. Los deportados fueron asentados en colonias junto a los canales de irrigación, donde mantuvieron su identidad cultural y religiosa — el exilio fue paradójicamente el período de mayor creatividad teológica israelita.`,
+    geografico: `Los "ríos de Babilonia" no son el Tigris y Éufrates principales sino los canales (narim) de irrigación que los conectaban. Las ciudades del exilio incluían Tél-Abib (junto al río Quebar, Ez 1:1). Babilonia — con 250.000 habitantes y 80 km de murallas en su apogeo — era la ciudad más grande del mundo: la Puerta de Istar, la Avenida de las Procesiones y el zigurat Etemenanki (posible Torre de Babel) dominaban su horizonte.`,
+    fuentes: { geografico: 'Oded, B. — Mass Deportations in the Neo-Assyrian Empire (1979)' },
+  },
+
+  'Daniel_1_1': {
+    historico: `Nabucodonosor II (605-562 a.C.) deportó a los jóvenes de la élite judía para integrarlos a la burocracia babilónica — práctica habitual del imperialismo mesopotámico. La Crónica Babilónica confirma que Nabucodonosor capturó Jerusalén en el 597 a.C. (2 Re 24:10-12). Daniel y sus compañeros habrían sido educados 3 años en lengua caldea, convirtiéndose en funcionarios del estado más poderoso de su época.`,
+    geografico: `Babilonia bajo Nabucodonosor era la ciudad más grande del mundo: sus murallas dobles abarcaban ~20 km². El Palacio del Sur, la Puerta de Istar (revestida de lapislázuli y oro, reconstruida en el Museo de Berlín) y el zigurat Etemenanki dominaban la ciudad. Daniel sirvió en esta corte bajo reyes babilonios y luego bajo el persa Ciro, autor del decreto que permitió el retorno judío (Dan 1:21, 6:28; Esd 1:1-4).`,
+    fuentes: { geografico: 'Oates, J. — Babylon (1986)' },
+  },
+
+  'Mateo_27_33': {
+    historico: `El Gólgota ("lugar de la Calavera", del arameo gulgulta; Calvario en latín) es identificado por la tradición cristiana con la Basílica del Santo Sepulcro. En el siglo I era un pequeño promontorio rocoso fuera del muro norte de Jerusalén, junto a una cantera abandonada y un jardín con sepulcros (Jn 19:41). La arqueología confirma que el área era cementerio judío del Período del Primer Templo — extramuro en tiempos de Jesús.`,
+    geografico: `La Basílica del Santo Sepulcro (330 d.C., Constantino) cubre tanto el monte de la crucifixión como el sepulcro, a ~750 m al norte de la Ciudad de David. Fue construida sobre el templo de Venus de Adriano (~135 d.C.), que paradójicamente preservó el sitio al impedir otra construcción. El arqueólogo Dan Bahat confirmó que la ubicación es consistente con ser extramuro en el siglo I (el muro norte fue ampliado por Agripa I c. 41 d.C.).`,
+    referencia: `Isaías 53:9 ("con los ricos fue en su muerte"). Juan 19:41-42 (sepulcro en jardín cercano). Mateo 27:57-60. Lucas 23:53. Marcos 15:46.`,
+    fuentes: { geografico: 'Gibson, S. — The Final Days of Jesus (2009)' },
+  },
+
+  'Hechos_13_4': {
+    historico: `El primer viaje misionero de Pablo (c. 46-48 d.C.) fue iniciativa de la comunidad de Antioquía de Siria — no de Jerusalén — marcando la transición del movimiento judeocristiano hacia el mundo mediterráneo gentil. En Pafos, Chipre, el procónsul romano Sergio Paulo creyó tras ver a Bar-Jesús cegado (Hch 13:12): la primera conversión documentada de un funcionario romano en el libro de Hechos.`,
+    geografico: `Antioquía de Siria (Antakya, Turquía) era la tercera ciudad del Imperio Romano, sede de la primera comunidad que usó el nombre "cristiano" (Hch 11:26). Desde el puerto de Seleucia Pieria cruzaron a Salamina, capital comercial de Chipre en la costa este. La isla entera fue recorrida hacia Pafos (costa oeste, sede del gobernador). De allí cruzaron a Perge, en la costa de Panfilia, adentrándonos en Asia Menor.`,
+    fuentes: { geografico: 'Ramsay, W.M. — St. Paul the Traveller and Roman Citizen (1895)' },
+  },
+
+  'Apocalipsis_2_1': {
+    historico: `Las siete iglesias del Apocalipsis (caps. 2-3) están en una ruta circular en Asia Menor (Turquía occidental) que corresponde a un circuito de correo postal romano. Todas existieron históricamente: excavaciones en Éfeso, Esmirna, Pérgamo y Laodicea confirman las referencias bíblicas. El número siete es simbólico (completitud), representando a la Iglesia universal a través de estas siete comunidades específicas.`,
+    geografico: `Éfeso (Selçuk, Turquía) tenía el Templo de Artemisa, una de las Siete Maravillas del mundo. Esmirna (Izmir) era la ciudad más leal a Roma en Asia. Pérgamo fue capital del reino de los Atálidas y tenía el "Altar de Zeus" — posiblemente el "trono de Satanás" del Ap 2:13, hoy en el Museo de Berlín. Laodicea, ciudad rica con banco y manufactura de ropa negra, estaba entre Hierápolis (aguas calientes) y Colosas (aguas frías): el "agua tibia" es una imagen geográficamente exacta.`,
+    fuentes: { geografico: 'Ramsay, W.M. — The Letters to the Seven Churches of Asia (1904)' },
+  },
+
+  /* Nuevas entradas — otras categorías */
+
+  'Josué_1_9': {
+    linguistico: `"Esfuérzate y sé muy valiente" (chazaq ve-emats, חֲזַק וֶאֱמָץ): fórmula triple en este capítulo (vv.6,7,9). "Chazaq" refiere a firmeza física y estructural; "emats" al coraje moral ante la adversidad. En el Antiguo Cercano Oriente, los reyes recibían esta exhortación al ascender al trono. Aquí la pronuncia Dios mismo, invirtiendo la fuente del coraje: no la habilidad propia sino la presencia divina.`,
+    referencia: `Deuteronomio 31:6 ("Sed fuertes y valientes, no temáis"). 1 Crónicas 28:20 (David a Salomón). Isaías 41:10 ("No temas, porque yo estoy contigo"). 2 Timoteo 1:7 ("no nos ha dado Dios espíritu de cobardía"). Efesios 6:10 ("fortaleceos en el Señor").`,
+    comentarios: `Juan Calvino señaló que la repetición de la fórmula revela cuán profundo es el temor natural del ser humano: Dios no ordena valentía una sola vez porque sabe que necesitamos recordarlo continuamente. El mandamiento "no temas" es el más repetido en toda la Biblia — aproximadamente 365 veces, uno por cada día del año.`,
+  },
+
+  '1 Samuel_3_10': {
+    historico: `El tabernáculo de Silo fue el principal santuario de Israel durante el período de los Jueces (~200 años). Samuel, dedicado por su madre Ana desde su nacimiento (1 S 1:11), servía bajo el sacerdote Elí. La revelación de Dios directamente a un niño fuera de la línea sacerdotal establecía el modelo profético: la Palabra de Dios no está atada a la institución ni al linaje.`,
+    linguistico: `"Habla, que tu siervo oye" (daber ki shomea avdeka): la inversión del verbo es significativa. En las tres primeras llamadas, Samuel corre hacia Elí. Solo en la cuarta, guiado por Elí, coloca el "hablar" de Dios antes del "oír" humano — postura de disponibilidad receptiva que es el fundamento de toda espiritualidad.`,
+    referencia: `Isaías 6:8 ("Heme aquí, envíame"). Lucas 1:38 (María: "Hágase en mí"). Hechos 9:6 (Pablo: "Señor, ¿qué quieres?"). Juan 10:27 ("Mis ovejas oyen mi voz"). Jeremías 1:6 (resistencia ante el llamado).`,
+    comentarios: `Thomas Merton en "El signo de Jonás": la vida espiritual comienza con aprender a escuchar, no a hablar. Thomas à Kempis en "Imitación de Cristo": "¿De qué te sirve discutir profundamente sobre la Trinidad si careces de humildad?" La postura de Samuel es el prototipo de la oración contemplativa.`,
+  },
+
+  '1 Samuel_17_45': {
+    historico: `El combate singular entre David y Goliat refleja la práctica del Antiguo Cercano Oriente de resolver conflictos mediante la lucha de campeones. Los filisteos —posiblemente de origen egeo— tenían armamento de hierro superior al bronce israelita. Las excavaciones en Gat (Tell es-Safi, ciudad natal de Goliat según 1 S 17:4) han revelado inscripciones con nombres similares a "Goliath" del siglo IX a.C.`,
+    linguistico: `"Yo vengo a ti en el nombre de Jehová de los ejércitos" (ba-shem YHWH tsva'ot): el nombre divino funciona como autoridad y poder delegado. El contraste es absoluto: Goliat confía en espada, lanza y jabalina (tecnología); David en el Nombre (autoridad espiritual). "Tsva'ot" (ejércitos) designa tanto los ejércitos celestiales como la soberanía de Dios sobre toda la historia.`,
+    cientifico: `Malcolm Gladwell en "David y Goliat" (2013) señaló que las hondas militares del siglo X a.C. lanzaban proyectiles a ~35 m/s con precisión mortal hasta 180 m. David, como "artillería de largo alcance", tenía ventaja táctica decisiva contra un guerrero de combate cuerpo a cuerpo. La aparente debilidad ocultaba una superioridad táctica real.`,
+    referencia: `Zacarías 4:6 ("No con ejército, ni con fuerza, sino con mi Espíritu"). Salmos 20:7 ("Estos en carros… nosotros en el nombre de Jehová"). Romanos 8:31. Efesios 6:10-11.`,
+  },
+
+  'Mateo_5_9': {
+    linguistico: `"Bienaventurados los pacificadores" (eirénopoioi, εἰρηνοποιοί): hapax en el NT, compuesto de "eirene" (paz, shalom) + "poieo" (hacer). No "pacíficos" (estado pasivo) sino "hacedores de paz" (acción deliberada). En el mundo romano, "pacificadores" eran los generales que imponían la Pax Romana por la fuerza. Jesús redefine el término hacia la reconciliación activa y costosa.`,
+    referencia: `Romanos 12:18 ("Si es posible, estad en paz con todos"). Hebreos 12:14 ("Seguid la paz con todos"). Santiago 3:18 ("el fruto de justicia se siembra en paz"). Mateo 5:23-24 (reconcilíate antes del sacrificio). Juan 14:27 ("mi paz os doy, no como el mundo la da").`,
+    comentarios: `Dietrich Bonhoeffer: en la Alemania nazi, ser pacificador significó oponerse activamente a la violencia. La bienaventuranza no promete éxito sino identidad: "serán llamados hijos de Dios" — los que hacen lo que el Padre hace (Jn 5:19). Martin Luther King Jr. vio en este versículo el fundamento evangélico de la resistencia no violenta.`,
+  },
+
+  'Mateo_6_34': {
+    cientifico: `La investigación de Thomas Borkovec (Penn State, 1983-2004) sobre el trastorno de ansiedad generalizada mostró que el 85% de las situaciones anticipadas con preocupación nunca ocurren, y en el 79% de los casos que sí ocurrieron el sujeto las manejó mejor de lo esperado. La amígdala cerebral genera respuestas de estrés ante amenazas imaginarias con la misma intensidad que ante amenazas reales — la preocupación es literalmente un tormento que nos autoinfligimos.`,
+    linguistico: `"Merimnaó" (preocuparse) deriva de "merizo" (dividir): una mente "dividida" entre el presente y el futuro imaginado. Cada día tiene su "mal" (kakía) propio — Jesús reconoce la realidad del sufrimiento presente, pero no permite que se añada el peso del sufrimiento futuro imaginado sobre el hoy.`,
+    referencia: `Filipenses 4:6-7 ("Por nada estéis afanosos… la paz de Dios guardará vuestros corazones"). 1 Pedro 5:7 ("Echad toda vuestra ansiedad sobre él"). Lucas 12:22-31 (lirios del campo). Salmos 55:22. Proverbios 12:25 ("La congoja en el corazón del hombre lo abate").`,
+    comentarios: `Søren Kierkegaard describió la ansiedad como el "vértigo de la libertad" — miedo ante las posibilidades infinitas del futuro. Jesús propone la única cura práctica que la neurociencia moderna confirma: atención plena al presente (mindfulness) sostenida por confianza en la providencia.`,
+  },
+
+  '1 Corintios_10_13': {
+    linguistico: `"Fiel es Dios" (pistos ho Theos): no es fe humana sino atributo divino — Dios es confiable porque actúa conforme a su carácter. "Ekbasis" (ἔκβασις, "salida"): término náutico para el desembocadero de un río o el paso de montaña — la promesa no es ausencia de tentación sino que siempre existe una "salida navegable".`,
+    cientifico: `La investigación de Roy Baumeister sobre "agotamiento del ego" (1998) demostró que la fuerza de voluntad es un recurso finito que se agota: las personas fallan más ante la tentación cuando están fatigadas cognitivamente. Esto confirma la sabiduría bíblica de preparar "salidas" prácticas (estrategia de evitación) en lugar de depender únicamente de la fuerza de voluntad en el momento.`,
+    referencia: `Santiago 1:13 ("Dios no puede ser tentado"). Hebreos 2:18 ("pues padeció siendo tentado, es poderoso para socorrer a los tentados"). Mateo 26:41 ("velad y orad para no entrar en tentación"). 2 Pedro 2:9. Génesis 39:12 (José huyó de la tentación).`,
+    comentarios: `Juan Crisóstomo: "No dijo que no seréis tentados, sino que no más allá de vuestras fuerzas — lo cual es una diferencia enorme." Martín Lutero: no podemos impedir que los pájaros vuelen sobre nuestra cabeza, pero sí que aniden en ella.`,
+  },
+
+  '2 Corintios_9_7': {
+    historico: `La colecta para los pobres de Jerusalén (1 Co 16:1-4; 2 Co 8-9; Hch 24:17) fue el proyecto ecuménico más ambicioso de Pablo: ofrenda de iglesias gentiles para la iglesia madre judeocristiana, símbolo tangible de unidad entre judíos y gentiles en Cristo. Pablo dedica dos capítulos enteros (2 Co 8-9) a la teología de la generosidad, haciendo de esta colecta un laboratorio de gracia aplicada.`,
+    linguistico: `"Cada uno dé como propuso en su corazón" (proaireitai tē kardia): "proaireitai" es término filosófico estoico de "elección deliberada" — la más alta forma de decisión libre. "Dios ama al dador alegre" (hilaron dotēn agapā ho Theos): "hilaron" es la raíz de la palabra inglesa "hilarious" — no solo alegre sino exuberantemente gozoso.`,
+    referencia: `Lucas 21:1-4 (la ofrenda de la viuda). Proverbios 11:24-25 ("Hay quienes reparten y les es añadido más"). Malaquías 3:10 ("Probadme en esto"). Lucas 6:38. Hebreos 13:16 ("la generosidad… con esos sacrificios se agrada Dios").`,
+    comentarios: `John Wesley: "Gana todo lo que puedas, ahorra todo lo que puedas, da todo lo que puedas." C.S. Lewis en "Mero Cristianismo": la verdadera caridad comienza cuando da lo que duele dar — no el excedente sino lo que recorta el presupuesto propio.`,
+  },
+
+  'Lucas_17_21': {
+    linguistico: `"El reino de Dios está entre vosotros" (entos hymōn, ἐντὸς ὑμῶν): debatida frase que puede significar (1) "dentro de vosotros" (interior/espiritual) o (2) "en medio de vosotros" (presencia de Jesús entre los fariseos). La segunda es preferida por la mayoría de comentaristas modernos: Jesús no diría a fariseos que el reino está "dentro" de ellos.`,
+    historico: `La pregunta sobre "cuándo viene el reino" (v.20) refleja las expectativas apocalípticas del judaísmo del siglo I: un reino político visible que derrocaría a Roma. Jesús rompe ese esquema: el reino no tiene "señales observables" (meta paratērēseōs, v.20) porque ya está presente en su persona.`,
+    referencia: `Marcos 1:15 ("el reino de Dios se ha acercado"). Lucas 11:20 ("si por el dedo de Dios echo fuera los demonios, el reino ha llegado a vosotros"). Juan 18:36 ("mi reino no es de este mundo"). Romanos 14:17 ("el reino no es comida ni bebida"). Colosenses 1:13.`,
+    comentarios: `N.T. Wright: el reino de Dios no es un destino sino un modo de gobernar que ya comenzó con Jesús. La imagen del reino en el NT es siempre presente + futuro: ya inaugurado, aún no consumado. Blaise Pascal: hay un vacío con forma de Dios en cada corazón humano que solo Él puede llenar.`,
+  },
+
+  'Hebreos_12_11': {
+    linguistico: `"Toda disciplina en el presente no parece ser causa de gozo sino de tristeza" (paideia, παιδεία): término griego para la educación integral del niño — física, intelectual y moral. "Karpón eirēnikón dikaiosynēs" (fruto apacible de justicia): la metáfora agrícola señala que el tiempo de la siembra y el de la cosecha son distintos; evaluar el sufrimiento en el momento de la siembra es una categoría errónea.`,
+    referencia: `Proverbios 3:11-12 ("No menosprecies la disciplina de Jehová"). Santiago 1:2-4 ("la prueba produce paciencia"). Romanos 5:3-5 ("la tribulación produce paciencia; la paciencia, carácter probado"). Job 23:10 ("cuando me haya probado, saldré como oro"). 1 Pedro 1:7.`,
+    comentarios: `C.S. Lewis en "El Problema del Dolor": el sufrimiento es el megáfono de Dios para despertar a un mundo sordo — no lo quiere, pero lo usa. Víctor Frankl, sobreviviente de Auschwitz: el sufrimiento con sentido se vuelve soportable; el sin sentido destruye. La disciplina divina es sufrimiento con propósito, lo que lo convierte en formación.`,
+  },
+
 };

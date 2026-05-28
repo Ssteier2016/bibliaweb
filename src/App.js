@@ -83,6 +83,69 @@ const COMMENT_TYPES = [
   { key: 'comentarios',    label: 'Comentarios',    icon: '💬' },
 ];
 
+// Coordenadas de lugares bíblicos para cada versículo con geografico
+const GEO_LUGARES = {
+  'Génesis_2_8':    [{ nombre: 'Región del Edén — Mesopotamia', lat: 32.54,   lng: 44.42,  zoom: 7  }],
+  'Génesis_11_4':   [{ nombre: 'Babilonia (Babel)', lat: 32.5426, lng: 44.4207, zoom: 10 }],
+  'Génesis_12_1':   [
+    { nombre: 'Ur de los Caldeos', lat: 30.9626, lng: 46.1029, zoom: 10 },
+    { nombre: 'Harán',             lat: 36.8671, lng: 39.0208, zoom: 10 },
+    { nombre: 'Canaán',            lat: 31.5,    lng: 35.0,    zoom:  7 },
+  ],
+  'Génesis_28_10':  [{ nombre: 'Betel', lat: 31.9279, lng: 35.2298, zoom: 13 }],
+  'Génesis_37_17':  [{ nombre: 'Dotán', lat: 32.4019, lng: 35.2000, zoom: 13 }],
+  'Éxodo_3_1':      [
+    { nombre: 'Monte Horeb / Sinaí (trad.)', lat: 28.5395, lng: 33.9752, zoom: 11 },
+    { nombre: 'Madián', lat: 28.4167, lng: 35.0000, zoom: 8 },
+  ],
+  'Éxodo_14_22':    [
+    { nombre: 'Lagos Amargos (posible Yam Suph)', lat: 30.3667, lng: 32.3500, zoom: 9 },
+    { nombre: 'Golfo de Suez', lat: 29.5, lng: 32.5, zoom: 8 },
+  ],
+  'Josué_3_17':     [{ nombre: 'Vado de Adán — Tell ed-Damiyeh', lat: 32.1097, lng: 35.5449, zoom: 13 }],
+  'Josué_6_1':      [{ nombre: 'Jericó', lat: 31.8607, lng: 35.4607, zoom: 13 }],
+  '1 Reyes_18_19':  [{ nombre: 'Monte Carmelo', lat: 32.7381, lng: 34.9663, zoom: 11 }],
+  '2 Samuel_5_6':   [{ nombre: 'Ciudad de David — Jerusalén', lat: 31.7684, lng: 35.2327, zoom: 15 }],
+  '1 Reyes_10_1':   [
+    { nombre: 'Jerusalén (Salomón)', lat: 31.7683, lng: 35.2137, zoom: 13 },
+    { nombre: "Saba — Ma'rib (Yemen)", lat: 15.4, lng: 45.3, zoom: 8 },
+  ],
+  'Salmos_48_1':    [{ nombre: 'Monte Sión — Jerusalén', lat: 31.7767, lng: 35.2345, zoom: 14 }],
+  'Salmos_137_1':   [{ nombre: 'Babilonia — ríos del exilio', lat: 32.5426, lng: 44.4207, zoom: 10 }],
+  'Daniel_1_1':     [{ nombre: 'Babilonia', lat: 32.5426, lng: 44.4207, zoom: 11 }],
+  'Mateo_2_1':      [
+    { nombre: 'Belén', lat: 31.7054, lng: 35.2024, zoom: 13 },
+    { nombre: 'Jerusalén', lat: 31.7683, lng: 35.2137, zoom: 12 },
+  ],
+  'Mateo_4_13':     [{ nombre: 'Capernaúm', lat: 32.8806, lng: 35.5760, zoom: 14 }],
+  'Mateo_21_1':     [{ nombre: 'Monte de los Olivos', lat: 31.7780, lng: 35.2435, zoom: 14 }],
+  'Mateo_27_33':    [{ nombre: 'Gólgota — Basílica del Santo Sepulcro', lat: 31.7784, lng: 35.2296, zoom: 16 }],
+  'Juan_4_4':       [
+    { nombre: 'Pozo de Jacob — Siquem (Nablus)', lat: 32.2085, lng: 35.2878, zoom: 15 },
+  ],
+  'Lucas_10_30':    [
+    { nombre: 'Jerusalén', lat: 31.7683, lng: 35.2137, zoom: 12 },
+    { nombre: 'Jericó', lat: 31.8607, lng: 35.4607, zoom: 12 },
+  ],
+  'Hechos_2_1':     [{ nombre: 'Jerusalén — Pentecostés', lat: 31.7683, lng: 35.2137, zoom: 14 }],
+  'Hechos_9_3':     [
+    { nombre: 'Damasco', lat: 33.5138, lng: 36.2765, zoom: 11 },
+    { nombre: 'Jerusalén (partida de Saulo)', lat: 31.7683, lng: 35.2137, zoom: 12 },
+  ],
+  'Hechos_13_4':    [
+    { nombre: 'Antioquía de Siria', lat: 36.2025, lng: 36.1604, zoom: 11 },
+    { nombre: 'Chipre — Salamina', lat: 35.1667, lng: 33.9167, zoom: 10 },
+  ],
+  'Apocalipsis_2_1': [
+    { nombre: 'Éfeso', lat: 37.9397, lng: 27.3408, zoom: 13 },
+    { nombre: 'Esmirna (Izmir)', lat: 38.4192, lng: 27.1287, zoom: 12 },
+    { nombre: 'Pérgamo', lat: 39.1222, lng: 27.1833, zoom: 12 },
+    { nombre: 'Laodicea', lat: 37.8333, lng: 29.1000, zoom: 13 },
+  ],
+  'Apocalipsis_16_16': [{ nombre: 'Meguido — Armagedón', lat: 32.5889, lng: 35.1857, zoom: 13 }],
+};
+
+
 // Número de libro 1-66 para la API de bolls.life
 const BOLLS_NUM = {
   gn:1,ex:2,lv:3,nm:4,dt:5,js:6,jud:7,rt:8,'1sm':9,'2sm':10,
@@ -213,6 +276,62 @@ function CommentaryIcon() {
       <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
       <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
     </svg>
+  );
+}
+
+// ── GeoMap ──────────────────────────────────────────────────────────────────────
+
+function GeoMap({ lugares }) {
+  const [sel, setSel]         = useState(0);
+  const [showMap, setShowMap] = useState(false);
+  if (!lugares || lugares.length === 0) return null;
+  const place    = lugares[sel];
+  const embedSrc = `https://maps.google.com/maps?q=${place.lat},${place.lng}&z=${place.zoom || 10}&output=embed&hl=es`;
+  const openUrl  = `https://www.google.com/maps?q=${place.lat},${place.lng}&z=${place.zoom || 10}`;
+  return (
+    <div className="geo-map-block">
+      <div className="geo-map-chips">
+        <span className="geo-map-pin">📍</span>
+        {lugares.map((l, i) => (
+          <button
+            key={i}
+            className={`geo-place-chip${sel === i ? ' active' : ''}`}
+            onClick={() => { setSel(i); setShowMap(true); }}
+          >
+            {l.nombre}
+          </button>
+        ))}
+      </div>
+      {!showMap ? (
+        <button className="geo-map-load-btn" onClick={() => setShowMap(true)}>
+          🗺️ Ver en mapa
+        </button>
+      ) : (
+        <>
+          <div className="geo-map-frame">
+            <iframe
+              key={sel}
+              title={place.nombre}
+              src={embedSrc}
+              width="100%"
+              height="240"
+              style={{ border: 'none', borderRadius: '10px', display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <a
+            href={openUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="geo-map-open-link"
+          >
+            ↗ Abrir <strong>{place.nombre}</strong> en Google Maps
+          </a>
+        </>
+      )}
+    </div>
   );
 }
 
@@ -507,6 +626,9 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
                     {COMMENT_TYPES.find(t => t.key === activeTab)?.label}
                   </div>
                   {verseData[activeTab]}
+                  {activeTab === 'geografico' && GEO_LUGARES[commentKey] && (
+                    <GeoMap lugares={GEO_LUGARES[commentKey]} />
+                  )}
                   {(() => {
                     const src = resolveSource(activeTab);
                     if (!src) return null;
