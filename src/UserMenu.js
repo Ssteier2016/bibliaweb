@@ -504,7 +504,7 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
 export default function UserMenu({
   user, books, bookmarks, highlights, notes, shared,
   following, followers, streak, privacy, darkMode,
-  onClose, onNavigate, onFollowingChange, onPrivacyChange,
+  onClose, onNavigate, onFollowingChange, onPrivacyChange, onPhotoUpdate,
 }) {
   const [section,       setSection]       = useState('bookmarks');
   const [shareMsg,      setShareMsg]      = useState('');
@@ -601,6 +601,7 @@ export default function UserMenu({
     const url = await uploadProfilePhoto(user.uid, file);
     if (url) {
       setLocalPhotoURL(url);
+      onPhotoUpdate?.(url);
     } else {
       alert('Error al subir la foto.\n\nEn Firebase Console → Storage → Rules, asegurate de tener:\nmatch /profilePhotos/{uid}/{f} {\n  allow read: if true;\n  allow write: if request.auth.uid == uid;\n}');
     }

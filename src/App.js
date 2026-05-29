@@ -4,6 +4,7 @@ import { COMMENTARY } from './data/commentary';
 import AuthScreen    from './AuthScreen';
 import UserMenu      from './UserMenu';
 import CommentsPanel from './CommentsPanel';
+import GenPanel      from './GenPanel';
 import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes } from './firebase';
 
 const BOOK_NAMES = {
@@ -764,12 +765,13 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
 
 // ── Avatar del usuario ────────────────────────────────────────────────────────
 
-function UserAvatar({ user, onClick }) {
-  const isGuest = !user || user.isAnonymous;
-  if (user?.photoURL) {
+function UserAvatar({ user, photoURLOverride, onClick }) {
+  const isGuest  = !user || user.isAnonymous;
+  const photoURL = photoURLOverride || user?.photoURL;
+  if (photoURL) {
     return (
       <button className="avatar-btn" onClick={onClick} title="Mi perfil">
-        <img src={user.photoURL} alt="avatar" className="avatar-img" />
+        <img src={photoURL} alt="avatar" className="avatar-img" />
       </button>
     );
   }
@@ -812,6 +814,8 @@ export default function App() {
     publicProfile: true, followers: true, following: true,
   });
   const [showMenu,        setShowMenu]       = useState(false);
+  const [showGen,         setShowGen]        = useState(false);
+  const [userPhotoURL,    setUserPhotoURL]   = useState(null);
   const [globalSearch,    setGlobalSearch]   = useState('');
 
   // Aplicar tema
@@ -1060,7 +1064,14 @@ export default function App() {
           >
             {darkMode ? '☀️' : '🌙'}
           </button>
-          <UserAvatar user={user} onClick={() => setShowMenu(true)} />
+          <button
+            className="gen-btn"
+            onClick={() => setShowGen(true)}
+            title="Gen — IA Bíblica"
+          >
+            ✨ Gen
+          </button>
+          <UserAvatar user={user} photoURLOverride={userPhotoURL} onClick={() => setShowMenu(true)} />
         </div>
       </header>
 
@@ -1215,7 +1226,12 @@ export default function App() {
             setTimeout(() => changeChapter(chapterNum), 50);
           }}
           onFollowingChange={setFollowing}
+          onPhotoUpdate={url => setUserPhotoURL(url)}
         />
+      )}
+
+      {showGen && (
+        <GenPanel onClose={() => setShowGen(false)} darkMode={darkMode} />
       )}
     </div>
   );

@@ -133,7 +133,7 @@ export async function uploadProfilePhoto(uid, file) {
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
     if (auth.currentUser) await updateProfile(auth.currentUser, { photoURL: url });
-    await updateDoc(doc(db, 'users', uid), { photoURL: url });
+    await setDoc(doc(db, 'users', uid), { photoURL: url }, { merge: true });
     return url;
   } catch (e) { console.error('Error subiendo foto:', e); return null; }
 }
