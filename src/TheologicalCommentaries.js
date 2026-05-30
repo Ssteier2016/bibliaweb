@@ -46,9 +46,19 @@ function CommentaryCard({ entry, expanded, onToggle }) {
         <span className="tc-card-chevron">{expanded ? '▲' : '▼'}</span>
       </div>
       {expanded && (
-        <div className="tc-card-body">
+        <div className="tc-card-body" onClick={e => e.stopPropagation()}>
           <p className="tc-card-text">{entry.texto}</p>
           <div className="tc-card-obra">📖 {entry.obra}</div>
+          {entry.url && (
+            <a
+              href={entry.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tc-card-source-link"
+            >
+              🔗 Ver sermón / fuente en gty.org
+            </a>
+          )}
         </div>
       )}
     </div>
