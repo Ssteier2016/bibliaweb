@@ -5,6 +5,7 @@ import AuthScreen    from './AuthScreen';
 import UserMenu      from './UserMenu';
 import CommentsPanel from './CommentsPanel';
 import GenPanel      from './GenPanel';
+import FeedPage      from './FeedPage';
 import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes } from './firebase';
 
 const BOOK_NAMES = {
@@ -815,6 +816,7 @@ export default function App() {
   });
   const [showMenu,        setShowMenu]       = useState(false);
   const [showGen,         setShowGen]        = useState(false);
+  const [showFeed,        setShowFeed]       = useState(false);
   const [userPhotoURL,    setUserPhotoURL]   = useState(null);
   const [globalSearch,    setGlobalSearch]   = useState('');
 
@@ -1020,6 +1022,20 @@ export default function App() {
     await incrementLike(verseKey);
   }, [user]);
 
+  const handleNoteAtRef = useCallback((bookName, chapterNum, verseNum, noteText) => {
+    const key = `note_${bookName}_${chapterNum}_${verseNum}`;
+    let newNt;
+    if (noteText?.trim()) {
+      lsSet(key, noteText);
+      newNt = { ...notes, [key]: noteText };
+    } else {
+      localStorage.removeItem(key);
+      newNt = { ...notes }; delete newNt[key];
+    }
+    setNotes(newNt);
+    if (isCloud) syncFirestore(highlights, newNt, bookmarks, shared, user.uid);
+  }, [highlights, notes, bookmarks, shared, user, isCloud]);
+
   const handleShare = useCallback((verseNum) => {
     const key = `sh_${selectedBook}_${selectedChapter}_${verseNum}`;
     const newSh = { ...shared, [key]: new Date().toISOString() };
@@ -1047,6 +1063,22 @@ export default function App() {
     return <AuthScreen darkMode={darkMode} />;
   }
 
+  if (showGen) {
+    return <GenPanel onClose={() => setShowGen(false)} darkMode={darkMode} />;
+  }
+
+  if (showFeed) {
+    return (
+      <FeedPage
+        user={user}
+        books={books}
+        onSaveNote={handleNoteAtRef}
+        onClose={() => setShowFeed(false)}
+        darkMode={darkMode}
+      />
+    );
+  }
+
   // ── Render ──────────────────────────────────────────────────────────────────
 
   return (
@@ -1063,6 +1095,13 @@ export default function App() {
             title={darkMode ? 'Modo claro' : 'Modo oscuro'}
           >
             {darkMode ? '☀️' : '🌙'}
+          </button>
+          <button
+            className="feed-nav-btn"
+            onClick={() => setShowFeed(true)}
+            title="Feed bíblico"
+          >
+            🌐 Feed
           </button>
           <button
             className="gen-btn"
@@ -1230,9 +1269,6 @@ export default function App() {
         />
       )}
 
-      {showGen && (
-        <GenPanel onClose={() => setShowGen(false)} darkMode={darkMode} />
-      )}
     </div>
   );
 }

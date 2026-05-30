@@ -154,6 +154,83 @@ export async function unfollowUser(myUid, targetUid) {
   } catch {}
 }
 
+// ── Feed social ───────────────────────────────────────────────────────────────
+
+export async function createPost(uid, displayName, photoURL, text, verseRef, repostOf = null) {
+  const data = {
+    uid,
+    displayName: displayName || 'Usuario',
+    photoURL: photoURL || '',
+    text,
+    verseRef,
+    timestamp: serverTimestamp(),
+    likes: [],
+    dislikes: [],
+    reposts: 0,
+  };
+  if (repostOf) data.repostOf = repostOf;
+  try { await addDoc(collection(db, 'posts'), data); } catch (e) { console.error(e); }
+}
+
+export async function togglePostLike(postId, uid, isLiked, isDisliked) {
+  const updates = isLiked
+    ? { likes: arrayRemove(uid) }
+    : { likes: arrayUnion(uid), ...(isDisliked ? { dislikes: arrayRemove(uid) } : {}) };
+  try { await updateDoc(doc(db, 'posts', postId), updates); } catch {}
+}
+
+export async function togglePostDislike(postId, uid, isLiked, isDisliked) {
+  const updates = isDisliked
+    ? { dislikes: arrayRemove(uid) }
+    : { dislikes: arrayUnion(uid), ...(isLiked ? { likes: arrayRemove(uid) } : {}) };
+  try { await updateDoc(doc(db, 'posts', postId), updates); } catch {}
+}
+
+export async function repostPost(postId, uid, displayName, photoURL, originalPost) {
+  try {
+    await updateDoc(doc(db, 'posts', postId), { reposts: increment(1) });
+    await createPost(uid, displayName, photoURL, originalPost.text, originalPost.verseRef, {
+      id: postId,
+      uid: originalPost.uid,
+      displayName: originalPost.displayName,
+      photoURL: originalPost.photoURL || '',
+    });
+  } catch {}
+}
+
+export function subscribeToPosts(callback) {
+  const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
+  return onSnapshot(q, snap => {
+    callback(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+  });
+}
+
+export async function addPostComment(postId, uid, displayName, photoURL, text) {
+  try {
+    await addDoc(collection(db, 'posts', postId, 'comments'), {
+      uid, displayName: displayName || 'Usuario', photoURL: photoURL || '',
+      text, timestamp: serverTimestamp(),
+    });
+  } catch {}
+}
+
+export function subscribeToPostComments(postId, callback) {
+  const q = query(collection(db, 'posts', postId, 'comments'), orderBy('timestamp', 'asc'));
+  return onSnapshot(q, snap => {
+    callback(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+  });
+}
+
+export async function deletePost(postId, uid) {
+  try {
+    const { deleteDoc } = await import('firebase/firestore');
+    const snap = await getDoc(doc(db, 'posts', postId));
+    if (snap.exists() && snap.data().uid === uid) {
+      await deleteDoc(doc(db, 'posts', postId));
+    }
+  } catch {}
+}
+
 // ── Admin / usuarios ────────────────────────────────────────────
 
 export async function getAllUsers() {
