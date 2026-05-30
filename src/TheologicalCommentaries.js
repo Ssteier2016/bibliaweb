@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { MACARTHUR_COMMENTARY } from './data/macarthur';
+import { CSLEWIS_COMMENTARY }   from './data/cslewis';
 
 const AUTHORS = [
   {
@@ -12,7 +13,16 @@ const AUTHORS = [
     color: '#1a4fa0',
     initials: 'JM',
   },
-  // Aquí se pueden agregar más autores en el futuro
+  {
+    id: 'cslewis',
+    name: 'C.S. Lewis',
+    years: '1898–1963',
+    tradition: 'Anglicana · Apologética · Cristiano Mere',
+    bio: 'Profesor de Oxford y Cambridge, convertido del ateísmo en 1931. Literato, apologeta y novelista cristiano. Sus obras abordan la Biblia desde la razón, la imaginación y la experiencia personal. Obras clave: Mero Cristianismo, Los Cuatro Amores, El Peso de la Gloria, Reflexiones sobre los Salmos, Milagros.',
+    commentary: CSLEWIS_COMMENTARY,
+    color: '#6b3a2a',
+    initials: 'CS',
+  },
 ];
 
 const BOOKS_ORDER = [
