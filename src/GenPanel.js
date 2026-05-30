@@ -3,6 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
 
+// Si hay una clave en el entorno (Render / build-time), tiene prioridad sobre localStorage
+const ENV_KEY = process.env.REACT_APP_GROQ_API_KEY || '';
+
 const SYSTEM_PROMPT = `Eres Gen, un asistente bíblico especializado creado para la app Bibl.ia.
 Tu única función es responder preguntas relacionadas con la Biblia: textos bíblicos, historia bíblica, teología, contexto cultural e histórico, idiomas originales (hebreo, griego, arameo), personajes bíblicos, geografía bíblica, comentarios de teólogos, tipología bíblica, arqueología bíblica y temas afines.
 Respondés en español, de forma clara, respetuosa y bien fundamentada.
@@ -10,8 +13,8 @@ Si el usuario hace una pregunta que no tiene relación con la Biblia, decile ama
 Cuando cites versículos, indicá el libro, capítulo y versículo (ej: Juan 3:16).`;
 
 export default function GenPanel({ onClose, darkMode }) {
-  const [apiKey,     setApiKey]     = useState(() => localStorage.getItem('groq_api_key') || '');
-  const [configured, setConfigured] = useState(() => !!localStorage.getItem('groq_api_key'));
+  const [apiKey,     setApiKey]     = useState(() => ENV_KEY || localStorage.getItem('groq_api_key') || '');
+  const [configured, setConfigured] = useState(() => !!(ENV_KEY || localStorage.getItem('groq_api_key')));
   const [keyInput,   setKeyInput]   = useState('');
   const [messages,   setMessages]   = useState([
     { role: 'gen', text: '¡Hola! Soy Gen, tu asistente bíblico. ¿Qué querés saber sobre la Biblia hoy? 📖' }
@@ -38,6 +41,7 @@ export default function GenPanel({ onClose, darkMode }) {
   }
 
   function clearKey() {
+    if (ENV_KEY) return; // clave de entorno: no se puede cambiar desde el cliente
     localStorage.removeItem('groq_api_key');
     setApiKey('');
     setKeyInput('');
@@ -112,7 +116,7 @@ export default function GenPanel({ onClose, darkMode }) {
           </div>
         </div>
         <div className="gen-header-right">
-          {configured && (
+          {configured && !ENV_KEY && (
             <button className="gen-key-btn" onClick={clearKey} title="Cambiar clave API">🔑</button>
           )}
         </div>
