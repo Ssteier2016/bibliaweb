@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { MACARTHUR_COMMENTARY } from './data/macarthur';
 import { CSLEWIS_COMMENTARY }   from './data/cslewis';
+import { SPURGEON_COMMENTARY }  from './data/spurgeon';
 
 const AUTHORS = [
   {
@@ -22,6 +23,16 @@ const AUTHORS = [
     commentary: CSLEWIS_COMMENTARY,
     color: '#6b3a2a',
     initials: 'CS',
+  },
+  {
+    id: 'spurgeon',
+    name: 'Charles H. Spurgeon',
+    years: '1834–1892',
+    tradition: 'Bautista Calvinista · Predicación Expositiva · Puritanismo Moderno',
+    bio: 'Conocido como "el Príncipe de los Predicadores". Pastor del Metropolitan Tabernacle de Londres durante 38 años. Predicó a más de 10 millones de personas en su vida. Sus obras —The Treasury of David, Metropolitan Tabernacle Pulpit (63 vol.), Morning and Evening, All of Grace— son dominio público y siguen siendo las más leídas del protestantismo histórico.',
+    commentary: SPURGEON_COMMENTARY,
+    color: '#4a1c6e',
+    initials: 'SP',
   },
 ];
 
@@ -66,7 +77,7 @@ function CommentaryCard({ entry, expanded, onToggle }) {
               rel="noopener noreferrer"
               className="tc-card-source-link"
             >
-              🔗 Ver sermón / fuente en gty.org
+              🔗 Ver fuente original
             </a>
           )}
         </div>
@@ -212,7 +223,7 @@ export default function TheologicalCommentaries({ onClose, darkMode }) {
         <div className="tc-more-soon">
           <div className="tc-more-icon">📚</div>
           <div className="tc-more-text">Más autores próximamente</div>
-          <div className="tc-more-sub">C.H. Spurgeon · R.C. Sproul · Matthew Henry · John Calvin</div>
+          <div className="tc-more-sub">R.C. Sproul · Matthew Henry · John Calvin · Charles Wesley</div>
         </div>
       </div>
     </div>
