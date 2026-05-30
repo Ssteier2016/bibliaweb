@@ -13,6 +13,7 @@ const AUTHORS = [
     commentary: MACARTHUR_COMMENTARY,
     color: '#1a4fa0',
     initials: 'JM',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/John_MacArthur_2007.jpg/440px-John_MacArthur_2007.jpg',
   },
   {
     id: 'cslewis',
@@ -23,6 +24,7 @@ const AUTHORS = [
     commentary: CSLEWIS_COMMENTARY,
     color: '#6b3a2a',
     initials: 'CS',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/C.s.lewis3.JPG/440px-C.s.lewis3.JPG',
   },
   {
     id: 'spurgeon',
@@ -33,6 +35,7 @@ const AUTHORS = [
     commentary: SPURGEON_COMMENTARY,
     color: '#4a1c6e',
     initials: 'SP',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Charles_Spurgeon_by_Alexander_Bassano%2C_1885.jpg/440px-Charles_Spurgeon_by_Alexander_Bassano%2C_1885.jpg',
   },
 ];
 
@@ -47,6 +50,36 @@ const BOOKS_ORDER = [
   '1 Tesalonicenses','2 Tesalonicenses','1 Timoteo','2 Timoteo','Tito','Filemón',
   'Hebreos','Santiago','1 Pedro','2 Pedro','1 Juan','2 Juan','3 Juan','Judas','Apocalipsis',
 ];
+
+function AuthorAvatar({ author, size = 52, badgeSize = false }) {
+  const [imgError, setImgError] = React.useState(false);
+  const dim = badgeSize ? 40 : size;
+  const fontSize = badgeSize ? '1rem' : '1.25rem';
+  if (author.image && !imgError) {
+    return (
+      <img
+        src={author.image}
+        alt={author.name}
+        onError={() => setImgError(true)}
+        style={{
+          width: dim, height: dim, borderRadius: '50%', objectFit: 'cover',
+          flexShrink: 0, border: `2.5px solid ${author.color}`,
+        }}
+      />
+    );
+  }
+  return (
+    <div
+      style={{
+        width: dim, height: dim, borderRadius: '50%', flexShrink: 0,
+        background: author.color, display: 'flex', alignItems: 'center',
+        justifyContent: 'center', color: '#fff', fontSize, fontWeight: 800,
+      }}
+    >
+      {author.initials}
+    </div>
+  );
+}
 
 function groupByBook(commentary) {
   const map = {};
@@ -120,9 +153,7 @@ function AuthorView({ author, onBack, darkMode }) {
     <div className="tc-author-view">
       <div className="tc-author-topbar">
         <button className="tc-back-btn" onClick={onBack}>← Autores</button>
-        <div className="tc-author-badge" style={{ background: author.color }}>
-          {author.initials}
-        </div>
+        <AuthorAvatar author={author} size={44} badgeSize />
         <div className="tc-author-info">
           <span className="tc-author-name">{author.name}</span>
           <span className="tc-author-tradition">{author.tradition}</span>
@@ -207,9 +238,7 @@ export default function TheologicalCommentaries({ onClose, darkMode }) {
             className="tc-author-card"
             onClick={() => setSelectedAuthor(author)}
           >
-            <div className="tc-author-avatar" style={{ background: author.color }}>
-              {author.initials}
-            </div>
+            <AuthorAvatar author={author} size={58} />
             <div className="tc-author-card-info">
               <div className="tc-author-card-name">{author.name}</div>
               <div className="tc-author-card-years">{author.years}</div>
