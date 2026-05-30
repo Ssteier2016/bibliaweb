@@ -258,6 +258,28 @@ const GEO_LUGARES = {
     { nombre: 'Filipos — primera iglesia europea (Macedonia)', lat: 41.0119, lng: 24.2875, zoom: 14 },
   ],
   'Romanos_1_7':     [{ nombre: 'Roma — comunidad cristiana del siglo I', lat: 41.9028, lng: 12.4964, zoom: 12 }],
+
+  // ── Atlas Bíblico — geografía patriarcal ──────────────────────────────────
+  'Génesis_11_31':  [
+    { nombre: 'Ur de los Caldeos — Tell el-Muqayyar (Irak)', lat: 30.9626, lng: 46.1029, zoom: 11 },
+    { nombre: 'Harán — Şanlıurfa (Turquía)', lat: 36.8671, lng: 39.0208, zoom: 11 },
+  ],
+  'Génesis_12_10':  [
+    { nombre: 'Neguev — desierto entre Canaán y Egipto', lat: 30.6700, lng: 34.4400, zoom: 9 },
+    { nombre: 'Delta oriental del Nilo — destino de Abraham en Egipto', lat: 30.7500, lng: 31.2500, zoom: 9 },
+  ],
+  'Génesis_13_12':  [
+    { nombre: 'Llanura del Jordán — región de Sodoma (Tall el-Hammam)', lat: 31.8022, lng: 35.6522, zoom: 11 },
+    { nombre: 'Mar Muerto — punto más bajo de la Tierra (-417 m)', lat: 31.5000, lng: 35.5000, zoom: 9 },
+  ],
+  'Génesis_33_18':  [
+    { nombre: 'Siquén — Tell Balatah / Nablus', lat: 32.2085, lng: 35.2878, zoom: 14 },
+    { nombre: 'Monte Gerizim (881 m)', lat: 32.1981, lng: 35.2717, zoom: 13 },
+  ],
+  'Génesis_47_11':  [
+    { nombre: 'Gosén / Tell el-Dab\'a (Avaris) — delta oriental del Nilo', lat: 30.7833, lng: 31.8333, zoom: 13 },
+    { nombre: 'Pi-Ramsés / Qantir — antigua capital ramésida', lat: 30.7959, lng: 31.8231, zoom: 13 },
+  ],
 };
 
 
