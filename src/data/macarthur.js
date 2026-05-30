@@ -345,4 +345,140 @@ El milenio no es el cielo eterno: habrá pecado, habrá muerte (Isaías 65:20), 
     obra: 'MacArthur NT Commentary: Apocalipsis 12-22 (Moody Press), pp. 240-265',
     url: 'https://www.gty.org/sermons/66-73/the-millennial-kingdom',
   },
+
+  // ══════════════════════════════════════
+  // NUEVOS COMENTARIOS — SEGUNDA TANDA
+  // ══════════════════════════════════════
+
+  {
+    ref: 'Mateo 6:9',
+    titulo: 'El Padre Nuestro: la oración modelo',
+    texto: `"Vosotros, pues, oraréis así: Padre nuestro que estás en los cielos, santificado sea tu nombre." MacArthur abre su comentario al Padre Nuestro subrayando que Jesús no dijo "reciten esta oración" sino "oraréis así" (houtōs): esta oración es un molde, no una fórmula mágica. El gran error del catolicismo popular y de muchas tradiciones litúrgicas es tratarla como un mantra cuya repetición tiene valor propio.
+
+"Padre nuestro" establece la relación antes de cualquier petición: Dios es Padre de los creyentes —no de toda la humanidad en sentido soteriológico, sino de los que han nacido de nuevo (Juan 1:12). MacArthur señala que para un judío del siglo I dirigirse a Dios como "Abbá" (padre íntimo) era revolucionario; Jesús otorga esa intimidad a todos sus discípulos.
+
+La oración avanza en un orden preciso: primero la gloria de Dios (santificado sea tu nombre, venga tu reino, hágase tu voluntad), luego las necesidades del hombre (el pan, el perdón, la protección). MacArthur insiste: la oración que comienza en el hombre y termina en el hombre es oración pagana; la oración que comienza en Dios es oración cristiana.`,
+    libro: 'Mateo',
+    obra: 'MacArthur NT Commentary: Mateo 1-7 (Moody Press), pp. 385-420; sermón "The Model Prayer", gty.org',
+    url: 'https://www.gty.org/library/search#s=sermon&q=matthew+6%3A9',
+  },
+
+  {
+    ref: 'Juan 17:17',
+    titulo: 'Santificados en la verdad: la Palabra como agente de transformación',
+    texto: `"Santifícalos en tu verdad; tu palabra es verdad." MacArthur llama a Juan 17 "la oración sumo sacerdotal" —la más profunda de todas las oraciones registradas de Jesús, pronunciada pocas horas antes de su arresto. En v. 17 está el pedido de Jesús por la santificación de sus discípulos.
+
+"Santificar" (hagiazō): apartar para uso sagrado, purificar. MacArthur distingue la santificación posicional (el creyente ya es "santo" en Cristo desde el momento de la fe) de la santificación progresiva (el proceso continuo de transformación moral que dura toda la vida). El pedido de v. 17 es por esta segunda.
+
+El agente de la santificación no es la meditación mística, ni la experiencia emocional, ni los sacramentos: es la verdad de la Palabra de Dios. MacArthur subraya la ecuación directa: "tu palabra es verdad" (no "contiene verdad" o "apunta a la verdad" sino que es la verdad en sí misma). Esto hace de la exposición sistemática de la Escritura la práctica central de la iglesia que quiere producir discípulos maduros.`,
+    libro: 'Juan',
+    obra: 'MacArthur NT Commentary: Juan 12-21 (Moody Press), pp. 225-240',
+    url: 'https://www.gty.org/library/search#s=sermon&q=john+17%3A17',
+  },
+
+  {
+    ref: '1 Corintios 1:18',
+    titulo: 'La locura de la cruz: el evangelio que ofende',
+    texto: `"Porque la palabra de la cruz es locura a los que se pierden; pero a los que se salvan, esto es, a nosotros, es poder de Dios." MacArthur ve en este versículo la respuesta definitiva al movimiento de "crecimiento de la iglesia" que subordina el mensaje bíblico a la aceptabilidad cultural.
+
+En el mundo greco-romano, la crucifixión era el método de ejecución más humillante reservado para los esclavos y criminales más viles. Predicar a un Mesías crucificado era, literalmente, escandaloso para el judío (escándalo, piedra de tropiezo) e irracional para el griego (moría, locura, necedad).
+
+MacArthur argumenta que ninguna técnica de comunicación puede hacer aceptable el evangelio a quien no tiene el Espíritu Santo. El "poder de Dios" que produce la salvación opera mediante el mensaje, no a pesar de él. Cuando la iglesia suaviza la cruz para hacerse más "relevante", pierde el único poder que tiene. La ofensa de la cruz no es un bug comunicacional; es el diseño de Dios que diferencia entre quienes se pierden y quienes se salvan.`,
+    libro: '1 Corintios',
+    obra: 'MacArthur NT Commentary: 1 Corintios (Moody Press), pp. 30-48',
+    url: 'https://www.gty.org/library/search#s=sermon&q=1+corinthians+1%3A18',
+  },
+
+  {
+    ref: '2 Corintios 5:21',
+    titulo: 'El gran intercambio: la imputación doble',
+    texto: `"Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él." MacArthur llama a este versículo "la declaración más concisa de la expiación sustitutoria en toda la Biblia". En una sola oración, Pablo articula la doble imputación que es el corazón del evangelio protestante.
+
+Primera imputación: Dios trató a Cristo como si fuera el pecador que nosotros somos —"lo hizo pecado". Cristo no se convirtió en pecador en su naturaleza, pero cargó la culpa legal de todos los pecados de los elegidos. MacArthur distingue esto cuidadosamente de la herejía de que Cristo tuvo una "naturaleza pecaminosa"; lo que fue imputado fue la responsabilidad legal, no la corrupción moral.
+
+Segunda imputación: Dios nos trata como si fuéramos la justicia de Cristo —"fuésemos hechos justicia de Dios en él". No se trata de justicia infundida (que mejora gradualmente nuestra naturaleza, como enseña Roma) sino de justicia imputada (que nos es acreditada instantáneamente en la fe). Este es el fundamento de la doctrina de la "sola fide": lo que cambia no es primero nuestra conducta sino nuestro estado legal ante Dios.`,
+    libro: '2 Corintios',
+    obra: 'MacArthur NT Commentary: 2 Corintios (Moody Press), pp. 200-215',
+    url: 'https://www.gty.org/library/search#s=sermon&q=2+corinthians+5%3A21',
+  },
+
+  {
+    ref: 'Gálatas 2:20',
+    titulo: 'Crucificado con Cristo: la unión mística del creyente',
+    texto: `"Con Cristo estoy juntamente crucificado, y ya no vivo yo, mas vive Cristo en mí; y lo que ahora vivo en la carne, lo vivo en la fe del Hijo de Dios, el cual me amó y se entregó a sí mismo por mí." MacArthur subraya que este es el versículo más autobiográfico de Pablo y la descripción más íntima de la vida cristiana en toda la Escritura.
+
+"Estoy crucificado con Cristo" (sunestaurōmai): perfecto pasivo, acción completa con efectos permanentes. No es una experiencia subjetiva sino una realidad objetiva ocurrida en la conversión. El "yo" viejo —el ego bajo el dominio del pecado y de la ley— fue ejecutado en la cruz de Cristo. MacArthur advierte que este "yo" crucificado no es el ego en el sentido de la personalidad individual, sino el ego en el sentido del yo no regenerado que vivía en rebelión contra Dios.
+
+"Ya no vivo yo, mas vive Cristo en mí" —el cristiano vive una vida que tiene a Cristo como principio y fuente. Esto no es misticismo despersonalizante; MacArthur aclara que Pablo sigue viviendo, pensando, decidiendo, amando. Lo que cambió es el centro de gravedad de esa vida: ya no es el yo autónomo sino Cristo en el yo. La vida cristiana no es imitación de Cristo desde afuera; es vida de Cristo desde adentro.`,
+    libro: 'Gálatas',
+    obra: 'MacArthur NT Commentary: Gálatas (Moody Press), pp. 65-82',
+    url: 'https://www.gty.org/library/search#s=sermon&q=galatians+2%3A20',
+  },
+
+  {
+    ref: 'Gálatas 5:22',
+    titulo: 'El fruto del Espíritu: carácter, no conducta',
+    texto: `"Mas el fruto del Espíritu es amor, gozo, paz, paciencia, benignidad, bondad, fe, mansedumbre, templanza." MacArthur abre su análisis con una observación gramatical crucial: "fruto" (karpos) está en singular. No son nueve frutas distintas sino un solo fruto con nueve facetas. El Espíritu produce en el creyente un carácter unificado, no una colección de virtudes separadas que se pueden cultivar individualmente.
+
+La distinción entre "fruto" del Espíritu y "obras" de la carne (vv. 19-21) es deliberada: las obras de la carne son producidas por el esfuerzo humano autónomo; el fruto del Espíritu es producido por el Espíritu en el creyente que camina en dependencia (v. 25: "andemos también por el Espíritu"). El creyente no "produce" amor, paciencia o mansedumbre mediante disciplina moral; los recibe al mantenerse en comunión con Cristo.
+
+MacArthur señala que el primer fruto, el amor (agapē), es el paraguas bajo el cual crecen todos los demás: el gozo es amor que celebra a Dios; la paz es amor que descansa en Dios; la paciencia es amor que soporta por amor a otros. No hay atajo para el fruto del Espíritu: se produce en la "savia" de la Palabra, la oración y la comunidad creyente.`,
+    libro: 'Gálatas',
+    obra: 'MacArthur NT Commentary: Gálatas (Moody Press), pp. 155-175',
+    url: 'https://www.gty.org/library/search#s=sermon&q=galatians+5%3A22',
+  },
+
+  {
+    ref: 'Colosenses 1:15',
+    titulo: 'La supremacía de Cristo sobre toda la creación',
+    texto: `"Él es la imagen del Dios invisible, el primogénito de toda creación." MacArthur dedica páginas extensas de su comentario a este versículo porque fue objeto de distorsión tanto en el siglo I (el gnosticismo colosense que degradaba a Cristo a un ser intermedio) como en el XX (los Testigos de Jehová que leen "primogénito" como "primera criatura").
+
+"Imagen" (eikōn): no copia ni representación sino manifestación exacta. Cristo no se parece a Dios; Cristo es la expresión perfecta y completa del Dios invisible. El autor de Hebreos lo dice así: "resplandor de su gloria, e impronta exacta de su naturaleza" (Hebreos 1:3).
+
+"Primogénito de toda creación" (prōtotokos): MacArthur explica que prōtotokos no significa "el primero en ser creado" (eso sería prōtokistos, que no aparece en ningún lugar del NT) sino "el de más alto rango, el heredero preeminente". En el AT, "primogénito" era un título de honor y autoridad, no necesariamente de orden cronológico (Salmo 89:27: Dios llama "primogénito" a David, que era el menor de sus hermanos). Cristo es el soberano preeminente sobre toda la creación porque la creó y la sustenta (v. 16-17).`,
+    libro: 'Colosenses',
+    obra: 'MacArthur NT Commentary: Colosenses y Filemón (Moody Press), pp. 45-68',
+    url: 'https://www.gty.org/library/search#s=sermon&q=colossians+1%3A15',
+  },
+
+  {
+    ref: '1 Pedro 2:9',
+    titulo: 'El sacerdocio de todos los creyentes',
+    texto: `"Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios, para que anunciéis las virtudes de aquel que os llamó de las tinieblas a su luz admirable." MacArthur señala que Pedro está aplicando a la iglesia las cuatro designaciones del Antiguo Testamento que Dios dio exclusivamente a Israel en Éxodo 19:5-6.
+
+"Linaje escogido" retoma la elección soberana: la iglesia no es una asociación de voluntarios sino un pueblo convocado por la iniciativa de Dios. "Real sacerdocio" es el corazón del versículo para MacArthur: en el sistema levítico, solo la tribu de Leví podía acercarse a Dios; en la nueva alianza, todo creyente tiene acceso directo al Padre mediante Cristo, el sumo sacerdote eterno (Hebreos 4:14-16).
+
+Esta doctrina —la Reforma la llamó "sacerdocio de todos los creyentes"— elimina cualquier clase sacerdotal mediadora entre Dios y el creyente. MacArthur la aplica de forma práctica: todo cristiano puede orar directamente, leer e interpretar la Escritura, y llevar el evangelio. La responsabilidad de "anunciar las virtudes" de Dios no es de los pastores solos; es del pueblo entero de Dios.`,
+    libro: '1 Pedro',
+    obra: 'MacArthur NT Commentary: 1 Pedro (Moody Press), pp. 130-148',
+    url: 'https://www.gty.org/library/search#s=sermon&q=1+peter+2%3A9',
+  },
+
+  {
+    ref: '1 Juan 1:9',
+    titulo: 'La confesión del pecado: el camino de la restauración',
+    texto: `"Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad." MacArthur abre su análisis con la pregunta obvia: ¿si el creyente ya fue justificado y perdonado completamente (Efesios 1:7), por qué necesita seguir confesando pecados?
+
+La respuesta está en la distinción entre el perdón judicial (el veredicto legal que nunca cambia —el creyente nunca vuelve a ser culpable ante el tribunal de Dios) y el perdón relacional (la restauración de la comunión íntima padre-hijo que el pecado daña). El creyente que peca no pierde su posición en Cristo, pero experimenta la ruptura de la comunión cálida con el Padre.
+
+"Confesar" (homologeō): literalmente "decir lo mismo". Confesar el pecado es decir lo mismo que Dios dice de él: que es pecado, que es serio, que no se puede minimizar ni racionalizar. MacArthur advierte contra la confesión superficial ("si he hecho algo mal, perdóname") versus la confesión bíblica que nombra el pecado específico y reconoce su gravedad.
+
+"Él es fiel y justo": Dios no perdona por generosidad emotiva sino porque su justicia fue satisfecha en la cruz. El perdón del creyente que confiesa no es un favor arbitrario sino el resultado inevitable de la expiación de Cristo.`,
+    libro: '1 Juan',
+    obra: 'MacArthur NT Commentary: 1-3 Juan (Moody Press), pp. 42-58',
+    url: 'https://www.gty.org/library/search#s=sermon&q=1+john+1%3A9',
+  },
+
+  {
+    ref: 'Apocalipsis 19:11',
+    titulo: 'La segunda venida: el Rey regresa a reinar',
+    texto: `"Entonces vi el cielo abierto; y he aquí un caballo blanco, y el que lo montaba se llamaba Fiel y Verdadero, y con justicia juzga y pelea." MacArthur contrasta deliberadamente esta escena con la primera venida: en Belén, Cristo llega en humildad como siervo sufriente; en Apocalipsis 19, llega en gloria como Rey conquistador. Son los dos advientos que los profetas del AT no siempre pudieron distinguir.
+
+"Fiel y Verdadero": los dos títulos hablan de la misma persona que prometió volver (Juan 14:3; Hechos 1:11). Cada promesa que Dios hizo —al pacto Abrahámico, al Davídico, al Nuevo Pacto— se cumple en este momento. MacArthur señala que la Segunda Venida no es un plan B; fue el destino de la historia desde antes de la fundación del mundo.
+
+"Con justicia juzga y pelea": la primera venida fue para salvar; la segunda es para juzgar. El Cristo que perdonó en la cruz es el mismo Cristo que traerá juicio sobre el incrédulo. MacArthur destaca que este versículo es la respuesta definitiva al problema del mal: Dios no es indiferente a la injusticia del mundo; tiene una cita con ella. La paciencia de Dios (2 Pedro 3:9) no es debilidad sino misericordia —pero tiene un límite.`,
+    libro: 'Apocalipsis',
+    obra: 'MacArthur NT Commentary: Apocalipsis 12-22 (Moody Press), pp. 210-228',
+    url: 'https://www.gty.org/sermons/66-71/the-millennial-kingdom',
+  },
 ];
