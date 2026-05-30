@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './App.css';
 import { COMMENTARY } from './data/commentary';
-import AuthScreen    from './AuthScreen';
-import UserMenu      from './UserMenu';
-import CommentsPanel from './CommentsPanel';
-import GenPanel      from './GenPanel';
-import FeedPage      from './FeedPage';
+import AuthScreen               from './AuthScreen';
+import UserMenu                 from './UserMenu';
+import CommentsPanel            from './CommentsPanel';
+import GenPanel                 from './GenPanel';
+import FeedPage                 from './FeedPage';
+import TheologicalCommentaries  from './TheologicalCommentaries';
+import logo3                    from './logo3.png';
 import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes, createPost } from './firebase';
 
 const BOOK_NAMES = {
@@ -908,10 +910,12 @@ export default function App() {
     notes: false, highlights: false, bookmarks: false,
     publicProfile: true, followers: true, following: true,
   });
-  const [showMenu,        setShowMenu]       = useState(false);
-  const [showGen,         setShowGen]        = useState(false);
-  const [showFeed,        setShowFeed]       = useState(false);
-  const [feedPost,        setFeedPost]       = useState(null); // { verse, bookName, chapter }
+  const [showMenu,           setShowMenu]          = useState(false);
+  const [showGen,            setShowGen]           = useState(false);
+  const [showFeed,           setShowFeed]          = useState(false);
+  const [showCommentaries,   setShowCommentaries]  = useState(false);
+  const [showBibleMenu,      setShowBibleMenu]     = useState(false);
+  const [feedPost,           setFeedPost]          = useState(null); // { verse, bookName, chapter }
   const [userPhotoURL,    setUserPhotoURL]   = useState(null);
   const [globalSearch,    setGlobalSearch]   = useState('');
 
@@ -1174,6 +1178,15 @@ export default function App() {
     );
   }
 
+  if (showCommentaries) {
+    return (
+      <TheologicalCommentaries
+        onClose={() => setShowCommentaries(false)}
+        darkMode={darkMode}
+      />
+    );
+  }
+
   // ── Render ──────────────────────────────────────────────────────────────────
 
   return (
@@ -1191,20 +1204,55 @@ export default function App() {
           >
             {darkMode ? '☀️' : '🌙'}
           </button>
-          <button
-            className="feed-nav-btn"
-            onClick={() => setShowFeed(true)}
-            title="Feed bíblico"
-          >
-            🌐 Feed
-          </button>
-          <button
-            className="gen-btn"
-            onClick={() => setShowGen(true)}
-            title="Gen — IA Bíblica"
-          >
-            ✨ Gen
-          </button>
+
+          {/* ── Menú Biblia ── */}
+          <div className="bible-menu-wrapper">
+            <button
+              className="bible-menu-trigger"
+              onClick={() => setShowBibleMenu(v => !v)}
+              title="Menú Bibl.ia"
+            >
+              <img src={logo3} alt="Bibl.ia" className="bible-menu-logo" />
+            </button>
+            {showBibleMenu && (
+              <>
+                <div className="bible-menu-backdrop" onClick={() => setShowBibleMenu(false)} />
+                <div className="bible-menu-dropdown">
+                  <button
+                    className="bible-menu-item"
+                    onClick={() => { setShowBibleMenu(false); setShowFeed(true); }}
+                  >
+                    <span className="bible-menu-icon">🌐</span>
+                    <div>
+                      <div className="bible-menu-label">Feed Bíblico</div>
+                      <div className="bible-menu-sub">Reflexiones de la comunidad</div>
+                    </div>
+                  </button>
+                  <button
+                    className="bible-menu-item"
+                    onClick={() => { setShowBibleMenu(false); setShowGen(true); }}
+                  >
+                    <span className="bible-menu-icon">✨</span>
+                    <div>
+                      <div className="bible-menu-label">Gen — IA Bíblica</div>
+                      <div className="bible-menu-sub">Asistente bíblico con Groq</div>
+                    </div>
+                  </button>
+                  <button
+                    className="bible-menu-item"
+                    onClick={() => { setShowBibleMenu(false); setShowCommentaries(true); }}
+                  >
+                    <span className="bible-menu-icon">📚</span>
+                    <div>
+                      <div className="bible-menu-label">Comentarios Teológicos</div>
+                      <div className="bible-menu-sub">MacArthur y otros autores</div>
+                    </div>
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+
           <UserAvatar user={user} photoURLOverride={userPhotoURL} onClick={() => setShowMenu(true)} />
         </div>
       </header>
