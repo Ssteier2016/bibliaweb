@@ -6,7 +6,7 @@ import UserMenu      from './UserMenu';
 import CommentsPanel from './CommentsPanel';
 import GenPanel      from './GenPanel';
 import FeedPage      from './FeedPage';
-import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes } from './firebase';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes, createPost } from './firebase';
 
 const BOOK_NAMES = {
   gn:'Génesis', ex:'Éxodo', lv:'Levítico', nm:'Números', dt:'Deuteronomio',
@@ -394,6 +394,68 @@ function CommentaryIcon() {
   );
 }
 
+function FeedPublishIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 11a9 9 0 0 1 9 9"/>
+      <path d="M4 4a16 16 0 0 1 16 16"/>
+      <circle cx="5" cy="19" r="1" fill="currentColor"/>
+    </svg>
+  );
+}
+
+// ── Modal: publicar versículo en el Feed ──────────────────────────────────────
+
+function PostToFeedModal({ user, verse, bookName, chapter, onClose }) {
+  const [text,       setText]       = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  async function submit() {
+    if (!text.trim() || submitting) return;
+    setSubmitting(true);
+    await createPost(user.uid, user.displayName, user.photoURL, text.trim(), {
+      book:    bookName,
+      chapter: chapter,
+      verse:   verse.verse,
+      text:    verse.text,
+    });
+    onClose();
+  }
+
+  return (
+    <div className="new-post-overlay" onClick={onClose}>
+      <div className="new-post-modal" onClick={e => e.stopPropagation()}>
+        <div className="new-post-header">
+          <span className="new-post-title">Publicar en el Feed</span>
+          <button className="new-post-close" onClick={onClose}>✕</button>
+        </div>
+
+        <div className="new-post-verse-preview">
+          <span className="new-post-verse-ref">{bookName} {chapter}:{verse.verse}</span>
+          <p>"{verse.text}"</p>
+        </div>
+
+        <textarea
+          className="new-post-textarea"
+          placeholder="¿Qué reflexión tenés sobre este versículo?"
+          value={text}
+          onChange={e => setText(e.target.value)}
+          rows={4}
+          autoFocus
+        />
+
+        <button
+          className="new-post-submit"
+          onClick={submit}
+          disabled={!text.trim() || submitting}
+        >
+          {submitting ? 'Publicando…' : '🌐 Publicar en el Feed'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ── GeoMap ──────────────────────────────────────────────────────────────────────
 
 function GeoMap({ lugares }) {
@@ -452,7 +514,7 @@ function GeoMap({ lugares }) {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, user, following, onFollowToggle, darkMode }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
@@ -633,6 +695,16 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
           >
             <PublicCommentIcon />
           </button>
+
+          {user && !user.isAnonymous && (
+            <button
+              className="icon-btn"
+              onClick={() => onPublishToFeed?.(verse)}
+              title="Publicar en el Feed"
+            >
+              <FeedPublishIcon />
+            </button>
+          )}
         </div>
       )}
 
@@ -817,6 +889,7 @@ export default function App() {
   const [showMenu,        setShowMenu]       = useState(false);
   const [showGen,         setShowGen]        = useState(false);
   const [showFeed,        setShowFeed]       = useState(false);
+  const [feedPost,        setFeedPost]       = useState(null); // { verse, bookName, chapter }
   const [userPhotoURL,    setUserPhotoURL]   = useState(null);
   const [globalSearch,    setGlobalSearch]   = useState('');
 
@@ -1235,6 +1308,7 @@ export default function App() {
                 onBookmark={handleBookmark}
                 onShare={handleShare}
                 onLike={handleLike}
+                onPublishToFeed={v => setFeedPost({ verse: v, bookName: selectedBook, chapter: selectedChapter })}
                 user={user}
                 following={following}
                 onFollowToggle={handleFollowToggle}
@@ -1269,6 +1343,15 @@ export default function App() {
         />
       )}
 
+      {feedPost && (
+        <PostToFeedModal
+          user={user}
+          verse={feedPost.verse}
+          bookName={feedPost.bookName}
+          chapter={feedPost.chapter}
+          onClose={() => setFeedPost(null)}
+        />
+      )}
     </div>
   );
 }
