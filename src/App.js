@@ -1387,6 +1387,29 @@ export default function App() {
             );
           })
         )}
+
+        {/* ── Navegación al final del capítulo ── */}
+        {!searchQuery && (
+          <div className="chapter-bottom-nav">
+            <button
+              className="nav-btn"
+              disabled={selectedChapter <= 1}
+              onClick={() => changeChapter(selectedChapter - 1)}
+            >
+              ← Anterior
+            </button>
+            <span className="nav-chapter-label">
+              {selectedBook} · {selectedChapter} / {totalChapters}
+            </span>
+            <button
+              className="nav-btn"
+              disabled={selectedChapter >= totalChapters}
+              onClick={() => changeChapter(selectedChapter + 1)}
+            >
+              Siguiente →
+            </button>
+          </div>
+        )}
       </div>
 
       {showMenu && (

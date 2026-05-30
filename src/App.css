@@ -1972,3 +1972,14 @@ input, textarea { font-family: inherit; }
 .tc-card-source-link:hover {
   background: var(--accent); color: #fff;
 }
+
+/* ── Navegación al final del capítulo ── */
+.chapter-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 16px 32px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+}
