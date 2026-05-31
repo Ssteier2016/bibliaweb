@@ -4,30 +4,25 @@
   "description": "Biblia Reina-Valera con comentarios históricos, subrayados, notas y marcadores.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "logo192.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
     },
     {
-      "src": "logo512.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
@@ -46,7 +41,7 @@
       "short_name": "Biblia",
       "description": "Abre la Biblia Reina-Valera",
       "url": "/",
-      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "logo.png", "sizes": "192x192" }]
     }
   ]
 }

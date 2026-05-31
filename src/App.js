@@ -1192,7 +1192,7 @@ export default function App() {
     return (
       <div className={darkMode ? 'dark' : ''}>
         <div className="loader">
-          <div className="loader-icon">✝️</div>
+          <div className="loader-icon"><img src={logo3} alt="Bibl.ia" style={{ width: 72, height: 72, objectFit: 'contain' }} /></div>
           <div>Cargando Bibl.ia…</div>
         </div>
       </div>

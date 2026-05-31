@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { signInGoogle, signInEmail, registerEmail, signInGuest } from './firebase';
+import logo from './logo3.png';
 
 const ERR = {
   'auth/user-not-found':      'No existe una cuenta con ese correo.',
@@ -39,7 +40,7 @@ export default function AuthScreen({ darkMode }) {
   return (
     <div className={`auth-screen ${darkMode ? 'dark' : ''}`}>
       <div className="auth-card">
-        <div className="auth-logo">✝️</div>
+        <div className="auth-logo"><img src={logo} alt="Bibl.ia" style={{ width: 72, height: 72, objectFit: 'contain' }} /></div>
         <h1 className="auth-title">Bibl.ia</h1>
         <p className="auth-subtitle">Tu Biblia digital</p>
 

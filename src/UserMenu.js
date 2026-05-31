@@ -123,7 +123,7 @@ function ProfileView({ targetUid, myUid, books, following, onFollowToggle, onBac
         </div>
         <div className="profile-info">
           <div className="profile-name">{profile.displayName || '(sin nombre)'}</div>
-          {privacy.publicProfile !== false && (
+          {isMe && (
             <div className="profile-email">{profile.email}</div>
           )}
           <div className="profile-streak">🔥 {profile.streak || 0} días seguidos</div>
@@ -639,7 +639,7 @@ export default function UserMenu({
     setSearchResults(
       all.filter(u =>
         u.uid !== user?.uid &&
-        (u.displayName?.toLowerCase().includes(t) || u.email?.toLowerCase().includes(t))
+        u.displayName?.toLowerCase().includes(t)
       ).slice(0, 10)
     );
     setSearching(false);
@@ -882,7 +882,7 @@ export default function UserMenu({
               <div className="amigos-search-row">
                 <input
                   className="amigos-search-input"
-                  placeholder="Buscar por nombre o email…"
+                  placeholder="Buscar por nombre…"
                   value={searchTerm}
                   onChange={e => handleSearch(e.target.value)}
                 />
@@ -900,7 +900,7 @@ export default function UserMenu({
                           </button>
                           <div className="amigo-info" onClick={() => setViewingUid(u.uid)}>
                             <div className="amigo-name">{u.displayName || '(sin nombre)'}</div>
-                            <div className="amigo-email">{u.privacy?.publicProfile !== false ? u.email : ''}</div>
+                            <div className="amigo-email">{u.displayName ? '' : '(sin nombre)'}</div>
                           </div>
                           {mutuals.includes(u.uid) && (
                             <button className="amigo-chat-btn" onClick={() => setChatWith({ uid: u.uid, displayName: u.displayName, photoURL: u.photoURL })} title="Chatear">💬</button>
