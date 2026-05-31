@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { MACARTHUR_COMMENTARY } from './data/macarthur';
 import { CSLEWIS_COMMENTARY }   from './data/cslewis';
 import { SPURGEON_COMMENTARY }  from './data/spurgeon';
-import { loadAuthorPhotos, saveAuthorPhoto, ADMIN_EMAIL } from './firebase';
+import { loadAuthorPhotos, saveAuthorPhoto, saveAuthorPhotoURL, ADMIN_EMAIL } from './firebase';
 
 const AUTHORS = [
   {
@@ -53,25 +53,35 @@ const BOOKS_ORDER = [
 ];
 
 function AuthorAvatar({ author, size = 52, badgeSize = false, customPhoto, isAdmin, onUpload }) {
-  const [imgError, setImgError] = React.useState(false);
-  const [uploading, setUploading] = React.useState(false);
+  const [imgError,   setImgError]   = React.useState(false);
+  const [uploading,  setUploading]  = React.useState(false);
+  const [showMenu,   setShowMenu]   = React.useState(false);
+  const [urlMode,    setUrlMode]    = React.useState(false);
+  const [urlVal,     setUrlVal]     = React.useState('');
   const fileRef = useRef();
   const dim      = badgeSize ? 40 : size;
   const fontSize = badgeSize ? '1rem' : '1.25rem';
-  const photo    = customPhoto || author.image;
+  const photo    = customPhoto || null;
 
   async function handleFile(e) {
     const file = e.target.files?.[0];
     if (!file) return;
-    setUploading(true);
+    setUploading(true); setShowMenu(false);
     const result = await saveAuthorPhoto(author.id, file);
     setUploading(false);
-    if (result === 'PERMISSION_DENIED') {
-      alert('Sin permisos. Actualizá las reglas de Firestore en Firebase Console.');
-    } else if (result) {
-      onUpload?.(author.id, result);
-    }
+    if (result === 'PERMISSION_DENIED') alert('Sin permisos en Firestore.');
+    else if (result) onUpload?.(author.id, result);
     e.target.value = '';
+  }
+
+  async function handleURL() {
+    const trimmed = urlVal.trim();
+    if (!trimmed) return;
+    setUploading(true); setShowMenu(false); setUrlMode(false); setUrlVal('');
+    const result = await saveAuthorPhotoURL(author.id, trimmed);
+    setUploading(false);
+    if (result === 'PERMISSION_DENIED') alert('Sin permisos en Firestore.');
+    else if (result) onUpload?.(author.id, result);
   }
 
   return (
@@ -89,26 +99,53 @@ function AuthorAvatar({ author, size = 52, badgeSize = false, customPhoto, isAdm
           background: author.color, display: 'flex', alignItems: 'center',
           justifyContent: 'center', color: '#fff', fontSize, fontWeight: 800,
         }}>
-          {author.initials}
+          {uploading ? '⏳' : author.initials}
         </div>
       )}
+
       {isAdmin && !badgeSize && (
-        <>
+        <div style={{ position: 'relative' }}>
           <button
-            onClick={() => fileRef.current?.click()}
+            onClick={() => { setShowMenu(m => !m); setUrlMode(false); setUrlVal(''); }}
             title="Cambiar foto"
             style={{
-              position: 'absolute', bottom: -2, right: -2,
+              position: 'absolute', bottom: dim === 40 ? -18 : -24, right: -2,
               width: 22, height: 22, borderRadius: '50%',
               background: '#1a4fa0', border: '2px solid #fff',
               cursor: 'pointer', display: 'flex', alignItems: 'center',
               justifyContent: 'center', fontSize: 11, color: '#fff',
             }}
-          >
-            {uploading ? '⏳' : '📷'}
-          </button>
+          >📷</button>
+
+          {showMenu && (
+            <div className="photo-menu-popup" style={{ bottom: 28, left: '50%', transform: 'translateX(-50%)' }}>
+              {!urlMode ? (
+                <>
+                  <button className="photo-menu-opt" onClick={() => { fileRef.current?.click(); setShowMenu(false); }}>
+                    📁 Subir archivo
+                  </button>
+                  <button className="photo-menu-opt" onClick={() => setUrlMode(true)}>
+                    🔗 Pegar URL
+                  </button>
+                </>
+              ) : (
+                <div className="photo-url-row">
+                  <input
+                    className="photo-url-input"
+                    placeholder="https://..."
+                    value={urlVal}
+                    onChange={e => setUrlVal(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && handleURL()}
+                    autoFocus
+                  />
+                  <button className="photo-url-confirm" onClick={handleURL}>✓</button>
+                  <button className="photo-url-cancel" onClick={() => setUrlMode(false)}>✕</button>
+                </div>
+              )}
+            </div>
+          )}
           <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleFile} />
-        </>
+        </div>
       )}
     </div>
   );

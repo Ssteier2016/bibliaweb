@@ -194,6 +194,17 @@ export async function saveAuthorPhoto(authorId, file) {
   }
 }
 
+export async function saveAuthorPhotoURL(authorId, url) {
+  try {
+    await setDoc(doc(db, 'adminConfig', 'authorPhotos'), { [authorId]: url }, { merge: true });
+    return url;
+  } catch (e) {
+    console.error('Error guardando URL de autor:', e);
+    if (e.code === 'permission-denied') return 'PERMISSION_DENIED';
+    return null;
+  }
+}
+
 // ── Seguir / dejar de seguir ────────────────────────────────────
 
 export async function followUser(myUid, targetUid) {

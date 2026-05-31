@@ -949,14 +949,16 @@ export default function App() {
         const { hl, nt, bm, sh, following, followers, streak, privacy } = fromFirestore(data);
         setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
         setFollowing(following); setFollowers(followers); setStreak(streak); setPrivacy(privacy);
+        // Cargar foto desde Firestore (base64 no cabe en Firebase Auth)
+        if (data.photoURL) setUserPhotoURL(data.photoURL);
         // Racha de lectura
         const newStreak = await updateReadingStreak(firebaseUser.uid, streak, data.lastReadDate);
         setStreak(newStreak);
-        // Guardar perfil y presencia
+        // Guardar perfil y presencia (no sobreescribir photoURL si Auth la tiene vacía)
         await savePresence(firebaseUser.uid, {
           displayName: firebaseUser.displayName || data.displayName || '',
           email:       firebaseUser.email || '',
-          photoURL:    firebaseUser.photoURL || '',
+          ...(firebaseUser.photoURL ? { photoURL: firebaseUser.photoURL } : {}),
           createdAt:   data.createdAt || firebaseUser.metadata.creationTime || new Date().toISOString(),
         });
       } else if (firebaseUser?.isAnonymous) {
