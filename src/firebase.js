@@ -154,6 +154,25 @@ export async function uploadProfilePhoto(uid, file) {
   } catch (e) { console.error('Error guardando foto:', e); return null; }
 }
 
+// ── Fotos de autores teológicos (solo admin) ────────────────────
+
+export const ADMIN_EMAIL = 'rodrigo.n.arena@hotmail.com';
+
+export async function loadAuthorPhotos() {
+  try {
+    const snap = await getDoc(doc(db, 'adminConfig', 'authorPhotos'));
+    return snap.exists() ? snap.data() : {};
+  } catch { return {}; }
+}
+
+export async function saveAuthorPhoto(authorId, file) {
+  try {
+    const base64 = await compressToBase64(file, 280, 0.82);
+    await setDoc(doc(db, 'adminConfig', 'authorPhotos'), { [authorId]: base64 }, { merge: true });
+    return base64;
+  } catch (e) { console.error('Error guardando foto de autor:', e); return null; }
+}
+
 // ── Seguir / dejar de seguir ────────────────────────────────────
 
 export async function followUser(myUid, targetUid) {

@@ -1183,6 +1183,7 @@ export default function App() {
       <TheologicalCommentaries
         onClose={() => setShowCommentaries(false)}
         darkMode={darkMode}
+        currentUser={user}
       />
     );
   }

@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { MACARTHUR_COMMENTARY } from './data/macarthur';
 import { CSLEWIS_COMMENTARY }   from './data/cslewis';
 import { SPURGEON_COMMENTARY }  from './data/spurgeon';
+import { loadAuthorPhotos, saveAuthorPhoto, ADMIN_EMAIL } from './firebase';
 
 const AUTHORS = [
   {
@@ -51,32 +52,60 @@ const BOOKS_ORDER = [
   'Hebreos','Santiago','1 Pedro','2 Pedro','1 Juan','2 Juan','3 Juan','Judas','Apocalipsis',
 ];
 
-function AuthorAvatar({ author, size = 52, badgeSize = false }) {
+function AuthorAvatar({ author, size = 52, badgeSize = false, customPhoto, isAdmin, onUpload }) {
   const [imgError, setImgError] = React.useState(false);
-  const dim = badgeSize ? 40 : size;
+  const [uploading, setUploading] = React.useState(false);
+  const fileRef = useRef();
+  const dim      = badgeSize ? 40 : size;
   const fontSize = badgeSize ? '1rem' : '1.25rem';
-  if (author.image && !imgError) {
-    return (
-      <img
-        src={author.image}
-        alt={author.name}
-        onError={() => setImgError(true)}
-        style={{
-          width: dim, height: dim, borderRadius: '50%', objectFit: 'cover',
-          flexShrink: 0, border: `2.5px solid ${author.color}`,
-        }}
-      />
-    );
+  const photo    = customPhoto || author.image;
+
+  async function handleFile(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    const result = await saveAuthorPhoto(author.id, file);
+    setUploading(false);
+    if (result) onUpload?.(author.id, result);
+    e.target.value = '';
   }
+
   return (
-    <div
-      style={{
-        width: dim, height: dim, borderRadius: '50%', flexShrink: 0,
-        background: author.color, display: 'flex', alignItems: 'center',
-        justifyContent: 'center', color: '#fff', fontSize, fontWeight: 800,
-      }}
-    >
-      {author.initials}
+    <div style={{ position: 'relative', flexShrink: 0, width: dim, height: dim }}>
+      {photo && !imgError ? (
+        <img
+          src={photo}
+          alt={author.name}
+          onError={() => setImgError(true)}
+          style={{ width: dim, height: dim, borderRadius: '50%', objectFit: 'cover', border: `2.5px solid ${author.color}` }}
+        />
+      ) : (
+        <div style={{
+          width: dim, height: dim, borderRadius: '50%',
+          background: author.color, display: 'flex', alignItems: 'center',
+          justifyContent: 'center', color: '#fff', fontSize, fontWeight: 800,
+        }}>
+          {author.initials}
+        </div>
+      )}
+      {isAdmin && !badgeSize && (
+        <>
+          <button
+            onClick={() => fileRef.current?.click()}
+            title="Cambiar foto"
+            style={{
+              position: 'absolute', bottom: -2, right: -2,
+              width: 22, height: 22, borderRadius: '50%',
+              background: '#1a4fa0', border: '2px solid #fff',
+              cursor: 'pointer', display: 'flex', alignItems: 'center',
+              justifyContent: 'center', fontSize: 11, color: '#fff',
+            }}
+          >
+            {uploading ? '⏳' : '📷'}
+          </button>
+          <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleFile} />
+        </>
+      )}
     </div>
   );
 }
@@ -119,7 +148,7 @@ function CommentaryCard({ entry, expanded, onToggle }) {
   );
 }
 
-function AuthorView({ author, onBack, darkMode }) {
+function AuthorView({ author, onBack, darkMode, authorPhotos }) {
   const [search, setSearch]   = useState('');
   const [expanded, setExpanded] = useState(null);
   const [selBook, setSelBook]   = useState('todos');
@@ -153,7 +182,7 @@ function AuthorView({ author, onBack, darkMode }) {
     <div className="tc-author-view">
       <div className="tc-author-topbar">
         <button className="tc-back-btn" onClick={onBack}>← Autores</button>
-        <AuthorAvatar author={author} size={44} badgeSize />
+        <AuthorAvatar author={author} size={44} badgeSize customPhoto={authorPhotos?.[author.id]} />
         <div className="tc-author-info">
           <span className="tc-author-name">{author.name}</span>
           <span className="tc-author-tradition">{author.tradition}</span>
@@ -203,8 +232,18 @@ function AuthorView({ author, onBack, darkMode }) {
   );
 }
 
-export default function TheologicalCommentaries({ onClose, darkMode }) {
+export default function TheologicalCommentaries({ onClose, darkMode, currentUser }) {
   const [selectedAuthor, setSelectedAuthor] = useState(null);
+  const [authorPhotos, setAuthorPhotos]     = useState({});
+  const isAdmin = currentUser?.email === ADMIN_EMAIL;
+
+  useEffect(() => {
+    loadAuthorPhotos().then(setAuthorPhotos);
+  }, []);
+
+  function handlePhotoUpload(authorId, base64) {
+    setAuthorPhotos(prev => ({ ...prev, [authorId]: base64 }));
+  }
 
   if (selectedAuthor) {
     return (
@@ -213,6 +252,7 @@ export default function TheologicalCommentaries({ onClose, darkMode }) {
           author={selectedAuthor}
           onBack={() => setSelectedAuthor(null)}
           darkMode={darkMode}
+          authorPhotos={authorPhotos}
         />
       </div>
     );
@@ -238,7 +278,13 @@ export default function TheologicalCommentaries({ onClose, darkMode }) {
             className="tc-author-card"
             onClick={() => setSelectedAuthor(author)}
           >
-            <AuthorAvatar author={author} size={58} />
+            <AuthorAvatar
+              author={author}
+              size={58}
+              customPhoto={authorPhotos[author.id]}
+              isAdmin={isAdmin}
+              onUpload={handlePhotoUpload}
+            />
             <div className="tc-author-card-info">
               <div className="tc-author-card-name">{author.name}</div>
               <div className="tc-author-card-years">{author.years}</div>
