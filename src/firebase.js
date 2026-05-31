@@ -156,7 +156,8 @@ function compressToBase64(file, maxSize = 200, quality = 0.75) {
 export async function uploadProfilePhoto(uid, file) {
   try {
     const base64 = await compressToBase64(file);
-    if (auth.currentUser) await updateProfile(auth.currentUser, { photoURL: base64 });
+    // Firebase Auth limita photoURL a 2048 chars — base64 lo supera, se ignora el error
+    try { if (auth.currentUser) await updateProfile(auth.currentUser, { photoURL: base64 }); } catch {}
     await setDoc(doc(db, 'users', uid), { photoURL: base64 }, { merge: true });
     return base64;
   } catch (e) { console.error('Error guardando foto:', e); return null; }
