@@ -9,7 +9,6 @@ import {
   collection, addDoc, getDocs, query, orderBy,
   serverTimestamp, arrayUnion, arrayRemove, onSnapshot, increment,
 } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBsemzWe2LUcKhAJg9UU9N_3YNcmrphiCk",
@@ -24,7 +23,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth    = getAuth(app);
 export const db      = getFirestore(app);
-export const storage = getStorage(app);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -125,17 +123,35 @@ export async function getUserProfile(uid) {
   } catch { return null; }
 }
 
-// ── Foto de perfil ──────────────────────────────────────────────
+// ── Foto de perfil (base64 comprimida en Firestore) ─────────────
+
+function compressToBase64(file, maxSize = 200, quality = 0.75) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale  = Math.min(maxSize / img.width, maxSize / img.height, 1);
+      const w      = Math.round(img.width  * scale);
+      const h      = Math.round(img.height * scale);
+      const canvas = document.createElement('canvas');
+      canvas.width  = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      resolve(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
 
 export async function uploadProfilePhoto(uid, file) {
   try {
-    const storageRef = ref(storage, `profilePhotos/${uid}/avatar`);
-    await uploadBytes(storageRef, file);
-    const url = await getDownloadURL(storageRef);
-    if (auth.currentUser) await updateProfile(auth.currentUser, { photoURL: url });
-    await setDoc(doc(db, 'users', uid), { photoURL: url }, { merge: true });
-    return url;
-  } catch (e) { console.error('Error subiendo foto:', e); return null; }
+    const base64 = await compressToBase64(file);
+    if (auth.currentUser) await updateProfile(auth.currentUser, { photoURL: base64 });
+    await setDoc(doc(db, 'users', uid), { photoURL: base64 }, { merge: true });
+    return base64;
+  } catch (e) { console.error('Error guardando foto:', e); return null; }
 }
 
 // ── Seguir / dejar de seguir ────────────────────────────────────

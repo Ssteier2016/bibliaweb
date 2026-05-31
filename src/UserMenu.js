@@ -603,7 +603,7 @@ export default function UserMenu({
       setLocalPhotoURL(url);
       onPhotoUpdate?.(url);
     } else {
-      alert('Error al subir la foto.\n\nEn Firebase Console → Storage → Rules, asegurate de tener:\nmatch /profilePhotos/{uid}/{f} {\n  allow read: if true;\n  allow write: if request.auth.uid == uid;\n}');
+      alert('Error al guardar la foto. Intentá con una imagen más pequeña.');
     }
     setPhotoLoading(false);
     e.target.value = '';
