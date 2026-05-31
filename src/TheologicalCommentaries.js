@@ -66,7 +66,11 @@ function AuthorAvatar({ author, size = 52, badgeSize = false, customPhoto, isAdm
     setUploading(true);
     const result = await saveAuthorPhoto(author.id, file);
     setUploading(false);
-    if (result) onUpload?.(author.id, result);
+    if (result === 'PERMISSION_DENIED') {
+      alert('Sin permisos. Actualizá las reglas de Firestore en Firebase Console.');
+    } else if (result) {
+      onUpload?.(author.id, result);
+    }
     e.target.value = '';
   }
 

@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Config de admin: solo rodrigo puede escribir, todos pueden leer
+    match /adminConfig/{doc} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.auth.token.email == 'rodrigo.n.arena@hotmail.com';
+    }
+
+    // Usuarios: cada uno lee/escribe su propio documento
+    match /users/{uid} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Resto de colecciones: cualquier usuario autenticado
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

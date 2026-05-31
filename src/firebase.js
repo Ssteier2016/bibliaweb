@@ -131,14 +131,22 @@ function compressToBase64(file, maxSize = 200, quality = 0.75) {
     const url = URL.createObjectURL(file);
     img.onload = () => {
       URL.revokeObjectURL(url);
-      const scale  = Math.min(maxSize / img.width, maxSize / img.height, 1);
-      const w      = Math.round(img.width  * scale);
-      const h      = Math.round(img.height * scale);
-      const canvas = document.createElement('canvas');
-      canvas.width  = w;
-      canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL('image/jpeg', quality));
+      function attempt(size, q) {
+        const scale  = Math.min(size / img.width, size / img.height, 1);
+        const w      = Math.round(img.width  * scale);
+        const h      = Math.round(img.height * scale);
+        const canvas = document.createElement('canvas');
+        canvas.width  = w;
+        canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        const data = canvas.toDataURL('image/jpeg', q);
+        if (data.length > 700_000) {
+          if (q > 0.35) return attempt(size, Math.round((q - 0.15) * 100) / 100);
+          if (size > 100) return attempt(Math.round(size * 0.7), 0.6);
+        }
+        return data;
+      }
+      resolve(attempt(maxSize, quality));
     };
     img.onerror = reject;
     img.src = url;
@@ -170,7 +178,11 @@ export async function saveAuthorPhoto(authorId, file) {
     const base64 = await compressToBase64(file, 280, 0.82);
     await setDoc(doc(db, 'adminConfig', 'authorPhotos'), { [authorId]: base64 }, { merge: true });
     return base64;
-  } catch (e) { console.error('Error guardando foto de autor:', e); return null; }
+  } catch (e) {
+    console.error('Error guardando foto de autor:', e);
+    if (e.code === 'permission-denied') return 'PERMISSION_DENIED';
+    return null;
+  }
 }
 
 // ── Seguir / dejar de seguir ────────────────────────────────────
