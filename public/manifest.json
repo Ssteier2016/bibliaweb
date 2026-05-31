@@ -1,7 +1,7 @@
 {
   "short_name": "Bibl.ia",
   "name": "Bibl.ia — Tu Biblia Digital",
-  "description": "Biblia Reina-Valera con comentarios, subrayados, notas y marcadores.",
+  "description": "Biblia Reina-Valera con comentarios históricos, subrayados, notas y marcadores.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -12,13 +12,25 @@
       "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "start_url": "/",
@@ -27,5 +39,14 @@
   "theme_color": "#92400e",
   "background_color": "#faf8f5",
   "lang": "es",
-  "categories": ["books", "education", "lifestyle"]
+  "categories": ["books", "education", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Leer Biblia",
+      "short_name": "Biblia",
+      "description": "Abre la Biblia Reina-Valera",
+      "url": "/",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    }
+  ]
 }

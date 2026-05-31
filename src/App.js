@@ -916,8 +916,47 @@ export default function App() {
   const [showCommentaries,   setShowCommentaries]  = useState(false);
   const [showBibleMenu,      setShowBibleMenu]     = useState(false);
   const [feedPost,           setFeedPost]          = useState(null); // { verse, bookName, chapter }
-  const [userPhotoURL,    setUserPhotoURL]   = useState(null);
-  const [globalSearch,    setGlobalSearch]   = useState('');
+  const [userPhotoURL,       setUserPhotoURL]      = useState(null);
+  const [globalSearch,       setGlobalSearch]      = useState('');
+  const [installPrompt,      setInstallPrompt]     = useState(null);
+  const [showInstallBanner,  setShowInstallBanner] = useState(false);
+  const [showUpdateBanner,   setShowUpdateBanner]  = useState(false);
+  const swRegRef = useRef(null);
+
+  // Detectar si es iOS y no está instalada
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  const [showIOSHint, setShowIOSHint] = useState(() =>
+    isIOS && !isStandalone && !localStorage.getItem('ios_hint_dismissed')
+  );
+
+  // Captura el evento de instalación (Android/Chrome)
+  useEffect(() => {
+    const handler = e => { e.preventDefault(); setInstallPrompt(e); setShowInstallBanner(true); };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  // Detectar actualización del SW
+  useEffect(() => {
+    const handler = e => { swRegRef.current = e.detail?.reg; setShowUpdateBanner(true); };
+    window.addEventListener('swUpdateAvailable', handler);
+    return () => window.removeEventListener('swUpdateAvailable', handler);
+  }, []);
+
+  async function handleInstallPWA() {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    if (outcome === 'accepted') setInstallPrompt(null);
+    setShowInstallBanner(false);
+  }
+
+  function handleApplyUpdate() {
+    if (swRegRef.current?.waiting) swRegRef.current.waiting.postMessage('SKIP_WAITING');
+    setShowUpdateBanner(false);
+    window.location.reload();
+  }
 
   // Aplicar tema
   useEffect(() => {
@@ -1194,6 +1233,35 @@ export default function App() {
 
   return (
     <div>
+      {/* Banner de actualización disponible */}
+      {showUpdateBanner && (
+        <div className="pwa-banner pwa-banner-update">
+          <span>🔄 Nueva versión disponible</span>
+          <button className="pwa-banner-btn" onClick={handleApplyUpdate}>Actualizar</button>
+          <button className="pwa-banner-close" onClick={() => setShowUpdateBanner(false)}>✕</button>
+        </div>
+      )}
+
+      {/* Banner de instalación Android/Chrome */}
+      {showInstallBanner && !isStandalone && (
+        <div className="pwa-banner pwa-banner-install">
+          <span>📲 Instalá Bibl.ia en tu celular</span>
+          <button className="pwa-banner-btn" onClick={handleInstallPWA}>Instalar</button>
+          <button className="pwa-banner-close" onClick={() => setShowInstallBanner(false)}>✕</button>
+        </div>
+      )}
+
+      {/* Instrucción para iOS (Add to Home Screen) */}
+      {showIOSHint && (
+        <div className="pwa-banner pwa-banner-ios">
+          <span>📲 Para instalar: tocá <strong>Compartir</strong> → <strong>Agregar a inicio</strong></span>
+          <button className="pwa-banner-close" onClick={() => {
+            localStorage.setItem('ios_hint_dismissed', '1');
+            setShowIOSHint(false);
+          }}>✕</button>
+        </div>
+      )}
+
       <header className="header">
         <div className="header-title">
           <span>✝️</span>
