@@ -104,21 +104,25 @@ function AuthorAvatar({ author, size = 52, badgeSize = false, customPhoto, isAdm
       )}
 
       {isAdmin && !badgeSize && (
-        <div style={{ position: 'relative' }}>
+        <>
           <button
-            onClick={() => { setShowMenu(m => !m); setUrlMode(false); setUrlVal(''); }}
+            onClick={e => { e.stopPropagation(); setShowMenu(m => !m); setUrlMode(false); setUrlVal(''); }}
             title="Cambiar foto"
             style={{
-              position: 'absolute', bottom: dim === 40 ? -18 : -24, right: -2,
+              position: 'absolute', bottom: -3, right: -3,
               width: 22, height: 22, borderRadius: '50%',
               background: '#1a4fa0', border: '2px solid #fff',
               cursor: 'pointer', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', fontSize: 11, color: '#fff',
+              justifyContent: 'center', fontSize: 11, color: '#fff', zIndex: 2,
             }}
           >📷</button>
 
           {showMenu && (
-            <div className="photo-menu-popup" style={{ bottom: 28, left: '50%', transform: 'translateX(-50%)' }}>
+            <div
+              className="photo-menu-popup"
+              style={{ position: 'absolute', bottom: 26, left: '50%', transform: 'translateX(-50%)', zIndex: 50 }}
+              onClick={e => e.stopPropagation()}
+            >
               {!urlMode ? (
                 <>
                   <button className="photo-menu-opt" onClick={() => { fileRef.current?.click(); setShowMenu(false); }}>
@@ -145,7 +149,7 @@ function AuthorAvatar({ author, size = 52, badgeSize = false, customPhoto, isAdm
             </div>
           )}
           <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleFile} />
-        </div>
+        </>
       )}
     </div>
   );
