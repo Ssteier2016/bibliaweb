@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   logout, updateUserDisplayName, getAllUsers, getUserProfile,
-  uploadProfilePhoto, updatePrivacy, followUser, unfollowUser,
+  uploadProfilePhoto, saveProfilePhotoURL, updatePrivacy, followUser, unfollowUser,
   loadUserData, saveUserData,
 } from './firebase';
 import ChatPanel from './ChatPanel';
@@ -524,6 +524,9 @@ export default function UserMenu({
   const nameInputRef  = useRef(null);
   const photoInputRef = useRef(null);
   const [photoLoading, setPhotoLoading]  = useState(false);
+  const [showPhotoMenu, setShowPhotoMenu] = useState(false);
+  const [urlMode, setUrlMode]             = useState(false);
+  const [urlInput, setUrlInput]           = useState('');
   const [privacyLocal, setPrivacyLocal]  = useState(privacy);
 
   const isAdmin = user?.email === ADMIN_EMAIL;
@@ -598,6 +601,7 @@ export default function UserMenu({
     const file = e.target.files?.[0];
     if (!file || !user) return;
     setPhotoLoading(true);
+    setShowPhotoMenu(false);
     const url = await uploadProfilePhoto(user.uid, file);
     if (url) {
       setLocalPhotoURL(url);
@@ -607,6 +611,23 @@ export default function UserMenu({
     }
     setPhotoLoading(false);
     e.target.value = '';
+  }
+
+  async function handlePhotoURL() {
+    const trimmed = urlInput.trim();
+    if (!trimmed || !user) return;
+    setPhotoLoading(true);
+    setShowPhotoMenu(false);
+    setUrlMode(false);
+    setUrlInput('');
+    const result = await saveProfilePhotoURL(user.uid, trimmed);
+    if (result) {
+      setLocalPhotoURL(result);
+      onPhotoUpdate?.(result);
+    } else {
+      alert('No se pudo guardar la URL. Verificá que sea una imagen válida.');
+    }
+    setPhotoLoading(false);
   }
 
   async function handleSearch(term) {
@@ -721,7 +742,41 @@ export default function UserMenu({
               }
             </div>
             {!isGuest && (
-              <button className="avatar-camera-btn" onClick={() => photoInputRef.current?.click()} title="Cambiar foto">📷</button>
+              <div style={{ position: 'relative' }}>
+                <button
+                  className="avatar-camera-btn"
+                  onClick={() => { setShowPhotoMenu(m => !m); setUrlMode(false); setUrlInput(''); }}
+                  title="Cambiar foto"
+                >📷</button>
+
+                {showPhotoMenu && (
+                  <div className="photo-menu-popup">
+                    {!urlMode ? (
+                      <>
+                        <button className="photo-menu-opt" onClick={() => photoInputRef.current?.click()}>
+                          📁 Subir archivo
+                        </button>
+                        <button className="photo-menu-opt" onClick={() => setUrlMode(true)}>
+                          🔗 Pegar URL
+                        </button>
+                      </>
+                    ) : (
+                      <div className="photo-url-row">
+                        <input
+                          className="photo-url-input"
+                          placeholder="https://..."
+                          value={urlInput}
+                          onChange={e => setUrlInput(e.target.value)}
+                          onKeyDown={e => e.key === 'Enter' && handlePhotoURL()}
+                          autoFocus
+                        />
+                        <button className="photo-url-confirm" onClick={handlePhotoURL}>✓</button>
+                        <button className="photo-url-cancel" onClick={() => setUrlMode(false)}>✕</button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             )}
             <input ref={photoInputRef} type="file" accept="image/*" className="photo-file-input" onChange={handlePhotoChange} />
           </div>

@@ -153,6 +153,14 @@ function compressToBase64(file, maxSize = 200, quality = 0.75) {
   });
 }
 
+export async function saveProfilePhotoURL(uid, url) {
+  try {
+    try { if (auth.currentUser) await updateProfile(auth.currentUser, { photoURL: url }); } catch {}
+    await setDoc(doc(db, 'users', uid), { photoURL: url }, { merge: true });
+    return url;
+  } catch (e) { console.error('Error guardando URL de foto:', e); return null; }
+}
+
 export async function uploadProfilePhoto(uid, file) {
   try {
     const base64 = await compressToBase64(file);

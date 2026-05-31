@@ -937,6 +937,36 @@ input, textarea { font-family: inherit; }
 .avatar-camera-btn:hover { background: var(--accent); border-color: var(--accent); }
 .photo-file-input { display: none; }
 
+.photo-menu-popup {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 6px; z-index: 200;
+  box-shadow: 0 4px 18px var(--shadow-md); min-width: 150px;
+}
+.photo-menu-opt {
+  display: block; width: 100%; background: none; border: none;
+  padding: 8px 12px; text-align: left; cursor: pointer; border-radius: 8px;
+  font-size: 0.85rem; color: var(--text); font-family: inherit;
+  transition: background 0.12s;
+}
+.photo-menu-opt:hover { background: var(--accent-light); }
+.photo-url-row {
+  display: flex; align-items: center; gap: 4px; padding: 4px;
+}
+.photo-url-input {
+  flex: 1; border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 6px 8px; font-size: 0.78rem; background: var(--bg);
+  color: var(--text); font-family: inherit; min-width: 0;
+}
+.photo-url-input:focus { outline: none; border-color: var(--accent); }
+.photo-url-confirm, .photo-url-cancel {
+  width: 26px; height: 26px; border-radius: 50%; border: none;
+  cursor: pointer; font-size: 0.75rem; display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+}
+.photo-url-confirm { background: var(--accent); color: #fff; }
+.photo-url-cancel  { background: var(--surface2); color: var(--text2); }
+
 /* ── Vista de perfil ─────────────────────────────────────────── */
 .profile-view { display: flex; flex-direction: column; gap: 0; flex: 1; overflow-y: auto; }
 .profile-back-btn {
