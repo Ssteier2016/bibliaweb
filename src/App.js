@@ -286,7 +286,9 @@ const GEO_LUGARES = {
 
 
 // Número de libro 1-66 para la API de bolls.life
-const BOLLS_SLUG = { ntv: 'NTV', nbla: 'NBLA' };
+// Slugs disponibles en bolls.life para versiones en español
+// NBLA 2020 no está en bolls.life (copyright); LBLA 1997 es su predecesora directa
+const BOLLS_SLUG = { ntv: 'NTV', lbla: 'LBLA', nvi: 'NVI' };
 
 // Normaliza texto quitando tildes para comparar nombres de libros
 function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
@@ -928,6 +930,8 @@ export default function App() {
   const [translation,     setTranslation]    = useState(() => lsGet('bible_translation') || 'rvr');
   const [extVerses,       setExtVerses]      = useState({});
   const [extLoading,      setExtLoading]     = useState(false);
+  const [extError,        setExtError]       = useState(false);
+  const [dlProgress,      setDlProgress]     = useState(null); // null=inactivo, 0-100=descargando
   const [jumpVerse,       setJumpVerse]      = useState(null);
   const [streak,          setStreak]         = useState(0);
   const [privacy,         setPrivacy]        = useState({
@@ -1055,10 +1059,10 @@ export default function App() {
     loadChapterLikes(selectedBook, selectedChapter, chapterData.verses).then(setLikes);
   }, [selectedBook, selectedChapter, books]);
 
-  // Cargar versiones externas (NTV, NBLA) desde bolls.life API con caché en localStorage
+  // Cargar versiones externas desde bolls.life con caché en localStorage del dispositivo
   useEffect(() => {
     const slug = BOLLS_SLUG[translation];
-    if (!slug) { setExtVerses({}); return; }
+    if (!slug) { setExtVerses({}); setExtError(false); return; }
     const currentBook = books.find(b => b.name === selectedBook);
     if (!currentBook) return;
     const bookNum = BOLLS_NUM[currentBook.abbrev];
@@ -1066,20 +1070,69 @@ export default function App() {
     const cacheKey = `${translation}_${bookNum}_${selectedChapter}`;
     const cached = lsGet(cacheKey);
     if (cached) {
-      try { setExtVerses(JSON.parse(cached)); return; } catch {}
+      try {
+        const parsed = JSON.parse(cached);
+        if (Object.keys(parsed).length > 0) { setExtVerses(parsed); setExtError(false); return; }
+      } catch {}
     }
     setExtLoading(true);
+    setExtError(false);
     fetch(`https://bolls.life/get-text/${slug}/${bookNum}/${selectedChapter}/`)
-      .then(r => r.json())
+      .then(r => { if (!r.ok) throw new Error('not ok'); return r.json(); })
       .then(data => {
+        if (!Array.isArray(data) || data.length === 0) throw new Error('empty');
         const map = {};
         data.forEach(v => { map[v.verse] = v.text.replace(/<[^>]*>/g, '').trim(); });
         lsSet(cacheKey, JSON.stringify(map));
         setExtVerses(map);
         setExtLoading(false);
       })
-      .catch(() => setExtLoading(false));
+      .catch(() => { setExtLoading(false); setExtError(true); setExtVerses({}); });
   }, [translation, selectedBook, selectedChapter, books]);
+
+  // Descarga toda la traducción a localStorage para uso offline
+  async function downloadFullTranslation(translationKey) {
+    const slug = BOLLS_SLUG[translationKey];
+    if (!slug || dlProgress !== null) return;
+    const chapters = [];
+    for (const b of books) {
+      const bookNum = BOLLS_NUM[b.abbrev];
+      if (!bookNum) continue;
+      for (const ch of b.chapters) {
+        chapters.push({ bookNum, chapter: ch.chapter, key: `${translationKey}_${bookNum}_${ch.chapter}` });
+      }
+    }
+    const total = chapters.length;
+    let done = 0;
+    setDlProgress(0);
+    for (const item of chapters) {
+      if (lsGet(item.key)) { done++; setDlProgress(Math.round(done / total * 100)); continue; }
+      try {
+        const r = await fetch(`https://bolls.life/get-text/${slug}/${item.bookNum}/${item.chapter}/`);
+        if (r.ok) {
+          const data = await r.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const map = {};
+            data.forEach(v => { map[v.verse] = v.text.replace(/<[^>]*>/g, '').trim(); });
+            lsSet(item.key, JSON.stringify(map));
+          }
+        }
+      } catch {}
+      done++;
+      setDlProgress(Math.round(done / total * 100));
+      await new Promise(res => setTimeout(res, 40)); // evitar rate limit
+    }
+    lsSet(`bible_full_${translationKey}`, '1');
+    setDlProgress(null);
+    setExtError(false);
+    // Recargar capítulo actual
+    const currentBook = books.find(b => b.name === selectedBook);
+    if (currentBook) {
+      const bookNum = BOLLS_NUM[currentBook.abbrev];
+      const cached = lsGet(`${translationKey}_${bookNum}_${selectedChapter}`);
+      if (cached) { try { setExtVerses(JSON.parse(cached)); } catch {} }
+    }
+  }
 
   // Scroll al versículo objetivo tras navegar con referencia "Libro cap:ver"
   useEffect(() => {
@@ -1385,13 +1438,39 @@ export default function App() {
         <select
           className="translation-select"
           value={translation}
-          onChange={e => { setTranslation(e.target.value); setExtVerses({}); }}
+          onChange={e => { setTranslation(e.target.value); setExtVerses({}); setExtError(false); }}
           title="Versión bíblica"
         >
           <option value="rvr">RVR 1960 — Reina-Valera</option>
           <option value="ntv">{extLoading && translation === 'ntv' ? 'NTV (cargando…)' : 'NTV — Nueva Traducción Viviente'}</option>
-          <option value="nbla">{extLoading && translation === 'nbla' ? 'NBLA (cargando…)' : 'NBLA — Nueva Biblia de las Américas'}</option>
+          <option value="lbla">{extLoading && translation === 'lbla' ? 'LBLA (cargando…)' : 'LBLA — La Biblia de las Américas'}</option>
+          <option value="nvi">{extLoading && translation === 'nvi' ? 'NVI (cargando…)' : 'NVI — Nueva Versión Internacional'}</option>
         </select>
+
+        {/* Barra de descarga al dispositivo */}
+        {dlProgress !== null && (
+          <div className="dl-bar-wrap">
+            <div className="dl-bar-label">📥 Descargando versión… {dlProgress}%</div>
+            <div className="dl-bar-track"><div className="dl-bar-fill" style={{ width: `${dlProgress}%` }} /></div>
+          </div>
+        )}
+
+        {/* Botón para descargar versión completa al dispositivo (solo versiones externas no descargadas) */}
+        {BOLLS_SLUG[translation] && dlProgress === null && !lsGet(`bible_full_${translation}`) && !extError && (
+          <button className="dl-full-btn" onClick={() => downloadFullTranslation(translation)}>
+            📥 Descargar versión al dispositivo para uso sin conexión
+          </button>
+        )}
+
+        {/* Error: versión no disponible */}
+        {extError && BOLLS_SLUG[translation] && dlProgress === null && (
+          <div className="translation-error">
+            ⚠️ No se pudo cargar esta versión.{' '}
+            <button className="dl-retry-btn" onClick={() => { setExtError(false); setExtVerses({}); }}>
+              Reintentar
+            </button>
+          </div>
+        )}
         <div className="nav-chapter-bar">
           <button className="nav-btn" disabled={selectedChapter <= 1} onClick={() => changeChapter(selectedChapter - 1)}>
             ← Anterior
