@@ -1661,6 +1661,7 @@ export default function App() {
           }}
           onFollowingChange={setFollowing}
           onPhotoUpdate={url => setUserPhotoURL(url)}
+          geoLugares={GEO_LUGARES}
         />
       )}
 

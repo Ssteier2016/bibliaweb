@@ -2124,3 +2124,167 @@ input, textarea { font-family: inherit; }
   border-radius: 50%; transition: color 0.15s;
 }
 .pwa-banner-close:hover { color: #fff; }
+
+/* ── Mapa bíblico global (UserMenu section) ──────────────────── */
+.mapa-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mapa-header-info {
+  padding: 10px 16px 6px;
+  border-bottom: 1px solid var(--border);
+}
+.mapa-total {
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.mapa-search-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.mapa-search-input {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  font-family: sans-serif;
+  background: var(--surface2);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.mapa-search-input:focus { border-color: var(--accent); }
+.mapa-search-clear {
+  background: none; border: none; color: var(--text3);
+  font-size: 1rem; cursor: pointer; padding: 4px 6px;
+  border-radius: 50%; transition: color 0.15s;
+}
+.mapa-search-clear:hover { color: var(--text); }
+
+.mapa-embed-block {
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+.mapa-embed-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.mapa-embed-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.mapa-embed-pin { font-size: 1rem; flex-shrink: 0; }
+.mapa-embed-name {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--text);
+  font-family: sans-serif;
+}
+.mapa-embed-close {
+  background: none; border: none; color: var(--text3);
+  font-size: 1rem; cursor: pointer; padding: 2px 6px;
+  border-radius: 50%; flex-shrink: 0;
+  transition: color 0.15s;
+}
+.mapa-embed-close:hover { color: var(--text); }
+.mapa-embed-ref-row { margin-bottom: 2px; }
+.mapa-embed-ref {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.mapa-embed-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.mapa-open-link {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-family: sans-serif;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  padding: 5px 12px;
+  transition: background 0.15s;
+}
+.mapa-open-link:hover { background: var(--accent-light); }
+.mapa-nav-btn {
+  flex: 1;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: center;
+}
+.mapa-nav-btn:hover { background: var(--accent-btn); }
+
+.mapa-places-list {
+  flex: 1;
+  overflow-y: auto;
+}
+.mapa-place-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.mapa-place-row:hover { background: var(--surface2); }
+.mapa-place-row.active { background: var(--accent-light); }
+.dark .mapa-place-row.active { background: #292011; }
+.mapa-place-flag { font-size: 1rem; flex-shrink: 0; }
+.mapa-place-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+}
+.mapa-place-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mapa-place-ref {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-family: sans-serif;
+}
+.mapa-place-chevron {
+  font-size: 0.65rem;
+  color: var(--text3);
+  flex-shrink: 0;
+}

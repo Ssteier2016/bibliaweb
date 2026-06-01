@@ -16,6 +16,7 @@ const SECTIONS = [
   { key: 'amigos',     label: 'Amigos',      icon: '👥' },
   { key: 'mensajes',   label: 'Mensajes',    icon: '💬' },
   { key: 'plan',       label: 'Plan',        icon: '📅' },
+  { key: 'mapa',       label: 'Mapa',        icon: '🚩' },
   { key: 'config',     label: 'Config',      icon: '⚙️' },
 ];
 
@@ -499,12 +500,132 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
   );
 }
 
+// ── MapaSection — Atlas bíblico global ────────────────────────────────────────
+
+function MapaSection({ geoLugares, onNavigate, onClose }) {
+  const [selected,   setSelected]   = useState(null);
+  const [searchMap,  setSearchMap]  = useState('');
+  const [showEmbed,  setShowEmbed]  = useState(false);
+
+  const allPlaces = useMemo(() => {
+    const result = [];
+    Object.entries(geoLugares || {}).forEach(([verseKey, lugares]) => {
+      const parts   = verseKey.split('_');
+      const verse   = parts.pop();
+      const chapter = parts.pop();
+      const book    = parts.join('_');
+      lugares.forEach(lugar => {
+        result.push({ verseKey, book, chapter, verse, ref: `${book} ${chapter}:${verse}`, ...lugar });
+      });
+    });
+    return result.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  }, [geoLugares]);
+
+  const filtered = searchMap.trim()
+    ? allPlaces.filter(p =>
+        p.nombre.toLowerCase().includes(searchMap.toLowerCase()) ||
+        p.ref.toLowerCase().includes(searchMap.toLowerCase())
+      )
+    : allPlaces;
+
+  const embedSrc = selected
+    ? `https://maps.google.com/maps?q=${selected.lat},${selected.lng}&z=${selected.zoom || 10}&output=embed&hl=es`
+    : null;
+  const openUrl = selected
+    ? `https://www.google.com/maps?q=${selected.lat},${selected.lng}&z=${selected.zoom || 10}`
+    : null;
+
+  function selectPlace(p) {
+    if (selected === p) { setSelected(null); setShowEmbed(false); return; }
+    setSelected(p);
+    setShowEmbed(true);
+  }
+
+  return (
+    <div className="mapa-section">
+      <div className="mapa-header-info">
+        <span className="mapa-total">🚩 {allPlaces.length} lugares bíblicos registrados</span>
+      </div>
+
+      <div className="mapa-search-row">
+        <input
+          className="mapa-search-input"
+          placeholder="Buscar lugar o versículo…"
+          value={searchMap}
+          onChange={e => { setSearchMap(e.target.value); setSelected(null); setShowEmbed(false); }}
+        />
+        {searchMap && (
+          <button className="mapa-search-clear" onClick={() => { setSearchMap(''); setSelected(null); setShowEmbed(false); }}>✕</button>
+        )}
+      </div>
+
+      {selected && showEmbed && (
+        <div className="mapa-embed-block">
+          <div className="mapa-embed-header">
+            <div className="mapa-embed-title">
+              <span className="mapa-embed-pin">📍</span>
+              <span className="mapa-embed-name">{selected.nombre}</span>
+            </div>
+            <button className="mapa-embed-close" onClick={() => { setSelected(null); setShowEmbed(false); }}>✕</button>
+          </div>
+          <div className="mapa-embed-ref-row">
+            <span className="mapa-embed-ref">{selected.ref}</span>
+          </div>
+          <iframe
+            key={`${selected.lat}_${selected.lng}`}
+            title={selected.nombre}
+            src={embedSrc}
+            width="100%"
+            height="210"
+            style={{ border: 'none', borderRadius: '10px', display: 'block', marginTop: '8px' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="mapa-embed-actions">
+            <a href={openUrl} target="_blank" rel="noopener noreferrer" className="mapa-open-link">
+              ↗ Google Maps
+            </a>
+            <button
+              className="mapa-nav-btn"
+              onClick={() => { onNavigate(selected.book, parseInt(selected.chapter)); onClose(); }}
+            >
+              📖 Ir a {selected.ref}
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div className="mapa-places-list">
+        {filtered.length === 0 && (
+          <div className="menu-empty">🚩 Sin lugares que coincidan.</div>
+        )}
+        {filtered.map((p, i) => (
+          <button
+            key={`${p.verseKey}_${i}`}
+            className={`mapa-place-row ${selected === p ? 'active' : ''}`}
+            onClick={() => selectPlace(p)}
+          >
+            <span className="mapa-place-flag">🚩</span>
+            <div className="mapa-place-info">
+              <span className="mapa-place-name">{p.nombre}</span>
+              <span className="mapa-place-ref">{p.ref}</span>
+            </div>
+            <span className="mapa-place-chevron">{selected === p ? '▲' : '▼'}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ── UserMenu principal ─────────────────────────────────────────
 
 export default function UserMenu({
   user, books, bookmarks, highlights, notes, shared,
   following, followers, streak, privacy, darkMode,
   onClose, onNavigate, onFollowingChange, onPrivacyChange, onPhotoUpdate,
+  geoLugares,
 }) {
   const [section,       setSection]       = useState('bookmarks');
   const [shareMsg,      setShareMsg]      = useState('');
@@ -1031,6 +1152,15 @@ export default function UserMenu({
                 </div>
               ))}
             </div>
+          )}
+
+          {/* Mapa bíblico global */}
+          {section === 'mapa' && (
+            <MapaSection
+              geoLugares={geoLugares}
+              onNavigate={onNavigate}
+              onClose={onClose}
+            />
           )}
 
           {/* Admin */}
