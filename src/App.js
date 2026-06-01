@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import './App.css';
 import { COMMENTARY } from './data/commentary';
 import AuthScreen               from './AuthScreen';
@@ -906,6 +906,164 @@ function UserAvatar({ user, photoURLOverride, onClick }) {
   );
 }
 
+// ── MapaPage — Atlas bíblico pantalla completa ────────────────────────────────
+
+function MapaPage({ onClose, onNavigate, darkMode }) {
+  const mapContainerRef = useRef(null);
+  const mapInstanceRef  = useRef(null);
+  const markersRef      = useRef([]);
+  const [search,   setSearch]   = useState('');
+  const [selected, setSelected] = useState(null);
+
+  const allPlaces = useMemo(() => {
+    const result = [];
+    Object.entries(GEO_LUGARES).forEach(([verseKey, lugares]) => {
+      const parts   = verseKey.split('_');
+      const verse   = parts.pop();
+      const chapter = parts.pop();
+      const book    = parts.join('_');
+      lugares.forEach(lugar => {
+        result.push({ verseKey, book, chapter, verse, ref: `${book} ${chapter}:${verse}`, ...lugar });
+      });
+    });
+    return result.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  }, []);
+
+  const filtered = search.trim()
+    ? allPlaces.filter(p =>
+        p.nombre.toLowerCase().includes(search.toLowerCase()) ||
+        p.ref.toLowerCase().includes(search.toLowerCase())
+      )
+    : allPlaces;
+
+  useEffect(() => {
+    function initMap() {
+      if (!mapContainerRef.current || mapInstanceRef.current) return;
+      const L = window.L;
+
+      const map = L.map(mapContainerRef.current, {
+        center: [31.5, 35.5],
+        zoom: 6,
+        zoomControl: true,
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+        maxZoom: 19,
+      }).addTo(map);
+
+      const flagIcon = L.divIcon({
+        className: '',
+        html: '<span style="font-size:20px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))">🚩</span>',
+        iconSize: [24, 24],
+        iconAnchor: [2, 22],
+        popupAnchor: [10, -22],
+      });
+
+      allPlaces.forEach(p => {
+        const marker = L.marker([p.lat, p.lng], { icon: flagIcon })
+          .addTo(map)
+          .bindPopup(`
+            <div style="font-family:sans-serif;min-width:150px;padding:2px 0">
+              <strong style="font-size:0.88rem;display:block;margin-bottom:3px">🚩 ${p.nombre}</strong>
+              <span style="color:#92400e;font-size:0.75rem;font-weight:600">${p.ref}</span>
+            </div>
+          `, { maxWidth: 220 });
+        markersRef.current.push({ marker, place: p });
+      });
+
+      mapInstanceRef.current = map;
+    }
+
+    if (window.L) {
+      initMap();
+    } else {
+      const cssId = 'leaflet-css';
+      if (!document.getElementById(cssId)) {
+        const link = document.createElement('link');
+        link.id   = cssId;
+        link.rel  = 'stylesheet';
+        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(link);
+      }
+      const script = document.createElement('script');
+      script.src    = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      script.onload = initMap;
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+        markersRef.current = [];
+      }
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function flyToPlace(p) {
+    setSelected(p);
+    if (!mapInstanceRef.current) return;
+    mapInstanceRef.current.flyTo([p.lat, p.lng], Math.max(p.zoom || 11, 11), { duration: 1 });
+    const found = markersRef.current.find(m => m.place === p);
+    if (found) setTimeout(() => found.marker.openPopup(), 900);
+  }
+
+  return (
+    <div className={`mapa-page${darkMode ? ' dark' : ''}`}>
+      <div className="mapa-page-header">
+        <button className="mapa-page-back" onClick={onClose}>← Volver</button>
+        <span className="mapa-page-title">🚩 Atlas Bíblico</span>
+        <span className="mapa-page-count">{allPlaces.length} lugares</span>
+      </div>
+
+      <div ref={mapContainerRef} className="mapa-page-map" />
+
+      <div className="mapa-page-bottom">
+        <div className="mapa-page-search-row">
+          <input
+            className="mapa-page-search"
+            placeholder="Buscar lugar o versículo…"
+            value={search}
+            onChange={e => { setSearch(e.target.value); }}
+          />
+          {search && (
+            <button className="mapa-page-search-clear" onClick={() => setSearch('')}>✕</button>
+          )}
+        </div>
+
+        <div className="mapa-page-list">
+          {filtered.length === 0 && (
+            <div className="mapa-page-empty">Sin lugares que coincidan.</div>
+          )}
+          {filtered.map((p, i) => (
+            <button
+              key={`${p.verseKey}_${i}`}
+              className={`mapa-page-place-row${selected === p ? ' active' : ''}`}
+              onClick={() => flyToPlace(p)}
+            >
+              <span className="mapa-page-flag">🚩</span>
+              <div className="mapa-page-place-info">
+                <span className="mapa-page-place-name">{p.nombre}</span>
+                <span className="mapa-page-place-ref">{p.ref}</span>
+              </div>
+              {selected === p && (
+                <button
+                  className="mapa-page-nav-btn"
+                  onClick={e => { e.stopPropagation(); onNavigate(p.book, parseInt(p.chapter)); }}
+                >
+                  📖 Ir
+                </button>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── App ───────────────────────────────────────────────────────────────────────
 
 export default function App() {
@@ -942,6 +1100,7 @@ export default function App() {
   const [showGen,            setShowGen]           = useState(false);
   const [showFeed,           setShowFeed]          = useState(false);
   const [showCommentaries,   setShowCommentaries]  = useState(false);
+  const [showMapa,           setShowMapa]          = useState(false);
   const [showBibleMenu,      setShowBibleMenu]     = useState(false);
   const [feedPost,           setFeedPost]          = useState(null); // { verse, bookName, chapter }
   const [userPhotoURL,       setUserPhotoURL]      = useState(null);
@@ -1323,6 +1482,16 @@ export default function App() {
     );
   }
 
+  if (showMapa) {
+    return (
+      <MapaPage
+        onClose={() => setShowMapa(false)}
+        onNavigate={(bookName, ch) => { setShowMapa(false); changeBook(bookName); setTimeout(() => changeChapter(ch), 50); }}
+        darkMode={darkMode}
+      />
+    );
+  }
+
   // ── Render ──────────────────────────────────────────────────────────────────
 
   return (
@@ -1411,6 +1580,16 @@ export default function App() {
                     <div>
                       <div className="bible-menu-label">Comentarios Teológicos</div>
                       <div className="bible-menu-sub">MacArthur y otros autores</div>
+                    </div>
+                  </button>
+                  <button
+                    className="bible-menu-item"
+                    onClick={() => { setShowBibleMenu(false); setShowMapa(true); }}
+                  >
+                    <span className="bible-menu-icon">🚩</span>
+                    <div>
+                      <div className="bible-menu-label">Mapa Bíblico</div>
+                      <div className="bible-menu-sub">Atlas de todos los lugares</div>
                     </div>
                   </button>
                 </div>
@@ -1661,7 +1840,6 @@ export default function App() {
           }}
           onFollowingChange={setFollowing}
           onPhotoUpdate={url => setUserPhotoURL(url)}
-          geoLugares={GEO_LUGARES}
         />
       )}
 
