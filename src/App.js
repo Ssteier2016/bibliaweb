@@ -286,6 +286,8 @@ const GEO_LUGARES = {
 
 
 // Número de libro 1-66 para la API de bolls.life
+const BOLLS_SLUG = { ntv: 'NTV', nbla: 'NBLA' };
+
 const BOLLS_NUM = {
   gn:1,ex:2,lv:3,nm:4,dt:5,js:6,jud:7,rt:8,'1sm':9,'2sm':10,
   '1kgs':11,'2kgs':12,'1ch':13,'2ch':14,ezr:15,ne:16,et:17,job:18,ps:19,
@@ -903,8 +905,8 @@ export default function App() {
   const [followers,       setFollowers]      = useState([]);
   const [likes,           setLikes]          = useState({});
   const [translation,     setTranslation]    = useState(() => lsGet('bible_translation') || 'rvr');
-  const [ntvVerses,       setNtvVerses]      = useState({});
-  const [ntvLoading,      setNtvLoading]     = useState(false);
+  const [extVerses,       setExtVerses]      = useState({});
+  const [extLoading,      setExtLoading]     = useState(false);
   const [streak,          setStreak]         = useState(0);
   const [privacy,         setPrivacy]        = useState({
     notes: false, highlights: false, bookmarks: false,
@@ -1031,29 +1033,30 @@ export default function App() {
     loadChapterLikes(selectedBook, selectedChapter, chapterData.verses).then(setLikes);
   }, [selectedBook, selectedChapter, books]);
 
-  // Cargar NTV desde bolls.life API con caché en localStorage
+  // Cargar versiones externas (NTV, NBLA) desde bolls.life API con caché en localStorage
   useEffect(() => {
-    if (translation !== 'ntv') { setNtvVerses({}); return; }
+    const slug = BOLLS_SLUG[translation];
+    if (!slug) { setExtVerses({}); return; }
     const currentBook = books.find(b => b.name === selectedBook);
     if (!currentBook) return;
     const bookNum = BOLLS_NUM[currentBook.abbrev];
     if (!bookNum) return;
-    const cacheKey = `ntv_${bookNum}_${selectedChapter}`;
+    const cacheKey = `${translation}_${bookNum}_${selectedChapter}`;
     const cached = lsGet(cacheKey);
     if (cached) {
-      try { setNtvVerses(JSON.parse(cached)); return; } catch {}
+      try { setExtVerses(JSON.parse(cached)); return; } catch {}
     }
-    setNtvLoading(true);
-    fetch(`https://bolls.life/get-text/NTV/${bookNum}/${selectedChapter}/`)
+    setExtLoading(true);
+    fetch(`https://bolls.life/get-text/${slug}/${bookNum}/${selectedChapter}/`)
       .then(r => r.json())
       .then(data => {
         const map = {};
         data.forEach(v => { map[v.verse] = v.text.replace(/<[^>]*>/g, '').trim(); });
         lsSet(cacheKey, JSON.stringify(map));
-        setNtvVerses(map);
-        setNtvLoading(false);
+        setExtVerses(map);
+        setExtLoading(false);
       })
-      .catch(() => setNtvLoading(false));
+      .catch(() => setExtLoading(false));
   }, [translation, selectedBook, selectedChapter, books]);
 
   // Sincronizar con Firestore cuando cambia el usuario
@@ -1070,7 +1073,7 @@ export default function App() {
   const displayVerses = rawVerses
     .map(v => ({
       ...v,
-      text: (translation === 'ntv' && ntvVerses[v.verse]) ? ntvVerses[v.verse] : v.text,
+      text: (BOLLS_SLUG[translation] && extVerses[v.verse]) ? extVerses[v.verse] : v.text,
     }))
     .filter(v => !searchQuery.trim() || v.text.toLowerCase().includes(searchQuery.toLowerCase()));
   const totalChapters = book?.chapters.length || 1;
@@ -1340,16 +1343,17 @@ export default function App() {
               <option key={c.chapter} value={c.chapter}>Capítulo {c.chapter}</option>
             ))}
           </select>
-          <select
-            className="translation-select"
-            value={translation}
-            onChange={e => setTranslation(e.target.value)}
-            title="Versión bíblica"
-          >
-            <option value="rvr">RVR 1960</option>
-            <option value="ntv">{ntvLoading ? 'NTV (cargando…)' : 'NTV'}</option>
-          </select>
         </div>
+        <select
+          className="translation-select"
+          value={translation}
+          onChange={e => { setTranslation(e.target.value); setExtVerses({}); }}
+          title="Versión bíblica"
+        >
+          <option value="rvr">RVR 1960 — Reina-Valera</option>
+          <option value="ntv">{extLoading && translation === 'ntv' ? 'NTV (cargando…)' : 'NTV — Nueva Traducción Viviente'}</option>
+          <option value="nbla">{extLoading && translation === 'nbla' ? 'NBLA (cargando…)' : 'NBLA — Nueva Biblia de las Américas'}</option>
+        </select>
         <div className="nav-chapter-bar">
           <button className="nav-btn" disabled={selectedChapter <= 1} onClick={() => changeChapter(selectedChapter - 1)}>
             ← Anterior
