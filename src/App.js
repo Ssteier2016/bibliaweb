@@ -288,6 +288,27 @@ const GEO_LUGARES = {
 // Número de libro 1-66 para la API de bolls.life
 const BOLLS_SLUG = { ntv: 'NTV', nbla: 'NBLA' };
 
+// Normaliza texto quitando tildes para comparar nombres de libros
+function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+
+// Detecta referencias del tipo "Mateo 3:16", "1 Co 13:4", "Gn 1:1"
+function parseVerseRef(query, books) {
+  const match = query.trim().match(/^(.+?)\s+(\d+):(\d+)$/);
+  if (!match) return null;
+  const [, bookQuery, chStr, verseStr] = match;
+  const q = norm(bookQuery);
+  const found = books.find(b => {
+    const name = norm(b.name);
+    return name === q || name.startsWith(q) || norm(b.abbrev) === q;
+  });
+  if (!found) return null;
+  const ch = parseInt(chStr, 10);
+  const verse = parseInt(verseStr, 10);
+  if (isNaN(ch) || isNaN(verse)) return null;
+  if (!found.chapters.find(c => c.chapter === ch)) return null;
+  return { book: found.name, chapter: ch, verse };
+}
+
 const BOLLS_NUM = {
   gn:1,ex:2,lv:3,nm:4,dt:5,js:6,jud:7,rt:8,'1sm':9,'2sm':10,
   '1kgs':11,'2kgs':12,'1ch':13,'2ch':14,ezr:15,ne:16,et:17,job:18,ps:19,
@@ -625,7 +646,7 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
     : {};
 
   return (
-    <div className="verse-card">
+    <div id={`verse-${verse.verse}`} className="verse-card">
       <div className="verse-body" style={highlightStyle}>
         <div className="verse-text-row">
           <span className="verse-num">
@@ -907,6 +928,7 @@ export default function App() {
   const [translation,     setTranslation]    = useState(() => lsGet('bible_translation') || 'rvr');
   const [extVerses,       setExtVerses]      = useState({});
   const [extLoading,      setExtLoading]     = useState(false);
+  const [jumpVerse,       setJumpVerse]      = useState(null);
   const [streak,          setStreak]         = useState(0);
   const [privacy,         setPrivacy]        = useState({
     notes: false, highlights: false, bookmarks: false,
@@ -1058,6 +1080,22 @@ export default function App() {
       })
       .catch(() => setExtLoading(false));
   }, [translation, selectedBook, selectedChapter, books]);
+
+  // Scroll al versículo objetivo tras navegar con referencia "Libro cap:ver"
+  useEffect(() => {
+    if (!jumpVerse) return;
+    const doScroll = () => {
+      const el = document.getElementById(`verse-${jumpVerse}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('verse-jump-flash');
+        setTimeout(() => { el.classList.remove('verse-jump-flash'); }, 2200);
+      }
+      setJumpVerse(null);
+    };
+    const t = setTimeout(doScroll, 150);
+    return () => clearTimeout(t);
+  }, [jumpVerse]);
 
   // Sincronizar con Firestore cuando cambia el usuario
   async function syncFirestore(hl, nt, bm, sh, uid) {
@@ -1367,11 +1405,19 @@ export default function App() {
         </div>
       </nav>
 
+      {/* Breadcrumb sticky — muestra libro y capítulo mientras se hace scroll */}
+      <div className="sticky-breadcrumb">
+        <span className="sticky-bc-book">{selectedBook}</span>
+        <span className="sticky-bc-sep">·</span>
+        <span className="sticky-bc-chap">Cap. {selectedChapter}</span>
+        <span className="sticky-bc-of">/ {totalChapters}</span>
+      </div>
+
       <div className="search-bar">
         <input
           className="search-input"
           type="text"
-          placeholder="Buscar… (Enter = toda la Biblia)"
+          placeholder="Buscar… o ir a Juan 3:16"
           value={globalSearch || searchQuery}
           onChange={e => {
             if (globalSearch) setGlobalSearch(e.target.value);
@@ -1380,6 +1426,20 @@ export default function App() {
           onKeyDown={e => {
             if (e.key === 'Enter') {
               const q = e.target.value.trim();
+              const ref = parseVerseRef(q, books);
+              if (ref) {
+                setGlobalSearch(''); setSearchQuery('');
+                if (ref.book !== selectedBook) {
+                  changeBook(ref.book);
+                  setTimeout(() => { changeChapter(ref.chapter); setTimeout(() => setJumpVerse(ref.verse), 100); }, 80);
+                } else if (ref.chapter !== selectedChapter) {
+                  changeChapter(ref.chapter);
+                  setTimeout(() => setJumpVerse(ref.verse), 100);
+                } else {
+                  setJumpVerse(ref.verse);
+                }
+                return;
+              }
               if (q.length >= 3) { setGlobalSearch(q); setSearchQuery(''); }
             }
             if (e.key === 'Escape') { setGlobalSearch(''); setSearchQuery(''); }
@@ -1392,6 +1452,20 @@ export default function App() {
           className="search-global-btn"
           onClick={() => {
             const q = (globalSearch || searchQuery).trim();
+            const ref = parseVerseRef(q, books);
+            if (ref) {
+              setGlobalSearch(''); setSearchQuery('');
+              if (ref.book !== selectedBook) {
+                changeBook(ref.book);
+                setTimeout(() => { changeChapter(ref.chapter); setTimeout(() => setJumpVerse(ref.verse), 100); }, 80);
+              } else if (ref.chapter !== selectedChapter) {
+                changeChapter(ref.chapter);
+                setTimeout(() => setJumpVerse(ref.verse), 100);
+              } else {
+                setJumpVerse(ref.verse);
+              }
+              return;
+            }
             if (q.length >= 3) { setGlobalSearch(q); setSearchQuery(''); }
           }}
           title="Buscar en toda la Biblia"
