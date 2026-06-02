@@ -908,12 +908,18 @@ function UserAvatar({ user, photoURLOverride, onClick }) {
 
 // ── MapaPage — Atlas bíblico pantalla completa ────────────────────────────────
 
-function MapaPage({ onClose, onNavigate, darkMode }) {
+function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
   const mapContainerRef = useRef(null);
   const mapInstanceRef  = useRef(null);
   const markersRef      = useRef([]);
   const [search,   setSearch]   = useState('');
   const [selected, setSelected] = useState(null);
+
+  function getVerseText(bookName, chapter, verse) {
+    const b = books.find(b => b.name === bookName);
+    const ch = b?.chapters.find(c => c.chapter === parseInt(chapter));
+    return ch?.verses.find(v => v.verse === parseInt(verse))?.text || null;
+  }
 
   const allPlaces = useMemo(() => {
     const result = [];
@@ -1007,7 +1013,17 @@ function MapaPage({ onClose, onNavigate, darkMode }) {
     if (!mapInstanceRef.current) return;
     mapInstanceRef.current.flyTo([p.lat, p.lng], Math.max(p.zoom || 11, 11), { duration: 1 });
     const found = markersRef.current.find(m => m.place === p);
-    if (found) setTimeout(() => found.marker.openPopup(), 900);
+    if (found) {
+      const text = getVerseText(p.book, p.chapter, p.verse);
+      found.marker.setPopupContent(`
+        <div style="font-family:sans-serif;min-width:180px;max-width:260px;padding:2px 0">
+          <strong style="font-size:0.88rem;display:block;margin-bottom:2px">🚩 ${p.nombre}</strong>
+          <span style="color:#92400e;font-size:0.73rem;font-weight:700">${p.ref}</span>
+          ${text ? `<p style="font-size:0.8rem;color:#374151;margin:7px 0 0;line-height:1.45;font-style:italic">"${text}"</p>` : ''}
+        </div>
+      `);
+      setTimeout(() => found.marker.openPopup(), 900);
+    }
   }
 
   return (
@@ -1037,27 +1053,36 @@ function MapaPage({ onClose, onNavigate, darkMode }) {
           {filtered.length === 0 && (
             <div className="mapa-page-empty">Sin lugares que coincidan.</div>
           )}
-          {filtered.map((p, i) => (
-            <button
-              key={`${p.verseKey}_${i}`}
-              className={`mapa-page-place-row${selected === p ? ' active' : ''}`}
-              onClick={() => flyToPlace(p)}
-            >
-              <span className="mapa-page-flag">🚩</span>
-              <div className="mapa-page-place-info">
-                <span className="mapa-page-place-name">{p.nombre}</span>
-                <span className="mapa-page-place-ref">{p.ref}</span>
+          {filtered.map((p, i) => {
+            const isActive = selected === p;
+            const verseText = isActive ? getVerseText(p.book, p.chapter, p.verse) : null;
+            return (
+              <div
+                key={`${p.verseKey}_${i}`}
+                className={`mapa-page-place-row${isActive ? ' active' : ''}`}
+                onClick={() => flyToPlace(p)}
+              >
+                <div className="mapa-page-place-top">
+                  <span className="mapa-page-flag">🚩</span>
+                  <div className="mapa-page-place-info">
+                    <span className="mapa-page-place-name">{p.nombre}</span>
+                    <span className="mapa-page-place-ref">{p.ref}</span>
+                  </div>
+                  {isActive && (
+                    <button
+                      className="mapa-page-nav-btn"
+                      onClick={e => { e.stopPropagation(); onNavigate(p.book, parseInt(p.chapter)); }}
+                    >
+                      📖 Ir
+                    </button>
+                  )}
+                </div>
+                {isActive && verseText && (
+                  <p className="mapa-page-verse-text">"{verseText}"</p>
+                )}
               </div>
-              {selected === p && (
-                <button
-                  className="mapa-page-nav-btn"
-                  onClick={e => { e.stopPropagation(); onNavigate(p.book, parseInt(p.chapter)); }}
-                >
-                  📖 Ir
-                </button>
-              )}
-            </button>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
@@ -1498,6 +1523,7 @@ export default function App() {
         onClose={() => setShowMapa(false)}
         onNavigate={(bookName, ch) => { setShowMapa(false); changeBook(bookName); setTimeout(() => changeChapter(ch), 50); }}
         darkMode={darkMode}
+        books={books}
       />
     );
   }

@@ -2253,9 +2253,9 @@ input, textarea { font-family: inherit; }
 .mapa-page-place-row {
   width: 100%;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 16px;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
   border-bottom: 1px solid var(--border);
   background: none;
   cursor: pointer;
@@ -2263,10 +2263,25 @@ input, textarea { font-family: inherit; }
   transition: background 0.12s;
 }
 .mapa-page-place-row:hover { background: var(--surface2); }
-.mapa-page-place-row.active {
-  background: var(--accent-light);
-}
+.mapa-page-place-row.active { background: var(--accent-light); }
 .dark .mapa-page-place-row.active { background: #292011; }
+.mapa-page-place-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  width: 100%;
+}
+.mapa-page-verse-text {
+  padding: 0 16px 10px 40px;
+  font-size: 0.82rem;
+  color: var(--text2);
+  font-style: italic;
+  line-height: 1.5;
+  font-family: Georgia, serif;
+  margin: 0;
+}
+.dark .mapa-page-verse-text { color: #c4b08a; }
 .mapa-page-flag { font-size: 1rem; flex-shrink: 0; }
 .mapa-page-place-info {
   flex: 1;
