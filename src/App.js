@@ -1090,6 +1090,8 @@ export default function App() {
   const [extLoading,      setExtLoading]     = useState(false);
   const [extError,        setExtError]       = useState(false);
   const [dlProgress,      setDlProgress]     = useState(null); // null=inactivo, 0-100=descargando
+  const [dlDismissed,    setDlDismissed]    = useState(false);
+  const dlCancelRef = useRef(false);
   const [jumpVerse,       setJumpVerse]      = useState(null);
   const [streak,          setStreak]         = useState(0);
   const [privacy,         setPrivacy]        = useState({
@@ -1263,8 +1265,10 @@ export default function App() {
     }
     const total = chapters.length;
     let done = 0;
+    dlCancelRef.current = false;
     setDlProgress(0);
     for (const item of chapters) {
+      if (dlCancelRef.current) { setDlProgress(null); return; }
       if (lsGet(item.key)) { done++; setDlProgress(Math.round(done / total * 100)); continue; }
       try {
         const r = await fetch(`https://bolls.life/get-text/${slug}/${item.bookNum}/${item.chapter}/`);
@@ -1281,6 +1285,7 @@ export default function App() {
       setDlProgress(Math.round(done / total * 100));
       await new Promise(res => setTimeout(res, 40)); // evitar rate limit
     }
+    if (dlCancelRef.current) { setDlProgress(null); return; }
     lsSet(`bible_full_${translationKey}`, '1');
     setDlProgress(null);
     setExtError(false);
@@ -1291,6 +1296,11 @@ export default function App() {
       const cached = lsGet(`${translationKey}_${bookNum}_${selectedChapter}`);
       if (cached) { try { setExtVerses(JSON.parse(cached)); } catch {} }
     }
+  }
+
+  function cancelDownload() {
+    dlCancelRef.current = true;
+    setDlProgress(null);
   }
 
   // Scroll al versículo objetivo tras navegar con referencia "Libro cap:ver"
@@ -1629,16 +1639,22 @@ export default function App() {
         {/* Barra de descarga al dispositivo */}
         {dlProgress !== null && (
           <div className="dl-bar-wrap">
-            <div className="dl-bar-label">📥 Descargando versión… {dlProgress}%</div>
+            <div className="dl-bar-header">
+              <div className="dl-bar-label">📥 Descargando… {dlProgress}%</div>
+              <button className="dl-bar-cancel" onClick={cancelDownload} title="Cancelar descarga">✕</button>
+            </div>
             <div className="dl-bar-track"><div className="dl-bar-fill" style={{ width: `${dlProgress}%` }} /></div>
           </div>
         )}
 
         {/* Botón para descargar versión completa al dispositivo (solo versiones externas no descargadas) */}
-        {BOLLS_SLUG[translation] && dlProgress === null && !lsGet(`bible_full_${translation}`) && !extError && (
-          <button className="dl-full-btn" onClick={() => downloadFullTranslation(translation)}>
-            📥 Descargar versión al dispositivo para uso sin conexión
-          </button>
+        {BOLLS_SLUG[translation] && dlProgress === null && !dlDismissed && !lsGet(`bible_full_${translation}`) && !extError && (
+          <div className="dl-full-wrap">
+            <button className="dl-full-btn" onClick={() => downloadFullTranslation(translation)}>
+              📥 Descargar para leer sin conexión
+            </button>
+            <button className="dl-full-close" onClick={() => setDlDismissed(true)} title="Cerrar">✕</button>
+          </div>
         )}
 
         {/* Error: versión no disponible */}
