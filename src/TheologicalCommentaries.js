@@ -1,31 +1,57 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { MACARTHUR_COMMENTARY } from './data/macarthur';
-import { CSLEWIS_COMMENTARY }   from './data/cslewis';
-import { SPURGEON_COMMENTARY }  from './data/spurgeon';
+import { CSLEWIS_COMMENTARY }         from './data/cslewis';
+import { SPURGEON_COMMENTARY }        from './data/spurgeon';
+import { MATTHEW_HENRY_COMMENTARY }  from './data/matthew_henry';
+import { CALVIN_COMMENTARY }         from './data/calvin';
+import { LUTHER_COMMENTARY }         from './data/luther';
+import { EDWARDS_COMMENTARY }        from './data/edwards';
+import { ANDREW_MURRAY_COMMENTARY }  from './data/andrew_murray';
 import { loadAuthorPhotos, saveAuthorPhoto, saveAuthorPhotoURL, ADMIN_EMAIL } from './firebase';
 
 const AUTHORS = [
   {
-    id: 'macarthur',
-    name: 'John MacArthur',
-    years: '1940–presente',
-    tradition: 'Bautista Reformada · Cesacionista · Premilenarista',
-    bio: 'Pastor de Grace Community Church (Sun Valley, CA) desde 1969. Presidente del The Master\'s Seminary. Conocido por su predicación expositiva versículo a versículo y su defensa de la inerrancia bíblica. Serie de comentarios del NT: 50+ volúmenes (Moody Press).',
-    commentary: MACARTHUR_COMMENTARY,
-    color: '#1a4fa0',
-    initials: 'JM',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/John_MacArthur_2007.jpg/440px-John_MacArthur_2007.jpg',
+    id: 'luther',
+    name: 'Martín Lutero',
+    years: '1483–1546',
+    tradition: 'Luterana · Reforma Protestante · Sola Scriptura · Sola Fide',
+    bio: 'Monje agustino y profesor de teología en Wittenberg. Sus 95 Tesis (1517) iniciaron la Reforma Protestante. Su comprensión de Romanos 1:17 —la justificación por la fe sola— transformó la historia del cristianismo. Tradujo la Biblia al alemán, comentó los Salmos, Gálatas y Romanos, y escribió "De la Libertad del Cristiano". Sus obras son dominio público.',
+    commentary: LUTHER_COMMENTARY,
+    color: '#7a4f10',
+    initials: 'ML',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Martin_Luther_by_Lucas_Cranach_the_Elder.jpg/440px-Martin_Luther_by_Lucas_Cranach_the_Elder.jpg',
   },
   {
-    id: 'cslewis',
-    name: 'C.S. Lewis',
-    years: '1898–1963',
-    tradition: 'Anglicana · Apologética · Cristiano Mere',
-    bio: 'Profesor de Oxford y Cambridge, convertido del ateísmo en 1931. Literato, apologeta y novelista cristiano. Sus obras abordan la Biblia desde la razón, la imaginación y la experiencia personal. Obras clave: Mero Cristianismo, Los Cuatro Amores, El Peso de la Gloria, Reflexiones sobre los Salmos, Milagros.',
-    commentary: CSLEWIS_COMMENTARY,
-    color: '#6b3a2a',
-    initials: 'CS',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/C.s.lewis3.JPG/440px-C.s.lewis3.JPG',
+    id: 'calvin',
+    name: 'Juan Calvino',
+    years: '1509–1564',
+    tradition: 'Reformada Calvinista · Teología Sistemática · Soberanía Divina',
+    bio: 'Reformador francés, teólogo y pastor en Ginebra. Su "Institución de la Religión Cristiana" (1536–1559) es la obra teológica sistemática más influyente del protestantismo. Escribió comentarios sobre casi todos los libros de la Biblia. Fundador de la tradición reformada y presbiteriana. Sus obras son dominio público.',
+    commentary: CALVIN_COMMENTARY,
+    color: '#6b1a1a',
+    initials: 'JC',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/John_Calvin_by_Holbein.png/440px-John_Calvin_by_Holbein.png',
+  },
+  {
+    id: 'matthew_henry',
+    name: 'Matthew Henry',
+    years: '1662–1714',
+    tradition: 'Presbiteriana Inglesa · Comentario Integral · Puritanismo',
+    bio: 'Pastor no conformista inglés, autor del "Commentary on the Whole Bible" (6 vols., 1706–1714), la obra de comentario bíblico más leída en la historia del protestantismo. Su estilo es práctico, devocional y aplicado. Spurgeon lo leía a diario. Sus obras son dominio público y están disponibles en CCEL.',
+    commentary: MATTHEW_HENRY_COMMENTARY,
+    color: '#2d5a27',
+    initials: 'MH',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Matthew_Henry.jpg/440px-Matthew_Henry.jpg',
+  },
+  {
+    id: 'edwards',
+    name: 'Jonathan Edwards',
+    years: '1703–1758',
+    tradition: 'Congregacionalista · Gran Avivamiento · Calvinismo Americano',
+    bio: 'El mayor teólogo y filósofo de la historia americana. Predicador del Gran Avivamiento, autor de "Pecadores en Manos de un Dios Airado" (1741), "Afecciones Religiosas" (1746) y "Libertad de la Voluntad" (1754). Unió el rigor filosófico con la piedad apasionada. Sus obras son dominio público.',
+    commentary: EDWARDS_COMMENTARY,
+    color: '#1a4040',
+    initials: 'JE',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Jonathan_Edwards_engraving.jpg/440px-Jonathan_Edwards_engraving.jpg',
   },
   {
     id: 'spurgeon',
@@ -37,6 +63,28 @@ const AUTHORS = [
     color: '#4a1c6e',
     initials: 'SP',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Charles_Spurgeon_by_Alexander_Bassano%2C_1885.jpg/440px-Charles_Spurgeon_by_Alexander_Bassano%2C_1885.jpg',
+  },
+  {
+    id: 'andrew_murray',
+    name: 'Andrew Murray',
+    years: '1828–1917',
+    tradition: 'Reformada Sudafricana · Espiritualidad de la Oración · Vida Interior',
+    bio: 'Pastor y escritor devocional sudafricano de origen escocés. Sus obras "Permaneced en Mí" (1882), "Con Cristo en la Escuela de Oración" (1885) y "Humildad" (1895) siguen siendo clásicos de la espiritualidad cristiana. Escribió más de 240 libros. Sus obras son dominio público.',
+    commentary: ANDREW_MURRAY_COMMENTARY,
+    color: '#3d1a6e',
+    initials: 'AM',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Andrew_Murray.jpg/440px-Andrew_Murray.jpg',
+  },
+  {
+    id: 'cslewis',
+    name: 'C.S. Lewis',
+    years: '1898–1963',
+    tradition: 'Anglicana · Apologética · Cristiano Mere',
+    bio: 'Profesor de Oxford y Cambridge, convertido del ateísmo en 1931. Literato, apologeta y novelista cristiano. Sus obras abordan la Biblia desde la razón, la imaginación y la experiencia personal. Obras clave: Mero Cristianismo, Los Cuatro Amores, El Peso de la Gloria, Reflexiones sobre los Salmos, Milagros.',
+    commentary: CSLEWIS_COMMENTARY,
+    color: '#6b3a2a',
+    initials: 'CS',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/C.s.lewis3.JPG/440px-C.s.lewis3.JPG',
   },
 ];
 
@@ -343,7 +391,7 @@ export default function TheologicalCommentaries({ onClose, darkMode, currentUser
         <div className="tc-more-soon">
           <div className="tc-more-icon">📚</div>
           <div className="tc-more-text">Más autores próximamente</div>
-          <div className="tc-more-sub">R.C. Sproul · Matthew Henry · John Calvin · Charles Wesley</div>
+          <div className="tc-more-sub">John Wesley · B.B. Warfield · Oswald Chambers · G. Campbell Morgan</div>
         </div>
       </div>
     </div>
