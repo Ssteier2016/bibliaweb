@@ -2529,4 +2529,36 @@ input, textarea { font-family: inherit; }
   color: #111;
 }
 
+/* Badge del Prólogo al lado del título del libro */
+.prologue-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-light);
+  color: var(--accent-btn);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: sans-serif;
+  margin-left: 12px;
+  vertical-align: middle;
+  outline: none;
+}
+.prologue-title-badge:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+.prologue-title-badge.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+
 

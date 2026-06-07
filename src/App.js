@@ -1624,12 +1624,10 @@ function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
 
 // ── BookPrologueCard ──────────────────────────────────────────────────────────
 // Renders the prologue information at the beginning of each book (Chapter 1)
-function BookPrologueCard({ prologue, darkMode }) {
-  const [expanded, setExpanded] = useState(false);
-
+function BookPrologueCard({ prologue, darkMode, onClose }) {
   return (
-    <div className={`prologue-card ${expanded ? 'expanded' : ''}`}>
-      <div className="prologue-header" onClick={() => setExpanded(e => !e)}>
+    <div className="prologue-card expanded">
+      <div className="prologue-header">
         <div className="prologue-title-wrap">
           <span className="prologue-icon">📖</span>
           <div className="prologue-title-text">
@@ -1637,71 +1635,69 @@ function BookPrologueCard({ prologue, darkMode }) {
             <span className="prologue-subtitle">Contexto histórico, autoría y género literario</span>
           </div>
         </div>
-        <button className="prologue-toggle-btn">
-          {expanded ? 'Ocultar ▲' : 'Ver Prólogo ▼'}
+        <button className="prologue-toggle-btn" onClick={onClose}>
+          Ocultar ✕
         </button>
       </div>
 
-      {expanded && (
-        <div className="prologue-body">
-          <div className="prologue-grid">
-            <div className="prologue-grid-item">
-              <strong>✍️ ¿Quién escribe?</strong>
-              <p>{prologue.escritor}</p>
-            </div>
-            <div className="prologue-grid-item">
-              <strong>👥 ¿A quién escribe?</strong>
-              <p>{prologue.destinatario}</p>
-            </div>
-            <div className="prologue-grid-item">
-              <strong>📅 ¿En qué momento?</strong>
-              <p>{prologue.fecha}</p>
-            </div>
-            <div className="prologue-grid-item">
-              <strong>📍 ¿Dónde se encuentra?</strong>
-              <p>{prologue.lugar}</p>
-            </div>
+      <div className="prologue-body">
+        <div className="prologue-grid">
+          <div className="prologue-grid-item">
+            <strong>✍️ ¿Quién escribe?</strong>
+            <p>{prologue.escritor}</p>
           </div>
-
-          <div className="prologue-section">
-            <strong>🎭 Género Literario</strong>
-            <p className="prologue-genero-badge">{prologue.genero}</p>
+          <div className="prologue-grid-item">
+            <strong>👥 ¿A quién escribe?</strong>
+            <p>{prologue.destinatario}</p>
           </div>
-
-          <div className="prologue-section">
-            <strong>🎯 ¿Qué motiva al autor?</strong>
-            <p>{prologue.motivacion}</p>
+          <div className="prologue-grid-item">
+            <strong>📅 ¿En qué momento?</strong>
+            <p>{prologue.fecha}</p>
           </div>
-
-          <div className="prologue-section">
-            <strong>📜 ¿Qué ocurre en el libro?</strong>
-            <p>{prologue.contenido}</p>
-          </div>
-
-          <div className="prologue-section">
-            <strong>👤 Biografía del Autor</strong>
-            <p>{prologue.biografia}</p>
-          </div>
-
-          <div className="prologue-footer">
-            <div className="prologue-study-book">
-              <span className="study-icon">📚</span>
-              <div>
-                <span className="study-label">Libro de estudio recomendado:</span>
-                <p className="study-name">{prologue.libroEstudio}</p>
-              </div>
-            </div>
-            <a
-              href={prologue.enlaceCompra}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="prologue-buy-btn"
-            >
-              🛒 Comprar en Amazon
-            </a>
+          <div className="prologue-grid-item">
+            <strong>📍 ¿Dónde se encuentra?</strong>
+            <p>{prologue.lugar}</p>
           </div>
         </div>
-      )}
+
+        <div className="prologue-section">
+          <strong>🎭 Género Literario</strong>
+          <p className="prologue-genero-badge">{prologue.genero}</p>
+        </div>
+
+        <div className="prologue-section">
+          <strong>🎯 ¿Qué motiva al autor?</strong>
+          <p>{prologue.motivacion}</p>
+        </div>
+
+        <div className="prologue-section">
+          <strong>📜 ¿Qué ocurre en el libro?</strong>
+          <p>{prologue.contenido}</p>
+        </div>
+
+        <div className="prologue-section">
+          <strong>👤 Biografía del Autor</strong>
+          <p>{prologue.biografia}</p>
+        </div>
+
+        <div className="prologue-footer">
+          <div className="prologue-study-book">
+            <span className="study-icon">📚</span>
+            <div>
+              <span className="study-label">Libro de estudio recomendado:</span>
+              <p className="study-name">{prologue.libroEstudio}</p>
+            </div>
+          </div>
+          <a
+            href={prologue.enlaceCompra}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="prologue-buy-btn"
+          >
+            🛒 Comprar en Amazon
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
@@ -1747,6 +1743,7 @@ export default function App() {
   const [showCommentaries,   setShowCommentaries]  = useState(false);
   const [showMapa,           setShowMapa]          = useState(false);
   const [showBibleMenu,      setShowBibleMenu]     = useState(false);
+  const [showPrologue,       setShowPrologue]      = useState(false);
   const [feedPost,           setFeedPost]          = useState(null); // { verse, bookName, chapter }
   const [userPhotoURL,       setUserPhotoURL]      = useState(null);
   const [globalSearch,       setGlobalSearch]      = useState('');
@@ -2001,10 +1998,12 @@ export default function App() {
 
   function changeBook(name) {
     setSelectedBook(name); setSelectedChapter(1); setSearchQuery('');
+    setShowPrologue(false);
     lsSet('bible_translation', translation);
   }
   function changeChapter(n) {
     setSelectedChapter(n); setSearchQuery('');
+    setShowPrologue(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -2422,16 +2421,37 @@ export default function App() {
       )}
 
       <div className="verses-container">
-        {selectedChapter === 1 && (() => {
-          const bookAbbrev = books.find(b => b.name === selectedBook)?.abbrev;
-          const prologue = PROLOGUES[bookAbbrev];
-          return prologue ? <BookPrologueCard prologue={prologue} darkMode={darkMode} /> : null;
-        })()}
-
         <div className="chapter-title">
-          <h2>{selectedBook}</h2>
+          <h2 style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <span>{selectedBook}</span>
+            {selectedChapter === 1 && (() => {
+              const bookAbbrev = books.find(b => b.name === selectedBook)?.abbrev;
+              const prologue = PROLOGUES[bookAbbrev];
+              return prologue ? (
+                <button
+                  className={`prologue-title-badge ${showPrologue ? 'active' : ''}`}
+                  onClick={() => setShowPrologue(!showPrologue)}
+                  title="Ver prólogo del libro"
+                >
+                  Prólogo
+                </button>
+              ) : null;
+            })()}
+          </h2>
           <p>Capítulo {selectedChapter} — {chapter?.verses.length || 0} versículos</p>
         </div>
+
+        {selectedChapter === 1 && showPrologue && (() => {
+          const bookAbbrev = books.find(b => b.name === selectedBook)?.abbrev;
+          const prologue = PROLOGUES[bookAbbrev];
+          return prologue ? (
+            <BookPrologueCard
+              prologue={prologue}
+              darkMode={darkMode}
+              onClose={() => setShowPrologue(false)}
+            />
+          ) : null;
+        })()}
 
         {displayVerses.length === 0 ? (
           <div className="no-results">
