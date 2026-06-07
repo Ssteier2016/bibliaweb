@@ -2365,3 +2365,168 @@ input, textarea { font-family: inherit; }
   75% { transform: translateX(4px); }
 }
 
+/* ── Prólogo de Libro ── */
+.prologue-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color var(--transition);
+}
+.prologue-card:hover {
+  box-shadow: 0 6px 16px var(--shadow-md);
+  border-color: var(--accent);
+}
+.prologue-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: var(--surface2);
+  user-select: none;
+}
+.prologue-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.prologue-icon {
+  font-size: 1.6rem;
+}
+.prologue-title-text h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+.prologue-subtitle {
+  font-size: 0.78rem;
+  color: var(--text2);
+  font-family: sans-serif;
+}
+.prologue-toggle-btn {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: var(--accent-btn);
+  background: var(--accent-light);
+  border-radius: 999px;
+  transition: all var(--transition);
+}
+.prologue-toggle-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.prologue-body {
+  padding: 24px 20px;
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.25s ease;
+}
+.prologue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.prologue-grid-item strong {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 4px;
+  font-family: sans-serif;
+}
+.prologue-grid-item p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+.prologue-section {
+  margin-bottom: 18px;
+}
+.prologue-section strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+  font-family: sans-serif;
+}
+.prologue-section p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text2);
+}
+.prologue-genero-badge {
+  display: inline-block;
+  background: var(--surface2);
+  color: var(--text);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem !important;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  font-family: sans-serif;
+}
+.prologue-footer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.prologue-study-book {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 240px;
+}
+.study-icon {
+  font-size: 1.8rem;
+}
+.study-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text3);
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+.study-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 1px;
+}
+.prologue-buy-btn {
+  padding: 10px 20px;
+  background: #ff9900;
+  color: #111;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: sans-serif;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 2px 6px rgba(255,153,0,0.3);
+  white-space: nowrap;
+}
+.prologue-buy-btn:hover {
+  background: #e68a00;
+  transform: translateY(-1px);
+}
+.dark .prologue-buy-btn {
+  color: #111;
+}
+
+

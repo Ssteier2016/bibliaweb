@@ -9,6 +9,7 @@ import FeedPage                 from './FeedPage';
 import TheologicalCommentaries  from './TheologicalCommentaries';
 import logo3                    from './logo3.png';
 import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes, createPost } from './firebase';
+import { PROLOGUES }            from './data/prologues';
 
 const BOOK_NAMES = {
   gn:'Génesis', ex:'Éxodo', lv:'Levítico', nm:'Números', dt:'Deuteronomio',
@@ -1621,6 +1622,90 @@ function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
   );
 }
 
+// ── BookPrologueCard ──────────────────────────────────────────────────────────
+// Renders the prologue information at the beginning of each book (Chapter 1)
+function BookPrologueCard({ prologue, darkMode }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className={`prologue-card ${expanded ? 'expanded' : ''}`}>
+      <div className="prologue-header" onClick={() => setExpanded(e => !e)}>
+        <div className="prologue-title-wrap">
+          <span className="prologue-icon">📖</span>
+          <div className="prologue-title-text">
+            <h3 className="prologue-title">Prólogo de {prologue.libro}</h3>
+            <span className="prologue-subtitle">Contexto histórico, autoría y género literario</span>
+          </div>
+        </div>
+        <button className="prologue-toggle-btn">
+          {expanded ? 'Ocultar ▲' : 'Ver Prólogo ▼'}
+        </button>
+      </div>
+
+      {expanded && (
+        <div className="prologue-body">
+          <div className="prologue-grid">
+            <div className="prologue-grid-item">
+              <strong>✍️ ¿Quién escribe?</strong>
+              <p>{prologue.escritor}</p>
+            </div>
+            <div className="prologue-grid-item">
+              <strong>👥 ¿A quién escribe?</strong>
+              <p>{prologue.destinatario}</p>
+            </div>
+            <div className="prologue-grid-item">
+              <strong>📅 ¿En qué momento?</strong>
+              <p>{prologue.fecha}</p>
+            </div>
+            <div className="prologue-grid-item">
+              <strong>📍 ¿Dónde se encuentra?</strong>
+              <p>{prologue.lugar}</p>
+            </div>
+          </div>
+
+          <div className="prologue-section">
+            <strong>🎭 Género Literario</strong>
+            <p className="prologue-genero-badge">{prologue.genero}</p>
+          </div>
+
+          <div className="prologue-section">
+            <strong>🎯 ¿Qué motiva al autor?</strong>
+            <p>{prologue.motivacion}</p>
+          </div>
+
+          <div className="prologue-section">
+            <strong>📜 ¿Qué ocurre en el libro?</strong>
+            <p>{prologue.contenido}</p>
+          </div>
+
+          <div className="prologue-section">
+            <strong>👤 Biografía del Autor</strong>
+            <p>{prologue.biografia}</p>
+          </div>
+
+          <div className="prologue-footer">
+            <div className="prologue-study-book">
+              <span className="study-icon">📚</span>
+              <div>
+                <span className="study-label">Libro de estudio recomendado:</span>
+                <p className="study-name">{prologue.libroEstudio}</p>
+              </div>
+            </div>
+            <a
+              href={prologue.enlaceCompra}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="prologue-buy-btn"
+            >
+              🛒 Comprar en Amazon
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── App ───────────────────────────────────────────────────────────────────────
 
 export default function App() {
@@ -2337,6 +2422,12 @@ export default function App() {
       )}
 
       <div className="verses-container">
+        {selectedChapter === 1 && (() => {
+          const bookAbbrev = books.find(b => b.name === selectedBook)?.abbrev;
+          const prologue = PROLOGUES[bookAbbrev];
+          return prologue ? <BookPrologueCard prologue={prologue} darkMode={darkMode} /> : null;
+        })()}
+
         <div className="chapter-title">
           <h2>{selectedBook}</h2>
           <p>Capítulo {selectedChapter} — {chapter?.verses.length || 0} versículos</p>
