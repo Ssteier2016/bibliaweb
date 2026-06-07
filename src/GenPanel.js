@@ -43,6 +43,15 @@ export default function GenPanel({ onClose, darkMode, initialVerse }) {
     if (configured) inputRef.current?.focus();
   }, [configured]);
 
+  useEffect(() => {
+    const limitCheck = checkAndRegisterUsage(0, true);
+    if (!limitCheck.allowed) {
+      setLimitWarning(limitCheck.warning);
+    } else {
+      setLimitWarning('');
+    }
+  }, []);
+
   function saveKey() {
     const k = keyInput.trim();
     if (!k) return;
@@ -69,8 +78,9 @@ Enfoca tus explicaciones, contexto histórico, traducción lingüística, teolog
   }, [initialVerse]);
 
   function checkAndRegisterUsage(newChars = 0, dryRun = false) {
-    const WINDOW_MS = 10 * 60 * 1000; // 10 minutos
-    const LIMIT_CHARS = 20000;       // 20,000 caracteres
+    const WINDOW_MS = 60 * 60 * 1000;    // 1 hora
+    const SESSION_MS = 10 * 60 * 1000;   // 10 minutos
+    const LIMIT_CHARS = 20000;          // 20,000 caracteres / tokens
     
     const rawLogs = localStorage.getItem('gen_usage_logs');
     let logs = [];
@@ -82,21 +92,21 @@ Enfoca tus explicaciones, contexto histórico, traducción lingüística, teolog
     
     const now = Date.now();
     const activeLogs = logs.filter(l => now - l.timestamp < WINDOW_MS);
-    const totalChars = activeLogs.reduce((sum, l) => sum + l.chars, 0);
     
-    if (totalChars >= LIMIT_CHARS) {
-      if (activeLogs.length > 0) {
-        const oldestLog = activeLogs[0];
-        const waitMs = WINDOW_MS - (now - oldestLog.timestamp);
-        const waitMin = Math.floor(waitMs / 60000);
-        const waitSec = Math.ceil((waitMs % 60000) / 1000);
-        const timeStr = waitMin > 0 ? `${waitMin} min y ${waitSec} s` : `${waitSec} s`;
+    if (activeLogs.length > 0) {
+      const sessionStart = activeLogs[0].timestamp;
+      const totalChars = activeLogs.reduce((sum, l) => sum + l.chars, 0);
+      const elapsedSessionMs = now - sessionStart;
+      
+      if (totalChars >= LIMIT_CHARS || elapsedSessionMs >= SESSION_MS) {
+        const resumeTime = new Date(sessionStart + WINDOW_MS);
+        const hh = String(resumeTime.getHours()).padStart(2, '0');
+        const mm = String(resumeTime.getMinutes()).padStart(2, '0');
         return {
           allowed: false,
-          warning: `Límite de uso alcanzado (20,000 caracteres en los últimos 10 minutos). Por favor, espera ${timeStr} para volver a preguntar.`
+          warning: `Límite alcanzado (máximo 10 minutos de uso o 20,000 caracteres por hora). Podrás seguir usando la IA a las ${hh}:${mm} hs.`
         };
       }
-      return { allowed: false, warning: 'Límite de uso alcanzado. Por favor, espera unos minutos.' };
     }
     
     if (!dryRun && newChars > 0) {
