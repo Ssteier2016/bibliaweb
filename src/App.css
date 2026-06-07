@@ -2317,3 +2317,51 @@ input, textarea { font-family: inherit; }
   transition: background 0.15s;
 }
 .mapa-page-nav-btn:hover { background: var(--accent-btn); }
+
+/* ── Estilos añadidos para IA y Rutas / Escritos Antiguos ── */
+.badge-ia {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: #fff !important;
+  font-size: 0.68rem !important;
+  padding: 1.5px 5.5px !important;
+  border-radius: 6px !important;
+  font-weight: 800 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 2.5px !important;
+  user-select: none !important;
+  transition: transform 0.12s ease;
+  box-shadow: 0 1px 3px rgba(99,102,241,0.3);
+}
+.badge-ia:hover {
+  transform: scale(1.08);
+}
+
+.mapa-tab-btn {
+  transition: transform 0.15s, background-color 0.15s, box-shadow 0.15s;
+}
+.mapa-tab-btn.active {
+  box-shadow: 0 2px 8px rgba(99,102,241,0.4);
+}
+.mapa-tab-btn:hover:not(.active) {
+  background: var(--surface3, #eee) !important;
+}
+
+.journey-card-btn {
+  box-shadow: 0 1px 4px var(--shadow);
+  transition: transform 0.12s, border-color 0.15s;
+}
+.journey-card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-md);
+}
+
+.gen-limit-warning {
+  animation: limitShake 0.4s ease;
+}
+@keyframes limitShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+

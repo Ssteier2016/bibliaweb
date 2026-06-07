@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 
 const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
@@ -12,15 +12,26 @@ Respondés en español, de forma clara, respetuosa y bien fundamentada.
 Si el usuario hace una pregunta que no tiene relación con la Biblia, decile amablemente que solo podés responder preguntas bíblicas y pedile que reformule su pregunta.
 Cuando cites versículos, indicá el libro, capítulo y versículo (ej: Juan 3:16).`;
 
-export default function GenPanel({ onClose, darkMode }) {
+export default function GenPanel({ onClose, darkMode, initialVerse }) {
   const [apiKey,     setApiKey]     = useState(() => ENV_KEY || localStorage.getItem('groq_api_key') || '');
   const [configured, setConfigured] = useState(() => !!(ENV_KEY || localStorage.getItem('groq_api_key')));
   const [keyInput,   setKeyInput]   = useState('');
-  const [messages,   setMessages]   = useState([
-    { role: 'gen', text: '¡Hola! Soy Gen, tu asistente bíblico. ¿Qué querés saber sobre la Biblia hoy? 📖' }
-  ]);
+  const [messages,   setMessages]   = useState(() => {
+    if (initialVerse) {
+      return [
+        {
+          role: 'gen',
+          text: `¡Hola! Soy Gen, tu asistente bíblico. Veo que querés hacer preguntas específicamente sobre **${initialVerse.bookName} ${initialVerse.chapter}:${initialVerse.verse}**:\n\n"${initialVerse.text}"\n\n¿Qué te gustaría consultar sobre este versículo? 🤖✨`
+        }
+      ];
+    }
+    return [
+      { role: 'gen', text: '¡Hola! Soy Gen, tu asistente bíblico. ¿Qué querés saber sobre la Biblia hoy? 📖' }
+    ];
+  });
   const [input,      setInput]      = useState('');
   const [loading,    setLoading]    = useState(false);
+  const [limitWarning, setLimitWarning] = useState('');
   const bottomRef = useRef(null);
   const inputRef  = useRef(null);
 
@@ -48,9 +59,65 @@ export default function GenPanel({ onClose, darkMode }) {
     setConfigured(false);
   }
 
+  const systemPrompt = useMemo(() => {
+    let prompt = SYSTEM_PROMPT;
+    if (initialVerse) {
+      prompt += `\n\nEl usuario está consultando específicamente sobre el versículo: ${initialVerse.bookName} ${initialVerse.chapter}:${initialVerse.verse} ("${initialVerse.text}").
+Enfoca tus explicaciones, contexto histórico, traducción lingüística, teología y respuestas principalmente en este versículo y sus pasajes paralelos, y asiste de forma muy completa al usuario con su duda específica.`;
+    }
+    return prompt;
+  }, [initialVerse]);
+
+  function checkAndRegisterUsage(newChars = 0, dryRun = false) {
+    const WINDOW_MS = 10 * 60 * 1000; // 10 minutos
+    const LIMIT_CHARS = 20000;       // 20,000 caracteres
+    
+    const rawLogs = localStorage.getItem('gen_usage_logs');
+    let logs = [];
+    try {
+      if (rawLogs) logs = JSON.parse(rawLogs);
+    } catch (e) {
+      logs = [];
+    }
+    
+    const now = Date.now();
+    const activeLogs = logs.filter(l => now - l.timestamp < WINDOW_MS);
+    const totalChars = activeLogs.reduce((sum, l) => sum + l.chars, 0);
+    
+    if (totalChars >= LIMIT_CHARS) {
+      if (activeLogs.length > 0) {
+        const oldestLog = activeLogs[0];
+        const waitMs = WINDOW_MS - (now - oldestLog.timestamp);
+        const waitMin = Math.floor(waitMs / 60000);
+        const waitSec = Math.ceil((waitMs % 60000) / 1000);
+        const timeStr = waitMin > 0 ? `${waitMin} min y ${waitSec} s` : `${waitSec} s`;
+        return {
+          allowed: false,
+          warning: `Límite de uso alcanzado (20,000 caracteres en los últimos 10 minutos). Por favor, espera ${timeStr} para volver a preguntar.`
+        };
+      }
+      return { allowed: false, warning: 'Límite de uso alcanzado. Por favor, espera unos minutos.' };
+    }
+    
+    if (!dryRun && newChars > 0) {
+      activeLogs.push({ timestamp: now, chars: newChars });
+      localStorage.setItem('gen_usage_logs', JSON.stringify(activeLogs));
+    }
+    
+    return { allowed: true, warning: '' };
+  }
+
   async function sendMessage() {
     const text = input.trim();
     if (!text || loading) return;
+
+    // Verificar límites de tokens (caracteres en 10 min)
+    const limitCheck = checkAndRegisterUsage(0, true);
+    if (!limitCheck.allowed) {
+      setLimitWarning(limitCheck.warning);
+      return;
+    }
+    setLimitWarning('');
 
     const userMsg = { role: 'user', text };
     const history = [...messages, userMsg];
@@ -59,7 +126,7 @@ export default function GenPanel({ onClose, darkMode }) {
     setLoading(true);
 
     const groqMessages = [
-      { role: 'system', content: SYSTEM_PROMPT },
+      { role: 'system', content: systemPrompt },
       ...history
         .filter(m => m.role === 'user' || (m.role === 'gen' && history.indexOf(m) > 0))
         .map(m => ({
@@ -92,6 +159,10 @@ export default function GenPanel({ onClose, darkMode }) {
 
       const data  = await res.json();
       const reply = data?.choices?.[0]?.message?.content || '(Sin respuesta)';
+      
+      // Registrar consumo de caracteres (pregunta + respuesta)
+      checkAndRegisterUsage(text.length + reply.length, false);
+
       setMessages(prev => [...prev, { role: 'gen', text: reply }]);
     } catch {
       setMessages(prev => [...prev, { role: 'gen', text: '⚠️ Error de conexión. Verificá tu clave API.' }]);
@@ -171,21 +242,27 @@ export default function GenPanel({ onClose, darkMode }) {
             <div ref={bottomRef} />
           </div>
 
+          {limitWarning && (
+            <div className="gen-limit-warning" style={{ margin: '0 16px 10px', padding: '10px 14px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.35)', color: '#ef4444', fontSize: '0.82rem', textAlign: 'center', fontWeight: '500' }}>
+              ⚠️ {limitWarning}
+            </div>
+          )}
+
           <div className="gen-input-row">
             <textarea
               ref={inputRef}
               className="gen-input"
-              placeholder="Preguntale algo a Gen sobre la Biblia…"
+              placeholder={limitWarning ? 'Límite de uso alcanzado' : 'Preguntale algo a Gen sobre la Biblia…'}
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               rows={1}
-              disabled={loading}
+              disabled={loading || !!limitWarning}
             />
             <button
               className="gen-send-btn"
               onClick={sendMessage}
-              disabled={!input.trim() || loading}
+              disabled={!input.trim() || loading || !!limitWarning}
             >
               ➤
             </button>

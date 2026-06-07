@@ -285,7 +285,161 @@ const GEO_LUGARES = {
 };
 
 
-// Número de libro 1-66 para la API de bolls.life
+};
+
+
+// Constants for Biblical Journeys and Ancient Manuscripts
+const VIAJES_BIBLICOS = {
+  abraham: {
+    nombre: "Viaje de Abraham (Ur a Canaán)",
+    color: "#f59e0b",
+    descripcion: "El camino de fe de Abraham obedeciendo el llamado divino hacia la Tierra Prometida.",
+    etapas: [
+      { nombre: "Ur de los Caldeos", lat: 30.9626, lng: 46.1029, ref: "Génesis 11:31", desc: "Patria y origen de la familia de Abraham." },
+      { nombre: "Harán", lat: 36.8671, lng: 39.0208, ref: "Génesis 11:31", desc: "Estadía temporal donde falleció Taré, padre de Abraham." },
+      { nombre: "Siquem", lat: 32.2225, lng: 35.2628, ref: "Génesis 12:6", desc: "Lugar donde Dios le prometió la tierra a su descendencia." },
+      { nombre: "Betel", lat: 31.9279, lng: 35.2298, ref: "Génesis 12:8", desc: "Donde Abraham edificó un altar e invocó el nombre de Jehová." },
+      { nombre: "Egipto (Delta)", lat: 30.7500, lng: 31.2500, ref: "Génesis 12:10", desc: "Descendió debido a un fuerte hambre en la tierra de Canaán." },
+      { nombre: "Hebrón (Mamre)", lat: 31.5326, lng: 35.0998, ref: "Génesis 13:18", desc: "Donde habitó junto a los encinares y edificó otro altar." }
+    ]
+  },
+  moises: {
+    nombre: "El Éxodo de Moisés y el Pueblo de Israel",
+    color: "#ef4444",
+    descripcion: "El éxodo de la esclavitud en Egipto cruzando el Mar Rojo y vagando por el desierto.",
+    etapas: [
+      { nombre: "Ramsés (Egipto)", lat: 30.7959, lng: 31.8231, ref: "Éxodo 12:37", desc: "Punto de reunión e inicio de la salida de Egipto." },
+      { nombre: "Lagos Amargos (Mar Rojo)", lat: 30.3667, lng: 32.3500, ref: "Éxodo 14:22", desc: "Cruce milagroso del mar en seco." },
+      { nombre: "Monte Sinaí (Horeb)", lat: 28.5395, lng: 33.9752, ref: "Éxodo 19:2", desc: "Entrega de la Ley y construcción del Tabernáculo." },
+      { nombre: "Cades-barnea", lat: 30.6700, lng: 34.4400, ref: "Números 13:26", desc: "Punto de rebelión donde los espías trajeron un mal informe." },
+      { nombre: "Monte Nebo (Moab)", lat: 31.7617, lng: 35.7303, ref: "Deuteronomio 34:1", desc: "Cima desde donde Moisés vio Canaán antes de morir." }
+    ]
+  },
+  jose: {
+    nombre: "El Camino de José (Vendido a Egipto)",
+    color: "#3b82f6",
+    descripcion: "La ruta de José desde su hogar paterno en Canaán hasta su exaltación en Egipto.",
+    etapas: [
+      { nombre: "Hebrón (Valle)", lat: 31.5326, lng: 35.0998, ref: "Génesis 37:14", desc: "Su hogar familiar y punto de partida por orden de Jacob." },
+      { nombre: "Dotán", lat: 32.4019, lng: 35.2000, ref: "Génesis 37:17", desc: "Donde sus hermanos lo arrojaron a la cisterna y lo vendieron." },
+      { nombre: "Avaris (Egipto)", lat: 30.7833, lng: 31.8333, ref: "Génesis 41:41", desc: "Capital hicsa donde fue esclavo, prisionero y luego gobernador." },
+      { nombre: "Tierra de Gosén", lat: 30.7500, lng: 31.9167, ref: "Génesis 46:28", desc: "Donde Jacob y toda su familia se establecieron en Egipto." }
+    ]
+  },
+  david: {
+    nombre: "David: Huida de Saúl y Establecimiento del Reino",
+    color: "#ec4899",
+    descripcion: "Los viajes y huidas de David perseguido por el rey Saúl hasta su coronación en Jerusalén.",
+    etapas: [
+      { nombre: "Belén", lat: 31.7054, lng: 35.2024, ref: "1 Samuel 16:13", desc: "Donde Samuel lo ungió en medio de sus hermanos." },
+      { nombre: "Valle de Ela", lat: 31.7033, lng: 34.9444, ref: "1 Samuel 17:2", desc: "Lugar de la gran batalla y victoria sobre el gigante Goliat." },
+      { nombre: "Gabaa", lat: 31.8236, lng: 35.2289, ref: "1 Samuel 19:9", desc: "La corte real de Saúl donde David sufrió persecuciones." },
+      { nombre: "Nob", lat: 31.7924, lng: 35.2447, ref: "1 Samuel 21:1", desc: "Ciudad sacerdotal donde comió los panes de la proposición." },
+      { nombre: "Gat (Filistea)", lat: 31.6994, lng: 34.8475, ref: "1 Samuel 21:10", desc: "Se refugió en territorio enemigo y fingió locura para salvarse." },
+      { nombre: "Cueva de Adulam", lat: 31.6700, lng: 34.9900, ref: "1 Samuel 22:1", desc: "Lugar de refugio donde formó su ejército de valientes." },
+      { nombre: "En-gadi", lat: 31.4500, lng: 35.3833, ref: "1 Samuel 24:1", desc: "Oasis en el desierto donde perdonó la vida a Saúl en la cueva." },
+      { nombre: "Siclag", lat: 31.3833, lng: 34.6167, ref: "1 Samuel 27:6", desc: "Ciudad filistea otorgada a David que sirvió de base militar." },
+      { nombre: "Hebrón", lat: 31.5326, lng: 35.0998, ref: "2 Samuel 2:1", desc: "Donde David reinó sobre la tribu de Judá por siete años." },
+      { nombre: "Jerusalén (Sión)", lat: 31.7767, lng: 35.2345, ref: "2 Samuel 5:7", desc: "Conquista de la fortaleza jebusea y capital eterna de Israel." }
+    ]
+  },
+  saul: {
+    nombre: "Saúl: Reinado y Campañas de Batalla",
+    color: "#10b981",
+    descripcion: "La trayectoria militar y puntos de inflexión del primer rey de Israel.",
+    etapas: [
+      { nombre: "Gabaa (Gibeah)", lat: 31.8236, lng: 35.2289, ref: "1 Samuel 10:26", desc: "Ciudad de Saúl y capital administrativa de su reinado." },
+      { nombre: "Jabes de Galaad", lat: 32.3986, lng: 35.6883, ref: "1 Samuel 11:11", desc: "Primera y brillante victoria militar al rescatar a sus habitantes." },
+      { nombre: "Micmas", lat: 31.8753, lng: 35.2636, ref: "1 Samuel 13:23", desc: "Gran batalla contra los filisteos liderada por Jonatán." },
+      { nombre: "Nob", lat: 31.7924, lng: 35.2447, ref: "1 Samuel 22:19", desc: "Ordenó la destrucción de la ciudad de sacerdotes en su paranoia." },
+      { nombre: "En-gadi", lat: 31.4500, lng: 35.3833, ref: "1 Samuel 24:2", desc: "Fue con 3000 hombres elegidos en busca de David." },
+      { nombre: "Endor", lat: 32.6369, lng: 35.3811, ref: "1 Samuel 28:7", desc: "Donde consultó a la médium antes de su batalla final." },
+      { nombre: "Monte Gilboa", lat: 32.5028, lng: 35.4372, ref: "1 Samuel 31:4", desc: "Sitio de la derrota de Israel y trágica muerte de Saúl y Jonatán." }
+    ]
+  },
+  jesus: {
+    nombre: "Ministerio y Pasión de Jesús",
+    color: "#06b6d4",
+    descripcion: "El itinerario terrenal del Señor Jesús, desde su infancia hasta su resurrección.",
+    etapas: [
+      { nombre: "Nazaret", lat: 32.7028, lng: 35.2956, ref: "Lucas 2:39", desc: "Lugar donde Jesús creció y pasó su juventud." },
+      { nombre: "Belén", lat: 31.7054, lng: 35.2024, ref: "Lucas 2:4", desc: "Lugar del nacimiento virginal en cumplimiento profético." },
+      { nombre: "Río Jordán (Betabara)", lat: 31.8297, lng: 35.5644, ref: "Mateo 3:13", desc: "Su bautismo público y manifestación del Espíritu." },
+      { nombre: "Capernaúm", lat: 32.8806, lng: 35.5760, ref: "Mateo 4:13", desc: "Su 'propia ciudad' y centro de su ministerio en Galilea." },
+      { nombre: "Cesarea de Filipos (Banias)", lat: 33.2497, lng: 35.6961, ref: "Mateo 16:13", desc: "Confesión mesiánica y promesa de la Iglesia." },
+      { nombre: "Jerusalén (Monte de los Olivos)", lat: 31.7780, lng: 35.2435, ref: "Mateo 21:1", desc: "Entrada triunfal y Getsemaní." },
+      { nombre: "Gólgota (Jerusalén)", lat: 31.7784, lng: 35.2296, ref: "Mateo 27:33", desc: "Crucifixión, sepultura y resurrección al tercer día." }
+    ]
+  },
+  pablo: {
+    nombre: "Pablo: Conversión y Viajes Apostólicos",
+    color: "#8b5cf6",
+    descripcion: "El camino del Apóstol de los gentiles desde su llamado hasta su viaje final a Roma.",
+    etapas: [
+      { nombre: "Jerusalén", lat: 31.7683, lng: 35.2137, ref: "Hechos 9:1", desc: "Donde solicitó cartas al Sumo Sacerdote contra los cristianos." },
+      { nombre: "Damasco", lat: 33.5138, lng: 36.2765, ref: "Hechos 9:3", desc: "Encuentro con el Cristo resucitado en el camino." },
+      { nombre: "Antioquía de Siria", lat: 36.2025, lng: 36.1604, ref: "Hechos 13:1", desc: "Punto de envío misionero al mundo no judío." },
+      { nombre: "Atenas (Areópago)", lat: 37.9755, lng: 23.7242, ref: "Hechos 17:22", desc: "Sermón a los filósofos sobre el Dios No Conocido." },
+      { nombre: "Éfeso", lat: 37.9397, lng: 27.3408, ref: "Hechos 19:10", desc: "Centro de ministerio por más de dos años y cartas pastorales." },
+      { nombre: "Cesarea Marítima", lat: 32.5018, lng: 34.8953, ref: "Hechos 23:33", desc: "Cárcel donde apeló al César como ciudadano romano." },
+      { nombre: "Isla de Malta", lat: 35.9375, lng: 14.3754, ref: "Hechos 28:1", desc: "Lugar del naufragio providencial y milagros en la isla." },
+      { nombre: "Roma", lat: 41.9028, lng: 12.4964, ref: "Hechos 28:16", desc: "Predicó con denuedo bajo arresto domiciliario y sufrió el martirio." }
+    ]
+  }
+};
+
+const ESCRITOS_ANTIGUOS = [
+  {
+    nombre: "Rollos del Mar Muerto (Gran Rollo de Isaías)",
+    lugar: "Cuevas de Qumrán",
+    lat: 31.7412,
+    lng: 35.4593,
+    zoom: 12,
+    fecha: "c. 250 a.C. - 68 d.C.",
+    desc: "Descubiertos en 1947 por pastores beduinos. Contienen copias del Antiguo Testamento en hebreo mil años más antiguas que los manuscritos masoréticos previamente conocidos, demostrando la fidelidad de la copia bíblica a través de los siglos.",
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Great_Isaiah_Scroll.jpg"
+  },
+  {
+    nombre: "Códice Sinaítico (Codex Sinaiticus)",
+    lugar: "Monasterio de Santa Catalina",
+    lat: 28.5561,
+    lng: 33.9760,
+    zoom: 11,
+    fecha: "c. 330 - 360 d.C.",
+    desc: "Manuscrito uncial en griego considerado uno de los textos más puros de las Escrituras. Contiene el Nuevo Testamento completo más antiguo que se conserva y gran parte del Antiguo Testamento (Septuaginta).",
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Codex_Sinaiticus_Luke_22%2C20-23%2C20.jpg"
+  },
+  {
+    nombre: "Códice Vaticano (Codex Vaticanus)",
+    lugar: "Roma (Biblioteca Vaticana)",
+    lat: 41.9022,
+    lng: 12.4533,
+    zoom: 15,
+    fecha: "Siglo IV (c. 325-350 d.C.)",
+    desc: "Conservado en el Vaticano desde el siglo XV. Escrito en pergamino en letras mayúsculas, es uno de los manuscritos griegos más antiguos de la Biblia casi completo.",
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Codex_Vaticanus_B%2C_2Th_3%2C11-18%2C_He_1%2C1-2%2C2.jpg"
+  },
+  {
+    nombre: "Papiro P52 (Papiro Rylands)",
+    lugar: "Oxirrinco (Egipto)",
+    lat: 28.5333,
+    lng: 30.6500,
+    zoom: 10,
+    fecha: "c. 125 d.C.",
+    desc: "El fragmento físico de manuscrito del Nuevo Testamento más antiguo del mundo que sobrevive. Contiene partes del evangelio de Juan 18 escritos en papiro griego, hallado en las arenas de Egipto.",
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/5/50/P52_front.jpg"
+  },
+  {
+    nombre: "Códice de Alepo (Codex Aleppo)",
+    lugar: "Alepo (Siria)",
+    lat: 36.2021,
+    lng: 37.1343,
+    zoom: 12,
+    fecha: "c. 920 d.C.",
+    desc: "El manuscrito más valioso y autorizado del texto masorético hebreo de las Escrituras, anotado por el famoso escriba Aarón ben Asher. Sufrió daños en disturbios en 1947, pero la mayor parte se conserva hoy en Jerusalén.",
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Aleppo_Codex_Joshua_1_1.jpg"
+  }
+];
 // Slugs disponibles en bolls.life para versiones en español
 // NBLA 2020 no está en bolls.life (copyright); LBLA 1997 es su predecesora directa
 const BOLLS_SLUG = { ntv: 'NTV', lbla: 'LBLA', nvi: 'NVI' };
@@ -563,7 +717,7 @@ function GeoMap({ lugares }) {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode, onAskAI }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
@@ -653,12 +807,11 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
         <div className="verse-text-row">
           <span className="verse-num">
             {verse.verse}
-            {(hasCommentary || hasRef) && (
-              <span className="verse-badges">
-                {hasCommentary && <span className="verse-badge badge-commentary" title="Tiene comentario">📖</span>}
-                {hasRef        && <span className="verse-badge badge-ref"        title="Tiene referencias">🔗</span>}
-              </span>
-            )}
+            <span className="verse-badges">
+              <span className="verse-badge badge-ia" title="Preguntar a la IA Gen" onClick={e => { e.stopPropagation(); onAskAI?.(verse); }} style={{ cursor: 'pointer', marginLeft: '4px' }}>🤖 IA</span>
+              {hasCommentary && <span className="verse-badge badge-commentary" title="Tiene comentario">📖</span>}
+              {hasRef        && <span className="verse-badge badge-ref"        title="Tiene referencias">🔗</span>}
+            </span>
           </span>
           <span className="verse-text">{verse.text}</span>
           {(showActions || likeCount > 0) && (
@@ -912,6 +1065,9 @@ function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
   const mapContainerRef = useRef(null);
   const mapInstanceRef  = useRef(null);
   const markersRef      = useRef([]);
+  const polylineRef     = useRef(null);
+  const [activeTab, setActiveTab] = useState('places'); // 'places' | 'journeys' | 'manuscripts'
+  const [selectedJourneyKey, setSelectedJourneyKey] = useState(null); // 'abraham', 'moises', etc.
   const [search,   setSearch]   = useState('');
   const [selected, setSelected] = useState(null);
 
@@ -942,6 +1098,7 @@ function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
       )
     : allPlaces;
 
+  // Inicialización del Mapa
   useEffect(() => {
     function initMap() {
       if (!mapContainerRef.current || mapInstanceRef.current) return;
@@ -957,26 +1114,6 @@ function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
         attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
         maxZoom: 19,
       }).addTo(map);
-
-      const flagIcon = L.divIcon({
-        className: '',
-        html: '<span style="font-size:20px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))">🚩</span>',
-        iconSize: [24, 24],
-        iconAnchor: [2, 22],
-        popupAnchor: [10, -22],
-      });
-
-      allPlaces.forEach(p => {
-        const marker = L.marker([p.lat, p.lng], { icon: flagIcon })
-          .addTo(map)
-          .bindPopup(`
-            <div style="font-family:sans-serif;min-width:150px;padding:2px 0">
-              <strong style="font-size:0.88rem;display:block;margin-bottom:3px">🚩 ${p.nombre}</strong>
-              <span style="color:#92400e;font-size:0.75rem;font-weight:600">${p.ref}</span>
-            </div>
-          `, { maxWidth: 220 });
-        markersRef.current.push({ marker, place: p });
-      });
 
       mapInstanceRef.current = map;
     }
@@ -1005,24 +1142,151 @@ function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
         markersRef.current = [];
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function flyToPlace(p) {
+  // Actualización de marcadores y polilíneas reactivas
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map || !window.L) return;
+    const L = window.L;
+
+    // Limpiar marcadores y polilínea anterior
+    markersRef.current.forEach(m => m.remove());
+    markersRef.current = [];
+    if (polylineRef.current) {
+      polylineRef.current.remove();
+      polylineRef.current = null;
+    }
+
+    if (activeTab === 'places') {
+      const flagIcon = L.divIcon({
+        className: '',
+        html: '<span style="font-size:20px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))">🚩</span>',
+        iconSize: [24, 24],
+        iconAnchor: [2, 22],
+        popupAnchor: [10, -22],
+      });
+
+      allPlaces.forEach(p => {
+        const marker = L.marker([p.lat, p.lng], { icon: flagIcon })
+          .addTo(map)
+          .bindPopup(`
+            <div style="font-family:sans-serif;min-width:150px;padding:2px 0">
+              <strong style="font-size:0.88rem;display:block;margin-bottom:3px">🚩 ${p.nombre}</strong>
+              <span style="color:#92400e;font-size:0.75rem;font-weight:600">${p.ref}</span>
+            </div>
+          `, { maxWidth: 220 });
+        markersRef.current.push(marker);
+        marker.place = p;
+      });
+      // Restaurar zoom y centro original para lugares
+      map.setView([31.5, 35.5], 6);
+    } 
+    else if (activeTab === 'journeys' && selectedJourneyKey) {
+      const viaje = VIAJES_BIBLICOS[selectedJourneyKey];
+      if (viaje) {
+        const points = [];
+        viaje.etapas.forEach((etapa, idx) => {
+          points.push([etapa.lat, etapa.lng]);
+
+          const numIcon = L.divIcon({
+            className: '',
+            html: `<div style="background:${viaje.color};color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.45)">${idx + 1}</div>`,
+            iconSize: [26, 26],
+            iconAnchor: [13, 13],
+            popupAnchor: [0, -13],
+          });
+
+          const marker = L.marker([etapa.lat, etapa.lng], { icon: numIcon })
+            .addTo(map)
+            .bindPopup(`
+              <div style="font-family:sans-serif;min-width:180px;max-width:240px;padding:2px 0">
+                <strong style="font-size:0.88rem;display:block;margin-bottom:2px;color:${viaje.color}">Etapa ${idx + 1}: ${etapa.nombre}</strong>
+                <span style="color:#92400e;font-size:0.73rem;font-weight:700;display:block;margin-bottom:6px">${etapa.ref}</span>
+                <p style="font-size:0.8rem;color:var(--text);margin:0;line-height:1.4">${etapa.desc}</p>
+              </div>
+            `, { maxWidth: 220 });
+
+          markersRef.current.push(marker);
+          marker.place = etapa;
+        });
+
+        if (points.length > 1) {
+          const polyline = L.polyline(points, {
+            color: viaje.color,
+            weight: 4,
+            opacity: 0.8,
+            dashArray: '8, 8'
+          }).addTo(map);
+          polylineRef.current = polyline;
+
+          map.fitBounds(polyline.getBounds(), { padding: [45, 45] });
+        }
+      }
+    }
+    else if (activeTab === 'manuscripts') {
+      const scrollIcon = L.divIcon({
+        className: '',
+        html: '<span style="font-size:22px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))">📜</span>',
+        iconSize: [24, 24],
+        iconAnchor: [6, 18],
+        popupAnchor: [6, -18],
+      });
+
+      ESCRITOS_ANTIGUOS.forEach(escrito => {
+        const marker = L.marker([escrito.lat, escrito.lng], { icon: scrollIcon })
+          .addTo(map)
+          .bindPopup(`
+            <div style="font-family:sans-serif;min-width:160px;padding:2px 0">
+              <strong style="font-size:0.88rem;display:block;margin-bottom:3px">📜 ${escrito.nombre}</strong>
+              <span style="color:#4f46e5;font-size:0.75rem;font-weight:700;display:block;margin-bottom:4px">${escrito.lugar}</span>
+              <span style="color:#6b7280;font-size:0.7rem;">${escrito.fecha}</span>
+            </div>
+          `, { maxWidth: 220 });
+        markersRef.current.push(marker);
+        marker.place = escrito;
+      });
+      // Centrar para los manuscritos (cubre Medio Oriente, Egipto y Roma)
+      map.setView([33.5, 28.5], 5);
+    }
+  }, [activeTab, selectedJourneyKey, allPlaces]);
+
+  function flyToPlace(p, zoom = 11) {
     setSelected(p);
     if (!mapInstanceRef.current) return;
-    mapInstanceRef.current.flyTo([p.lat, p.lng], Math.max(p.zoom || 11, 11), { duration: 1 });
-    const found = markersRef.current.find(m => m.place === p);
-    if (found) {
-      const text = getVerseText(p.book, p.chapter, p.verse);
-      found.marker.setPopupContent(`
-        <div style="font-family:sans-serif;min-width:180px;max-width:260px;padding:2px 0">
-          <strong style="font-size:0.88rem;display:block;margin-bottom:2px">🚩 ${p.nombre}</strong>
-          <span style="color:#92400e;font-size:0.73rem;font-weight:700">${p.ref}</span>
-          ${text ? `<p style="font-size:0.8rem;color:#374151;margin:7px 0 0;line-height:1.45;font-style:italic">"${text}"</p>` : ''}
-        </div>
-      `);
-      setTimeout(() => found.marker.openPopup(), 900);
+    mapInstanceRef.current.flyTo([p.lat, p.lng], Math.max(p.zoom || zoom, zoom), { duration: 1.2 });
+
+    const foundMarker = markersRef.current.find(m => m.place && m.place.nombre === p.nombre);
+    if (foundMarker) {
+      if (activeTab === 'places') {
+        const text = getVerseText(p.book, p.chapter, p.verse);
+        foundMarker.setPopupContent(`
+          <div style="font-family:sans-serif;min-width:180px;max-width:260px;padding:2px 0">
+            <strong style="font-size:0.88rem;display:block;margin-bottom:2px">🚩 ${p.nombre}</strong>
+            <span style="color:#92400e;font-size:0.73rem;font-weight:700">${p.ref}</span>
+            ${text ? `<p style="font-size:0.8rem;color:#374151;margin:7px 0 0;line-height:1.45;font-style:italic">"${text}"</p>` : ''}
+          </div>
+        `);
+      } else if (activeTab === 'journeys') {
+        const viaje = VIAJES_BIBLICOS[selectedJourneyKey];
+        const idx = viaje.etapas.indexOf(p);
+        foundMarker.setPopupContent(`
+          <div style="font-family:sans-serif;min-width:180px;max-width:240px;padding:2px 0">
+            <strong style="font-size:0.88rem;display:block;margin-bottom:2px;color:${viaje.color}">Etapa ${idx + 1}: ${p.nombre}</strong>
+            <span style="color:#92400e;font-size:0.73rem;font-weight:700;display:block;margin-bottom:6px">${p.ref}</span>
+            <p style="font-size:0.8rem;color:#374151;margin:0;line-height:1.4">${p.desc}</p>
+          </div>
+        `);
+      } else if (activeTab === 'manuscripts') {
+        foundMarker.setPopupContent(`
+          <div style="font-family:sans-serif;min-width:180px;max-width:240px;padding:2px 0">
+            <strong style="font-size:0.88rem;display:block;margin-bottom:3px">📜 ${p.nombre}</strong>
+            <span style="color:#4f46e5;font-size:0.75rem;font-weight:700;display:block;margin-bottom:4px">${p.lugar}</span>
+            <p style="font-size:0.78rem;color:#4b5563;margin:0;line-height:1.45">${p.desc}</p>
+          </div>
+        `);
+      }
+      setTimeout(() => foundMarker.openPopup(), 1000);
     }
   }
 
@@ -1031,58 +1295,204 @@ function MapaPage({ onClose, onNavigate, darkMode, books = [] }) {
       <div className="mapa-page-header">
         <button className="mapa-page-back" onClick={onClose}>← Volver</button>
         <span className="mapa-page-title">🚩 Atlas Bíblico</span>
-        <span className="mapa-page-count">{allPlaces.length} lugares</span>
+        <span className="mapa-page-count">
+          {activeTab === 'places' && `${allPlaces.length} lugares`}
+          {activeTab === 'journeys' && `${Object.keys(VIAJES_BIBLICOS).length} rutas`}
+          {activeTab === 'manuscripts' && `${ESCRITOS_ANTIGUOS.length} manuscritos`}
+        </span>
+      </div>
+
+      {/* Selector de pestañas */}
+      <div className="mapa-page-tabs" style={{ display: 'flex', gap: '8px', padding: '10px 16px', background: 'var(--surface)', borderBottom: '1px solid var(--border)', flexShrink: 0, overflowX: 'auto' }}>
+        <button
+          className={`mapa-tab-btn ${activeTab === 'places' ? 'active' : ''}`}
+          onClick={() => { setActiveTab('places'); setSelected(null); }}
+          style={activeTab === 'places' ? { background: 'var(--accent)', color: '#fff', border: 'none', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: '700', cursor: 'pointer', whiteSpace: 'nowrap' } : { background: 'var(--surface2)', color: 'var(--text2)', border: 'none', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: '600', cursor: 'pointer', whiteSpace: 'nowrap' }}
+        >
+          📍 Lugares Bíblicos
+        </button>
+        <button
+          className={`mapa-tab-btn ${activeTab === 'journeys' ? 'active' : ''}`}
+          onClick={() => { setActiveTab('journeys'); setSelectedJourneyKey(null); setSelected(null); }}
+          style={activeTab === 'journeys' ? { background: 'var(--accent)', color: '#fff', border: 'none', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: '700', cursor: 'pointer', whiteSpace: 'nowrap' } : { background: 'var(--surface2)', color: 'var(--text2)', border: 'none', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: '600', cursor: 'pointer', whiteSpace: 'nowrap' }}
+        >
+          🛣️ Viajes y Rutas
+        </button>
+        <button
+          className={`mapa-tab-btn ${activeTab === 'manuscripts' ? 'active' : ''}`}
+          onClick={() => { setActiveTab('manuscripts'); setSelected(null); }}
+          style={activeTab === 'manuscripts' ? { background: 'var(--accent)', color: '#fff', border: 'none', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: '700', cursor: 'pointer', whiteSpace: 'nowrap' } : { background: 'var(--surface2)', color: 'var(--text2)', border: 'none', padding: '6px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: '600', cursor: 'pointer', whiteSpace: 'nowrap' }}
+        >
+          📜 Escritos Antiguos
+        </button>
       </div>
 
       <div ref={mapContainerRef} className="mapa-page-map" />
 
       <div className="mapa-page-bottom">
-        <div className="mapa-page-search-row">
-          <input
-            className="mapa-page-search"
-            placeholder="Buscar lugar o versículo…"
-            value={search}
-            onChange={e => { setSearch(e.target.value); }}
-          />
-          {search && (
-            <button className="mapa-page-search-clear" onClick={() => setSearch('')}>✕</button>
-          )}
-        </div>
+        {activeTab === 'places' && (
+          <div className="mapa-page-search-row">
+            <input
+              className="mapa-page-search"
+              placeholder="Buscar lugar o versículo…"
+              value={search}
+              onChange={e => { setSearch(e.target.value); }}
+            />
+            {search && (
+              <button className="mapa-page-search-clear" onClick={() => setSearch('')}>✕</button>
+            )}
+          </div>
+        )}
 
         <div className="mapa-page-list">
-          {filtered.length === 0 && (
-            <div className="mapa-page-empty">Sin lugares que coincidan.</div>
-          )}
-          {filtered.map((p, i) => {
-            const isActive = selected === p;
-            const verseText = isActive ? getVerseText(p.book, p.chapter, p.verse) : null;
-            return (
-              <div
-                key={`${p.verseKey}_${i}`}
-                className={`mapa-page-place-row${isActive ? ' active' : ''}`}
-                onClick={() => flyToPlace(p)}
-              >
-                <div className="mapa-page-place-top">
-                  <span className="mapa-page-flag">🚩</span>
-                  <div className="mapa-page-place-info">
-                    <span className="mapa-page-place-name">{p.nombre}</span>
-                    <span className="mapa-page-place-ref">{p.ref}</span>
+          {activeTab === 'places' && (
+            <>
+              {filtered.length === 0 && (
+                <div className="mapa-page-empty">Sin lugares que coincidan.</div>
+              )}
+              {filtered.map((p, i) => {
+                const isActive = selected === p;
+                const verseText = isActive ? getVerseText(p.book, p.chapter, p.verse) : null;
+                return (
+                  <div
+                    key={`${p.verseKey}_${i}`}
+                    className={`mapa-page-place-row${isActive ? ' active' : ''}`}
+                    onClick={() => flyToPlace(p, 11)}
+                  >
+                    <div className="mapa-page-place-top">
+                      <span className="mapa-page-flag">🚩</span>
+                      <div className="mapa-page-place-info">
+                        <span className="mapa-page-place-name">{p.nombre}</span>
+                        <span className="mapa-page-place-ref">{p.ref}</span>
+                      </div>
+                      {isActive && (
+                        <button
+                          className="mapa-page-nav-btn"
+                          onClick={e => { e.stopPropagation(); onNavigate(p.book, parseInt(p.chapter)); }}
+                        >
+                          📖 Ir
+                        </button>
+                      )}
+                    </div>
+                    {isActive && verseText && (
+                      <p className="mapa-page-verse-text">"{verseText}"</p>
+                    )}
                   </div>
-                  {isActive && (
+                );
+              })}
+            </>
+          )}
+
+          {activeTab === 'journeys' && (
+            <>
+              {!selectedJourneyKey ? (
+                <div className="journeys-grid" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text3)', fontWeight: '700', marginBottom: '4px', textTransform: 'uppercase' }}>Selecciona una ruta bíblica:</div>
+                  {Object.entries(VIAJES_BIBLICOS).map(([key, viaje]) => (
                     <button
-                      className="mapa-page-nav-btn"
-                      onClick={e => { e.stopPropagation(); onNavigate(p.book, parseInt(p.chapter)); }}
+                      key={key}
+                      className="journey-card-btn"
+                      onClick={() => { setSelectedJourneyKey(key); setSelected(null); }}
+                      style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '100%', padding: '12px 16px', border: '1.5px solid var(--border)', background: 'var(--surface2)', borderRadius: '14px', textAlign: 'left', cursor: 'pointer', transition: 'border-color 0.15s, transform 0.1s' }}
                     >
-                      📖 Ir
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%' }}>
+                        <span style={{ color: viaje.color, fontSize: '1.1rem' }}>🛣️</span>
+                        <span style={{ fontWeight: '800', fontSize: '0.92rem', color: 'var(--text)', flex: 1, textAlign: 'left' }}>{viaje.nombre}</span>
+                        <span style={{ fontSize: '0.75rem', background: viaje.color, color: '#fff', padding: '2px 8px', borderRadius: '10px', fontWeight: '700' }}>{viaje.etapas.length} etapas</span>
+                      </div>
+                      <p style={{ fontSize: '0.78rem', color: 'var(--text2)', margin: '4px 0 0', lineHeight: '1.4', textAlign: 'left' }}>{viaje.descripcion}</p>
                     </button>
-                  )}
+                  ))}
                 </div>
-                {isActive && verseText && (
-                  <p className="mapa-page-verse-text">"{verseText}"</p>
-                )}
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', borderBottom: '1px solid var(--border)', background: 'var(--surface2)', position: 'sticky', top: 0, zIndex: 5 }}>
+                    <button onClick={() => { setSelectedJourneyKey(null); setSelected(null); }} style={{ background: 'none', border: 'none', color: 'var(--accent)', fontWeight: '700', fontSize: '0.8rem', cursor: 'pointer' }}>
+                      ← Ver todas las rutas
+                    </button>
+                    <span style={{ fontSize: '0.8rem', fontWeight: '800', color: VIAJES_BIBLICOS[selectedJourneyKey].color }}>
+                      {VIAJES_BIBLICOS[selectedJourneyKey].nombre}
+                    </span>
+                  </div>
+
+                  <div style={{ padding: '8px 16px', fontSize: '0.78rem', color: 'var(--text3)', borderBottom: '1px solid var(--border)', lineHeight: '1.4' }}>
+                    {VIAJES_BIBLICOS[selectedJourneyKey].descripcion}
+                  </div>
+
+                  {VIAJES_BIBLICOS[selectedJourneyKey].etapas.map((etapa, idx) => {
+                    const isActive = selected === etapa;
+                    return (
+                      <div
+                        key={idx}
+                        className={`mapa-page-place-row${isActive ? ' active' : ''}`}
+                        onClick={() => flyToPlace(etapa, 12)}
+                      >
+                        <div className="mapa-page-place-top" style={{ padding: '10px 16px' }}>
+                          <span style={{ background: VIAJES_BIBLICOS[selectedJourneyKey].color, color: '#fff', width: '22px', height: '22px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: '800', flexShrink: 0 }}>
+                            {idx + 1}
+                          </span>
+                          <div className="mapa-page-place-info" style={{ marginLeft: '6px' }}>
+                            <span className="mapa-page-place-name">{etapa.nombre}</span>
+                            <span className="mapa-page-place-ref">{etapa.ref}</span>
+                          </div>
+                        </div>
+                        {isActive && (
+                          <p style={{ padding: '0 16px 12px 42px', fontSize: '0.8rem', color: 'var(--text2)', margin: 0, lineHeight: '1.45' }}>
+                            {etapa.desc}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+
+          {activeTab === 'manuscripts' && (
+            <div style={{ padding: '12px 0 24px' }}>
+              <div style={{ padding: '0 16px 12px', fontSize: '0.8rem', color: 'var(--text3)', fontWeight: '700', textTransform: 'uppercase' }}>
+                Descubrimientos arqueológicos y escritos antiguos:
               </div>
-            );
-          })}
+              {ESCRITOS_ANTIGUOS.map((escrito, i) => {
+                const isActive = selected === escrito;
+                return (
+                  <div
+                    key={i}
+                    className={`mapa-page-place-row${isActive ? ' active' : ''}`}
+                    onClick={() => flyToPlace(escrito, 13)}
+                    style={{ borderBottom: '1px solid var(--border)', padding: '0' }}
+                  >
+                    <div className="mapa-page-place-top" style={{ alignItems: 'flex-start', padding: '12px 16px' }}>
+                      <span style={{ fontSize: '1.25rem', marginRight: '4px' }}>📜</span>
+                      <div className="mapa-page-place-info">
+                        <span className="mapa-page-place-name" style={{ whiteSpace: 'normal', fontSize: '0.9rem', fontWeight: '800', lineHeight: '1.3' }}>{escrito.nombre}</span>
+                        <span style={{ color: '#6366f1', fontSize: '0.75rem', fontWeight: '700', marginTop: '2px' }}>📍 {escrito.lugar}</span>
+                        <span style={{ color: 'var(--text3)', fontSize: '0.7rem', marginTop: '1px' }}>🕒 {escrito.fecha}</span>
+                      </div>
+                    </div>
+                    {isActive && (
+                      <div style={{ padding: '0 16px 16px 42px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text2)', margin: 0, lineHeight: '1.45' }}>
+                          {escrito.desc}
+                        </p>
+                        {escrito.imagen && (
+                          <div style={{ width: '100%', maxHeight: '180px', borderRadius: '10px', overflow: 'hidden', border: '1.5px solid var(--border)', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>
+                            <img
+                              src={escrito.imagen}
+                              alt={escrito.nombre}
+                              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                              onError={(e) => { e.target.style.display = 'none'; }}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -1125,6 +1535,7 @@ export default function App() {
   });
   const [showMenu,           setShowMenu]          = useState(false);
   const [showGen,            setShowGen]           = useState(false);
+  const [aiVerseContext,     setAiVerseContext]    = useState(null);
   const [showFeed,           setShowFeed]          = useState(false);
   const [showCommentaries,   setShowCommentaries]  = useState(false);
   const [showMapa,           setShowMapa]          = useState(false);
@@ -1492,7 +1903,13 @@ export default function App() {
   }
 
   if (showGen) {
-    return <GenPanel onClose={() => setShowGen(false)} darkMode={darkMode} />;
+    return (
+      <GenPanel
+        onClose={() => { setShowGen(false); setAiVerseContext(null); }}
+        darkMode={darkMode}
+        initialVerse={aiVerseContext}
+      />
+    );
   }
 
   if (showFeed) {
@@ -1832,6 +2249,15 @@ export default function App() {
                 following={following}
                 onFollowToggle={handleFollowToggle}
                 darkMode={darkMode}
+                onAskAI={v => {
+                  setAiVerseContext({
+                    bookName: selectedBook,
+                    chapter: selectedChapter,
+                    verse: v.verse,
+                    text: v.text
+                  });
+                  setShowGen(true);
+                }}
               />
             );
           })
