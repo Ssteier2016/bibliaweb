@@ -36,5 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@google-cloud/storage": "^7.19.0",
+    "firebase-admin": "^13.10.0"
   }
 }

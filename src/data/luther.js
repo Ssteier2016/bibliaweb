@@ -118,4 +118,223 @@ export const LUTHER_COMMENTARY = [
     url: 'https://www.ccel.org/ccel/luther/works.html',
   },
 
+
+  // ── NUEVAS ENTRADAS ──────────────────────────────────────────────────────
+
+  {
+    ref: 'Génesis 1:1',
+    titulo: 'En el principio: la creación como confesión de fe',
+    texto: 'Lutero comentó extensamente el Génesis en sus últimos años (1535-1545). Para él, "en el principio creó Dios" no es solo cosmología; es confesión de fe fundamental. El que niega la creación niega a Dios como Señor. Y el que acepta la creación debe aceptar también la providencia: el mismo Dios que creó el mundo lo gobierna ahora. Lutero rechazaba la idea de que Dios creó el mundo y luego lo dejó correr solo —como un relojero que hace el reloj y se va. El Dios del Génesis es el Dios que actúa en la historia, que habla con Moisés, que redime a Israel, que encarna en Cristo. La creación no es el acto de un Dios ausente sino el primer acto de un Dios que no deja de actuar. Para Lutero, creer en el Creador es la base de toda confianza en la providencia.',
+    libro: 'Génesis',
+    obra: 'Vorlesungen über 1. Mose (Lectures on Genesis, 1535-1545)',
+    url: 'https://www.gutenberg.org/ebooks/author/Martin+Luther',
+  },
+
+  {
+    ref: 'Éxodo 20:3',
+    titulo: 'No tendrás dioses ajenos: el primer mandamiento como fundamento',
+    texto: 'En el Catecismo Mayor (1529), Lutero comienza su explicación del primer mandamiento con la pregunta: "¿Qué es tener un dios?" Y responde: "Un dios es aquello a lo que buscamos para todo bien y en lo que nos refugiamos en toda necesidad." Por tanto, tener un dios no es solo asistir al culto; es el objeto de la confianza última. El que confía en el dinero tiene al dinero como su dios. El que confía en la salud tiene a la salud como su dios. El que confía en la razón tiene a la razón como su dios. Lutero concluye: "Solo el corazón que en todas las cosas confía en Dios tiene el primer mandamiento cumplido." Esta es la raíz de la que crecen todos los demás pecados: desconfiar de Dios y buscar la seguridad en otra parte. El primer mandamiento no es principalmente un mandamiento religioso; es el mandamiento de la orientación fundamental de la existencia.',
+    libro: 'Éxodo',
+    obra: 'Der Große Katechismus — Erklärung der Zehn Gebote (1529)',
+    url: 'https://www.ccel.org/ccel/luther/largecatechism.html',
+  },
+
+  {
+    ref: 'Deuteronomio 4:29',
+    titulo: 'Buscar a Dios con todo el corazón: el camino del hallazgo',
+    texto: '"Mas si desde allí buscareis a Jehová tu Dios, lo hallarás, si lo buscares de todo tu corazón y de toda tu alma." Lutero cita este texto para mostrar que la busca de Dios no es vana —Dios promete ser hallado. Pero la condición es la totalidad: "de todo tu corazón". El corazón dividido, que busca a Dios por conveniencia o como seguro espiritual mientras vive por sus propios deseos, no halla a Dios realmente. Lutero distinguía entre la busca de la religión (que puede ser superficial) y la busca de Dios mismo. Muchos religiosos buscan los beneficios de Dios sin buscar a Dios mismo. La promesa de hallazgo es para el que busca a Dios con todo el corazón —sin reservas, sin condiciones, sin agendas ocultas. Y Lutero añade: el que así busca ya está siendo atraído por Dios, pues nadie busca a Dios desde sí mismo.',
+    libro: 'Deuteronomio',
+    obra: 'Sermones sobre Deuteronomio; Der Große Katechismus (1529)',
+    url: 'https://www.ccel.org/ccel/luther/largecatechism.html',
+  },
+
+  {
+    ref: 'Salmos 22:1',
+    titulo: 'El Dios mío que no responde: Cristo cargando el silencio divino',
+    texto: '"Dios mío, Dios mío, ¿por qué me has desamparado? ¿Por qué estás tan lejos de mi salvación, y de las palabras de mi clamor?" Lutero predicó sobre este versículo con una profundidad personal que provenía de sus propias experiencias de lo que llamaba Anfechtung —la tentación del abandono espiritual, la oscuridad del alma, la sensación de que Dios no responde. Para Lutero este era el sufrimiento más hondo de Cristo en la cruz: no el dolor físico sino el peso del abandono divino que el pecado merece. Cristo no actuó; gritó. No explicó teológicamente el sufrimiento; lo vivió. Y al hacerlo, santificó el grito del alma en angustia: el creyente que siente que Dios no responde puede gritar con las palabras de este Salmo, sabiendo que Cristo las gritó antes y que el Salmo termina en vindicación.',
+    libro: 'Salmos',
+    obra: 'Operationes in Psalmos (1519-1521)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Salmos 51:10',
+    titulo: 'Crea en mí un corazón limpio: la renovación que solo Dios puede hacer',
+    texto: '"Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí." Lutero meditó profundamente en el Salmo 51. El verbo "crea" (bara) es el mismo de Génesis 1: una creación ex nihilo. David no pide que su corazón sucio sea lavado superficialmente; pide una creación nueva. Lutero ve aquí la perfecta descripción de la regeneración: el corazón humano es tan corrupto después de la caída que no puede ser reformado, solo recreado. Esta recreación es obra exclusiva de Dios —el hombre no puede crearse un corazón limpio más de lo que puede crear el universo. Y "espíritu recto" —Lutero nota la continuidad: no un nuevo espíritu diferente sino el espíritu humano renovado. Dios no destruye la humanidad en la regeneración; la restaura. El resultado es el mismo ser humano con un corazón nuevo.',
+    libro: 'Salmos',
+    obra: 'Operationes in Psalmos (1519-1521); "De servo arbitrio" (1525)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Salmos 118:17',
+    titulo: 'No moriré, sino que viviré',
+    texto: '"No moriré, sino que viviré, y contaré las obras de Jehová." Lutero llamaba a este versículo "mi versículo" —el que lo sostuvo en los momentos de mayor peligro de su vida. Cuando fue puesto fuera de la ley en el Imperio tras la Dieta de Worms (1521), cuando sufrió enfermedades graves, cuando la Reforma parecía fracasar —volvía a este versículo. "No moriré, sino que viviré" no es optimismo humano sino fe en la providencia de Dios. Lutero no significaba que nunca moriría físicamente; significaba que morir en servicio a Dios no es la derrota sino la victoria. "Y contaré las obras de Jehová" —el propósito de sobrevivir no es simplemente existir sino proclamar. El que escapa de la muerte tiene la obligación de contar lo que Dios ha hecho. Lutero vivió este versículo: sobrevivió para predicar y reformar.',
+    libro: 'Salmos',
+    obra: 'Tischreden (Table Talk); autobiografía espiritual',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Salmos 119:9',
+    titulo: '¿Con qué limpiará el joven su camino? Con la Palabra',
+    texto: '"¿Con qué limpiará el joven su camino? Con guardar tu palabra." Lutero, que había vivido la experiencia de buscar la santidad mediante reglas monásticas, ayunos y penitencias sin hallar paz, encontró en la Palabra de Dios el único camino real de purificación. No es el esfuerzo humano lo que limpia el camino —el pecado es demasiado profundo para eso. Es la Palabra de Dios que, recibida en fe y obedecida en amor, transforma progresivamente la vida. Lutero aplicaba este principio a la educación de los jóvenes: la formación cristiana genuina no es solo transmisión de información moral sino inmersión en la Palabra viva. Los catecismos que escribió para la educación de niños y jóvenes son la expresión práctica de este principio: exponer a los jóvenes a la Palabra —el Padre Nuestro, los Mandamientos, el Credo, los Sacramentos— es el camino de la purificación real.',
+    libro: 'Salmos',
+    obra: 'Der Große Katechismus (1529); Operationes in Psalmos',
+    url: 'https://www.ccel.org/ccel/luther/largecatechism.html',
+  },
+
+  {
+    ref: 'Isaías 40:1-2',
+    titulo: 'Consolad, consolad a mi pueblo',
+    texto: '"Consolad, consolad a mi pueblo, dice vuestro Dios. Hablad al corazón de Jerusalén." Lutero predicó este texto con ternura pastoral. El doble imperativo —"consolad, consolad"— señala la urgencia y la intensidad de la consolación que Dios quiere dar a su pueblo sufriente. Lutero vivió en tiempos de tribulación: la Reforma perseguida, la guerra de los campesinos, la plaga, la muerte de seres queridos. Y él mismo sufrió depresiones profundas. Pero encontraba en este versículo la certeza de que Dios no abandona a su pueblo en la tribulación; le envía consolación. "Hablad al corazón" —la consolación de Dios no es solo palabras al oído sino al corazón. La predicación genuina del evangelio no informa solamente; consuela. El predicador que solo da doctrina sin consolación ha olvidado la mitad de su encargo.',
+    libro: 'Isaías',
+    obra: 'Sermones sobre Isaías; Tischreden (Table Talk)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Mateo 5:17',
+    titulo: 'No vine a abolir la ley sino a cumplirla',
+    texto: '"No penséis que he venido para abolir la ley o los profetas; no he venido para abolir, sino para cumplir." Lutero, acusado de antinomismo por sus enemigos, insistió en la permanencia de la ley como obra de Dios. Cristo no vino a destruir la ley; vino a cumplirla, lo que incluye dos cosas: cumplirla en su vida perfecta (lo que el hombre no podía hacer) y cumplirla en su enseñanza (revelando su profundidad espiritual más allá de la interpretación farisaica externa). La distinción de Lutero entre ley y evangelio no implica que la ley sea mala o superada: la ley siempre cumple su función de revelar el pecado, y el creyente regenerado ama la ley porque ama al Dios que la dio. Lo que la Reforma rechazó no fue la ley sino el uso de la ley como camino de justificación ante Dios.',
+    libro: 'Mateo',
+    obra: 'Sermones sobre el Sermón del Monte (1530-1532)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Mateo 16:18',
+    titulo: 'Sobre esta roca: Cristo, no Pedro, es el fundamento',
+    texto: 'Lutero rechazó firmemente la interpretación romana que hace de Pedro —y por extensión del papa— el fundamento de la Iglesia. Para Lutero, la "roca" (petra) es la confesión de fe: "Tú eres el Cristo, el Hijo del Dios viviente." La Iglesia se construye sobre esta confesión, que Pedro hizo en nombre de todos los apóstoles. El papado no tiene en este texto ningún fundamento: Cristo no prometió a Pedro una sucesión perpetua de autoridad infalible sino que edificaría su Iglesia sobre la roca de la fe apostólica. "Las puertas del Hades no prevalecerán" —la promesa es a la Iglesia que confiesa a Cristo, no a una institución humana por poderosa que sea. Lutero veía en la Reforma no una ruptura con la Iglesia verdadera sino la restauración de la Iglesia sobre su único fundamento legítimo: Cristo confesado.',
+    libro: 'Mateo',
+    obra: 'De Captivitate Babylonica (1520); sermones sobre Mateo',
+    url: 'https://www.gutenberg.org/ebooks/author/Martin+Luther',
+  },
+
+  {
+    ref: 'Lucas 1:46-47',
+    titulo: 'El Magnificat: María como modelo de recepción de la gracia',
+    texto: '"Engrandece mi alma al Señor; y mi espíritu se regocija en Dios mi Salvador." Lutero escribió un comentario completo sobre el Magnificat (1521), una de sus obras pastorales más hermosas. Ve en el cántico de María el modelo perfecto de la respuesta de fe a la gracia: María no se gloría en sí misma sino en Dios que miró su humildad (no su virtud). "Porque ha mirado la bajeza de su sierva" —la gracia de Dios no mira la grandeza humana sino la pequenez. Lutero desarrolla que María es modelo no de mérito sino de gracia recibida: fue elegida no porque era santa sino para que fuera santificada. Y su respuesta es el modelo de toda respuesta cristiana a la gracia: el alma que recibe lo que no merece no puede sino magnificar al que da.',
+    libro: 'Lucas',
+    obra: 'Das Magnificat (1521)',
+    url: 'https://www.gutenberg.org/ebooks/author/Martin+Luther',
+  },
+
+  {
+    ref: 'Juan 1:29',
+    titulo: 'He aquí el Cordero de Dios: la presentación del expiador',
+    texto: '"El siguiente día vio Juan a Jesús que venía a él, y dijo: He aquí el Cordero de Dios, que quita el pecado del mundo." Lutero meditaba en esta presentación del Bautista como la más precisa que existe de quién es Jesús y para qué vino. "El Cordero de Dios" —no un cordero humano, no un cordero que el hombre ofrece a Dios, sino el Cordero que el mismo Dios provee y que Dios mismo ofrece. El sistema sacrificial del Antiguo Testamento llega aquí a su punto de cumplimiento: todos los corderos desde Abel hasta el último cordero del templo señalaban a Este. "Que quita el pecado del mundo" —no que cubre temporalmente, sino que quita definitivamente. Y "del mundo" —universalidad de la oferta: no solo los pecados de Israel sino los del mundo entero. Lutero celebraba esta frase: mi pecado fue cargado por el Cordero de Dios y quitado para siempre.',
+    libro: 'Juan',
+    obra: 'Sermones sobre Juan; "Von der Freiheit eines Christenmenschen" (1520)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Juan 14:6',
+    titulo: 'Yo soy el camino, la verdad y la vida',
+    texto: '"Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí." Lutero usaba este versículo como refutación de toda mediación humana entre Dios y el hombre: ni los santos, ni María, ni el papa, ni los sacerdotes son caminos adicionales al Padre. Cristo es el único camino. Esto no es exclusivismo arbitrario; es coherente con la identidad de Cristo: solo el que es la verdad puede llevar a ella; solo el que es la vida puede darla; solo el que es el camino puede recorrerse a sí mismo. Lutero desarrollaba que el camino no exige méritos del viajero —exige solo ponerse en él. El monje que hacía peregrinaciones y penitencias buscaba otros caminos; el creyente que simplemente viene a Cristo por fe ya está en el único camino que lleva al Padre.',
+    libro: 'Juan',
+    obra: 'Sermones sobre Juan; Tischreden (Table Talk)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Hechos 4:12',
+    titulo: 'En ningún otro hay salvación',
+    texto: '"Y en ningún otro hay salvación; porque no hay otro nombre bajo el cielo, dado a los hombres, en que podamos ser salvos." Lutero declaró este versículo como el principio fundamental del evangelismo: la proclamación del nombre de Cristo como el único camino de salvación. Esto se predica no por arrogancia sino por amor: si hay gente hundiéndose y solo hay un barco, el amor exige gritar el nombre de ese barco, no decir que todos los barcos son equivalentes. Lutero no dudaba de que el paganismo y la religión natural tuviesen algo de conocimiento de Dios; dudaba de que ese conocimiento pudiese salvar. La salvación —la restauración de la relación con Dios, el perdón de pecados, la vida eterna— viene solo del nombre de Jesús. Este versículo fue el fundamento de la misión apostólica y es el fundamento de toda misión cristiana genuina.',
+    libro: 'Hechos',
+    obra: 'Sermones sobre Hechos; Tischreden (Table Talk)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: 'Romanos 4:3-5',
+    titulo: 'La fe de Abraham: imputada como justicia',
+    texto: '"Creyó Abraham a Dios, y le fue contado por justicia." Lutero desarrolla la teología de la imputación usando el ejemplo de Abraham: antes de la circuncisión, antes de la ley mosaica, Dios declaró justo a Abraham sobre la única base de su fe. Esto prueba que la justificación por fe no es invento cristiano tardío sino el principio de Dios desde el principio. "Al que no obra, sino cree en aquel que justifica al impío, su fe le es contada por justicia." Lutero destaca la expresión "justifica al impío": Dios no justifica al que ya se ha hecho bueno sino al impío que cree. La justificación no es el reconocimiento de una bondad que existe; es la declaración de una justicia que no existe en el hombre pero que existe en Cristo y es imputada al creyente.',
+    libro: 'Romanos',
+    obra: 'Commentarius in Epistolam ad Romanos (1516); Prefacio a Romanos (1522)',
+    url: 'https://www.ccel.org/ccel/luther/romans_preface.html',
+  },
+
+  {
+    ref: 'Romanos 6:23',
+    titulo: 'La paga del pecado es muerte; la dádiva de Dios, vida eterna',
+    texto: '"Porque la paga del pecado es muerte, mas la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro." Lutero meditaba en el contraste de este versículo: lo que el pecado paga y lo que Dios da. La "paga" del pecado es lo merecido —el pecado tiene un salario, y ese salario es la muerte, separación definitiva de Dios. Nadie puede reclamar injusticia en ese salario; es lo que el pecado merece. Pero la "dádiva" de Dios —doron, regalo— es la vida eterna: no merecida, no comprada, no ganada. El contraste es absoluto: lo que se paga versus lo que se regala; muerte versus vida; merecimiento versus gracia. Lutero aplicaba esto pastoralmente: el evangelio no es que Dios rebaja el castigo merecido; es que Dios da lo que el pecador no merece en lugar de lo que sí merece. Esto es gracia.',
+    libro: 'Romanos',
+    obra: 'Prefacio a Romanos (1522); Der Große Katechismus (1529)',
+    url: 'https://www.ccel.org/ccel/luther/romans_preface.html',
+  },
+
+  {
+    ref: 'Romanos 8:38-39',
+    titulo: 'Nada nos podrá separar del amor de Dios',
+    texto: '"Porque estoy seguro de que ni la muerte, ni la vida... ni ninguna otra cosa creada nos podrá separar del amor de Dios, que es en Cristo Jesús Señor nuestro." Lutero llamaba a este pasaje "el trono del creyente" —la seguridad más alta que puede alcanzarse en esta vida. Pablo recorre el universo entero —la muerte y la vida, los ángeles y los principados, el presente y el futuro, lo alto y lo bajo— y concluye que ninguna de estas realidades puede vencer el amor de Dios en Cristo. Para Lutero, que enfrentó exilio, herejía declarada, amenaza de muerte y depresiones severas, esta promesa era el ancla. El amor de Dios no depende de las circunstancias del creyente ni de su constancia espiritual; depende del carácter inmutable de Dios en Cristo. Lo que Dios amó antes de la creación, lo ama hasta la gloria.',
+    libro: 'Romanos',
+    obra: 'Prefacio a Romanos (1522); Tischreden (Table Talk)',
+    url: 'https://www.ccel.org/ccel/luther/romans_preface.html',
+  },
+
+  {
+    ref: '2 Corintios 5:21',
+    titulo: 'Al que no conoció pecado, Dios lo hizo pecado por nosotros',
+    texto: '"Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él." Lutero llamó a este versículo "el gran trueque" —el fröhliche Wechsel. Cristo tomó todo lo nuestro (pecado, muerte, maldición) y nos dio todo lo suyo (justicia, vida, bendición). "Al que no conoció pecado" —la inocencia de Cristo es el presupuesto de la expiación: un pecador no puede cargar los pecados de otros. "Por nosotros lo hizo pecado" —no que Cristo se convirtiera en pecador sino que fue tratado como si lo fuera, cargando la culpa y la consecuencia del pecado ajeno. El resultado: "seamos hechos justicia de Dios en él" —tampoco nos convertimos en intrínsecamente justos; somos tratados como justos porque estamos en Cristo. La justicia es tan imputada como fue imputado el pecado.',
+    libro: '2 Corintios',
+    obra: 'Commentarius in Epistolam Pauli ad Galatas (1535); sermones varios',
+    url: 'https://www.ccel.org/ccel/luther/galatians.html',
+  },
+
+  {
+    ref: 'Gálatas 5:1',
+    titulo: 'Estad firmes en la libertad: contra el yugo de la ley',
+    texto: '"Estad, pues, firmes en la libertad con que Cristo nos hizo libres, y no estéis otra vez sujetos al yugo de esclavitud." Para Lutero, este versículo es el grito de guerra de la Reforma. La esclavitud de la que Pablo habla no es la esclavitud política romana sino la esclavitud religiosa del sistema de méritos: la pretensión de justificarse ante Dios mediante obras. Esta esclavitud es sutil porque se disfraza de devoción y esfuerzo espiritual. Pero Lutero la desmascara: quien busca ganarse la aprobación de Dios niega implícitamente que Cristo ya la ganó por él. "No estéis otra vez sujetos" —el peligro no es solo teórico; los gálatas habían recaído, y todo creyente puede recaer en el legalismo. La libertad cristiana es una conquista que debe mantenerse activamente mediante la comprensión continua del evangelio.',
+    libro: 'Gálatas',
+    obra: 'Commentarius in Epistolam Pauli ad Galatas (1535)',
+    url: 'https://www.ccel.org/ccel/luther/galatians.html',
+  },
+
+  {
+    ref: 'Filipenses 3:8-9',
+    titulo: 'Ganancia de Cristo: todo lo demás como estiércol',
+    texto: '"Y ciertamente, aun estimo todas las cosas como pérdida por la excelencia del conocimiento de Cristo Jesús, mi Señor... y ser hallado en él, no teniendo mi propia justicia... sino la que es por la fe de Cristo." Lutero citaba este pasaje como la más perfecta descripción paulina de lo que él mismo había experimentado: abandonar la justicia propia para recibir la de Cristo. El "estiércol" (skybalon) con que Pablo califica su pasado religioso —circuncisión, tribu de Benjamín, fariseo, sin tacha según la ley— es deliberadamente ofensivo. Pablo no describe ese pasado como bueno pero insuficiente; lo describe como basura en comparación con Cristo. Para Lutero esto era autobiográfico: él también había acumulado méritos monásticos, penitencias, indulgencias —y todo era estiércol comparado con ser hallado en Cristo.',
+    libro: 'Filipenses',
+    obra: 'Tischreden (Table Talk); autobiografía teológica (1545)',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: '1 Timoteo 2:5',
+    titulo: 'Un solo mediador entre Dios y los hombres',
+    texto: '"Porque hay un solo Dios, y un solo mediador entre Dios y los hombres, Jesucristo hombre." Lutero usó este versículo como el argumento decisivo contra la doctrina de los santos como mediadores. El texto dice "un solo mediador" —no uno principal entre varios posibles. Si Cristo es el único mediador, ningún santo, ninguna virgen, ningún sacerdote puede mediar entre Dios y el hombre. La Reforma no despreciaba a los santos como personas; rechazaba el rol mediador que la teología medieval les había asignado. Y el mediador es "Cristo Jesús hombre" —la humanidad de Cristo es esencial para la mediación: puede representar a la humanidad ante Dios porque es Él mismo humano. A la vez es Dios, para poder representar a Dios ante la humanidad. El único mediador es perfecto para el oficio porque es completamente ambas cosas.',
+    libro: '1 Timoteo',
+    obra: 'De Captivitate Babylonica (1520); Der Große Katechismus (1529)',
+    url: 'https://www.gutenberg.org/ebooks/author/Martin+Luther',
+  },
+
+  {
+    ref: 'Hebreos 12:2',
+    titulo: 'Puestos los ojos en Jesús, el autor y consumador de la fe',
+    texto: '"Puestos los ojos en Jesús, el autor y consumador de la fe, el cual por el gozo puesto delante de él sufrió la cruz, menospreciando el oprobio." Lutero interpretó el "gozo puesto delante de él" como la gloria que el Padre prometió al Hijo por su obediencia, y la salvación de los elegidos que su muerte aseguraría. Cristo sufrió la cruz no a pesar del gozo sino por el gozo. El sufrimiento y el gozo no se excluyen en la experiencia de Cristo ni en la del creyente: el que tiene el gozo puesto delante puede sufrir la cruz presente. Lutero, perseguido y amenazado, vivía este versículo: miraba al Cristo que fue desde la cruz a la gloria, y eso le daba valentía para mantenerse en su propio camino de tribulación. "Autor y consumador" —Cristo no solo inicia la fe; la lleva a su destino. El creyente no tiene que completar lo que Cristo comenzó.',
+    libro: 'Hebreos',
+    obra: 'Tischreden (Table Talk); sermones varios',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
+  {
+    ref: '1 Juan 1:9',
+    titulo: 'Si confesamos nuestros pecados, Él es fiel y justo para perdonar',
+    texto: '"Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad." Lutero valoraba este versículo como la base de la práctica confesional evangélica —distinta de la confesión auricular católica pero igualmente real. La confesión que Juan describe es directa a Dios: sin intermediario humano, sin penitencias compensatorias. La base del perdón no es la calidad de la confesión sino la fidelidad y la justicia de Dios. "Fiel" —Dios prometió perdonar al que confiesa; sería infiel si no lo hiciera. "Justo" —no a pesar de la justicia sino por la justicia: Cristo pagó la deuda, y sería injusto de Dios cobrarla dos veces. Lutero enseñó en el Catecismo la confesión privada como práctica voluntaria y beneficiosa, distinta de la obligatoria y meritoria del sistema medieval.',
+    libro: '1 Juan',
+    obra: 'Der Große Katechismus (1529); sermones sobre 1 Juan',
+    url: 'https://www.ccel.org/ccel/luther/largecatechism.html',
+  },
+
+  {
+    ref: 'Apocalipsis 3:20',
+    titulo: 'He aquí, yo estoy a la puerta y llamo',
+    texto: '"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo." Lutero meditaba en la paradoja de este versículo: el Rey del universo llama a la puerta del corazón humano en vez de exigir. No fuerza la entrada; llama. No rompe la puerta; espera. Esto es para Lutero imagen del evangelio mismo: Dios no salva por compulsión sino por invitación. Y "si alguno oye mi voz y abre" —la apertura es responsabilidad del oyente. Pero Lutero también insistía: la capacidad de abrir es don de Dios; el que abre lo hace porque el Espíritu produjo en él el querer y el hacer (Filipenses 2:13). La imagen de la cena compartida —"cenaré con él, y él conmigo"— es la imagen más íntima de la comunión: no una relación formal sino una mesa compartida, la imagen del shabbat y de la eternidad.',
+    libro: 'Apocalipsis',
+    obra: 'Tischreden (Table Talk); sermones varios',
+    url: 'https://www.ccel.org/ccel/luther/works.html',
+  },
+
 ];

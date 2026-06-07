@@ -130,4 +130,241 @@ export const MATTHEW_HENRY_COMMENTARY = [
     url: 'https://www.ccel.org/ccel/henry/mhc6.1Pe.vi.html',
   },
 
+
+  // ── NUEVAS ENTRADAS ──────────────────────────────────────────────────────
+
+  {
+    ref: 'Génesis 22:8',
+    titulo: 'Dios se proveerá el cordero',
+    texto: '"Dios se proveerá de cordero para el holocausto, hijo mío." Estas palabras de Abraham a Isaac son una de las declaraciones de fe más sublimes del Antiguo Testamento, y contienen más verdad de la que el propio Abraham comprendía al pronunciarlas. Habló mejor de lo que sabía: Dios efectivamente se proveyó del cordero —no solo en el monte Moriah con el carnero en el zarzal, sino en el Calvario con el Cordero de Dios que quita el pecado del mundo. Henry observa que la providencia de Dios opera a menudo así: más allá de lo que pedimos o entendemos. Abraham subió con una pregunta sin respuesta y bajó con más respuesta de la que esperaba. El creyente que enfrenta circunstancias imposibles puede tomar esta palabra como suya: Dios se proveerá. No sabemos cómo; no sabemos cuándo; pero sabemos quién.',
+    libro: 'Génesis',
+    obra: 'Commentary on the Whole Bible, Vol. I — Génesis (1706)',
+    url: 'https://www.ccel.org/ccel/henry/mhc1.Gen.xxiii.html',
+  },
+
+  {
+    ref: 'Éxodo 3:14',
+    titulo: 'YO SOY EL QUE SOY: la eternidad del ser divino',
+    texto: '"Y respondió Dios a Moisés: YO SOY EL QUE SOY." Este nombre divino —YHWH, derivado del verbo ser— expresa la eternidad, la autoexistencia y la inmutabilidad de Dios. Henry comenta que Dios no tiene pasado que ya no sea, ni futuro que todavía no sea: Él es eternamente presente. Los filósofos hablan del ser como concepto abstracto; la Escritura revela el Ser como persona que actúa, habla, redime. "YO SOY" es el nombre que Jesús reclama para sí en el Evangelio de Juan: "Antes que Abraham fuese, yo soy" (Juan 8:58). El que habló a Moisés desde la zarza ardiente es el mismo que caminó por Palestina y fue crucificado en el Calvario. La zarza que ardía sin consumirse es imagen de la iglesia perseguida y preservada: el fuego de la tribulación no puede consumir lo que el fuego de Dios sostiene.',
+    libro: 'Éxodo',
+    obra: 'Commentary on the Whole Bible, Vol. I — Éxodo (1708)',
+    url: 'https://www.ccel.org/ccel/henry/mhc1.Exo.iv.html',
+  },
+
+  {
+    ref: 'Números 6:24-26',
+    titulo: 'La bendición aarónica: triple nombre sobre el pueblo',
+    texto: '"Jehová te bendiga y te guarde; Jehová haga resplandecer su rostro sobre ti... Jehová alce sobre ti su rostro, y ponga en ti paz." Henry medita en la triple repetición del nombre de Jehová como prefiguración de la Trinidad: el Padre que bendice, el Hijo cuyo rostro resplandece, el Espíritu que da paz. La bendición progresa: primero la protección (te guarde), luego la gracia (haga resplandecer su rostro, es decir, mire con favor), finalmente la paz (shalom: no solo ausencia de conflicto sino plenitud de bien). El sacerdote ponía el nombre de Dios sobre el pueblo —no un deseo vago sino una declaración formal de propiedad y cuidado. Así el creyente en el Nuevo Pacto lleva el nombre de Dios: es suyo, es conocido por Él, está bajo su cuidado activo. Esta bendición se recibe por fe, no por mérito.',
+    libro: 'Números',
+    obra: 'Commentary on the Whole Bible, Vol. I — Números (1708)',
+    url: 'https://www.ccel.org/ccel/henry/mhc1.Num.vii.html',
+  },
+
+  {
+    ref: 'Josué 1:9',
+    titulo: 'Esfuérzate y sé valiente: la valentía de la fe',
+    texto: '"¿No te he mandado que te esfuerces y seas valiente? No temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas." Henry observa que la valentía aquí ordenada no es la valentía de la ignorancia ni la temeridad de quien no ve el peligro; es la valentía fundada en la promesa: "Jehová tu Dios estará contigo." El mandato viene después de la promesa, y la promesa hace posible el mandato. Josué enfrentaba la tarea humanamente imposible de conquistar Canaán con un pueblo recién salido del desierto. Pero la presencia de Dios transforma lo imposible en posible. El creyente recibe el mismo fundamento: la promesa de la presencia de Cristo hasta el fin del mundo (Mateo 28:20). La valentía cristiana no es ausencia de miedo sino fe que actúa a pesar del miedo, confiando en la fidelidad del que prometió.',
+    libro: 'Josué',
+    obra: 'Commentary on the Whole Bible, Vol. II — Josué (1708)',
+    url: 'https://www.ccel.org/ccel/henry/mhc2.Jos.ii.html',
+  },
+
+  {
+    ref: 'Rut 1:16',
+    titulo: 'Dondequiera que tú fueres, iré yo',
+    texto: '"Porque a dondequiera que tú fueres, iré yo; y dondequiera que vivieres, viviré. Tu pueblo será mi pueblo, y tu Dios mi Dios." Henry ve en las palabras de Rut a Noemí una de las declaraciones más hermosas de lealtad y conversión del Antiguo Testamento. Rut abandona su pueblo, su tierra, sus dioses, y elige a Dios de Israel con los ojos abiertos, sabiendo que elige la pobreza y la incertidumbre. Esta es la fe genuina: no la que sigue a Dios cuando resulta conveniente, sino la que le sigue aun cuando el camino es oscuro. Y Henry señala la providencia maravillosa: la mujer que parecía haber elegido la peor parte —viuda, extranjera, pobre— terminó en el linaje del Mesías. Dios honra la lealtad fiel. El que deja todo por Dios descubre que Dios no deja nada al azar en su historia.',
+    libro: 'Rut',
+    obra: 'Commentary on the Whole Bible, Vol. II — Rut (1708)',
+    url: 'https://www.ccel.org/ccel/henry/mhc2.Rut.ii.html',
+  },
+
+  {
+    ref: '1 Samuel 16:7',
+    titulo: 'El hombre mira las apariencias, Jehová mira el corazón',
+    texto: '"Jehová no mira lo que el hombre mira; pues el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón." Henry comenta que este principio invierte todos los criterios del juicio humano. Eliab era el hermano mayor, alto, apuesto —el candidato perfecto según los ojos de Samuel. Pero Dios eligió al menor, al que guardaba ovejas, cuyo corazón estaba orientado a Dios. El hombre clasifica por apariencia, status, elocuencia, posición social. Dios clasifica por la condición del corazón. Este principio no es solo teológicamente verdadero; es pastoralmente consolador: el que el mundo desprecia puede ser el que Dios ama; el que el mundo aclama puede estar alejado de Él. Y también es examinador: de nada sirve la reputación religiosa si el corazón está lejos de Dios. "El hombre ve lo que está delante de sus ojos" —que los nuestros estén ante el espejo del corazón.',
+    libro: '1 Samuel',
+    obra: 'Commentary on the Whole Bible, Vol. II — 1 Samuel (1708)',
+    url: 'https://www.ccel.org/ccel/henry/mhc2.iSam.xvii.html',
+  },
+
+  {
+    ref: 'Job 19:25',
+    titulo: 'Mi Redentor vive',
+    texto: '"Yo sé que mi Redentor vive, y al fin se levantará sobre el polvo." Henry subraya que estas palabras de Job son extraordinarias en boca de un hombre que ha perdido todo, que yace en cenizas, que sus amigos lo atacan y cuya teodicea parece rota. En la oscuridad más profunda de su experiencia, Job afirma no una esperanza tenue sino una certeza vibrante: "YO SÉ". No "espero", no "quizás", sino "sé". Y el objeto de esa certeza es personal: "mi Redentor" —no un Dios abstracto sino uno que tiene una relación específica con Job, el Goel que rescata al pariente pobre. "Vive" —en contraste con todo lo que ha muerto en la vida de Job. Y "al fin se levantará" —hay una culminación futura de la que Job está seguro aunque no la pueda ver. Para Henry, este versículo es Cristo antes de Cristo: la fe en la resurrección y la redención personal.',
+    libro: 'Job',
+    obra: 'Commentary on the Whole Bible, Vol. II — Job (1709)',
+    url: 'https://www.ccel.org/ccel/henry/mhc2.Job.xx.html',
+  },
+
+  {
+    ref: 'Salmos 4:8',
+    titulo: 'En paz me acostaré y dormiré',
+    texto: '"En paz me acostaré, y asimismo dormiré; porque solo tú, Jehová, me haces vivir confiado." Henry ve en este versículo la descripción del alma que ha encontrado descanso real en Dios. El salmista ha confiado el día a Dios y puede confiarle también la noche. El sueño es, entre otras cosas, un acto de fe: rendimos la conciencia, dejamos el control, quedamos vulnerables. El que teme que Dios pueda fallarle no puede dormir en paz. El que sabe que Dios guarda al que en Él confía se acuesta con la misma tranquilidad que el niño en brazos de su madre. "Solo tú, Jehová" —ninguna riqueza, ningún ejército, ningún sistema de seguridad humana puede dar la paz que da Dios. Y la paz de noche es el barómetro de la fe de día: muéstrame cómo duermes y te diré cuánto confías en Dios.',
+    libro: 'Salmos',
+    obra: 'Commentary on the Whole Bible, Vol. III — Salmos (1710)',
+    url: 'https://www.ccel.org/ccel/henry/mhc3.Ps.v.html',
+  },
+
+  {
+    ref: 'Salmos 32:1-2',
+    titulo: 'La bienaventuranza del perdonado',
+    texto: '"Bienaventurado aquel cuya transgresión ha sido perdonada, y cubierto su pecado." Henry observa que David comienza con una exclamación de gozo —"bienaventurado" (en hebreo "ashrei", plural de intensidad: ¡cuántas bendiciones!)— no al describir las riquezas de un rey sino el estado de quien ha sido perdonado. El perdón es la mayor riqueza. El hombre más pobre que ha sido perdonado es más bienaventurado que el rey más poderoso que carga con el peso de la culpa no resuelta. "Ha sido perdonada" —pasivo divino: Dios perdonó. "Cubierto su pecado" —no que el pecado no existió, sino que está cubierto, no se verá en el día del juicio. Henry conecta esto con la expiación de Cristo: la sangre del Cordero es la única cobertura suficiente para el pecado humano. El creyente justificado no tiene pecado descubierto ante Dios.',
+    libro: 'Salmos',
+    obra: 'Commentary on the Whole Bible, Vol. III — Salmos (1710)',
+    url: 'https://www.ccel.org/ccel/henry/mhc3.Ps.xxxiii.html',
+  },
+
+  {
+    ref: 'Salmos 100:4',
+    titulo: 'Entrad por sus puertas con acción de gracias',
+    texto: '"Entrad por sus puertas con acción de gracias, por sus atrios con alabanza; alabadle, bendecid su nombre." Henry comenta que la adoración genuina tiene una dirección: entrar hacia Dios, no estar parados a la puerta. Muchos se quedan en los atrios exteriores de la religión —las formas, las costumbres, los ritos— sin entrar realmente a la presencia de Dios. La acción de gracias es la puerta: quien entra agradeciendo reconoce lo que ha recibido de Dios y viene a Él no a negociar sino a adorar. "Alabadle, bendecid su nombre" —la alabanza no añade nada a Dios pero transforma al que adora. El corazón agradecido es el corazón saludable. La queja es la enfermedad del alma que olvidó cuánto ha recibido; la gratitud es la salud del alma que vive consciente de las misericordias de Dios.',
+    libro: 'Salmos',
+    obra: 'Commentary on the Whole Bible, Vol. III — Salmos (1710)',
+    url: 'https://www.ccel.org/ccel/henry/mhc3.Ps.ci.html',
+  },
+
+  {
+    ref: 'Eclesiastés 12:1',
+    titulo: 'Acuérdate de tu Creador en los días de tu juventud',
+    texto: '"Acuérdate de tu Creador en los días de tu juventud, antes que vengan los días malos." Henry subraya que Salomón, hablando desde la experiencia de haberlo tenido todo y encontrarlo vacío, concluye con esta exhortación urgente a los jóvenes: no esperar para buscar a Dios. El error de posponer la religión para "cuando sea viejo" supone que habrá tiempo, que la voluntad seguirá siendo libre, que el corazón no se endurecerá más. Pero cada año sin Dios es un año de hábitos formados en su ausencia. La juventud no es el período de disfrutar sin Dios para volverse a Él después; es el período en que el corazón es más maleable, más capaz de recibir la impresión de la verdad. Henry escribe: "Los mejores años de tu vida, los que son más fuertes y brillantes, son los que Dios merece." El Creador que hizo el corazón tiene el mejor derecho sobre él.',
+    libro: 'Eclesiastés',
+    obra: 'Commentary on the Whole Bible, Vol. III — Eclesiastés (1710)',
+    url: 'https://www.ccel.org/ccel/henry/mhc3.Ecc.xiii.html',
+  },
+
+  {
+    ref: 'Isaías 26:3',
+    titulo: 'La paz perfecta para el que confía en Dios',
+    texto: '"Tú guardarás en completa paz a aquel cuyo pensamiento en ti persevera; porque en ti ha confiado." Henry destaca el hebreo "shalom shalom" —literalmente "paz paz", la intensificación poética para indicar plenitud: paz completa, perfecta, sin fisuras. Esta paz no es la ausencia de problemas externos sino la estabilidad interior que viene de confiar en Dios. "Cuyo pensamiento en ti persevera" —la paz es inseparable del pensamiento: la mente que piensa en Dios tiene paz; la mente que piensa en sus problemas sin Dios pierde la paz. No es negación de la realidad sino reencuadre de ella: los mismos problemas vistos desde la soberanía de Dios producen paz; vistos desde la propia impotencia producen ansiedad. "Porque en ti ha confiado" —la confianza produce la paz. No es la paz la que produce la confianza; es la confianza la que produce la paz.',
+    libro: 'Isaías',
+    obra: 'Commentary on the Whole Bible, Vol. IV — Isaías (1712)',
+    url: 'https://www.ccel.org/ccel/henry/mhc4.Isa.xxvii.html',
+  },
+
+  {
+    ref: 'Isaías 55:1',
+    titulo: 'Venid a las aguas: la invitación universal de la gracia',
+    texto: '"A todos los sedientos: Venid a las aguas; y los que no tienen dinero, venid, comprad y comed." Henry destaca la paradoja de comprar sin dinero: la gracia es totalmente gratuita pero también totalmente real y recibida como un don. La sed es el único requisito de entrada —no la justicia previa, no el mérito acumulado, no la posición social. Quien reconoce su necesidad está invitado. Y la invitación es de Dios mismo, no de un intermediario. Henry desarrolla que el agua, el vino y la leche que se ofrecen representan distintos aspectos de la gracia: el agua para la sed básica del alma, el vino para el gozo del evangelio, la leche para el alimento espiritual. Cristo es todo esto al mismo tiempo. El que viene a Él no tiene que escoger entre sus necesidades: Él suple todas. La única condición es venir —y para venir solo se necesita reconocer que uno tiene sed.',
+    libro: 'Isaías',
+    obra: 'Commentary on the Whole Bible, Vol. IV — Isaías (1712)',
+    url: 'https://www.ccel.org/ccel/henry/mhc4.Isa.lvi.html',
+  },
+
+  {
+    ref: 'Jeremías 31:31-33',
+    titulo: 'El Nuevo Pacto: la ley escrita en el corazón',
+    texto: '"He aquí que vienen días... en que haré nuevo pacto... pondré mi ley en su mente, y la escribiré en su corazón." Henry contrasta el Antiguo Pacto y el Nuevo. El Antiguo Pacto escribió la ley en tablas de piedra —externa, demandante, que mostraba el pecado pero no daba poder para obedecerla. El Nuevo Pacto escribe la ley en el corazón —interior, transformadora, que no solo demanda sino que obra la obediencia. La diferencia no es que el Nuevo Pacto exija menos; es que da más: el Espíritu Santo que produce desde dentro lo que la ley exige desde fuera. "Yo seré a ellos por Dios, y ellos me serán por pueblo" —la relación pactual es la esencia: conocer a Dios, no solo conocer sobre Dios. "Todos me conocerán desde el más pequeño hasta el más grande" —la democratización del conocimiento de Dios: no solo para sacerdotes y profetas, sino para todo el pueblo.',
+    libro: 'Jeremías',
+    obra: 'Commentary on the Whole Bible, Vol. IV — Jeremías (1712)',
+    url: 'https://www.ccel.org/ccel/henry/mhc4.Jer.xxxii.html',
+  },
+
+  {
+    ref: 'Ezequiel 36:26',
+    titulo: 'Corazón nuevo: la promesa de la regeneración',
+    texto: '"Os daré corazón nuevo, y pondré espíritu nuevo dentro de vosotros; y quitaré de vuestra carne el corazón de piedra, y os daré un corazón de carne." Henry ve aquí la promesa explícita del Antiguo Testamento de lo que Jesús llama "nacer de nuevo". El problema del ser humano no es solo conductual sino constitucional: tiene un corazón de piedra —duro, insensible a Dios, incapaz de responder. La solución no es la educación moral ni la reforma de conducta; es una cirugía divina: quitar el corazón de piedra y dar uno de carne. Esta operación solo puede realizarla Dios. El hombre no puede regenerarse a sí mismo como no puede darse a sí mismo la vida. La regeneración es completamente obra de Dios; la conversión (el volverse) es la respuesta humana a esa obra divina. El nuevo corazón produce nueva vida —nueva sensibilidad a Dios, nuevo amor, nueva obediencia.',
+    libro: 'Ezequiel',
+    obra: 'Commentary on the Whole Bible, Vol. IV — Ezequiel (1712)',
+    url: 'https://www.ccel.org/ccel/henry/mhc4.Eze.xxxvii.html',
+  },
+
+  {
+    ref: 'Miqueas 6:8',
+    titulo: '¿Qué pide Jehová de ti?',
+    texto: '"Oh hombre, él te ha declarado lo que es bueno, y qué pide Jehová de ti: solamente hacer justicia, y amar misericordia, y humillarte ante tu Dios." Henry observa que Miqueas resume toda la ética bíblica en tres verbos: hacer, amar, humillarte. "Hacer justicia" no es solo conocerla o defenderla en teoría; es practicarla en las relaciones concretas. "Amar misericordia" va más allá de practicarla: implica amarla, deleitarse en ella, no solo cumplirla como deber. "Humillarte ante tu Dios" —el hebreo es "caminar humildemente" con Dios: la vida entera como caminar con Dios en actitud de dependencia. Henry subraya que estos tres elementos son inseparables: la justicia sin misericordia es dureza; la misericordia sin justicia es complicidad con el mal; y ambas sin la humildad ante Dios se convierten en orgullo moral. Solo el que camina con Dios puede hacer justicia y amar misericordia de manera genuina.',
+    libro: 'Miqueas',
+    obra: 'Commentary on the Whole Bible, Vol. IV — Miqueas (1712)',
+    url: 'https://www.ccel.org/ccel/henry/mhc4.Mic.vii.html',
+  },
+
+  {
+    ref: 'Mateo 6:9-13',
+    titulo: 'El Padre Nuestro: el patrón de toda oración',
+    texto: 'Henry comenta que Jesús no solo dio permiso para orar al Padre sino que enseñó el modelo. El Padre Nuestro comienza con "Padre" —el privilegio de dirigirse a Dios como Padre es el mayor de todos los privilegios del creyente. "Nuestro" —no solo mi Padre sino Padre de toda la comunidad de fe. "Santificado sea tu nombre" —el primer deseo es la gloria de Dios; la oración que comienza con nuestras propias necesidades tiene las prioridades invertidas. "Venga tu reino" —el segundo deseo es la soberanía de Dios extendida a toda la tierra. "Hágase tu voluntad" —la rendición de la voluntad propia a la voluntad de Dios. Solo entonces vienen las peticiones humanas: el pan, el perdón, la liberación. Henry observa que el orden del Padre Nuestro es el mapa de una vida ordenada: quien ora así, vive así.',
+    libro: 'Mateo',
+    obra: 'Commentary on the Whole Bible, Vol. V — Mateo (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc5.Mat.vii.html',
+  },
+
+  {
+    ref: 'Mateo 25:21',
+    titulo: 'El elogio del Maestro: "bien, buen siervo y fiel"',
+    texto: '"Bien, buen siervo y fiel; sobre poco has sido fiel, te pondré sobre mucho; entra en el gozo de tu señor." Henry medita en estas palabras como las más deseadas que un creyente puede escuchar en el día del juicio. Nótese que el Señor no dice "bien, siervo inteligente" ni "siervo influyente" ni "siervo famoso" —dice "buen siervo y fiel". La fidelidad, no el éxito según criterios mundanos, es la medida del servicio. "Sobre poco has sido fiel" —el tamaño del campo no determina la calidad de la fidelidad; quien es fiel en poco también lo sería en mucho. El elogio divino no es para quien hizo las cosas más grandes sino para quien hizo lo que le fue encomendado con fidelidad. Henry exhorta al creyente a no desdeñar las tareas pequeñas: el Señor ve cada acto de fidelidad, por pequeño que sea, y lo recompensará.',
+    libro: 'Mateo',
+    obra: 'Commentary on the Whole Bible, Vol. V — Mateo (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc5.Mat.xxvi.html',
+  },
+
+  {
+    ref: 'Marcos 10:15',
+    titulo: 'Recibir el reino como niño',
+    texto: '"De cierto os digo, que el que no reciba el reino de Dios como un niño, no entrará en él." Henry observa que el niño no tiene mérito que presentar, no tiene logros que alegar, no tiene posición que ostentar. Llega con manos vacías y corazón abierto. Su única postura es la recepción: toma lo que se le da, confía en quien lo cuida, no cuestiona si merece lo que recibe. Esto es exactamente lo opuesto del espíritu adulto que quiere ganarse el favor de Dios, que llega con una lista de méritos, que trata de "comprar" la gracia con obras. El reino de Dios no se gana; se recibe. No se merece; se acepta como don. La condición para recibirlo es reconocer que uno no tiene nada con qué comprarlo, y que el Padre lo da gratuitamente. La humildad del niño es la puerta de entrada al reino que los sabios y prudentes no pueden hallar.',
+    libro: 'Marcos',
+    obra: 'Commentary on the Whole Bible, Vol. V — Marcos (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc5.Mar.xi.html',
+  },
+
+  {
+    ref: 'Lucas 10:27',
+    titulo: 'El gran mandamiento: amar a Dios y al prójimo',
+    texto: '"Amarás al Señor tu Dios con todo tu corazón, y con toda tu alma, y con todas tus fuerzas, y con toda tu mente; y a tu prójimo como a ti mismo." Henry subraya que el "todo" es exigente e inclusivo: no el corazón dividido, no el amor de conveniencia, no el amor reservado. Dios no pide una parte del corazón como si fuera uno de varios amores; pide todo. Y "a tu prójimo como a ti mismo" —no más que a ti mismo (lo que sería fanatismo), no menos (lo que sería egoísmo), sino con la misma preocupación activa con que atendemos nuestros propios intereses. Henry observa que el amor a Dios y el amor al prójimo no son mandamientos separados que compiten: el que realmente ama a Dios ama al que Dios ama. Y el que realmente ama al prójimo ama la imagen de Dios en él. Los dos mandamientos son en realidad uno.',
+    libro: 'Lucas',
+    obra: 'Commentary on the Whole Bible, Vol. V — Lucas (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc5.Luk.xi.html',
+  },
+
+  {
+    ref: 'Juan 6:35',
+    titulo: 'Yo soy el pan de vida',
+    texto: '"Jesús les dijo: Yo soy el pan de vida; el que a mí viene, nunca tendrá hambre; y el que en mí cree, no tendrá sed jamás." Henry comenta que Jesús, después de alimentar a cinco mil con cinco panes, dirige la atención de la multitud del pan físico al pan espiritual. La multitud quería más panes; Jesús les ofrece a sí mismo. El hambre y la sed del alma —esa insatisfacción profunda que ningún logro humano puede saciar— solo se satisface con Cristo. "El que a mí viene, nunca tendrá hambre" —la satisfacción que Cristo da es permanente, no temporal. El hombre que bebe del pozo de Jacob vuelve a tener sed; el que bebe del agua que Cristo da no volverá a tener sed jamás (Juan 4:14). El alma que ha encontrado a Cristo ha encontrado la fuente de toda satisfacción. Henry aplica esto pastoralmente: si el creyente sigue hambriento de algo, no ha venido a Cristo en ese área de su vida.',
+    libro: 'Juan',
+    obra: 'Commentary on the Whole Bible, Vol. V — Juan (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc5.Joh.vii.html',
+  },
+
+  {
+    ref: 'Romanos 1:16',
+    titulo: 'No me avergüenzo del evangelio',
+    texto: '"Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree." Henry observa que Pablo escribe esto antes de llegar a Roma, la capital del mundo, el centro del poder y la cultura. Era perfectamente razonable avergonzarse de predicar a un judío crucificado en una ciudad de filósofos y césares. Pero Pablo declara sin vacilación: "no me avergüenzo." La razón: el evangelio es "poder de Dios" (dynamis theou). No es una filosofía más ni un sistema moral mejorado; es el poder del Dios todopoderoso actuando en la historia humana para producir salvación. Y "para salvación a todo aquel que cree" —la oferta es universal en su alcance (todo), específica en su condición (el que cree). Henry aplica esto al predicador de toda época: en cualquier ciudad, ante cualquier audiencia, el evangelio es el único mensaje que tiene poder real para transformar vidas.',
+    libro: 'Romanos',
+    obra: 'Commentary on the Whole Bible, Vol. VI — Romanos (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc6.Rom.ii.html',
+  },
+
+  {
+    ref: '1 Corintios 15:55-57',
+    titulo: '¿Dónde está, oh muerte, tu aguijón?',
+    texto: '"¿Dónde está, oh muerte, tu aguijón? ¿Dónde, oh sepulcro, tu victoria?... Mas gracias sean dadas a Dios, que nos da la victoria por medio de nuestro Señor Jesucristo." Henry comenta que Pablo escribe este triunfo no como filosofía abstracta sino como consecuencia lógica de la resurrección de Cristo. Si Cristo resucitó, la muerte está derrotada. El aguijón de la muerte es el pecado —la culpa que da a la muerte su terror. Sin culpa no hay condenación; sin condenación la muerte pierde su amenaza. El creyente que está en Cristo no tiene pecado no perdonado, por tanto no tiene condenación, por tanto no tiene razón para temer a la muerte. No que la muerte física no sea real o que no sea dolorosa; es que ha perdido su victoria, que ya no es el fin de la historia. La muerte del creyente es solo la puerta hacia la resurrección.',
+    libro: '1 Corintios',
+    obra: 'Commentary on the Whole Bible, Vol. VI — 1 Corintios (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc6.1Co.xvi.html',
+  },
+
+  {
+    ref: '2 Corintios 4:17',
+    titulo: 'La leve tribulación produce un eterno peso de gloria',
+    texto: '"Porque esta leve tribulación momentánea produce en nosotros un cada vez más excelente y eterno peso de gloria." Henry medita en el contraste radical que Pablo establece: "leve" (aunque incluye encarcelamientos, naufragios, azotes) y "momentánea" (aunque dura toda una vida) versus "eterno peso de gloria". El sufrimiento del creyente es real; Pablo no lo niega. Pero comparado con la eternidad de la gloria, es infinitamente pequeño. "Produce" —las tribulaciones no solo se toleran; actúan, trabajan, fabrican la gloria. No es que la gloria compense el sufrimiento; es que el sufrimiento es el medio por el que Dios produce la gloria. Henry exhorta al creyente en la tribulación: no pierdas de vista la perspectiva eterna. Las lágrimas de hoy son la simiente de la alegría eterna. El peso de la tribulación es incomparablemente menor que el peso de la gloria que Dios prepara.',
+    libro: '2 Corintios',
+    obra: 'Commentary on the Whole Bible, Vol. VI — 2 Corintios (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc6.2Co.v.html',
+  },
+
+  {
+    ref: 'Gálatas 5:1',
+    titulo: 'Estad firmes en la libertad con que Cristo os liberó',
+    texto: '"Estad, pues, firmes en la libertad con que Cristo nos hizo libres, y no estéis otra vez sujetos al yugo de esclavitud." Henry explica que la libertad cristiana no es licencia para pecar sino liberación del sistema de justificación por obras. El yugo de esclavitud no es la obediencia moral sino la pretensión de ganarse la aprobación de Dios mediante la obediencia. El creyente es libre de esa ansiedad, libre de ese esfuerzo vano, libre para obedecer por amor y no por temor. "Estad firmes" implica que hay presión para volver atrás: la vieja naturaleza, la religión legalista, la presión social —todo empuja al creyente a volver al sistema de obras. Pero volver al legalismo no es humildad sino ingratitud: es rechazar el regalo de Cristo y decir "prefiero ganarme lo que Él me ha dado gratis."',
+    libro: 'Gálatas',
+    obra: 'Commentary on the Whole Bible, Vol. VI — Gálatas (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc6.Gal.vi.html',
+  },
+
+  {
+    ref: 'Apocalipsis 22:17',
+    titulo: 'El que quiera, tome del agua de la vida gratuitamente',
+    texto: '"Y el que quiera, tome del agua de la vida gratuitamente." Henry señala que estas son unas de las últimas palabras de la Biblia, y son una invitación: la misma gracia que llena las primeras páginas (Génesis 3:15) fluye en las últimas. El Espíritu y la Esposa dicen ven; el que oye dice ven; el que tiene sed que venga. La única condición es querer —y ese querer mismo es un don del Espíritu que llama. "Gratuitamente" (dorean en griego): sin precio, sin pago, sin mérito previo. El agua de la vida es Cristo mismo —su sangre, su Espíritu, su gracia. La Biblia entera es la historia de Dios ofreciendo este agua a la humanidad sedienta. Y la invitación final de la Escritura no es una amenaza sino un abrazo: "El que quiera, venga."',
+    libro: 'Apocalipsis',
+    obra: 'Commentary on the Whole Bible, Vol. VI — Apocalipsis (1714)',
+    url: 'https://www.ccel.org/ccel/henry/mhc6.Rev.xxiii.html',
+  },
+
 ];
