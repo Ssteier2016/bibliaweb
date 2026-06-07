@@ -284,10 +284,6 @@ const GEO_LUGARES = {
   ],
 };
 
-
-};
-
-
 // Constants for Biblical Journeys and Ancient Manuscripts
 const VIAJES_BIBLICOS = {
   abraham: {
