@@ -804,7 +804,6 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
           <span className="verse-num">
             {verse.verse}
             <span className="verse-badges">
-              <span className="verse-badge badge-ia" title="Preguntar a la IA Gen" onClick={e => { e.stopPropagation(); onAskAI?.(verse); }} style={{ cursor: 'pointer', marginLeft: '4px' }}>🤖 IA</span>
               {hasCommentary && <span className="verse-badge badge-commentary" title="Tiene comentario">📖</span>}
               {hasRef        && <span className="verse-badge badge-ref"        title="Tiene referencias">🔗</span>}
             </span>
@@ -842,6 +841,15 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
             title="Subrayar"
           >
             <HighlightIcon />
+          </button>
+
+          <button
+            className="icon-btn"
+            onClick={() => onAskAI?.(verse)}
+            title="Preguntar a la IA"
+            style={{ fontSize: '1.1rem' }}
+          >
+            🤖
           </button>
 
           <button
