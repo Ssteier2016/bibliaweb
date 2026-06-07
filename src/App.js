@@ -62,7 +62,7 @@ const HIGHLIGHT_COLORS = [
 ];
 
 function getHighlightBg(colorId, darkMode) {
-  if (!colorId) return null;
+  if (!colorId || typeof colorId !== 'string' || colorId.startsWith('[')) return null;
   // Color personalizado (hex directo)
   if (colorId.startsWith('#')) {
     if (!darkMode) return colorId;
@@ -711,6 +711,80 @@ function GeoMap({ lugares }) {
   );
 }
 
+// Helper to get character offset of selection within an element
+function getSelectionCharacterOffsetWithin(element) {
+  let start = 0;
+  let end = 0;
+  const sel = window.getSelection();
+  if (sel && sel.rangeCount > 0) {
+    const range = sel.getRangeAt(0);
+    const preCaretRange = range.cloneRange();
+    preCaretRange.selectNodeContents(element);
+    preCaretRange.setEnd(range.startContainer, range.startOffset);
+    start = preCaretRange.toString().length;
+    end = start + range.toString().length;
+  }
+  return { start, end };
+}
+
+// Helper to render text with partial highlights
+function renderHighlightedText(text, highlightVal, darkMode) {
+  if (!highlightVal || typeof highlightVal !== 'string') return text;
+
+  let ranges = [];
+  try {
+    if (highlightVal.startsWith('[')) {
+      ranges = JSON.parse(highlightVal);
+    }
+  } catch (e) {
+    ranges = [];
+  }
+
+  if (!Array.isArray(ranges) || ranges.length === 0) {
+    return text;
+  }
+
+  // Sort ranges by start position, filtering out overlaps
+  ranges.sort((a, b) => a.start - b.start);
+
+  const result = [];
+  let lastIndex = 0;
+
+  for (const r of ranges) {
+    if (r.start < lastIndex) continue; // Skip overlaps
+    if (r.start > text.length) break;
+
+    // Add text before this highlight segment
+    if (r.start > lastIndex) {
+      result.push(text.slice(lastIndex, r.start));
+    }
+
+    // Add highlighted segment
+    const bgColor = getHighlightBg(r.color, darkMode);
+    const spanStyle = bgColor ? {
+      backgroundColor: bgColor,
+      borderRadius: '4px',
+      padding: '2px 0px',
+      color: darkMode ? '#f5f0eb' : '#1c1917'
+    } : {};
+
+    result.push(
+      <span key={r.start} style={spanStyle} className={`highlight-span color-${r.color}`}>
+        {text.slice(r.start, r.end)}
+      </span>
+    );
+
+    lastIndex = r.end;
+  }
+
+  // Add the remaining text
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+
+  return result;
+}
+
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
 function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode, onAskAI }) {
@@ -722,6 +796,43 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
   const [activeTab,      setActiveTab]      = useState(null);
   const [noteVal,        setNoteVal]        = useState(note || '');
   const [copied,         setCopied]         = useState(false);
+
+  function handleSelectColor(colorId) {
+    const selection = window.getSelection();
+    const verseTextEl = document.querySelector(`#verse-${verse.verse} .verse-text`);
+    
+    if (selection && !selection.isCollapsed && verseTextEl && verseTextEl.contains(selection.anchorNode)) {
+      const { start, end } = getSelectionCharacterOffsetWithin(verseTextEl);
+      if (start !== end && end <= verse.text.length) {
+        let currentRanges = [];
+        try {
+          if (highlight && typeof highlight === 'string' && highlight.startsWith('[')) {
+            currentRanges = JSON.parse(highlight);
+          }
+        } catch (e) {}
+        
+        // Remove overlapping ranges
+        currentRanges = currentRanges.filter(r => r.end <= start || r.start >= end);
+        
+        if (colorId) {
+          currentRanges.push({ start, end, color: colorId });
+        }
+        
+        if (currentRanges.length > 0) {
+          onHighlight(verse.verse, JSON.stringify(currentRanges));
+        } else {
+          onHighlight(verse.verse, null);
+        }
+        
+        // Clear selection
+        selection.removeAllRanges();
+        return;
+      }
+    }
+    
+    // Default to whole-verse highlight
+    onHighlight(verse.verse, highlight === colorId ? null : colorId);
+  }
 
   const verseKey   = `${bookName}_${chapter}_${verse.verse}`;
   const commentKey = verseKey;
@@ -808,7 +919,7 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
               {hasRef        && <span className="verse-badge badge-ref"        title="Tiene referencias">🔗</span>}
             </span>
           </span>
-          <span className="verse-text">{verse.text}</span>
+          <span className="verse-text">{renderHighlightedText(verse.text, highlight, darkMode)}</span>
           {(showActions || likeCount > 0) && (
             <button
               className={`heart-btn ${likeCount > 0 ? 'has-likes' : ''}`}
@@ -923,9 +1034,9 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
               className={`color-dot ${highlight === c.id ? 'selected' : ''}`}
               style={{ backgroundColor: darkMode ? c.dark : c.light }}
               title={c.label}
+              onMouseDown={e => e.preventDefault()}
               onClick={() => {
-                onHighlight(verse.verse, highlight === c.id ? null : c.id);
-                if (highlight === c.id) setShowColors(false);
+                handleSelectColor(c.id);
               }}
             />
           ))}
@@ -938,11 +1049,18 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
               type="color"
               className="color-custom-input"
               value={highlight?.startsWith('#') ? highlight : '#fbbf24'}
-              onChange={e => onHighlight(verse.verse, e.target.value)}
+              onChange={e => handleSelectColor(e.target.value)}
             />
           </label>
           {highlight && (
-            <button className="remove-color-btn" onClick={() => { onHighlight(verse.verse, null); setShowColors(false); }}>
+            <button
+              className="remove-color-btn"
+              onMouseDown={e => e.preventDefault()}
+              onClick={() => {
+                handleSelectColor(null);
+                setShowColors(false);
+              }}
+            >
               ✕ Quitar
             </button>
           )}

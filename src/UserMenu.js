@@ -27,6 +27,17 @@ const HIGHLIGHT_MAP = {
 
 function getSwatchBg(colorId) {
   if (!colorId) return 'transparent';
+  if (colorId.startsWith('[')) {
+    try {
+      const ranges = JSON.parse(colorId);
+      if (ranges.length > 0) {
+        const firstColor = ranges[0].color;
+        if (firstColor.startsWith('#')) return firstColor;
+        return HIGHLIGHT_MAP[firstColor] || 'transparent';
+      }
+    } catch (e) {}
+    return 'transparent';
+  }
   if (colorId.startsWith('#')) return colorId;
   return HIGHLIGHT_MAP[colorId] || 'transparent';
 }
