@@ -11,6 +11,15 @@ root.render(
 );
 
 if ('serviceWorker' in navigator) {
+  // Recargar la página automáticamente cuando el nuevo service worker toma el control
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
+  });
+
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
       .then(reg => {

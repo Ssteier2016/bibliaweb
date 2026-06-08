@@ -1,12 +1,16 @@
-const CACHE = 'biblia-v5';
+const CACHE = 'biblia-v6';
 const PRECACHE = ['/', '/es_rvr.json', '/manifest.json', '/logo192.png', '/logo512.png'];
 
 self.addEventListener('install', e => {
   self.skipWaiting();
   e.waitUntil(
     caches.open(CACHE).then(async cache => {
-      // Cargar precache básico
-      await cache.addAll(PRECACHE).catch(() => {});
+      // Cargar precache básico individualmente para tolerancia a fallas
+      await Promise.all(
+        PRECACHE.map(url => 
+          cache.add(url).catch(err => console.error(`Error caching ${url}:`, err))
+        )
+      );
       
       // Cargar dinámicamente los assets con hashes del build actual
       try {
@@ -19,7 +23,11 @@ self.addEventListener('install', e => {
               !url.endsWith('.map') &&
               (url.startsWith('/static/') || url === '/index.html')
             );
-            await cache.addAll(filesToCache);
+            await Promise.all(
+              filesToCache.map(url =>
+                cache.add(url).catch(err => console.error(`Error caching asset ${url}:`, err))
+              )
+            );
           }
         }
       } catch (err) {
@@ -38,9 +46,15 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
-
   const url = e.request.url;
+
+  // Solo manejar peticiones HTTP/HTTPS (ignorar data:, chrome-extension:, etc.)
+  if (!url.startsWith('http')) return;
+
+  // No interceptar ni cachear el propio sw.js para permitir actualizaciones limpias
+  if (url.includes('sw.js')) return;
+
+  if (e.request.method !== 'GET') return;
 
   // Siempre red para Firebase, APIs externas y chrome-extension
   if (
@@ -75,8 +89,8 @@ self.addEventListener('fetch', e => {
   if (
     url.includes('/static/') ||
     url.match(/\.(js|css|png|jpg|jpeg|svg|ico|woff2?|ttf)$/) ||
-    url.endsWith('es_rvr.json') ||
-    url.endsWith('manifest.json')
+    requestUrl.pathname.endsWith('es_rvr.json') ||
+    requestUrl.pathname.endsWith('manifest.json')
   ) {
     e.respondWith(
       caches.match(e.request, { ignoreSearch: true }).then(cached => {
@@ -109,4 +123,3 @@ self.addEventListener('fetch', e => {
 self.addEventListener('message', e => {
   if (e.data === 'SKIP_WAITING') self.skipWaiting();
 });
-
