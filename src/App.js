@@ -1822,11 +1822,11 @@ export default function App() {
         // Racha de lectura
         const newStreak = await updateReadingStreak(firebaseUser.uid, streak, data.lastReadDate);
         setStreak(newStreak);
-        // Guardar perfil y presencia (no sobreescribir photoURL si Auth la tiene vacía)
+        // Guardar perfil y presencia (no sobreescribir photoURL si ya hay una foto cargada en Firestore)
         await savePresence(firebaseUser.uid, {
           displayName: firebaseUser.displayName || data.displayName || '',
           email:       firebaseUser.email || '',
-          ...(firebaseUser.photoURL ? { photoURL: firebaseUser.photoURL } : {}),
+          ...((firebaseUser.photoURL && !data.photoURL) ? { photoURL: firebaseUser.photoURL } : {}),
           createdAt:   data.createdAt || firebaseUser.metadata.creationTime || new Date().toISOString(),
         });
       } else if (firebaseUser?.isAnonymous) {

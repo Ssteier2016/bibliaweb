@@ -46,9 +46,13 @@ export async function loadUserData(uid) {
   }
 }
 
-// Guarda solo los campos de lectura bíblica (merge para no pisar perfil)
+// Guarda solo los campos de lectura bíblica (reemplaza mapas enteros para eliminar claves borradas)
 export async function saveUserData(uid, data) {
-  try { await setDoc(doc(db, 'users', uid), data, { merge: true }); } catch {}
+  try {
+    await updateDoc(doc(db, 'users', uid), data);
+  } catch {
+    try { await setDoc(doc(db, 'users', uid), data, { merge: true }); } catch {}
+  }
 }
 
 // Guarda/actualiza perfil y presencia
