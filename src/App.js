@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import './App.css';
 import { COMMENTARY } from './data/commentary';
+import { CSLEWIS_COMMENTARY } from './data/cslewis';
+import { SPURGEON_COMMENTARY } from './data/spurgeon';
+import { MATTHEW_HENRY_COMMENTARY } from './data/matthew_henry';
+import { CALVIN_COMMENTARY } from './data/calvin';
+import { LUTHER_COMMENTARY } from './data/luther';
+import { EDWARDS_COMMENTARY } from './data/edwards';
+import { ANDREW_MURRAY_COMMENTARY } from './data/andrew_murray';
+import { MACARTHUR_COMMENTARY } from './data/macarthur';
 import AuthScreen               from './AuthScreen';
 import UserMenu                 from './UserMenu';
 import CommentsPanel            from './CommentsPanel';
@@ -10,6 +18,49 @@ import TheologicalCommentaries  from './TheologicalCommentaries';
 import logo3                    from './logo3.png';
 import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes, createPost } from './firebase';
 import { PROLOGUES }            from './data/prologues';
+
+// Agrupar comentarios teológicos por versículo para mostrarlos dinámicamente en el lector
+const THEOLOGIANS_LIST = [
+  { id: 'luther', name: 'Martín Lutero', initials: 'ML', color: '#7a4f10', list: LUTHER_COMMENTARY },
+  { id: 'calvin', name: 'Juan Calvino', initials: 'JC', color: '#6b1a1a', list: CALVIN_COMMENTARY },
+  { id: 'matthew_henry', name: 'Matthew Henry', initials: 'MH', color: '#2d5a27', list: MATTHEW_HENRY_COMMENTARY },
+  { id: 'edwards', name: 'Jonathan Edwards', initials: 'JE', color: '#1a4040', list: EDWARDS_COMMENTARY },
+  { id: 'spurgeon', name: 'Charles H. Spurgeon', initials: 'SP', color: '#4a1c6e', list: SPURGEON_COMMENTARY },
+  { id: 'andrew_murray', name: 'Andrew Murray', initials: 'AM', color: '#3d1a6e', list: ANDREW_MURRAY_COMMENTARY },
+  { id: 'cslewis', name: 'C.S. Lewis', initials: 'CS', color: '#6b3a2a', list: CSLEWIS_COMMENTARY },
+  { id: 'macarthur', name: 'John MacArthur', initials: 'JM', color: '#0f3a5f', list: MACARTHUR_COMMENTARY }
+];
+
+function refToKey(ref) {
+  if (!ref) return '';
+  const lastSpace = ref.lastIndexOf(' ');
+  if (lastSpace === -1) return '';
+  const book = ref.substring(0, lastSpace);
+  const numbers = ref.substring(lastSpace + 1).replace(':', '_');
+  return `${book}_${numbers}`;
+}
+
+const THEOLOGICAL_BY_VERSE = (() => {
+  const map = {};
+  THEOLOGIANS_LIST.forEach(author => {
+    author.list.forEach(item => {
+      const key = refToKey(item.ref);
+      if (!key) return;
+      if (!map[key]) map[key] = [];
+      map[key].push({
+        authorId: author.id,
+        authorName: author.name,
+        initials: author.initials,
+        color: author.color,
+        titulo: item.titulo,
+        texto: item.texto,
+        obra: item.obra,
+        url: item.url
+      });
+    });
+  });
+  return map;
+})();
 
 const BOOK_NAMES = {
   gn:'Génesis', ex:'Éxodo', lv:'Levítico', nm:'Números', dt:'Deuteronomio',
@@ -867,7 +918,14 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
       setShowComments(false);
     }
   }
-  const allTabs     = verseData ? COMMENT_TYPES.filter(t => verseData[t.key]) : [];
+  const theologicalComments = THEOLOGICAL_BY_VERSE[verseKey] || [];
+
+  const allTabs     = COMMENT_TYPES.filter(t => {
+    if (t.key === 'comentarios') {
+      return (verseData?.comentarios) || (theologicalComments.length > 0);
+    }
+    return verseData?.[t.key];
+  });
   const nonRefTabs  = allTabs.filter(t => t.key !== 'referencia');
   const hasRef      = !!verseData?.referencia;
   const hasCommentary = nonRefTabs.length > 0;
@@ -1131,13 +1189,48 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
                   </button>
                 )}
               </div>
-              {activeTab && verseData?.[activeTab] && (
+              {activeTab && (verseData?.[activeTab] || (activeTab === 'comentarios' && theologicalComments.length > 0)) && (
                 <div className="commentary-content">
                   <div className="commentary-content-label">
                     {COMMENT_TYPES.find(t => t.key === activeTab)?.icon}{' '}
                     {COMMENT_TYPES.find(t => t.key === activeTab)?.label}
                   </div>
-                  {verseData[activeTab]}
+                  
+                  {activeTab === 'comentarios' ? (
+                    <div className="theologians-wrapper">
+                      {verseData?.comentarios && (
+                        <div className="exegetical-comment">
+                          <p>{verseData.comentarios}</p>
+                          {theologicalComments.length > 0 && <hr className="commentary-divider" />}
+                        </div>
+                      )}
+                      
+                      {theologicalComments.length > 0 && (
+                        <div className="theological-list">
+                          <h4 className="theological-title">📖 Comentarios de Teólogos Históricos:</h4>
+                          {theologicalComments.map((tc, idx) => (
+                            <div key={idx} className="theological-entry" style={{ borderLeft: `4px solid ${tc.color}` }}>
+                              <div className="theological-header">
+                                <span className="theological-avatar" style={{ backgroundColor: tc.color }}>{tc.initials}</span>
+                                <strong className="theological-author">{tc.authorName}</strong>
+                                <span className="theological-obra" title={tc.obra}>— {tc.obra}</span>
+                              </div>
+                              <h5 className="theological-subtitle">{tc.titulo}</h5>
+                              <p className="theological-text">{tc.texto}</p>
+                              {tc.url && (
+                                <a href={tc.url} target="_blank" rel="noopener noreferrer" className="theological-link">
+                                  🔗 Leer obra original
+                                </a>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    verseData[activeTab]
+                  )}
+
                   {activeTab === 'geografico' && GEO_LUGARES[commentKey] && (
                     <GeoMap lugares={GEO_LUGARES[commentKey]} />
                   )}

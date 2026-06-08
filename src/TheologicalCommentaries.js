@@ -6,6 +6,7 @@ import { CALVIN_COMMENTARY }         from './data/calvin';
 import { LUTHER_COMMENTARY }         from './data/luther';
 import { EDWARDS_COMMENTARY }        from './data/edwards';
 import { ANDREW_MURRAY_COMMENTARY }  from './data/andrew_murray';
+import { MACARTHUR_COMMENTARY }      from './data/macarthur';
 import { loadAuthorPhotos, saveAuthorPhoto, saveAuthorPhotoURL, ADMIN_EMAIL } from './firebase';
 
 const AUTHORS = [
@@ -85,6 +86,17 @@ const AUTHORS = [
     color: '#6b3a2a',
     initials: 'CS',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/C.s.lewis3.JPG/440px-C.s.lewis3.JPG',
+  },
+  {
+    id: 'macarthur',
+    name: 'John MacArthur',
+    years: '1939–presente',
+    tradition: 'Bautista Reformada · Predicación Expositiva · Dispensacionalismo Señorío',
+    bio: 'Pastor de Grace Community Church en Sun Valley, California, y presidente de The Master\'s University y Seminary. Famoso por su ministerio "Grace to You" y su Biblia de Estudio MacArthur. Su enfoque se centra en la exposición versículo por versículo de todo el Nuevo Testamento y partes clave del Antiguo Testamento.',
+    commentary: MACARTHUR_COMMENTARY,
+    color: '#0f3a5f',
+    initials: 'JM',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/John_F._MacArthur.jpg/440px-John_F._MacArthur.jpg',
   },
 ];
 
