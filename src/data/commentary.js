@@ -3490,4 +3490,355 @@ export const COMMENTARY = {
     comentarios: `G.K. Beale: la asignación del mismo título tanto al Padre (Ap 1:8; 21:6) como al Hijo (22:13) es la afirmación trinitaria más densa del Apocalipsis. Richard Bauckham: "primero y último" es la auto-designación de YHWH en Isaías; al aplicarla a Cristo, Juan lo incluye dentro de la identidad única del Dios de Israel. El hecho de que el libro finalice con este título señala que toda la historia — su inicio, su drama y su consumación — está contenida en la persona de Cristo.`,
   },
 
+
+  'Génesis_3_19': {
+    historico: 'La sentencia divina "polvo eres, y al polvo volverás" refleja las duras condiciones de la agricultura en la antigua Palestina montañosa, donde el sustento dependía enteramente de la lluvia estacional y del trabajo físico riguroso en suelos rocosos.',
+    linguistico: 'La frase "polvo eres" usa "aphar" (עָפָר), indicando arcilla molida, polvo o residuo terrestre suelto. El juego de palabras con "Adam" (hecho de "Adamah", tierra fértil) subraya la ironía del juicio: el ser humano vuelve a la materia de la cual fue formado.',
+    cientifico: 'La muerte biológica es el cese del metabolismo celular. Los elementos químicos que componen el cuerpo (carbono, nitrógeno, fósforo, calcio) regresan al suelo a través del ciclo biogeoquímico, sirviendo de nutrientes para nuevas formas de vida.',
+    comentarios: 'Juan Calvino: este juicio recuerda la fragilidad intrínseca del ser humano al despojarlo de toda soberbia. San Agustín: la muerte física es consecuencia justa del pecado original, sirviendo a la vez de recordatorio de la necesidad de gracia.',
+  },
+
+  'Génesis_28_12': {
+    historico: 'El sueño de Jacob ocurre en Betel (antes Luz), sitio sagrado cananeo que Jacob consagra erigiendo una estela. El concepto de una "escalera" o rampa que une el cielo y la tierra evoca el diseño de los zigurats mesopotámicos contemporáneos.',
+    linguistico: 'La palabra "escalera" ("sullam", סֻלָּם) es un hápax legomenon. Se asocia con la raíz semítica para apilar o elevar, y probablemente describía una gran escalinata o rampa de piedra similar a las de los templos sumerios y babilónicos.',
+    cientifico: 'La neurobiología del sueño indica que la fase REM es cuando ocurren los sueños más vívidos y visuales, a menudo procesando tensiones del estado de vigilia. Jacob huía de su hermano Esaú bajo estrés extremo.',
+    comentarios: 'Juan Crisóstomo: los ángeles que suben y bajan revelan la continua providencia divina velando por los creyentes. Ireneo de Lyon vio en la escalera una prefiguración de la encarnación, conectando el cielo y la tierra.',
+  },
+
+  'Éxodo_14_14': {
+    historico: 'Moisés pronuncia esta arenga militar en la víspera del paso del Mar Rojo, ante la inminente carga de los carros de guerra del Faraón (dinastía XIX de Egipto), el ejército más letal del Bronce Tardío.',
+    linguistico: '"Jehová peleará por vosotros": usa el verbo "lacham" (לָחַם) en conjugación pasiva/reflexiva, indicando que Dios mismo asume el rol activo de guerrero. "Estad quietos" ("charash", חָרַשׁ) significa guardar absoluto silencio.',
+    referencia: 'Deuteronomio 3:22 ("no los temáis; porque Jehová vuestro Dios peleará por vosotros"). 2 Crónicas 20:17. Nehemías 4:20. Salmos 46:10.',
+    comentarios: 'Martín Lutero: el mandamiento de callar y dejar que Dios actúe es la prueba de fe más difícil para el orgullo humano. Spurgeon: el silencio de la quietud es a menudo el preludio de las victorias divinas más grandes.',
+  },
+
+  'Éxodo_20_4': {
+    historico: 'El segundo mandamiento prohíbe las imágenes talladas para el culto. En el Antiguo Cercano Oriente, los templos paganos albergaban ídolos que representaban la presencia del dios, los cuales requerían ritos cotidianos de alimentación e higiene.',
+    linguistico: '"Imagen" ("pesel", פֶּסֶל) designa una estatua esculpida en madera o piedra. La prohibición ataca el antropomorfismo y la domesticación de Dios: ningún objeto físico puede contener al Creador del universo.',
+    referencia: 'Deuteronomio 4:15-16. Romanos 1:22-23 ("cambiaron la gloria del Dios incorruptible en semejanza de imagen de hombre corruptible"). Colosenses 1:15 (Cristo como la verdadera imagen visible de Dios).',
+    comentarios: 'Juan Calvino desarrolló una fuerte teología iconoclasta basada en este texto, advirtiendo que la mente humana es una "fábrica constante de ídolos". Tomás de Aquino distinguió entre adoración (latría) y veneración.',
+  },
+
+  'Deuteronomio_4_24': {
+    historico: 'Moisés advierte a Israel antes de entrar a Canaán, donde la religión de los cananeos incluía ritos sexuales y de fertilidad dedicados a Baal y Astarot. Dios exige devoción exclusiva contra el sincretismo pagano.',
+    linguistico: '"Dios celoso" ("El qanna", אֵל קัנָּא) evoca el celo del pacto matrimonial: el amor exclusivo de Dios no tolera infidelidades. "Fuego consumidor" ("esh okelah") denota la intensidad destructiva de su juicio santo.',
+    referencia: 'Hebreos 12:29 ("nuestro Dios es fuego consumidor"). Éxodo 34:14. Josué 24:19. Isaías 33:14.',
+    comentarios: 'Jonathan Edwards: el fuego divino describe la santidad activa que repele y destruye todo pecado. C.S. Lewis: el celo de Dios no es envidia humana insignificante, sino la insistencia apasionada en que nuestro mayor bien se halla en Él.',
+  },
+
+  'Deuteronomio_31_6': {
+    historico: 'Moisés exhorta a la nación de Israel y a su sucesor Josué ante las campañas militares que emprenderán contra las ciudades fortificadas de Canaán (como Jericó y Hazor), las cuales contaban con superioridad defensiva.',
+    linguistico: '"Esforzaos y cobrad ánimo": "chazaq" (חָזַק) significa ser fuerte y asirse firmemente; "amats" (אָמַץ) es estar alerta y resuelto. "No te dejará ni te desamparará": el verbo "raphah" es soltar la mano.',
+    referencia: 'Josué 1:5. Hebreos 13:5 (el escritor cita este versículo para alentar el contentamiento financiero). Salmos 27:14.',
+    comentarios: 'Juan Calvino: la certeza del auxilio y la constante presencia divina es el único antídoto eficaz contra el pánico y el desánimo humano. Spurgeon: el pacto de Dios de no soltar la mano de sus hijos es nuestra mayor seguridad.',
+  },
+
+  'Jueces_5_1': {
+    historico: 'El cántico de Débora y Barac celebra la victoria de las tribus unidas de Israel sobre Sísara y sus 900 carros de hierro. Es uno de los fragmentos poéticos más antiguos de la Biblia hebrea (siglo XII a.C.).',
+    linguistico: 'El hebreo de Jueces 5 es arcaico y presenta múltiples dificultades gramaticales. Usa términos que evocan la teofanía de Dios saliendo de Seir y marchando desde los campos de Edom para defender a su pueblo.',
+    comentarios: 'Agustín de Hipona vio en el cántico de Débora un testimonio de cómo Dios levanta liderazgo profético femenino en tiempos de apostasía y caos nacional. John Wesley destacó el valor poético del himno.',
+  },
+
+  '1 Samuel_15_22': {
+    historico: 'Samuel pronuncia este juicio contra el rey Saúl tras la campaña militar contra los amalequitas. Saúl desobedeció la orden de destrucción total (herem) conservando el mejor ganado con el pretexto de ofrecer sacrificios.',
+    linguistico: '"El obedecer es mejor que los sacrificios": "shama" (listen/obey) contrasta con "zabach" (matar sacrificios rituales). El texto enfatiza que la sumisión de la voluntad precede a cualquier formalismo religioso.',
+    referencia: 'Oseas 6:6. Mateo 9:13; 12:7 (Jesús cita "misericordia quiero, y no sacrificio"). Salmos 51:16-17. Proverbios 21:3.',
+    comentarios: 'Martín Lutero: los ritos religiosos sin obediencia interior son una burla al Creador. John Wesley: Dios busca una relación de corazón antes que ceremonias externas espléndidas.',
+  },
+
+  '2 Samuel_22_2': {
+    historico: 'Este cántico de liberación es casi idéntico al Salmo 18. Compuesto por David al final de su vida, recapitula su salvación de la mano de Saúl y de sus múltiples enemigos militares extranjeros.',
+    linguistico: '"Roca" ("sela", סֶלַע) y "Fortaleza" ("metsudah", מְצוּדָה): términos militares que describen los refugios rocosos de Judea y las fortalezas naturales donde David se ocultó de Saúl (como Masada y En-gadi).',
+    referencia: 'Salmos 18:2. Salmos 31:3. Salmos 71:3. Salmos 144:2.',
+    comentarios: 'Agustín: David ve en las rocas físicas de su destierro un sacramento de la fidelidad inamovible de Dios. C.S. Lewis destacó el realismo de las metáforas de refugio en los escritos de David.',
+  },
+
+  '1 Reyes_3_9': {
+    historico: 'Al inicio de su reinado (~970 a.C.), el joven Salomón ofrece sacrificios en Gabaa. Dios se le aparece en sueños y Salomón solicita sabiduría práctica de gobierno en lugar de riquezas o victorias militares.',
+    linguistico: '"Corazón entendido": "leb shomea" (לֵב שֹׁמֵעַ), literalmente un "corazón que escucha". La verdadera sabiduría gubernamental no es astucia política abstracta, sino saber escuchar la instrucción divina para discernir.',
+    referencia: '2 Crónicas 1:10. Santiago 1:5. Proverbios 2:6 ("porque Jehová da la sabiduría"). Mateo 12:42.',
+    comentarios: 'Tomás de Aquino: la sabiduría que Salomón solicitó era la virtud de la prudencia en grado eminente, necesaria para la administración de la justicia. Calvino: el temor a Dios es el fundamento de toda sabiduría.',
+  },
+
+  '2 Reyes_2_11': {
+    historico: 'El arrebatamiento de Elías en Jericó marca la transición profética a Eliseo. Elías fue uno de los profetas más importantes de Israel, luchando contra el culto pagano a Baal instaurado por Acab y Jezabel.',
+    linguistico: '"Carro de fuego con caballos de fuego": la palabra "fuego" ("esh", אֵשׁ) denota la gloria y la presencia teofánica de Dios en el AT (cf. la zarza ardiendo y la columna de fuego en el desierto).',
+    referencia: 'Mateo 17:3 (Elías y Moisés aparecen en la transfiguración). Malaquías 4:5. Lucas 1:17 (Juan el Bautista viene con el espíritu de Elías).',
+    comentarios: 'Efrén de Siria: el carro de fuego simboliza el triunfo del Espíritu sobre la muerte física. Orígenes vio en el manto de Elías dejado a Eliseo la transmisión de la autoridad apostólica en la Iglesia.',
+  },
+
+  '1 Crónicas_29_11': {
+    historico: 'David pronuncia esta bendición litúrgica ante toda la congregación de Israel tras reunir los materiales para el Templo que edificará Salomón. El texto consagra la riqueza nacional al servicio de Dios.',
+    linguistico: '"Tuya es... la magnificencia": "tipheret" (תִּפְאֶרֶת) indica gloria, belleza y esplendor regio. El término "soberanía" ("mamlakah", מַמְלָכָה) proclama el señorío divino sobre todos los imperios terrenales.',
+    referencia: 'Mateo 6:13 (la doxología final del Padre Nuestro se basa en este texto). Apocalipsis 4:11; 5:12. Salmos 96:6.',
+    comentarios: 'Martín Lutero: esta doxología nos enseña que toda posesión terrenal es solo una mayordomía temporal, ya que el dueño absoluto es Dios. Calvino: la alabanza despoja al ser humano de todo mérito.',
+  },
+
+  'Job_14_1': {
+    historico: 'Job expresa el lamento sapiencial clásico sobre la condición humana en el contexto del sufrimiento extremo de su enfermedad (elefantiasis o sarna negra) y la pérdida devastadora de toda su familia y bienes.',
+    linguistico: '"Corto de días, y hastiado de sinsabores": "qatsar yamim" (días recortados). El texto evoca la fragilidad existencial: la vida humana es como una flor silvestre o una sombra que pasa rápidamente.',
+    referencia: 'Salmos 103:15-16 ("el hombre, como la hierba son sus días"). Santiago 4:14 ("vuestra vida... es neblina"). Job 7:7. Eclesiastés 1:2.',
+    comentarios: 'Gregorio el Grande: Job describe la realidad del hombre bajo la caída antes de la venida de la gracia. C.S. Lewis: la honestidad de Job sobre el sinsabor de la vida es el punto de partida de la fe madura.',
+  },
+
+  'Job_42_2': {
+    historico: 'Job responde a Dios después de que YHWH le hablara desde el torbellino (Job 38-41). Tras contemplar la inmensidad y el diseño del cosmos y el reino animal, Job reconoce su propia ignorancia y la soberanía de Dios.',
+    linguistico: '"Ningún pensamiento puede ser estorbado": "mezimmah" (מְזִמָּה) significa plan, propósito o designio sabio. Los planes de Dios no pueden ser frustrados por circunstancias humanas o fuerzas cósmicas.',
+    referencia: 'Isaías 43:13 ("y de mi mano nadie puede librar"). Mateo 19:26 ("para Dios todo es posible"). Salmos 115:3. Daniel 4:35.',
+    comentarios: 'Tomás de Aquino usó este texto para fundamentar la omnipotencia divina: Dios puede hacer todo lo que no contradiga su naturaleza. Calvino: la soberanía absoluta de Dios es el descanso final del creyente sufriente.',
+  },
+
+  'Job_42_5': {
+    historico: 'Job resume su transformación espiritual. Su conocimiento previo de Dios se limitaba a la tradición oral heredada de los patriarcas ("de oídas"), pero su experiencia del sufrimiento y el encuentro directo revelan a Dios de forma personal.',
+    linguistico: '"Mas ahora mis ojos te ven": el verbo "raah" (רָאָה) denota visión espiritual profunda, convicción íntima y percepción directa de la realidad del Dios vivo.',
+    referencia: 'Juan 1:18. 1 Juan 3:2 ("le veremos tal como él es"). Mateo 5:8 ("bienaventurados los de limpio corazón, porque ellos verán a Dios"). Gálatas 1:16.',
+    comentarios: 'Juan de la Cruz: la noche oscura del alma purifica la fe de Job, llevándolo del dogma intelectual a la contemplación íntima. Spurgeon: el sufrimiento es a menudo el lente que aclara nuestra visión de Dios.',
+  },
+
+  'Salmos_19_14': {
+    historico: 'El Salmo 19 vincula la revelación general de Dios en la naturaleza (cielos) con su revelación especial en la Torá (Ley). David concluye con esta oración sacerdotal personal pidiendo pureza interior.',
+    linguistico: '"Dichos de mi boca... meditación de mi corazón": "hegyon" (הֶגְיוֹן) es la meditación murmurada o susurro íntimo. "Roca mía y redentor mío": "go\'el" es el pariente protector.',
+    referencia: 'Salmos 119:108. Salmos 104:34 ("dulce será mi meditación en él"). Romanos 12:1-2. Santiago 3:2.',
+    comentarios: 'Spurgeon: las palabras externas carecen de valor si el susurro del corazón no es santo ante Dios. Agustín de Hipona la consideraba la oración diaria perfecta del predicador de la Palabra.',
+  },
+
+  'Salmos_37_5': {
+    historico: 'El Salmo 37 es un poema acróstico sapiencial atribuido a la vejez de David. Ofrece consejo pastoral práctico a quienes se inquietan ante la prosperidad temporal de los malvados y la injusticia social.',
+    linguistico: '"Encomienda... tu camino": "gol" (גֹּל), literalmente "rueda" o "transfiere la carga". La imagen es la de un caminante cansado que hace rodar su pesada carga sobre los hombros de un guía fuerte.',
+    referencia: 'Proverbios 16:3 ("encomienda a Jehová tus obras, y tus pensamientos serán afirmados"). 1 Pedro 5:7. Salmos 55:22. Filipenses 4:6.',
+    comentarios: 'Martín Lutero tradujo "encomienda" como "deja rodar tu camino", viendo en ello el descanso de la fe sola. Calvino: encomendar el camino a Dios exige renunciar a la ansiedad y al control humano.',
+  },
+
+  'Salmos_103_1': {
+    historico: 'Salmo hímnico de acción de gracias personal de David. Compuesto probablemente tras experimentar sanidad o perdón de Dios, es uno de los himnos de alabanza más sublimes de todo el Antiguo Testamento.',
+    linguistico: '"Bendice... y todas mis entrañas": "qereb" (קֶרֶב) indica las entrañas, el interior físico y psicológico más profundo. La alabanza no debe ser ritual superficial, sino brotar de la totalidad de las emociones.',
+    referencia: 'Salmos 103:2-5. Salmos 146:1. Lucas 1:46-47 (el Magnificat de María evoca esta adoración con todo el ser). Salmos 51:10.',
+    comentarios: 'Spurgeon: el alma entera del hombre debe afinarse como un arpa para alabar a su Creador. John Wesley solía recitar este salmo cada mañana para disponer su mente a la gratitud divina.',
+  },
+
+  'Salmos_119_9': {
+    historico: 'El Salmo 119 es el capítulo más largo de la Biblia, un poema acróstico alfabético gigante dedicado a celebrar la Torá. Esta sección ("Bet") se dirige a la pureza moral de los jóvenes de Israel.',
+    linguistico: '"¿Con qué limpiará el joven su camino? Con guardar tu palabra": el verbo "guardar" ("shamar", שָׁמַר) denota vigilar con celo, custodiar o prestar atención activa, como un centinela en la muralla.',
+    referencia: 'Josué 1:8. Salmos 119:11. Juan 15:3 ("ya vosotros estáis limpios por la palabra que os he hablado"). Efesios 5:26. 2 Timoteo 2:22.',
+    comentarios: 'Juan Calvino: los jóvenes necesitan la guía de la Palabra de Dios debido a la fuerza de sus pasiones y la inexperiencia de la vida. Spurgeon: el mapa de la Escritura es el único camino seguro.',
+  },
+
+  'Salmos_119_11': {
+    historico: 'Continuación del poema acróstico. El salmista describe su estrategia espiritual preventiva para evitar la desobediencia al pacto de Dios en la vida cotidiana bajo condiciones adversas.',
+    linguistico: '"En mi corazón he guardado": "tsaphan" (צָפַן) significa atesorar, esconder o asegurar un objeto valioso en un cofre secreto. El corazón es el arca de la Ley para el creyente del pacto.',
+    referencia: 'Colosenses 3:16 ("la palabra de Cristo habite en abundancia en vosotros"). Deuteronomio 6:6. Proverbios 4:4. Mateo 12:35.',
+    comentarios: 'Lutero: la Palabra de Dios no debe guardarse en libros, sino en la memoria y el afecto. Thomas Watson (puritano): la Escritura atesorada en el corazón actúa como antídoto activo contra la tentación.',
+  },
+
+  'Salmos_121_1': {
+    historico: 'Este salmo pertenece a los "Cánticos graduales" o "de ascenso" (Salmos 120-134), entonados por los peregrinos que viajaban a Jerusalén cruzando pasos montañosos peligrosos plagados de salteadores.',
+    linguistico: '"Alzaré mis ojos a los montes; ¿de dónde vendrá mi socorro?": la estructura original es una pregunta retórica. Las colinas albergaban santuarios paganos (lugares altos); el socorro no viene de allí, sino de YHWH.',
+    referencia: 'Salmos 121:2-8. Salmos 124:8 ("nuestro socorro está en el nombre de Jehová, que hizo el cielo y la tierra"). Salmos 46:1.',
+    comentarios: 'Agustín: el peregrino mira las colinas de la tierra, pero sabe que su destino final y su protección real se encuentran en el Creador de los cielos. Calvino advirtió contra buscar auxilio en dioses falsos.',
+  },
+
+  'Salmos_127_1': {
+    historico: 'Salmo sapiencial atribuido a Salomón. Enfatiza que el éxito de los planes de edificación y defensa de la Jerusalén monárquica depende de la soberana bendición y providencia de Dios.',
+    linguistico: '"Si Jehová no edificare la casa": "casa" ("bayit", בַּיִת) puede referirse a un edificio físico (Templo/Palacio), a una dinastía familiar (línea de David) o a la seguridad civil de la nación.',
+    referencia: 'Proverbios 16:9. Eclesiastés 9:11. 1 Corintios 3:6 ("yo planté, Apolos regó; pero el crecimiento lo ha dado Dios"). Salmos 127:2.',
+    comentarios: 'Tomás de Aquino usó este versículo para mostrar que la gracia es necesaria para llevar a cabo el bien moral de manera perseverante. Calvino: el esfuerzo humano sin Dios es puro desgaste inútil.',
+  },
+
+  'Salmos_139_14': {
+    historico: 'David medita en la omnisciencia y omnipresencia de Dios. Describe de manera lírica el origen de la vida humana en el vientre materno, maravillándose del diseño intencional del Creador.',
+    linguistico: '"Formidables, maravillosas son tus obras": "pala" (פָּלָא) significa ser distinguido, maravilloso, único o extraordinariamente diseñado. El cuerpo humano es un milagro de ingeniería divina.',
+    cientifico: 'El desarrollo embrionario humano revela una complejidad molecular asombrosa: la replicación del ADN, la diferenciación celular y la formación de órganos coordinada por el código genético son maravillas biológicas.',
+    referencia: 'Génesis 1:27. Job 10:8-12 ("tus manos me hicieron y me formaron"). Eclesiastés 11:5. Salmos 139:13-16.',
+    comentarios: 'Agustín: los hombres viajan para admirar las cumbres de los montes y descuidan la maravilla de su propio ser. Calvino: contemplar nuestro diseño corporal debe llevarnos a adorar al Creador.',
+  },
+
+  'Proverbios_16_18': {
+    historico: 'El libro de Proverbios recopila sabiduría de la corte de Salomón. Este versículo advierte sobre el patrón moral universal de la caída de los tiranos arrogantes en la historia del Medio Oriente.',
+    linguistico: '"Antes del quebrantamiento es la soberbia": "gaon" (גָּאוֹן) indica arrogancia, altivez u orgullo inflado. "Caída" ("kishalon", כִּשָּׁלוֹן) es un tropiezo violento y devastador en el camino.',
+    referencia: 'Proverbios 11:2 ("cuando viene la soberbia, viene también la deshonra"). Proverbios 18:12. Santiago 4:6 ("Dios resiste a los soberbios"). 1 Pedro 5:5. Lucas 14:11.',
+    comentarios: 'Tomás de Aquino colocó a la soberbia (superbia) como la raíz de todos los pecados capitales, ya que rechaza el señorío de Dios. C.S. Lewis en "Mero Cristianismo" lo llamó "el gran pecado".',
+  },
+
+  'Eclesiastés_12_1': {
+    historico: 'Cohelet (Salomón en su vejez) concluye su ensayo filosófico exhortando a las nuevas generaciones a consagrar su juventud a Dios antes de que lleguen los límites biológicos del envejecimiento.',
+    linguistico: '"Acuérdate de tu Creador": "zakar" (זָכַר) no es mero recuerdo mental, sino fidelidad activa de pacto. "Días malos": los años de declive físico descritos poéticamente en los versículos siguientes.',
+    referencia: 'Lamentaciones 3:27 ("bueno le es al hombre llevar el yugo desde su juventud"). Eclesiastés 11:9-10. Salmos 71:5. Salmos 90:12.',
+    comentarios: 'Agustín de Hipona: el vigor de la juventud debe ser consagrado a Dios antes de que la vejez limite las facultades. Calvino: el olvido de Dios en la juventud es la causa de la miseria espiritual tardía.',
+  },
+
+  'Isaías_6_8': {
+    historico: 'El profeta Isaías describe su llamado en el año de la muerte del rey Ozías (~740 a.C.) en el Templo de Jerusalén. Tras ser purificado por el carbón encendido del altar, responde voluntariamente al envío.',
+    linguistico: '"Heme aquí, envíame a mí": "Hineni, shelacheni" (הִנְנִי שְׁלָחֵנִי). "Hineni" expresa total disponibilidad, obediencia incondicional y presencia atenta ante el soberano rey Jehová.',
+    referencia: 'Génesis 22:1 (respuesta de Abraham). 1 Samuel 3:4 (respuesta de Samuel). Mateo 9:38. Hechos 22:21.',
+    comentarios: 'Martín Lutero: la respuesta de Isaías es el modelo de la vocación misionera genuina, caracterizada por la disposición absoluta al envío. Calvino: la purificación es prerrequisito para el servicio fiel.',
+  },
+
+  'Isaías_55_6': {
+    historico: 'Oráculo profético dirigido a los exiliados judíos en Babilonia (siglo VI a.C.), ofreciéndoles salvación y perdón gratuito de Dios, instándolos a volver a su patria y a su fe del pacto.',
+    linguistico: '"Buscad... mientras puede ser hallado": el verbo "darash" (דָּרัשׁ) significa indagar, consultar o buscar diligentemente. "Cercano" ("qarob") denota la proximidad de la gracia que no dura para siempre.',
+    referencia: 'Salmos 32:6 ("por esto orará todo santo en el tiempo de poder hallarte"). Isaías 55:7. Jeremías 29:13. Mateo 7:7-8. 2 Corintios 6:2.',
+    comentarios: 'Lutero: este versículo advierte sobre el peligro de posponer el arrepentimiento, ya que el tiempo de la gracia tiene límites. Spurgeon: la cercanía de Dios en la predicación del evangelio es una oportunidad sagrada.',
+  },
+
+  'Jeremías_31_3': {
+    historico: 'Jeremías profetiza la futura restauración del Reino del Norte y de Judá, prometiendo un nuevo pacto caracterizado por la gracia interna en lugar del legalismo externo del pacto del Sinaí.',
+    linguistico: '"Con amor eterno te he amado": "ahavat olam" (אַהֲבַת עוֹלָם), amor sin fin en el tiempo. "Misericordia" ("chesed", חֶסֶד): amor leal de pacto, compasión inquebrantable que persiste a pesar de la infidelidad.',
+    referencia: 'Romanos 8:39 ("nada nos podrá separar del amor de Dios"). Efesios 2:4-5. Deuteronomio 7:7-8. 1 Juan 4:19.',
+    comentarios: 'San Agustín: el amor eterno de Dios es la causa eficiente de nuestra predestinación y salvación. C.H. Spurgeon: el amor del pacto es inmutable y sostiene al creyente en medio del abandono humano.',
+  },
+
+  'Daniel_6_22': {
+    historico: 'Daniel responde al rey persa Darío desde el foso de los leones. Daniel había sido víctima de una conspiración de los nobles persas debido a su fidelidad a la oración diaria hacia el Dios de Israel.',
+    linguistico: '"Mi Dios envió su ángel": la mención del ángel protector evoca el mensajero divino que liberó a Israel en el Éxodo y las figuras angélicas protectoras descritas en los Salmos.',
+    cientifico: 'Los leones del foso eran leones asiáticos (Panthera leo persica), comunes en el Medio Oriente en la antigüedad, domesticados y mantenidos en cautiverio por los reyes para la caza real y las ejecuciones públicas.',
+    referencia: 'Hebreos 11:33 ("por fe... taparon bocas de leones"). Daniel 3:28 (liberación del horno de fuego). Salmos 34:7. Daniel 6:10.',
+    comentarios: 'Juan Crisóstomo: la inocencia de Daniel ante Dios y ante el rey fue su mayor escudo físico contra los depredadores. Calvino: el poder de la fe y la oración diaria vence toda ley imperial injusta.',
+  },
+
+  'Lucas_2_14': {
+    historico: 'Cántico celestial de la hueste angélica a los pastores de Belén en la noche del nacimiento de Jesús. Ocurre en el contexto del Pax Romana impuesto por Augusto César a través del poder militar.',
+    linguistico: '"Paz... buena voluntad para con los hombres": en la Vulgata "pax hominibus bonae voluntatis", pero los mejores manuscritos griegos leen "eudokias" (de su beneplácito). La paz es dada a los hombres en quienes Dios se complace.',
+    referencia: 'Lucas 19:38. Isaías 9:6 (el Mesías como Príncipe de Paz). Romanos 5:1. Efesios 2:14 ("porque él es nuestra paz").',
+    comentarios: 'Juan Crisóstomo: la encarnación restablece la comunión rota entre el cielo y la tierra. Martín Lutero: el nacimiento de Cristo es el mayor monumento del amor y del beneplácito del Padre hacia la humanidad.',
+  },
+
+  'Hechos_16_31': {
+    historico: 'Pablo y Silas responden al carcelero romano de Filipos tras el terremoto que abrió las puertas de la prisión. Filipos era una colonia romana en Macedonia donde el culto imperial era central.',
+    linguistico: '"Cree en el Señor Jesucristo": "Pisteuson epi ton Kyrion Iesoun Christon". El término "Kyrion" (Señor) era un desafío político al César, a quien se aclamaba como Señor del Imperio.',
+    referencia: 'Romanos 10:9-10. Hechos 2:38. Juan 3:16. Efesios 2:8. Hechos 16:32-34.',
+    comentarios: 'Martín Lutero usó este texto como la declaración apostólica de la justificación por fe más clara del libro de Hechos. Calvino: la fe salvadora no es mero asenso intelectual, sino entrega al señorío de Cristo.',
+  },
+
+  'Filipenses_1_6': {
+    historico: 'Pablo escribe a la iglesia en Filipos (~62 d.C.) desde su primer encarcelamiento en Roma. Les expresa su afecto y gratitud por su constante colaboración en el evangelio desde el primer día.',
+    linguistico: '"Estando persuadido de esto... el que comenzó en vosotros la buena obra, la perfeccionará": "pepoithōs" (perfecto de peithō: plenamente convencido, con fe firme). "Buena obra" ("ergon agathon"). "Perfeccionará" ("epitelesei": completar enteramente).',
+    referencia: 'Filipenses 2:13 ("porque Dios es el que en vosotros produce así el querer como el hacer"). 1 Tesalonicenses 5:24 ("Fiel es el que os llama, el cual también lo hará"). Romanos 8:29-30. Juan 10:28-29.',
+    comentarios: 'Juan Calvino: la perseverancia final de los santos descansa en la fidelidad eterna de Dios, quien nunca deja a medias la obra que ha iniciado. Spurgeon: Dios es el autor y consumador de nuestra fe; lo que comienza con gracia culmina en gloria.',
+  },
+
+  'Romanos_8_31': {
+    historico: 'Pablo escribe a creyentes expuestos a futuras persecuciones bajo el Imperio Romano (como ocurriría bajo Nerón en el 64 d.C.). Concluye su sección teológica sobre la seguridad eterna de la elección.',
+    linguistico: '"Si Dios es por nosotros, ¿quién contra nosotros?": pregunta retórica que descarta la derrota final. El término "por nosotros" ("hyper hēmōn") indica patrocinio, defensa y favor inquebrantable de Dios.',
+    referencia: 'Salmos 118:6 ("Jehová está conmigo; no temeré lo que me pueda hacer el hombre"). Romanos 8:32-39. Números 14:9. Salmos 27:1.',
+    comentarios: 'Calvino: este versículo debe ser el escudo constante del cristiano contra el pánico, ya que toda fuerza opositora es insignificante ante el Creador. Spurgeon: el favor divino es nuestra victoria absoluta.',
+  },
+
+  'Romanos_12_21': {
+    historico: 'Pablo aconseja a los creyentes en Roma sobre la ética en las relaciones comunitarias y civiles bajo un sistema hostil, exhortándolos a no replicar los patrones violentos del Imperio.',
+    linguistico: '"Vence con el bien el mal": "nika en tō agathō to kakon". El verbo "nika" (vencer) evoca una victoria militar o deportiva: el bien no es pasividad débil, sino una fuerza que conquista moralmente al mal.',
+    referencia: 'Mateo 5:44 (Jesús: "amad a vuestros enemigos"). 1 Tesalonicenses 5:15. 1 Pedro 3:9 ("no devolviendo mal por mal"). Proverbios 25:21-22.',
+    comentarios: 'Juan Crisóstomo: la mejor forma de destruir a un enemigo es transformarlo en amigo a través del amor activo. Martín Luther King Jr. usó este versículo como el fundamento teológico de la no violencia.',
+  },
+
+  'Filipenses_4_6': {
+    historico: 'Pablo escribe desde una prisión en Roma (~62 d.C.) a la iglesia de Filipos, expuesta a presiones sociales y persecución local. A pesar de sus cadenas, Pablo exhorta a la paz mental.',
+    linguistico: '"Por nada estéis afanosos": "mēden merimnate" (no se preocupen ansiosamente). La raíz "merimna" describe una mente dividida o distraída por temores cotidianos. "Oración" ("proseuchē") y "Ruego" ("deēsei").',
+    referencia: 'Mateo 6:25-34 (Jesús enseña a no afanarse por el alimento o el vestido). 1 Pedro 5:7. Filipenses 4:7. Salmos 55:22.',
+    comentarios: 'Calvino: la oracion y el agradecimiento son los dos pulmones de la vida espiritual que expulsan el veneno de la ansiedad. Spurgeon: entregar las cargas a Dios con gratitud es la clave de la salud del alma.',
+  },
+
+  'Colosenses_3_17': {
+    historico: 'Pablo escribe a la comunidad en Colosas (~62 d.C.) para combatir filosofías gnósticas tempranas y ascetismo. Les exhorta a santificar la vida cotidiana en contraste con rituales vacíos.',
+    linguistico: '"Hacedlo todo en el nombre del Señor Jesús": hacer algo "en el nombre" (en onomati) en el mundo grecorromano implicaba actuar bajo la representación y la autoridad delegada de un soberano.',
+    referencia: '1 Corintios 10:31 ("si coméis, o bébeis, o hacéis otra cosa, hacedlo todo para la gloria de Dios"). Colosenses 3:23. Efesios 5:20.',
+    comentarios: 'Spurgeon: la distinción entre lo sagrado y lo secular desaparece cuando las tareas cotidianas se realizan en el nombre de Cristo. Calvino: el trabajo honesto es un acto de culto litúrgico agradable a Dios.',
+  },
+
+  '1 Tesalonicenses_5_16': {
+    historico: 'La primera carta a los Tesalonicenses (~50 d.C.) es una de las cartas más tempranas de Pablo. Se dirige a una comunidad que sufría persecución y dudas sobre la venida del Señor.',
+    linguistico: '"Estad siempre gozosos": "pantote chairete" (siempre alégrense). El gozo cristiano ("chara") no es optimismo psicológico artificial, sino la certeza del pacto con Dios y su victoria escatológica.',
+    referencia: 'Filipenses 4:4. Romanos 12:12 ("gozosos en la esperanza"). 1 Tesalonicenses 5:17-18. 2 Corintios 6:10 ("como entristecidos, mas siempre gozosos"). Habacuc 3:18.',
+    comentarios: 'Agustín: el gozo en el Señor es la bienaventuranza que anticipa la eternidad en medio del dolor terrenal. Calvino: el gozo no depende de las circunstancias externas sino del Espíritu Santo.',
+  },
+
+  '1 Timoteo_6_10': {
+    historico: 'Pablo advierte a Timoteo sobre los falsos maestros en Éfeso que usaban la religión como método de ganancia financiera personal. El amor al dinero era criticado también por filósofos estoicos y cínicos.',
+    linguistico: '"Raíz de todos los males es el amor al dinero": "rhiza gar pantōn tōn kakōn estin hē philargyria". El texto no dice que el dinero en sí sea malo, sino el "amor al dinero" ("philargyria", avaricia).',
+    referencia: 'Mateo 6:24 ("no podéis servir a Dios y a las riquezas"). Ebreos 13:5 ("sean vuestras costumbres sin avaricia"). Proverbios 28:20. Efesios 5:5.',
+    comentarios: 'Tomás de Aquino: la avaricia pervierte la justicia y destruye la caridad, convirtiendo un medio en el fin último del alma. Calvino: la codicia nos ciega y nos aparta de la fe verdadera.',
+  },
+
+  '2 Timoteo_1_7': {
+    historico: 'Escrita por Pablo desde la prisión Mamertina en Roma en vísperas de su martirio (~67 d.C.). Pablo alienta al joven Timoteo a no intimidarse ante la creciente persecución imperial desatada por Nerón.',
+    linguistico: '"No espíritu de cobardía... poder, amor, dominio propio": "deilia" (temor cobarde, timidez). "Sophronismos" (dominio propio, autodisciplina mental, sensatez ante la crisis).',
+    referencia: 'Romanos 8:15 ("no habéis recibido el espíritu de esclavitud para estar otra vez en temor"). Josué 1:9. Isaías 41:10. 1 Juan 4:18.',
+    comentarios: 'Lutero: el temor cobarde proviene de dudar de la promesa de Dios; el Espíritu nos dota de audacia y amor para la proclamación. Bonhoeffer: el dominio propio es necesario para guiar a la Iglesia en tiempos de opresión.',
+  },
+
+  'Santiago_1_5': {
+    historico: 'Santiago escribe a los judeocristianos de la diáspora. El concepto de sabiduría práctica (sofía) para afrontar las pruebas cotidianas evoca la literatura sapiencial del Antiguo Testamento y las enseñanzas de Jesús.',
+    linguistico: '"Pídala a Dios... abundantemente y sin reproche": "haplōs" (generosamente, con simplicidad de corazón, sin segundas intenciones). Dios no reprocha ni avergüenza al que solicita instrucción.',
+    referencia: 'Santiago 3:17 (sabiduría que viene de lo alto). 1 Reyes 3:9. Mateo 7:7. Proverbios 2:6.',
+    comentarios: 'Agustín: la sabiduría es el mayor don que el hombre puede pedir, pues ordena los afectos hacia lo eterno. Calvino: Dios se deleita en nuestra dependencia y nos concede discernimiento gratuito.',
+  },
+
+  'Santiago_4_7': {
+    historico: 'Santiago abandona las divisiones y peleas dentro de las comunidades cristianas originadas por la codicia y el orgullo personal, llamando a la sumisión teocrática y a la resistencia espiritual activa.',
+    linguistico: '"Someteos... resistid": "hypotagēte" (someterse militarmente al rango superior); "antistēte" (hacer frente, resistir en el campo de batalla). El diablo huirá ("pheuxetai") ante la resistencia firme.',
+    referencia: '1 Pedro 5:8-9 ("vuestro adversario el diablo... al cual resistid firmes en la fe"). Efesios 6:11-13. Mateo 4:10-11 (Jesús resiste al diablo en el desierto).',
+    comentarios: 'Tomás de Aquino: la resistencia al demonio consiste en la constancia de la fe y la humildad de la sumisión a Dios. Calvino: no podemos resistir al enemigo si no estamos sometidos enteramente a Dios.',
+  },
+
+  'Juan_14_27': {
+    historico: 'Jesús pronuncia estas palabras en el Aposento Alto durante la Última Cena, antes de su arresto en Getsemaní, en vísperas de la crucifixión, consolando a sus discípulos ante su partida física.',
+    linguistico: '"Mi paz os dejo, mi paz os doy": usa "eirēnē" (εἰρήνη), traducción del hebreo "Shalom" (שָׁלוֹם), que no indica ausencia de conflicto sino bienestar total, reconciliación y plenitud del pacto de Dios.',
+    referencia: 'Juan 16:33 ("en el mundo tendréis aflicción; pero confiad, yo he vencido al mundo"). Romanos 5:1. Filipenses 4:7 ("paz... que sobrepasa todo entendimiento"). Colosenses 3:15.',
+    comentarios: 'San Agustín: la paz del mundo es falsa y frágil porque depende de circunstancias externas; la paz de Cristo es inquebrantable porque se asienta en la reconciliación eterna con el Padre.',
+  },
+
+  'Filipenses_4_19': {
+    historico: 'Pablo agradece a la iglesia de Filipos por la ofrenda financiera que le enviaron a la prisión en Roma a través de Epafrodito. Pablo les asegura que Dios recompensará su generosidad material.',
+    linguistico: '"Mi Dios... suplirá todo lo que os falte": "plērōsei" (llenará por completo, completará). La provisión es "conforme a sus riquezas en gloria" ("kata to ploutos autou"), una medida infinita de recursos.',
+    referencia: '2 Corintios 9:8 ("y poderoso es Dios para hacer que abunde en vosotros toda gracia"). Salmos 23:1. Salmos 34:10. Mateo 6:33.',
+    comentarios: 'Spurgeon: la chequera de la fe se asienta en este versículo; Dios no promete lujos superfluos, sino suplir la necesidad real de sus siervos conforme a sus riquezas celestiales.',
+  },
+
+  '1 Pedro_5_8': {
+    historico: 'Pedro escribe a los creyentes dispersos en el Imperio Romano, quienes sufrían discriminación social y calumnias, advirtiéndoles que la hostilidad terrenal tiene un trasfondo espiritual activo.',
+    linguistico: '"Sed sobrios, y velad": "nēpsate, grēgorēsate". La sobriedad mental ("nēpho") es estar libre de ilusiones; la vigilancia ("grēgoreō") es la atención del centinela nocturno. "León rugiente" ("leōnōryomenos").',
+    referencia: '1 Pedro 5:9. Efesios 6:11-12. Lucas 22:31 (Jesús a Pedro: "Satanás os ha pedido para zarandearos"). 1 Tesalonicenses 5:6.',
+    comentarios: 'Martín Lutero: el diablo ruge para infundir miedo, pero su cadena está en manos de Cristo; el creyente vigilante y firme en la fe resiste y no es devorado. Calvino: la vigilancia es necesaria debido a la astucia del enemigo.',
+  },
+
+  'Hebreos_12_2': {
+    historico: 'El escritor de Hebreos exhorta a los judeocristianos que sufrían exclusión social y tentaciones de volver al templo judío, instándolos a perseverar en la carrera de la fe mirando a Jesús.',
+    linguistico: '"Puestos los ojos... autor y consumador": "aphorōntes" (mirar fijamente apartando la vista de otras cosas). "Archēgos" (iniciador, pionero, el que abre el camino); "teleiōtēs" (perfeccionador, el que culmina).',
+    referencia: 'Hebreos 12:1. Filipenses 1:6 ("el que comenzó en vosotros la buena obra, la perfeccionará"). 1 Corintios 9:24. Apocalipsis 1:8.',
+    comentarios: 'Juan de la Cruz: la mirada fija en Cristo crucificado y resucitado es la fuente de toda fuerza mística. Calvino: Cristo no solo nos inicia en el camino de la fe, sino que nos sostiene hasta la meta final.',
+  },
+
+  'Salmos_34_7': {
+    historico: 'David compone este salmo tras fingir demencia ante Abimelec (Aquis, rey de Gat) para escapar con vida de la persecución de Saúl, reconociendo la silenciosa pero real protección celestial.',
+    linguistico: '"El ángel de YHWH acampa": "choneh" (חֹנֶה), término militar que significa montar un campamento defensivo de asedio protector alrededor del creyente que teme a Dios.',
+    referencia: '2 Reyes 6:17 (Eliseo y los carros de fuego alrededor). Salmos 91:11 ("pues a sus ángeles mandará"). Génesis 32:1-2. Hebreos 1:14.',
+    comentarios: 'Spurgeon: el Ángel de Jehová (la manifestación preencarnada de Cristo) comanda las huestes celestiales que nos cuidan en cada peligro. Agustín: los ángeles son ministros de la providencia divina para la Iglesia.',
+  },
+
+  'Proverbios_18_24': {
+    historico: 'Este proverbio sapiencial contrasta los conocidos y amigos superficiales (asociaciones por interés comunes en la corte real) con la amistad leal de pacto que supera los lazos familiares sanguíneos.',
+    linguistico: '"Amigo más unido que un hermano": "oheb" (el que ama); "dabaq" (adherirse con lealtad). La amistad bíblica se asienta en la fidelidad voluntaria del pacto (cf. Jonatán y David).',
+    referencia: 'Proverbios 17:17 ("en todo tiempo ama el amigo"). 1 Samuel 18:1 (el amor de Jonatán a David). Juan 15:13-15 ("nadie tiene mayor amor que este...").',
+    comentarios: 'C.S. Lewis en "Los Cuatro Amores" describió la Amistad (Philia) como el amor más espiritual y libre. Spurgeon: el único amigo incondicional que cumple plenamente este proverbio es Jesucristo.',
+  },
+
+  'Mateo_18_20': {
+    historico: 'Jesús instruye a sus discípulos sobre la reconciliación y la disciplina comunitaria dentro de la Iglesia, asegurándoles su autoridad espiritual y presencia en sus decisiones colectivas.',
+    linguistico: '"Donde están dos o tres congregados en mi nombre, allí estoy yo": "synēgmenoi eis to emon onoma". El término "synago" indica reunirse formalmente bajo el estandarte y señorío del nombre de Cristo.',
+    referencia: 'Mateo 28:20 ("he aquí yo estoy con vosotros todos los días"). 1 Corintios 5:4. Apocalipsis 1:12-13 (Cristo en medio de los siete candeleros).',
+    comentarios: 'Martín Lutero: la Iglesia no consiste en catedrales magníficas, sino en la reunión sincera de creyentes en torno a la Palabra y el nombre de Cristo. Calvino: la presencia de Cristo consuela y valida a la congregación.',
+  },
+
+  '2 Corintios_5_21': {
+    historico: 'Pablo expone el ministerio de la reconciliación, explicando el mecanismo teológico de la redención y la expiación sustitutiva efectuada por Cristo en la cruz.',
+    linguistico: '"Al que no conoció pecado, por nosotros lo hizo pecado": "ton mē gnonta hamartian hyper hēmōn hamartian epoiēsen". La doble imputación: nuestro pecado cargado a Cristo, su justicia imputada a nosotros.',
+    referencia: 'Isaías 53:5-6. Romanos 3:24-26. 1 Pedro 2:24 ("él mismo llevó nuestros pecados en su cuerpo"). Gálatas 3:13. Romanos 5:19.',
+    comentarios: 'Martín Lutero llamó a esta doctrina "el gran intercambio": Cristo asume nuestra condenación y nos viste de su justicia divina. Calvino: la justificación por la fe sola descansa enteramente en esta doble imputación.',
+  },
+
+  '1 Juan_3_1': {
+    historico: 'Juan escribe sus epístolas a las iglesias de Asia Menor (~90 d.C.) en medio del surgimiento de herejías docetistas que negaban la realidad física de la encarnación y la filiación de los creyentes.',
+    linguistico: '"Mirad cuál amor": "idete potapēn agapēn". El término "potapēn" denota asombro ante algo extraño, exótico o de otro país. El amor de Dios es de una especie ajena a este mundo.',
+    referencia: 'Juan 1:12 ("les dio potestad de ser hechos hijos de Dios"). Romanos 8:15-17 ("somos hijos de Dios... herederos de Dios y coherederos con Cristo"). Gálatas 4:5-6. 1 Juan 3:2.',
+    comentarios: 'Agustín: ser llamados hijos de Dios no es un título honorífico vacío sino una realidad ontológica obrada por la gracia. Calvino: la adopción divina es el fundamento de toda nuestra seguridad filial.',
+  },
 };
