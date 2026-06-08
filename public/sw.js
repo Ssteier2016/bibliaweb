@@ -1,10 +1,31 @@
-const CACHE = 'biblia-v3';
+const CACHE = 'biblia-v4';
 const PRECACHE = ['/', '/es_rvr.json', '/manifest.json', '/logo192.png', '/logo512.png'];
 
 self.addEventListener('install', e => {
   self.skipWaiting();
   e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(PRECACHE).catch(() => {}))
+    caches.open(CACHE).then(async cache => {
+      // Cargar precache básico
+      await cache.addAll(PRECACHE).catch(() => {});
+      
+      // Cargar dinámicamente los assets con hashes del build actual
+      try {
+        const response = await fetch('/asset-manifest.json');
+        if (response.ok) {
+          const manifest = await response.json();
+          if (manifest && manifest.files) {
+            const filesToCache = Object.values(manifest.files).filter(url => 
+              typeof url === 'string' &&
+              !url.endsWith('.map') &&
+              (url.startsWith('/static/') || url === '/index.html')
+            );
+            await cache.addAll(filesToCache);
+          }
+        }
+      } catch (err) {
+        console.error('Error precaching from asset-manifest:', err);
+      }
+    })
   );
 });
 
