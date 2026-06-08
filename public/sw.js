@@ -1,4 +1,4 @@
-const CACHE = 'biblia-v4';
+const CACHE = 'biblia-v5';
 const PRECACHE = ['/', '/es_rvr.json', '/manifest.json', '/logo192.png', '/logo512.png'];
 
 self.addEventListener('install', e => {
@@ -50,8 +50,12 @@ self.addEventListener('fetch', e => {
     url.startsWith('chrome-extension')
   ) return;
 
-  // Network-first para el HTML raíz (para recibir actualizaciones)
-  if (url.endsWith('/') || url.includes('.html')) {
+  const requestUrl = new URL(e.request.url);
+  const isNavigation = e.request.mode === 'navigate' || 
+                       (requestUrl.origin === self.location.origin && requestUrl.pathname === '/');
+
+  // Network-first para navegación (HTML raíz o cualquier navegación de página)
+  if (isNavigation) {
     e.respondWith(
       fetch(e.request)
         .then(resp => {
@@ -59,18 +63,23 @@ self.addEventListener('fetch', e => {
           caches.open(CACHE).then(c => c.put(e.request, clone));
           return resp;
         })
-        .catch(() => caches.match('/'))
+        .catch(() => {
+          return caches.match('/', { ignoreSearch: true })
+            .then(cached => cached || caches.match('/index.html', { ignoreSearch: true }));
+        })
     );
     return;
   }
 
-  // Cache-first para assets estáticos (JS, CSS, imágenes, fuentes)
+  // Cache-first para assets estáticos (JS, CSS, imágenes, fuentes, JSON local y manifest)
   if (
     url.includes('/static/') ||
-    url.match(/\.(js|css|png|jpg|jpeg|svg|ico|woff2?|ttf)$/)
+    url.match(/\.(js|css|png|jpg|jpeg|svg|ico|woff2?|ttf)$/) ||
+    url.endsWith('es_rvr.json') ||
+    url.endsWith('manifest.json')
   ) {
     e.respondWith(
-      caches.match(e.request).then(cached => {
+      caches.match(e.request, { ignoreSearch: true }).then(cached => {
         if (cached) return cached;
         return fetch(e.request).then(resp => {
           if (resp.ok) {
@@ -91,7 +100,7 @@ self.addEventListener('fetch', e => {
           if (resp.ok) cache.put(e.request, resp.clone());
           return resp;
         })
-        .catch(() => cache.match(e.request))
+        .catch(() => cache.match(e.request, { ignoreSearch: true }))
     )
   );
 });
@@ -100,3 +109,4 @@ self.addEventListener('fetch', e => {
 self.addEventListener('message', e => {
   if (e.data === 'SKIP_WAITING') self.skipWaiting();
 });
+

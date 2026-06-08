@@ -5,7 +5,8 @@ import {
   signInAnonymously, signOut, onAuthStateChanged, updateProfile,
 } from 'firebase/auth';
 import {
-  getFirestore, doc, getDoc, setDoc, updateDoc,
+  initializeFirestore, persistentLocalCache, persistentMultipleTabManager,
+  doc, getDoc, setDoc, updateDoc,
   collection, addDoc, getDocs, query, orderBy,
   serverTimestamp, arrayUnion, arrayRemove, onSnapshot, increment,
 } from 'firebase/firestore';
@@ -22,7 +23,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth    = getAuth(app);
-export const db      = getFirestore(app);
+export const db      = initializeFirestore(app, {
+  localCache: persistentLocalCache({
+    tabManager: persistentMultipleTabManager()
+  })
+});
+
 
 const googleProvider = new GoogleAuthProvider();
 
