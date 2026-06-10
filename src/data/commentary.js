@@ -3841,4 +3841,41 @@ export const COMMENTARY = {
     referencia: 'Juan 1:12 ("les dio potestad de ser hechos hijos de Dios"). Romanos 8:15-17 ("somos hijos de Dios... herederos de Dios y coherederos con Cristo"). Gálatas 4:5-6. 1 Juan 3:2.',
     comentarios: 'Agustín: ser llamados hijos de Dios no es un título honorífico vacío sino una realidad ontológica obrada por la gracia. Calvino: la adopción divina es el fundamento de toda nuestra seguridad filial.',
   },
+
+  'Génesis_1_2': {
+    historico: 'El estado inicial de la creación ("desordenada y vacía") refleja temas cosmogónicos antiguos, pero a diferencia de los mitos babilonios que personifican el caos como monstruos divinos enemigos (Tiamat), el Génesis desmitifica la materia caótica presentándola simplemente como materia pasiva sometida a la soberanía del Espíritu de Dios.',
+    linguistico: '"Desordenada y vacía" en hebreo es "tohu vavohu" (תֹּהוּ וָבֹהוּ), una aliteración poética que describe la informe vacuidad y la desolación. "Se movía" ("rachephet", רָחֶפֶת) evoca la imagen de un ave que revolotea, empolla o cobija con ternura a sus polluelos, denotando cuidado activo y vitalizador.',
+    cientifico: 'Algunos físicos y teólogos trazan una analogía entre el estado de "tohu vavohu" anterior a la luz y el plasma caliente y opaco del universo primitivo antes de la era de la recombinación (~380.000 años después del Big Bang), cuando los fotones no podían viajar libremente y todo era oscuridad.',
+    referencia: 'Jeremías 4:23 (usa "tohu vavohu" para describir el juicio sobre la tierra). Salmos 104:30 ("Envías tu Espíritu, son creados"). Juan 1:2. Deuteronomio 32:11 (el Espíritu cobijando como un águila).',
+    comentarios: 'Agustín de Hipona interpretó la tierra informe como la "materia prima" creada de la nada que luego recibiría su forma y orden. Los teólogos reformados ven en el revoloteo del Espíritu sobre las aguas la prefiguración de su obra regeneradora y creadora de vida en el corazón humano sumido en el caos espiritual.',
+  },
+
+  'Génesis_3_1': {
+    historico: 'La serpiente ("nachash") en el Antiguo Cercano Oriente era un símbolo ambiguo: representaba la inmortalidad y la regeneración (debido al cambio de piel) en el mito de Gilgamesh, y deidades de fertilidad y del inframundo en Canaán. Génesis la desmitifica presentándola meramente como una criatura astuta ("del campo") hecha por YHWH, despojándola de poderes divinos.',
+    linguistico: '"Astuta" ("arum", עָروּם) es un juego de palabras intencionado con "desnudos" ("arumim", עֲרוּמִּים) al final del capítulo 2. La astucia de la serpiente contrasta con la inocencia desarmada de la pareja humana. "Conque Dios os ha dicho..." introduce la duda sutil ("aph ki amar Elohim").',
+    referencia: 'Apocalipsis 12:9 ("la serpiente antigua, que se llama diablo y Satanás"). 2 Corintios 11:3 ("como la serpiente con su astucia engañó a Eva"). Juan 8:44 (el diablo como "padre de mentira"). Santiago 1:14.',
+    comentarios: 'Juan Crisóstomo señala que la serpiente no ataca de frente sino distorsionando el carácter de Dios para plantar la duda de su bondad. Bonhoeffer describe la astucia del tentador como la pregunta de la sospecha que separa la palabra de Dios de la obediencia del hombre.',
+  },
+
+  'Juan_1_12': {
+    historico: 'En el mundo grecorromano y judío del siglo I, la pertenencia familiar y racial determinaba el estatus social y espiritual. El prólogo de Juan rompe este paradigma al declarar que la filiación divina no depende de linajes de sangre ni del estamento judío, sino de la acogida personal a la persona y obra de Jesucristo.',
+    linguistico: '"Recibieron" ("elabon", ἔλαβον): acoger, aceptar con hospitalidad. "Potestad" ("exousian", ἐξουσίαν): derecho legítimo, autoridad delegada o privilegio legal, no mera capacidad física. "Ser hechos" ("genesthai"): experimentar una transformación real de estatus ontológico.',
+    referencia: 'Gálatas 4:5-6 (la adopción filial obrada por el Espíritu). Romanos 8:14-16 (el espíritu de adopción). Juan 3:3 (el nuevo nacimiento). 1 Juan 3:1 ("Mirad cuál amor... para que seamos llamados hijos de Dios").',
+    comentarios: 'Ireneo de Lyon expresó la doctrina de la divinización/adopción: "El Verbo se hizo hombre para que el hombre pueda convertirse en hijo de Dios". Calvino destaca que la fe es el medio instrumental por el cual el Espíritu nos une a Cristo y nos otorga la dignidad inefable de la adopción.',
+  },
+
+  'Colosenses_1_16': {
+    historico: 'La carta a los Colosenses combate una herejía gnóstica o mística judía que promovía el culto a jerarquías angélicas (tronos, dominios, principados, potestades) como mediadores entre Dios y la creación. Pablo responde estableciendo la supremacía absoluta de Cristo sobre todo el cosmos espiritual.',
+    linguistico: '"Por medio de él y para él fueron creadas": usa los términos "di\' autou" (agencia instrumental) y "eis auton" (meta final y propósito último). Cristo es el plano del arquitecto, el constructor y el heredero final de todo lo creado.',
+    cientifico: 'La física cuántica y la cosmología sugieren un cosmos integrado y sostenido por leyes fundamentales incomprensibles sin un principio unificador. Teólogos contemporáneos como John Polkinghorne asocian la soberanía y sustento de Cristo expresado en Colosenses con la inteligibilidad y consistencia constante del universo.',
+    referencia: 'Juan 1:3 ("Todas las cosas por él fueron hechas"). Hebreos 1:2-3 (el Hijo como heredero e imagen del Padre, que sostiene todas las cosas). Efesios 1:20-22. 1 Corintios 8:6. Apocalipsis 4:11.',
+    comentarios: 'Tomás de Aquino: Cristo es la causa eficiente, formal y final de la creación entera. C.S. Lewis en "Milagros" argumenta que las leyes de la naturaleza son meramente las notas musicales compuestas y ejecutadas por el Verbo eterno de Dios en la gran sinfonía del cosmos.',
+  },
+
+  'Filipenses_4_8': {
+    historico: 'Pablo escribe desde la prisión en Roma a los filipenses, quienes vivían en una colonia militar romana saturada de cultura pagana y filosofía estoica. En lugar de instar al aislamiento total, Pablo recurre a términos éticos del vocabulario virtuoso griego (como "arete" y "epainos") para redimirlos a la luz del evangelio.',
+    linguistico: '"En esto pensad" ("tauta logizesthe", taῦta λογίζεσθε): "logizesthe" es un término contable que significa evaluar, ponderar, calcular o dar peso mental constante. No es un pensamiento pasivo sino la disciplina mental de cultivar un hábito virtuoso. "Virtud" ("arete") y "Alabanza" ("epainos").',
+    referencia: 'Romanos 12:2 ("transformaos por medio de la renovación de vuestro entendimiento"). 2 Corintios 10:5 ("llevando cautivo todo pensamiento a la obediencia a Cristo"). Proverbios 4:23. Salmos 19:14.',
+    comentarios: 'Agustín de Hipona: la mente humana se alimenta de aquello en lo que medita; si contemplamos la belleza y la verdad de Dios, nuestra alma se transforma en su semejanza. Jonathan Edwards desarrolló su ética sobre este versículo, viendo la santidad cristiana como la máxima expresión de la belleza y la virtud racional.',
+  },
 };
