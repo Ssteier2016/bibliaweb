@@ -12,7 +12,7 @@ export const PROLOGUES = {
     "motivacion": "Sentar las bases históricas y teológicas del pacto de Dios con su pueblo escogido, recordarles su identidad, sus promesas familiares y las razones de su salida de Egipto mientras se preparaban para heredar la Tierra Prometida.",
     "genero": "Narrativa histórica / Teología de los orígenes",
     "biografia": "Moisés, criado en la corte egipcia como príncipe, llamado por Jehová en la zarza ardiendo tras 40 años en Madián. Lideró al pueblo en el Éxodo, sirvió de mediador del Pacto de la Ley en el Sinaí y guio a Israel por el desierto.",
-    "libroEstudio": "Génesis: Comentario de Estudio - John MacArthur",
+    "libroEstudio": "Génesis: Notas sobre el Antiguo Testamento - John Wesley",
     "enlaceCompra": "https://www.amazon.com/s?k=comentario+genesis+estudio"
   },
   "ex": {
@@ -519,8 +519,8 @@ export const PROLOGUES = {
     "motivacion": "Demostrar sistemáticamente que Jesús de Nazaret es el Mesías prometido en el Antiguo Testamento, el cumplimiento de la ley y las profecías a Abraham y David, y el Rey soberano del Reino de los Cielos.",
     "genero": "Evangelio / Biografía teológica",
     "biografia": "Mateo, publicano (recaudador de impuestos de Roma) en Capernaúm. Abandonó su lucrativa profesión ante el simple llamado de Jesús: 'sígueme'. Uno de los doce apóstoles, testigo de la resurrección. Escribió con orden y rigor.",
-    "libroEstudio": "Mateo: Comentario de Estudio (2 volúmenes) - John MacArthur",
-    "enlaceCompra": "https://www.amazon.com/s?k=comentario+mateo+macarthur"
+    "libroEstudio": "Mateo: Notas sobre el Nuevo Testamento - John Wesley",
+    "enlaceCompra": "https://www.amazon.com/s?k=notas+nuevo+testamento+wesley"
   },
   "mk": {
     "libro": "Marcos",
@@ -701,7 +701,7 @@ export const PROLOGUES = {
     "motivacion": "Instruir a Timoteo sobre cómo debía conducirse y organizar la administración práctica de la iglesia en Éfeso, que sufría desórdenes doctrinales y requería el nombramiento de líderes espirituales calificados.",
     "genero": "Epístola pastoral y manual de ordenación eclesiástica",
     "biografia": "Timoteo, hijo de madre judía y padre griego. Compañero de viajes de Pablo desde Listra. Sirvió de emisario apostólico de absoluta confianza, caracterizado por una fe sincera heredada de su abuela Loida y su madre Eunice.",
-    "libroEstudio": "1 Timoteo: El Orden en la Casa de Dios - John MacArthur",
+    "libroEstudio": "1 Timoteo: Notas sobre el Nuevo Testamento - John Wesley",
     "enlaceCompra": "https://www.amazon.com/s?k=comentario+1+timoteo+estudio"
   },
   "2tm": {
@@ -727,7 +727,7 @@ export const PROLOGUES = {
     "motivacion": "Instruir a Tito sobre la necesidad de establecer orden doctrinal y estructural en las iglesias cretenses recién formadas, nombrando líderes idóneos para contrarrestar la influencia de falsos maestros indisciplinados.",
     "genero": "Epístola pastoral y código de orden eclesiástico",
     "biografia": "Tito, creyente de origen gentil no circuncidado que sirvió de prueba viviente de la libertad del evangelio de Pablo en el concilio de Jerusalén. Compañero de confianza de Pablo, famoso por su integridad y capacidad organizativa.",
-    "libroEstudio": "Tito: La Gracia y las Buenas Obras - John MacArthur",
+    "libroEstudio": "Tito: Notas sobre el Nuevo Testamento - John Wesley",
     "enlaceCompra": "https://www.amazon.com/s?k=comentario+tito+estudio"
   },
   "phm": {
