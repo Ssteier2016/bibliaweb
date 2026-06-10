@@ -3878,4 +3878,355 @@ export const COMMENTARY = {
     referencia: 'Romanos 12:2 ("transformaos por medio de la renovación de vuestro entendimiento"). 2 Corintios 10:5 ("llevando cautivo todo pensamiento a la obediencia a Cristo"). Proverbios 4:23. Salmos 19:14.',
     comentarios: 'Agustín de Hipona: la mente humana se alimenta de aquello en lo que medita; si contemplamos la belleza y la verdad de Dios, nuestra alma se transforma en su semejanza. Jonathan Edwards desarrolló su ética sobre este versículo, viendo la santidad cristiana como la máxima expresión de la belleza y la virtud racional.',
   },
+
+  'Génesis_12_2': {
+    historico: "El llamado de Abram incluye la promesa de convertirlo en una \"gran nación\" (goi gadol), un contraste radical con su realidad estéril. En la geopolítica del Antiguo Cercano Oriente, una gran nación requería descendencia abundante y territorio, algo impensable para un nómada sin hijos.",
+    linguistico: "\"Gran nación\" (goi gadol): el término \"goi\" suele referirse a una nación política y territorial, a diferencia de \"am\" (pueblo/familia). Dios promete una identidad nacional formal a la descendencia de Abram.",
+    referencia: "Génesis 15:5, Génesis 17:4-6, Gálatas 3:7, Romanos 4:16-17.",
+    comentarios: "Calvino: la promesa de hacer de Abram una gran nación es un ejercicio extremo de fe, pues se le pide creer contra toda evidencia natural de su esterilidad. Lutero: las palabras divinas crean la realidad de la nada.",
+  },
+
+  'Génesis_12_3': {
+    historico: "La promesa de bendición universal (\"serán benditas en ti todas las familias\") es el fundamento teológico de la misión universal de la iglesia. Rompe con el nacionalismo exclusivo y establece que el propósito de la elección de Israel es bendecir a los gentiles.",
+    linguistico: "\"Familias\" (\"mishpechot\", מִשְׁפְּחֹת): clanes o grupos de parentesco de la tierra. \"Serán benditas\" (ve-nivrechu): en conjugación niphal (pasiva) o hitpael (reflexiva), implicando que las naciones recibirán bendición a través de él.",
+    referencia: "Gálatas 3:8 (Pablo llama a este versículo \"el evangelio anunciado de antemano\"), Hechos 3:25, Efesios 2:14.",
+    comentarios: "Agustín de Hipona vio en este versículo la primera profecía clara de la iglesia católica (universal) que incorporaría a todas las naciones. Los reformadores destacaron que la bendición de Abraham se extiende a los gentiles solo por medio de la fe en Cristo.",
+  },
+
+  'Éxodo_3_15': {
+    historico: "Dios aclara a Moisés que YHWH es su nombre eterno, el Dios de sus padres (Abraham, Isaac y Jacob). En la cultura egipcia contemporánea, conocer el nombre de una deidad era clave para invocar su poder y establecer una relación de pacto oficial.",
+    linguistico: "\"Este es mi nombre para siempre\" (zeh shemi le-olam): \"shem\" es el nombre que representa el carácter y la reputación. \"Memorial\" (\"zeker\", זֵכֶר) es el recordatorio litúrgico por el cual Dios es recordado e invocado.",
+    referencia: "Salmos 135:13, Oseas 12:5, Lucas 1:50, Hebreos 13:8.",
+    comentarios: "Maimónides: el nombre revela la esencia inmutable de Dios. Calvino: el nombre es el memorial de su fidelidad, asegurando a cada generación que el Dios que actuó en el pasado es el mismo en el presente.",
+  },
+
+  'Éxodo_20_7': {
+    historico: "El tercer mandamiento prohíbe el uso en vano del nombre de YHWH. En el mundo antiguo, se creía que pronunciar el nombre de un dios en fórmulas mágicas o juramentos falsos obligaba a la deidad a actuar o manipulaba su poder.",
+    linguistico: "\"No tomarás... en vano\" (lo tissa... lash-shav): \"tissa\" es alzar o llevar; \"lash-shav\" significa para falsedad, vacío o mentira. Prohíbe usar el nombre divino en juramentos falsos o con ligereza.",
+    referencia: "Levítico 19:12, Mateo 5:33-37 (Jesús enseña a no jurar del todo), Santiago 5:12, Salmos 139:20.",
+    comentarios: "Lutero en el Catecismo Mayor explica que este mandamiento prohíbe usar el nombre de Dios para encubrir la mentira, practicar la magia o maldecir, y exige usarlo para la oración, la alabanza y la predicación de la verdad.",
+  },
+
+  'Éxodo_20_8': {
+    historico: "El cuarto mandamiento de guardar el día de reposo (Shabat) era una institución revolucionaria en el mundo antiguo, donde los esclavos y animales trabajaban sin descanso. Establecía un límite divino a la explotación laboral y el consumismo.",
+    linguistico: "\"Acuérdate del día de reposo\" (zakor et yom hash-shabbat): \"shabbat\" viene de la raíz que significa cesar, desistir o descansar. Santificarlo (\"qadesh\") es apartarlo del uso común para el servicio divino.",
+    referencia: "Génesis 2:2-3, Éxodo 31:13-17, Marcos 2:27-28 (Jesús: \"el día de reposo fue hecho por causa del hombre\"), Colosenses 2:16.",
+    comentarios: "Agustín: el verdadero reposo es el descanso del alma en Dios tras cesar de las obras de la carne. Calvino: el Shabat tiene un triple propósito: descanso físico, meditación espiritual y prefiguración de la eternidad.",
+  },
+
+  'Éxodo_20_14': {
+    historico: "El séptimo mandamiento protege la santidad del pacto matrimonial. En el Código de Hammurabi y las leyes del Antiguo Oriente, el adulterio era castigado severamente por destruir la herencia familiar y violar los derechos del esposo.",
+    linguistico: "\"No cometerás adulterio\" (lo tin-aph): el verbo \"na-aph\" se refiere específicamente a la infidelidad sexual dentro del matrimonio, distinguiéndose de la fornicación general.",
+    referencia: "Proverbios 6:32, Mateo 5:27-28 (Jesús extiende el mandamiento a la mirada codiciosa), 1 Corintios 6:18, Efesios 5:3-5.",
+    comentarios: "Los comentaristas puritanos señalaron que este mandamiento exige no solo la fidelidad física sino la pureza de pensamientos, palabras y afectos del corazón, protegiendo el matrimonio como reflejo de la unión de Cristo e Iglesia.",
+  },
+
+  'Éxodo_20_15': {
+    historico: "El octavo mandamiento protege el derecho a la propiedad privada legítima contra el robo y la explotación. En la teología del pacto, los bienes materiales son una mayordomía concedida por Dios que no debe ser usurpada.",
+    linguistico: "\"No hurtarás\" (lo tignob): la raíz \"ganab\" denota tomar en secreto lo ajeno, secuestrar personas (robo de libertad) o defraudar en transacciones comerciales.",
+    referencia: "Efesios 4:28 (\"El que hurtaba, no hurte más, sino trabaje\"), Levítico 19:11, Proverbios 30:8-9, Lucas 19:8.",
+    comentarios: "Lutero explica que este mandamiento prohíbe no solo el robo descarado sino la usura, el fraude comercial, los salarios injustos y la negligencia laboral, exigiendo promover el bienestar material del prójimo.",
+  },
+
+  'Éxodo_20_16': {
+    historico: "El noveno mandamiento protege la integridad del sistema judicial de Israel y la reputación de los ciudadanos. En los juicios de la antigüedad, donde no había tecnología forense, el testimonio verbal decidía la vida o muerte.",
+    linguistico: "\"No hablarás... falso testimonio\" (lo ta-aneh... ed shaqer): \"ta-aneh\" es responder o testificar en un tribunal; \"ed shaqer\" es un testigo mentiroso o de falsedad destructiva.",
+    referencia: "Santiago 4:11 (\"No murmuréis los unos de los otros\"), Proverbios 19:5, Efesios 4:25, Salmos 15:1-3.",
+    comentarios: "Calvino destaca que este mandamiento prohíbe la calumnia, el chisme, la difamación y el juicio apresurado, y nos exige defender la buena reputación de los demás y hablar siempre con la verdad.",
+  },
+
+  'Éxodo_20_17': {
+    historico: "El décimo mandamiento es el único que legisla sobre los deseos invisibles del corazón en lugar de las acciones externas visibles, demostrando que la ley de Dios tiene una naturaleza espiritual profunda y anticipa el Sermón del Monte.",
+    linguistico: "\"No codiciarás\" (lo tachmod): la raíz \"chamad\" denota un deseo vehemente y desordenado de poseer algo que pertenece a otro, lo que impulsa al robo, adulterio o asesinato.",
+    referencia: "Romanos 7:7 (Pablo reconoce que este mandamiento le reveló su pecado interior), Santiago 1:14-15, Lucas 12:15, Colosenses 3:5.",
+    comentarios: "Agustín y Tomás de Aquino señalaron que la codicia es la raíz del pecado, ya que busca la satisfacción en la criatura en lugar del Creador. Muestra que Dios exige conformidad moral interna.",
+  },
+
+  'Levítico_19_2': {
+    historico: "El llamado a la santidad define la identidad de Israel: debían distinguirse moral y ritualmente de las prácticas idolátricas y degradantes de Egipto y Canaán. La santidad es relacional, basada en el carácter de Dios.",
+    linguistico: "\"Sed santos, porque yo soy santo\" (qedoshim tihyu ki qadosh ani): \"qadosh\" (קָדוֹשׁ) significa apartado, consagrado, limpio, radicalmente diferente de lo profano o común.",
+    referencia: "1 Pedro 1:15-16 (Pedro aplica este mandato a los creyentes de la iglesia del NT), Hebreos 12:14, Mateo 5:48, 1 Tesalonicenses 4:3.",
+    comentarios: "Spurgeon: la santidad no es una opción para el creyente, sino la marca indispensable de su filiación. Calvino: como Dios nos ha adoptado como su pueblo, es justo que reflejemos su carácter moral.",
+  },
+
+  'Números_6_25': {
+    historico: "Segunda línea de la bendición sacerdotal utilizada en el Tabernáculo y luego en el Templo. Expresa la benevolencia, gracia y favor activo de Dios hacia su pueblo errante en el desierto.",
+    linguistico: "\"Haga resplandecer su rostro\" (ya-er panav): el rostro resplandeciente es una metáfora semítica de favor, agrado y sonrisa divina; contrasta con el rostro oculto o airado. \"Tenga... misericordia\" (\"yichunekka\").",
+    referencia: "Salmos 4:6, Salmos 67:1, Salmos 80:3, Efesios 2:8.",
+    comentarios: "Lutero: el rostro resplandeciente de Dios es el evangelio mismo, la revelación de su gracia y perdón inmerecido en Jesucristo que disipa las tinieblas de la culpabilidad humana.",
+  },
+
+  'Números_6_26': {
+    historico: "Conclusión de la triple bendición sacerdotal. El final del pronunciamiento litúrgico asegura la provisión del Shalom divino como el mayor don espiritual y social para la comunidad del pacto.",
+    linguistico: "\"Alce sobre ti su rostro\" (yissa panav elekha): mirar de frente con atención amorosa, reconciliación y reconocimiento personal. \"Paz\" (\"shalom\", שָׁלוֹם): integridad, bienestar físico, social y espiritual.",
+    referencia: "Juan 14:27, Filipenses 4:7, Romanos 5:1, Efesios 2:14.",
+    comentarios: "Calvino destaca que la paz sacerdotal anticipa la reconciliación obrada por el Mesías, el verdadero Sumo Sacerdote que da la paz que sobrepasa todo entendimiento. La bendición es eficaz por la palabra de Dios.",
+  },
+
+  'Deuteronomio_6_6': {
+    historico: "Exhortación de Moisés tras la entrega de la Ley en las llanuras de Moab. Exige una interiorización profunda de los mandatos divinos en lugar de una mera memorización mecánica o formalismo religioso.",
+    linguistico: "\"Estarán sobre tu corazón\" (ve-hayu... al lebavekha): el corazón (leb) en la antropología hebrea es la sede de la voluntad, la mente y las elecciones, exigiendo que la ley gobierne la personalidad interior.",
+    referencia: "Proverbios 4:23, Jeremías 31:33 (la promesa del nuevo pacto de escribir la ley en el corazón), Salmos 119:11, Colosenses 3:16.",
+    comentarios: "Lutero: la ley de Dios debe habitar en el afecto y la voluntad del hombre, no solo en libros o paredes. Wesley: la verdadera religión es interior, una disposición santa obrada por la gracia en el corazón.",
+  },
+
+  'Deuteronomio_6_7': {
+    historico: "El mandato de la educación espiritual familiar en Israel. La transmisión de la fe no se delegaba a sacerdotes o escuelas, sino que era la responsabilidad diaria de los padres dentro del hogar.",
+    linguistico: "\"Las repetirás\" (ve-shinnantam): el verbo \"shanan\" significa afilar o grabar con presión; implica una enseñanza constante, vívida e incisiva a través del diálogo cotidiano al andar, acostarse y levantarse.",
+    referencia: "Salmos 78:4-6, Efesios 6:4 (\"criadlos en disciplina y amonestación del Señor\"), Proverbios 22:6, Deuteronomio 11:19.",
+    comentarios: "Calvino: el hogar debe ser la primera iglesia y escuela de fe, donde la conversación ordinaria sobre la creación y los actos salvadores de Dios moldee el carácter y la mente de los niños desde la infancia.",
+  },
+
+  'Deuteronomio_30_19': {
+    historico: "Moisés concluye la renovación del pacto presentando a Israel una elección existencial radical antes de entrar a Canaán. Invocar testigos como el cielo y la tierra corresponde a los tratados de vasallaje del Antiguo Oriente.",
+    linguistico: "\"He puesto delante... la vida y la muerte\" (hachayyim ve-hammavet natatti lephanekha): la elección de la vida consiste en amar a Dios y obedecerle; la muerte es el alejamiento e infidelidad del pacto.",
+    referencia: "Josué 24:15 (\"escogeos hoy a quién sirváis\"), Romanos 6:23, Juan 10:10, Deuteronomio 11:26.",
+    comentarios: "Tomás de Aquino: la voluntad humana es libre para elegir el bien con el auxilio de la gracia. Jonathan Edwards: la verdadera elección de la vida es una atracción santa hacia la hermosura de Dios y sus mandamientos.",
+  },
+
+  'Josué_1_8': {
+    historico: "Josué asume el liderazgo militar de Israel tras la muerte de Moisés. En lugar de manuales de estrategia militar, Dios le exige obediencia y meditación constante en el Libro de la Ley como la clave de su éxito.",
+    linguistico: "\"Meditarás\" (ve-hagitha): la raíz \"hagah\" (הָגָה) significa murmurar en voz baja, rumiar o susurrar de forma continua; describe la lectura reflexiva e internalizada de las Escrituras.",
+    referencia: "Salmos 1:2, Josué 1:7, Colosenses 3:16, Salmos 119:97 (\"¡Oh, cuánto amo yo tu ley! Todo el día es ella mi meditación\").",
+    comentarios: "Calvino: la verdadera prosperidad no es el éxito según el mundo, sino el cumplimiento de la vocación divina mediante la obediencia fiel. Spurgeon: rumiar la palabra de Dios extrae su alimento espiritual diario.",
+  },
+
+  '1 Samuel_15_23': {
+    historico: "Samuel pronuncia el juicio final de rechazo sobre el rey Saúl. Saúl intentó justificar su desobediencia militar afirmando que conservó el botín prohibido para ofrecer sacrificios litúrgicos espléndidos a Dios.",
+    linguistico: "\"Rebelión\" (\"meri\", מְרִי): insurrección o rechazo activo a la autoridad. \"Obstinación\" (\"tse-phets\"): terquedad, autosuficiencia. \"Adivinación\" (\"qesem\"): magia prohibida. \"Idolatría\" (\"teraphim\").",
+    referencia: "Oseas 6:6, Colosenses 3:5 (la avaricia es idolatría), Mateo 15:8-9, Isaías 1:11-15.",
+    comentarios: "Lutero: el pecado de Saúl fue pretender servir a Dios bajo sus propios términos en lugar de obedecer su mandato explícito, lo cual es la esencia de toda idolatría y autosuficiencia religiosa.",
+  },
+
+  '1 Reyes_18_39': {
+    historico: "El clímax del enfrentamiento entre Elías y los profetas de Baal en el Monte Carmelo. Tras caer el fuego del cielo consumiendo el altar mojado, el pueblo arrepentido abandona su sincretismo y confiesa a YHWH.",
+    linguistico: "\"¡Jehová es el Dios!\" (YHWH hu ha-Elohim): el artículo \"ha\" (el) enfatiza la exclusividad; no es un dios entre muchos, sino el único Dios verdadero y soberano de la creación.",
+    referencia: "Deuteronomio 4:35, Salmos 115:3, Lucas 18:38, Apocalipsis 15:4.",
+    comentarios: "Spurgeon: la manifestación del poder divino disipa las dudas y exige una decisión pública inmediata. Calvino: el fuego purificador del Carmelo es imagen de la obra del Espíritu Santo que convence de pecado y soberanía.",
+  },
+
+  'Salmos_1_2': {
+    historico: "Introducción del Psalterio que contrasta los dos caminos existenciales de la humanidad. El deleite en la ley de Dios define el carácter del varón bienaventurado en medio de una cultura impía.",
+    linguistico: "\"Deleite\" (\"chephets\", חֵפֶץ): gozo, inclinación voluntaria, deseo apasionado; no es cumplimiento por obligación o temor, sino placer espiritual y del intelecto en la instrucción divina (\"torah\").",
+    referencia: "Salmos 119:35, Salmos 119:97, Romanos 7:22 (\"deleyto en la ley de Dios según el hombre interior\"), Proverbios 3:17.",
+    comentarios: "Agustín de Hipona: el amor a la ley es la marca de la regeneración; el impío teme la ley, pero el bienaventurado se deleita en ella porque ve en la ley la expresión de la belleza del Creador.",
+  },
+
+  'Salmos_1_3': {
+    historico: "La metáfora agrícola del desierto de Judea, donde la vida vegetal depende estrictamente de la cercanía a canales de irrigación artificiales (palmeras y árboles junto a corrientes de agua permanentes).",
+    linguistico: "\"Plantado junto a corrientes\" (shathul al-palgey mayyim): \"shathul\" denota un árbol trasplantado deliberadamente a un lugar óptimo. \"Corrientes\" (\"palgey\"): canales de riego artificiales que aseguran agua constante.",
+    referencia: "Jeremías 17:8 (\"será como el árbol plantado junto a las aguas\"), Salmos 92:12-14, Juan 15:4-5 (permanecer en la vid), Apocalipsis 22:2.",
+    comentarios: "Spurgeon: el creyente no crece de forma silvestre; es trasplantado por la gracia al huerto de Dios. Su frescura espiritual y fruto constante provienen de la absorción diaria de la gracia del Espíritu Santo.",
+  },
+
+  'Salmos_19_7': {
+    historico: "David pasa de la revelación de Dios en el cosmos a la revelación perfecta de Dios en su Ley (Torá). Es un himno que celebra la suficiencia, fiabilidad y poder restaurador de las Escrituras.",
+    linguistico: "\"La ley... es perfecta\" (torat YHWH temimah): \"temimah\" significa íntegra, completa, impecable, sin defecto. \"Convierte\" (\"meshibat\"): restaura, vivifica o hace volver el alma descarriada.",
+    referencia: "Salmos 119:98-100, 2 Timoteo 3:15-17 (las Escrituras hacen sabio para la salvación), Hebreos 4:12, Salmos 119:142.",
+    comentarios: "Calvino destaca que las Escrituras actúan como \"lentes\" que aclaran nuestra visión borrosa de Dios en la naturaleza. Muestra que la Palabra tiene poder intrínseco para reformar la personalidad humana.",
+  },
+
+  'Salmos_23_2': {
+    historico: "La descripción del pastoreo en Judea. Las colinas áridas exigen que el pastor guíe activamente a las ovejas a oasis específicos (pastos tiernos y aguas tranquilas) para evitar que mueran de deshidratación.",
+    linguistico: "\"Lugares de delicados pastos\" (bin-ot deshe): oasis de hierba fresca y tierna. \"Aguas de reposo\" (\"mey menuchot\", מֵי מְנֻחוֹת): aguas tranquilas y lentas; las ovejas temen beber de torrentes rápidos.",
+    referencia: "Apocalipsis 7:17, Salmos 36:8, Isaías 49:10, Ezequiel 34:14.",
+    comentarios: "Spurgeon: las ovejas no buscan el alimento por sí mismas; dependen del pastor. Dios nos provee no solo sustento material sino la paz espiritual necesaria para descansar del afán cotidiano.",
+  },
+
+  'Salmos_23_3': {
+    historico: "El pastor cuida de las ovejas enfermas, heridas o descarriadas y las guía por senderos seguros conocidos para evitar que caigan en barrancos o se pierdan en el desierto rocoso de Judea.",
+    linguistico: "\"Confortará mi alma\" (naphshi yeshobeb): restaurar, revivir o traer de vuelta a la vida el alma cansada o descarriada. \"Sendas de justicia\" (\"magley tsedeq\"): caminos rectos, seguros y trillados.",
+    referencia: "Salmos 5:8, Proverbios 4:18, Isaías 40:11, Jeremías 31:9.",
+    comentarios: "Lutero: guiar por sendas de justicia es la obra del Espíritu Santo que nos conduce en la fe y la obediencia. Calvino: Dios hace esto \"por amor de su nombre\", basando su fidelidad en su propio carácter, no en nuestros méritos.",
+  },
+
+  'Salmos_23_5': {
+    historico: "La metáfora cambia del pastor al anfitrión generoso en el desierto. La hospitalidad nómada obligaba al anfitrión a proteger a su huésped de sus enemigos perseguidores, ofreciéndole asilo, alimento y honra.",
+    linguistico: "\"Unges mi cabeza con aceite\" (dishanta bash-shemen roshi): el aceite perfumado expresaba honor, refrigerio y alegría para el huésped. \"Mi copa está rebosando\" (\"kosi revayah\"): abundancia generosa.",
+    referencia: "Salmos 92:10, Lucas 7:46 (Jesús reprende la falta de aceite de cortesía), Salmos 104:15, Juan 10:10.",
+    comentarios: "Los Padres de la Iglesia interpretaron la mesa aderezada como la mesa de la Eucaristía, el aceite como la unción del Espíritu Santo y la copa rebosante como la salvación en Cristo que sacia toda sed del alma.",
+  },
+
+  'Salmos_23_6': {
+    historico: "Conclusión triunfal del salmo de confianza. En lugar de ser perseguido por enemigos o la muerte en el desierto, el salmista es \"perseguido\" activamente por la bondad y el amor inquebrantable de Dios.",
+    linguistico: "\"Me seguirán\" (yirdephuni): del verbo \"radaph\" (perseguir, cazar); es un término intenso de persecución; la gracia de Dios nos acosa y nos da alcance. \"Misericordia\" (\"chesed\", חֶסֶד): amor leal de pacto.",
+    referencia: "Salmos 27:4 (\"Una cosa he demandado a Jehová... que esté yo en la casa de Jehová todos los días de mi vida\"), 2 Corintios 5:1, Juan 14:3.",
+    comentarios: "Spurgeon: el bien y la misericordia son los dos escoltas divinos que nos acompañan por detrás durante todo nuestro viaje terrenal, asegurando que nuestro destino final es la comunión eterna con Dios.",
+  },
+
+  'Salmos_37_3': {
+    historico: "Consejo de David frente a la injusticia y prosperidad de los impíos. Exhorta a un estilo de vida de confianza activa en Dios y persistencia en el bien moral en lugar de la envidia o la desesperación social.",
+    linguistico: "\"Confía... y haz el bien\" (betach... ve-aseh-tov): la fe bíblica no es pasiva; exige acción ética. \"Te apacentarás de la verdad\" (\"re-eh emunah\"): alimentarse o habitar con seguridad en la fidelidad divina.",
+    referencia: "Salmos 55:22, Hebreos 11:6, Proverbios 3:5, Gálatas 6:9.",
+    comentarios: "Lutero: la fe y las buenas obras deben ir unidas; confiar en Dios nos libera del temor para poder servir al prójimo. Calvino: habitar en la tierra con seguridad es la recompensa de la paciencia creyente.",
+  },
+
+  'Salmos_51_2': {
+    historico: "La oración de confesión de David tras el enfrentamiento con el profeta Natán. Expresa la conciencia del pecado no como una infracción menor, sino como una contaminación espiritual profunda que requiere purificación divina.",
+    linguistico: "\"Lávame más y más\" (hereb kabbeseni): del verbo \"kabas\" (lavar ropa pisoteándola o golpeándola); implica una limpieza enérgica, profunda y repetida. \"Pecado\" (\"chatat\"): errar al blanco del pacto.",
+    referencia: "1 Juan 1:7 (la sangre de Jesús nos limpia de todo pecado), Isaías 1:18, Salmos 51:7, Hebreos 9:14.",
+    comentarios: "Agustín: el verdadero arrepentimiento no busca excusas sino la limpieza total del alma. Lutero: David reconoce que el pecado es una condición interna profunda, no solo actos externos aislados.",
+  },
+
+  'Salmos_51_7': {
+    historico: "El uso del hisopo (una planta aromática) correspondía a los ritos de purificación de los leprosos y de la limpieza del santuario tras la contaminación por cadáveres según la Ley de Moisés.",
+    linguistico: "\"Purifícame con hisopo\" (techatte-eni be-ezob): literalmente \"des-pecamíname con hisopo\". \"Seré más blanco que la nieve\" (mi-sheleg albin): el perdón divino otorga una justicia absoluta e impecable.",
+    referencia: "Levítico 14:4-7 (purificación del leproso), Números 19:18, Isaías 1:18, Juan 19:29 (hisopo en la cruz), Hebreos 9:19.",
+    comentarios: "Los comentaristas puritanos vieron en el hisopo la fe que aplica la sangre purificadora del verdadero sacrificio (Cristo) al corazón del pecador, haciéndolo apto para la presencia santa de Dios.",
+  },
+
+  'Salmos_51_17': {
+    historico: "David reconoce la insuficiencia de los sacrificios de animales del Templo (holocaustos) si no van acompañados de arrepentimiento genuino. Es una interiorización de la ética del pacto contra el ritualismo vacío.",
+    linguistico: "\"Espíritu quebrantado\" (ruach nishbarah): un espíritu humillado por la culpa, desprovisto de orgullo o justificación. \"Corazón contrito\" (\"leb-nishbar ve-nidkeh\"): aplastado, arrepentido ante la santidad de Dios.",
+    referencia: "Isaías 57:15, Isaías 66:2 (\"miraré a aquel que es pobre y humilde de espíritu\"), Salmos 34:18, Mateo 5:3.",
+    comentarios: "Calvino: la demolición de nuestro orgullo e hipocresía es el primer paso para la restauración espiritual. Spurgeon: Dios no desprecia la vasija rota de un corazón arrepentido; la reconstruye con su gracia.",
+  },
+
+  'Salmos_100_2': {
+    historico: "Invitación litúrgica al culto público en el Templo de Jerusalén. Establece que el servicio al Creador debe caracterizarse por el gozo y el regocijo nacional, no por la pesadumbre o el formalismo.",
+    linguistico: "\"Servid... con alegría\" (ibdu... be-simchah): el culto (\"avodah\") es un servicio gozoso. \"Presencia\" (\"phanav\", rostro): entrar al atrio del Templo donde se manifestaba la presencia teofánica.",
+    referencia: "Filipenses 4:4, Salmos 95:1-2, Salmos 100:4, Efesios 5:19.",
+    comentarios: "Wesley: el gozo en el servicio divino es la marca de la verdadera religión cristiana. Spurgeon: la adoración melancólica deshonra al Dios vivo; debemos cantar ante él con júbilo agradecido.",
+  },
+
+  'Salmos_100_3': {
+    historico: "El fundamento teológico del culto a YHWH. Israel es el pueblo del pacto por creación divina y elección soberana, lo que exige gratitud y sumisión al Pastor de las almas.",
+    linguistico: "\"Él nos hizo\" (hu-asanu): creación física y formación nacional. \"Pueblo suyo y ovejas de su prado\" (ammo ve-tson mar-ito): metáfora del pacto que establece pertenencia y cuidado mutuo.",
+    referencia: "Salmos 95:7, Génesis 1:27, 1 Corintios 6:19-20, Romanos 9:20-21.",
+    comentarios: "Calvino destaca que este versículo derriba el orgullo humano: no nos hicimos a nosotros mismos ni merecimos la elección; somos criaturas y posesión de Dios, lo que nos llama a la humildad y alabanza.",
+  },
+
+  'Salmos_103_2': {
+    historico: "David exhorta a su propia alma a la gratitud consciente. En la vida cotidiana, la tendencia humana es olvidar los actos de gracia y enfocarse en las quejas y dificultades del momento.",
+    linguistico: "\"No olvides ninguno de sus beneficios\" (ve-al-tishkechi kol-gemulav): \"gemul\" es el trato generoso, recompensa o regalo inmerecido de Dios. Olvidar es el inicio de la apostasía y queja en el AT.",
+    referencia: "Deuteronomio 6:12 (\"guárdate de no olvidarte de Jehová\"), Salmos 103:3-5, Colosenses 3:15, Hebreos 13:16.",
+    comentarios: "Spurgeon: la memoria del creyente debe ser un archivo de las bondades de Dios, no un colador que las deje pasar. La alabanza exige un esfuerzo voluntario de la memoria espiritual.",
+  },
+
+  'Salmos_103_3': {
+    historico: "Las dos grandes provisiones de Dios para la fragilidad humana: la redención moral (perdón de iniquidades) y la restauración física (sanidad de dolencias). Refleja la visión integral de la salvación hebrea.",
+    linguistico: "\"Perdona\" (has-soleach): el perdón que quita la culpa. \"Sana\" (ha-rofe): sanidad física y espiritual. YHWH Rofe es el Dios sanador (cf. Éxodo 15:26).",
+    referencia: "Éxodo 15:26, Mateo 9:2-6 (Jesús vincula el perdón de pecados con la sanidad física), Isaías 53:5, Santiago 5:14-15.",
+    comentarios: "Agustín: Cristo es el gran Médico divino que trata la enfermedad mortal del pecado y resucitará el cuerpo enfermo para la inmortalidad. El perdón es la primera y mayor sanidad del alma.",
+  },
+
+  'Proverbios_3_6': {
+    historico: "Instrucción sapiencial en la corte de Salomón. Exige una sumisión activa e integral a Dios en todas las decisiones de la vida diaria, prometiendo guía divina providencial constante.",
+    linguistico: "\"Reconócelo\" (dahu, דָּעֵהוּ): de la raíz \"yada\" (saber/conocer); implica un conocimiento íntimo, relacional y práctico, no mero asentimiento intelectual. \"Veredas\" (\"orachot\"): caminos de vida.",
+    referencia: "Proverbios 16:3, Jeremías 10:23, Filipenses 4:6, Salmos 32:8.",
+    comentarios: "Wesley: reconocer a Dios en todos nuestros caminos significa consultar su voluntad en cada decisión, pequeña o grande, y consagrarle todos nuestros planes mediante la oración.",
+  },
+
+  'Eclesiastés_3_1': {
+    historico: "Reflexión del Cohelet (el predicador/Salomón) sobre el orden y control soberano de Dios sobre los tiempos y estaciones de la vida humana. Combate la ilusión de control absoluto del hombre.",
+    linguistico: "\"Tiempo\" (\"zeman\", זְמָן): estación señalada, sazón oportuna o momento fijado por la providencia divina. \"Hora\" (\"et\"): tiempo oportuno para que ocurra un evento.",
+    referencia: "Eclesiastés 3:2-8, Hechos 1:7 (\"No os toca a vosotros saber los tiempos\"), Salmos 31:15 (\"En tu mano están mis tiempos\"), Gálatas 4:4.",
+    comentarios: "Agustín: el orden de los tiempos revela la belleza de la providencia de Dios, que coordina los contrastes (nacimiento/muerte, risa/llanto) para su propósito final. Nos llama a la paciencia y sumisión.",
+  },
+
+  'Isaías_40_29': {
+    historico: "Oráculo de consolación para los exiliados judíos en Babilonia, desanimados por las décadas de cautiverio y sintiéndose olvidados por YHWH. Dios se revela como el Creador incansable que fortalece a los débiles.",
+    linguistico: "\"Da esfuerzo\" (noten koach): otorgar vigor activo. \"Multiplica las fuerzas\" (otzmiah yarbeh): multiplicar la fortaleza y resistencia interna al que se encuentra exhausto o sin recursos.",
+    referencia: "2 Corintios 12:9 (\"Mi poder se perfecciona en la debilidad\"), Colosenses 1:11, Isaías 40:31, Salmos 68:35.",
+    comentarios: "Spurgeon: Dios no ayuda a los que se creen fuertes; derrama su poder infinito en las vasijas vacías de quienes reconocen no tener ninguna fuerza propia. La debilidad humana atrae el poder divino.",
+  },
+
+  'Isaías_40_30': {
+    historico: "El contraste entre el vigor físico natural de la juventud (los muchachos y jóvenes soldados) y la fortaleza espiritual sobrenatural que proviene del pacto y la confianza en YHWH.",
+    linguistico: "\"Muchachos se fatigan\" (yiy-aphu ne-arim): incluso los jóvenes en el pico de su fuerza biológica se agotan ante las crisis existenciales de la vida. \"Fallan\" (\"kashol yikashelu\"): tropezar y caer.",
+    referencia: "Salmos 33:16-17, 1 Corintios 1:25-27, Jeremías 9:23, Isaías 40:31.",
+    comentarios: "Calvino destaca que la fuerza física es pasajera y frágil; el orgullo juvenil en su vigor natural es derribado para mostrar que solo la dependencia espiritual de Dios sostiene al ser humano en la prueba.",
+  },
+
+  'Isaías_43_1': {
+    historico: "Promesa de redención y pertenencia para el remanente de Israel exiliado en Babilonia. Dios les recuerda su acto de creación nacional y redención histórica para disipar el temor a la extinción.",
+    linguistico: "\"No temas, porque yo te redimí\" (al-tira ki ge-altikha): \"ga-al\" es el rescate del pariente cercano (redentor). \"Te puse nombre\" (qarati be-shimkha): designar propiedad y relación íntima.",
+    referencia: "Isaías 41:10, Isaías 43:2-3, Romanos 8:15, Gálatas 4:6-7.",
+    comentarios: "Lutero: el temor es vencido por la certeza de la pertenencia; el creyente que sabe que pertenece a Dios puede afrontar cualquier peligro en la historia con audacia filial y paz mental.",
+  },
+
+  'Isaías_43_2': {
+    historico: "Metáforas del desierto y de los juicios históricos. El paso a través de inundaciones y fuegos evoca la protección del Éxodo (Mar Rojo) y los juicios nacionales que Israel atravesará con vida.",
+    linguistico: "\"Cuando pases por las aguas... por el fuego\" (ki-ta-abor bam-mayyim... ba-esh): las aguas y el fuego representan peligros mortales extremos. \"No te quemarás\" (lo tikkaweh): la llama no te consumirá.",
+    referencia: "Daniel 3:25-27 (los tres jóvenes en el horno de fuego), Salmos 66:12 (\"Pasamos por el fuego y por el agua\"), Salmos 23:4, Romanos 8:35-37.",
+    comentarios: "Spurgeon: Dios no promete que sus hijos evitarán el fuego o las aguas; promete su presencia activa (\"yo estaré contigo\") *dentro* de la prueba, impidiendo que el peligro nos destruya moralmente.",
+  },
+
+  'Isaías_53_3': {
+    historico: "El cuarto cántico del Siervo Sufriente. Describe el rechazo social y la humillación extrema del Mesías por parte de su propio pueblo, quienes lo consideraron insignificante y digno de desprecio.",
+    linguistico: "\"Despreciado\" (nibhzeh): desestimado, valorado en nada. \"Varón de dolores\" (ish mak-obot): un hombre identificado íntimamente con el sufrimiento y la aflicción física y mental.",
+    referencia: "Juan 1:11 (\"a lo suyo vino, y los suyos no le recibieron\"), Mateo 27:27-31, Marcos 15:15-20, Lucas 23:11.",
+    comentarios: "Calvino: la humillación del Siervo fue el precio necesario para expiar nuestro orgullo pecaminoso. C.S. Lewis destacó el realismo profético de este retrato de Jesús frente a las expectativas triunfalistas de Israel.",
+  },
+
+  'Isaías_53_4': {
+    historico: "El profeta explica el propósito sustitutivo del dolor del Siervo. El pueblo pensó que su sufrimiento era un castigo divino por sus propios pecados (como el azote de la lepra), pero sufría por nosotros.",
+    linguistico: "\"Llevó él nuestras enfermedades\" (cholayenu hu nasa): cargar o levantar sobre sí el peso del dolor ajeno. \"Azotado, herido de Dios\" (nagua mukkeh Elohim): golpeado por la justicia divina.",
+    referencia: "Mateo 8:17 (Mateo cita este versículo al ver a Jesús sanar a los enfermos), 1 Pedro 2:24, Romanos 4:25, Gálatas 3:13.",
+    comentarios: "Lutero: este versículo es el corazón de la expiación sustitutiva; todas nuestras dolencias y pecados fueron transferidos al Siervo para que nosotros recibiéramos su paz y restauración.",
+  },
+
+  'Isaías_53_5': {
+    historico: "La declaración de la expiación penal sustitutiva. El castigo infligido al Siervo satisface la justicia santa de Dios y restaura la comunión rota del pacto para toda la humanidad arrepentida.",
+    linguistico: "\"Herido\" (mecholal): perforado o traspasado (anticipa la crucifixión). \"Molido\" (medukka): triturado o aplastado por el peso del juicio. \"Por sus llagas fuimos... curados\" (ubachaburato nrapha-lanu).",
+    referencia: "Romanos 5:1, 1 Pedro 2:24, Juan 19:34 (el costado traspasado), Colosenses 2:14, 2 Corintios 5:21.",
+    comentarios: "Spurgeon: las llagas de Cristo son las fuentes de donde brota la medicina que sana la lepra del alma humana. La paz del creyente con Dios se asienta en el castigo sustitutivo sufrido por Jesús en la cruz.",
+  },
+
+  'Isaías_53_6': {
+    historico: "La confesión universal del desvarío humano y la oveja descarriada. Contrasta la rebelión irracional de la humanidad con el sometimiento voluntario del Siervo y el acto imputador de Dios.",
+    linguistico: "\"Todos nosotros nos descarriamos\" (kullanu kats-tson ta-inu): andar errante, perder el rumbo. \"Cargó en él\" (hiphgia bo): hacer caer, converger o arrojar todo el peso del pecado sobre el Siervo.",
+    referencia: "1 Pedro 2:25 (\"porque vosotros erais como ovejas descarriadas\"), Lucas 15:4, Romanos 3:10-12, 1 Juan 2:2.",
+    comentarios: "Calvino: el versículo contiene dos verdades fundamentales: nuestra ruina universal (descarriados) y nuestro remedio divino único (el pecado cargado en Cristo). Destruye toda pretensión de auto-salvación.",
+  },
+
+  'Jeremías_29_12': {
+    historico: "Promesa dada a los exiliados en Babilonia. Dios asegura que tras el juicio temporal de 70 años, restaurará la comunión nacional mediante la oración sincera, escuchando sus ruegos en la tierra de cautiverio.",
+    linguistico: "\"Oraréis a mí, y yo os oiré\" (u-hith-pallaltem elay ve-shamati alekhem): la oración del pacto que es escuchada eficazmente por Dios debido a su promesa y fidelidad soberana.",
+    referencia: "Mateo 7:7, Salmos 50:15, Filipenses 4:6, 1 Juan 5:14.",
+    comentarios: "Lutero: la promesa de Dios de escuchar la oración es el mayor estímulo para orar; oramos no con dudas sino basados en su palabra empeñada. La restauración comienza con la oración de fe.",
+  },
+
+  'Jeremías_29_13': {
+    historico: "Dios exige una búsqueda espiritual sincera e integral para la restauración nacional. El exilio sirvió para purificar a la nación de su idolatría y formalismo religioso superficial.",
+    linguistico: "\"Buscaréis... de todo vuestro corazón\" (u-biq-qashtem... be-kol lebavekhem): la búsqueda con la totalidad de la mente, voluntad y afecto; contrasta con el culto de labios (hipocresía).",
+    referencia: "Deuteronomio 4:29, Mateo 7:8, Proverbios 8:17, Salmos 119:2.",
+    comentarios: "Spurgeon: buscar a Dios a medias es insultarle; él exige el corazón entero. Quien busca a Dios con sinceridad absoluta tiene la garantía divina de que será hallado y restaurado en su gracia.",
+  },
+
+  'Daniel_6_23': {
+    historico: "Daniel es sacado ileso del foso de los leones. En la ley persa contemporánea, la supervivencia de un acusado a una ejecución real era considerada un juicio divino de inocencia absoluta.",
+    linguistico: "\"Ninguna lesión se halló en él, porque había confiado en su Dios\": la confianza (\"he-emin\", הֶאֱמִין - raíz de Amén) fue el escudo espiritual que neutralizó el instinto salvaje de los depredadores.",
+    referencia: "Hebreos 11:33, Daniel 3:27, Romanos 8:31, 2 Timoteo 4:17 (\"fui librado de la boca del león\").",
+    comentarios: "Calvino destaca que la fe de Daniel no fue presunción pasiva, sino una entrega total a la voluntad soberana de Dios. Su preservación física es tipo del triunfo final del creyente sobre la muerte.",
+  },
+
+  'Mateo_5_4': {
+    historico: "Segunda bienaventuranza del Sermón del Monte. Rompe con la filosofía grecorromana que consideraba al dolor y luto como signos de debilidad o desgracia, declarándolos canales de consuelo divino.",
+    linguistico: "\"Los que lloran\" (hoi penthountes): un llanto profundo, luto por la muerte de un ser querido o tristeza piadosa por el pecado del mundo y propio. \"Consolados\" (\"paraklēthēsontai\").",
+    referencia: "2 Corintios 1:3-4 (el Dios de toda consolación), Isaías 61:2-3, Apocalipsis 21:4, 2 Corintios 7:10 (tristeza piadosa).",
+    comentarios: "Agustín: el llanto bienaventurado es la tristeza por la distancia de nuestra patria celestial y por nuestro pecado. Los reformadores destacaron que el consolador es el Espíritu Santo (Paraclete).",
+  },
+
+  'Mateo_5_5': {
+    historico: "Tercera bienaventuranza. Jesús cita casi textualmente el Salmo 37:11. Contradice los valores del Imperio Romano, que glorificaba el poder militar, el orgullo y la conquista por la fuerza física.",
+    linguistico: "\"Los mansos\" (hoi praeis): la mansedumbre (\"praotes\") no es cobardía o debilidad, sino poder bajo control, sumisión voluntaria a Dios y paciencia ante las ofensas humanas sin venganza.",
+    referencia: "Salmos 37:11 (\"los mansos heredarán la tierra\"), Mateo 11:29 (Jesús: \"manso y humilde de corazón\"), Gálatas 5:23, Santiago 1:21.",
+    comentarios: "Juan Crisóstomo: el manso vence por la no resistencia, heredando la tierra porque posee la paz que los violentos nunca encuentran. Calvino: la mansedumbre es el fruto de la confianza en la providencia.",
+  },
+
+  'Mateo_5_6': {
+    historico: "Cuarta bienaventuranza. En el siglo I, el hambre y la sed de agua eran realidades cotidianas y mortales. Jesús usa este deseo biológico instintivo e intenso para describir el anhelo por la justicia de Dios.",
+    linguistico: "\"Hambre y sed de justicia\" (peinōntes kai dipsōntes tēn dikaiosynēn): anhelo apasionado por la justicia moral (rectitud de vida) y forense (justificación). \"Saciados\" (\"chortasthēsontai\").",
+    referencia: "Salmos 42:1, Isaías 55:1, Juan 4:14, Juan 6:35, Romanos 3:21-22.",
+    comentarios: "Lutero: la justicia que debemos desear es la justicia de Cristo imputada por fe y la rectitud ética práctica en la sociedad. Spurgeon: el hambre espiritual es señal de vida del alma; Dios promete saciarla.",
+  },
+
+  'Mateo_5_8': {
+    historico: "Sexta bienaventuranza. En el judaísmo rabínico contemporáneo, la pureza se definía por múltiples abluciones y ritos externos (lavado de manos, vasos, etc.). Jesús sitúa la pureza en el interior del corazón.",
+    linguistico: "\"Limpio corazón\" (katharoi tē kardia): \"katharos\" es limpio, sin mezcla, puro (libre de hipocresía o doble ánimo). \"Verán a Dios\" (\"ton theon opsontai\"): intimidad y comunión máxima.",
+    referencia: "Salmos 24:3-4 (\"El limpio de manos y puro de corazón... subirá al monte de Jehová\"), 1 Juan 3:2-3, Hebreos 12:14, Santiago 4:8.",
+    comentarios: "Agustín de Hipona: el corazón es el ojo del alma; si el ojo está limpio, puede contemplar la luz y belleza divina. La santidad interna es el prerrequisito indispensable para ver a Dios en la eternidad.",
+  },
+
 };
