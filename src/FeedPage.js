@@ -62,6 +62,7 @@ function PostCard({ post, user, onSaveNote }) {
   const [showComments, setShowComments] = useState(false);
   const [saved,        setSaved]        = useState(false);
   const [reposted,     setReposted]     = useState(false);
+  const [sharing,      setSharing]      = useState(false);
 
   const uid      = user?.uid;
   const liked    = !!(uid && post.likes?.includes(uid));
@@ -103,6 +104,68 @@ function PostCard({ post, user, onSaveNote }) {
 
   async function handleDelete() {
     await deletePost(post.id, uid);
+  }
+
+  async function handleSharePost() {
+    if (sharing) return;
+    setSharing(true);
+    const textToShare = `📖 ${post.verseRef.book} ${post.verseRef.chapter}:${post.verseRef.verse}\n"${post.verseRef.text}"\n\nReflexión: ${post.text || ''}`;
+    
+    try {
+      if (post.imageUrl && navigator.share && navigator.canShare) {
+        let blob;
+        let fileType = 'image/jpeg';
+        if (post.imageUrl.startsWith('data:')) {
+          const parts = post.imageUrl.split(';');
+          fileType = parts[0].split(':')[1];
+          const raw = window.atob(parts[1].split(',')[1]);
+          const rawLength = raw.length;
+          const uInt8Array = new Uint8Array(rawLength);
+          for (let i = 0; i < rawLength; ++i) {
+            uInt8Array[i] = raw.charCodeAt(i);
+          }
+          blob = new Blob([uInt8Array], { type: fileType });
+        } else {
+          const response = await fetch(post.imageUrl);
+          blob = await response.blob();
+          fileType = blob.type || 'image/jpeg';
+        }
+        
+        const ext = fileType.split('/')[1] || 'jpg';
+        const file = new File([blob], `biblia_post_${post.id}.${ext}`, { type: fileType });
+        
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: 'Bibl.ia Feed',
+            text: textToShare,
+          });
+          setSharing(false);
+          return;
+        }
+      }
+    } catch (e) {
+      console.error("Error sharing image file, falling back to text", e);
+    }
+    
+    const textWithLink = post.imageUrl
+      ? `${textToShare}\n\nImagen: ${post.imageUrl}`
+      : textToShare;
+      
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Bibl.ia Feed',
+          text: textWithLink,
+        });
+      } else {
+        await navigator.clipboard.writeText(textWithLink);
+        alert('Copiado al portapapeles para compartir');
+      }
+    } catch (err) {
+      console.error("Share failed", err);
+    }
+    setSharing(false);
   }
 
   return (
@@ -189,6 +252,15 @@ function PostCard({ post, user, onSaveNote }) {
           title="Guardar como nota"
         >
           {saved ? '✓' : '📝'}
+        </button>
+
+        <button
+          className="post-action-btn"
+          onClick={handleSharePost}
+          disabled={sharing}
+          title="Compartir"
+        >
+          {sharing ? '⏳' : '↗️'} <span>Compartir</span>
         </button>
       </div>
 
