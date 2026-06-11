@@ -6,7 +6,7 @@ import { CALVIN_COMMENTARY }         from './data/calvin';
 import { LUTHER_COMMENTARY }         from './data/luther';
 import { EDWARDS_COMMENTARY }        from './data/edwards';
 import { ANDREW_MURRAY_COMMENTARY }  from './data/andrew_murray';
-import { MACARTHUR_COMMENTARY }      from './data/macarthur';
+import { WESLEY_COMMENTARY }         from './data/wesley';
 import { loadAuthorPhotos, saveAuthorPhoto, saveAuthorPhotoURL, ADMIN_EMAIL } from './firebase';
 
 const AUTHORS = [
@@ -88,15 +88,15 @@ const AUTHORS = [
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/C.s.lewis3.JPG/440px-C.s.lewis3.JPG',
   },
   {
-    id: 'macarthur',
-    name: 'John MacArthur',
-    years: '1939–presente',
-    tradition: 'Bautista Reformada · Predicación Expositiva · Dispensacionalismo Señorío',
-    bio: 'Pastor de Grace Community Church en Sun Valley, California, y presidente de The Master\'s University y Seminary. Famoso por su ministerio "Grace to You" y su Biblia de Estudio MacArthur. Su enfoque se centra en la exposición versículo por versículo de todo el Nuevo Testamento y partes clave del Antiguo Testamento.',
-    commentary: MACARTHUR_COMMENTARY,
-    color: '#0f3a5f',
-    initials: 'JM',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/John_F._MacArthur.jpg/440px-John_F._MacArthur.jpg',
+    id: 'wesley',
+    name: 'John Wesley',
+    years: '1703–1791',
+    tradition: 'Metodista · Santidad Entera · Gracia Preveniente',
+    bio: 'Clérigo anglicano y teólogo inglés, líder fundador del movimiento metodista. Sus "Notas Explicativas sobre el Nuevo Testamento" y sus sermones son la base doctrinal de la tradición wesleyana. Enfatizó la gracia de Dios disponible para todos, el testimonio del Espíritu y la santificación progresiva hacia la perfección cristiana. Sus obras son de dominio público.',
+    commentary: WESLEY_COMMENTARY,
+    color: '#5c3d2e',
+    initials: 'JW',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/John_Wesley_by_George_Romney.jpg/440px-John_Wesley_by_George_Romney.jpg',
   },
 ];
 
@@ -403,7 +403,7 @@ export default function TheologicalCommentaries({ onClose, darkMode, currentUser
         <div className="tc-more-soon">
           <div className="tc-more-icon">📚</div>
           <div className="tc-more-text">Más autores próximamente</div>
-          <div className="tc-more-sub">John Wesley · B.B. Warfield · Oswald Chambers · G. Campbell Morgan</div>
+          <div className="tc-more-sub">B.B. Warfield · Oswald Chambers · G. Campbell Morgan</div>
         </div>
       </div>
     </div>

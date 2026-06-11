@@ -8,7 +8,7 @@ import { CALVIN_COMMENTARY } from './data/calvin';
 import { LUTHER_COMMENTARY } from './data/luther';
 import { EDWARDS_COMMENTARY } from './data/edwards';
 import { ANDREW_MURRAY_COMMENTARY } from './data/andrew_murray';
-import { MACARTHUR_COMMENTARY } from './data/macarthur';
+import { WESLEY_COMMENTARY } from './data/wesley';
 import AuthScreen               from './AuthScreen';
 import UserMenu                 from './UserMenu';
 import CommentsPanel            from './CommentsPanel';
@@ -28,7 +28,7 @@ const THEOLOGIANS_LIST = [
   { id: 'spurgeon', name: 'Charles H. Spurgeon', initials: 'SP', color: '#4a1c6e', list: SPURGEON_COMMENTARY },
   { id: 'andrew_murray', name: 'Andrew Murray', initials: 'AM', color: '#3d1a6e', list: ANDREW_MURRAY_COMMENTARY },
   { id: 'cslewis', name: 'C.S. Lewis', initials: 'CS', color: '#6b3a2a', list: CSLEWIS_COMMENTARY },
-  { id: 'macarthur', name: 'John MacArthur', initials: 'JM', color: '#0f3a5f', list: MACARTHUR_COMMENTARY }
+  { id: 'wesley', name: 'John Wesley', initials: 'JW', color: '#5c3d2e', list: WESLEY_COMMENTARY }
 ];
 
 function refToKey(ref) {
@@ -2436,7 +2436,7 @@ export default function App() {
                     <span className="bible-menu-icon">📚</span>
                     <div>
                       <div className="bible-menu-label">Comentarios Teológicos</div>
-                      <div className="bible-menu-sub">MacArthur y otros autores</div>
+                      <div className="bible-menu-sub">Wesley y otros autores</div>
                     </div>
                   </button>
                   <button
