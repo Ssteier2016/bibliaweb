@@ -289,7 +289,8 @@ function NewPostModal({ user, books, onClose, onSubmit }) {
   function onBookChange(name) { setSelBook(name); setSelChapter(1); setSelVerse(1); }
   function onChapterChange(n) { setSelChapter(Number(n)); setSelVerse(1); }
 
-  const canPost = text.trim() && verseData;
+  const hasImage = (imageType === 'file' && imageFile) || (imageType === 'url' && imageUrlInput.trim());
+  const canPost = verseData && (text.trim() || hasImage);
 
   useEffect(() => {
     return () => {

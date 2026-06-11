@@ -688,8 +688,11 @@ function PostToFeedModal({ user, verse, bookName, chapter, onClose }) {
     }
   }
 
+  const hasImage = (imageType === 'file' && imageFile) || (imageType === 'url' && imageUrlInput.trim());
+  const canPost = text.trim() || hasImage;
+
   async function submit() {
-    if (!text.trim() || submitting) return;
+    if (!canPost || submitting) return;
     setSubmitting(true);
     let imageUrl = null;
     if (imageType === 'file' && imageFile) {
@@ -803,7 +806,7 @@ function PostToFeedModal({ user, verse, bookName, chapter, onClose }) {
         <button
           className="new-post-submit"
           onClick={submit}
-          disabled={!text.trim() || submitting}
+          disabled={!canPost || submitting}
         >
           {submitting ? 'Publicando…' : '🌐 Publicar en el Feed'}
         </button>
