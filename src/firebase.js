@@ -10,6 +10,7 @@ import {
   collection, addDoc, getDocs, query, orderBy,
   serverTimestamp, arrayUnion, arrayRemove, onSnapshot, increment,
 } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBsemzWe2LUcKhAJg9UU9N_3YNcmrphiCk",
@@ -28,6 +29,7 @@ export const db      = initializeFirestore(app, {
     tabManager: persistentMultipleTabManager()
   })
 });
+export const storage = getStorage(app);
 
 
 const googleProvider = new GoogleAuthProvider();
@@ -181,6 +183,52 @@ export async function uploadProfilePhoto(uid, file) {
   } catch (e) { console.error('Error guardando foto:', e); return null; }
 }
 
+function compressToBlob(file, maxSize = 800, quality = 0.75) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale  = Math.min(maxSize / img.width, maxSize / img.height, 1);
+      const w      = Math.round(img.width  * scale);
+      const h      = Math.round(img.height * scale);
+      const canvas = document.createElement('canvas');
+      canvas.width  = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      canvas.toBlob(blob => {
+        if (blob) {
+          resolve(blob);
+        } else {
+          reject(new Error('Canvas to Blob failed'));
+        }
+      }, 'image/jpeg', quality);
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+export async function uploadPostImage(uid, file) {
+  try {
+    const compressedBlob = await compressToBlob(file, 800, 0.75);
+    const fileName = `posts/${uid}_${Date.now()}.jpg`;
+    const storageRef = ref(storage, fileName);
+    await uploadBytes(storageRef, compressedBlob);
+    const url = await getDownloadURL(storageRef);
+    return url;
+  } catch (e) {
+    console.error("Error uploading to Firebase Storage, falling back to base64:", e);
+    try {
+      const base64 = await compressToBase64(file, 600, 0.7);
+      return base64;
+    } catch (err) {
+      console.error("Error compressing to base64:", err);
+      return null;
+    }
+  }
+}
+
 // ── Fotos de autores teológicos (solo admin) ────────────────────
 
 export const ADMIN_EMAIL = 'rodrigo.n.arena@hotmail.com';
@@ -233,7 +281,7 @@ export async function unfollowUser(myUid, targetUid) {
 
 // ── Feed social ───────────────────────────────────────────────────────────────
 
-export async function createPost(uid, displayName, photoURL, text, verseRef, repostOf = null) {
+export async function createPost(uid, displayName, photoURL, text, verseRef, repostOf = null, imageUrl = null) {
   const data = {
     uid,
     displayName: displayName || 'Usuario',
@@ -246,6 +294,7 @@ export async function createPost(uid, displayName, photoURL, text, verseRef, rep
     reposts: 0,
   };
   if (repostOf) data.repostOf = repostOf;
+  if (imageUrl) data.imageUrl = imageUrl;
   try { await addDoc(collection(db, 'posts'), data); } catch (e) { console.error(e); }
 }
 
@@ -271,7 +320,7 @@ export async function repostPost(postId, uid, displayName, photoURL, originalPos
       uid: originalPost.uid,
       displayName: originalPost.displayName,
       photoURL: originalPost.photoURL || '',
-    });
+    }, originalPost.imageUrl || null);
   } catch {}
 }
 

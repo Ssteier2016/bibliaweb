@@ -16,7 +16,7 @@ import GenPanel                 from './GenPanel';
 import FeedPage                 from './FeedPage';
 import TheologicalCommentaries  from './TheologicalCommentaries';
 import logo3                    from './logo3.png';
-import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes, createPost } from './firebase';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes, createPost, uploadPostImage } from './firebase';
 import { PROLOGUES }            from './data/prologues';
 
 // Agrupar comentarios teológicos por versículo para mostrarlos dinámicamente en el lector
@@ -658,18 +658,51 @@ function FeedPublishIcon() {
 // ── Modal: publicar versículo en el Feed ──────────────────────────────────────
 
 function PostToFeedModal({ user, verse, bookName, chapter, onClose }) {
-  const [text,       setText]       = useState('');
-  const [submitting, setSubmitting] = useState(false);
+  const [text,           setText]           = useState('');
+  const [submitting,     setSubmitting]     = useState(false);
+  const [imageType,      setImageType]      = useState('file'); // 'file' o 'url'
+  const [imageFile,      setImageFile]      = useState(null);
+  const [imagePreview,   setImagePreview]   = useState('');
+  const [imageUrlInput,  setImageUrlInput]  = useState('');
+
+  useEffect(() => {
+    return () => {
+      if (imagePreview) URL.revokeObjectURL(imagePreview);
+    };
+  }, [imagePreview]);
+
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      const url = URL.createObjectURL(file);
+      setImagePreview(url);
+    }
+  }
+
+  function removeImageFile() {
+    setImageFile(null);
+    if (imagePreview) {
+      URL.revokeObjectURL(imagePreview);
+      setImagePreview('');
+    }
+  }
 
   async function submit() {
     if (!text.trim() || submitting) return;
     setSubmitting(true);
+    let imageUrl = null;
+    if (imageType === 'file' && imageFile) {
+      imageUrl = await uploadPostImage(user.uid, imageFile);
+    } else if (imageType === 'url' && imageUrlInput.trim()) {
+      imageUrl = imageUrlInput.trim();
+    }
     await createPost(user.uid, user.displayName, user.photoURL, text.trim(), {
       book:    bookName,
       chapter: chapter,
       verse:   verse.verse,
       text:    verse.text,
-    });
+    }, null, imageUrl);
     onClose();
   }
 
@@ -694,6 +727,78 @@ function PostToFeedModal({ user, verse, bookName, chapter, onClose }) {
           rows={4}
           autoFocus
         />
+
+        {/* Adjuntar imagen (Archivo o URL) */}
+        <div className="new-post-image-section">
+          <div className="new-post-image-label">🖼️ Adjuntar imagen (opcional)</div>
+          <div className="new-post-image-tabs">
+            <button
+              type="button"
+              className={`new-post-image-tab ${imageType === 'file' ? 'active' : ''}`}
+              onClick={() => setImageType('file')}
+            >
+              📷 Subir archivo
+            </button>
+            <button
+              type="button"
+              className={`new-post-image-tab ${imageType === 'url' ? 'active' : ''}`}
+              onClick={() => setImageType('url')}
+            >
+              🔗 Pegar enlace
+            </button>
+          </div>
+
+          {imageType === 'file' ? (
+            <div className="new-post-image-file-upload">
+              {!imagePreview ? (
+                <label className="new-post-image-upload-label">
+                  📂 Seleccionar archivo de imagen...
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    style={{ display: 'none' }}
+                  />
+                </label>
+              ) : (
+                <div className="new-post-image-preview-container">
+                  <img src={imagePreview} alt="Preview" className="new-post-image-preview" />
+                  <button type="button" className="new-post-image-remove" onClick={removeImageFile} title="Eliminar imagen">
+                    ✕
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="new-post-image-url-input">
+              <input
+                type="text"
+                className="new-post-url-input"
+                placeholder="Pegar URL de la imagen (http://...)"
+                value={imageUrlInput}
+                onChange={e => setImageUrlInput(e.target.value)}
+              />
+              {imageUrlInput.trim() && (
+                <div className="new-post-image-preview-container">
+                  <img
+                    src={imageUrlInput.trim()}
+                    alt="Preview URL"
+                    className="new-post-image-preview"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                    onLoad={(e) => {
+                      e.target.style.display = 'block';
+                    }}
+                  />
+                  <button type="button" className="new-post-image-remove" onClick={() => setImageUrlInput('')} title="Limpiar enlace">
+                    ✕
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         <button
           className="new-post-submit"

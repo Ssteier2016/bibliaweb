@@ -3,6 +3,7 @@ import {
   subscribeToPosts, createPost,
   togglePostLike, togglePostDislike,
   repostPost, addPostComment, subscribeToPostComments, deletePost,
+  uploadPostImage,
 } from './firebase';
 
 // ── Comentarios de un post ────────────────────────────────────────────────────
@@ -137,6 +138,13 @@ function PostCard({ post, user, onSaveNote }) {
       {/* Texto del post */}
       {post.text && <p className="post-text">{post.text}</p>}
 
+      {/* Imagen adjunta */}
+      {post.imageUrl && (
+        <div className="post-image-container">
+          <img src={post.imageUrl} alt="Publicación" className="post-image" />
+        </div>
+      )}
+
       {/* Acciones */}
       <div className="post-actions">
         <button
@@ -192,11 +200,15 @@ function PostCard({ post, user, onSaveNote }) {
 // ── Modal nueva publicación ───────────────────────────────────────────────────
 
 function NewPostModal({ user, books, onClose, onSubmit }) {
-  const [text,       setText]       = useState('');
-  const [selBook,    setSelBook]    = useState(books[0]?.name || '');
-  const [selChapter, setSelChapter] = useState(1);
-  const [selVerse,   setSelVerse]   = useState(1);
-  const [submitting, setSubmitting] = useState(false);
+  const [text,           setText]           = useState('');
+  const [selBook,        setSelBook]        = useState(books[0]?.name || '');
+  const [selChapter,     setSelChapter]     = useState(1);
+  const [selVerse,       setSelVerse]       = useState(1);
+  const [submitting,     setSubmitting]     = useState(false);
+  const [imageType,      setImageType]      = useState('file'); // 'file' o 'url'
+  const [imageFile,      setImageFile]      = useState(null);
+  const [imagePreview,   setImagePreview]   = useState('');
+  const [imageUrlInput,  setImageUrlInput]  = useState('');
 
   const bookData    = books.find(b => b.name === selBook);
   const chapterData = bookData?.chapters.find(c => c.chapter === selChapter);
@@ -207,15 +219,44 @@ function NewPostModal({ user, books, onClose, onSubmit }) {
 
   const canPost = text.trim() && verseData;
 
+  useEffect(() => {
+    return () => {
+      if (imagePreview) URL.revokeObjectURL(imagePreview);
+    };
+  }, [imagePreview]);
+
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      const url = URL.createObjectURL(file);
+      setImagePreview(url);
+    }
+  }
+
+  function removeImageFile() {
+    setImageFile(null);
+    if (imagePreview) {
+      URL.revokeObjectURL(imagePreview);
+      setImagePreview('');
+    }
+  }
+
   async function submit() {
     if (!canPost || submitting) return;
     setSubmitting(true);
+    let imageUrl = null;
+    if (imageType === 'file' && imageFile) {
+      imageUrl = await uploadPostImage(user.uid, imageFile);
+    } else if (imageType === 'url' && imageUrlInput.trim()) {
+      imageUrl = imageUrlInput.trim();
+    }
     await onSubmit(text.trim(), {
       book:    selBook,
       chapter: selChapter,
       verse:   selVerse,
       text:    verseData.text,
-    });
+    }, imageUrl);
     onClose();
   }
 
@@ -260,6 +301,78 @@ function NewPostModal({ user, books, onClose, onSubmit }) {
           autoFocus
         />
 
+        {/* Adjuntar imagen (Archivo o URL) */}
+        <div className="new-post-image-section">
+          <div className="new-post-image-label">🖼️ Adjuntar imagen (opcional)</div>
+          <div className="new-post-image-tabs">
+            <button
+              type="button"
+              className={`new-post-image-tab ${imageType === 'file' ? 'active' : ''}`}
+              onClick={() => setImageType('file')}
+            >
+              📷 Subir archivo
+            </button>
+            <button
+              type="button"
+              className={`new-post-image-tab ${imageType === 'url' ? 'active' : ''}`}
+              onClick={() => setImageType('url')}
+            >
+              🔗 Pegar enlace
+            </button>
+          </div>
+
+          {imageType === 'file' ? (
+            <div className="new-post-image-file-upload">
+              {!imagePreview ? (
+                <label className="new-post-image-upload-label">
+                  📂 Seleccionar archivo de imagen...
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    style={{ display: 'none' }}
+                  />
+                </label>
+              ) : (
+                <div className="new-post-image-preview-container">
+                  <img src={imagePreview} alt="Preview" className="new-post-image-preview" />
+                  <button type="button" className="new-post-image-remove" onClick={removeImageFile} title="Eliminar imagen">
+                    ✕
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="new-post-image-url-input">
+              <input
+                type="text"
+                className="new-post-url-input"
+                placeholder="Pegar URL de la imagen (http://...)"
+                value={imageUrlInput}
+                onChange={e => setImageUrlInput(e.target.value)}
+              />
+              {imageUrlInput.trim() && (
+                <div className="new-post-image-preview-container">
+                  <img
+                    src={imageUrlInput.trim()}
+                    alt="Preview URL"
+                    className="new-post-image-preview"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                    onLoad={(e) => {
+                      e.target.style.display = 'block';
+                    }}
+                  />
+                  <button type="button" className="new-post-image-remove" onClick={() => setImageUrlInput('')} title="Limpiar enlace">
+                    ✕
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
         <button
           className="new-post-submit"
           onClick={submit}
@@ -287,9 +400,9 @@ export default function FeedPage({ user, books, onSaveNote, onClose, darkMode })
     return unsub;
   }, []);
 
-  async function handleSubmit(text, verseRef) {
+  async function handleSubmit(text, verseRef, imageUrl) {
     if (!user || user.isAnonymous) return;
-    await createPost(user.uid, user.displayName, user.photoURL, text, verseRef);
+    await createPost(user.uid, user.displayName, user.photoURL, text, verseRef, null, imageUrl);
   }
 
   return (
