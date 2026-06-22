@@ -9,6 +9,7 @@ import { LUTHER_COMMENTARY } from './data/luther';
 import { EDWARDS_COMMENTARY } from './data/edwards';
 import { ANDREW_MURRAY_COMMENTARY } from './data/andrew_murray';
 import { WESLEY_COMMENTARY } from './data/wesley';
+import { JAMIESON_COMMENTARY } from './data/jamieson';
 import AuthScreen               from './AuthScreen';
 import UserMenu                 from './UserMenu';
 import CommentsPanel            from './CommentsPanel';
@@ -28,7 +29,8 @@ const THEOLOGIANS_LIST = [
   { id: 'spurgeon', name: 'Charles H. Spurgeon', initials: 'SP', color: '#4a1c6e', list: SPURGEON_COMMENTARY },
   { id: 'andrew_murray', name: 'Andrew Murray', initials: 'AM', color: '#3d1a6e', list: ANDREW_MURRAY_COMMENTARY },
   { id: 'cslewis', name: 'C.S. Lewis', initials: 'CS', color: '#6b3a2a', list: CSLEWIS_COMMENTARY },
-  { id: 'wesley', name: 'John Wesley', initials: 'JW', color: '#5c3d2e', list: WESLEY_COMMENTARY }
+  { id: 'wesley', name: 'John Wesley', initials: 'JW', color: '#5c3d2e', list: WESLEY_COMMENTARY },
+  { id: 'jamieson', name: 'Bobby Jamieson', initials: 'BJ', color: '#16a34a', list: JAMIESON_COMMENTARY }
 ];
 
 function refToKey(ref) {
