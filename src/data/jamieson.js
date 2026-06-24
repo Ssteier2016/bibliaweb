@@ -211,7 +211,7 @@ Cuando la vida parece desmoronarse o salirse de control, el creyente es sostenid
     url: 'https://9marks.org'
   },
 
-  {
+{
     ref: 'Santiago 3:9',
     titulo: 'La imagen de Dios como fundamento de la ética social',
     texto: `Bobby Jamieson expone cómo las verdades teológicas más profundas, como la doctrina del hombre (antropología bíblica), determinan de manera radical nuestras relaciones sociales cotidianas. Haciendo referencia a Santiago 3:9, resalta la inconsistencia del creyente al usar la lengua tanto para alabar a Dios como para maldecir a otros seres humanos creados a su semejanza.
@@ -230,6 +230,87 @@ Jamieson argumenta que la sana doctrina nos obliga a reconocer que cada individu
 La certeza de una herencia incorruptible, incontaminada e inmarcesible, reservada en los cielos y custodiada por el poder soberano de Dios, nos enseña a sopesar adecuadamente las pérdidas temporales en comparación con la gloria futura. Jamieson subraya que la doctrina correcta es el combustible que enciende la paciencia y el gozo duradero, dándonos el patrón mental y espiritual para vivir consagrados al Señor sin importar la severidad de las pruebas del camino.`,
     libro: '1 Pedro',
     obra: '"La sana doctrina" (2014), cap. 3',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: 'Efesios 2:4-5',
+    titulo: 'El amor incondicional de Dios como base de reconciliación',
+    texto: `Bobby Jamieson explica la doctrina del amor soberano de Dios citando Efesios 2:4-5: "Pero Dios, que es rico en misericordia, por su gran amor con que nos amó, aun estando nosotros muertos en pecados, nos dio vida juntamente con Cristo". Jamieson destaca que el amor de Dios no es una fuerza caprichosa o variable, sino un vendaval constante que nunca amaina. Su grandeza radica precisamente en que nos ama a pesar de nuestra rebeldía y pecado. En la iglesia local, esta doctrina es la herramienta clave para combatir el rencor y reconciliar a los hermanos, recordándoles que si Dios los amó gratuitamente en su condición más miserable, ellos deben extender esa misma gracia a los demás.`,
+    libro: 'Efesios',
+    obra: '"La sana doctrina" (2014), cap. 4',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: 'Filipenses 2:3-5',
+    titulo: 'La encarnación de Cristo como patrón de humildad eclesial',
+    texto: `Comentando Filipenses 2:1-11, Bobby Jamieson argumenta que la unidad de la iglesia local exige una profunda humildad colectiva, la cual solo se produce al contemplar la doctrina de la encarnación y humillación de Jesucristo. Pablo exhorta a los creyentes a no hacer nada por rivalidad o vanagloria, sino a estimar a los demás como superiores a sí mismos. Jamieson subraya que la solución a los conflictos de ego y división en la congregación no es meramente conductual, sino doctrinal: debemos imitar al Salvador que voluntariamente puso a un lado sus derechos para servir y rescatar a pecadores.`,
+    libro: 'Filipenses',
+    obra: '"La sana doctrina" (2014), cap. 5',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: '1 Corintios 12:25-26',
+    titulo: 'El cuidado mutuo e interdependencia en el cuerpo',
+    texto: `Al reflexionar sobre la metáfora del cuerpo en 1 Corintios 12, Bobby Jamieson recalca cómo Dios ordenó la iglesia local para que no existan desavenencias ni divisiones. Los miembros deben tener una preocupación mutua sincera, doliéndose con los que sufren y regocijándose con los que son honrados. Jamieson enseña que esta interdependencia destruye el individualismo del "Jesús y yo" (tan común en la cultura moderna) e invita a entrelazar nuestras vidas en el día a día de la congregación local, donde convivimos con personas totalmente diferentes bajo una misma fe.`,
+    libro: '1 Corintios',
+    obra: '"La sana doctrina" (2014), cap. 1',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: '2 Timoteo 3:16-17',
+    titulo: 'La doctrina como barra protectora en la lectura bíblica',
+    texto: `Bobby Jamieson describe la sana doctrina como una "barra protectora" (o baranda de contención) indispensable al leer las Escrituras. Para interpretar la Biblia de forma correcta y no derivar conclusiones falsas sobre el carácter de Dios, necesitamos interpretar los pasajes difíciles a la luz de las verdades teológicas claras que la Escritura enseña en su conjunto. La sana doctrina sintetiza y resume la revelación divina en un todo coherente, protegiéndonos de malinterpretaciones aisladas y asegurando que nuestro conocimiento de Dios crezca de forma equilibrada.`,
+    libro: '2 Timoteo',
+    obra: '"La sana doctrina" (2014), cap. 2',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: '2 Pedro 1:21',
+    titulo: 'La inspiración de la Escritura y la dependencia del Espíritu',
+    texto: `Utilizando una analogía marítima, Bobby Jamieson compara la vida cristiana y la inspiración de la Escritura con el acto de navegar a vela. Así como un velero no genera su propio movimiento y depende completamente de que sus velas atrapen el viento exterior para avanzar, la Escritura nos enseña en 2 Pedro 1:21 que los profetas y apóstoles no hablaron por su propia iniciativa humana, sino siendo impulsados y guiados por el Espíritu Santo. De la misma manera, la sana doctrina actúa como la vela que desplegamos para ser guiados y movidos por el soplo del Espíritu de Dios.`,
+    libro: '2 Pedro',
+    obra: '"La sana doctrina" (2014), cap. 4',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: '2 Timoteo 2:10',
+    titulo: 'La doctrina de la elección como motor de la perseverancia',
+    texto: `Al examinar la motivación detrás de la evangelización, Bobby Jamieson señala cómo la doctrina de la elección divina sostuvo al apóstol Pablo durante su encarcelamiento y sufrimientos. Citando 2 Timoteo 2:10 ("todo lo soporto por amor de los escogidos..."), Jamieson argumenta que saber que Dios tiene un pueblo escogido que con certeza responderá al evangelio renueva nuestro compromiso frente al rechazo o la persecución. La doctrina de la soberanía de Dios en la salvación no apaga la evangelización, sino que enciende la paciencia y perseverancia para seguir proclamando a Cristo.`,
+    libro: '2 Timoteo',
+    obra: '"La sana doctrina" (2014), cap. 7',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: 'Mateo 5:14-16',
+    titulo: 'La iglesia local como el faro evangelístico de Cristo',
+    texto: `Bobby Jamieson propone que la iglesia local es, en esencia, el "programa de evangelización" diseñado por Jesucristo para alumbrar al mundo. Haciendo eco de Mateo 5:14-16, enseña que la vida colectiva de la congregación adorna o desfigura el mensaje que predicamos. Si una iglesia vive en amor, unidad y santidad, se convierte en un faro visible que refleja la gloria de Dios. Los pastores deben equipar a sus miembros con sana doctrina para que sus vidas cotidianas confirmen, en lugar de contradecir, la veracidad del evangelio que testifican.`,
+    libro: 'Mateo',
+    obra: '"La sana doctrina" (2014), cap. 7',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: 'Éxodo 20:4-5',
+    titulo: 'La adoración adecuada frente al peligro de la idolatría',
+    texto: `A partir del segundo mandamiento en Éxodo 20:4-5, Bobby Jamieson analiza la gravedad de la idolatría, la cual no solo consiste en adorar a deidades falsas, sino también en adorar al Dios verdadero a través de representaciones o métodos inadecuados creados por el ser humano. Jamieson enfatiza que Dios exige gobernar cómo es adorado. La sana doctrina de la adoración nos constriñe a seguir el patrón bíblico regulador en nuestras reuniones locales, impidiendo que introduzcamos innovaciones humanas que desvíen la atención de la gloria divina.`,
+    libro: 'Éxodo',
+    obra: '"La sana doctrina" (2014), cap. 6',
+    url: 'https://9marks.org'
+  },
+
+  {
+    ref: 'Romanos 6:17-18',
+    titulo: 'La voluntad humana y la liberación soberana de la gracia',
+    texto: `Al relatar un encuentro evangelístico con un estudiante de filosofía sobre el libre albedrío, Bobby Jamieson explica la perspectiva bíblica sobre la voluntad humana. Citando Romanos 6:17-18, aclara que aunque el ser humano es un agente moral libre y responsable, su voluntad caída está esclavizada al pecado. Dejados a nosotros mismos, rechazamos a Dios continuamente. Por ende, la doctrina de la salvación nos enseña que el nuevo nacimiento no es el resultado del esfuerzo autónomo del hombre, sino de la liberación soberana efectuada por el Espíritu de Dios en la cruz.`,
+    libro: 'Romanos',
+    obra: '"La sana doctrina" (2014), cap. 7',
     url: 'https://9marks.org'
   }
 ];
