@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.rodarena7.labiblia",
+        "sha256_cert_fingerprints": ["62:D9:7B:65:94:04:CA:A3:13:30:43:46:15:8A:68:FF:10:91:B5:CC:CE:11:5E:AB:F7:52:A1:BD:54:F0:DD:8F"]
+      }
+    }]
