@@ -959,7 +959,43 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
   const [noteVal,        setNoteVal]        = useState(note || '');
   const [copied,         setCopied]         = useState(false);
 
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const isSwiping = useRef(false);
+
+  function handleTouchStart(e) {
+    const touch = e.touches[0];
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
+    isSwiping.current = true;
+  }
+
+  function handleTouchMove(e) {
+    if (!isSwiping.current) return;
+    const touch = e.touches[0];
+    const diffX = touch.clientX - touchStartX.current;
+    const diffY = touch.clientY - touchStartY.current;
+
+    // Detect horizontal swipe right (diffX > 80px and mostly horizontal Y-axis diff < 40px)
+    if (diffX > 80 && Math.abs(diffY) < 40) {
+      isSwiping.current = false; // Prevent multiple triggers in the same gesture
+      const activeColor = localStorage.getItem('lastHighlightColor') || 'yellow';
+      onHighlight(verse.verse, highlight === activeColor ? null : activeColor);
+      
+      if (navigator.vibrate) {
+        navigator.vibrate(45);
+      }
+    }
+  }
+
+  function handleTouchEnd() {
+    isSwiping.current = false;
+  }
+
   function handleSelectColor(colorId) {
+    if (colorId) {
+      localStorage.setItem('lastHighlightColor', colorId);
+    }
     const selection = window.getSelection();
     const verseTextEl = document.querySelector(`#verse-${verse.verse} .verse-text`);
     
@@ -1079,7 +1115,13 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
 
   return (
     <div id={`verse-${verse.verse}`} className="verse-card">
-      <div className="verse-body" style={highlightStyle}>
+      <div 
+        className="verse-body" 
+        style={highlightStyle}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="verse-text-row">
           <span className="verse-num">
             {verse.verse}
