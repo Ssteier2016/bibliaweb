@@ -972,19 +972,57 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, userLi
       const { start, end } = getSelectionCharacterOffsetWithin(verseTextEl);
       if (start !== end && end <= verse.text.length) {
         let currentRanges = [];
-        try {
-          if (highlight && typeof highlight === 'string' && highlight.startsWith('[')) {
-            currentRanges = JSON.parse(highlight);
+        if (highlight && typeof highlight === 'string') {
+          if (highlight.startsWith('[')) {
+            try {
+              currentRanges = JSON.parse(highlight);
+            } catch (e) {
+              currentRanges = [];
+            }
+          } else {
+            // Whole-verse highlight treated as a single range
+            currentRanges = [{ start: 0, end: verse.text.length, color: highlight }];
           }
-        } catch (e) {}
-        
-        const activeColor = localStorage.getItem('lastHighlightColor') || 'yellow';
-        
-        // Remove overlapping ranges
-        currentRanges = currentRanges.filter(r => r.end <= start || r.start >= end);
-        currentRanges.push({ start, end, color: activeColor });
-        
-        onHighlight(verse.verse, JSON.stringify(currentRanges));
+        }
+
+        // Check if there is any overlap with the selected range
+        const hasOverlap = currentRanges.some(r => !(r.end <= start || r.start >= end));
+
+        let newRanges = [];
+        if (hasOverlap) {
+          // Subtract [start, end] from all current ranges
+          currentRanges.forEach(r => {
+            if (r.end <= start || r.start >= end) {
+              // No overlap, keep range as is
+              newRanges.push(r);
+            } else {
+              // Overlap, subtract [start, end] from [r.start, r.end]
+              if (r.start < start) {
+                newRanges.push({ start: r.start, end: start, color: r.color });
+              }
+              if (r.end > end) {
+                newRanges.push({ start: end, end: r.end, color: r.color });
+              }
+            }
+          });
+        } else {
+          // No overlap, add [start, end] with active color
+          const activeColor = localStorage.getItem('lastHighlightColor') || 'yellow';
+          newRanges = currentRanges.filter(r => r.end <= start || r.start >= end);
+          newRanges.push({ start, end, color: activeColor });
+        }
+
+        // Save new ranges
+        if (newRanges.length > 0) {
+          // Simplify if it covers the whole verse
+          if (newRanges.length === 1 && newRanges[0].start === 0 && newRanges[0].end === verse.text.length) {
+            onHighlight(verse.verse, newRanges[0].color);
+          } else {
+            onHighlight(verse.verse, JSON.stringify(newRanges));
+          }
+        } else {
+          onHighlight(verse.verse, null);
+        }
         
         // Clear selection to hide selection handles
         selection.removeAllRanges();
