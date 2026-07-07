@@ -962,12 +962,51 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
   const touchStartX = useRef(0);
   const touchStartY = useRef(0);
   const isSwiping = useRef(false);
+  const touchTimer = useRef(null);
+
+  function handleLongPress() {
+    const selection = window.getSelection();
+    const verseTextEl = document.querySelector(`#verse-${verse.verse} .verse-text`);
+    
+    if (selection && !selection.isCollapsed && verseTextEl && verseTextEl.contains(selection.anchorNode)) {
+      const { start, end } = getSelectionCharacterOffsetWithin(verseTextEl);
+      if (start !== end && end <= verse.text.length) {
+        let currentRanges = [];
+        try {
+          if (highlight && typeof highlight === 'string' && highlight.startsWith('[')) {
+            currentRanges = JSON.parse(highlight);
+          }
+        } catch (e) {}
+        
+        const activeColor = localStorage.getItem('lastHighlightColor') || 'yellow';
+        
+        // Remove overlapping ranges
+        currentRanges = currentRanges.filter(r => r.end <= start || r.start >= end);
+        currentRanges.push({ start, end, color: activeColor });
+        
+        onHighlight(verse.verse, JSON.stringify(currentRanges));
+        
+        // Clear selection to hide selection handles
+        selection.removeAllRanges();
+        
+        if (navigator.vibrate) {
+          navigator.vibrate([40, 30, 40]);
+        }
+      }
+    }
+  }
 
   function handleTouchStart(e) {
     const touch = e.touches[0];
     touchStartX.current = touch.clientX;
     touchStartY.current = touch.clientY;
     isSwiping.current = true;
+
+    // Start hold timer for long-press selection highlight
+    if (touchTimer.current) clearTimeout(touchTimer.current);
+    touchTimer.current = setTimeout(() => {
+      handleLongPress();
+    }, 600);
   }
 
   function handleTouchMove(e) {
@@ -976,20 +1015,48 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
     const diffX = touch.clientX - touchStartX.current;
     const diffY = touch.clientY - touchStartY.current;
 
-    // Detect horizontal swipe right (diffX > 80px and mostly horizontal Y-axis diff < 40px)
+    // Cancel long press timer if finger moves significantly
+    if (Math.abs(diffX) > 10 || Math.abs(diffY) > 10) {
+      if (touchTimer.current) {
+        clearTimeout(touchTimer.current);
+        touchTimer.current = null;
+      }
+    }
+
+    // Swipe right to highlight (diffX > 80px, mostly horizontal)
     if (diffX > 80 && Math.abs(diffY) < 40) {
-      isSwiping.current = false; // Prevent multiple triggers in the same gesture
+      isSwiping.current = false;
       const activeColor = localStorage.getItem('lastHighlightColor') || 'yellow';
       onHighlight(verse.verse, highlight === activeColor ? null : activeColor);
-      
       if (navigator.vibrate) {
         navigator.vibrate(45);
+      }
+    }
+
+    // Swipe left to delete highlight (diffX < -80px, mostly horizontal)
+    if (diffX < -80 && Math.abs(diffY) < 40) {
+      isSwiping.current = false;
+      onHighlight(verse.verse, null);
+      if (navigator.vibrate) {
+        navigator.vibrate([30, 30]); // Subtle double vibration
       }
     }
   }
 
   function handleTouchEnd() {
     isSwiping.current = false;
+    if (touchTimer.current) {
+      clearTimeout(touchTimer.current);
+      touchTimer.current = null;
+    }
+  }
+
+  function handleDoubleClick(e) {
+    e.stopPropagation();
+    onLike?.(verseKey);
+    if (navigator.vibrate) {
+      navigator.vibrate([60, 40, 60]); // Heartbeat vibration feedback
+    }
   }
 
   function handleSelectColor(colorId) {
@@ -1121,6 +1188,7 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onDoubleClick={handleDoubleClick}
       >
         <div className="verse-text-row">
           <span className="verse-num">
