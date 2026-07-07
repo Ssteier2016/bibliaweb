@@ -340,6 +340,12 @@ export async function incrementLike(verseKey) {
   } catch {}
 }
 
+export async function decrementLike(verseKey) {
+  try {
+    await setDoc(doc(db, 'likes', verseKey), { count: increment(-1) }, { merge: true });
+  } catch {}
+}
+
 export async function loadChapterLikes(bookName, chapterNum, verses) {
   try {
     const keys  = verses.map(v => `${bookName}_${chapterNum}_${v.verse}`);

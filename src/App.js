@@ -17,7 +17,7 @@ import GenPanel                 from './GenPanel';
 import FeedPage                 from './FeedPage';
 import TheologicalCommentaries  from './TheologicalCommentaries';
 import logo3                    from './logo3.png';
-import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, loadChapterLikes, createPost, uploadPostImage } from './firebase';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, decrementLike, loadChapterLikes, createPost, uploadPostImage } from './firebase';
 import { PROLOGUES }            from './data/prologues';
 
 // Agrupar comentarios teológicos por versículo para mostrarlos dinámicamente en el lector
@@ -949,7 +949,7 @@ function renderHighlightedText(text, highlightVal, darkMode) {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode, onAskAI }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, userLiked, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode, onAskAI }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
@@ -1199,13 +1199,13 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, onHigh
             </span>
           </span>
           <span className="verse-text">{renderHighlightedText(verse.text, highlight, darkMode)}</span>
-          {(showActions || likeCount > 0) && (
+          {(showActions || likeCount > 0 || userLiked) && (
             <button
-              className={`heart-btn ${likeCount > 0 ? 'has-likes' : ''}`}
+              className={`heart-btn ${userLiked ? 'user-liked' : ''} ${likeCount > 0 ? 'has-likes' : ''}`}
               onClick={e => { e.stopPropagation(); onLike?.(verseKey); }}
               title="Me gusta"
             >
-              {likeCount > 0 ? '♥' : '♡'}
+              {userLiked ? '♥' : '♡'}
               {likeCount > 0 && <span className="heart-count">{likeCount}</span>}
             </button>
           )}
@@ -2036,6 +2036,16 @@ export default function App() {
   const [following,       setFollowing]      = useState([]);
   const [followers,       setFollowers]      = useState([]);
   const [likes,           setLikes]          = useState({});
+  const [userLikes,       setUserLikes]      = useState(() => {
+    const res = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('my_like_')) {
+        res[key] = localStorage.getItem(key);
+      }
+    }
+    return res;
+  });
   const [translation,     setTranslation]    = useState(() => lsGet('bible_translation') || 'rvr');
   const [extVerses,       setExtVerses]      = useState({});
   const [extLoading,      setExtLoading]     = useState(false);
@@ -2376,9 +2386,29 @@ export default function App() {
 
   const handleLike = useCallback(async (verseKey) => {
     if (!user || user.isAnonymous) return;
-    setLikes(prev => ({ ...prev, [verseKey]: (prev[verseKey] || 0) + 1 }));
-    await incrementLike(verseKey);
-  }, [user]);
+    const key = `my_like_${verseKey}`;
+    const alreadyLiked = !!userLikes[key];
+    if (alreadyLiked) {
+      // Decrement like
+      setLikes(prev => {
+        const count = prev[verseKey] || 0;
+        return { ...prev, [verseKey]: Math.max(0, count - 1) };
+      });
+      setUserLikes(prev => {
+        const next = { ...prev };
+        delete next[key];
+        return next;
+      });
+      localStorage.removeItem(key);
+      await decrementLike(verseKey);
+    } else {
+      // Increment like
+      setLikes(prev => ({ ...prev, [verseKey]: (prev[verseKey] || 0) + 1 }));
+      setUserLikes(prev => ({ ...prev, [key]: '1' }));
+      lsSet(key, '1');
+      await incrementLike(verseKey);
+    }
+  }, [user, userLikes]);
 
   const handleNoteAtRef = useCallback((bookName, chapterNum, verseNum, noteText) => {
     const key = `note_${bookName}_${chapterNum}_${verseNum}`;
@@ -2785,6 +2815,7 @@ export default function App() {
                 note={notes[noteKey] || ''}
                 bookmark={!!bookmarks[bmKey]}
                 likeCount={likes[`${selectedBook}_${selectedChapter}_${verse.verse}`] || 0}
+                userLiked={!!userLikes[`my_like_${selectedBook}_${selectedChapter}_${verse.verse}`]}
                 onHighlight={handleHighlight}
                 onNote={handleNote}
                 onBookmark={handleBookmark}
