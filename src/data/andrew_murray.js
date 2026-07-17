@@ -110,4 +110,29 @@ export const ANDREW_MURRAY_COMMENTARY = [
     url: 'https://www.ccel.org/ccel/murray/blood.html',
   },
 
+
+  {
+    ref: 'Juan 15:5',
+    titulo: 'La permanencia continua en la Vid Verdadera',
+    texto: `Murray expone la metáfora de la vid y los pámpanos para ilustrar la unión absoluta y la dependencia del creyente respecto a Cristo. El pámpano no tiene vida propia; depende enteramente de la savia que fluye de la vid. Del mismo modo, el cristiano no puede producir fruto espiritual por su propia fuerza o esfuerzo moral. Permanecer en Cristo significa entregar nuestra voluntad cada día a su control, confiando en que su vida fluya a través de nosotros para producir frutos de santidad y amor. Separados de Él, nuestro esfuerzo es estéril.`,
+    libro: 'Juan',
+    obra: 'Abide in Christ (Permaneced en Cristo, 1882)',
+    url: 'https://www.ccel.org/ccel/murray/abide.html',
+  },
+  {
+    ref: 'Efesios 3:17',
+    titulo: 'El habitar de Cristo en el corazón del creyente',
+    texto: `Al comentar la oración de Pablo, Murray destaca que el propósito de Dios es que Cristo no sea un visitante ocasional, sino un habitante permanente en nuestros corazones a través de la fe. Esto requiere un vaciamiento de nosotros mismos y una confianza plena en el Espíritu Santo. Estar "arraigados y cimentados en amor" señala que el amor divino debe ser la tierra firme en la que echamos nuestras raíces espirituales y el cimiento sólido sobre el que construimos nuestra vida entera.`,
+    libro: 'Efesios',
+    obra: 'Like Christ (Como Cristo, 1884)',
+    url: 'https://www.ccel.org/ccel/murray/like.html',
+  },
+  {
+    ref: 'Filipenses 2:13',
+    titulo: 'La gracia divina operando en la voluntad humana',
+    texto: `Murray aborda el misterio de la cooperación entre Dios y el hombre. No se trata de un esfuerzo humano independiente para agradar a Dios, sino de la gracia soberana de Dios actuando en lo íntimo de nuestro ser: "produce así el querer como el hacer". Dios nos da tanto el deseo de obedecerle como la capacidad práctica para llevarlo a cabo. Esto nos humilla, al ver que todo lo bueno en nosotros proviene de su gracia, y al mismo tiempo nos llena de confianza para emprender una vida de servicio piadoso.`,
+    libro: 'Filipenses',
+    obra: 'The Ministry of Intercession (El ministerio de la intercesión, 1897)',
+    url: 'https://www.ccel.org/ccel/murray/intercession.html',
+  },
 ];

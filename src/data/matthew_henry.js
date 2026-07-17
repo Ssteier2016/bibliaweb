@@ -367,4 +367,29 @@ export const MATTHEW_HENRY_COMMENTARY = [
     url: 'https://www.ccel.org/ccel/henry/mhc6.Rev.xxiii.html',
   },
 
+
+  {
+    ref: 'Salmos 23:4',
+    titulo: 'La presencia reconfortante del Pastor en el valle de sombra',
+    texto: `Henry comenta con profunda ternura el paso por el "valle de sombra de muerte". Este valle representa los momentos más oscuros, de dolor físico, depresión espiritual o el temor a la muerte misma. Pero el creyente "no temerá mal alguno" porque el Pastor está con él. Su vara (para defendernos del enemigo) y su cayado (para guiarnos y sostenernos cuando tropezamos) nos infunden aliento. Henry insiste en que las pruebas no significan el abandono de Dios, sino el escenario donde experimentamos de forma más dulce y real su cercanía protectora.`,
+    libro: 'Salmos',
+    obra: 'Exposition of the Old and New Testaments (1706–1710)',
+    url: 'https://www.ccel.org/ccel/henry/mhc.html',
+  },
+  {
+    ref: 'Salmos 119:105',
+    titulo: 'La Palabra de Dios como guía práctica para el caminar diario',
+    texto: `Henry expone cómo la Escritura actúa como una "lámpara" en la noche de este mundo pecaminoso. La lámpara alumbra nuestros pies (nuestras decisiones y pasos inmediatos del día a día) y el camino (nuestra dirección general en la vida). Sin la luz de la Palabra, caminamos a ciegas y tropezamos en el error. Henry recalca que la Biblia no es solo un libro de doctrina abstracta, sino un manual práctico de instrucciones morales y espirituales para caminar con rectitud y seguridad en medio de la oscuridad.`,
+    libro: 'Salmos',
+    obra: 'Exposition of the Old and New Testaments (1706–1710)',
+    url: 'https://www.ccel.org/ccel/henry/mhc.html',
+  },
+  {
+    ref: 'Proverbios 4:23',
+    titulo: 'La vigilancia constante sobre la fuente de la vida',
+    texto: `Al comentar la exhortación a guardar el corazón "sobre toda cosa guardada", Henry explica que el corazón es la ciudadela de la persona, de donde emanan los pensamientos, deseos y decisiones morales que determinan el curso de la existencia. Así como un manantial debe mantenerse limpio para que el agua del río sea pura, el corazón debe custodiarse del pecado mediante la oración, la meditación y la vigilancia espiritual. Quien descuida su vida interior verá cómo toda su vida externa se desvía del camino de la justicia.`,
+    libro: 'Proverbios',
+    obra: 'Exposition of the Old and New Testaments (1706–1710)',
+    url: 'https://www.ccel.org/ccel/henry/mhc.html',
+  },
 ];

@@ -362,4 +362,29 @@ export const CALVIN_COMMENTARY = [
     url: 'https://www.ccel.org/ccel/calvin/institutes.html',
   },
 
+
+  {
+    ref: 'Romanos 3:23-24',
+    titulo: 'La universalidad del pecado y la gratuidad de la gracia',
+    texto: `Calvino expone aquí la doble realidad de la salvación: la bancarrota absoluta del hombre y la generosidad infinita de Dios. "Por cuanto todos pecaron, y están destituidos de la gloria de Dios" demuestra la depravación total, donde ningún ser humano puede jactarse ni salvarse a sí mismo. Inmediatamente sigue el remedio: "siendo justificados gratuitamente por su gracia". Calvino recalca la palabra "gratuitamente" (dorean) para insistir en que la salvación es de pura iniciativa divina. Dios nos justifica no por lo que ve en nosotros, sino en base a la "redención que es en Cristo Jesús", cuya muerte pagó nuestra deuda y satisfizo plenamente la justicia de Dios.`,
+    libro: 'Romanos',
+    obra: 'Commentarius in Epistolam ad Romanos (1539)',
+    url: 'https://www.ccel.org/ccel/calvin/calcom38.html',
+  },
+  {
+    ref: 'Romanos 8:28',
+    titulo: 'La providencia reconfortante de Dios para sus elegidos',
+    texto: `Este versículo es el ancla de la fe reformada en medio de la adversidad. Calvino enseña que el gobierno soberano de Dios sobre la creación es tan minucioso y bondadoso que incluso el sufrimiento, las pruebas y los aparentes contratiempos cooperan de manera activa para el bien eterno de los elegidos. Dios no es un espectador pasivo del dolor de sus hijos; es el director supremo que utiliza cada circunstancia para formarnos a la imagen de Cristo. Esta promesa infunde una paz inquebrantable, pues sabemos que nada puede escapar del control de nuestro Padre celestial.`,
+    libro: 'Romanos',
+    obra: 'Commentarius in Epistolam ad Romanos (1539)',
+    url: 'https://www.ccel.org/ccel/calvin/calcom38.html',
+  },
+  {
+    ref: 'Juan 3:16',
+    titulo: 'El amor de Dios como la causa primera de la salvación',
+    texto: `Calvino analiza este versículo destacando que el amor soberano de Dios es la fuente original y la causa eficiente de nuestra redención. Dios no nos amó porque Cristo murió, sino que Cristo murió porque Dios nos amó con un amor eterno e incomprensible. El don del Hijo unigénito es la prueba suprema de esta gracia. Calvino recalca que la salvación se extiende a todo aquel que cree, señalando que la fe es el medio instrumental por el cual nos apropiamos de la vida eterna, excluyendo todo mérito humano y glorificando únicamente la misericordia divina.`,
+    libro: 'Juan',
+    obra: 'Commentarius in Evangelium Ioannis (1553)',
+    url: 'https://www.ccel.org/ccel/calvin/calcom34.html',
+  },
 ];

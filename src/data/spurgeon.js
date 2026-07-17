@@ -1456,4 +1456,29 @@ export const SPURGEON_COMMENTARY = [
     obra: 'Metropolitan Tabernacle Pulpit, Sermón 3270 (1910)',
     url: 'https://www.ccel.org/ccel/spurgeon/sermons56.html',
   },
+
+  {
+    ref: 'Salmos 46:10',
+    titulo: 'El reposo silencioso en la soberanía de Dios',
+    texto: `Spurgeon expone este pasaje en "El Tesoro de David" instando al creyente a silenciar sus dudas, quejas y temores en medio de las tormentas de la vida. "Estad quietos" (be still) es un mandato a dejar de pelear en nuestras propias fuerzas y a rendirnos al control soberano del Creador. Conocer que "yo soy Dios" es el remedio definitivo contra la ansiedad: saber que Él es infinitamente sabio, amoroso y poderoso nos permite descansar con total confianza en que Él gobernará los acontecimientos para su gloria y nuestro bien.`,
+    libro: 'Salmos',
+    obra: 'The Treasury of David (El Tesoro de David, 1869–1885)',
+    url: 'https://www.ccel.org/ccel/spurgeon/treasury.html',
+  },
+  {
+    ref: 'Efesios 4:32',
+    titulo: 'La benevolencia mutua y la medida del perdón cristiano',
+    texto: `Spurgeon predica sobre la dulzura de este versículo que exhorta a ser "benignos unos con otros, misericordiosos, perdonándoos unos a otros". Destaca que la medida y la motivación suprema para nuestro perdón mutuo es "como Dios también os perdonó a vosotros en Cristo". El perdón divino es completo, inmerecido y restaurador; por lo tanto, albergar amargura o rencor en la iglesia local es una contradicción directa de la gracia que hemos recibido. La comunidad cristiana debe caracterizarse por un amor tierno y una disposición constante a perdonar.`,
+    libro: 'Efesios',
+    obra: 'Sermón 1882: The Standard of Forgiveness (1886)',
+    url: 'https://www.ccel.org/ccel/spurgeon/sermons.html',
+  },
+  {
+    ref: 'Gálatas 6:9',
+    titulo: 'La perseverancia en el bien y la certeza de la cosecha',
+    texto: `Spurgeon alienta a los obreros cristianos que se sienten cansados y desanimados al no ver resultados inmediatos en su labor. "No nos cansemos, pues, de hacer bien". El cansancio físico es natural, pero cansarse del servicio espiritual es un peligro que debemos combatir. La promesa es segura: "a su tiempo segaremos, si no desmayamos". El sembrador debe tener paciencia, sabiendo que las semillas de gracia darán fruto a su tiempo. La perseverancia fiel siempre será coronada por el Señor de la mies.`,
+    libro: 'Gálatas',
+    obra: 'Sermón 1385: Weariness in Well-Doing (1877)',
+    url: 'https://www.ccel.org/ccel/spurgeon/sermons.html',
+  },
 ];

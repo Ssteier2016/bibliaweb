@@ -328,4 +328,29 @@ export const EDWARDS_COMMENTARY = [
     url: 'https://edwards.yale.edu/',
   },
 
+
+  {
+    ref: 'Apocalipsis 21:4',
+    titulo: 'La bienaventuranza eterna y el fin del sufrimiento',
+    texto: `Edwards medita en la gloria celestial describiendo el fin absoluto de toda aflicción física, emocional y espiritual para los redimidos. En la presencia inmediata de Dios, el dolor es tragado por el gozo inefable de la comunión divina. Dios mismo enjugará toda lágrima, lo que muestra su ternura personal hacia sus hijos. Edwards enseña que el cielo no es solo un lugar de descanso pasivo, sino un estado de adoración activa y expansiva, donde el entendimiento de la belleza y soberanía de Dios crecerá por la eternidad, llenando las almas de una felicidad santa que nunca se marchita.`,
+    libro: 'Apocalipsis',
+    obra: 'Sermón: The Peace Which Christ Gives (1740)',
+    url: 'https://www.ccel.org/ccel/edwards/works.html',
+  },
+  {
+    ref: 'Isaías 6:3',
+    titulo: 'La santidad de Dios como la belleza suprema del universo',
+    texto: `Para Edwards, la santidad de Dios es su atributo más hermoso y la suma de todas sus perfecciones morales. Cuando los serafines proclaman "Santo, santo, santo", están adorando la pureza y majestad infinita de Dios. Edwards argumenta que una persona verdaderamente regenerada por el Espíritu Santo no solo teme la justicia de Dios, sino que se deleita y encuentra un gozo estético y espiritual supremo en su santidad. La tierra está llena de su gloria porque toda la creación refleja la excelencia y sabiduría del Creador como rayos de luz que emanan de un sol central.`,
+    libro: 'Isaías',
+    obra: 'Treatise on Religious Affections (1746)',
+    url: 'https://www.ccel.org/ccel/edwards/affections.html',
+  },
+  {
+    ref: 'Cantares 2:1',
+    titulo: 'La excelencia y hermosura espiritual de Cristo',
+    texto: `Edwards predica sobre "La rosa de Sarón y el lirio de los valles" viendo en esta metáfora poética una descripción perfecta de la dulzura, pureza y accesibilidad de Jesucristo. Cristo combina en sí mismo la majestad divina y la mansedumbre humana de forma perfecta. Así como la rosa y el lirio son hermosos a la vista y fragantes al olfato, la contemplación de Cristo por la fe deleita y vivifica el alma del creyente. Edwards insiste en que una fe viva se caracteriza por experimentar una atracción y deleite real en la persona de Cristo por lo que Él es en sí mismo.`,
+    libro: 'Cantares',
+    obra: 'Sermón: The Excellency of Christ (1736)',
+    url: 'https://www.ccel.org/ccel/edwards/works.html',
+  },
 ];

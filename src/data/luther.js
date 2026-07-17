@@ -337,4 +337,29 @@ export const LUTHER_COMMENTARY = [
     url: 'https://www.ccel.org/ccel/luther/works.html',
   },
 
+
+  {
+    ref: 'Gálatas 2:20',
+    titulo: 'La unión mística con Cristo por la fe',
+    texto: `Lutero describe este versículo como el corazón de la vida cristiana. La fe verdadera no es simplemente creer hechos históricos sobre Jesús, sino una unión tan real y estrecha que el creyente es "crucificado con Cristo". El viejo hombre de pecado muere legal y espiritualmente en la cruz, y ahora es Cristo quien vive en el creyente. Esta "unión mística" significa que todas las riquezas, la justicia y la vida de Cristo pasan a ser del creyente, mientras que todos sus pecados y miserias son asumidos y vencidos por Cristo en la cruz. Vivir en la carne pero vivir "en la fe del Hijo de Dios" significa que nuestra vida ordinaria terrenal está completamente redefinida y sostenida por la gracia salvadora y el amor del Redentor.`,
+    libro: 'Gálatas',
+    obra: 'In Epistolam ad Galatas Commentarius (1535)',
+    url: 'https://www.ccel.org/ccel/luther/galatians.html',
+  },
+  {
+    ref: 'Romanos 3:28',
+    titulo: 'La justificación por la fe sola (Sola Fide)',
+    texto: `Este es el texto fundamental sobre el cual se levantó la Reforma Protestante. Lutero argumenta con firmeza que el ser humano es declarado justo por Dios únicamente mediante la fe en Cristo, "sin las obras de la ley". Esto descarta cualquier intento humano de comprar o merecer el favor de Dios mediante la moralidad, los rituales o las buenas obras. Para Lutero, la justificación no es un proceso de hacernos mejores paulatinamente, sino una declaración legal instantánea en la que Dios nos imputa la justicia perfecta de Cristo. La fe es el único medio que abraza esta promesa gratuita de gracia.`,
+    libro: 'Romanos',
+    obra: 'Vorlesung über den Römerbrief (1515–1516)',
+    url: 'https://www.ccel.org/ccel/luther/romans.html',
+  },
+  {
+    ref: 'Romanos 5:1',
+    titulo: 'La paz de la conciencia justificada',
+    texto: `Estando justificados por la fe, el resultado inmediato e irrevocable es la "paz para con Dios". Lutero explica que esta paz no es un sentimiento pasajero de tranquilidad emocional, sino una realidad objetiva de reconciliación permanente con el Creador. Bajo la ley y las obras, la conciencia del hombre está en constante tormento y temor del juicio, sabiendo que nunca cumple la norma divina. Pero al descansar en la justicia de Cristo recibida por fe, la conciencia encuentra reposo absoluto. La guerra con Dios ha terminado; ahora reina su favor inmerecido y la seguridad eterna.`,
+    libro: 'Romanos',
+    obra: 'Vorlesung über den Römerbrief (1515–1516)',
+    url: 'https://www.ccel.org/ccel/luther/romans.html',
+  },
 ];

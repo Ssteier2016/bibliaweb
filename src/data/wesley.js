@@ -250,5 +250,30 @@ export const WESLEY_COMMENTARY = [
     libro: '1 Juan',
     obra: 'Explanatory Notes Upon the New Testament (1755), 1 Juan 1:9',
     url: 'https://www.christianclassics.org/wesley/notes/',
-  }
+  },
+
+  {
+    ref: 'Romanos 8:16',
+    titulo: 'El testimonio directo del Espíritu Santo',
+    texto: `Wesley consideraba el "testimonio del Espíritu" como uno de los grandes privilegios del creyente. Lo define como una impresión interna en el alma, mediante la cual el Espíritu de Dios da testimonio directamente a nuestro espíritu de que somos hijos de Dios. No es un razonamiento lógico de nuestra mente sobre nuestras buenas obras, sino una convicción divina, inmediata y consoladora que produce paz y gozo inefables. Este testimonio disipa toda duda y temor servil, y es el fundamento de una vida de amor filial y obediencia gozosa.`,
+    libro: 'Romanos',
+    obra: 'Sermón 10: El testimonio del Espíritu (1746)',
+    url: 'https://www.ccel.org/ccel/wesley/sermons.html',
+  },
+  {
+    ref: '1 Juan 4:18',
+    titulo: 'El perfecto amor que echa fuera el temor',
+    texto: `Este es uno de los pilares de la doctrina wesleyana de la Perfección Cristiana o Entera Santificación. Wesley explica que cuando el amor de Dios inunda por completo el corazón del creyente, expulsa todo temor pecaminoso, duda y tormento espiritual. El "perfecto amor" no significa que el creyente sea infalible o no cometa errores físicos, sino que su motivación constante y profunda está gobernada enteramente por el amor a Dios y al prójimo. Es una santidad práctica que libera al alma para servir a Dios con gozo y pureza de intención.`,
+    libro: '1 Juan',
+    obra: 'Sermón 83: Sobre el amor (1788)',
+    url: 'https://www.ccel.org/ccel/wesley/sermons.html',
+  },
+  {
+    ref: 'Hebreos 12:14',
+    titulo: 'La necesidad imperativa de la santidad práctica',
+    texto: `Wesley recalca solemnemente la advertencia: "seguid... la santidad, sin la cual nadie verá al Señor". Insiste en que la santificación no es opcional ni un simple accesorio de la fe, sino el fin mismo para el cual fuimos justificados. Dios no solo nos perdona (justificación), sino que nos sana del poder del pecado (santificación). La santidad de la que habla el texto es interna y externa, afectando nuestros pensamientos, palabras y acciones diarias. Sin esta transformación real del carácter conforme a la imagen de Dios, no estamos capacitados para disfrutar de su presencia celestial.`,
+    libro: 'Hebreos',
+    obra: 'Explanatory Notes Upon the New Testament (1755)',
+    url: 'https://www.ccel.org/ccel/wesley/notes.html',
+  },
 ];
