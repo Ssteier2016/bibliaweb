@@ -949,7 +949,7 @@ function renderHighlightedText(text, highlightVal, darkMode) {
 
 // ── VerseCard ─────────────────────────────────────────────────────────────────
 
-function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, userLiked, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode, onAskAI }) {
+function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, userLiked, onHighlight, onNote, onBookmark, onShare, onLike, likeCount, onPublishToFeed, user, following, onFollowToggle, darkMode, onAskAI, onCycleVersion }) {
   const [showActions,    setShowActions]    = useState(false);
   const [showColors,     setShowColors]     = useState(false);
   const [showNote,       setShowNote]       = useState(false);
@@ -1061,20 +1061,19 @@ function VerseCard({ verse, bookName, chapter, highlight, note, bookmark, userLi
       }
     }
 
-    // Swipe right to highlight (diffX > 80px, mostly horizontal)
+    // Swipe right to cycle next version (diffX > 80px, mostly horizontal)
     if (diffX > 80 && Math.abs(diffY) < 40) {
       isSwiping.current = false;
-      const activeColor = localStorage.getItem('lastHighlightColor') || 'yellow';
-      onHighlight(verse.verse, highlight === activeColor ? null : activeColor);
+      if (onCycleVersion) onCycleVersion('next');
       if (navigator.vibrate) {
         navigator.vibrate(45);
       }
     }
 
-    // Swipe left to delete highlight (diffX < -80px, mostly horizontal)
+    // Swipe left to cycle previous version (diffX < -80px, mostly horizontal)
     if (diffX < -80 && Math.abs(diffY) < 40) {
       isSwiping.current = false;
-      onHighlight(verse.verse, null);
+      if (onCycleVersion) onCycleVersion('prev');
       if (navigator.vibrate) {
         navigator.vibrate([30, 30]); // Subtle double vibration
       }
@@ -2368,6 +2367,20 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  const handleCycleVersion = useCallback((direction) => {
+    const AVAILABLE_VERSIONS = ['rvr', 'ntv', 'lbla', 'nvi'];
+    const currentIndex = AVAILABLE_VERSIONS.indexOf(translation);
+    let nextIndex;
+    if (direction === 'next') {
+      nextIndex = (currentIndex + 1) % AVAILABLE_VERSIONS.length;
+    } else {
+      nextIndex = (currentIndex - 1 + AVAILABLE_VERSIONS.length) % AVAILABLE_VERSIONS.length;
+    }
+    setTranslation(AVAILABLE_VERSIONS[nextIndex]);
+    setExtVerses({});
+    setExtError(false);
+  }, [translation]);
+
   const handleHighlight = useCallback((verseNum, colorId) => {
     const key = `hl_${selectedBook}_${selectedChapter}_${verseNum}`;
     let newHl;
@@ -2859,6 +2872,7 @@ export default function App() {
                 onBookmark={handleBookmark}
                 onShare={handleShare}
                 onLike={handleLike}
+                onCycleVersion={handleCycleVersion}
                 onPublishToFeed={v => setFeedPost({ verse: v, bookName: selectedBook, chapter: selectedChapter })}
                 user={user}
                 following={following}
