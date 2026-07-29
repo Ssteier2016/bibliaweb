@@ -1,4 +1,4 @@
-const CACHE = 'biblia-v6';
+const CACHE = 'biblia-v7';
 const PRECACHE = ['/', '/es_rvr.json', '/manifest.json', '/logo192.png', '/logo512.png'];
 
 self.addEventListener('install', e => {
@@ -97,7 +97,8 @@ self.addEventListener('fetch', e => {
         if (cached) return cached;
         return fetch(e.request).then(resp => {
           if (resp.ok) {
-            caches.open(CACHE).then(c => c.put(e.request, resp.clone()));
+            const respClone = resp.clone();
+            caches.open(CACHE).then(c => c.put(e.request, respClone));
           }
           return resp;
         });
