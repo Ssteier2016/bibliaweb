@@ -2172,36 +2172,41 @@ export default function App() {
   // Auth state + carga de datos
   useEffect(() => {
     return onAuthChange(async (firebaseUser) => {
-      if (firebaseUser && !firebaseUser.isAnonymous) {
-        const data = await loadUserData(firebaseUser.uid);
-        const { hl, nt, bm, sh, following, followers, streak, privacy } = fromFirestore(data);
-        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
-        setFollowing(following); setFollowers(followers); setStreak(streak); setPrivacy(privacy);
-        // Cargar foto desde Firestore (base64 no cabe en Firebase Auth)
-        if (data.photoURL) setUserPhotoURL(data.photoURL);
-        // Racha de lectura
-        const newStreak = await updateReadingStreak(firebaseUser.uid, streak, data.lastReadDate);
-        setStreak(newStreak);
-        // Guardar perfil y presencia (no sobreescribir photoURL si ya hay una foto cargada en Firestore)
-        await savePresence(firebaseUser.uid, {
-          displayName: firebaseUser.displayName || data.displayName || '',
-          email:       firebaseUser.email || '',
-          ...((firebaseUser.photoURL && !data.photoURL) ? { photoURL: firebaseUser.photoURL } : {}),
-          createdAt:   data.createdAt || firebaseUser.metadata.creationTime || new Date().toISOString(),
-        });
-      } else if (firebaseUser?.isAnonymous) {
-        const hl = {}, nt = {}, bm = {};
-        for (let i = 0; i < localStorage.length; i++) {
-          const k = localStorage.key(i);
-          if (k?.startsWith('hl_'))   hl[k] = lsGet(k);
-          if (k?.startsWith('note_')) nt[k] = lsGet(k);
-          if (k?.startsWith('bm_'))   bm[k] = lsGet(k);
+      try {
+        if (firebaseUser && !firebaseUser.isAnonymous) {
+          const data = await loadUserData(firebaseUser.uid);
+          const { hl, nt, bm, sh, following, followers, streak, privacy } = fromFirestore(data);
+          setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
+          setFollowing(following); setFollowers(followers); setStreak(streak); setPrivacy(privacy);
+          // Cargar foto desde Firestore (base64 no cabe en Firebase Auth)
+          if (data.photoURL) setUserPhotoURL(data.photoURL);
+          // Racha de lectura
+          const newStreak = await updateReadingStreak(firebaseUser.uid, streak, data.lastReadDate);
+          setStreak(newStreak);
+          // Guardar perfil y presencia (no sobreescribir photoURL si ya hay una foto cargada en Firestore)
+          await savePresence(firebaseUser.uid, {
+            displayName: firebaseUser.displayName || data.displayName || '',
+            email:       firebaseUser.email || '',
+            ...((firebaseUser.photoURL && !data.photoURL) ? { photoURL: firebaseUser.photoURL } : {}),
+            createdAt:   data.createdAt || firebaseUser?.metadata?.creationTime || new Date().toISOString(),
+          });
+        } else if (firebaseUser?.isAnonymous) {
+          const hl = {}, nt = {}, bm = {};
+          for (let i = 0; i < localStorage.length; i++) {
+            const k = localStorage.key(i);
+            if (k?.startsWith('hl_'))   hl[k] = lsGet(k);
+            if (k?.startsWith('note_')) nt[k] = lsGet(k);
+            if (k?.startsWith('bm_'))   bm[k] = lsGet(k);
+          }
+          setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({}); setFollowing([]); setFollowers([]);
+        } else {
+          setHighlights({}); setNotes({}); setBookmarks({}); setShared({}); setFollowing([]); setFollowers([]);
         }
-        setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({}); setFollowing([]); setFollowers([]);
-      } else {
-        setHighlights({}); setNotes({}); setBookmarks({}); setShared({}); setFollowing([]); setFollowers([]);
+      } catch (e) {
+        console.error("Error loading user data:", e);
+      } finally {
+        setUser(firebaseUser || null);
       }
-      setUser(firebaseUser);
     });
   }, []);
 
