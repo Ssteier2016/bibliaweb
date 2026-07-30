@@ -4229,4 +4229,234 @@ export const COMMENTARY = {
     comentarios: "Agustín de Hipona: el corazón es el ojo del alma; si el ojo está limpio, puede contemplar la luz y belleza divina. La santidad interna es el prerrequisito indispensable para ver a Dios en la eternidad.",
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     LOTE ADICIONAL — 30 VERSÍCULOS (histórico, lingüístico,
+     científico, arqueológico, paleontológico, costumbres,
+     geográfico, tipológico y comentarios patrísticos/reformados)
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_4_9': {
+    linguistico: `"Guarda" (shomer, שֹׁמֵר): la misma raíz que "guardar/cuidar" el jardín del Edén (Génesis 2:15). La pregunta retórica de Caín invierte irónicamente el mandato original de custodiar la creación y al prójimo.`,
+    historico: `Los sacrificios de agricultor (Caín) y pastor (Abel) reflejan la economía dual del antiguo Cercano Oriente, con tensión histórica documentada entre comunidades sedentarias y nómadas-pastoriles en el Levante temprano.`,
+    comentarios: `Agustín de Hipona vio en Caín y Abel el arquetipo de las "dos ciudades" (terrena y celestial). Dietrich Bonhoeffer señaló que la pregunta de Caín es la primera negación humana de la responsabilidad relacional.`,
+    referencia: `1 Juan 3:12 (no ser como Caín). Hebreos 11:4 (la fe de Abel). Mateo 23:35 ("la sangre de Abel el justo"). Judas 1:11.`,
+  },
+
+  'Génesis_9_13': {
+    cientifico: `El arco iris es un fenómeno óptico producido por la refracción y reflexión de la luz solar en gotas de agua suspendidas; Descartes (1637) fue el primero en explicarlo matemáticamente. El texto reinterpreta un fenómeno natural universal como señal visible de un pacto.`,
+    linguistico: `"Qeshet" (קֶשֶׁת): la misma palabra hebrea para el "arco" de guerra. El arco divino queda colgado apuntando hacia el cielo, no hacia la tierra, simbolizando el cese de la hostilidad de Dios contra la humanidad.`,
+    referencia: `Ezequiel 1:28 (el arco iris como imagen de la gloria de Dios). Apocalipsis 4:3. Isaías 54:9 (el pacto de Noé como paradigma de fidelidad).`,
+    comentarios: `Orígenes interpretó el arco depuesto como símbolo de que Dios "desarma" su ira. Calvino notó que Dios usa un fenómeno natural común para enseñar una verdad espiritual eterna.`,
+  },
+
+  'Génesis_11_9': {
+    historico: `Babel se identifica tradicionalmente con Babilonia y sus zigurats, templos-torre escalonados dedicados a Marduk (como el Etemenanki, "Casa donde se unen cielo y tierra"). La arqueología mesopotámica documenta estas estructuras desde el tercer milenio a.C.`,
+    linguistico: `"Babel" (בָּבֶל) se asocia por juego de palabras con "balal" (בָּלַל), "confundir". Irónicamente, en acadio "Bab-ilu" significa "puerta de dios(es)": el relato hebreo invierte el sentido original del nombre.`,
+    arquitectonico: `Los zigurats mesopotámicos alcanzaban capas de ladrillo cocido unidas con betún, técnica mencionada explícitamente en Génesis 11:3, y llegaban a decenas de metros de altura en los ejemplares mejor documentados.`,
+    comentarios: `Agustín vio en Babel el orgullo humano opuesto a la ciudad de Dios. Orígenes interpretó la confusión de lenguas como preludio necesario de Pentecostés, donde el Espíritu revierte simbólicamente la dispersión.`,
+    referencia: `Hechos 2:4-11 (Pentecostés como reversión de Babel). Isaías 13:19; Jeremías 51:53.`,
+  },
+
+  'Génesis_32_28': {
+    linguistico: `"Israel" (יִשְׂרָאֵל) se explica en el texto como "el que lucha con Dios" (sarah, שָׂרָה: luchar/contender). El cambio de nombre marca una transformación de identidad, de "Jacob" (suplantador) a portador de una nueva vocación.`,
+    historico: `El cambio de nombre como sello de transformación de destino es un patrón recurrente en el antiguo Cercano Oriente (cf. Abram→Abraham, Sarai→Sara), asociado a pactos y nuevas relaciones con la divinidad.`,
+    tipologia: `La lucha nocturna de Jacob se ha leído tipológicamente como figura del creyente que persevera pese a la "herida" (el muslo dislocado), recibiendo bendición precisamente en la debilidad reconocida.`,
+    comentarios: `Orígenes vio en el episodio una lucha espiritual continua del alma con Dios. Karl Barth notó que Jacob "gana perdiendo": sale bendecido pero cojeando, imagen de la gracia que transforma sin eliminar la fragilidad humana.`,
+    referencia: `Oseas 12:3-4 (referencia retrospectiva). Génesis 17:5 (cambio de nombre de Abram). 2 Corintios 12:9-10.`,
+  },
+
+  'Génesis_37_28': {
+    historico: `Veinte siclos de plata era, según tarifas documentadas en el Código de Hammurabi y otros textos mesopotámicos, un precio típico por un esclavo varón joven en el segundo milenio a.C. — un detalle de exactitud económica notable en el relato.`,
+    costumbres: `Las caravanas de ismaelitas/madianitas que comerciaban especias (bálsamo, mirra) entre Galaad y Egipto están documentadas en rutas comerciales del Bronce Medio, confirmando el trasfondo realista del relato patriarcal.`,
+    tipologia: `La venta de José por sus propios hermanos anticipa tipológicamente la traición de Jesús por Judas, también realizada por precio de plata (30 siclos, Mateo 26:15).`,
+    comentarios: `Ireneo de Lyon presentó a José como tipo de Cristo: rechazado por los suyos, exaltado luego para salvación de muchos. Juan Crisóstomo destacó su perdón a los hermanos como modelo de reconciliación.`,
+    referencia: `Génesis 50:20 ("vosotros pensasteis mal... mas Dios lo encaminó a bien"). Hechos 7:9-14. Salmos 105:17-19.`,
+  },
+
+  'Éxodo_2_3': {
+    costumbres: `La "arquilla de juncos" calafateada con "brea y asfalto" refleja técnicas egipcias documentadas de cestería de papiro impermeabilizada, usada tanto en canastos como en pequeñas embarcaciones fluviales del Nilo.`,
+    historico: `Exponer a un bebé a la corriente del Nilo evoca, de forma independiente, tradiciones cercanas al relato posterior de Sargón de Acad, cuya leyenda de nacimiento también narra un niño abandonado en una cesta sobre un río.`,
+    linguistico: `"Arquilla" (tebah, תֵּבָה) es la misma palabra usada para el arca de Noé (Génesis 6:14), estableciendo un paralelo deliberado: ambas son vasijas de salvación en medio del agua y el juicio.`,
+    comentarios: `Orígenes vio en la "tebah" de Moisés una prefiguración de la Iglesia que salva a los creyentes en medio del mundo. Gregorio de Nisa la interpretó como ejemplo de la protección providencial en la fragilidad humana.`,
+    referencia: `Hebreos 11:23 (por la fe los padres de Moisés lo escondieron). Hechos 7:20-21.`,
+  },
+
+  'Éxodo_25_8': {
+    arquitectonico: `El tabernáculo sigue un patrón tripartito (atrio, lugar santo, lugar santísimo) común a templos del antiguo Cercano Oriente, pero portátil, con medidas precisas en codos que anticipan la arquitectura del templo de Salomón.`,
+    tipologia: `El tabernáculo se interpreta en Hebreos como "figura y sombra" (Hebreos 8:5) del santuario celestial, cumplido en Cristo, quien "tabernaculizó" entre los hombres (Juan 1:14, griego "eskēnōsen").`,
+    linguistico: `"Mishkan" (מִשְׁכָּן): "morada", de la raíz "shakan" (habitar) — la misma raíz de la posterior palabra rabínica "Shekinah", la presencia manifiesta de Dios.`,
+    comentarios: `Agustín interpretó el tabernáculo como figura de la Iglesia peregrina. Orígenes vio en cada elemento del mobiliario una alegoría cristológica.`,
+    referencia: `Juan 1:14 ("habitó entre nosotros"). Hebreos 9:1-9; Apocalipsis 21:3.`,
+  },
+
+  'Levítico_17_11': {
+    cientifico: `La identificación de la sangre como portadora de "vida" anticipa la fisiología moderna: la sangre transporta oxígeno y nutrientes, y su pérdida masiva provoca la muerte, lo que respalda biológicamente la centralidad ritual otorgada a la sangre en Levítico.`,
+    tipologia: `El sistema sacrificial levítico ("sin derramamiento de sangre no hay perdón", Hebreos 9:22) se interpreta como tipo preparatorio del sacrificio único y definitivo de Cristo en la cruz.`,
+    linguistico: `"Nefesh" (נֶפֶשׁ), traducido "vida", indica el ser viviente entero, no solo un componente espiritual: la sangre representa la totalidad de la existencia del animal ofrecido.`,
+    referencia: `Hebreos 9:22. 1 Pedro 1:18-19. Mateo 26:28.`,
+    comentarios: `Calvino subrayó que la prohibición de comer sangre enseñaba reverencia hacia la vida como don sagrado de Dios. Tomás de Aquino ligó este principio a la doctrina eucarística.`,
+  },
+
+  'Números_23_19': {
+    linguistico: `El paralelismo hebreo contrasta "El" (Dios, poder trascendente) con "ben-adam" (hijo de hombre), enfatizando categóricamente la diferencia entre la inmutabilidad divina y la inconstancia humana.`,
+    historico: `Puesto en boca de Balaam, un vidente no israelita mencionado también en la inscripción extrabíblica de Deir 'Alla (Jordania, siglo VIII a.C.), que lo nombra "Balaam hijo de Beor, vidente de los dioses" — rara confirmación arqueológica de un personaje bíblico fuera de Israel.`,
+    comentarios: `Orígenes usó este versículo contra interpretaciones antropomórficas excesivas de Dios en el Antiguo Testamento. Karl Barth lo empleó para fundamentar la fidelidad incondicional de la promesa divina.`,
+    referencia: `1 Samuel 15:29. Tito 1:2 ("Dios, que no miente"). Hebreos 6:18.`,
+  },
+
+  'Deuteronomio_32_4': {
+    linguistico: `"Tsur" (צוּר), "Roca", es un título divino recurrente en el Cántico de Moisés, evocando estabilidad y refugio, en contraste con las "rocas" (ídolos) de las naciones vecinas (Deuteronomio 32:31).`,
+    historico: `El uso de "Roca" como epíteto divino tiene paralelos en religiones cananeas donde montañas y peñascos eran sedes de teofanías, pero Deuteronomio lo redefine hacia el carácter moral —justicia, fidelidad— de Yahvé, no hacia un lugar físico.`,
+    tipologia: `Pablo aplica esta imagen a Cristo: "la roca era Cristo" (1 Corintios 10:4), leyendo tipológicamente la provisión de agua en el desierto (Éxodo 17:6) como anticipo mesiánico.`,
+    comentarios: `Agustín interpretó "la Roca" como símbolo de la inmutabilidad divina frente a la volubilidad humana. Lutero encontró en este título consuelo pastoral: la fidelidad de Dios no depende de la fidelidad humana.`,
+    referencia: `1 Corintios 10:4. Salmos 18:2. Mateo 7:24-25.`,
+  },
+
+  'Josué_10_13': {
+    historico: `El fenómeno ha generado siglos de debate: desde una detención literal del movimiento aparente del sol hasta lecturas fenomenológicas del lenguaje observacional antiguo, o un oscurecimiento atmosférico que prolongó visualmente la luz durante la batalla.`,
+    linguistico: `El verbo "damam" (דָּמַם), traducido "deténgase", significa literalmente "callar" o "quedar en quietud" — el texto es poesía citada del "libro de Jaser" (Josué 10:13), género que admite lenguaje figurado e hiperbólico de victoria.`,
+    cientifico: `La mayoría de exégetas actuales prefieren leer el pasaje dentro de las convenciones del lenguaje bélico-poético del antiguo Cercano Oriente, sin implicar necesariamente un evento astronómico literal medible con la astronomía moderna.`,
+    comentarios: `Agustín de Hipona advertía contra lecturas excesivamente literalistas de fenómenos astronómicos en la Escritura, priorizando el mensaje teológico —la intervención divina en la batalla— sobre la mecánica celeste.`,
+    referencia: `Isaías 38:8 (retroceso de la sombra en el reloj de Acaz). Habacuc 3:11.`,
+  },
+
+  'Jueces_6_12': {
+    linguistico: `"Varón esforzado y valiente" (gibbor chayil, גִּבּוֹר חַיִל) es una designación irónica, pues Gedeón se presenta trillando trigo escondido en un lagar por miedo a los madianitas (Jueces 6:11): Dios lo nombra según su potencial, no su condición presente.`,
+    historico: `Las incursiones madianitas descritas (Jueces 6:1-6) reflejan el patrón histórico de pastores nómadas del Bronce Tardío/Hierro Temprano que devastaban cosechas del Levante montañoso con camellos domesticados para la guerra.`,
+    comentarios: `Calvino observó que Dios frecuentemente llama a los débiles para manifestar que la victoria es suya, no del instrumento humano. Lutero vio en Gedeón un ejemplo de fe que crece progresivamente pese a la duda inicial.`,
+    referencia: `Hebreos 11:32 (Gedeón entre los héroes de la fe). 1 Corintios 1:27.`,
+  },
+
+  '1 Samuel_17_4': {
+    historico: `La armadura de Goliat (cota de malla de bronce, grebas, jabalina con asta "como un rodillo de telar") coincide con equipamiento documentado de los filisteos de origen egeo, respaldado por hallazgos en Tel es-Safi/Gat —identificado como la Gat bíblica— incluyendo una inscripción con nombres de raíz similar a "Goliat" (siglo IX a.C.).`,
+    linguistico: `"Seis codos y un palmo" (~2,9-3 m según el Texto Masorético) frente a "cuatro codos y un palmo" (~2 m) en los manuscritos de Qumrán y la Septuaginta: una variante textual documentada que ilustra la transmisión del Antiguo Testamento.`,
+    comentarios: `Agustín vio en David un tipo de Cristo, quien vence al "gigante" no con armas convencionales sino con medios aparentemente débiles. Orígenes destacó la fe frente al poderío visible como paradigma espiritual.`,
+    referencia: `1 Samuel 17:45 ("tú vienes a mí con espada... mas yo vengo a ti en el nombre de Jehová"). 2 Samuel 21:19.`,
+  },
+
+  '2 Samuel_7_16': {
+    historico: `La Estela de Tel Dan (descubierta en 1993, siglo IX a.C.) contiene la inscripción "bytdwd" ("casa de David"), la primera evidencia extrabíblica que confirma la existencia histórica de la dinastía davídica, corroborando el trasfondo real de este pacto.`,
+    tipologia: `El pacto davídico —una "casa" dinástica eterna— se interpreta en el Nuevo Testamento como cumplido en Jesús, el "hijo de David" cuyo reino no tendrá fin (Lucas 1:32-33), superando la línea dinástica interrumpida tras el exilio.`,
+    comentarios: `Agustín vio en este pacto la promesa que trasciende lo político y se cumple espiritualmente en el reino eterno de Cristo. Calvino subrayó que la fidelidad de Dios al pacto davídico ilustra su fidelidad general a las promesas de gracia.`,
+    referencia: `Lucas 1:32-33. Salmos 89:3-4; Isaías 9:7; Hechos 2:29-30.`,
+  },
+
+  'Nehemías_2_17': {
+    historico: `Excavaciones de Kathleen Kenyon (1961-67) y posteriormente Eilat Mazar en la Ciudad de David identificaron secciones de muralla y una torre datadas por cerámica al período persa (siglo V a.C.), consistentes con la reconstrucción postexílica narrada en Nehemías.`,
+    arquitectonico: `El relato detalla la reconstrucción por sectores asignados a distintas familias y gremios (Nehemías 3), un método organizativo que permitió reconstruir toda la muralla de Jerusalén en 52 días (Nehemías 6:15), un ritmo notable para fortificaciones antiguas.`,
+    comentarios: `Calvino elogió el liderazgo de Nehemías como modelo de acción práctica unida a la oración. Bonhoeffer vio en la reconstrucción bajo oposición un paradigma de la obra de la Iglesia en medio de la hostilidad del mundo.`,
+    referencia: `Nehemías 4:17 ("con una mano trabajaban... y en la otra tenían la espada"). Esdras 4:1-5.`,
+  },
+
+  'Job_38_31': {
+    cientifico: `"Las Pléyades" (Kimah) y "Orión" (Kesil) son cúmulos y constelaciones reales identificables a simple vista; Job es uno de los textos más antiguos de la literatura mundial en nombrar explícitamente objetos astronómicos específicos.`,
+    linguistico: `"¿Podrás tú atar los lazos de las Pléyades, o desatarás las ligaduras de Orión?" usa metáfora de tejido/atadura, posiblemente aludiendo a la percepción visual de las Pléyades como cúmulo "atado" frente al "cinturón" de Orión.`,
+    comentarios: `Agustín de Hipona citó este pasaje para argumentar los límites del conocimiento humano frente a la soberanía divina sobre el cosmos. Spurgeon predicó sobre este texto como llamado a la humildad intelectual ante el orden creado.`,
+    referencia: `Amós 5:8 ("el que hace las Pléyades y el Orión"). Salmos 8:3-4. Isaías 40:26.`,
+  },
+
+  'Job_40_15': {
+    paleontologico: `La identificación de "Behemot" ha sido debatida: la mayoría de exégetas modernos lo asocian con el hipopótamo (por su fuerza, cola descrita figuradamente y hábitat fluvial, Job 40:21-23), mientras lecturas minoritarias proponen que la descripción evoca rasgos de grandes herbívoros extintos; la paleontología confirma que existió megafauna terrestre de gran tamaño en distintos periodos, aunque sin evidencia de coexistencia humana con dinosaurios no aviares.`,
+    linguistico: `"Behemot" (בְּהֵמוֹת) es un plural intensivo de "behemah" (bestia/animal grande), forma gramatical hebrea usada para expresar magnitud superlativa: "la bestia de las bestias".`,
+    comentarios: `Orígenes y otros padres antiguos vieron en Behemot y Leviatán (Job 40-41) símbolos del poder cósmico del mal que solo Dios puede dominar, más que descripciones zoológicas estrictas. Calvino enfatizó que el propósito del pasaje es mostrar la pequeñez humana frente al poder creador de Dios.`,
+    referencia: `Job 41:1 (Leviatán). Salmos 104:26. Isaías 27:1.`,
+  },
+
+  'Salmos_78_2': {
+    tipologia: `Mateo 13:34-35 cita explícitamente este salmo como cumplido en el método parabólico de enseñanza de Jesús, presentando al Salmo 78 como profecía tipológica de la didáctica mesiánica.`,
+    linguistico: `"Mashal" (מָשָׁל), traducido "parábola", abarca proverbios, enigmas, alegorías y relatos didácticos, categoría literaria amplia de la sabiduría del antiguo Cercano Oriente, usada aquí para narrar la historia de Israel como enseñanza moral.`,
+    comentarios: `Agustín valoró la técnica parabólica como forma pedagógica que vela la verdad a los indiferentes y la revela a los que buscan sinceramente. C.S. Lewis notó que las parábolas "encienden la imaginación para que la verdad entre por una puerta lateral".`,
+    referencia: `Mateo 13:34-35 (cita directa de este salmo). Marcos 4:33-34.`,
+  },
+
+  'Isaías_11_6': {
+    tipologia: `La imagen del "reino pacífico" se interpreta tradicionalmente como profecía escatológica del reinado mesiánico de Cristo, donde la enemistad introducida por la caída queda revertida en la restauración final de la creación.`,
+    linguistico: `El pasaje agrupa pares de animales depredador/presa (lobo-cordero, leopardo-cabrito, león-becerro) en un patrón poético deliberado que enfatiza la inversión total del orden natural de violencia.`,
+    comentarios: `Ireneo de Lyon leyó este pasaje literalmente como descripción del milenio venidero. Agustín, en cambio, lo interpretó alegóricamente como transformación moral de caracteres opuestos reconciliados en la Iglesia.`,
+    referencia: `Isaías 65:25 (repetición de la imagen). Romanos 8:19-22. Apocalipsis 21:4-5.`,
+  },
+
+  'Jeremías_17_9': {
+    linguistico: `"Aqob" (עָקֹב), traducido "engañoso", comparte raíz con el nombre "Jacob" (Ya'aqob), sugiriendo un juego de palabras: el corazón humano actúa "como Jacob", suplantando y engañando incluso a sí mismo.`,
+    historico: `El diagnóstico pesimista sobre la naturaleza humana se sitúa en el contexto de la inminente caída de Judá (587 a.C.), interpretando el colapso nacional no como fracaso político sino como consecuencia de la corrupción moral interior del pueblo.`,
+    comentarios: `Lutero citó este versículo como fundamento bíblico de la doctrina de la depravación humana ("corazón encorvado sobre sí mismo"). Calvino lo usó extensamente en la Institución para argumentar la necesidad de la gracia regeneradora.`,
+    referencia: `Jeremías 31:33 (promesa de un corazón nuevo). Ezequiel 36:26. Mateo 15:19; Romanos 3:10-12.`,
+  },
+
+  'Ezequiel_28_13': {
+    cientifico: `Las nueve gemas mencionadas (cornerina, topacio, diamante, berilo, ónice, jaspe, zafiro, carbunclo, esmeralda) corresponden a minerales reales del comercio de piedras preciosas del Mediterráneo oriental y comparten varias con el pectoral sacerdotal de Éxodo 28:17-20, reflejando conocimiento gemológico avanzado de la época.`,
+    historico: `Tiro fue el principal centro comercial fenicio de púrpura, madera de cedro y metales preciosos en el primer milenio a.C.; su opulencia material, documentada por fuentes asirias y clásicas, respalda la descripción profética de su riqueza y consiguiente orgullo.`,
+    tipologia: `Muchos intérpretes cristianos han leído este oráculo contra el "querubín protector" caído como alusión velada a la caída de Satanás, aunque el contexto inmediato se refiere primariamente al gobernante histórico de Tiro juzgado por su soberbia.`,
+    comentarios: `Orígenes fue de los primeros en proponer la lectura angelológica de este pasaje. Agustín fue más cauto, prefiriendo limitar la interpretación primaria al juicio histórico contra el rey de Tiro.`,
+    referencia: `Isaías 14:12-15 (oráculo paralelo contra Babilonia). Apocalipsis 12:9.`,
+  },
+
+  'Daniel_2_44': {
+    historico: `La visión de la estatua de Nabucodonosor (oro, plata, bronce, hierro) se ha interpretado tradicionalmente como secuencia de imperios —Babilonia, Media-Persia, Grecia y Roma—, esquema respaldado por la correlación cronológica entre el texto y la sucesión histórica documentada de estos imperios.`,
+    tipologia: `La "piedra cortada, no con mano" que destruye la estatua y se convierte en gran monte se interpreta cristológicamente como el reino de Dios inaugurado por Cristo, que crece sin intervención humana hasta llenar la tierra.`,
+    linguistico: `La expresión aramea "cortada sin manos" enfatiza el origen sobrenatural, no humano, del reino que se establece.`,
+    comentarios: `Jerónimo de Estridón desarrolló extensamente la interpretación de los cuatro reinos en su comentario a Daniel. Calvino vio en la piedra que crece la expansión progresiva e imparable del evangelio en la historia.`,
+    referencia: `Mateo 21:44 (Cristo, la piedra que quebranta). Lucas 1:33. Apocalipsis 11:15.`,
+  },
+
+  'Zacarías_11_12': {
+    historico: `Treinta siclos de plata era, según Éxodo 21:32, el precio legal de compensación por un esclavo corneado por un buey — una cifra deliberadamente humillante que la profecía usa para describir el desprecio con que sería valorado el pastor-mesías.`,
+    tipologia: `Mateo 27:9-10 relaciona explícitamente este pasaje con el precio pagado a Judas por traicionar a Jesús, incluyendo el detalle del "campo del alfarero" (Zacarías 11:13).`,
+    linguistico: `"Precio hermoso con que fui apreciado por ellos" es una frase con fuerte ironía sarcástica en el hebreo original, contrastando el valor real del pastor-mesías con la mísera suma ofrecida.`,
+    comentarios: `Agustín consideró este pasaje una de las profecías mesiánicas más precisas del Antiguo Testamento por su cumplimiento en los evangelios. Juan Crisóstomo predicó extensamente sobre la traición de Judas a la luz de este oráculo.`,
+    referencia: `Mateo 26:15; 27:3-10. Éxodo 21:32.`,
+  },
+
+  'Mateo_13_31': {
+    cientifico: `La mostaza negra (Brassica/Sinapis nigra), común en Galilea, produce una de las semillas más pequeñas de la agricultura de la región (aprox. 1-2 mm), pero puede crecer varios metros de altura en una sola temporada, desproporción real entre semilla y planta que respalda la enseñanza de Jesús.`,
+    linguistico: `"La más pequeña de todas las semillas" es una expresión proverbial de la época para lo mínimo, no una afirmación botánica absoluta, consistente con el estilo hiperbólico habitual de las parábolas.`,
+    tipologia: `El crecimiento del reino de los cielos desde un origen ínfimo hasta convertirse en refugio para "las aves del cielo" evoca imágenes proféticas previas de grandes árboles-imperio (Ezequiel 17:23; Daniel 4:12), pero invertidas: crece desde la insignificancia, no desde el poder.`,
+    comentarios: `Juan Crisóstomo interpretó la parábola como aliento para los primeros discípulos, un grupo pequeño destinado a una expansión mundial. C.S. Lewis señaló el patrón recurrente de que "lo pequeño y humilde" es el medio elegido por Dios para obras grandes.`,
+    referencia: `Marcos 4:30-32; Lucas 13:18-19. Ezequiel 17:23.`,
+  },
+
+  'Marcos_5_41': {
+    linguistico: `"Talita cumi" (טליתא קומי) es una de las pocas frases arameas preservadas textualmente en los evangelios griegos, junto con "Efata" (Marcos 7:34) y "Eloi, Eloi, lama sabactani" (Marcos 15:34) — evidencia directa del idioma cotidiano hablado por Jesús.`,
+    historico: `La preservación de estas frases arameas en el texto griego de Marcos sugiere una tradición oral muy temprana y cercana a testigos oculares, ya que normalmente los evangelistas traducían el discurso al griego sin conservar la lengua original.`,
+    comentarios: `Jerónimo discutió, al preparar la Vulgata, la importancia de conservar estas transliteraciones arameas como testimonio de autenticidad histórica. Orígenes reflexionó sobre el poder performativo de la palabra de Jesús: "cumi" no es solo instrucción sino acto creador.`,
+    referencia: `Marcos 7:34 ("Efata"); Marcos 15:34. Juan 11:43 ("Lázaro, ven fuera").`,
+  },
+
+  'Juan_1_46': {
+    historico: `Estudios arqueológicos recientes estiman que Nazaret en el siglo I era una aldea agrícola judía muy pequeña, de apenas unos cientos de habitantes, sin mención en fuentes judías contemporáneas (Josefo, Talmud) ni en el Antiguo Testamento, lo que explica el desdén de Natanael.`,
+    linguistico: `La pregunta de Natanael es una expresión retórica de escepticismo regional, reflejando rivalidades locales típicas de Galilea, donde aldeas vecinas competían por prestigio pese a su cercanía geográfica.`,
+    comentarios: `Agustín vio en esta pregunta un ejemplo del prejuicio humano superado por el encuentro personal con Cristo. Karl Barth notó la ironía teológica: Dios elige deliberadamente lo insignificante según los criterios humanos para manifestar su gloria.`,
+    referencia: `Juan 7:41-42, 52. Miqueas 5:2 (el Mesías nacería en Belén, no en Nazaret). 1 Corintios 1:27-28.`,
+  },
+
+  'Juan_19_23': {
+    costumbres: `Repartirse la ropa del ejecutado era práctica estándar de los soldados romanos como parte de su compensación en las crucifixiones; la túnica "sin costura, tejida de arriba abajo" recuerda además la vestidura del sumo sacerdote (Éxodo 28), detalle que algunos exégetas leen como indicio simbólico del sacerdocio de Cristo.`,
+    historico: `El osario de Yehohanan (Jerusalén, 1968), con un clavo aún incrustado en un hueso del talón, ofrece la primera evidencia física directa de una crucifixión romana en Judea del siglo I, confirmando detalles del método de ejecución descrito en los evangelios.`,
+    linguistico: `El evangelista cita explícitamente el Salmo 22:18 ("repartieron entre sí mis vestidos, y sobre mi ropa echaron suertes") como cumplido literalmente, un caso notable de correspondencia verbal precisa entre profecía y narrativa.`,
+    comentarios: `Cipriano de Cartago interpretó la túnica sin costura como símbolo de la unidad indivisible de la Iglesia. Agustín vio en el detalle un signo del carácter sacerdotal único e indivisible del sacrificio de Cristo.`,
+    referencia: `Salmos 22:18. Éxodo 28:31-32.`,
+  },
+
+  'Hechos_17_23': {
+    historico: `Pausanias y otros autores clásicos confirman la existencia de altares "a dioses desconocidos" en Atenas, erigidos por precaución religiosa para no ofender a alguna deidad no honrada explícitamente; Pablo usa este altar real como punto de contacto apologético ante el Areópago.`,
+    linguistico: `Pablo cita además a poetas griegos (Hechos 17:28, probablemente Epiménides y Arato de Solos: "porque linaje suyo somos"), estrategia retórica de puente cultural poco común en el resto del Nuevo Testamento.`,
+    comentarios: `Justino Mártir, formado en filosofía griega, vio en este discurso un modelo de diálogo entre fe y razón. C.S. Lewis señaló que Pablo no condena de entrada la búsqueda religiosa pagana, sino que la reconoce como anhelo genuino que halla su respuesta plena en Cristo.`,
+    referencia: `Romanos 1:19-20. Hechos 14:15-17.`,
+  },
+
+  'Gálatas_4_4': {
+    historico: `El siglo I ofrecía condiciones históricas únicas para la expansión del evangelio: la Pax Romana garantizaba seguridad de tránsito, una red vial romana sin precedentes conectaba el Mediterráneo, y el griego koiné funcionaba como lengua franca — factores frecuentemente citados como convergencia providencial para la difusión cristiana temprana.`,
+    linguistico: `"Cumplimiento del tiempo" (to plērōma tou chronou, τὸ πλήρωμα τοῦ χρόνου) usa "plērōma" (plenitud), término también empleado en Colosenses para la plenitud de la deidad en Cristo, sugiriendo una madurez providencial del momento histórico.`,
+    comentarios: `Juan Crisóstomo destacó que Dios esperó el momento preciso, ni antes ni después, para enviar a su Hijo. Karl Barth vio en esta frase el fundamento de una teología de la historia como escenario providencial de la revelación.`,
+    referencia: `Marcos 1:15 ("el tiempo se ha cumplido"). Efesios 1:10. Romanos 5:6.`,
+  },
+
+  'Efesios_2_14': {
+    historico: `En 1871 se halló una piedra del "soreg", el muro balaustrado que separaba el atrio de los gentiles del recinto interior del Templo de Jerusalén, con una inscripción en griego que advertía que ningún extranjero podía entrar bajo pena de muerte — evidencia física directa de la "pared intermedia" que Pablo menciona.`,
+    linguistico: `"Mesotoichon" (μεσότοιχον), "pared intermedia", es una palabra griega rara, apenas atestiguada fuera de este pasaje, lo que reforzaría la alusión directa y deliberada al muro físico del Templo conocido por los lectores originales.`,
+    tipologia: `La destrucción de la barrera judío-gentil se interpreta como cumplimiento escatológico de la reconciliación anunciada por los profetas (Isaías 56:6-7), formando "un solo hombre nuevo" en Cristo en lugar de dos pueblos separados.`,
+    comentarios: `Juan Crisóstomo predicó extensamente sobre esta unidad como el mayor milagro social del evangelio primitivo. Karl Barth vio en este texto la superación definitiva de toda distinción excluyente por la obra reconciliadora de la cruz.`,
+    referencia: `Isaías 56:6-7. Colosenses 3:11. Gálatas 3:28.`,
+  },
+
 };
