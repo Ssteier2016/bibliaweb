@@ -3,6 +3,9 @@
       "target": {
         "namespace": "android_app",
         "package_name": "com.rodarena7.labiblia",
-        "sha256_cert_fingerprints": ["62:D9:7B:65:94:04:CA:A3:13:30:43:46:15:8A:68:FF:10:91:B5:CC:CE:11:5E:AB:F7:52:A1:BD:54:F0:DD:8F"]
+        "sha256_cert_fingerprints": [
+          "D5:ED:C8:58:1E:16:B7:5A:EE:3A:57:CF:95:D2:75:1C:20:AC:54:03:55:9A:82:99:1F:5B:D1:CE:0F:5B:F6:D4",
+          "62:D9:7B:65:94:04:CA:A3:13:30:43:46:15:8A:68:FF:10:91:B5:CC:CE:11:5E:AB:F7:52:A1:BD:54:F0:DD:8F"
+        ]
       }
     }]
