@@ -4832,4 +4832,371 @@ export const COMMENTARY = {
     referencia: `Hebreos 4:15; Filipenses 2:8; Lucas 22:42.`,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     TERCER LOTE ADICIONAL — 50 VERSÍCULOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_1_31': {
+    linguistico: `"Bueno en gran manera" (tov meod) intensifica el refrán "y vió Dios que era bueno" repetido tras cada día de creación; solo aquí, al contemplar el conjunto completo, se añade el superlativo.`,
+    historico: `A diferencia de mitologías cercanas (Enuma Elish babilónico), donde la creación surge del conflicto violento entre dioses y el mundo resultante es moralmente ambiguo, el relato hebreo declara la creación entera —materia incluida— intrínsecamente buena.`,
+    tipologia: `Esta bondad original de la creación material es la base teológica que luego permite la encarnación (Juan 1:14) sin contradicción: el Verbo puede hacerse "carne" porque la materia no es intrínsecamente mala.`,
+    comentarios: `Agustín usó extensamente este versículo contra el maniqueísmo y el gnosticismo, que consideraban la materia intrínsecamente corrupta. Ireneo de Lyon lo empleó de forma similar contra los gnósticos de su época.`,
+    referencia: `1 Timoteo 4:4 ("todo lo que Dios crió es bueno"); Juan 1:14; Colosenses 1:16-17.`,
+  },
+
+  'Génesis_5_24': {
+    linguistico: `"Caminó con Dios" usa una forma verbal reflexiva/intensiva que sugiere una relación continua y deliberada de comunión, la misma expresión usada después para Noé (Génesis 6:9).`,
+    historico: `Enoc es, junto con Elías, el único personaje del Antiguo Testamento del que explícitamente no se registra muerte natural, generando una rica tradición apócrifa posterior (el Libro de Enoc, citado incluso en Judas 1:14-15).`,
+    tipologia: `Hebreos 11:5 presenta a Enoc como ejemplo paradigmático de fe que agrada a Dios, interpretando su desaparición como "traslación" sin experimentar la muerte.`,
+    comentarios: `Judas 1:14-15 cita directamente una profecía atribuida a Enoc, procedente del Libro de Enoc apócrifo, conocido en el judaísmo del Segundo Templo pero no considerado Escritura canónica.`,
+    referencia: `Hebreos 11:5; Judas 1:14-15; 2 Reyes 2:11.`,
+  },
+
+  'Génesis_8_4': {
+    geografico: `"Los montes de Ararat" designan la región montañosa de Urartu (nombre asirio/acadio del reino en el actual este de Turquía/Armenia), no necesariamente el pico específico hoy llamado Monte Ararat, identificación que es tradición posterior, no exigida por el texto hebreo.`,
+    historico: `Numerosas expediciones desde el siglo XIX hasta hoy han buscado restos del arca en el Monte Ararat moderno, sin que ningún hallazgo haya sido validado científicamente por la comunidad arqueológica.`,
+    comentarios: `Josefo ya identificaba la región con Armenia y mencionaba tradiciones locales sobre restos visibles del arca en su época. Calvino fue cauteloso respecto a la ubicación exacta, centrándose en el significado teológico del descenso a tierra seca como nuevo comienzo.`,
+    referencia: `Jeremías 51:27 (Ararat mencionado como reino, "Urartu"); 2 Reyes 19:37.`,
+  },
+
+  'Génesis_11_1': {
+    linguistico: `La lingüística histórica comparada reconoce familias de lenguas emparentadas que sugieren orígenes comunes más profundos, aunque la diversificación documentable dista mucho de rastrearse hasta una única "lengua original" verificable.`,
+    historico: `La existencia de una lengua franca compartida en la temprana Mesopotamia urbana es plausible dado el intenso contacto comercial y cultural entre las primeras ciudades-estado del cuarto/tercer milenio a.C.`,
+    tipologia: `El contraste entre la dispersión lingüística de Babel y la reunificación simbólica de lenguas en Pentecostés, donde cada oyente escucha en su propia lengua, se lee como reversión escatológica del juicio de Babel.`,
+    comentarios: `Agustín interpretó la unidad lingüística original perdida en Babel como recuperada espiritualmente en la unidad de la Iglesia bajo un mismo Espíritu. Orígenes reflexionó sobre el orgullo colectivo como causa última de la fragmentación humana.`,
+    referencia: `Hechos 2:4-11; Sofonías 3:9.`,
+  },
+
+  'Génesis_41_46': {
+    historico: `La edad de treinta años como umbral de plena madurez para asumir cargos de gran responsabilidad se repite significativamente en la Escritura (David a los treinta, 2 Samuel 5:4; los levitas a esa edad, Números 4:3; Jesús "como de treinta años", Lucas 3:23).`,
+    linguistico: `El nombre egipcio que Faraón dio a José, "Zafnat-panea", ha sido relacionado por egiptólogos con fórmulas egipcias auténticas, evidencia del conocimiento genuino de convención onomástica egipcia por parte del narrador bíblico.`,
+    comentarios: `Calvino destacó el largo período de preparación providencial de José como paradigma de que los tiempos de Dios no coinciden necesariamente con las expectativas humanas. Agustín vio en José un tipo claro de Cristo: rechazado, humillado y luego exaltado para salvación de muchos.`,
+    referencia: `2 Samuel 5:4; Números 4:3; Lucas 3:23; Génesis 50:20.`,
+  },
+
+  'Éxodo_7_20': {
+    cientifico: `Se han propuesto explicaciones naturalistas (una floración masiva de algas rojas tóxicas pudo enrojecer el río y matar peces por privación de oxígeno), aunque la escala, el momento preciso y la reversibilidad instantánea descritas exceden cualquier fenómeno natural documentado por sí solo.`,
+    historico: `El Papiro de Ipuwer (texto egipcio de fecha e interpretación debatidas) describe un río "convertido en sangre" y un colapso social generalizado en Egipto, paralelo llamativo aunque su relación directa con el éxodo bíblico sigue siendo objeto de controversia académica.`,
+    tipologia: `Apocalipsis 16:4-6 retoma explícitamente la imagen de "convertir en sangre" las aguas como plaga escatológica, conectando el juicio del éxodo con el juicio final.`,
+    comentarios: `Calvino leyó las plagas primariamente como demostración histórica del poder de Dios sobre los dioses egipcios, cada una desafiando a una deidad específica (aquí, posiblemente Hapi, dios del Nilo).`,
+    referencia: `Apocalipsis 16:4-6; Salmos 78:44; Salmos 105:29.`,
+  },
+
+  'Éxodo_34_29': {
+    linguistico: `"Resplandecía" (qaran) comparte raíz consonántica con "cuerno", lo que llevó a la Vulgata latina de Jerónimo a traducir erróneamente "cornuta", origen histórico de las representaciones artísticas de Moisés con cuernos (como la célebre escultura de Miguel Ángel).`,
+    cientifico: `No existe explicación fisiológica natural documentada para un resplandor facial sostenido tras una experiencia prolongada de ayuno; el fenómeno se presenta en el texto como manifestación sobrenatural directa de la gloria divina reflejada.`,
+    tipologia: `2 Corintios 3:7-18 contrasta la gloria decreciente y velada del antiguo pacto (que Moisés debía cubrir) con la gloria creciente y sin velo del nuevo pacto en Cristo.`,
+    comentarios: `Jerónimo mismo reconoció después la ambigüedad de su propia traducción "cornuta". Agustín interpretó el velo de Moisés como símbolo de la oscuridad que cubre a Israel hasta que se vuelve a Cristo.`,
+    referencia: `2 Corintios 3:7-18.`,
+  },
+
+  'Éxodo_23_19': {
+    historico: `Tablillas ugaríticas (Ras Shamra, siglo XIV a.C.) describen un ritual cananeo de cocer un cabrito en leche en ceremonias de fertilidad agrícola, sugiriendo que esta prohibición israelita pudo buscar distanciar el culto a Yahvé de prácticas rituales cananeas específicas.`,
+    linguistico: `Esta prohibición, repetida tres veces en la Torá, se convirtió en la base rabínica posterior de las extensas leyes de separación entre carne y lácteos (kashrut), elaboración considerablemente más amplia que el mandamiento original.`,
+    comentarios: `Maimónides propuso explícitamente la conexión con rituales cananeos de fertilidad como razón histórica del mandamiento. Calvino, sin acceso a la evidencia ugarítica, lo interpretó principalmente como lección de compasión hacia los animales.`,
+    referencia: `Éxodo 34:26; Deuteronomio 14:21.`,
+  },
+
+  'Levítico_11_7': {
+    cientifico: `La carne de cerdo mal cocida puede transmitir triquinosis y otras enfermedades parasitarias; en climas cálidos sin refrigeración este riesgo era considerablemente mayor, aunque la mayoría de exégetas no reducen la prohibición dietética únicamente a razones higiénicas.`,
+    historico: `La abstención de cerdo distinguía a Israel de sus vecinos: mientras egipcios y filisteos consumían cerdo regularmente (documentado arqueológicamente por restos óseos), su ausencia casi total en yacimientos israelitas de la Edad del Hierro es un marcador arqueológico usado para distinguir asentamientos israelitas de filisteos.`,
+    comentarios: `Calvino interpretó las leyes dietéticas levíticas primariamente como pedagogía simbólica de santidad y separación. Maimónides defendió también explicaciones de salud pública junto con las simbólicas.`,
+    referencia: `Deuteronomio 14:8; Isaías 65:4; Marcos 7:19.`,
+  },
+
+  'Números_20_11': {
+    linguistico: `El mandato divino era "hablar" a la peña, no golpearla como en la ocasión previa similar (Éxodo 17:6); la desobediencia de Moisés al golpearla dos veces con ira es precisamente lo que le costó la entrada a la Tierra Prometida.`,
+    tipologia: `1 Corintios 10:4 identifica "la roca" como tipo de Cristo; algunos comentaristas notan la carga simbólica de que Cristo solo necesitaba ser "golpeado" una vez (Hebreos 9:28), y las apelaciones posteriores debían ser solo de palabra.`,
+    comentarios: `Agustín reflexionó sobre la severidad del castigo a Moisés como advertencia sobre la seriedad de la desobediencia incluso en líderes espirituales eminentes. Calvino enfatizó que el pecado de Moisés fue la falta de fe pública ante todo Israel.`,
+    referencia: `Éxodo 17:6; 1 Corintios 10:4; Hebreos 9:28.`,
+  },
+
+  'Deuteronomio_6_9': {
+    costumbres: `Este mandamiento originó la práctica judía de la "mezuzá" (estuche con un pergamino con este pasaje, fijado al marco de la puerta), documentada arqueológicamente desde el período del Segundo Templo, incluyendo ejemplares hallados entre los Rollos del Mar Muerto en Qumrán.`,
+    historico: `La orden de "atarlas por señal en tu mano" dio origen a los "tefilín" (filacterias), también confirmados arqueológicamente por ejemplares hallados en Qumrán, algunos de los objetos rituales judíos más antiguos conservados físicamente.`,
+    comentarios: `Mateo 23:5 registra que Jesús criticó no la práctica en sí, sino su ostentación hipócrita. Calvino interpretó el mandamiento principalmente en sentido espiritual: la Palabra debe impregnar cada aspecto de la vida cotidiana.`,
+    referencia: `Deuteronomio 6:4-8; Mateo 23:5; Éxodo 13:9.`,
+  },
+
+  'Josué_2_1': {
+    historico: `Rahab es descrita como posadera en la muralla de Jericó, detalle arquitectónico consistente con casas construidas literalmente integradas al espesor de las murallas dobles características de ciudades fortificadas cananeas de la Edad del Bronce.`,
+    tipologia: `Rahab es una de los pocos gentiles (junto con Rut) incluidos explícitamente en la genealogía mesiánica de Mateo 1:5, citada tanto en Hebreos 11:31 (por su fe) como en Santiago 2:25 (por sus obras).`,
+    comentarios: `Clemente de Roma ya la mencionaba como ejemplo de fe y hospitalidad. Calvino defendió que su fe genuina, no su ocupación previa, es lo que la Escritura destaca como digno de mención permanente.`,
+    referencia: `Mateo 1:5; Hebreos 11:31; Santiago 2:25.`,
+  },
+
+  'Jueces_16_17': {
+    linguistico: `El cabello de Sansón no era la fuente mágica intrínseca de su fuerza, sino la señal visible de su consagración nazarea; cortarlo rompía simbólicamente el voto, retirando la presencia del Espíritu de Jehová que sí era la fuente real de su poder.`,
+    historico: `El motivo narrativo de un héroe cuya fuerza reside en un elemento externo vulnerable aparece en múltiples tradiciones del mundo antiguo, aunque el relato lo subordina explícitamente a una teología de consagración y pacto, no a magia impersonal.`,
+    comentarios: `Agustín usó el episodio como advertencia sobre cómo la indulgencia moral gradual puede erosionar una vocación espiritual hasta su colapso total. Lutero destacó la restauración final de Sansón como testimonio de que la gracia divina puede operar incluso tras un fracaso moral grave.`,
+    referencia: `Jueces 13:5; Jueces 16:20, 28-30; Hebreos 11:32.`,
+  },
+
+  '1 Samuel_16_13': {
+    linguistico: `"Ungió" comparte raíz con "mashiach" ("mesías, ungido") — David se convierte, desde este momento, en el prototipo histórico del "ungido de Jehová" cuyo linaje culminará en el Mesías definitivo.`,
+    historico: `La unción con aceite como rito de consagración real e investidura de autoridad tiene amplios paralelos en el antiguo Cercano Oriente, documentados en textos egipcios y mesopotámicos de coronación.`,
+    tipologia: `El contraste inmediato del texto ("el Espíritu de Jehová se apartó de Saúl") con la venida del Espíritu sobre David marca un punto de inflexión: la legitimidad del liderazgo depende de la presencia activa del Espíritu.`,
+    comentarios: `Calvino vio en la unción secreta de David, años antes de su reinado efectivo, un ejemplo de la paciencia providencial de Dios. Agustín relacionó esta unción con la unción mesiánica definitiva de Cristo por el Espíritu.`,
+    referencia: `Lucas 4:18; Hechos 10:38; 1 Samuel 16:1, 7.`,
+  },
+
+  '2 Samuel_1_26': {
+    linguistico: `"Más maravilloso me fué tu amor que el amor de las mujeres" ha sido leído mayoritariamente como hipérbole poética característica del género de elegía del antiguo Cercano Oriente, expresando la profundidad de una amistad de pacto (cf. 1 Samuel 18:3).`,
+    historico: `El "cántico del arco" es identificado como proveniente del "libro de Jaser", una fuente poética hoy perdida también citada en Josué 10:13, evidencia de que el texto bíblico incorporó material literario israelita preexistente.`,
+    comentarios: `Calvino interpretó el lamento como expresión legítima y piadosa del dolor humano genuino. Agustín valoró la amistad de pacto entre David y Jonatán como modelo de lealtad desinteresada, notable dado que Jonatán apoyó voluntariamente la elección divina de David en su lugar.`,
+    referencia: `1 Samuel 18:1-4; 1 Samuel 20:17; Josué 10:13.`,
+  },
+
+  '1 Reyes_3_16': {
+    historico: `El método de juicio empleado (proponer dividir al niño para revelar el amor materno genuino) no tiene una fuente legal escrita paralela exacta conocida, aunque refleja el género literario de "juicios de sabiduría real" atribuidos a gobernantes ejemplares en varias culturas antiguas.`,
+    linguistico: `El texto usa deliberadamente el término "rachamim" ("compasión, entrañas maternales", de la misma raíz que "vientre") para describir la reacción de la madre verdadera.`,
+    comentarios: `Josefo narra este episodio destacando la fama internacional que trajo a Salomón. Calvino lo usó como ejemplo del don divino de sabiduría práctica concedido específicamente para el gobierno justo.`,
+    referencia: `1 Reyes 3:9-12; Proverbios 1:1-7; Santiago 1:5.`,
+  },
+
+  '2 Reyes_4_35': {
+    linguistico: `El detalle específico de "estornudó siete veces" es inusual por su precisión casi clínica, comparado por comentaristas con el retorno gradual de la respiración tras un colapso severo.`,
+    tipologia: `Este milagro, junto con la resurrección obrada por Elías (1 Reyes 17:17-24), forma un par de precedentes veterotestamentarios que anticipan las resurrecciones realizadas por Jesús y por los apóstoles (Pedro con Dorcas, Hechos 9:36-41).`,
+    comentarios: `Calvino observó el paralelo deliberado entre este milagro de Eliseo y el de su maestro Elías, viéndolo como confirmación de que el "doble espíritu" pedido por Eliseo (2 Reyes 2:9) le fue efectivamente concedido.`,
+    referencia: `1 Reyes 17:17-24; Hechos 9:36-41; Lucas 7:11-15; Marcos 5:41-42.`,
+  },
+
+  '1 Crónicas_12_32': {
+    linguistico: `"Entendidos de los tiempos" se ha interpretado tanto como perspicacia astronómica/calendárica como discernimiento político-estratégico para reconocer el momento oportuno de actuar a favor de David.`,
+    historico: `La tribu de Isacar, asentada en la fértil llanura de Jezreel, encrucijada de rutas comerciales internacionales, habría tenido exposición privilegiada a conocimientos astronómicos y calendáricos de las culturas vecinas.`,
+    comentarios: `Calvino destacó este pasaje como modelo de liderazgo sabio: no basta el coraje o la lealtad, sino el discernimiento certero del momento histórico correcto para actuar. Spurgeon predicó sobre la necesidad de "entendidos de los tiempos" para el liderazgo cristiano.`,
+    referencia: `Ester 1:13; Mateo 16:3 ("¿y no podéis conocer las señales de los tiempos?").`,
+  },
+
+  '2 Crónicas_20_21': {
+    historico: `La estrategia militar de Josafat —enviar cantores alabando a Dios delante de las tropas armadas, en vez de la vanguardia militar convencional— es única en los registros bíblicos y del antiguo Cercano Oriente conocidos.`,
+    linguistico: `El cántico "Glorificad á Jehová porque su misericordia es para siempre" es idéntico al usado litúrgicamente en el Templo (cf. Salmos 136), sugiriendo que la liturgia del culto se trasladó deliberadamente al campo de batalla.`,
+    comentarios: `Calvino interpretó este episodio como paradigma de que la verdadera batalla espiritual se libra primero mediante la alabanza y la fe, no mediante el armamento. Spurgeon predicó sobre el poder práctico de la adoración como arma espiritual.`,
+    referencia: `Salmos 136; 2 Crónicas 20:15 ("no es vuestra la guerra, sino de Dios").`,
+  },
+
+  'Nehemías_9_6': {
+    linguistico: `La confesión "tú, tú solo eres Jehová" es una de las declaraciones monoteístas más enfáticas del Antiguo Testamento, empleando repetición deliberada del pronombre para excluir categóricamente cualquier rival divino.`,
+    historico: `Esta oración de confesión nacional, pronunciada tras el regreso del exilio babilónico, en un contexto de intenso contacto con el politeísmo mesopotámico y persa, reafirma solemnemente la exclusividad monoteísta israelita.`,
+    comentarios: `Calvino destacó esta oración como modelo de confesión litúrgica que combina doctrina teológica precisa con humilde reconocimiento histórico del pecado nacional recurrente. Agustín citó pasajes similares para argumentar la unicidad absoluta del Dios creador.`,
+    referencia: `Deuteronomio 6:4; Isaías 45:5-6; Hechos 17:24-25.`,
+  },
+
+  'Job_9_9': {
+    cientifico: `Job es uno de los textos más antiguos del mundo en nombrar explícitamente constelaciones específicas identificables: "Ash" (probablemente la Osa Mayor), "Kesil" (Orión) y "Kimah" (las Pléyades), demostrando observación astronómica sistemática del cielo nocturno.`,
+    linguistico: `"Las cámaras del sur" probablemente alude a constelaciones australes no visibles desde latitudes mediterráneas septentrionales, sugiriendo conciencia de que el cielo visible cambia según la posición del observador.`,
+    comentarios: `Calvino citó este pasaje, junto con Job 38, como evidencia de que la sabiduría creacional divina se manifiesta tanto en las inmensidades cósmicas como en el orden aparentemente simple del universo natural.`,
+    referencia: `Job 38:31-32; Amós 5:8.`,
+  },
+
+  'Salmos_8_3': {
+    cientifico: `La expresión "obra de tus dedos" sugiere una imagen de precisión artesanal minuciosa aplicada a la inmensidad cósmica, yuxtaposición retórica entre lo colosal (el universo) y lo delicado (dedos) usada deliberadamente para expresar asombro.`,
+    linguistico: `El salmo se mueve de lo cósmico (los cielos, luna y estrellas) a lo antropológico ("¿qué es el hombre...?"), estableciendo un contraste entre la magnitud del universo y la aparente insignificancia humana, resuelto por la dignidad conferida al hombre como corona de la creación.`,
+    comentarios: `Hebreos 2:6-9 cita extensamente este salmo aplicándolo cristológicamente a Jesús. Calvino lo interpretó como testimonio de que la contemplación astronómica debe conducir a la humildad y adoración, no al orgullo intelectual.`,
+    referencia: `Hebreos 2:6-9; Génesis 1:26-28; Salmos 19:1.`,
+  },
+
+  'Salmos_37_25': {
+    linguistico: `El salmo es un acróstico alfabético (cada estrofa comienza con una letra sucesiva del alfabeto hebreo), forma diseñada para facilitar la memorización y transmitir la totalidad ordenada de la enseñanza sobre la justicia providencial.`,
+    historico: `Esta afirmación de experiencia personal se sitúa dentro del género de "teodicea sapiencial" del antiguo Israel, que busca reconciliar la aparente prosperidad de los impíos con la fe en la justicia divina.`,
+    comentarios: `Calvino advirtió contra una lectura mecánica de esta promesa como garantía automática de prosperidad material inmediata, prefiriendo entenderla como principio general de la providencia observable a largo plazo. Spurgeon predicó sobre este versículo como testimonio pastoral basado en la experiencia acumulada de los santos.`,
+    referencia: `Salmos 34:19; Job 8:20; Filipenses 4:19.`,
+  },
+
+  'Salmos_133_1': {
+    linguistico: `"En armonía" sugiere unidad genuina y voluntaria, no mera coexistencia forzada; el salmo compara esta unidad con dos imágenes de abundancia que se derrama: el aceite sobre la barba de Aarón y el rocío del Hermón sobre Sión.`,
+    geografico: `El Monte Hermón (2.814 m, la montaña más alta de la región) recibe abundante rocío y nieve que alimenta los manantiales del Jordán; su mención junto a Sión —mucho más baja y distante— es hipérbole poética que expresa abundancia extraordinaria fluyendo desde lo alto.`,
+    comentarios: `Este es uno de los "Cánticos graduales" que los peregrinos cantaban al subir a Jerusalén, reforzando su tema de unidad comunitaria. Calvino lo aplicó a la unidad eclesial como reflejo visible de la bendición divina.`,
+    referencia: `Éxodo 30:30; Juan 17:21 (oración de Jesús por la unidad de los creyentes).`,
+  },
+
+  'Salmos_150_4': {
+    historico: `Los instrumentos mencionados (pandero, arpa, órgano/flauta, címbalos) están documentados arqueológicamente en el antiguo Israel mediante figurillas de músicos y representaciones en sellos y relieves asirios (como el relieve de Laquis).`,
+    linguistico: `El salmo estructura una progresión desde instrumentos de viento y cuerda hasta la danza y finalmente "todo lo que respira", culminando el salterio completo con un llamado universal e inclusivo a la alabanza.`,
+    comentarios: `Calvino, pese a su preferencia litúrgica por el canto sin acompañamiento en el culto reformado, reconoció que este salmo refleja legítimamente la rica tradición musical del culto veterotestamentario. Agustín reflexionó sobre la música como camino privilegiado para elevar el alma hacia Dios.`,
+    referencia: `1 Crónicas 25:1; Efesios 5:19.`,
+  },
+
+  'Proverbios_6_6': {
+    cientifico: `La entomología moderna confirma que muchas especies de hormigas efectivamente recolectan y almacenan grano durante el verano para consumo posterior, organización social compleja documentada mucho antes de que la ciencia moderna estudiara el comportamiento colectivo de insectos sociales.`,
+    linguistico: `El texto elogia específicamente la ausencia de "capitán, ni gobernador, ni señor" en la organización de la hormiga, destacando un orden funcional autónomo sin jerarquía visible como ejemplo de diligencia autodirigida.`,
+    comentarios: `Calvino usó este pasaje para argumentar que la revelación general enseña principios morales genuinos, complementarios a la revelación especial de la Escritura. Spurgeon predicó extensamente sobre la "hormiga" como maestra práctica de virtudes cristianas.`,
+    referencia: `Proverbios 30:25; 2 Tesalonicenses 3:10.`,
+  },
+
+  'Proverbios_27_17': {
+    linguistico: `La imagen retrata dos piezas de metal que, al friccionarse deliberadamente, se afilan mutuamente —a diferencia de la piedra de amolar, aquí ambos elementos son de la misma naturaleza, sugiriendo relación de iguales.`,
+    historico: `La metalurgia del hierro se generalizó en Israel hacia el 1200-1000 a.C., y el afilado de herramientas mediante fricción mutua era una técnica práctica cotidiana bien conocida por los primeros lectores del proverbio.`,
+    comentarios: `Calvino aplicó este proverbio a la amistad cristiana genuina, que implica confrontación honesta y mutua mejora, no adulación pasiva. Spurgeon predicó sobre la necesidad providencial de relaciones que "friccionan" para pulir el carácter.`,
+    referencia: `Proverbios 27:6 ("fieles son las heridas del que ama"); Hebreos 10:24-25.`,
+  },
+
+  'Eclesiastés_3_11': {
+    linguistico: `"Eternidad" traduce "olam", término que primariamente denota "duración indefinida" más que el concepto filosófico griego posterior de eternidad atemporal; el versículo afirma que Dios ha implantado en la conciencia humana una percepción de trascendencia que excede la comprensión del propósito divino en cada momento presente.`,
+    historico: `Este anhelo humano universal de significado trascendente, documentado transculturalmente mediante ritos funerarios, arte y religión, ha sido citado por apologistas cristianos como evidencia de un "vacío" antropológico diseñado para ser llenado por Dios.`,
+    comentarios: `Agustín expresó una idea notablemente paralela en las "Confesiones": "nos hiciste para ti, y nuestro corazón está inquieto hasta que descanse en ti". C.S. Lewis desarrolló el "argumento del deseo" basado en esta misma intuición.`,
+    referencia: `Romanos 1:19-20; Hechos 17:26-27.`,
+  },
+
+  'Cantares_4_4': {
+    arquitectonico: `La "torre de David" refleja la práctica documentada arqueológicamente en fortificaciones del antiguo Cercano Oriente de exhibir trofeos militares (escudos capturados) en muros y torres como demostración pública de poder militar.`,
+    linguistico: `La comparación de partes del cuerpo con estructuras arquitectónicas o elementos naturales es característica del género de "wasf" (poema descriptivo de admiración) documentado en la poesía amorosa del antiguo Cercano Oriente.`,
+    comentarios: `Orígenes interpretó alegóricamente el "cuello" como símbolo de la conexión entre la cabeza (Cristo) y el cuerpo (la Iglesia). Bernardo de Claraval continuó esta tradición interpretativa mística en sus sermones sobre el Cantar.`,
+    referencia: `Nehemías 3:19; Efesios 5:23.`,
+  },
+
+  'Isaías_14_12': {
+    linguistico: `"Lucero" traduce el hebreo "helel ben-shachar" ("estrella brillante, hijo del alba"), que la Vulgata latina tradujo como "Lucifer"; el contexto inmediato del capítulo se dirige explícitamente contra el rey de Babilonia como figura histórica.`,
+    historico: `La imagen de una estrella matutina caída por su ambición desmedida tiene paralelos en mitología cananea conocida a través de textos ugaríticos, sobre una deidad astral que intenta usurpar el trono del dios supremo y es derribada.`,
+    tipologia: `Aunque el sentido primario es histórico-político, la tradición cristiana posterior extendió secundariamente esta imagen para describir simbólicamente la caída de Satanás por orgullo, lectura influyente en Lucas 10:18.`,
+    comentarios: `Orígenes fue pionero en desarrollar la lectura angelológica extendida. Calvino, más cauteloso, insistió en que el sentido primario del texto es histórico —contra el rey de Babilonia— y que la aplicación a Satanás es extensión analógica posterior.`,
+    referencia: `Lucas 10:18; Ezequiel 28:12-17.`,
+  },
+
+  'Isaías_20_3': {
+    costumbres: `Los profetas del antiguo Israel frecuentemente comunicaban su mensaje mediante "acciones simbólicas" además de la palabra hablada; aquí, la desnudez pública de Isaías durante tres años dramatizaba anticipadamente la humillación y cautiverio que sufrirían Egipto y Etiopía a manos de Asiria.`,
+    linguistico: `"Desnudo" probablemente no implica desnudez total sino la eliminación de las vestiduras exteriores normales, quedando con la túnica interior básica —aun así, una condición socialmente humillante para un profeta reconocido.`,
+    comentarios: `Calvino defendió la historicidad literal de esta acción simbólica, notando que Dios frecuentemente usa medios extraordinarios para captar la atención de un pueblo endurecido. Agustín reflexionó sobre el costo personal que los profetas verdaderos asumían para comunicar eficazmente su mensaje.`,
+    referencia: `Jeremías 27:2; Ezequiel 4:4-6; Miqueas 1:8.`,
+  },
+
+  'Isaías_66_1': {
+    linguistico: `Esta afirmación de trascendencia divina absoluta se formula inmediatamente antes de una pregunta retórica sobre la futilidad de intentar "construir casa" para contener a un Dios cuya presencia excede infinitamente cualquier estructura física.`,
+    tipologia: `Esteban cita este pasaje textualmente en su discurso ante el Sanedrín (Hechos 7:49-50) como argumento contra la idea de que Dios pudiera estar limitado exclusivamente al Templo de Jerusalén, argumento que contribuyó directamente a su martirio.`,
+    comentarios: `Calvino usó este pasaje contra cualquier forma de idolatría material o localización espacial restrictiva de la presencia divina. Agustín lo relacionó con su doctrina de la omnipresencia divina.`,
+    referencia: `Hechos 7:48-50; 1 Reyes 8:27; Salmos 139:7-10.`,
+  },
+
+  'Jeremías_13_1': {
+    linguistico: `"Cinto" era una prenda íntima ceñida al cuerpo, usada como metáfora deliberada de la relación cercana e íntima que Israel debía tener con Dios ("como el cinto se junta á los lomos del hombre") — precisamente la intimidad que se corrompe al ser enterrada y podrida.`,
+    geografico: `El viaje descrito hasta el río Éufrates simboliza el destino babilónico del exilio, dado que "Éufrates" era sinónimo geográfico de Babilonia en el imaginario profético.`,
+    comentarios: `Calvino interpretó esta acción simbólica extrema como ilustración dramática de cuán completamente Israel se corrompería mediante su exilio en tierra extranjera. Agustín reflexionó sobre el patrón recurrente de las "acciones proféticas" como pedagogía divina que apela a los sentidos.`,
+    referencia: `Jeremías 13:9-11; Deuteronomio 28:64.`,
+  },
+
+  'Jeremías_36_23': {
+    historico: `La destrucción deliberada de un documento profético oficial por parte de un rey reinante es un acto de desafío religioso-político descrito con precisión narrativa notable, reflejando prácticas de escritura en rollos de cuero o papiro enrollados en columnas sucesivas.`,
+    linguistico: `La respuesta divina inmediata —ordenar a Jeremías dictar nuevamente el mensaje completo, "y fueron añadidas sobre ellas muchas palabras semejantes"— subraya la indestructibilidad providencial de la palabra profética frente a la oposición del poder político.`,
+    comentarios: `Calvino contrastó la arrogancia autodestructiva de Joacim (quien pereció poco después sin sepultura digna) con la preservación milagrosa de la Palabra que intentó destruir. Jerónimo reflexionó sobre este episodio al defender la preservación textual providencial de la Escritura.`,
+    referencia: `2 Timoteo 2:9 ("la palabra de Dios no está presa"); Jeremías 22:18-19.`,
+  },
+
+  'Ezequiel_18_20': {
+    linguistico: `Este principio de responsabilidad individual, formulado en contraste con la noción de castigo transgeneracional heredado (rechazando el proverbio popular citado en Ezequiel 18:2), marca un desarrollo teológico significativo respecto a formulaciones anteriores como Éxodo 20:5.`,
+    historico: `Este cambio de énfasis se sitúa en el contexto del exilio babilónico, cuando la generación deportada tendía a culpar exclusivamente a sus antepasados por el desastre nacional en vez de asumir responsabilidad moral propia.`,
+    comentarios: `Calvino armonizó este pasaje con Éxodo 20:5 explicando que la responsabilidad individual y las consecuencias sociales heredadas del pecado son verdades complementarias, operando en niveles teológicos distintos. Agustín reflexionó sobre la justicia individual de Dios como fundamento del juicio final personal.`,
+    referencia: `Éxodo 20:5; Jeremías 31:29-30; Romanos 14:12.`,
+  },
+
+  'Daniel_3_25': {
+    linguistico: `Nabucodonosor describe la figura como "semejante á hijo de los dioses", expresión pagana que refleja la cosmovisión politeísta del rey babilónico, aunque la tradición cristiana ha visto tradicionalmente en esta figura una cristofanía preencarnada.`,
+    historico: `Los hornos de fundición de gran tamaño, con aberturas laterales para alimentar el fuego y observar el interior, están documentados arqueológicamente en la industria de construcción babilónica a gran escala del período neobabilónico.`,
+    comentarios: `Ireneo de Lyon y otros padres antiguos citaron este episodio como evidencia de apariciones preencarnadas del Verbo divino protegiendo a su pueblo fiel. Calvino fue más cauteloso, afirmando con certeza la protección providencial manifestada sin insistir en la identificación exacta.`,
+    referencia: `Isaías 43:2 ("cuando pasares por el fuego, no te quemarás"); Hebreos 11:34.`,
+  },
+
+  'Daniel_5_5': {
+    historico: `La caída de Babilonia ante los medo-persas (539 a.C.), narrada inmediatamente después, es corroborada por fuentes históricas independientes; la identidad de "Belsasar" generó debate hasta que inscripciones cuneiformes del siglo XIX confirmaron que fue corregente junto a su padre Nabonido.`,
+    linguistico: `Las palabras arameas —literalmente unidades de peso/moneda— funcionan mediante un juego de palabras triple: "contado, contado, pesado, y divididos", que Daniel interpreta como juicio divino sobre el reinado de Belsasar.`,
+    comentarios: `Jerónimo dedicó atención considerable a explicar el juego de palabras arameo original. Calvino usó este episodio como advertencia contra el uso profano de objetos sagrados (Belsasar había usado los vasos del Templo, Daniel 5:2-4) y la soberbia que ignora advertencias previas.`,
+    referencia: `Daniel 5:18-23; Isaías 21:9.`,
+  },
+
+  'Oseas_13_14': {
+    linguistico: `El pasaje hebreo original es ambiguo y admite tanto lectura de juicio como de promesa de redención triunfante, ambigüedad reflejada en las diferentes traducciones existentes.`,
+    tipologia: `Pablo cita explícitamente este pasaje en 1 Corintios 15:55 (siguiendo la lectura de la Septuaginta griega, en clave triunfal), aplicándolo a la victoria escatológica de la resurrección sobre la muerte obtenida en Cristo.`,
+    comentarios: `Calvino armonizó ambas dimensiones del texto: el juicio contra la infidelidad de Israel no contradice su uso posterior por Pablo como promesa de redención final. Lutero predicó extensamente sobre este texto en el contexto de la victoria de Cristo sobre la muerte.`,
+    referencia: `1 Corintios 15:54-57; Isaías 25:8.`,
+  },
+
+  'Miqueas_4_3': {
+    linguistico: `La imagen de conversión de armas en herramientas agrícolas aparece en formulación prácticamente idéntica en Isaías 2:4, sugiriendo que ambos profetas contemporáneos compartieron o citaron una tradición profética común sobre el reino mesiánico de paz.`,
+    historico: `La reutilización de metal forjado entre implementos militares y agrícolas era una práctica metalúrgica real y económicamente lógica en el mundo antiguo, dando a la imagen profética una base tecnológica tangible.`,
+    tipologia: `Esta visión de paz universal escatológica se entiende tradicionalmente como descripción del reinado mesiánico final de Cristo, complementaria al "reino pacífico" animal descrito en Isaías 11:6-9.`,
+    comentarios: `Calvino interpretó el cumplimiento primario de esta paz como espiritual, sin excluir necesariamente una manifestación final más plena en la consumación escatológica. Agustín relacionó esta visión con su concepción de la "Ciudad de Dios".`,
+    referencia: `Isaías 2:4; Isaías 11:6-9; Salmos 46:9.`,
+  },
+
+  'Habacuc_2_14': {
+    linguistico: `La comparación "como las aguas cubren la mar" enfatiza tanto la totalidad exhaustiva como la naturaleza abundante y fluida de esta futura revelación universal del conocimiento divino.`,
+    historico: `Este oráculo de esperanza universal se pronuncia en medio de un libro centrado mayormente en el juicio contra la violencia y opresión, ofreciendo un contrapunto escatológico de restauración final.`,
+    tipologia: `Este versículo es prácticamente idéntico a Isaías 11:9, sugiriendo una tradición profética compartida sobre la extensión universal futura del conocimiento genuino de Dios.`,
+    comentarios: `Calvino vio en este pasaje el fundamento profético veterotestamentario de la misión universal de la Iglesia. Agustín lo relacionó con su visión escatológica de la extensión progresiva del Reino de Dios.`,
+    referencia: `Isaías 11:9; Mateo 24:14; Apocalipsis 21:23-26.`,
+  },
+
+  'Malaquías_4_2': {
+    linguistico: `"Sol de justicia" combina la imagen solar —fuente universal de luz, calor y vida— con el atributo de justicia/rectitud, formando una de las metáforas mesiánicas más ricas del Antiguo Testamento.`,
+    historico: `Este es el último versículo profético del canon hebreo tradicional en el orden cristiano del Antiguo Testamento, lo que le confiere un peso literario particular como puente final hacia el Nuevo Testamento.`,
+    tipologia: `La tradición cristiana ha visto en esta imagen solar una prefiguración de Cristo, "luz del mundo" (Juan 8:12) y "sol naciente de lo alto" (Lucas 1:78), conectando el último oráculo del Antiguo Testamento con el nacimiento de Cristo.`,
+    comentarios: `Lucas 1:78-79 hace eco casi directo de esta imagen en el cántico de Zacarías. Calvino vio en esta profecía final la culminación apropiada de toda la expectativa profética veterotestamentaria.`,
+    referencia: `Lucas 1:78-79; Juan 8:12; Apocalipsis 22:16.`,
+  },
+
+  'Mateo_2_11': {
+    costumbres: `Presentar regalos valiosos ante un rey era protocolo diplomático estándar en el antiguo Cercano Oriente; la elección de oro, incienso y mirra se interpreta tradicionalmente con significado simbólico: realeza, divinidad, y sepultura (anticipando la muerte de Cristo).`,
+    historico: `Tanto el incienso como la mirra procedían principalmente de la Península Arábiga y el Cuerno de África, transportados por extensas rutas comerciales caravaneras documentadas arqueológicamente (la "Ruta del Incienso"), confirmando el valor extraordinario de estos regalos.`,
+    tipologia: `Isaías 60:6 profetiza específicamente naciones trayendo "oro é incienso" a Jerusalén en el contexto de la gloria mesiánica futura, pasaje vinculado tipológicamente con la visita de los magos.`,
+    comentarios: `Ireneo de Lyon fue de los primeros en desarrollar sistemáticamente la interpretación simbólica tripartita de los regalos. Orígenes continuó esta tradición, ampliamente adoptada en la iconografía y liturgia cristiana de Epifanía.`,
+    referencia: `Isaías 60:6; Salmos 72:10-11; Juan 19:39.`,
+  },
+
+  'Mateo_27_51': {
+    arquitectonico: `El velo del Lugar Santísimo era una cortina masiva que separaba físicamente el Lugar Santo del Lugar Santísimo, haciendo que su desgarro "de arriba abajo" —indicando origen no humano, ya que su altura excedía el alcance humano— fuera un evento estructuralmente extraordinario.`,
+    tipologia: `Hebreos 10:19-20 interpreta este evento como significando el acceso directo abierto a la presencia de Dios mediante la muerte de Cristo, eliminando la mediación sacerdotal exclusiva del sistema levítico anterior.`,
+    historico: `Fuentes rabínicas posteriores registran tradiciones sobre fenómenos extraordinarios asociados al Templo en las décadas previas a su destrucción en el 70 d.C., aunque su conexión directa con este evento específico es objeto de debate.`,
+    comentarios: `Crisóstomo interpretó el rasgado del velo como señal del fin del sistema sacrificial levítico, ya cumplido en Cristo. Calvino lo vio como la manifestación más dramática de la reconciliación efectuada entre Dios y la humanidad.`,
+    referencia: `Hebreos 10:19-20; Hebreos 9:8; Éxodo 26:31-33.`,
+  },
+
+  'Lucas_2_52': {
+    linguistico: `El verbo griego "prokopto" ("progresar, avanzar") describe un crecimiento genuino y gradual, no una manifestación instantánea de omnisciencia divina, dato central en la reflexión teológica sobre la autolimitación genuina ("kénosis") de Cristo durante su existencia humana.`,
+    historico: `Este es el único versículo canónico que describe explícitamente el desarrollo de Jesús entre los doce años del episodio del Templo y el inicio de su ministerio a los treinta, período sobre el cual circularon numerosos evangelios apócrifos con relatos fantasiosos que la Iglesia rechazó como no canónicos.`,
+    comentarios: `Cirilo de Alejandría y otros padres discutieron cómo armonizar este crecimiento genuino con la plena divinidad de Cristo. Calvino defendió la realidad genuina de la humanidad plena de Cristo, incluyendo su desarrollo intelectual y físico normal.`,
+    referencia: `Lucas 2:40; Filipenses 2:7; Hebreos 5:8.`,
+  },
+
+  'Juan_2_6': {
+    arqueologico: `Las tinajas de piedra para agua de purificación ritual (a diferencia de las vasijas de barro, susceptibles de transmitir impureza según la halajá judía) han sido confirmadas extensamente por hallazgos arqueológicos en Galilea y Jerusalén del período del Segundo Templo, incluyendo ejemplares de gran tamaño similares a los descritos.`,
+    historico: `La proliferación de vasijas de piedra caliza en yacimientos judíos del siglo I es un marcador arqueológico específicamente asociado a la observancia de las leyes de pureza ritual judía de la época.`,
+    tipologia: `La transformación del agua de purificación ritual en vino de celebración se ha leído como signo simbólico de la superación del antiguo pacto por la nueva realidad inaugurada por Cristo.`,
+    comentarios: `Agustín interpretó este primer "signo" de Jesús en Juan como anticipo de toda su obra: transformar lo antiguo (la Ley) en lo nuevo (la gracia). Calvino destacó la generosidad manifestada en la abundante cantidad de vino producido.`,
+    referencia: `Isaías 25:6; Amós 9:13-14; Juan 1:17.`,
+  },
+
+  'Hechos_2_44': {
+    historico: `Esta práctica de comunidad de bienes en la iglesia primitiva de Jerusalén era voluntaria, no obligatoria por mandato apostólico (como confirma explícitamente Hechos 5:4), y parece haber sido una práctica localizada y probablemente temporal, no replicada de forma idéntica en otras iglesias del Nuevo Testamento.`,
+    linguistico: `"Tenían en común" usa terminología que evocaba ideales filosóficos griegos de amistad y comunidad, conocidos en círculos pitagóricos y estoicos, aunque aquí motivada teológicamente por el amor fraternal cristiano genuino.`,
+    comentarios: `Crisóstomo elogió esta práctica como ideal de generosidad cristiana genuina. Calvino advirtió contra interpretar este pasaje como modelo económico obligatorio universal, enfatizando el carácter voluntario y contextual de la práctica.`,
+    referencia: `Hechos 4:32-35; Hechos 5:1-4; 2 Corintios 8:13-15.`,
+  },
+
+  'Romanos_11_36': {
+    linguistico: `La triple preposición griega —"de él" (origen), "por él" (medio) y "para él" (propósito final)— formula de manera extraordinariamente concisa una doctrina completa de causalidad divina total.`,
+    historico: `Esta fórmula tripartita tiene ecos en categorías filosóficas estoicas contemporáneas sobre las "causas" de todas las cosas, aunque Pablo la aplica de forma radicalmente teocéntrica y personal.`,
+    comentarios: `Este versículo culmina la extensa argumentación de Romanos 9-11 sobre la soberanía divina, funcionando como doxología final que reconoce los límites del entendimiento humano. Calvino consideró este pasaje la culminación teológica perfecta de toda la carta a los Romanos.`,
+    referencia: `Romanos 11:33-35; Colosenses 1:16-17; 1 Corintios 8:6.`,
+  },
+
+  '1 Corintios_12_12': {
+    historico: `La metáfora política del "cuerpo social" era un recurso retórico común en la literatura grecorromana, que Pablo adapta y transforma teológicamente aplicándola a la unidad orgánica de la Iglesia bajo Cristo.`,
+    linguistico: `La frase final "así también Cristo" es notable porque, tras describir "muchos miembros" de "un cuerpo", identifica sorprendentemente al conjunto entero con "Cristo" mismo, sugiriendo una unión íntima que trasciende la mera analogía funcional.`,
+    comentarios: `Crisóstomo desarrolló extensamente esta imagen para argumentar contra las divisiones y jerarquías de honor artificiales dentro de la congregación corintia. Calvino la usó para fundamentar tanto la diversidad legítima de dones espirituales como la interdependencia mutua.`,
+    referencia: `Romanos 12:4-5; Efesios 4:15-16; 1 Corintios 12:27.`,
+  },
+
+  'Gálatas_6_7': {
+    linguistico: `El verbo traducido "burlarse" sugiere literalmente "torcer la nariz con desprecio", imagen vívida de menosprecio que Pablo declara imposible sostener finalmente contra la ley moral providencial de causa y efecto establecida por Dios.`,
+    historico: `El principio agrícola de "siembra y cosecha" como metáfora de consecuencias morales tiene amplio precedente en la literatura sapiencial del antiguo Cercano Oriente y en el propio Antiguo Testamento (Oseas 8:7; Job 4:8).`,
+    comentarios: `Agustín reflexionó sobre esta ley moral providencial como complemento necesario, no contradictorio, de la doctrina de la gracia. Calvino la aplicó pastoralmente como advertencia contra la presunción de que la gracia elimina toda responsabilidad ética práctica.`,
+    referencia: `Oseas 8:7; Job 4:8; 2 Corintios 9:6.`,
+  },
+
+  'Efesios_4_11': {
+    linguistico: `La construcción gramatical griega agrupa "pastores y doctores" bajo un único artículo definido compartido, a diferencia de las categorías anteriores, sugiriendo que Pablo entiende ambas funciones como estrechamente unidas, posiblemente ejercidas por la misma persona.`,
+    historico: `Esta lista de "dones ministeriales" refleja la estructura de liderazgo emergente de la iglesia primitiva del siglo I, documentada también en textos del período subapostólico como la Didaché, que distingue ministerios itinerantes de ministerios locales establecidos.`,
+    comentarios: `Calvino escribió extensamente sobre este pasaje en sus "Institutas" como fundamento bíblico de su doctrina del oficio ministerial eclesial, distinguiendo entre oficios extraordinarios/temporales y oficios ordinarios/permanentes.`,
+    referencia: `Efesios 4:12-13; 1 Corintios 12:28; Romanos 12:6-8.`,
+  },
+
 };
