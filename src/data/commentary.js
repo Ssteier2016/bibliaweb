@@ -4459,4 +4459,377 @@ export const COMMENTARY = {
     referencia: `Isaías 56:6-7. Colosenses 3:11. Gálatas 3:28.`,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     SEGUNDO LOTE ADICIONAL — 50 VERSÍCULOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_2_2': {
+    linguistico: `"Shabat" (שָׁבַת): cesar, descansar — raíz de "Shabbat" (sábado). Dios no descansa por cansancio sino como acto de consagración que establece el ritmo semanal.`,
+    historico: `El descanso sabático semanal (cada 7 días) no tiene paralelo exacto en calendarios mesopotámicos o egipcios, que usaban ciclos lunares o decanatos de 10 días; es una innovación distintiva israelita.`,
+    tipologia: `Hebreos 4:9-10 interpreta el sábado creacional como tipo del "reposo" escatológico del pueblo de Dios en Cristo.`,
+    comentarios: `Agustín vio en el "séptimo día sin tarde" (a diferencia de los seis días anteriores) una alusión al reposo eterno sin fin. Calvino subrayó que el sábado enseña la dependencia continua de la gracia divina, no del esfuerzo humano.`,
+    referencia: `Éxodo 20:11; Hebreos 4:4, 9-10; Marcos 2:27 ("el sábado fué hecho por causa del hombre").`,
+  },
+
+  'Génesis_3_21': {
+    tipologia: `El primer sacrificio animal implícito en el texto (para obtener las pieles) se interpreta tradicionalmente como prefiguración del principio de expiación mediante sangre derramada, que cubre la vergüenza del pecado en lugar de las hojas de higuera (obra humana insuficiente).`,
+    linguistico: `"Vistiólos": Dios mismo actúa como el que cubre; contraste deliberado con "se hicieron delantales" (obra propia) del versículo 7.`,
+    comentarios: `Ireneo de Lyon y otros padres vieron aquí el primer anuncio implícito de la necesidad de un sacrificio sustitutorio. Lutero: la sustitución de las hojas de higuera por pieles de animales muestra que la justicia de Dios cubre lo que el esfuerzo humano no puede.`,
+    referencia: `Levítico 17:11; Hebreos 9:22; Apocalipsis 7:14 ("han lavado sus ropas... en la sangre del Cordero").`,
+  },
+
+  'Génesis_6_3': {
+    linguistico: `El pasaje se ha interpretado de dos formas: como límite máximo a la vida humana individual, o —lectura más aceptada por exégetas modernos— como plazo de gracia antes del Diluvio.`,
+    historico: `Genealogías mesopotámicas antediluvianas (Lista Real Sumeria) atribuyen reinados de miles de años a reyes antediluvianos, contraste marcado con las cifras bíblicas, más moderadas aunque también elevadas respecto a la vida actual.`,
+    comentarios: `Agustín entendió los 120 años como plazo de misericordia divina para el arrepentimiento antes del juicio. Calvino coincidió, viendo en ello la paciencia de Dios incluso en la sentencia de juicio.`,
+    referencia: `1 Pedro 3:20 ("la paciencia de Dios esperaba en los días de Noé"). 2 Pedro 3:9.`,
+  },
+
+  'Génesis_18_1': {
+    costumbres: `La hospitalidad beduina descrita (lavar los pies, ofrecer pan, preparar becerro) refleja protocolos documentados de hospitalidad nómada en el antiguo Cercano Oriente, donde recibir extraños con generosidad era un deber sagrado, no una cortesía opcional.`,
+    tipologia: `La tradición cristiana ha visto en los "tres varones" una prefiguración velada de la Trinidad, aunque el texto mismo alterna entre plural ("tres varones") y singular ("Jehová le apareció").`,
+    comentarios: `Agustín, en "La Ciudad de Dios", discutió extensamente esta aparición como una de las teofanías más significativas del Antiguo Testamento. Orígenes vio en la hospitalidad de Abraham un modelo de la recepción de la Palabra divina.`,
+    referencia: `Hebreos 13:2 ("no os olvidéis de la hospitalidad, porque por ella algunos, sin saberlo, hospedaron ángeles"). Génesis 19:1.`,
+  },
+
+  'Génesis_17_10': {
+    historico: `La circuncisión no era exclusiva de Israel: egipcios y otros pueblos semíticos la practicaban, documentado en relieves egipcios desde el Reino Antiguo; lo distintivo del pacto abrahámico es el significado teológico asignado y el momento fijo (octavo día).`,
+    cientifico: `Estudios médicos modernos han señalado que el octavo día de vida es el momento en que los niveles de protrombina (factor de coagulación) alcanzan un pico natural, lo que reduce el riesgo de hemorragia en el procedimiento.`,
+    tipologia: `Pablo reinterpreta la circuncisión física como figura de la "circuncisión del corazón" obrada por el Espíritu (Romanos 2:29; Colosenses 2:11-12), cumplida en el bautismo cristiano.`,
+    comentarios: `Pablo debatió extensamente el significado de este pacto en Gálatas y Romanos. Agustín vio la circuncisión como sacramento veterotestamentario análogo al bautismo cristiano.`,
+    referencia: `Romanos 2:28-29; Colosenses 2:11-12; Gálatas 5:6.`,
+  },
+
+  'Éxodo_13_21': {
+    cientifico: `Se han propuesto explicaciones naturalistas (actividad volcánica en la península arábiga, fenómenos atmosféricos de polvo o tormenta) para el fenómeno, aunque ninguna explica satisfactoriamente la doble función luminosa nocturna y la guía direccional sostenida durante cuarenta años.`,
+    linguistico: `"Columna" (ammud, עַמּוּד): término arquitectónico que evoca estabilidad y permanencia, sugiriendo una presencia guiadora constante, no un fenómeno pasajero.`,
+    tipologia: `1 Corintios 10:1-2 interpreta la nube como tipo del bautismo ("todos... bajo la nube"), asociando la guía física de Israel con la incorporación sacramental del creyente a Cristo.`,
+    comentarios: `Orígenes vio la columna de nube y fuego como símbolo de la doble naturaleza de la revelación divina: oculta (nube) y manifiesta (fuego). Agustín la relacionó con la guía continua del Espíritu Santo en la Iglesia.`,
+    referencia: `1 Corintios 10:1-2; Nehemías 9:12,19; Salmos 78:14.`,
+  },
+
+  'Éxodo_16_15': {
+    linguistico: `"Maná" deriva de la pregunta hebrea "man hu" (מָן הוּא), "¿qué es esto?" — el nombre del alimento es literalmente la pregunta de asombro de Israel ante lo desconocido.`,
+    cientifico: `Se ha propuesto que el maná podría corresponder a la secreción azucarada de ciertos insectos que se alimentan de la savia del tamarisco en el Sinaí, aunque la escala, frecuencia diaria y suspensión en sábado descritas exceden ampliamente ese fenómeno natural conocido.`,
+    tipologia: `Juan 6:31-35 presenta a Jesús como el verdadero "pan del cielo" superior al maná, que sacia definitivamente en vez de requerir provisión diaria.`,
+    comentarios: `Agustín interpretó el maná como figura de la Eucaristía, alimento espiritual diario. Crisóstomo notó que la recolección diaria enseñaba dependencia constante de la providencia divina.`,
+    referencia: `Juan 6:31-35, 48-51; Deuteronomio 8:3; Apocalipsis 2:17 ("maná escondido").`,
+  },
+
+  'Éxodo_31_18': {
+    linguistico: `"Dedo de Dios" es una expresión antropomórfica que enfatiza la autoría directa y personal de la Ley, sin mediación humana en su redacción original.`,
+    historico: `Las tablas de piedra como soporte de un código legal tienen paralelo en estelas legales del antiguo Cercano Oriente, como el Código de Hammurabi, aunque este se presenta como promulgado por el rey, no escrito directamente por la divinidad.`,
+    tipologia: `2 Corintios 3:3 contrasta la ley escrita "en tablas de piedra" con la nueva ley escrita "en tablas de carne del corazón" por el Espíritu, marcando la transición del antiguo al nuevo pacto.`,
+    comentarios: `Agustín contrastó la letra que mata (la ley en piedra) con el Espíritu que vivifica. Calvino vio en la autoría divina directa la máxima garantía de la autoridad del Decálogo.`,
+    referencia: `2 Corintios 3:3-7; Deuteronomio 9:10; Lucas 11:20 ("por el dedo de Dios echo fuera los demonios").`,
+  },
+
+  'Levítico_16_8': {
+    linguistico: `"Azazel" (עֲזָאזֵל) es un término de significado incierto: puede referirse a un lugar desértico, a una entidad demoníaca del desierto, o derivarse de "ez azal" ("cabra que se va"), origen probable de la traducción tradicional "chivo expiatorio".`,
+    tipologia: `El ritual de los dos machos cabríos —uno sacrificado, otro enviado vivo al desierto cargando simbólicamente el pecado— se interpreta como doble figura de la obra de Cristo: sacrificio expiatorio y remoción definitiva del pecado.`,
+    historico: `Textos qumránicos y del período del Segundo Templo (como 1 Enoc) desarrollaron una tradición angelológica sobre Azazel, aunque esta lectura es posterior al texto levítico original.`,
+    comentarios: `La Epístola de Bernabé (siglo II) es de los primeros textos cristianos en desarrollar la tipología del chivo expiatorio como figura de Cristo. Agustín retomó esta lectura en sus comentarios sobre el Levítico.`,
+    referencia: `Hebreos 9:28 ("Cristo fué ofrecido una vez para llevar los pecados de muchos"). Isaías 53:6.`,
+  },
+
+  'Números_14_34': {
+    linguistico: `El principio "un día por un año" establece una correspondencia simbólica entre el tiempo de exploración de la tierra y el tiempo de juicio en el desierto, patrón numérico reutilizado en Ezequiel 4:6.`,
+    historico: `Los cuarenta años en el desierto corresponden aproximadamente a una generación completa (cf. Salmos 95:10), tiempo suficiente para que muriera toda la generación adulta que salió de Egipto, excepto Josué y Caleb.`,
+    tipologia: `El número cuarenta se repite en momentos clave de purificación/prueba en toda la Escritura (diluvio de Noé, ayuno de Moisés y Elías, tentación de Jesús), sugiriendo un patrón simbólico de período completo de prueba.`,
+    comentarios: `Agustín observó el simbolismo recurrente del número cuarenta como período de disciplina purificadora. Orígenes vio el peregrinaje israelita como alegoría del progreso espiritual del alma.`,
+    referencia: `Ezequiel 4:6; Mateo 4:2 (los cuarenta días de tentación de Jesús); Salmos 95:10.`,
+  },
+
+  'Deuteronomio_34_6': {
+    historico: `La ausencia de un lugar de sepultura conocido para Moisés contrasta con la práctica generalizada de veneración de tumbas de líderes en el antiguo Cercano Oriente, y ha sido interpretada como salvaguarda providencial contra un posible culto idolátrico a sus restos.`,
+    tipologia: `Judas 1:9 registra una tradición sobre una disputa entre el arcángel Miguel y el diablo por el cuerpo de Moisés, sugiriendo que su desaparición tuvo un significado espiritual más profundo.`,
+    comentarios: `Orígenes especuló sobre una posible resurrección o traslación especial de Moisés, en paralelo con su aparición en la Transfiguración junto a Elías. Calvino prefirió una lectura más sobria: Dios ocultó la tumba para prevenir la idolatría.`,
+    referencia: `Judas 1:9; Mateo 17:3 (aparición de Moisés en la Transfiguración); 2 Reyes 2:11 (Elías, tampoco sepultado).`,
+  },
+
+  'Josué_5_14': {
+    linguistico: `"Príncipe del ejército de Jehová": título militar que, combinado con la reverencia que Josué le rinde (postrarse, quitarse el calzado, orden idéntica a la zarza ardiente de Éxodo 3:5), sugiere una teofanía, no un ángel ordinario.`,
+    tipologia: `Muchos intérpretes identifican a esta figura con una aparición preencarnada de Cristo, dado que recibe adoración —algo que un ángel común rechaza explícitamente en otros pasajes (Apocalipsis 19:10; 22:8-9).`,
+    comentarios: `Justino Mártir e Ireneo de Lyon citaron este episodio como evidencia temprana de apariciones preencarnadas del Verbo. Calvino fue más cauteloso, admitiendo la ambigüedad del texto sobre la identidad exacta de la figura.`,
+    referencia: `Éxodo 3:5 (paralelo verbal exacto: "quita tus zapatos"); Apocalipsis 19:10.`,
+  },
+
+  'Jueces_13_5': {
+    historico: `El voto nazareo (Números 6:1-21) era una consagración temporal voluntaria; el caso de Sansón es inusual por ser un nazareo de por vida, impuesto antes del nacimiento por anuncio angélico, no por voto personal.`,
+    linguistico: `"Nazareo" (nazir, נָזִיר) deriva de la raíz "separar, consagrar" — no debe confundirse etimológicamente con "Nazareno" (gentilicio de Nazaret), aunque ambos términos coinciden por casualidad fonética en español.`,
+    tipologia: `La fuerza de Sansón asociada a su cabello y su pérdida tras la traición de Dalila se ha leído como advertencia sobre la fragilidad de los votos espirituales cuando se descuida su fundamento interior.`,
+    comentarios: `Agustín contrastó la fuerza física de Sansón con su debilidad moral. Hebreos 11:32 lo incluye, no obstante, entre los héroes de la fe.`,
+    referencia: `Números 6:1-21 (ley del nazareato); Hebreos 11:32; Lucas 1:15 (Juan el Bautista, también consagrado desde el vientre).`,
+  },
+
+  'Rut_4_7': {
+    costumbres: `El intercambio del calzado como sello legal de una transacción de redención/herencia es una costumbre documentada específicamente como ya arcaica en tiempos del narrador ("esta era la costumbre antigua en Israel").`,
+    linguistico: `El acto de "desatar el zapato" tiene eco irónico con Deuteronomio 25:9, donde quitarle la sandalia a alguien en público era un acto de deshonra hacia quien rehusaba cumplir su deber de levirato.`,
+    tipologia: `La figura del "pariente redentor" (goel) que rescata la herencia, ejemplificada en Booz, se lee tradicionalmente como tipo de Cristo, el Redentor que rescata a su pueblo por pura gracia.`,
+    comentarios: `Orígenes interpretó a Rut la moabita como figura de la incorporación de los gentiles al pueblo de Dios por gracia. Wesley destacó el carácter voluntario y generoso de la redención de Booz.`,
+    referencia: `Deuteronomio 25:5-10 (ley del levirato); Mateo 1:5 (Rut en la genealogía de Jesús); Efesios 1:7.`,
+  },
+
+  '1 Samuel_28_11': {
+    historico: `La consulta a médiums estaba explícitamente prohibida en la Ley (Levítico 19:31; 20:6), y el propio Saúl había expulsado a estos practicantes del país, lo que hace su recurso a la médium de Endor un acto de flagrante desesperación.`,
+    linguistico: `El texto usa el término "elohim" (normalmente "dios/divino") para describir la figura que la médium ve subir de la tierra, lo que ha generado siglos de debate exegético sobre la naturaleza exacta de la aparición.`,
+    comentarios: `Agustín y la mayoría de los padres antiguos sostuvieron que fue efectivamente el espíritu de Samuel, permitido excepcionalmente por Dios. Calvino argumentó que probablemente fue un engaño demoníaco, dado que la nigromancia no tiene poder real para invocar a los muertos.`,
+    referencia: `Levítico 19:31; 20:6; 1 Crónicas 10:13-14 (la muerte de Saúl se atribuye a esta consulta como pecado).`,
+  },
+
+  '2 Samuel_6_6': {
+    historico: `El arca debía transportarse exclusivamente sobre los hombros de los levitas mediante varas, nunca en carreta (Números 4:15); David había violado ese procedimiento, usando una carreta al estilo filisteo, lo que precipitó la crisis.`,
+    linguistico: `"Extendió Uza la mano" usa un verbo que sugiere una acción impulsiva; el juicio severo enfatiza la santidad absoluta del objeto sagrado más que la culpabilidad moral subjetiva de Uza.`,
+    comentarios: `Calvino advirtió contra el celo bien intencionado pero desobediente a la Palabra revelada. Agustín vio el episodio como advertencia sobre la reverencia debida a lo sagrado.`,
+    referencia: `Números 4:15 (prohibición de tocar los objetos sagrados); 1 Crónicas 15:13-15 (David reconoce después el error del procedimiento).`,
+  },
+
+  '1 Reyes_6_7': {
+    arquitectonico: `La piedra se cortaba y ajustaba en la cantera antes de transportarla al sitio de construcción, técnica que permitía un montaje silencioso; canteras subterráneas identificadas bajo la Ciudad Vieja de Jerusalén se han propuesto como posible fuente de la piedra caliza del Templo.`,
+    tipologia: `El silencio de la construcción se ha leído simbólicamente como figura de la edificación de la Iglesia, "edificio de Dios" (1 Corintios 3:9) construido no por fuerza humana estridente sino por la obra callada del Espíritu.`,
+    comentarios: `Orígenes vio en la ausencia de herramientas de hierro un símbolo de que la casa de Dios se edifica en paz, no en violencia. Calvino relacionó el silencio con la naturaleza a menudo imperceptible del crecimiento espiritual de la Iglesia.`,
+    referencia: `1 Corintios 3:9-17 (la Iglesia como templo de Dios); Efesios 2:20-22.`,
+  },
+
+  '2 Reyes_20_11': {
+    cientifico: `El "reloj de Acaz" habría requerido, para que la sombra retrocediera literalmente, una anomalía astronómica o atmosférica no documentada por otras fuentes; la mayoría de comentaristas consideran el fenómeno un signo milagroso puntual y localizado.`,
+    historico: `Instrumentos similares a relojes de sombra escalonados (gnomones) están documentados arqueológicamente en Egipto y Mesopotamia desde el segundo milenio a.C., confirmando la plausibilidad tecnológica del objeto mencionado.`,
+    tipologia: `El "reloj de Acaz" lleva el nombre del rey idólatra padre de Ezequías, un contraste irónico deliberado: el instrumento asociado a un rey infiel se convierte en escenario del signo de fidelidad de Dios hacia su hijo.`,
+    comentarios: `Agustín discutió este prodigio como ejemplo de la soberanía de Dios sobre el orden natural que Él mismo estableció.`,
+    referencia: `Isaías 38:7-8 (relato paralelo); 2 Crónicas 32:24.`,
+  },
+
+  '1 Crónicas_21_1': {
+    linguistico: `El paralelo en 2 Samuel 24:1 atribuye la incitación directamente a "la ira de Jehová", mientras 1 Crónicas 21:1 la atribuye a "Satán" — diferencia teológicamente significativa que los comentaristas explican como dos niveles de causalidad: la permisión soberana de Dios y el agente instrumental del mal.`,
+    historico: `Este es uno de los pocos textos del Antiguo Testamento donde "Satán" aparece casi como nombre propio de un agente personal del mal, marcando un desarrollo en la angelología israelita hacia el período postexílico.`,
+    comentarios: `Agustín reflexionó extensamente sobre esta aparente contradicción entre las dos versiones como ilustración de la doctrina de la doble agencia: Dios permite soberanamente lo que Satanás ejecuta con intención maligna.`,
+    referencia: `2 Samuel 24:1 (versión paralela); Job 1:12 (Satanás actúa bajo permisión divina); Job 2:6.`,
+  },
+
+  'Esdras_1_2': {
+    historico: `El Cilindro de Ciro (descubierto en Babilonia en 1879, hoy en el Museo Británico) confirma arqueológicamente la política real de Ciro el Grande de permitir el retorno de pueblos deportados y la restauración de sus templos, corroborando de forma independiente la política reflejada en este decreto bíblico.`,
+    tipologia: `Isaías 44:28 y 45:1 nombran a Ciro por su nombre propio como instrumento de liberación aproximadamente 150 años antes de su reinado, según la datación tradicional del libro.`,
+    comentarios: `Josefo narra que a Ciro se le mostraron las profecías de Isaías que lo nombraban, lo que lo habría motivado a emitir el decreto. Calvino vio en este episodio la soberanía de Dios operando incluso a través de gobernantes paganos.`,
+    referencia: `Isaías 44:28; 45:1, 13; 2 Crónicas 36:22-23.`,
+  },
+
+  'Ester_4_16': {
+    historico: `La ley persa que prohibía presentarse ante el rey sin ser llamado, bajo pena de muerte salvo perdón real mediante el cetro de oro, es coherente con el protocolo cortesano aqueménida descrito también por Herodoto para la corte persa.`,
+    linguistico: `El nombre de Dios no aparece ni una sola vez en todo el libro de Ester —única excepción en el canon hebreo—, lo que ha generado extensa reflexión teológica sobre la providencia "oculta" de Dios.`,
+    comentarios: `Lutero cuestionó públicamente el lugar de Ester en el canon precisamente por la ausencia del nombre divino. Calvino defendió su canonicidad, señalando que la providencia de Dios no necesita mencionarse explícitamente para ser real.`,
+    referencia: `Proverbios 21:1 ("como los repartimientos de las aguas, así está el corazón del rey en la mano de Jehová"); Romanos 8:28.`,
+  },
+
+  'Job_2_9': {
+    linguistico: `"Bendice á Dios, y muérete" usa el verbo "bendecir" en un uso eufemístico e irónico, común en textos bíblicos para suavizar la blasfemia explícita ("maldecir a Dios").`,
+    historico: `Algunas versiones antiguas (Septuaginta, Targum) amplían considerablemente el discurso de la esposa de Job, sugiriendo que tradiciones interpretativas tempranas buscaron humanizar más su reacción desesperada.`,
+    comentarios: `Agustín la llamó "adiutrix diaboli" (ayudante del diablo), interpretación que domina buena parte de la tradición patrística. Comentaristas modernos han matizado esta lectura, viendo en su reacción el dolor genuino de una madre que también perdió a sus diez hijos.`,
+    referencia: `Job 1:19 (la pérdida compartida de los hijos); Job 42:10 (restauración final de Job).`,
+  },
+
+  'Job_41_1': {
+    paleontologico: `La identificación tradicional de Leviatán con el cocodrilo del Nilo (por sus escamas impenetrables, fuerza y hábitat acuático) es la más aceptada exegéticamente; la ciencia paleontológica no respalda una identificación con dinosaurios marinos, extintos mucho antes de cualquier posible coexistencia humana documentada.`,
+    linguistico: `"Liwyatan" aparece también en textos ugaríticos como nombre de una serpiente marina caótica derrotada por el dios Baal, sugiriendo que el autor de Job pudo emplear una imagen mitológica cananea conocida para subrayar que solo Yahvé domina esa fuerza caótica.`,
+    comentarios: `Calvino interpretó a Leviatán primariamente como una criatura real usada retóricamente para humillar el orgullo humano ante el poder del Creador. La tradición apocalíptica posterior reutilizó la imagen con sentido más simbólico del mal cósmico.`,
+    referencia: `Salmos 74:14; Isaías 27:1; Apocalipsis 12:3.`,
+  },
+
+  'Salmos_22_16': {
+    linguistico: `El texto masorético hebreo tradicional lee "ka'ari" ("como león"), gramaticalmente difícil, mientras la Septuaginta griega (siglo III-II a.C., pre-cristiana) y varios manuscritos del Mar Muerto leen "karu" ("horadaron/perforaron") — variante textual documentada mucho antes del cristianismo.`,
+    historico: `La crucifixión no era practicada por los israelitas en la época davídica, sino introducida siglos después por persas y perfeccionada por los romanos, lo que hace notable que el salmo describa heridas en manos y pies siglos antes de que ese método existiera en la región.`,
+    tipologia: `Los evangelios citan explícitamente este salmo en el relato de la crucifixión (reparto de vestiduras, clamor de abandono), presentándolo como profecía mesiánica cumplida.`,
+    comentarios: `Justino Mártir usó este salmo extensamente en su apologética como prueba profética de la crucifixión. Agustín lo interpretó como el salmo que mejor expresa la voz de Cristo sufriente.`,
+    referencia: `Mateo 27:35, 46; Juan 19:23-24, 37.`,
+  },
+
+  'Salmos_51_5': {
+    linguistico: `El versículo no acusa a la madre de David de un acto pecaminoso específico, sino que expresa, mediante paralelismo hebreo, la condición pecaminosa universal heredada desde el origen mismo de la existencia humana.`,
+    historico: `Este texto, junto con Romanos 5:12, se convirtió en pilar bíblico central del debate agustiniano-pelagiano del siglo V sobre la naturaleza heredada del pecado.`,
+    comentarios: `Agustín de Hipona citó extensamente este versículo contra Pelagio para argumentar que el pecado se transmite desde la concepción. Calvino lo retomó como fundamento bíblico central de su doctrina de la depravación total.`,
+    referencia: `Romanos 5:12; Efesios 2:3 ("por naturaleza hijos de ira"); Salmos 58:3.`,
+  },
+
+  'Proverbios_8_22': {
+    linguistico: `El verbo "qanah" traducido "poseía" es ambiguo: puede significar "poseer/tener" (sugiriendo coeternidad) o "adquirir/crear" (sugiriendo origen temporal) — ambigüedad central en la controversia arriana del siglo IV sobre la naturaleza del Hijo.`,
+    historico: `Arrio citó este versículo (en su versión griega "me creó") como prueba de que el Hijo era una criatura, argumento que el Concilio de Nicea (325 d.C.) rechazó al definir la naturaleza consustancial de Cristo.`,
+    tipologia: `La tradición cristiana mayoritaria identificó a la "Sabiduría" personificada de Proverbios 8 con el Logos/Verbo preexistente de Juan 1:1-3.`,
+    comentarios: `Atanasio de Alejandría escribió extensamente contra la lectura arriana de este pasaje. Agustín lo interpretó cristológicamente pero con matices más cautelosos.`,
+    referencia: `Juan 1:1-3; Colosenses 1:15-17; 1 Corintios 1:24 ("Cristo... sabiduría de Dios").`,
+  },
+
+  'Eclesiastés_1_2': {
+    linguistico: `"Hebel", traducido "vanidad", significa literalmente "vapor, aliento, soplo" — algo efímero e inasible, no necesariamente "inútil" en sentido moral, imagen central repetida unas 38 veces en el libro.`,
+    historico: `El Eclesiastés comparte género literario con reflexiones de sabiduría pesimista del antiguo Egipto y Mesopotamia, aunque su conclusión teológica —temer a Dios y guardar sus mandamientos— es distintivamente israelita.`,
+    comentarios: `Lutero valoró el Eclesiastés como antídoto contra la vana confianza en las cosas terrenales. C.S. Lewis señaló que el libro documenta honestamente la búsqueda de sentido "bajo el sol" para luego apuntar más allá de esa búsqueda frustrada.`,
+    referencia: `Eclesiastés 12:8, 13 (conclusión del libro); Romanos 8:20 ("la creación fué sujeta á vanidad").`,
+  },
+
+  'Cantares_2_1': {
+    linguistico: `El término hebreo "chabatzelet" no designa necesariamente una rosa, sino probablemente un narciso, azafrán silvestre o tulipán de la llanura costera de Sarón; la traducción "rosa" proviene de la tradición griega/latina.`,
+    geografico: `La llanura de Sarón, franja costera fértil entre Jope y el Monte Carmelo, era proverbialmente conocida en la Antigüedad por su fertilidad y abundancia floral.`,
+    tipologia: `La tradición cristiana interpretó frecuentemente esta imagen como referencia a Cristo o a la Iglesia, aunque el sentido primario del texto es una celebración del amor conyugal humano.`,
+    comentarios: `Bernardo de Claraval escribió 86 sermones sobre el Cantar de los Cantares, interpretándolo místicamente como la unión del alma con Cristo. Orígenes fue pionero en esta lectura alegórica.`,
+    referencia: `Isaías 35:1-2 (Sarón como símbolo de restauración); Efesios 5:25-27.`,
+  },
+
+  'Marcos_5_25': {
+    costumbres: `El "borde" o "franja" del manto (correspondiente al hebreo "tsitsit") era un flequillo ritual con hilo azul que la Ley mandaba coser en las cuatro esquinas del manto (Números 15:38-39); que la mujer buscara tocar específicamente esa parte sugiere un acto de fe consciente en la autoridad mesiánica de Jesús.`,
+    historico: `Según la Ley levítica, esta condición de flujo continuo hacía a la mujer ritualmente impura de forma permanente, excluyéndola del contacto social y del culto durante doce años.`,
+    tipologia: `El contacto con el borde del manto, en vez de transmitirle impureza a Jesús, revierte el flujo: la pureza y poder sanador de Jesús "contamina" en sentido inverso, purificando a quien lo toca.`,
+    comentarios: `Agustín reflexionó sobre la fe de la mujer como modelo de contacto espiritual genuino. Crisóstomo destacó su humildad al acercarse por detrás, consciente de su condición de impureza social.`,
+    referencia: `Números 15:38-39; Levítico 15:25-27; Mateo 9:20-22; Lucas 8:43-48.`,
+  },
+
+  'Isaías_45_1': {
+    historico: `Esta es la única vez en el Antiguo Testamento que un gobernante extranjero pagano recibe el título "mashiach" (ungido), reservado normalmente para reyes davídicos y sumos sacerdotes israelitas.`,
+    linguistico: `"Ciro" aparece mencionado por su nombre propio en Isaías 44:28 y 45:1, aproximadamente 150 años antes de su reinado histórico según la datación tradicional del libro, generando extenso debate académico sobre la datación del texto.`,
+    comentarios: `Josefo narra que Ciro conoció esta profecía y ello lo motivó a autorizar el retorno judío. Calvino defendió la profecía predictiva literal como demostración de la omnisciencia divina sobre la historia.`,
+    referencia: `Esdras 1:1-2 (cumplimiento histórico); 2 Crónicas 36:22-23; Isaías 44:28.`,
+  },
+
+  'Jeremías_18_2': {
+    linguistico: `"Yatsar" ("formar"), el mismo verbo usado en Génesis 2:7 para la formación del hombre del polvo, conecta deliberadamente la imagen del alfarero con la creación original.`,
+    arquitectonico: `Talleres de alfarería con ruedas de doble disco de piedra han sido excavados en sitios como Laquis y Guézer, confirmando la tecnología cerámica descrita implícitamente en el texto para el período del Reino de Judá.`,
+    tipologia: `Pablo retoma esta misma imagen en Romanos 9:20-21 para argumentar la soberanía absoluta de Dios sobre la creación y la elección.`,
+    comentarios: `Calvino se apoyó extensamente en esta imagen para su doctrina de la soberanía divina en la predestinación. Agustín la usó de modo similar contra el pelagianismo.`,
+    referencia: `Romanos 9:20-21; Isaías 64:8 ("nosotros, barro, y tú, el que nos formaste"); Génesis 2:7.`,
+  },
+
+  'Ezequiel_3_1': {
+    linguistico: `El acto de "comer" la palabra escrita es una metáfora de internalización profética: el mensaje debe asimilarse por completo antes de proclamarse; que supo "dulce como miel" pese a contener lamentaciones señala la paradoja del gozo profético incluso al comunicar juicio.`,
+    tipologia: `Apocalipsis 10:9-10 retoma casi literalmente esta misma imagen, estableciendo una conexión intertextual deliberada entre la vocación profética de Ezequiel y la de Juan el vidente.`,
+    comentarios: `Jerónimo reflexionó sobre este pasaje como paradigma del estudio meditativo de la Escritura, que debe "digerirse" espiritualmente antes de enseñarse a otros. Gregorio Magno lo usó como imagen de la lectio divina monástica.`,
+    referencia: `Apocalipsis 10:9-10; Jeremías 15:16 ("fueron halladas tus palabras, y las comí").`,
+  },
+
+  'Daniel_9_24': {
+    historico: `La profecía de las "setenta semanas" es uno de los pasajes cronológicos más debatidos de la Escritura, con múltiples esquemas interpretativos propuestos para hacer coincidir la cronología profética con la venida del Mesías.`,
+    linguistico: `"Shabuim" ("semanas" o "sietes") es un término numérico ambiguo que puede referirse a semanas literales de días o, más ampliamente aceptado, a "semanas de años", en paralelo con el ciclo sabático agrícola de Levítico 25.`,
+    comentarios: `Jerónimo dedicó una sección extensa de su comentario a Daniel a refutar las objeciones del filósofo pagano Porfirio. Calvino ofreció su propio esquema cronológico, situando el cumplimiento en la venida de Cristo.`,
+    referencia: `Daniel 9:25-27; Lucas 21:24 ("los tiempos de los gentiles"); Mateo 24:15.`,
+  },
+
+  'Oseas_1_2': {
+    linguistico: `"Mujer fornicaria" es una expresión deliberadamente escandalosa que convierte la vida matrimonial del profeta en una parábola viviente y pública de la infidelidad de Israel hacia Jehová.`,
+    historico: `El matrimonio profético simbólico de Oseas se sitúa en el turbulento período final del Reino del Norte (siglo VIII a.C.), poco antes de su caída ante Asiria, contexto de sincretismo religioso con cultos cananeos de fertilidad.`,
+    tipologia: `La restauración final de Gomer (Oseas 3) tras su infidelidad se interpreta como figura del amor incondicional y restaurador de Dios hacia un Israel infiel.`,
+    comentarios: `Calvino defendió la historicidad literal del matrimonio, viendo en la humillación voluntaria del profeta un reflejo deliberado del amor humillante de Dios. Lutero destacó la escandalosa gracia divina ilustrada en la disposición de Oseas a redimir a Gomer.`,
+    referencia: `Oseas 3:1-3; Efesios 5:25-27; Jeremías 31:31-32.`,
+  },
+
+  'Joel_2_32': {
+    linguistico: `"Invocar el nombre" es una fórmula cúltica hebrea que implica proclamación pública y confianza personal, no una mera mención verbal —la misma raíz se usa para la adoración patriarcal (Génesis 4:26; 12:8).`,
+    tipologia: `Pablo cita este versículo textualmente en Romanos 10:13 para fundamentar la universalidad de la salvación por fe, extendiendo su alcance más allá de Israel a "todo aquel".`,
+    comentarios: `Pedro cita este mismo pasaje en su sermón de Pentecostés como cumplimiento profético del derramamiento del Espíritu. Calvino vio en la universalidad de la fórmula una de las bases veterotestamentarias más claras de la justificación por fe.`,
+    referencia: `Hechos 2:17-21; Romanos 10:13.`,
+  },
+
+  'Amós_7_14': {
+    historico: `A diferencia de Isaías o Jeremías, Amós se presenta explícitamente como pastor y cultivador de higos silvestres del reino sureño de Judá, enviado a profetizar contra el reino norteño de Israel —un forastero sin credenciales institucionales del "gremio" profético.`,
+    linguistico: `"Boquer" ("boyero/pastor") y "cultivador de sicómoros" describen ocupaciones agrícolas manuales, reforzando el contraste entre la vocación divina directa y cualquier pretensión de estatus profesional.`,
+    comentarios: `Calvino subrayó este pasaje como evidencia de que el llamado profético depende exclusivamente de la iniciativa soberana de Dios, no de la formación institucional. Spurgeon predicó sobre Amós como modelo del creyente común llamado a un ministerio extraordinario.`,
+    referencia: `1 Corintios 1:26-29; Éxodo 3:11.`,
+  },
+
+  'Abdías_1_4': {
+    historico: `La capital edomita de Sela (posteriormente helenizada como Petra) estaba tallada en acantilados de arenisca rosada de difícil acceso, con una única entrada estrecha (el Siq), lo que daba a sus habitantes una sensación de inexpugnable seguridad geográfica que el oráculo desafía directamente.`,
+    geografico: `Petra, con sus fachadas monumentales talladas en roca, floreció posteriormente bajo los nabateos (siglo IV a.C. en adelante) como centro caravanero, aunque en tiempos de Abdías la región edomita ya tenía asentamientos fortificados en terreno montañoso similar.`,
+    tipologia: `El juicio contra Edom por su complicidad en la caída de Jerusalén se convirtió en arquetipo profético de juicio contra las naciones que se aprovechan de la aflicción del pueblo de Dios.`,
+    comentarios: `Jerónimo, quien vivió en Belén y conocía la geografía de la región, comentó extensamente sobre la topografía edomita al interpretar este oráculo. Calvino vio en la caída de la orgullosa Edom una advertencia universal contra la falsa seguridad basada en fortalezas humanas.`,
+    referencia: `Jeremías 49:16; Malaquías 1:2-4; Salmos 137:7.`,
+  },
+
+  'Jonás_3_5': {
+    historico: `Nínive, capital del Imperio Asirio, fue una de las ciudades más grandes y militarmente temidas del mundo antiguo; sus ruinas (actual Mosul, Irak) han sido excavadas desde el siglo XIX, confirmando su enorme extensión y fortificaciones.`,
+    linguistico: `"Se vistieron de saco" era un rito de duelo y humillación pública documentado en el antiguo Cercano Oriente, aquí aplicado excepcionalmente incluso a los animales del rey, un detalle que subraya la magnitud hiperbólica del arrepentimiento decretado.`,
+    tipologia: `Jesús cita el arrepentimiento de Nínive como señal de juicio contra la incredulidad de su propia generación, usando el episodio como paradigma de respuesta genuina al mensaje profético.`,
+    comentarios: `Calvino contrastó la rápida obediencia pagana de Nínive con la resistencia de Israel a sus propios profetas. Agustín reflexionó sobre la misericordia universal de Dios extendida incluso a los enemigos históricos de su pueblo.`,
+    referencia: `Mateo 12:41; Lucas 11:32.`,
+  },
+
+  'Nahúm_3_1': {
+    historico: `Este oráculo contra Nínive se cumplió en el 612 a.C., cuando una coalición de babilonios, medos y escitas destruyó la ciudad, evento confirmado por la "Crónica de Babilonia" y por las ruinas excavadas que muestran capas de destrucción por incendio de esa fecha exacta.`,
+    linguistico: `El contraste entre este oráculo de juicio y el arrepentimiento previo de Nínive narrado en Jonás (más de un siglo antes) sugiere que el arrepentimiento ninivita fue temporal, y generaciones posteriores volvieron a la violencia del imperio asirio.`,
+    comentarios: `Calvino observó en la secuencia Jonás-Nahúm un patrón teológico recurrente: la misericordia de Dios ofrece tiempo de gracia, pero el juicio final llega inevitablemente ante el pecado persistente no arrepentido.`,
+    referencia: `Jonás 3:10; Sofonías 2:13-15.`,
+  },
+
+  'Sofonías_1_12': {
+    historico: `La imagen de búsqueda meticulosa "con candiles" refleja el método real de inspección nocturna casa por casa en ciudades amuralladas del antiguo Cercano Oriente, evocando la exhaustiva justicia divina que no deja rincón sin examinar.`,
+    linguistico: `"Los que están asentados sobre sus heces" es una metáfora vinícola: como el vino que reposa sin ser removido se espesa y pierde sabor, describe a quienes se han vuelto espiritualmente complacientes.`,
+    comentarios: `Calvino interpretó esta imagen como advertencia perenne contra la indiferencia religiosa acomodada. Agustín señaló el contraste entre la aparente inactividad divina percibida por los complacientes y la realidad de su juicio inminente.`,
+    referencia: `Amós 6:1 ("¡Ay de los reposados en Sión!"); Apocalipsis 3:15-17.`,
+  },
+
+  'Hageo_1_6': {
+    historico: `Hageo profetiza en el 520 a.C., durante el reinado de Darío I de Persia, dirigido a la comunidad judía repatriada que había reconstruido sus propias casas mientras dejaba en ruinas la reconstrucción del Templo.`,
+    linguistico: `"Meter en saco roto" es una expresión idiomática vívida para la futilidad económica —el saco perforado que no puede retener ganancia alguna.`,
+    comentarios: `Calvino usó este pasaje para argumentar que las prioridades espirituales desordenadas tienen consecuencias materiales tangibles. Wesley predicó sobre este texto como advertencia contra la mundanalidad que antepone la comodidad propia al servicio a Dios.`,
+    referencia: `Mateo 6:33 ("buscad primeramente el reino de Dios"); Malaquías 3:8-10.`,
+  },
+
+  'Mateo_4_4': {
+    linguistico: `Jesús cita directamente Deuteronomio 8:3, texto que originalmente se refería a la experiencia de Israel con el maná en el desierto —Jesús, tentado también en el desierto durante cuarenta días, reinterpreta y cumple la lección que Israel no logró aprender plenamente.`,
+    tipologia: `El relato de la tentación de Jesús se lee tradicionalmente como recapitulación exitosa de la historia de Israel: donde Israel falló repetidamente en el desierto, Cristo permanece fiel.`,
+    comentarios: `Ireneo de Lyon desarrolló extensamente la idea de Cristo como "recapitulador" de la historia de Adán e Israel. Agustín vio en esta respuesta un modelo de resistencia a la tentación mediante la Palabra de Dios memorizada y aplicada.`,
+    referencia: `Deuteronomio 8:3; Deuteronomio 6:13, 16; 1 Corintios 10:1-11.`,
+  },
+
+  'Marcos_7_11': {
+    linguistico: `"Corbán" (del hebreo qorban, "ofrenda") era una fórmula legal de voto por la cual una persona declaraba sus bienes "dedicados" a Dios, prohibiendo legalmente su uso para cualquier otro fin.`,
+    historico: `Inscripciones arqueológicas en osarios judíos del período del Segundo Templo usan literalmente el término "qorban" en fórmulas de dedicación de bienes, confirmando independientemente el uso técnico-legal exacto de la palabra que Jesús denuncia.`,
+    comentarios: `Jesús usa este ejemplo para denunciar cómo una tradición legal rabínica bien intencionada podía manipularse para eludir el mandamiento moral central de honrar a los padres. Calvino y otros reformadores citaron extensamente este pasaje contra el legalismo formal.`,
+    referencia: `Éxodo 20:12; Mateo 15:3-9.`,
+  },
+
+  'Lucas_3_23': {
+    historico: `La edad de treinta años coincidía con la edad mínima tradicional para el ejercicio del sacerdocio levítico (Números 4:3) y era considerada la edad de madurez plena para el liderazgo público en la cultura judía del Segundo Templo.`,
+    linguistico: `La expresión "como de" indica una edad aproximada, no una precisión cronológica absoluta, consistente con el estilo general de los evangelios respecto a datos biográficos exactos de Jesús.`,
+    comentarios: `Ireneo de Lyon, en su polémica contra el gnosticismo, discutió la cronología exacta de la vida de Jesús basándose en una lectura peculiar de Juan 8:57.`,
+    referencia: `Números 4:3 (edad sacerdotal); Juan 2:20.`,
+  },
+
+  'Juan_6_9': {
+    linguistico: `Que los panes fueran específicamente "de cebada", detalle preservado únicamente por Juan, subraya la humildad de los recursos: la cebada era el grano más barato y asociado con la dieta de los pobres en la Palestina del siglo I.`,
+    tipologia: `El detalle de los "cinco panes de cebada" ha llevado a algunos exégetas a notar un eco de 2 Reyes 4:42-44, donde Eliseo multiplica veinte panes de cebada para alimentar a cien hombres.`,
+    comentarios: `Crisóstomo destacó la disposición generosa del muchacho anónimo que ofreció lo poco que tenía. Agustín interpretó la multiplicación como signo que apunta más allá de sí mismo hacia Cristo como el verdadero "pan de vida".`,
+    referencia: `2 Reyes 4:42-44; Juan 6:35.`,
+  },
+
+  'Hechos_19_19': {
+    historico: `Éfeso era célebre por sus "Ephesia grammata", fórmulas mágicas grabadas en amuletos asociadas al culto de Artemisa de Éfeso; el valor citado —cincuenta mil piezas de plata— confirma arqueológica e históricamente la reputación de Éfeso como centro de comercio de literatura mágica.`,
+    costumbres: `La quema pública y voluntaria de objetos valiosos, en vez de venderlos y donar las ganancias, era un acto deliberado de renuncia total que demostraba públicamente la ruptura completa con prácticas ocultistas previas.`,
+    comentarios: `Crisóstomo comentó este pasaje como modelo de conversión genuina que exige renuncia costosa y visible. Calvino lo usó para argumentar contra cualquier tolerancia cristiana hacia prácticas de adivinación o magia.`,
+    referencia: `Deuteronomio 18:10-12; Hechos 8:9-24.`,
+  },
+
+  'Romanos_9_21': {
+    linguistico: `Pablo retoma directamente la imagen y vocabulario de Jeremías 18:6 e Isaías 64:8, aplicando la metáfora veterotestamentaria del alfarero y el barro al problema de la elección soberana de Dios entre Israel y las naciones.`,
+    tipologia: `Este pasaje es central en el histórico debate teológico entre las tradiciones agustiniano-calvinista (predestinación incondicional) y arminiana (elección corporativa de pueblos/vocaciones).`,
+    comentarios: `Calvino se apoyó extensamente en este pasaje para su doctrina de la predestinación. Juan Wesley argumentó que el pasaje trata primariamente sobre el propósito y llamado de Dios para naciones y funciones históricas, no sobre el destino eterno individual.`,
+    referencia: `Jeremías 18:6; Isaías 64:8; Romanos 9:11-13.`,
+  },
+
+  '1 Corintios_15_52': {
+    linguistico: `"En un momento" traduce el griego "atomos", literalmente "indivisible, que no puede cortarse" —la misma raíz de donde deriva la palabra moderna "átomo"—, empleada para describir la instantaneidad absoluta del evento.`,
+    historico: `"La final trompeta" evoca el uso del shofar en el Antiguo Testamento tanto para convocaciones militares como para anuncios de teofanía (Éxodo 19:16, la entrega de la Ley en el Sinaí).`,
+    tipologia: `Este pasaje, junto con 1 Tesalonicenses 4:16-17, forma la base bíblica principal de la doctrina cristiana de la resurrección corporal final y la transformación del cuerpo mortal en un "cuerpo espiritual" incorruptible.`,
+    comentarios: `Agustín dedicó extensas secciones de "La Ciudad de Dios" a la naturaleza del cuerpo resucitado a partir de este pasaje. Calvino lo usó como consuelo pastoral central frente al temor a la muerte física.`,
+    referencia: `1 Tesalonicenses 4:16-17; Éxodo 19:16; Mateo 24:31.`,
+  },
+
+  '2 Corintios_12_2': {
+    linguistico: `La cosmología judía del Segundo Templo distinguía frecuentemente entre varios "cielos"; Pablo usa el esquema más simple de "tercer cielo" identificado explícitamente con el "paraíso" (2 Corintios 12:4).`,
+    historico: `Pablo narra esta experiencia en tercera persona ("conozco á un hombre en Cristo") con notable reticencia autobiográfica, recurso retórico deliberado para evitar la jactancia mientras defendía su autoridad apostólica.`,
+    comentarios: `Agustín discutió extensamente esta experiencia en su tratado sobre el Génesis en sentido literal. Calvino fue notablemente cauteloso al comentar este pasaje, advirtiendo contra la especulación excesiva sobre experiencias místicas extraordinarias.`,
+    referencia: `2 Corintios 12:4; Lucas 23:43 ("hoy estarás conmigo en el paraíso"); Apocalipsis 2:7.`,
+  },
+
+  'Hebreos_5_8': {
+    linguistico: `El juego de palabras en griego entre "emathen" ("aprendió") y "epathen" ("padeció") —similar sonido, distinto significado— sugiere una posible resonancia retórica deliberada: Cristo aprendió precisamente a través de lo que padeció.`,
+    tipologia: `Este "aprendizaje" no implica ignorancia previa o imperfección moral en Cristo, sino la apropiación experiencial de la obediencia dentro de la existencia humana real, calificándolo como sumo sacerdote capaz de compadecerse de las debilidades humanas.`,
+    comentarios: `Juan Crisóstomo explicó que este "aprender" se refiere a la experiencia vivida, no a la adquisición de un conocimiento previamente ausente, salvaguardando la doctrina de la divinidad plena de Cristo. Calvino vio en este pasaje un fundamento de la solidaridad de Cristo con el sufrimiento humano genuino.`,
+    referencia: `Hebreos 4:15; Filipenses 2:8; Lucas 22:42.`,
+  },
+
 };
