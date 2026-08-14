@@ -5,7 +5,7 @@ import {
   signInAnonymously, signOut, onAuthStateChanged, updateProfile,
 } from 'firebase/auth';
 import {
-  initializeFirestore, persistentLocalCache, persistentMultipleTabManager,
+  initializeFirestore, getFirestore, persistentLocalCache, persistentMultipleTabManager,
   doc, getDoc, setDoc, updateDoc,
   collection, addDoc, getDocs, query, orderBy,
   serverTimestamp, arrayUnion, arrayRemove, onSnapshot, increment,
@@ -24,11 +24,22 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth    = getAuth(app);
-export const db      = initializeFirestore(app, {
-  localCache: persistentLocalCache({
-    tabManager: persistentMultipleTabManager()
-  })
-});
+// initializeFirestore con caché persistente (IndexedDB) puede lanzar de forma
+// sincrónica en navegadores/WebViews con soporte parcial de IndexedDB, lo cual
+// rompía la carga de toda la app antes de que React llegara a renderizar nada.
+// Si falla, usamos Firestore sin persistencia offline en su lugar.
+let dbInstance;
+try {
+  dbInstance = initializeFirestore(app, {
+    localCache: persistentLocalCache({
+      tabManager: persistentMultipleTabManager()
+    })
+  });
+} catch (e) {
+  console.error('No se pudo habilitar la caché persistente de Firestore, usando modo sin persistencia:', e);
+  dbInstance = getFirestore(app);
+}
+export const db = dbInstance;
 export const storage = getStorage(app);
 
 
