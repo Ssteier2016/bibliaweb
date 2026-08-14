@@ -131,6 +131,17 @@ export async function updateReadingStreak(uid, currentStreak = 0, lastReadDate =
   return newStreak;
 }
 
+// ── Coleccionables por racha ─────────────────────────────────────
+
+export async function awardCollectible(uid, collectible, milestone) {
+  try {
+    await updateDoc(doc(db, 'users', uid), {
+      collectibles: arrayUnion(collectible),
+      lastCollectibleStreak: milestone,
+    });
+  } catch {}
+}
+
 // ── Privacidad ──────────────────────────────────────────────────
 
 export async function updatePrivacy(uid, privacy) {
