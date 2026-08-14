@@ -17,7 +17,7 @@ import GenPanel                 from './GenPanel';
 import FeedPage                 from './FeedPage';
 import TheologicalCommentaries  from './TheologicalCommentaries';
 import logo3                    from './logo3.png';
-import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, incrementLike, decrementLike, loadChapterLikes, createPost, uploadPostImage } from './firebase';
+import { onAuthChange, loadUserData, saveUserData, savePresence, followUser, unfollowUser, updateReadingStreak, awardCollectible, incrementLike, decrementLike, loadChapterLikes, createPost, uploadPostImage } from './firebase';
 import { PROLOGUES }            from './data/prologues';
 
 // Agrupar comentarios teológicos por versículo para mostrarlos dinámicamente en el lector
@@ -536,6 +536,17 @@ function convertBible(raw) {
   }));
 }
 
+// Elige un versículo al azar de toda la Biblia cargada (para el premio de racha)
+function pickRandomVerse(books) {
+  if (!books || books.length === 0) return null;
+  const book = books[Math.floor(Math.random() * books.length)];
+  if (!book?.chapters?.length) return null;
+  const chapter = book.chapters[Math.floor(Math.random() * book.chapters.length)];
+  if (!chapter?.verses?.length) return null;
+  const verse = chapter.verses[Math.floor(Math.random() * chapter.verses.length)];
+  return { bookName: book.name, chapter: chapter.chapter, verseNum: verse.verse, text: verse.text };
+}
+
 function lsGet(key) { try { return localStorage.getItem(key) } catch { return null } }
 function lsSet(key, val) { try { localStorage.setItem(key, val) } catch {} }
 
@@ -654,6 +665,25 @@ function FeedPublishIcon() {
       <path d="M4 4a16 16 0 0 1 16 16"/>
       <circle cx="5" cy="19" r="1" fill="currentColor"/>
     </svg>
+  );
+}
+
+// ── Modal: nuevo coleccionable por racha ───────────────────────────────────────
+
+function NewCollectibleModal({ collectible, onClose }) {
+  return (
+    <div className="new-post-overlay" onClick={onClose}>
+      <div className="collectible-modal" onClick={e => e.stopPropagation()}>
+        <div className="collectible-modal-badge">🏆</div>
+        <div className="collectible-modal-title">¡{collectible.milestone} días de racha!</div>
+        <div className="collectible-modal-sub">Desbloqueaste un versículo coleccionable</div>
+        <div className="collectible-modal-verse">
+          <div className="collectible-modal-ref">{collectible.bookName} {collectible.chapter}:{collectible.verseNum}</div>
+          <p>"{collectible.text}"</p>
+        </div>
+        <button className="collectible-modal-close" onClick={onClose}>Genial</button>
+      </div>
+    </div>
   );
 }
 
@@ -2092,6 +2122,9 @@ export default function App() {
   const dlCancelRef = useRef(false);
   const [jumpVerse,       setJumpVerse]      = useState(null);
   const [streak,          setStreak]         = useState(0);
+  const [collectibles,        setCollectibles]        = useState([]);
+  const [lastCollectibleStreak, setLastCollectibleStreak] = useState(0);
+  const [newCollectible,      setNewCollectible]      = useState(null);
   const [privacy,         setPrivacy]        = useState({
     notes: false, highlights: false, bookmarks: false,
     publicProfile: true, followers: true, following: true,
@@ -2178,6 +2211,8 @@ export default function App() {
           const { hl, nt, bm, sh, following, followers, streak, privacy } = fromFirestore(data);
           setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
           setFollowing(following); setFollowers(followers); setStreak(streak); setPrivacy(privacy);
+          setCollectibles(data.collectibles || []);
+          setLastCollectibleStreak(data.lastCollectibleStreak || 0);
           // Cargar foto desde Firestore (base64 no cabe en Firebase Auth)
           if (data.photoURL) setUserPhotoURL(data.photoURL);
           // Racha de lectura
@@ -2199,8 +2234,10 @@ export default function App() {
             if (k?.startsWith('bm_'))   bm[k] = lsGet(k);
           }
           setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({}); setFollowing([]); setFollowers([]);
+          setCollectibles([]); setLastCollectibleStreak(0);
         } else {
           setHighlights({}); setNotes({}); setBookmarks({}); setShared({}); setFollowing([]); setFollowers([]);
+          setCollectibles([]); setLastCollectibleStreak(0);
         }
       } catch (e) {
         console.error("Error loading user data:", e);
@@ -2209,6 +2246,29 @@ export default function App() {
       }
     });
   }, []);
+
+  // Premio de racha: cada 10 días cumplidos, un versículo aleatorio coleccionable
+  useEffect(() => {
+    if (!user || user.isAnonymous) return;
+    if (!books.length) return;
+    const milestone = Math.floor(streak / 10) * 10;
+    if (milestone <= 0 || milestone <= lastCollectibleStreak) return;
+    const verse = pickRandomVerse(books);
+    if (!verse) return;
+    const collectible = {
+      id: `${Date.now()}_${milestone}`,
+      bookName: verse.bookName,
+      chapter:  verse.chapter,
+      verseNum: verse.verseNum,
+      text:     verse.text,
+      milestone,
+      unlockedAt: new Date().toISOString(),
+    };
+    setCollectibles(prev => [...prev, collectible]);
+    setLastCollectibleStreak(milestone);
+    setNewCollectible(collectible);
+    awardCollectible(user.uid, collectible, milestone);
+  }, [user, streak, books, lastCollectibleStreak]);
 
   // Actualizar presencia cada 2 minutos
   useEffect(() => {
@@ -2584,10 +2644,14 @@ export default function App() {
       )}
 
       <header className="header">
-        <div className="header-title">
-          <span>✝️</span>
-          Bibl.ia
-        </div>
+        <button
+          className="header-title header-streak-btn"
+          onClick={() => setShowMenu(true)}
+          title={streak > 0 ? `${streak} día${streak !== 1 ? 's' : ''} seguido${streak !== 1 ? 's' : ''} de racha` : 'Tu racha de lectura'}
+        >
+          <span>🔥</span>
+          {streak}
+        </button>
         <div className="header-actions">
           <button
             className="theme-btn"
@@ -2921,6 +2985,13 @@ export default function App() {
         )}
       </div>
 
+      {newCollectible && (
+        <NewCollectibleModal
+          collectible={newCollectible}
+          onClose={() => setNewCollectible(null)}
+        />
+      )}
+
       {showMenu && (
         <UserMenu
           user={user}
@@ -2932,6 +3003,7 @@ export default function App() {
           following={following}
           followers={followers}
           streak={streak}
+          collectibles={collectibles}
           privacy={privacy}
           onPrivacyChange={setPrivacy}
           darkMode={darkMode}

@@ -9,14 +9,15 @@ import ChatPanel from './ChatPanel';
 const ADMIN_EMAIL = 'rodrigo.n.arena@hotmail.com';
 
 const SECTIONS = [
-  { key: 'bookmarks',  label: 'Guardados',   icon: '🔖' },
-  { key: 'highlights', label: 'Subrayados',  icon: '🖊️' },
-  { key: 'notes',      label: 'Notas',       icon: '📝' },
-  { key: 'shared',     label: 'Compartidos', icon: '↗️' },
-  { key: 'amigos',     label: 'Amigos',      icon: '👥' },
-  { key: 'mensajes',   label: 'Mensajes',    icon: '💬' },
-  { key: 'plan',       label: 'Plan',        icon: '📅' },
-  { key: 'config',     label: 'Config',      icon: '⚙️' },
+  { key: 'bookmarks',      label: 'Guardados',       icon: '🔖' },
+  { key: 'highlights',     label: 'Subrayados',      icon: '🖊️' },
+  { key: 'notes',          label: 'Notas',           icon: '📝' },
+  { key: 'shared',         label: 'Compartidos',     icon: '↗️' },
+  { key: 'coleccionables', label: 'Coleccionables',  icon: '🏆' },
+  { key: 'amigos',         label: 'Amigos',          icon: '👥' },
+  { key: 'mensajes',       label: 'Mensajes',        icon: '💬' },
+  { key: 'plan',           label: 'Plan',            icon: '📅' },
+  { key: 'config',         label: 'Config',          icon: '⚙️' },
 ];
 
 const HIGHLIGHT_MAP = {
@@ -138,6 +139,9 @@ function ProfileView({ targetUid, myUid, books, following, onFollowToggle, onBac
             <div className="profile-email">{profile.email}</div>
           )}
           <div className="profile-streak">🔥 {profile.streak || 0} días seguidos</div>
+          {(profile.collectibles || []).length > 0 && (
+            <div className="profile-streak">🏆 {profile.collectibles.length} coleccionable{profile.collectibles.length !== 1 ? 's' : ''}</div>
+          )}
         </div>
       </div>
 
@@ -514,7 +518,7 @@ function ReadingPlan({ user, books, onNavigate, onClose }) {
 
 export default function UserMenu({
   user, books, bookmarks, highlights, notes, shared,
-  following, followers, streak, privacy, darkMode,
+  following, followers, streak, collectibles, privacy, darkMode,
   onClose, onNavigate, onFollowingChange, onPrivacyChange, onPhotoUpdate,
 }) {
   const [section,       setSection]       = useState('bookmarks');
@@ -683,10 +687,11 @@ export default function UserMenu({
   }
 
   const lists = {
-    bookmarks:  buildList(bookmarks,  'bm_'),
-    highlights: buildList(highlights, 'hl_'),
-    notes:      buildList(notes,      'note_'),
-    shared:     buildList(shared,     'sh_'),
+    bookmarks:      buildList(bookmarks,  'bm_'),
+    highlights:     buildList(highlights, 'hl_'),
+    notes:          buildList(notes,      'note_'),
+    shared:         buildList(shared,     'sh_'),
+    coleccionables: collectibles || [],
   };
 
   async function handleShareWeb() {
@@ -885,6 +890,25 @@ export default function UserMenu({
                   ))
               }
             </>
+          )}
+
+          {/* Coleccionables */}
+          {section === 'coleccionables' && (
+            <div className="collectibles-grid">
+              {isGuest ? (
+                <div className="menu-empty">🏆 Iniciá sesión para ganar coleccionables.</div>
+              ) : (collectibles || []).length === 0 ? (
+                <div className="menu-empty">🏆 Cada 10 días seguidos de racha ganás un versículo coleccionable. ¡Vas por {streak} de 10!</div>
+              ) : (
+                [...(collectibles || [])].reverse().map(c => (
+                  <div key={c.id} className="collectible-card">
+                    <div className="collectible-card-milestone">🏆 {c.milestone} días de racha</div>
+                    <div className="collectible-card-ref">{c.bookName} {c.chapter}:{c.verseNum}</div>
+                    <div className="collectible-card-text">"{c.text}"</div>
+                  </div>
+                ))
+              )}
+            </div>
           )}
 
           {/* Amigos */}
