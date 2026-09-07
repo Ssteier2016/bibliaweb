@@ -7,9 +7,7 @@ import { LUTHER_COMMENTARY }         from './data/luther';
 import { EDWARDS_COMMENTARY }        from './data/edwards';
 import { ANDREW_MURRAY_COMMENTARY }  from './data/andrew_murray';
 import { WESLEY_COMMENTARY }         from './data/wesley';
-import { JAMIESON_COMMENTARY }       from './data/jamieson';
 import { WHITEFIELD_COMMENTARY }     from './data/whitefield';
-import { LLOYD_JONES_COMMENTARY }    from './data/lloyd_jones';
 import { loadAuthorPhotos, saveAuthorPhoto, saveAuthorPhotoURL, ADMIN_EMAIL } from './firebase';
 
 const AUTHORS = [
@@ -102,16 +100,6 @@ const AUTHORS = [
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/John_Wesley_by_George_Romney.jpg/440px-John_Wesley_by_George_Romney.jpg',
   },
   {
-    id: 'jamieson',
-    name: 'Bobby Jamieson',
-    years: 'Contemporáneo',
-    tradition: 'Bautista · 9Marks Ministries · Eclesiología',
-    bio: 'Pastor y autor bautista contemporáneo, doctorado en Nuevo Testamento por la Universidad de Cambridge. Colaborador de 9Marks Ministries, escribe sobre eclesiología, membresía de iglesia y sana doctrina, con un enfoque práctico en cómo la teología moldea la vida de la congregación local.',
-    commentary: JAMIESON_COMMENTARY,
-    color: '#16a34a',
-    initials: 'BJ',
-  },
-  {
     id: 'whitefield',
     name: 'George Whitefield',
     years: '1714–1770',
@@ -120,16 +108,7 @@ const AUTHORS = [
     commentary: WHITEFIELD_COMMENTARY,
     color: '#8a5a1e',
     initials: 'GW',
-  },
-  {
-    id: 'lloyd_jones',
-    name: 'Martyn Lloyd-Jones',
-    years: '1899–1981',
-    tradition: 'Reformada · Predicación Expositiva · Westminster Chapel',
-    bio: 'Médico galés convertido al ministerio, pastor de Westminster Chapel en Londres durante casi treinta años (1939–1968). Conocido como "el Doctor", es célebre por sus extensas series expositivas sobre Romanos y Efesios, y por obras como "Spiritual Depression" y "Preaching and Preachers". Sus obras conservan derechos de autor vigentes bajo la Martyn Lloyd-Jones Trust.',
-    commentary: LLOYD_JONES_COMMENTARY,
-    color: '#1e4a8a',
-    initials: 'LJ',
+    image: '/authors/whitefield.jpg',
   },
 ];
 
@@ -154,7 +133,7 @@ function AuthorAvatar({ author, size = 52, badgeSize = false, customPhoto, isAdm
   const fileRef = useRef();
   const dim      = badgeSize ? 40 : size;
   const fontSize = badgeSize ? '1rem' : '1.25rem';
-  const photo    = customPhoto || null;
+  const photo    = customPhoto || author.image || null;
 
   async function handleFile(e) {
     const file = e.target.files?.[0];
