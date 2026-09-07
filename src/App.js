@@ -10,6 +10,8 @@ import { EDWARDS_COMMENTARY } from './data/edwards';
 import { ANDREW_MURRAY_COMMENTARY } from './data/andrew_murray';
 import { WESLEY_COMMENTARY } from './data/wesley';
 import { JAMIESON_COMMENTARY } from './data/jamieson';
+import { WHITEFIELD_COMMENTARY } from './data/whitefield';
+import { LLOYD_JONES_COMMENTARY } from './data/lloyd_jones';
 import AuthScreen               from './AuthScreen';
 import UserMenu                 from './UserMenu';
 import CommentsPanel            from './CommentsPanel';
@@ -30,7 +32,9 @@ const THEOLOGIANS_LIST = [
   { id: 'andrew_murray', name: 'Andrew Murray', initials: 'AM', color: '#3d1a6e', list: ANDREW_MURRAY_COMMENTARY },
   { id: 'cslewis', name: 'C.S. Lewis', initials: 'CS', color: '#6b3a2a', list: CSLEWIS_COMMENTARY },
   { id: 'wesley', name: 'John Wesley', initials: 'JW', color: '#5c3d2e', list: WESLEY_COMMENTARY },
-  { id: 'jamieson', name: 'Bobby Jamieson', initials: 'BJ', color: '#16a34a', list: JAMIESON_COMMENTARY }
+  { id: 'jamieson', name: 'Bobby Jamieson', initials: 'BJ', color: '#16a34a', list: JAMIESON_COMMENTARY },
+  { id: 'whitefield', name: 'George Whitefield', initials: 'GW', color: '#8a5a1e', list: WHITEFIELD_COMMENTARY },
+  { id: 'lloyd_jones', name: 'Martyn Lloyd-Jones', initials: 'LJ', color: '#1e4a8a', list: LLOYD_JONES_COMMENTARY },
 ];
 
 function refToKey(ref) {
@@ -492,7 +496,8 @@ const ESCRITOS_ANTIGUOS = [
 ];
 // Slugs disponibles en bolls.life para versiones en español
 // NBLA 2020 no está en bolls.life (copyright); LBLA 1997 es su predecesora directa
-const BOLLS_SLUG = { ntv: 'NTV', lbla: 'LBLA', nvi: 'NVI' };
+// RVR1960 se trae en vivo desde bolls.life (no se distribuye el texto en este repo, tiene copyright vigente)
+const BOLLS_SLUG = { ntv: 'NTV', lbla: 'LBLA', nvi: 'NVI', rvr1960: 'RVR1960' };
 
 // Normaliza texto quitando tildes para comparar nombres de libros
 function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
@@ -2433,7 +2438,7 @@ export default function App() {
   }
 
   const handleCycleVersion = useCallback((direction) => {
-    const AVAILABLE_VERSIONS = ['rvr', 'ntv', 'lbla', 'nvi'];
+    const AVAILABLE_VERSIONS = ['rvr', 'rvr1960', 'ntv', 'lbla', 'nvi'];
     const currentIndex = AVAILABLE_VERSIONS.indexOf(translation);
     let nextIndex;
     if (direction === 'next') {
@@ -2742,7 +2747,8 @@ export default function App() {
           onChange={e => { setTranslation(e.target.value); setExtVerses({}); setExtError(false); }}
           title="Versión bíblica"
         >
-          <option value="rvr">RVR 1960 — Reina-Valera</option>
+          <option value="rvr">RVR 1909 — Reina-Valera</option>
+          <option value="rvr1960">{extLoading && translation === 'rvr1960' ? 'RVR 1960 (cargando…)' : 'RVR 1960 — Reina-Valera'}</option>
           <option value="ntv">{extLoading && translation === 'ntv' ? 'NTV (cargando…)' : 'NTV — Nueva Traducción Viviente'}</option>
           <option value="lbla">{extLoading && translation === 'lbla' ? 'LBLA (cargando…)' : 'LBLA — La Biblia de las Américas'}</option>
           <option value="nvi">{extLoading && translation === 'nvi' ? 'NVI (cargando…)' : 'NVI — Nueva Versión Internacional'}</option>
