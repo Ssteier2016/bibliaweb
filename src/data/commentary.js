@@ -5199,4 +5199,363 @@ export const COMMENTARY = {
     referencia: `Efesios 4:12-13; 1 Corintios 12:28; Romanos 12:6-8.`,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     CUARTO LOTE ADICIONAL — 50 VERSÍCULOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_4_7': {
+    linguistico: `"Acechar" (robets, רֹבֵץ) es un participio que describe a una fiera agazapada lista para atacar — la imagen hebrea retrata el pecado como un depredador al acecho, no como una tentación pasiva, y el versículo añade "contra ti será su deseo, y tú te enseñorearás de él", lenguaje casi idéntico al usado para el deseo de la mujer hacia el varón en Génesis 3:16.`,
+    historico: `Este es el primer llamado explícito de Dios a la responsabilidad moral individual tras la caída, dirigido a Caín antes del primer asesinato registrado en la Escritura.`,
+    comentarios: `Agustín vio en esta advertencia la primera formulación bíblica del libre albedrío post-caída. Calvino señaló que Dios advierte a Caín antes del pecado, mostrando que la gracia preveniente actúa incluso sobre quienes luego eligen el mal.`,
+    referencia: `Génesis 3:16; Santiago 1:14-15; 1 Pedro 5:8.`,
+  },
+
+  'Génesis_15_5': {
+    cientifico: `A simple vista, un ser humano puede distinguir entre 2.500 y 4.500 estrellas en una noche despejada sin contaminación lumínica; la promesa divina usa deliberadamente una imagen de magnitud que supera lo contable, aunque muy por debajo de los cientos de miles de millones de estrellas reales de la Vía Láctea, desconocidas para el autor antiguo.`,
+    linguistico: `"Contar" (saphar) es la misma raíz de "sepher" (libro, relato) — Dios invita a Abram a un acto de numeración imposible que se convierte en acto de fe, no de cálculo.`,
+    tipologia: `Pablo cita este episodio en Romanos 4:18-22 como el paradigma por excelencia de la fe que se cuenta por justicia, antes y aparte de cualquier obra de la ley.`,
+    comentarios: `Calvino lo usó como texto fundacional de la justificación por la fe sola, notando que el versículo siguiente ("y crédolo a Jehová, y contóselo por justicia") antecede en siglos a la ley de Moisés.`,
+    referencia: `Romanos 4:18-22; Gálatas 3:6-9; Hebreos 11:12.`,
+  },
+
+  'Génesis_28_20': {
+    linguistico: `El voto condicional de Jacob no debe leerse como regateo irreverente sino como fórmula legal de pacto común en el antiguo Cercano Oriente, donde los términos de una relación se formalizaban explícitamente tras una experiencia decisiva.`,
+    historico: `Betel ("casa de Dios") se convirtió en santuario israelita recurrente (Jueces 20:18; 1 Samuel 10:3; posteriormente centro de culto cismático bajo Jeroboam I), desarrollo que algunos ven como ironía histórica del lugar donde Jacob hizo su voto más sincero.`,
+    comentarios: `Calvino interpretó el voto de Jacob como fe genuina aunque inmadura. Lutero destacó que Dios responde con gracia incluso a la fe débil y vacilante del patriarca.`,
+    referencia: `Génesis 35:1-7; Jueces 20:18; 1 Reyes 12:29.`,
+  },
+
+  'Génesis_37_3': {
+    costumbres: `Una túnica larga de mangas (ketonet passim) distinta a la ropa de trabajo de los demás hermanos pastores era, en el contexto social patriarcal, señal pública e inequívoca de favoritismo y estatus privilegiado, lo que explica la intensidad del resentimiento fraternal que seguirá.`,
+    linguistico: `"Ketonet passim" es de traducción incierta: puede referirse a color, a mangas largas, o a bordado decorativo; el mismo término se usa en 2 Samuel 13:18 para la vestidura de las hijas vírgenes del rey, sugiriendo una prenda de estatus, no de trabajo.`,
+    tipologia: `El favoritismo paterno, el rechazo de sus hermanos y la posterior exaltación de José en Egipto se leen tradicionalmente como tipo de Cristo: amado por el Padre, rechazado por los suyos, exaltado para salvación de muchos.`,
+    comentarios: `Agustín e Ireneo desarrollaron extensamente la tipología de José como figura de Cristo. Calvino señaló el favoritismo de Jacob como causa directa y evitable del conflicto familiar.`,
+    referencia: `2 Samuel 13:18; Génesis 37:4; Hechos 7:9-14.`,
+  },
+
+  'Génesis_39_9': {
+    linguistico: `La respuesta de José —"¿cómo, pues, haría yo este grande mal, y pecaría contra Dios?"— antepone la dimensión teológica del pecado a la dimensión social o contractual, orden de prioridades infrecuente en la literatura sapiencial del antiguo Cercano Oriente.`,
+    historico: `El motivo de la "mujer seductora que acusa falsamente al hombre justo que la rechaza" tiene paralelos literarios en el antiguo Egipto, como el "Cuento de los Dos Hermanos" (papiro D'Orbiney, c. 1200 a.C.), situando el relato dentro de convenciones narrativas egipcias conocidas.`,
+    comentarios: `Crisóstomo elogió la resistencia de José como modelo de integridad bajo presión y en soledad. Calvino destacó que José huye físicamente de la tentación en vez de confiar en su propia fuerza de voluntad.`,
+    referencia: `1 Corintios 10:13; 2 Timoteo 2:22; Proverbios 6:27-29.`,
+  },
+
+  'Éxodo_3_8': {
+    geografico: `La descripción de Canaán como tierra "que fluye leche y miel" refleja una economía agropastoril mixta —ganado para leche, y "miel" probablemente también jarabe espeso de dátiles e higos— en contraste con la agricultura dependiente del Nilo en Egipto.`,
+    linguistico: `La expresión se repite unas veinte veces en el Pentateuco como fórmula fija de descripción idealizada de la Tierra Prometida, casi un epíteto formulario más que descripción agronómica literal.`,
+    comentarios: `Calvino interpretó esta promesa como anticipo del descanso y la provisión que Dios reserva a su pueblo peregrino. Orígenes leyó la "leche y miel" alegóricamente como la doctrina elemental y la dulzura madura de la Escritura.`,
+    referencia: `Números 13:27; Deuteronomio 26:9; Hebreos 4:1-11.`,
+  },
+
+  'Éxodo_33_20': {
+    linguistico: `La respuesta divina a Moisés no es negativa absoluta sino distinción cuidadosa entre ver el "rostro" (presencia frontal plena) y ver "las espaldas" de Dios — concesión parcial otorgada inmediatamente después (Éxodo 33:21-23).`,
+    historico: `Esta tensión entre trascendencia divina inaccesible y deseo humano de intimidad con Dios contrasta con las representaciones antropomórficas directas y frecuentes de las divinidades en los mitos del antiguo Cercano Oriente vecino.`,
+    tipologia: `Juan 1:18 retoma esta tensión —"a Dios nadie le vio jamás"— para presentar a Cristo como la revelación plena y segura de Dios que Moisés no pudo recibir directamente.`,
+    comentarios: `Agustín reflexionó sobre la visión beatífica reservada para la vida venidera. Calvino subrayó que incluso la revelación parcial a Moisés fue un privilegio extraordinario, no otorgado a ningún otro profeta de la misma manera.`,
+    referencia: `Juan 1:18; Números 12:6-8; 1 Corintios 13:12.`,
+  },
+
+  'Levítico_26_12': {
+    linguistico: `"Andaré" (hithalakti) usa la misma forma verbal aplicada antes a la comunión de Enoc y Noé con Dios (Génesis 5:24; 6:9), pero ahora aplicada a toda la comunidad del pacto, prometiendo una presencia divina itinerante y relacional en medio del campamento.`,
+    tipologia: `2 Corintios 6:16 cita este versículo aplicándolo a la Iglesia como templo del Dios viviente, y Apocalipsis 21:3 retoma la misma fórmula como descripción culminante de la nueva creación.`,
+    comentarios: `Calvino vio en esta promesa el núcleo de la teología del pacto: no meras bendiciones materiales, sino la presencia relacional de Dios como el bien supremo. Agustín la conectó con la morada del Espíritu Santo en el creyente.`,
+    referencia: `2 Corintios 6:16; Apocalipsis 21:3; Éxodo 29:45.`,
+  },
+
+  'Jueces_21_25': {
+    historico: `Este versículo, que cierra el libro de los Jueces, funciona como resumen editorial retrospectivo del período (c. 1200-1050 a.C.), caracterizado por ausencia de liderazgo centralizado y violencia interna creciente.`,
+    linguistico: `La frase se repite casi idéntica en Jueces 17:6, formando un "inclusio" que enmarca los capítulos finales, sugiriendo crítica implícita de la ausencia de monarquía, preparando teológicamente la narrativa para 1 y 2 Samuel.`,
+    comentarios: `Calvino leyó este versículo como diagnóstico permanente de la condición humana sin autoridad y ley objetiva reconocida. Agustín vio en el caos de Jueces una ilustración de la "ciudad terrena" entregada a sus propios deseos.`,
+    referencia: `Jueces 17:6; Proverbios 21:2; Deuteronomio 12:8.`,
+  },
+
+  '2 Samuel_12_13': {
+    linguistico: `La brevedad extrema de la confesión de David —"pequé contra Jehová"— contrasta con la extensión y gravedad de su pecado narrado previamente, subrayando que el arrepentimiento genuino no requiere elocuencia sino reconocimiento sincero e inmediato.`,
+    historico: `La respuesta profética inmediata de Natán, junto con la consecuencia anunciada igualmente inmediata, ilustra que el perdón del pecado no anula necesariamente sus consecuencias temporales naturales.`,
+    tipologia: `Esta confesión se asocia tradicionalmente con la composición del Salmo 51, el salmo penitencial por excelencia, que desarrolla en forma poética la misma experiencia narrada aquí en prosa.`,
+    comentarios: `Agustín citó este episodio en sus discusiones sobre el arrepentimiento genuino frente al mero remordimiento. Calvino contrastó la respuesta de David con la de Saúl ante Samuel.`,
+    referencia: `Salmos 51 (título); 1 Samuel 15:24-25; 1 Juan 1:9.`,
+  },
+
+  '1 Reyes_19_4': {
+    historico: `El colapso emocional de Elías ocurre inmediatamente después de su mayor triunfo profético (la derrota de los profetas de Baal en el Carmelo), patrón de agotamiento posterior al éxito documentado en la experiencia de líderes bajo presión extrema.`,
+    linguistico: `"Basta ya, oh Jehová, quítame la vida" expresa agotamiento total, no necesariamente ideación suicida activa, sino la desesperación de quien ya no puede continuar con la carga de su misión.`,
+    comentarios: `Calvino trató este pasaje con sensibilidad pastoral, señalando que Dios responde primero con sueño, alimento y descanso físico antes que con reprensión. Spurgeon, que sufrió depresión en su propio ministerio, predicó sobre este pasaje como consuelo pastoral.`,
+    referencia: `1 Reyes 18:36-40; Jonás 4:3; Números 11:15.`,
+  },
+
+  '2 Reyes_6_17': {
+    linguistico: `La oración de Eliseo —"abre ahora sus ojos"— no pide un milagro físico nuevo sino la revelación de una realidad espiritual ya existente pero invisible para los ojos naturales del criado.`,
+    historico: `Dotán, escenario de este episodio, es el mismo lugar donde los hermanos de José lo vendieron siglos antes, vinculando dos episodios de providencia oculta tras apariencias de abandono, separados por unos setecientos años.`,
+    comentarios: `Calvino interpretó este episodio como enseñanza sobre la protección angelical invisible pero real. Agustín reflexionó sobre los "dos mundos" —visible e invisible— coexistiendo, con la fe como único órgano capaz de percibir el segundo.`,
+    referencia: `Génesis 37:17; 2 Reyes 6:16; Hebreos 1:14.`,
+  },
+
+  'Job_13_15': {
+    linguistico: `Este versículo presenta una de las variantes textuales más debatidas del Antiguo Testamento: el texto masorético tradicional (qetiv) literalmente dice "no esperaré", mientras la tradición de lectura (qere) lee "en él esperaré" — diferencia de una sola letra hebrea que invierte el sentido.`,
+    historico: `Independientemente de la lectura adoptada, el contexto deja claro que Job está decidido a defender su causa directamente ante Dios pese al riesgo mortal percibido, acto de audacia teológica notable en el género de lamento antiguo.`,
+    comentarios: `Calvino prefirió la lectura de confianza esperanzada, viéndolo como testimonio de fe que persiste incluso ante la posibilidad del juicio divino. Jerónimo, en la Vulgata, también optó por la lectura de esperanza.`,
+    referencia: `Job 19:25-27; Habacuc 3:17-18.`,
+  },
+
+  'Salmos_27_4': {
+    linguistico: `"Habitar" (shebet) implica residencia permanente, no visita ocasional; el salmista pide hacer de la presencia de Dios su domicilio existencial permanente, aspiración notable dado que ningún israelita común podía habitar literalmente dentro del recinto sagrado.`,
+    historico: `"Contemplar la hermosura de Jehová" usa vocabulario estético infrecuente en contextos cúlticos israelitas, donde predomina más el lenguaje de santidad y temor que el de contemplación estética gozosa.`,
+    comentarios: `Agustín citó este versículo en sus reflexiones sobre el anhelo del alma por la visión beatífica de Dios. Calvino lo interpretó como expresión del único deseo verdaderamente integrador de la vida del creyente.`,
+    referencia: `Salmos 84:1-2, 10; Salmos 42:1-2.`,
+  },
+
+  'Salmos_90_12': {
+    linguistico: `"Contar" (manah) es un término de contabilidad precisa, usado aquí no para calcular años restantes de forma mórbida sino para ganar "corazón de sabiduría" — la conciencia aguda de la finitud humana como fundamento de una vida sabia.`,
+    historico: `Este salmo, atribuido a "Moisés varón de Dios" en su título, refleja temáticamente la generación del desierto que murió sin entrar a la Tierra Prometida, dando trasfondo concreto a la meditación sobre la brevedad de la vida.`,
+    comentarios: `Calvino usó este versículo para argumentar que la contemplación seria de la mortalidad es el camino bíblico hacia la sabiduría práctica. Spurgeon predicó sobre la "aritmética celestial" de este salmo como antídoto contra la ilusión de inmortalidad.`,
+    referencia: `Números 14:26-35; Salmos 39:4-5; Santiago 4:14.`,
+  },
+
+  'Salmos_103_12': {
+    cientifico: `La elección de "oriente-occidente" (en vez de "norte-sur") para expresar distancia infinita es geométricamente precisa: norte y sur son puntos fijos y finitos en la superficie terrestre, mientras oriente y occidente son direcciones que se persiguen indefinidamente alrededor de la esfera sin punto de encuentro.`,
+    linguistico: `El paralelismo hebreo compara la remoción del pecado con una separación direccional que nunca se encuentra, enfatizando la completitud absoluta —no meramente la magnitud— del perdón divino.`,
+    comentarios: `Spurgeon desarrolló esta imagen geográfica en su predicación pastoral sobre la seguridad del perdón. Calvino lo relacionó con Isaías 38:17 ("echaste tras tus espaldas todos mis pecados").`,
+    referencia: `Isaías 38:17; Miqueas 7:19; 1 Juan 1:9.`,
+  },
+
+  'Salmos_139_23': {
+    linguistico: `El salmo se mueve desde la afirmación de la omnisciencia divina (vv. 1-18) hasta esta invitación activa y vulnerable a esa misma omnisciencia escrutadora, transformando una doctrina potencialmente aterradora en petición de intimidad voluntaria.`,
+    historico: `Los versículos 19-22, inmediatamente anteriores, expresan deseo vehemente de juicio contra los enemigos de Dios, tensión interpretativa notable con la humildad autoexaminadora de los versículos 23-24.`,
+    comentarios: `Calvino advirtió que esta oración solo es sincera cuando sigue —no precede— a un examen honesto del propio pecado. Agustín la usó extensamente en sus "Confesiones" como modelo de introspección radical ante Dios.`,
+    referencia: `Salmos 139:1-6; Salmos 19:12; 2 Corintios 13:5.`,
+  },
+
+  'Proverbios_18_10': {
+    arquitectonico: `La imagen de la "torre fuerte" (migdal-oz) evoca las torres de vigilancia y refugio fortificadas de la Edad del Hierro, documentadas arqueológicamente en sitios como Laquis y Meguido, a las que la población podía correr en caso de ataque súbito.`,
+    linguistico: `"El nombre de Jehová" en el pensamiento hebreo no es una simple etiqueta sino que representa el carácter y la autoridad completa de la persona.`,
+    comentarios: `Calvino contrastó esta "torre fuerte" con la "ciudad fortificada" de las riquezas del necio del versículo siguiente. Spurgeon predicó sobre esta imagen como refugio práctico y accesible en cualquier momento de crisis.`,
+    referencia: `Proverbios 18:11; Salmos 61:3; Nahúm 1:7.`,
+  },
+
+  'Proverbios_29_18': {
+    linguistico: `"Visión" (chazon) no se refiere primariamente a predicción futura sino a revelación divina autorizada que orienta la vida moral; "se desenfrena" (para) es la misma raíz usada para el pueblo "desenfrenado" en el episodio del becerro de oro.`,
+    historico: `Este proverbio refleja la convicción de que la revelación profética cumplía una función social y moral indispensable; su ausencia se asociaba directamente con el colapso del orden ético comunitario.`,
+    comentarios: `Calvino aplicó este principio a la predicación fiel de la Palabra como necesidad social, no solo eclesiástica. Es uno de los proverbios más citados en contextos de reforma social y avivamiento.`,
+    referencia: `Éxodo 32:25; Amós 8:11; Oseas 4:6.`,
+  },
+
+  'Cantares_1_15': {
+    linguistico: `Este es el primero de varios intercambios antifonales de admiración mutua entre los amantes, patrón de "wasf" (descripción admirativa recíproca) documentado en la poesía amorosa del antiguo Cercano Oriente.`,
+    historico: `La comparación "ojos de paloma" aparece repetidamente en el Cantar y refleja una convención poética antigua donde la paloma simbolizaba pureza, fidelidad y ternura.`,
+    comentarios: `Orígenes leyó estos intercambios como diálogo entre Cristo y el alma o la Iglesia. Bernardo de Claraval desarrolló esta tradición en sus sermones místicos, mientras Calvino equilibró la lectura alegórica con el sentido literal del amor conyugal.`,
+    referencia: `Cantares 4:1; 5:12; Efesios 5:25-33.`,
+  },
+
+  'Isaías_30_21': {
+    linguistico: `"Por detrás" sugiere la voz de un guía cercano e inmediato, casi susurrada al oído desde atrás, imagen de dirección íntima y constante, contraste con la experiencia previa de "pan de angustia y agua de aflicción".`,
+    historico: `Este oráculo se sitúa en la crisis asiria del siglo VIII a.C., cuando Judá, tentada a buscar alianzas con Egipto en vez de confiar en Dios, recibe la promesa de guía divina directa en medio del castigo merecido.`,
+    comentarios: `Calvino interpretó esta promesa como paradigma de la guía interior del Espíritu Santo. Agustín la relacionó con la voz interior de la conciencia iluminada por la gracia.`,
+    referencia: `Isaías 30:1-7; Juan 10:27; Salmos 32:8.`,
+  },
+
+  'Isaías_40_8': {
+    linguistico: `El contraste entre la hierba que se seca y la palabra divina que "permanece" (literalmente "se levanta, se mantiene en pie") usa vocabulario agrícola cotidiano para expresar permanencia trascendente frente a la fragilidad natural.`,
+    historico: `Este versículo abre la sección de "consolación" de Isaías (40-66), dirigida a una audiencia exiliada en Babilonia, para quienes la permanencia de la palabra divina frente a la caducidad de imperios tenía implicaciones inmediatas.`,
+    comentarios: `Pedro cita este versículo textualmente en 1 Pedro 1:24-25, aplicándolo al evangelio predicado. Lutero lo usó como fundamento de la autoridad imperecedera de la Escritura frente a toda tradición humana cambiante.`,
+    referencia: `1 Pedro 1:24-25; Mateo 24:35.`,
+  },
+
+  'Isaías_43_19': {
+    linguistico: `"Cosa nueva" en el contexto profético no significa simplemente "diferente" sino una intervención divina sin precedente que supera incluso los grandes actos redentores pasados ("no os acordéis de las cosas pasadas").`,
+    historico: `Este oráculo, dirigido a los exiliados en Babilonia, promete un "nuevo éxodo" que recapitula el lenguaje del éxodo original de Egipto, pero orientado hacia adelante, como paradigma de la acción redentora futura.`,
+    comentarios: `Calvino interpretó esta promesa como principio general de la obra providencial de Dios, que actúa con libertad creativa renovada en cada generación. La tradición cristiana ha visto en este "nuevo éxodo" prefiguración de la redención en Cristo.`,
+    referencia: `Isaías 43:16-18; 2 Corintios 5:17; Apocalipsis 21:5.`,
+  },
+
+  'Lamentaciones_3_23': {
+    linguistico: `"Nuevas cada mañana" describe la misericordia divina no como reserva fija que se agota, sino como provisión renovada diariamente, imagen que recuerda al maná del desierto, recogido fresco cada mañana sin poder almacenarse.`,
+    historico: `Este es uno de los pasajes de esperanza más luminosos del libro de Lamentaciones; su ubicación en el centro exacto del libro sugiere colocación literaria deliberada como punto de inflexión teológico en medio del lamento.`,
+    comentarios: `Calvino destacó la paradoja de que esta declaración de fe surge precisamente del contexto de mayor devastación nacional. Spurgeon predicó sobre la "fidelidad matutina" de Dios como fundamento práctico para cada nuevo día de dificultad.`,
+    referencia: `Éxodo 16:19-21; Lamentaciones 3:22-24; Salmos 30:5.`,
+  },
+
+  'Ezequiel_11_19': {
+    linguistico: `El contraste entre "corazón de piedra" y "corazón de carne" no opone dureza moral a blandura sentimental, sino insensibilidad espiritual total a receptividad viva y responsiva.`,
+    tipologia: `Esta promesa, repetida con mayor desarrollo en Ezequiel 36:26-27, se interpreta como anticipo profético de la regeneración obrada por el Espíritu Santo, superando la mera reforma externa de conducta bajo la ley mosaica.`,
+    comentarios: `Calvino citó este pasaje, junto con Ezequiel 36, como fundamento veterotestamentario de la regeneración como obra soberana de Dios. Agustín lo usó de modo similar en su polémica contra el pelagianismo.`,
+    referencia: `Ezequiel 36:26-27; Jeremías 31:33; 2 Corintios 3:3.`,
+  },
+
+  'Daniel_1_8': {
+    historico: `La dieta real babilónica ofrecida a los jóvenes judíos probablemente incluía carne no sacrificada conforme a las leyes levíticas, posiblemente ofrecida previamente a ídolos, lo que convertía su aceptación en acto de asimilación religiosa, no solo culinaria.`,
+    linguistico: `"Propuso en su corazón" describe una decisión interior deliberada y anticipada, tomada antes de que la presión externa se manifestara plenamente.`,
+    comentarios: `Calvino elogió esta decisión temprana como modelo de preparación espiritual anticipada frente a la tentación previsible. El episodio se usa ampliamente como paradigma de integridad en contextos culturales hostiles, sin confrontación agresiva (Daniel negocia respetuosamente, 1:8-14).`,
+    referencia: `Daniel 1:9-16; 1 Corintios 10:31; Romanos 12:2.`,
+  },
+
+  'Oseas_4_6': {
+    linguistico: `"Conocimiento" (da'at) no denota información abstracta sino relación experiencial íntima, el mismo término usado para la intimidad conyugal (Génesis 4:1) — el pueblo carece de una relación viva con Yahvé, tema central de la metáfora matrimonial que estructura el libro.`,
+    historico: `El versículo acusa a los sacerdotes de fallar en su función pedagógica fundamental de enseñar la Torá, situando la responsabilidad del colapso moral nacional en el liderazgo religioso institucional, no solo en el pueblo llano.`,
+    comentarios: `Calvino usó este pasaje para argumentar la responsabilidad primaria del ministerio pastoral en la instrucción doctrinal fiel. Spurgeon lo predicó como llamado a la educación bíblica sistemática.`,
+    referencia: `Levítico 10:11; Deuteronomio 33:10; Mateo 23:13.`,
+  },
+
+  'Joel_2_25': {
+    cientifico: `Las plagas de langosta del desierto (Schistocerca gregaria) son un fenómeno entomológico real: un enjambre puede alcanzar densidades de hasta 80 millones de individuos por km² y devorar su propio peso en vegetación diariamente.`,
+    linguistico: `El texto nombra cuatro etapas o especies de langosta (gazam, arbeh, yeleq, chasil) en Joel 1:4, posiblemente describiendo fases sucesivas de una sola plaga, reforzando la imagen de pérdida agrícola total y prolongada.`,
+    tipologia: `La promesa de "restitución de los años" se interpreta como paradigma de la restauración espiritual y material que Dios ofrece tras un período de disciplina o consecuencias del pecado.`,
+    comentarios: `Calvino interpretó esta promesa primariamente en su sentido histórico-agrícola literal. La predicación pastoral posterior la ha aplicado ampliamente a la restauración de tiempo y oportunidades perdidas por el pecado personal.`,
+    referencia: `Joel 1:4; Éxodo 10:4-15; Hechos 2:16-21.`,
+  },
+
+  'Amós_8_11': {
+    linguistico: `El profeta compara dos tipos de carencia —hambre y sed literales versus ausencia de revelación profética auténtica— argumentando que la segunda es calamidad más severa, invirtiendo la escala de valores de una sociedad agrícola donde el hambre física era el peor desastre imaginable.`,
+    historico: `Este oráculo contra el Reino del Norte, pronunciado en prosperidad bajo Jeroboam II, advierte que el silencio profético divino sería la forma final y más devastadora del juicio, cumplido efectivamente en el período intertestamentario tras Malaquías.`,
+    comentarios: `Calvino interpretó este "hambre de la palabra" como la condición espiritual más temible que puede sufrir una nación o iglesia, peor que la persecución abierta.`,
+    referencia: `Proverbios 29:18; 1 Samuel 3:1; Mateo 4:4.`,
+  },
+
+  'Abdías_1_17': {
+    tipologia: `Este oráculo de esperanza, tras el extenso juicio contra Edom, establece un contraste central del Antiguo Testamento: el juicio contra las naciones opresoras coexiste con la preservación fiel de un "remanente" del propio pueblo de Dios.`,
+    historico: `Abdías es el libro más breve del Antiguo Testamento (21 versículos), dedicado casi en su totalidad al juicio contra Edom por su complicidad en la caída de Jerusalén, concluyendo con esta nota de esperanza para Sión.`,
+    comentarios: `Calvino le dedicó un comentario completo, destacando la justicia retributiva divina equilibrada con la fidelidad a sus promesas de preservación. Pablo retoma el concepto del "remanente" en Romanos 9-11.`,
+    referencia: `Romanos 11:5; Isaías 10:20-22; Joel 2:32.`,
+  },
+
+  'Miqueas_7_18': {
+    linguistico: `El nombre del profeta, "Miqueas" (Mikayahu), significa "¿quién como Yahvé?" — juego de palabras deliberado entre el nombre del profeta y esta pregunta retórica climática que cierra su libro.`,
+    historico: `Este himno final contrasta con el tono predominantemente de juicio del resto del libro de Miqueas, contemporáneo de Isaías, situando la misericordia divina como última palabra tras capítulos de denuncia.`,
+    comentarios: `Calvino destacó que este himno celebra precisamente la disposición divina a perdonar lo que merece condenación. La imagen de Miqueas 7:19 se ha convertido en expresión clásica del perdón divino en la liturgia judía y cristiana.`,
+    referencia: `Miqueas 7:19; Salmos 103:12; Éxodo 34:6-7.`,
+  },
+
+  'Malaquías_3_10': {
+    historico: `El "alfolí" era la cámara de almacenamiento del Templo donde se recogían los diezmos en especie destinados al sostén de los levitas y sacerdotes que, al no poseer herencia territorial propia, dependían completamente de esta provisión.`,
+    linguistico: `La invitación divina a "probarme ahora en esto" es inusual en el discurso profético, donde normalmente se prohíbe "tentar a Dios"; aquí, excepcionalmente, Dios invita a un tipo específico de prueba de fe relacionada con la fidelidad material.`,
+    comentarios: `Calvino interpretó este pasaje en su contexto histórico de negligencia hacia el culto restaurado postexílico, con cautela respecto a aplicaciones de "prosperidad garantizada". Lutero advirtió contra lecturas mecanicistas como fórmula de enriquecimiento.`,
+    referencia: `Números 18:20-24; Nehemías 13:10-12; 2 Corintios 9:6-7.`,
+  },
+
+  'Mateo_6_6': {
+    costumbres: `Las casas comunes de la Galilea del siglo I solían tener una pequeña cámara de almacenamiento sin ventanas al exterior; la instrucción de Jesús evoca un lugar literalmente apartado de la vista pública, contraste con orar ostentosamente "en las esquinas de las calles".`,
+    linguistico: `El contraste entre la recompensa pública inmediata de los hipócritas y la recompensa divina diferida estructura este pasaje y los siguientes sobre el ayuno y la limosna, formando una tríada sobre la piedad auténtica versus la religiosidad teatral.`,
+    comentarios: `Crisóstomo predicó contra la ostentación religiosa de su época. Calvino aclaró que Jesús no prohíbe la oración pública o comunitaria, sino la motivación de búsqueda de reconocimiento humano.`,
+    referencia: `Mateo 6:1-18; Hechos 2:42.`,
+  },
+
+  'Marcos_11_24': {
+    linguistico: `El tiempo verbal griego ("creed que lo recibisteis", aoristo) sugiere una fe que se apropia del cumplimiento como si ya hubiera ocurrido en el momento mismo de la petición, antes de la manifestación visible.`,
+    historico: `Este dicho se sitúa inmediatamente después del episodio de la higuera maldecida que se secó, milagro que sirve como ilustración objetiva visible del principio de fe que Jesús enseña a continuación.`,
+    comentarios: `Calvino advirtió contra lecturas que convierten esta promesa en garantía incondicional, subrayando —en armonía con 1 Juan 5:14— que la fe genuina está alineada con el carácter y propósitos de Dios, no es fórmula mágica independiente.`,
+    referencia: `Marcos 11:25; 1 Juan 5:14-15; Santiago 1:6-7.`,
+  },
+
+  'Lucas_1_37': {
+    linguistico: `Esta declaración usa una construcción griega que literalmente dice "ninguna palabra (rhema) será imposible para Dios" — "palabra" funciona como sinónimo de "cosa, asunto", hebraísmo que revela la influencia del pensamiento semítico en la redacción griega de Lucas.`,
+    historico: `Esta afirmación ecoa deliberadamente Génesis 18:14, pronunciada en el anuncio del nacimiento de Isaac a la anciana estéril Sara, estableciendo un paralelo entre dos nacimientos milagrosos que inauguran etapas decisivas de la historia de la salvación.`,
+    comentarios: `Calvino destacó que esta declaración es una promesa pastoral concreta dirigida a fortalecer la fe de María, confirmada inmediatamente por el testimonio tangible del embarazo de Elisabet.`,
+    referencia: `Génesis 18:14; Lucas 1:36; Jeremías 32:17, 27.`,
+  },
+
+  'Lucas_9_23': {
+    historico: `La crucifixión romana era un método de ejecución tan brutal y públicamente humillante que "tomar la cruz" habría evocado en los oyentes originales una imagen visceral de muerte vergonzosa, no la connotación piadosa y abstracta que el término adquirió posteriormente.`,
+    linguistico: `La adición de "cada día", presente únicamente en Lucas (ausente en Mateo 16:24 y Marcos 8:34), transforma el llamado al discipulado de un acto único y dramático a una disciplina continua sostenida en la vida ordinaria.`,
+    comentarios: `Bonhoeffer, en "El Precio de la Gracia", desarrolló este llamado contrastándolo con la "gracia barata". Calvino interpretó la "cruz diaria" como la suma de aflicciones y oposición que acompañan la vida cristiana fiel en un mundo hostil.`,
+    referencia: `Mateo 16:24; Marcos 8:34; Gálatas 2:20.`,
+  },
+
+  'Juan_8_36': {
+    linguistico: `El verbo "libertare" y el sustantivo "libres" comparten la misma raíz griega, enfatizando mediante repetición que la libertad concedida por el Hijo es cualitativamente completa, en contraste con la falsa seguridad de los interlocutores judíos que afirmaban nunca haber sido esclavos de nadie.`,
+    historico: `Esta declaración se produce durante la Fiesta de los Tabernáculos en Jerusalén, donde Jesús confronta la identidad étnico-religiosa basada en la descendencia de Abraham como garantía automática de libertad espiritual.`,
+    comentarios: `Lutero citó este versículo extensamente en "De la Libertad del Cristiano" (1520). Agustín distinguió entre la libertad de elección y la libertad moral genuina (liberación del dominio del pecado), que este versículo promete.`,
+    referencia: `Juan 8:31-34; Romanos 6:17-18, 22; Gálatas 5:1.`,
+  },
+
+  'Juan_15_16': {
+    linguistico: `La estructura griega enfática invierte deliberadamente el orden esperado en las relaciones discípulo-maestro del mundo grecorromano y rabínico, donde típicamente era el aspirante a discípulo quien buscaba y elegía a su maestro.`,
+    historico: `Este dicho se enmarca en el discurso de la vid y los pámpanos, pronunciado durante la última cena, estableciendo la elección y el "fruto permanente" de los discípulos como fundamento relacional de su futura misión apostólica.`,
+    comentarios: `Calvino se apoyó extensamente en este versículo para su doctrina de la elección divina incondicional. Agustín desarrolló un argumento similar contra el pelagianismo, citando este texto como evidencia de la prioridad de la gracia.`,
+    referencia: `Juan 15:1-8; Efesios 1:4; Romanos 9:11-16.`,
+  },
+
+  'Hechos_4_13': {
+    linguistico: `"Sin letras" no significa analfabetos, sino carentes de formación rabínica formal especializada; "del vulgo" (idiotai) describe a hombres comunes sin credenciales institucionales religiosas reconocidas.`,
+    historico: `El asombro del Sanedrín ante la elocuencia de Pedro y Juan, galileos sin entrenamiento rabínico formal, contrasta con el patrón social esperado de autoridad religiosa en el judaísmo del Segundo Templo.`,
+    comentarios: `Calvino destacó que el reconocimiento de que "habían estado con Jesús" es la verdadera explicación del fenómeno. Se cita como precedente de que la eficacia ministerial no depende exclusivamente de la credencial académica formal.`,
+    referencia: `Hechos 4:13 (segunda mitad); 1 Corintios 1:27; Mateo 11:25.`,
+  },
+
+  'Romanos_12_12': {
+    linguistico: `Los tres participios griegos imperativos forman una tríada rítmica que resume la actitud cristiana ante tres dimensiones temporales distintas: la esperanza orientada al futuro, la tribulación en el presente, y la oración como disciplina sostenida que las conecta.`,
+    historico: `Este versículo se sitúa en la sección ética práctica de Romanos (12-15), que sigue a la extensa exposición doctrinal de los capítulos 1-11, ilustrando el patrón paulino de fundamentar la exhortación moral en la doctrina previamente establecida.`,
+    comentarios: `Calvino observó que estas tres virtudes son simultáneas y mutuamente sostenidas: la oración constante permite la paciencia sostenida sin perder el gozo fundamentado en la esperanza.`,
+    referencia: `Romanos 5:3-5; 1 Tesalonicenses 5:16-18; Santiago 1:2-4.`,
+  },
+
+  '2 Corintios_4_16': {
+    linguistico: `El contraste entre "hombre exterior" y "hombre interior" no refleja dualismo platónico, sino distinción paulina entre la existencia física mortal sujeta al deterioro y la vida espiritual renovada por el Espíritu, que progresa a través de esas aflicciones.`,
+    historico: `Este pasaje se escribe en el contexto de las severas dificultades físicas y persecuciones que Pablo describe en 2 Corintios, dando peso autobiográfico concreto a la afirmación de que el "hombre exterior" se desgasta.`,
+    comentarios: `Calvino encontró en este versículo consuelo pastoral para creyentes que envejecen o sufren enfermedad crónica. C.S. Lewis reflexionó sobre esta misma paradoja en sus escritos sobre el sufrimiento y la vejez.`,
+    referencia: `2 Corintios 4:17-18; 2 Corintios 11:23-27; Efesios 3:16.`,
+  },
+
+  'Gálatas_5_1': {
+    historico: `Este llamado se dirige contra los "judaizantes" que insistían en que los conversos gentiles debían circuncidarse y observar la ley mosaica, controversia central de la epístola, resuelta formalmente en el Concilio de Jerusalén (Hechos 15).`,
+    linguistico: `"Estad firmes" es un imperativo militar usado para un soldado manteniendo su posición en la línea de batalla, imagen que transforma la libertad cristiana en una posición activa que requiere vigilancia continua.`,
+    comentarios: `Lutero consideró Gálatas central para su teología de la justificación por fe. Calvino señaló que la libertad cristiana no es licencia moral, sino liberación específica de la obligación de la ley ceremonial como medio de justificación.`,
+    referencia: `Hechos 15; Gálatas 5:13; Juan 8:36.`,
+  },
+
+  'Efesios_3_20': {
+    linguistico: `La acumulación griega "mucho más abundantemente" (hyperekperissou) es un superlativo compuesto triple, posiblemente acuñado o rarísimo fuera de este uso paulino, intento lingüístico de expresar una magnitud que excede el vocabulario normal disponible.`,
+    historico: `Este versículo culmina la primera mitad doctrinal de Efesios (1-3) con una doxología que recapitula los grandes temas teológicos previos antes de pasar a la sección ética práctica de los capítulos 4-6.`,
+    comentarios: `Calvino encontró en este versículo fundamento para una oración audaz, dado que el poder que obra en el creyente excede cualquier petición concebible. Es uno de los textos más citados en bendiciones litúrgicas de cierre.`,
+    referencia: `Efesios 1:19-20; Efesios 3:16; Judas 1:24-25.`,
+  },
+
+  'Colosenses_3_2': {
+    linguistico: `"Poned la mira" (phroneite) no describe un acto mental ocasional sino una orientación habitual y sostenida —la misma raíz usada para la "mente de Cristo" en Filipenses 2:5— disciplina continua, no simple pensamiento piadoso pasajero.`,
+    historico: `Este mandato se fundamenta en la realidad teológica previamente establecida ("si habéis resucitado con Cristo"), patrón paulino de derivar la ética práctica directamente de la identidad teológica ya establecida en la unión con Cristo.`,
+    comentarios: `Calvino aclaró que este mandato no promueve el desprecio ascético de las responsabilidades terrenales legítimas, sino su correcta subordinación bajo la perspectiva eterna. Agustín desarrolló un principio similar en su distinción entre "usar" y "disfrutar" las cosas terrenales.`,
+    referencia: `Colosenses 3:1; Filipenses 3:19-20; Mateo 6:33.`,
+  },
+
+  '2 Pedro_3_18': {
+    linguistico: `"Creced" es un imperativo presente que denota proceso continuo; el crecimiento conjunto "en gracia y conocimiento" rechaza implícitamente toda dicotomía entre espiritualidad experiencial y solidez teológica como caminos alternativos de madurez.`,
+    historico: `Este es el versículo final de la última epístola de Pedro, funcionando como testamento pastoral que resume la preocupación central de ambas epístolas: fidelidad doctrinal frente a falsos maestros combinada con crecimiento espiritual continuo.`,
+    comentarios: `Calvino observó que Pedro vincula "gracia" y "conocimiento" como inseparables: el conocimiento sin gracia se vuelve árido intelectualismo, mientras la gracia sin conocimiento sólido queda expuesta al engaño.`,
+    referencia: `2 Pedro 1:5-8; 2 Pedro 3:16-17; Efesios 4:14-15.`,
+  },
+
+  '1 Juan_5_4': {
+    linguistico: `"Vence" y "victoria" comparten la misma raíz griega de la que deriva el nombre propio "Nike", coincidencia que ilustra la persistencia del vocabulario griego clásico de triunfo en el lenguaje del Nuevo Testamento.`,
+    historico: `Juan escribe en un contexto de disputa con maestros gnósticos incipientes que negaban la encarnación plena de Cristo y promovían un dualismo que despreciaba el mundo material; la "victoria sobre el mundo" no es escapismo ascético, sino triunfo moral sobre el sistema hostil a Dios.`,
+    comentarios: `Calvino interpretó esta "victoria" como certeza de la victoria final garantizada por el nuevo nacimiento. Lutero, marcado por su lucha interior contra la duda, encontró consuelo repetido sobre la base objetiva del nuevo nacimiento.`,
+    referencia: `1 Juan 4:2-4; Juan 16:33; Apocalipsis 12:11.`,
+  },
+
+  '1 Juan_4_18': {
+    linguistico: `"Echa fuera" (ballei exo) es un verbo enérgico que literalmente significa "arroja, expulsa violentamente hacia afuera" — no ausencia pasiva de temor, sino acción activa de desplazamiento.`,
+    historico: `Este versículo se sitúa en el contexto de la seguridad cristiana ante el juicio final ("para que tengamos confianza en el día del juicio"); el "temor" que el amor expulsa es específicamente el temor al castigo divino, no toda forma de temor humano saludable.`,
+    comentarios: `Agustín distinguió entre el "temor servil" (que el amor perfecto expulsa) y el "temor filial" (reverencia amorosa, que permanece y crece). Calvino advirtió contra aplicar este versículo eliminando toda reverencia apropiada hacia la santidad divina.`,
+    referencia: `1 Juan 4:17; Romanos 8:15; 2 Timoteo 1:7.`,
+  },
+
+  'Judas_1_24': {
+    linguistico: `"Sin caída" (aptaistous) es un término raro, usado en la literatura extrabíblica contemporánea para describir a un atleta que no tropieza durante una carrera, imagen que complementa el llamado previo a "contender ardientemente por la fe" (Judas 1:3).`,
+    historico: `Esta doxología final funciona como contrapeso teológico al tono predominantemente polémico del resto de la breve epístola, dedicada a denunciar a falsos maestros infiltrados en la comunidad.`,
+    comentarios: `Calvino encontró en esta doxología un equilibrio pastoral: la vigilancia doctrinal y moral se complementa con la confianza final en que la perseverancia depende últimamente del poder preservador de Dios, no solo de la determinación humana.`,
+    referencia: `Judas 1:3; Filipenses 1:6; 1 Pedro 1:5.`,
+  },
+
+  'Hechos_17_11': {
+    historico: `Berea era una ciudad secundaria de Macedonia, menos prominente que Tesalónica (de donde Pablo y Silas habían huido poco antes); el autor de Hechos contrasta explícitamente la actitud "más noble" de los judíos bereanos frente a la hostilidad violenta en Tesalónica.`,
+    linguistico: `"Escudriñaban" (anakrinontes) es un término técnico de contextos legales griegos para la investigación cuidadosa de evidencia — los bereanos someten la predicación apostólica a verificación independiente contra el texto bíblico ya conocido, "cada día".`,
+    comentarios: `Calvino elogió este modelo bereano como paradigma de la relación correcta entre la predicación humana y la autoridad final de la Escritura. Es fundamento bíblico clásico para la práctica protestante del estudio bíblico personal.`,
+    referencia: `Hechos 17:5-10; 1 Tesalonicenses 5:21; 2 Timoteo 2:15.`,
+  },
+
+  'Romanos_10_17': {
+    linguistico: `La repetición deliberada de "oír" en ambas cláusulas enfatiza la cadena causal secuencial: sin predicador no hay predicación, sin predicación no hay oír, sin oír no hay fe — la proclamación verbal externa, no la iluminación mística aislada, como medio ordinario de la fe salvadora.`,
+    historico: `Este versículo culmina el argumento de Pablo sobre la necesidad de la misión evangelística activa, fundamentando teológicamente la urgencia práctica de la proclamación misionera que caracterizó su propio ministerio.`,
+    comentarios: `Calvino y los reformadores dieron peso enorme a este versículo como fundamento de la "predicación de la Palabra" como medio de gracia ordinario. Lutero compartió esta convicción, considerando la predicación oral viva como central e irremplazable.`,
+    referencia: `Romanos 10:14-15; Gálatas 3:2, 5; 1 Corintios 1:21.`,
+  },
+
 };
