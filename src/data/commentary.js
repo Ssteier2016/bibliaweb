@@ -5558,4 +5558,358 @@ export const COMMENTARY = {
     referencia: `Romanos 10:14-15; Gálatas 3:2, 5; 1 Corintios 1:21.`,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     QUINTO LOTE ADICIONAL — 50 VERSÍCULOS
+  ══════════════════════════════════════════════════════════════ */
+
+  'Génesis_18_14': {
+    linguistico: `La pregunta retórica "¿hay para Dios alguna cosa difícil?" usa una construcción hebrea que literalmente pregunta si algo puede ser "demasiado maravilloso/extraordinario" (yippale) para Jehová, vocabulario que reaparece siglos después en el anuncio angélico a María (Lucas 1:37).`,
+    historico: `Esta pregunta se dirige a Sara tras su risa incrédula al escuchar la promesa de un hijo en su vejez (Génesis 18:12), confirmando que Dios conocía su reacción interna no expresada en voz alta ante los visitantes.`,
+    comentarios: `Calvino observó que la risa de Sara no fue castigada con severidad, sino corregida con una pregunta que invita a la reflexión. Agustín usó este episodio como ejemplo de cómo la incredulidad humana inicial puede transformarse en fe madura, como lo confirma Hebreos 11:11.`,
+    referencia: `Lucas 1:37; Hebreos 11:11; Jeremías 32:17.`,
+  },
+
+  'Génesis_32_30': {
+    linguistico: `"Peniel" (Rostro de Dios) es un nombre etiológico que conmemora el encuentro; la declaración de Jacob —"vi a Dios cara a cara, y fue librada mi alma"— es notable porque contradice la expectativa posterior de Éxodo 33:20 de que ver el rostro de Dios significa la muerte.`,
+    historico: `Este episodio ocurre la noche antes del reencuentro de Jacob con Esaú, tras veinte años de exilio, funcionando narrativamente como preparación espiritual decisiva antes de una confrontación familiar temida.`,
+    comentarios: `Oseas 12:3-4 reinterpreta este episodio describiendo que Jacob "luchó con el ángel y prevaleció", vinculando la lucha física con un llanto de súplica. Calvino entendió este encuentro como una lucha de fe perseverante, no como combate físico literal entre iguales.`,
+    referencia: `Oseas 12:3-4; Génesis 32:24-28; Éxodo 33:20.`,
+  },
+
+  'Génesis_41_38': {
+    historico: `El reconocimiento de Faraón de que "el espíritu de Dios" está en José, un prisionero extranjero hebreo, para elevarlo inmediatamente al segundo puesto de autoridad en Egipto es notable dentro del rígido sistema jerárquico egipcio, documentado en fuentes egipcias contemporáneas que normalmente reservaban tales cargos a la nobleza nativa.`,
+    linguistico: `El término egipcio equivalente usado para el cargo de José, "visir" o similar a "zoser" en inscripciones egipcias, corresponde a la segunda autoridad del reino tras el faraón, confirmado arqueológicamente por títulos similares en papiros administrativos del Imperio Medio.`,
+    comentarios: `Calvino destacó que el reconocimiento de un faraón pagano hacia la obra del Espíritu de Dios en un siervo fiel ilustra que Dios puede usar a gentiles para confirmar y promover a sus escogidos. Agustín vio en la exaltación de José un anticipo de la exaltación de Cristo tras su humillación.`,
+    referencia: `Génesis 41:39-44; Salmos 105:17-22; Hechos 7:10.`,
+  },
+
+  'Éxodo_17_11': {
+    linguistico: `El texto usa un juego verbal explícito: "cuando Moisés alzaba su mano, Israel prevalecía; y cuando él bajaba su mano, prevalecía Amalec" — la correlación directa entre la postura de intercesión sostenida y el resultado de la batalla es el punto central del relato.`,
+    historico: `Esta batalla contra Amalec en Refidim, poco después del éxodo de Egipto, establece una enemistad entre Israel y Amalec que se extiende en la narrativa bíblica hasta la época de Saúl y Ester, siglos después.`,
+    comentarios: `Calvino interpretó las manos alzadas de Moisés, sostenidas por Aarón y Hur cuando se cansaba, como ilustración de la necesidad de apoyo mutuo en la intercesión comunitaria sostenida, no como fórmula mágica de victoria.`,
+    referencia: `Éxodo 17:14-16; 1 Samuel 15:2-3; Ester 3:1.`,
+  },
+
+  'Éxodo_19_5': {
+    linguistico: `"Especial tesoro" (am segulah) describe una posesión privada y preciada del rey, término usado en textos administrativos del antiguo Cercano Oriente para bienes reales reservados, aplicado aquí teológicamente a la relación exclusiva entre Israel y Yahvé.`,
+    historico: `Esta declaración se produce en el Sinaí inmediatamente antes de la entrega de los Diez Mandamientos, estableciendo el marco relacional de pacto condicional ("si oyereis mi voz") que precede y da sentido a toda la legislación mosaica siguiente.`,
+    comentarios: `Pedro retoma esta misma terminología en 1 Pedro 2:9 aplicándola a la Iglesia como "pueblo adquirido por Dios", extendiendo la identidad de pacto de Israel a la comunidad cristiana. Calvino vio continuidad teológica, no sustitución, entre ambos pasajes.`,
+    referencia: `1 Pedro 2:9; Deuteronomio 7:6; Tito 2:14.`,
+  },
+
+  'Números_14_18': {
+    linguistico: `Esta fórmula —"Jehová, tardo para la ira, y grande en misericordia"— cita casi textualmente la auto-revelación divina de Éxodo 34:6-7, convirtiéndose en una de las confesiones de fe más repetidas del Antiguo Testamento, citada o aludida en al menos una docena de pasajes posteriores.`,
+    historico: `Moisés invoca esta fórmula de misericordia divina precisamente para interceder por el perdón del pueblo tras la rebelión de los diez espías, mostrando cómo el carácter revelado de Dios se convierte en fundamento de la intercesión profética.`,
+    comentarios: `Calvino destacó que esta fórmula equilibra cuidadosamente la misericordia divina con la justicia ("y que de ningún modo tendrá por inocente al culpable"), evitando tanto el legalismo sin gracia como la gracia sin responsabilidad moral.`,
+    referencia: `Éxodo 34:6-7; Salmos 103:8; Joel 2:13; Jonás 4:2.`,
+  },
+
+  'Jueces_16_30': {
+    arquitectonico: `Los templos filisteos dedicados a Dagón, como el descrito en este episodio, se construían con techos sostenidos sobre dos columnas centrales de madera asentadas en bases de piedra, diseño arquitectónico documentado en excavaciones de templos filisteos en Tell Qasile, que confirma la plausibilidad estructural de que derribar dos columnas centrales colapsara todo el edificio.`,
+    historico: `Este acto final de Sansón, que mata a miles de filisteos reunidos para una celebración religiosa pública, culmina un ciclo narrativo de fuerza física extraordinaria combinada con debilidad moral y espiritual recurrente a lo largo de su historia.`,
+    comentarios: `Calvino interpretó la muerte de Sansón como juicio mixto: castigo merecido por su vida desordenada, pero también acto final de fe genuina, incluido en la lista de héroes de la fe de Hebreos 11:32, mostrando que la gracia divina no depende de la perfección moral del instrumento usado.`,
+    referencia: `Hebreos 11:32; Jueces 16:28; 1 Samuel 5:1-5.`,
+  },
+
+  '1 Samuel_1_27': {
+    linguistico: `El nombre "Samuel" (Shemu'el) se interpreta tradicionalmente como "oído por Dios" o "nombre de Dios", formando un juego de palabras deliberado con el verbo "oír" (shama) que domina el relato: Ana pidió, Jehová oyó, y el nombre del niño conmemora permanentemente esa respuesta.`,
+    historico: `El voto de Ana de dedicar a su hijo al servicio del santuario de Silo de por vida (1 Samuel 1:11) sigue el patrón del voto nazareo, documentado también para Sansón, mostrando una práctica religiosa israelita reconocida de consagración total de un hijo a Dios.`,
+    comentarios: `Calvino encontró en la oración de Ana —tanto su súplica (cap. 1) como su cántico de alabanza posterior (cap. 2)— un modelo paradigmático de oración perseverante respondida con gratitud, que anticipa temáticamente el cántico de María (Lucas 1:46-55).`,
+    referencia: `Lucas 1:46-55; Números 6:1-21; 1 Samuel 2:1-10.`,
+  },
+
+  '1 Reyes_8_27': {
+    arquitectonico: `El Templo de Salomón, con sus dimensiones de aproximadamente 27 por 9 metros según las medidas registradas en 1 Reyes 6, era modesto comparado con grandes templos contemporáneos de Egipto o Mesopotamia, lo que hace más notable la pregunta retórica de Salomón sobre la incapacidad de cualquier estructura, sin importar su tamaño, de "contener" a Dios.`,
+    historico: `Esta oración de dedicación, pronunciada en la ceremonia de inauguración del Templo (c. 950 a.C.), establece desde el inicio mismo del culto centralizado israelita una teología anti-idolátrica: el Templo es lugar de presencia simbólica y de oración, no una morada física literal que contenga a la divinidad.`,
+    comentarios: `Calvino citó esta oración extensamente contra toda forma de idolatría que confunde un objeto o lugar sagrado con la presencia divina misma. Esteban retoma un argumento similar en Hechos 7:48-50 al defender su predicación ante el Sanedrín.`,
+    referencia: `Hechos 7:48-50; Isaías 66:1; Jeremías 23:24.`,
+  },
+
+  '1 Reyes_17_14': {
+    historico: `Esta provisión milagrosa durante la hambruna anunciada por Elías (1 Reyes 17:1) beneficia específicamente a una viuda extranjera de Sarepta, en territorio fenicio fuera de Israel, patrón que Jesús cita explícitamente en Lucas 4:25-26 como ejemplo de la gracia divina extendida más allá de las fronteras étnicas de Israel.`,
+    linguistico: `La promesa —"la harina de la tinaja no escaseará, ni el aceite de la vasija disminuirá"— usa un lenguaje de provisión diaria renovada similar al del maná, enfatizando dependencia continua más que acumulación de riqueza.`,
+    comentarios: `Calvino destacó la fe de la viuda, que comparte su última comida con un extranjero desconocido antes de saber si la promesa se cumpliría. Jesús mismo elogia este episodio como evidencia de que la fe genuina a veces se encuentra fuera del pueblo del pacto visible.`,
+    referencia: `Lucas 4:25-26; 1 Reyes 17:8-16; Santiago 2:14-17.`,
+  },
+
+  '2 Reyes_20_5': {
+    historico: `Isaías, el mismo profeta que acababa de anunciar la muerte inminente de Ezequías (2 Reyes 20:1), regresa con un mensaje revisado tras la oración del rey, episodio que documenta la convicción bíblica de que la oración puede influir genuinamente en el curso de los decretos anunciados divinamente, sin contradecir la soberanía de Dios.`,
+    linguistico: `"He oído tu oración, he visto tus lágrimas" combina dos sentidos —oír y ver— para enfatizar que la respuesta divina atiende tanto a las palabras como a la angustia emocional no verbalizada completamente.`,
+    comentarios: `Calvino trató este episodio con cuidado teológico, explicando que Dios puede anunciar un juicio condicional (sujeto a implícita posibilidad de arrepentimiento) sin que ello implique cambio en su naturaleza inmutable, distinción similar a la aplicada al caso de Nínive en Jonás.`,
+    referencia: `Isaías 38:1-6; Jonás 3:10; Santiago 5:16.`,
+  },
+
+  '2 Reyes_22_8': {
+    historico: `El hallazgo de "el libro de la ley" durante reparaciones del Templo bajo Josías (c. 622 a.C.) —probablemente una copia de Deuteronomio perdida u olvidada tras décadas de apostasía bajo Manasés y Amón— desencadenó una reforma religiosa nacional de gran escala, episodio sin paralelo exacto documentado en otros reinos del antiguo Cercano Oriente respecto al redescubrimiento de un texto legal sagrado.`,
+    linguistico: `El verbo usado para "hallar" (matsa) sugiere un descubrimiento genuinamente inesperado, no una puesta en escena, consistente con el relato de que el sumo sacerdote Hilcías lo entrega directamente al escriba Safán sin preámbulo ceremonial.`,
+    comentarios: `Calvino usó este episodio para subrayar la importancia providencial de la preservación y redescubrimiento de las Escrituras incluso en períodos de abandono institucional casi total, paralelo que los reformadores aplicaron a su propia recuperación del texto bíblico tras siglos de tradición eclesiástica acumulada.`,
+    referencia: `2 Crónicas 34:14-21; 2 Reyes 23:1-3; Deuteronomio 31:24-26.`,
+  },
+
+  '1 Crónicas_16_34': {
+    linguistico: `Esta fórmula litúrgica —"Aleluya, porque él es bueno, porque su misericordia es para siempre"— se repite como estribillo en al menos una docena de salmos (105, 106, 107, 118, 136), funcionando como respuesta congregacional antifonal estandarizada en el culto israelita.`,
+    historico: `Este cántico se entona con ocasión del traslado del arca del pacto a Jerusalén bajo David, contexto litúrgico que el Cronista documenta con mayor detalle ceremonial que el relato paralelo en 2 Samuel 6.`,
+    comentarios: `Calvino observó que la repetición ritual de esta fórmula a través de generaciones no la volvió vacía, sino que reforzó una memoria colectiva de la fidelidad histórica de Dios, principio aplicable a la repetición litúrgica cristiana contemporánea.`,
+    referencia: `Salmos 106:1; Salmos 136:1; 2 Crónicas 5:13.`,
+  },
+
+  '2 Crónicas_20_15': {
+    historico: `Jehosafat enfrenta una coalición de tres naciones invasoras (moabitas, amonitas y meunitas) sin ejército preparado, respondiendo con ayuno nacional y oración pública antes de recibir, a través del profeta Jahaziel, la promesa de que la batalla no requeriría combate humano directo.`,
+    linguistico: `"No es vuestra la guerra, sino de Dios" establece un principio recurrente en las guerras de liberación del Antiguo Testamento, donde la victoria israelita se atribuye explícitamente a la intervención divina directa más que a la superioridad militar o estratégica.`,
+    comentarios: `Calvino usó este episodio para ilustrar que la oración y el ayuno comunitario preceden legítimamente a la intervención divina, sin que ello signifique pasividad total: Judá efectivamente marcha al campo de batalla, aunque termina encontrando únicamente destrucción mutua entre los invasores.`,
+    referencia: `2 Crónicas 20:17; Éxodo 14:14; 1 Samuel 17:47.`,
+  },
+
+  '2 Crónicas_30_9': {
+    historico: `Esta invitación de Ezequías a celebrar la Pascua extiende el llamado al arrepentimiento explícitamente a los sobrevivientes del ya caído Reino del Norte (deportado por Asiria en 722 a.C.), gesto de reunificación religiosa notable entre los dos reinos divididos desde Jeroboam I casi dos siglos antes.`,
+    linguistico: `"Clemente y misericordioso" (channun verachum) retoma directamente la fórmula de Éxodo 34:6, reforzando que la invitación al arrepentimiento se fundamenta en el carácter revelado de Dios, no en el mérito de quienes regresan.`,
+    comentarios: `Calvino destacó que este llamado se dirige a un pueblo ya castigado y disperso, mostrando que el juicio divino histórico no cierra la puerta a la restauración futura para quienes se vuelven a él genuinamente.`,
+    referencia: `Éxodo 34:6; 2 Crónicas 30:6; Oseas 14:1-2.`,
+  },
+
+  'Esdras_3_11': {
+    historico: `Este canto de acción de gracias acompaña la colocación de los cimientos del Segundo Templo (c. 536 a.C.), momento de alegría mezclada con el llanto de los ancianos que recordaban el Templo original de Salomón, destruido unos cincuenta años antes.`,
+    arquitectonico: `La colocación formal de cimientos con celebración litúrgica, documentada también en inscripciones de construcción de templos del antiguo Cercano Oriente, confirma que este tipo de ceremonia de fundación era práctica estándar de la región, no una innovación israelita exclusiva.`,
+    comentarios: `Calvino reflexionó sobre la mezcla de alegría y lamento descrita en Esdras 3:12-13 como ilustración de que la restauración espiritual genuina no borra automáticamente el dolor histórico, sino que ambos pueden coexistir en una misma comunidad de fe.`,
+    referencia: `Esdras 3:12-13; Hageo 2:3; Zacarías 4:10.`,
+  },
+
+  'Nehemías_2_18': {
+    historico: `La reconstrucción de los muros de Jerusalén bajo Nehemías (c. 445 a.C.), confirmada arqueológicamente por hallazgos de secciones de muralla de ese período en la Ciudad de David, se organizó mediante asignación de secciones específicas a familias y grupos, sistema de trabajo documentado detalladamente en Nehemías 3.`,
+    linguistico: `"Y ellos dijeron: Levantémonos y edifiquemos" usa un cohortativo hebreo de decisión colectiva inmediata, contrastando deliberadamente con generaciones anteriores que habían abandonado el proyecto por oposición externa (Esdras 4).`,
+    comentarios: `Calvino encontró en el liderazgo de Nehemías un modelo de organización práctica combinada con oración constante, mostrando que la fe genuina no excluye la planificación estratégica cuidadosa y la delegación eficiente de responsabilidades.`,
+    referencia: `Nehemías 2:17; Nehemías 4:6; Esdras 4:4-5.`,
+  },
+
+  'Ester_2_17': {
+    historico: `El ascenso de Ester a reina de Persia bajo Asuero (generalmente identificado con Jerjes I, 486-465 a.C.) se documenta con detalles del proceso de selección real —incluyendo períodos de preparación cosmética de hasta un año— confirmados por otras fuentes persas sobre el protocolo del harén real aqueménida.`,
+    linguistico: `El texto señala explícitamente que Ester halló "gracia y benevolencia" ante el rey "más que todas las demás", vocabulario de favor que anticipa temáticamente su papel decisivo posterior como intercesora por su pueblo.`,
+    comentarios: `Calvino, pese a no comentar extensamente el libro de Ester, reconoció en la elevación providencial de una huérfana judía exiliada a la posición de mayor influencia política del imperio persa un ejemplo claro de la providencia divina operando sin mención explícita del nombre de Dios en todo el libro.`,
+    referencia: `Ester 4:14; Ester 2:7; Proverbios 21:1.`,
+  },
+
+  'Job_28_28': {
+    cientifico: `Job 28 contiene una de las descripciones más detalladas de minería antigua en toda la literatura del Cercano Oriente antiguo: menciona la extracción de hierro, cobre, oro, plata, zafiros y topacio mediante túneles excavados profundamente en la roca, con iluminación artificial ("saca a luz lo escondido") — descripción consistente con minas de cobre documentadas arqueológicamente en el Sinaí y Timna, de la misma región geográfica.`,
+    linguistico: `Este versículo concluye el poema sobre la búsqueda de la sabiduría contrastándola con los metales preciosos descritos: toda la tecnología minera humana puede extraer gemas de las profundidades, pero no puede "extraer" la sabiduría, que solo se obtiene por el temor de Jehová.`,
+    comentarios: `Calvino destacó este contraste entre el ingenio técnico humano, capaz de penetrar las profundidades de la tierra, y su incapacidad total para alcanzar la sabiduría divina por mérito o esfuerzo propio, disponible únicamente mediante la reverencia piadosa.`,
+    referencia: `Proverbios 1:7; Proverbios 9:10; Job 28:1-11.`,
+  },
+
+  'Job_42_10': {
+    linguistico: `"Jehová restauró" (shuv, el mismo verbo de "volver, restaurar") describe no una simple compensación mecánica sino una reversión completa de la condición de Job, duplicando literalmente sus posesiones previas según el relato que sigue (Job 42:12).`,
+    historico: `Esta restauración ocurre explícitamente "cuando hubo orado por sus amigos" —los mismos que lo habían acusado falsamente durante treinta y siete capítulos— vinculando la restauración personal de Job con un acto previo de intercesión generosa hacia quienes lo ofendieron.`,
+    comentarios: `Calvino observó que Dios no restaura a Job hasta que este ora por sus amigos, mostrando que el perdón activo hacia quienes causaron dolor —no solo la resignación pasiva— puede preceder a la restauración plena en la experiencia del creyente.`,
+    referencia: `Job 42:7-9; Mateo 5:44; Mateo 6:14-15.`,
+  },
+
+  'Salmos_18_2': {
+    geografico: `Las imágenes acumuladas —"roca", "castillo", "fortaleza", "peñasco"— reflejan el terreno rocoso y montañoso característico de Judea, donde fortalezas naturales de piedra caliza servían efectivamente como refugios defensivos documentados arqueológicamente en sitios como Masada y En-Guedi.`,
+    linguistico: `La acumulación de hasta seis metáforas distintas de protección en un solo versículo es estilísticamente excepcional incluso dentro de la poesía hebrea, reforzando mediante redundancia deliberada la intensidad de la confianza expresada.`,
+    comentarios: `Calvino observó que David multiplica las imágenes de refugio no por pobreza de vocabulario sino para expresar la insuficiencia de cualquier metáfora individual ante la plenitud de la protección divina experimentada.`,
+    referencia: `2 Samuel 22:2-3; Salmos 62:2; Salmos 144:2.`,
+  },
+
+  'Salmos_42_11': {
+    linguistico: `Este versículo, repetido casi idéntico en Salmos 42:5 y 43:5, forma un estribillo que estructura el salmo (y posiblemente el salmo 43 como su continuación original) en secciones, mostrando un diálogo interno del salmista consigo mismo, reprendiendo su propia desesperación.`,
+    historico: `Este salmo se atribuye a "los hijos de Coré", familia de levitas cantores del Templo (1 Crónicas 6:31-48), y expresa un anhelo intenso por la adoración congregacional desde un contexto de exilio o separación forzada del santuario.`,
+    comentarios: `Spurgeon, que sufrió depresión severa a lo largo de su ministerio, predicó extensamente sobre este salmo como modelo de hablar a la propia alma en vez de simplemente escucharla, técnica que llamó "autopredicación" en momentos de desánimo.`,
+    referencia: `Salmos 42:5; Salmos 43:5; 1 Crónicas 6:31-48.`,
+  },
+
+  'Salmos_55_22': {
+    linguistico: `"Echa sobre Jehová tu carga" usa un verbo de transferencia física de peso (shalak, arrojar), imagen que Pedro retoma casi literalmente en 1 Pedro 5:7 usando el verbo griego equivalente de "arrojar sobre" como acto deliberado, no gradual.`,
+    historico: `Este salmo describe la traición de "un hombre de mi paz" (v. 20), probablemente un amigo cercano o consejero de David, posiblemente Ahitofel durante la rebelión de Absalón, dando un trasfondo histórico concreto y doloroso de traición íntima a la exhortación de confianza que sigue.`,
+    comentarios: `Calvino observó que la exhortación a "echar la carga" sobre Dios surge precisamente del contexto de la traición más dolorosa posible —la de un amigo cercano—, no de una dificultad abstracta o menor.`,
+    referencia: `1 Pedro 5:7; 2 Samuel 15:12; Salmos 41:9.`,
+  },
+
+  'Salmos_126_5': {
+    costumbres: `La imagen agrícola de "sembrar con lágrimas" refleja la práctica real de siembra en condiciones de escasez extrema tras años de sequía o guerra, cuando los agricultores debían sembrar el grano reservado para comer, arriesgando la subsistencia inmediata con la esperanza incierta de una cosecha futura.`,
+    historico: `Este salmo celebra el retorno del exilio babilónico ("cuando Jehová hizo volver la cautividad de Sion"), situando la metáfora agrícola de siembra dolorosa y cosecha gozosa dentro de la experiencia histórica concreta de restauración nacional tras el exilio.`,
+    comentarios: `Calvino aplicó este principio ampliamente a cualquier labor espiritual costosa —evangelización, intercesión, disciplina paterna— realizada con dolor presente pero con expectativa legítima de fruto futuro gozoso.`,
+    referencia: `Salmos 126:1-4; Gálatas 6:9; Juan 4:36.`,
+  },
+
+  'Proverbios_17_17': {
+    linguistico: `El paralelismo contrasta "amigo" (en todo tiempo) con "hermano" (para tiempo de angustia), sugiriendo que mientras la amistad genuina se prueba en la constancia cotidiana, el vínculo fraternal familiar se revela especialmente en la crisis.`,
+    historico: `En la estructura social israelita antigua, donde la familia extensa constituía la red de apoyo primaria, este proverbio reconoce que la amistad voluntaria puede en ocasiones superar en lealtad práctica al vínculo de parentesco obligatorio.`,
+    comentarios: `Calvino reflexionó sobre este proverbio como principio general de la providencia divina que provee compañía humana para sostener al creyente en la aflicción, sin que la amistad sustituya la confianza última en Dios.`,
+    referencia: `1 Samuel 18:1-3; Proverbios 18:24; Juan 15:13.`,
+  },
+
+  'Proverbios_31_30': {
+    linguistico: `"Vana" (sheqer) literalmente significa "falsedad, engaño" —no simplemente "temporal"— sugiriendo que la belleza física no solo se desvanece sino que puede activamente desorientar el juicio sobre el verdadero valor de una persona si se toma como criterio principal.`,
+    historico: `Este versículo cierra el poema acróstico hebreo sobre "la mujer virtuosa" (Proverbios 31:10-31), donde cada versículo comienza con una letra sucesiva del alfabeto hebreo, forma literaria que facilitaba la memorización de esta extensa descripción.`,
+    comentarios: `Calvino interpretó este contraste no como desprecio de la belleza física en sí, sino como advertencia contra hacer de ella el criterio de valoración central, en lugar del "temor de Jehová" como fundamento verdaderamente duradero del carácter.`,
+    referencia: `1 Pedro 3:3-4; Proverbios 31:10; 1 Samuel 16:7.`,
+  },
+
+  'Eclesiastés_1_9': {
+    linguistico: `"Nada hay nuevo debajo del sol" se repite como tema estructural de todo el libro (cf. 1:10; 2:12), introduciendo la perspectiva del "Predicador" (Qohelet) sobre la naturaleza cíclica de la experiencia humana observada desde una óptica puramente terrenal.`,
+    historico: `El Eclesiastés se distingue de otros libros sapienciales por adoptar deliberadamente, en buena parte de su argumento, la perspectiva limitada de la observación humana "debajo del sol", antes de apuntar en su conclusión (12:13-14) hacia el temor de Dios como respuesta final.`,
+    comentarios: `Calvino leyó este libro como un ejercicio deliberado de exponer la vanidad de buscar sentido último en los logros, el placer o el conocimiento puramente terrenales, preparando al lector para la conclusión teológica final del libro.`,
+    referencia: `Eclesiastés 12:13-14; Eclesiastés 2:11; Romanos 8:20.`,
+  },
+
+  'Eclesiastés_11_1': {
+    costumbres: `"Echa tu pan sobre las aguas" probablemente alude a prácticas de comercio marítimo de riesgo —enviar mercancía por barco sin garantía de retorno seguro— imagen económica concreta del mundo comercial antiguo, no una referencia agrícola literal a sembrar en agua.`,
+    linguistico: `El versículo siguiente (11:2) recomienda diversificar la inversión "entre siete, aun entre ocho", reforzando la lectura comercial/económica de este consejo sobre generosidad o inversión con riesgo calculado ante la incertidumbre del futuro.`,
+    comentarios: `Calvino interpretó este consejo como principio general sobre la generosidad que no espera garantías de retorno inmediato, aplicándolo tanto a la caridad práctica como a cualquier inversión de esfuerzo cuyo fruto solo se vería tras tiempo incierto.`,
+    referencia: `Eclesiastés 11:2, 6; 2 Corintios 9:6; Gálatas 6:9.`,
+  },
+
+  'Isaías_55_11': {
+    linguistico: `La comparación con la lluvia y la nieve (vv. 10-11) establece un paralelo entre dos procesos: así como el agua cumple su función de regar la tierra antes de volver al ciclo natural, la palabra divina cumple su propósito asignado antes de "volver" a Dios, imagen de eficacia garantizada, no de simple comunicación informativa.`,
+    historico: `Este oráculo se dirige a los exiliados babilónicos como garantía de que las promesas de restauración anunciadas por Isaías no fallarán, por más improbables que parecieran dadas las circunstancias políticas del momento.`,
+    comentarios: `Calvino y los reformadores citaron extensamente este versículo como fundamento de la doctrina de la eficacia de la Palabra predicada, que siempre produce algún efecto —ya sea de salvación o de endurecimiento— y nunca es neutral o inútil.`,
+    referencia: `Isaías 55:10; Hebreos 4:12; 2 Corintios 2:15-16.`,
+  },
+
+  'Isaías_64_8': {
+    linguistico: `La metáfora del alfarero (yotser) y el barro (chomer) aparece repetidamente en el Antiguo Testamento (cf. Jeremías 18:6) para expresar tanto la soberanía absoluta de Dios sobre su creación como, en este contexto específico, una súplica de misericordia basada en la relación filial ("Padre nuestro").`,
+    arqueologico: `La alfarería era una de las industrias artesanales mejor documentadas arqueológicamente del antiguo Israel; los talleres de alfareros con sus ruedas de pie, excavados en sitios como Laquis y Gezer, confirman la familiaridad cotidiana de la audiencia original con esta imagen técnica precisa.`,
+    comentarios: `Calvino encontró en esta súplica un modelo de oración que combina humildad total ("obra de tu mano somos") con confianza filial atrevida, equilibrio que consideró característico de la oración bíblica madura frente a la soberanía divina.`,
+    referencia: `Jeremías 18:6; Romanos 9:20-21; Isaías 45:9.`,
+  },
+
+  'Jeremías_18_6': {
+    arqueologico: `El taller de alfarero descrito aquí, con su rueda giratoria operada por el pie mientras las manos moldean la arcilla, corresponde exactamente a la tecnología cerámica documentada arqueológicamente en Israel durante el período del Hierro, confirmada por hallazgos de ruedas de alfarero de piedra en múltiples excavaciones.`,
+    linguistico: `El detalle narrativo de que la vasija "se dañó en las manos del alfarero" y este "la torna a hacer otra vasija" (v. 4) ilustra el proceso real de reelaboración de arcilla defectuosa, posible precisamente porque el barro aún húmedo permite remodelado, a diferencia de la cerámica ya cocida.`,
+    comentarios: `Calvino destacó que esta imagen enfatiza tanto la soberanía divina sobre las naciones como la posibilidad real de que Dios "rehaga" su juicio anunciado si la nación se arrepiente (vv. 7-8), evitando una lectura puramente determinista de la metáfora.`,
+    referencia: `Isaías 64:8; Romanos 9:21; Jeremías 18:7-10.`,
+  },
+
+  'Lamentaciones_3_25': {
+    linguistico: `"Bueno es Jehová a los que en él esperan" usa el mismo adjetivo "bueno" (tov) que estructura una serie de afirmaciones paralelas en los versículos siguientes (26-27), formando una pequeña secuencia catequética sobre los beneficios de la espera paciente en medio del sufrimiento.`,
+    historico: `Este versículo se sitúa en la misma sección central de esperanza (3:19-39) que contiene la famosa declaración sobre las misericordias "nuevas cada mañana" (3:22-23), mostrando que el libro de Lamentaciones no es lamento sin esperanza, sino lamento genuino que da paso a la confianza renovada.`,
+    comentarios: `Calvino observó que "esperar" en este contexto no es pasividad resignada sino expectativa activa fundamentada en el carácter conocido de Dios, incluso cuando las circunstancias inmediatas no ofrecen evidencia visible de esa bondad.`,
+    referencia: `Lamentaciones 3:22-23, 26; Salmos 27:14; Isaías 40:31.`,
+  },
+
+  'Ezequiel_34_11': {
+    tipologia: `Esta promesa de que Dios mismo buscará a sus ovejas, en contraste con los pastores negligentes denunciados en los versículos anteriores (34:1-10), se interpreta tradicionalmente como anticipo profético directo del ministerio de Cristo como el Buen Pastor que busca activamente a las ovejas perdidas.`,
+    linguistico: `El verbo "buscar" (darash) se repite insistentemente en este pasaje, enfatizando una búsqueda activa y deliberada, no una espera pasiva de que las ovejas regresen por sí mismas al rebaño.`,
+    comentarios: `Jesús retoma directamente esta imagen en Juan 10:11-16 y en la parábola de la oveja perdida (Lucas 15:4-7), aplicándose a sí mismo el papel que Ezequiel atribuye a Dios mismo, afirmación implícita de su identidad divina según notaron Calvino y la tradición cristiana posterior.`,
+    referencia: `Juan 10:11-16; Lucas 15:4-7; Salmos 23:1.`,
+  },
+
+  'Daniel_2_21': {
+    historico: `Esta afirmación forma parte de la oración de alabanza de Daniel tras recibir la revelación del sueño de Nabucodonosor sobre los imperios sucesivos, estableciendo desde el inicio del libro un marco teológico de soberanía divina sobre la historia política de los imperios paganos, tema central de todo el libro de Daniel.`,
+    linguistico: `"Él muda los tiempos y las edades; quita reyes, y pone reyes" usa un lenguaje de control temporal y político absoluto, afirmación audaz pronunciada por un cautivo judío ante el imperio babilónico en el apogeo de su poder.`,
+    comentarios: `Calvino encontró en esta declaración consuelo teológico aplicable a cualquier época de inestabilidad política, insistiendo en que los cambios de poder, aun los más violentos o inesperados, permanecen bajo el control providencial último de Dios.`,
+    referencia: `Daniel 2:37-45; Romanos 13:1; Proverbios 21:1.`,
+  },
+
+  'Oseas_11_1': {
+    linguistico: `"Cuando Israel era muchacho, yo lo amé, y de Egipto llamé a mi hijo" usa lenguaje parental tierno poco común en el discurso profético de juicio predominante en Oseas, contraste deliberado que intensifica la denuncia de la ingratitud que sigue en los versículos posteriores.`,
+    historico: `Este versículo se refiere históricamente al éxodo nacional de Israel desde Egipto, pero Mateo 2:15 lo reaplica tipológicamente al regreso del niño Jesús desde Egipto tras la persecución de Herodes, lectura que ejemplifica el patrón de cumplimiento tipológico "Israel-Mesías" en el Nuevo Testamento.`,
+    comentarios: `Calvino explicó esta doble aplicación observando que Cristo recapitula en su propia historia personal la experiencia nacional de Israel, convirtiéndose en el "verdadero Israel" que cumple fielmente lo que la nación histórica no logró cumplir.`,
+    referencia: `Mateo 2:15; Éxodo 4:22-23; Oseas 11:2-4.`,
+  },
+
+  'Jonás_3_10': {
+    historico: `El arrepentimiento masivo de Nínive, capital del Imperio Asirio, incluyendo su rey, se sitúa en un contexto histórico en que Asiria era la potencia más temida y brutal del antiguo Cercano Oriente, documentada en sus propios anales por campañas militares de extrema crueldad, haciendo este arrepentimiento particularmente sorprendente dentro del relato bíblico.`,
+    linguistico: `"Se arrepintió Dios del mal que había dicho que les haría" usa lenguaje antropomórfico deliberado para describir el cambio de la acción divina anunciada en respuesta al cambio genuino de conducta humana, sin implicar cambio en el carácter esencial de Dios.`,
+    comentarios: `Calvino explicó que este "arrepentimiento" divino debe entenderse como adaptación del lenguaje humano a la percepción limitada del lector, no como inestabilidad en los propósitos eternos de Dios, cuyo principio general de perdón condicional ya había sido revelado previamente (Jeremías 18:7-8).`,
+    referencia: `Jeremías 18:7-8; Jonás 4:2; Mateo 12:41.`,
+  },
+
+  'Nahúm_1_3': {
+    linguistico: `Esta fórmula —"Jehová es tardo para la ira y grande en poder, y no tendrá por inocente al culpable"— combina la misma cláusula de paciencia divina de Éxodo 34:6 con una afirmación explícita de justicia retributiva, equilibrio necesario en un oráculo dirigido contra Nínive, la misma ciudad que un siglo antes había recibido perdón tras el arrepentimiento narrado en Jonás.`,
+    historico: `Nahúm profetiza la destrucción final de Nínive (cumplida en 612 a.C. por la coalición babilónico-meda), mostrando que el perdón concedido en tiempos de Jonás no fue permanente: la paciencia divina tiene límites cuando el arrepentimiento no se sostiene en el tiempo.`,
+    comentarios: `Calvino contrastó Nahúm con Jonás como las dos caras de la misma fórmula divina de Éxodo 34:6: la misma paciencia que perdonó a la Nínive arrepentida de Jonás finalmente juzga a la Nínive que, generaciones después, había vuelto a la violencia y la idolatría.`,
+    referencia: `Éxodo 34:6-7; Jonás 3:10; Nahúm 3:1-7.`,
+  },
+
+  'Habacuc_3_19': {
+    linguistico: `"Me hará andar como las ciervas" compara la agilidad y firmeza de pie del creyente confiado con la proverbial capacidad de las ciervas de moverse con seguridad sobre terreno montañoso escarpado, imagen zoológica de estabilidad en circunstancias de riesgo.`,
+    historico: `Este versículo culmina el libro de Habacuc, que comienza con una queja angustiada sobre la aparente inacción divina ante la injusticia (1:2-4) y termina, tras el diálogo profético completo, en esta declaración de confianza inquebrantable pese a que las circunstancias externas descritas en 3:17 (cosechas perdidas, ganado ausente) no habían cambiado.`,
+    comentarios: `Calvino destacó que la alegría de Habacuc en este versículo final no depende de un cambio en sus circunstancias materiales —que permanecen adversas— sino exclusivamente de su relación con "Jehová el Señor", modelo de gozo fundamentado en la persona de Dios, no en la provisión material.`,
+    referencia: `Habacuc 3:17-18; Habacuc 1:2-4; 2 Samuel 22:34.`,
+  },
+
+  'Zacarías_13_9': {
+    cientifico: `El proceso metalúrgico de refinación de plata descrito —fundir el metal para separar las impurezas, repitiendo el proceso hasta que el refinador pueda ver su propio reflejo en la superficie pura— era tecnología real documentada en la metalurgia del antiguo Cercano Oriente, que requería temperaturas de al menos 960°C para fundir plata.`,
+    linguistico: `"Los probaré como se prueba el oro" usa el mismo vocabulario técnico de refinación de metales aplicado metafóricamente a un remanente del pueblo que atravesará un proceso purificador severo antes de la restauración final descrita en el contexto.`,
+    comentarios: `Calvino interpretó esta imagen de refinación metalúrgica como paradigma general de la disciplina divina: el sufrimiento purificador no es arbitrario sino que tiene un propósito definido, análogo a la intención precisa del refinador de eliminar impurezas específicas, no de destruir el metal mismo.`,
+    referencia: `Malaquías 3:2-3; 1 Pedro 1:6-7; Salmos 66:10.`,
+  },
+
+  'Malaquías_1_2': {
+    linguistico: `La declaración "amé a Jacob, y aborrecí a Esaú" usa el verbo hebreo "sana" (odiar/aborrecer) en un sentido comparativo de elección relativa más que de odio emocional absoluto, patrón idiomático semítico donde "amar" y "aborrecer" expresan preferencia electiva, no necesariamente sentimiento literal.`,
+    historico: `Este contraste entre los descendientes de Jacob (Israel) y Esaú (Edom) revisa la historia nacional de ambos pueblos: mientras Israel, pese a sus pecados, permanece bajo el pacto divino, Edom enfrenta devastación histórica documentada, cumpliendo oráculos previos como el de Abdías.`,
+    comentarios: `Pablo cita este versículo en Romanos 9:13 como evidencia bíblica de la elección soberana de Dios que opera independientemente del mérito humano, incluso antes del nacimiento de los gemelos (Romanos 9:11), fundamento central de su argumento sobre la soberanía divina en la elección.`,
+    referencia: `Romanos 9:10-13; Abdías 1:1-4; Génesis 25:23.`,
+  },
+
+  'Mateo_10_29': {
+    cientifico: `Los gorriones comunes de Palestina (Passer domesticus biblicus), de los cuales se vendían dos por un as (la moneda de menor valor romana) según el texto paralelo, son aves pequeñas abundantes documentadas en la región, cuya mención ilustra deliberadamente el extremo de lo insignificante dentro de la economía de mercado del siglo I.`,
+    linguistico: `"Ni uno de ellos cae a tierra sin vuestro Padre" no afirma que las aves no mueran nunca, sino que ninguna muerte, por insignificante que parezca desde la perspectiva humana, ocurre fuera del conocimiento providencial de Dios.`,
+    comentarios: `Calvino usó este versículo como fundamento de la doctrina de la providencia particular (no solo general) de Dios, extendida incluso a los detalles más mínimos de la creación, aplicada inmediatamente por Jesús al valor incomparablemente mayor de cada persona humana.`,
+    referencia: `Mateo 10:30-31; Lucas 12:6-7; Salmos 147:9.`,
+  },
+
+  'Marcos_16_15': {
+    historico: `Este mandato final, parte de la llamada "Gran Comisión" en su versión de Marcos, se pronuncia tras la resurrección y antes de la ascensión, extendiendo explícitamente el alcance de la predicación apostólica de la nación de Israel a "todo el mundo" y "toda criatura", ruptura decisiva con las limitaciones étnicas de la misión durante el ministerio terrenal de Jesús.`,
+    linguistico: `"Id por todo el mundo" usa un participio de movimiento continuo que implica una misión sostenida y en expansión geográfica permanente, no un evento único de proclamación limitada.`,
+    comentarios: `Calvino observó que este mandato universal, dado por Cristo resucitado, fundamenta teológicamente toda la empresa misionera cristiana posterior, mostrando que la resurrección no solo confirma la identidad de Jesús sino que redefine el alcance geográfico de su mensaje.`,
+    referencia: `Mateo 28:19-20; Hechos 1:8; Colosenses 1:23.`,
+  },
+
+  'Lucas_18_1': {
+    linguistico: `"Que es necesario orar siempre, y no desmayar" introduce la parábola del juez injusto y la viuda persistente (18:2-8), estableciendo explícitamente desde el inicio el propósito didáctico de la parábola antes de narrarla, técnica literaria poco común en las parábolas de Jesús, que normalmente dejan la aplicación implícita.`,
+    historico: `La figura de la viuda que exige justicia repetidamente ante un juez corrupto refleja la vulnerabilidad social real de las viudas en el sistema legal judío del siglo I, que dependían de la intervención judicial favorable sin poder ejercer presión social o económica propia.`,
+    comentarios: `Calvino destacó que la parábola no sugiere que Dios sea como el juez injusto que necesita ser "desgastado" por la insistencia, sino que contrasta precisamente la reticencia del juez humano con la disposición mucho mayor de Dios a atender a quienes claman a él.`,
+    referencia: `Lucas 18:2-8; Lucas 11:5-10; 1 Tesalonicenses 5:17.`,
+  },
+
+  'Lucas_24_6': {
+    arqueologico: `Las tumbas judías de la época del Segundo Templo, documentadas arqueológicamente en los alrededores de Jerusalén, solían ser cámaras excavadas en roca caliza con una piedra circular o cuadrada que rodaba sobre un surco tallado para sellar la entrada, diseño consistente con la descripción evangélica de la piedra removida del sepulcro de Jesús.`,
+    linguistico: `"No está aquí, sino que ha resucitado" (ouk estin hode, alla egerthe) usa el tiempo verbal griego pasivo que enfatiza que la resurrección es un acto realizado sobre Jesús, consistente con la teología paulina posterior de que el Padre resucitó a Cristo (Romanos 8:11), sin excluir la propia predicción de Jesús de resucitar por su propia autoridad (Juan 10:17-18).`,
+    comentarios: `Calvino destacó que la pregunta de los ángeles —"¿por qué buscáis entre los muertos al que vive?"— confronta directamente la lógica natural de las mujeres, que acudían con especias para un cuerpo muerto, revelando la resurrección como ruptura radical de las expectativas humanas ordinarias.`,
+    referencia: `Juan 10:17-18; Romanos 8:11; Mateo 28:6.`,
+  },
+
+  'Juan_4_14': {
+    linguistico: `El contraste entre el agua del pozo de Jacob, que "vuelve a tener sed", y el "agua que yo le daré", que se convierte en "una fuente de agua que salte para vida eterna", usa vocabulario hidráulico de presión ascendente (hallomenou, saltar, brotar hacia arriba) para describir una provisión interna activa, no un simple depósito pasivo.`,
+    historico: `Este diálogo ocurre en el pozo de Jacob cerca de Sicar, en Samaria, sitio identificado arqueológicamente y aún visible hoy, confirmando el marco geográfico concreto del encuentro entre Jesús y la mujer samaritana en un territorio de tensión étnico-religiosa histórica entre judíos y samaritanos.`,
+    comentarios: `Calvino observó que Jesús ofrece aquí una provisión espiritual que supera categóricamente cualquier recurso físico, por esencial que sea el agua para la vida, estableciendo un patrón recurrente en el evangelio de Juan de usar necesidades físicas básicas como punto de partida para revelar verdades espirituales mayores.`,
+    referencia: `Juan 4:5-6; Juan 7:37-38; Isaías 55:1.`,
+  },
+
+  '1 Corintios_13_13': {
+    linguistico: `La tríada "fe, esperanza y amor" (pistis, elpis, agape) culmina el llamado "himno al amor" de 1 Corintios 13, insertado deliberadamente por Pablo entre dos capítulos dedicados a los dones espirituales (12 y 14), subordinando el valor de cualquier don carismático a esta virtud central y permanente.`,
+    historico: `Este capítulo responde directamente a divisiones en la iglesia de Corinto relacionadas con la valoración desproporcionada de ciertos dones espirituales (especialmente la glosolalia) sobre otros, contexto que explica por qué Pablo insiste en que el amor supera en importancia a cualquier manifestación carismática, sin negar su legitimidad.`,
+    comentarios: `Agustín citó extensamente este pasaje en su teología del amor como virtud que permanecerá eternamente, a diferencia de la fe y la esperanza, que por definición se refieren a realidades aún no vistas y que, en la consumación final, darán paso a la visión directa.`,
+    referencia: `1 Corintios 12:31; 1 Corintios 14:1; Colosenses 3:14.`,
+  },
+
+  'Hebreos_6_19': {
+    linguistico: `"La cual tenemos como segura y firme ancla del alma" usa una metáfora marítima —el ancla como dispositivo que impide la deriva de una embarcación en aguas turbulentas— imagen de estabilidad activa, no de inmovilidad pasiva, aplicada a la esperanza cristiana fundamentada en la promesa divina.`,
+    historico: `Este versículo se refiere específicamente a la promesa jurada a Abraham (Hebreos 6:13-18), argumentando que si un juramento humano era considerado garantía suficiente en transacciones legales del mundo antiguo, el juramento de Dios mismo ofrece una seguridad incomparablemente mayor.`,
+    comentarios: `Calvino destacó que esta "ancla" no se fundamenta en la fuerza de la fe del creyente, sino en el carácter inmutable de Dios que no puede mentir (Hebreos 6:18), trasladando el fundamento de la seguridad cristiana del sujeto que cree al objeto de esa fe.`,
+    referencia: `Hebreos 6:13-18; Hebreos 10:23; Números 23:19.`,
+  },
+
+  'Santiago_4_14': {
+    linguistico: `"Vuestra vida, ¿qué es? Ciertamente es neblina (atmis) que se aparece por un poco de tiempo, y luego se desvanece" usa un término griego técnico para el vapor o niebla matutina, fenómeno visible brevemente y disuelto rápidamente por el calor del sol.`,
+    historico: `Este pasaje confronta directamente la arrogancia de comerciantes o planificadores que afirman con certeza futura "iremos a tal ciudad, y haremos esto y esto" (4:13), práctica mercantil común en el mundo grecorromano que Santiago critica no por la planificación misma sino por la presunción de control absoluto sobre el futuro.`,
+    comentarios: `Calvino interpretó esta imagen como corrección necesaria contra la autosuficiencia práctica, no como prohibición de hacer planes, sino como llamado a reconocer la contingencia de toda vida humana bajo la voluntad soberana de Dios ("si el Señor quiere", v. 15).`,
+    referencia: `Santiago 4:13-15; Salmos 39:5; Job 7:7.`,
+  },
+
+  '2 Juan_1_6': {
+    linguistico: `"Este es el amor, que andemos según sus mandamientos" vincula explícitamente el amor cristiano con la obediencia concreta a los mandamientos divinos, rechazando cualquier separación entre sentimiento afectivo y conducta ética observable, tema recurrente también en las epístolas de 1 Juan del mismo autor.`,
+    historico: `Esta breve epístola, de solo trece versículos, se dirige a "la señora elegida" (posiblemente una iglesia local personificada o una matrona cristiana específica) advirtiéndole contra recibir en su casa a maestros itinerantes que negaban la encarnación plena de Cristo (v. 7), mostrando la tensión entre la hospitalidad cristiana y la necesidad de discernimiento doctrinal.`,
+    comentarios: `Calvino encontró en esta breve carta un equilibrio pastoral importante: el amor genuino no excluye el discernimiento doctrinal cuidadoso, y de hecho se expresa precisamente en la obediencia fiel a la enseñanza apostólica recibida "desde el principio".`,
+    referencia: `1 Juan 5:3; 2 Juan 1:4-5; Juan 14:15.`,
+  },
+
+  '3 Juan_1_2': {
+    linguistico: `Este saludo —"deseo que tú seas prosperado en todas las cosas, y que tengas salud, así como prospera tu alma"— es la fórmula de apertura epistolar grecorromana estándar de buenos deseos de salud, adaptada aquí con la cláusula final que vincula explícitamente el bienestar físico deseado con la condición espiritual ya reconocida como próspera.`,
+    historico: `Esta es la más breve de todas las cartas del Nuevo Testamento (solo catorce versículos), dirigida a "el amado Gayo", elogiado por su hospitalidad hacia misioneros itinerantes, en contraste explícito con Diótrefes, denunciado en la misma carta por rechazar la autoridad apostólica y la hospitalidad hacia esos mismos mensajeros.`,
+    comentarios: `Calvino advirtió contra el uso de este versículo como fórmula de "evangelio de la prosperidad" garantizada, señalando que el texto condiciona implícitamente el deseo de bienestar físico a la realidad ya existente del bienestar espiritual de Gayo, no al revés.`,
+    referencia: `3 Juan 1:5-8; 3 Juan 1:9-10; Salmos 1:1-3.`,
+  },
+
 };
