@@ -563,13 +563,14 @@ function toFirestore(highlights, notes, bookmarks, shared) {
 
 // Convierte datos Firestore a estado interno (con prefijos)
 function fromFirestore(data) {
-  const hl = {}, nt = {}, bm = {}, sh = {};
-  Object.entries(data.highlights || {}).forEach(([k, v]) => { hl[`hl_${k}`]   = v; });
-  Object.entries(data.notes      || {}).forEach(([k, v]) => { nt[`note_${k}`] = v; });
-  Object.entries(data.bookmarks  || {}).forEach(([k, v]) => { bm[`bm_${k}`]   = v; });
-  Object.entries(data.shared     || {}).forEach(([k, v]) => { sh[`sh_${k}`]   = v; });
+  const hl = {}, nt = {}, bm = {}, sh = {}, rc = {};
+  Object.entries(data.highlights    || {}).forEach(([k, v]) => { hl[`hl_${k}`]   = v; });
+  Object.entries(data.notes         || {}).forEach(([k, v]) => { nt[`note_${k}`] = v; });
+  Object.entries(data.bookmarks     || {}).forEach(([k, v]) => { bm[`bm_${k}`]   = v; });
+  Object.entries(data.shared        || {}).forEach(([k, v]) => { sh[`sh_${k}`]   = v; });
+  Object.entries(data.readChapters  || {}).forEach(([k, v]) => { rc[`rc_${k}`]   = v; });
   return {
-    hl, nt, bm, sh,
+    hl, nt, bm, sh, rc,
     following:  data.following  || [],
     followers:  data.followers  || [],
     streak:     data.streak     || 0,
@@ -2100,6 +2101,7 @@ export default function App() {
   const [highlights,      setHighlights]     = useState({});
   const [notes,           setNotes]          = useState({});
   const [bookmarks,       setBookmarks]      = useState({});
+  const [readChapters,    setReadChapters]   = useState({});
   const [shared,          setShared]         = useState({});
   const [following,       setFollowing]      = useState([]);
   const [followers,       setFollowers]      = useState([]);
@@ -2122,6 +2124,7 @@ export default function App() {
   const [dlDismissed,    setDlDismissed]    = useState(false);
   const dlCancelRef = useRef(false);
   const [jumpVerse,       setJumpVerse]      = useState(null);
+  const [pullHint,        setPullHint]       = useState(null); // { dir: 'next'|'prev', armed: bool } | null
   const [streak,          setStreak]         = useState(0);
   const [collectibles,        setCollectibles]        = useState([]);
   const [lastCollectibleStreak, setLastCollectibleStreak] = useState(0);
@@ -2209,8 +2212,8 @@ export default function App() {
       try {
         if (firebaseUser && !firebaseUser.isAnonymous) {
           const data = await loadUserData(firebaseUser.uid);
-          const { hl, nt, bm, sh, following, followers, streak, privacy } = fromFirestore(data);
-          setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh);
+          const { hl, nt, bm, sh, rc, following, followers, streak, privacy } = fromFirestore(data);
+          setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared(sh); setReadChapters(rc);
           setFollowing(following); setFollowers(followers); setStreak(streak); setPrivacy(privacy);
           setCollectibles(data.collectibles || []);
           setLastCollectibleStreak(data.lastCollectibleStreak || 0);
@@ -2227,17 +2230,18 @@ export default function App() {
             createdAt:   data.createdAt || firebaseUser?.metadata?.creationTime || new Date().toISOString(),
           });
         } else if (firebaseUser?.isAnonymous) {
-          const hl = {}, nt = {}, bm = {};
+          const hl = {}, nt = {}, bm = {}, rc = {};
           for (let i = 0; i < localStorage.length; i++) {
             const k = localStorage.key(i);
             if (k?.startsWith('hl_'))   hl[k] = lsGet(k);
             if (k?.startsWith('note_')) nt[k] = lsGet(k);
             if (k?.startsWith('bm_'))   bm[k] = lsGet(k);
+            if (k?.startsWith('rc_'))   rc[k] = lsGet(k);
           }
-          setHighlights(hl); setNotes(nt); setBookmarks(bm); setShared({}); setFollowing([]); setFollowers([]);
+          setHighlights(hl); setNotes(nt); setBookmarks(bm); setReadChapters(rc); setShared({}); setFollowing([]); setFollowers([]);
           setCollectibles([]); setLastCollectibleStreak(0);
         } else {
-          setHighlights({}); setNotes({}); setBookmarks({}); setShared({}); setFollowing([]); setFollowers([]);
+          setHighlights({}); setNotes({}); setBookmarks({}); setReadChapters({}); setShared({}); setFollowing([]); setFollowers([]);
           setCollectibles([]); setLastCollectibleStreak(0);
         }
       } catch (e) {
@@ -2433,6 +2437,97 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // Pasar de capítulo arrastrando más allá del tope/final al hacer scroll
+  // (como "tirar" de la pantalla al llegar al borde, similar a pull-to-refresh).
+  useEffect(() => {
+    if (searchQuery || globalSearch) { setPullHint(null); return; }
+    const THRESHOLD = 64;
+    let touchStartY = null;
+    let boundary = null; // 'bottom' | 'top' | null
+
+    function getBoundary() {
+      const doc = document.documentElement;
+      const atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
+      const atTop = window.scrollY <= 2;
+      if (atBottom) return 'bottom';
+      if (atTop) return 'top';
+      return null;
+    }
+
+    function onTouchStart(e) {
+      touchStartY = e.touches[0].clientY;
+      boundary = getBoundary();
+    }
+
+    function onTouchMove(e) {
+      if (touchStartY == null) return;
+      const current = getBoundary();
+      if (!current) { boundary = null; setPullHint(null); return; }
+      const dy = touchStartY - e.touches[0].clientY; // positivo = dedo sube = scroll hacia abajo
+      if (current === 'bottom' && dy > 8 && selectedChapter < totalChapters) {
+        boundary = 'bottom';
+        setPullHint({ dir: 'next', armed: dy >= THRESHOLD });
+      } else if (current === 'top' && dy < -8 && selectedChapter > 1) {
+        boundary = 'top';
+        setPullHint({ dir: 'prev', armed: -dy >= THRESHOLD });
+      } else {
+        setPullHint(null);
+      }
+    }
+
+    function onTouchEnd(e) {
+      if (touchStartY == null) return;
+      const endY = e.changedTouches?.[0]?.clientY ?? touchStartY;
+      const dy = touchStartY - endY;
+      if (boundary === 'bottom' && dy >= THRESHOLD && selectedChapter < totalChapters) {
+        changeChapter(selectedChapter + 1);
+      } else if (boundary === 'top' && -dy >= THRESHOLD && selectedChapter > 1) {
+        changeChapter(selectedChapter - 1);
+      }
+      touchStartY = null; boundary = null;
+      setPullHint(null);
+    }
+
+    // Soporte de rueda del mouse (escritorio)
+    let wheelAccum = 0;
+    let wheelTimer = null;
+    function onWheel(e) {
+      const current = getBoundary();
+      if (current === 'bottom' && e.deltaY > 0 && selectedChapter < totalChapters) {
+        wheelAccum += e.deltaY;
+        if (wheelAccum >= THRESHOLD) {
+          changeChapter(selectedChapter + 1);
+          wheelAccum = 0; setPullHint(null); return;
+        }
+        setPullHint({ dir: 'next', armed: false });
+      } else if (current === 'top' && e.deltaY < 0 && selectedChapter > 1) {
+        wheelAccum += -e.deltaY;
+        if (wheelAccum >= THRESHOLD) {
+          changeChapter(selectedChapter - 1);
+          wheelAccum = 0; setPullHint(null); return;
+        }
+        setPullHint({ dir: 'prev', armed: false });
+      } else {
+        wheelAccum = 0;
+        setPullHint(null);
+      }
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => { wheelAccum = 0; setPullHint(null); }, 500);
+    }
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+    window.addEventListener('wheel', onWheel, { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
+      window.removeEventListener('wheel', onWheel);
+      clearTimeout(wheelTimer);
+    };
+  }, [selectedChapter, totalChapters, searchQuery, globalSearch]);
+
   const handleCycleVersion = useCallback((direction) => {
     const AVAILABLE_VERSIONS = ['rvr', 'ntv', 'lbla', 'nvi'];
     const currentIndex = AVAILABLE_VERSIONS.indexOf(translation);
@@ -2488,6 +2583,24 @@ export default function App() {
     setBookmarks(newBm);
     if (isCloud) syncFirestore(highlights, notes, newBm, shared, user.uid);
   }, [selectedBook, selectedChapter, highlights, notes, bookmarks, shared, user, isCloud]);
+
+  const handleToggleRead = useCallback(() => {
+    const key = `rc_${selectedBook}_${selectedChapter}`;
+    let newRc;
+    if (readChapters[key]) {
+      localStorage.removeItem(key);
+      newRc = { ...readChapters }; delete newRc[key];
+    } else {
+      lsSet(key, '1');
+      newRc = { ...readChapters, [key]: '1' };
+    }
+    setReadChapters(newRc);
+    if (isCloud) {
+      const plain = {};
+      Object.entries(newRc).forEach(([k, v]) => { if (k.startsWith('rc_')) plain[k.slice(3)] = v; });
+      saveUserData(user.uid, { readChapters: plain });
+    }
+  }, [selectedBook, selectedChapter, readChapters, isCloud, user]);
 
   const handleFollowToggle = useCallback(async (targetUid) => {
     if (!user || user.isAnonymous) return;
@@ -2962,6 +3075,22 @@ export default function App() {
           })
         )}
 
+        {/* ── Checkpoint: marcar el capítulo como leído ── */}
+        {!searchQuery && (() => {
+          const isRead = !!readChapters[`rc_${selectedBook}_${selectedChapter}`];
+          return (
+            <div className="chapter-read-check">
+              <button
+                className={`chapter-read-btn ${isRead ? 'checked' : ''}`}
+                onClick={handleToggleRead}
+                title={isRead ? 'Marcado como leído' : 'Marcar este capítulo como leído'}
+              >
+                {isRead ? '✓ Capítulo leído' : '○ Marcar capítulo como leído'}
+              </button>
+            </div>
+          );
+        })()}
+
         {/* ── Navegación al final del capítulo ── */}
         {!searchQuery && (
           <div className="chapter-bottom-nav">
@@ -2985,6 +3114,15 @@ export default function App() {
           </div>
         )}
       </div>
+
+      {/* ── Indicador flotante: arrastrar para cambiar de capítulo ── */}
+      {pullHint && (
+        <div className={`scroll-pull-hint ${pullHint.dir} ${pullHint.armed ? 'armed' : ''}`}>
+          {pullHint.dir === 'next'
+            ? (pullHint.armed ? `✓ Soltá para ir al Cap. ${selectedChapter + 1}` : `↓ Seguí deslizando para el Cap. ${selectedChapter + 1}`)
+            : (pullHint.armed ? `✓ Soltá para ir al Cap. ${selectedChapter - 1}` : `↑ Seguí deslizando para el Cap. ${selectedChapter - 1}`)}
+        </div>
+      )}
 
       {newCollectible && (
         <NewCollectibleModal
