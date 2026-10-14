@@ -2191,6 +2191,55 @@ input, textarea { font-family: inherit; }
   border-top: 1px solid var(--border);
 }
 
+/* ── Checkpoint: marcar capítulo como leído ── */
+.chapter-read-check {
+  display: flex;
+  justify-content: center;
+  padding: 16px 16px 0;
+}
+.chapter-read-btn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 0.86rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.chapter-read-btn:hover { border-color: var(--accent); color: var(--accent); }
+.chapter-read-btn.checked {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Indicador flotante: arrastrar para cambiar de capítulo ── */
+.scroll-pull-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 200;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--surface3, #333);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px var(--shadow);
+  pointer-events: none;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.15s;
+}
+.scroll-pull-hint.prev { bottom: auto; top: 70px; }
+.scroll-pull-hint.armed {
+  background: var(--accent);
+  transform: translateX(-50%) scale(1.05);
+}
+
 /* ── Descarga de versión al dispositivo ── */
 .dl-full-wrap {
   display: flex; align-items: center; gap: 6px; margin-top: 0;
