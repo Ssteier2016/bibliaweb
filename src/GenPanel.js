@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 
 // Proxy propio que guarda la clave de Groq del lado del servidor: los usuarios
 // nunca necesitan (ni ven) una clave de API para poder chatear.
-const CHAT_PROXY_URL = process.env.REACT_APP_AI_PROXY_URL || 'https://bibl-ia-ai-proxy.rodrigo-n-arena.workers.dev/api/chat';
+const CHAT_PROXY_URL = process.env.REACT_APP_AI_PROXY_URL || 'https://bibli-ia-ai-proxy.rodrigo-n-arena.workers.dev/api/chat';
 
 const SYSTEM_PROMPT = `Eres Gen, un asistente bíblico especializado creado para la app Bibl.ia.
 Tu única función es responder preguntas relacionadas con la Biblia: textos bíblicos, historia bíblica, teología, contexto cultural e histórico, idiomas originales (hebreo, griego, arameo), personajes bíblicos, geografía bíblica, comentarios de teólogos, tipología bíblica, arqueología bíblica y temas afines.
