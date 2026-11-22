@@ -1,0 +1,9 @@
+name = "bibl-ia-ai-proxy"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://labibl-ia.onrender.com"
+
+# La clave de Groq se configura como secreto, nunca acá:
+#   wrangler secret put GROQ_API_KEY
