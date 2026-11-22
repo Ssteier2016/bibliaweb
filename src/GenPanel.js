@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 
-const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
-
-// Si hay una clave en el entorno (Render / build-time), tiene prioridad sobre localStorage
-const ENV_KEY = process.env.REACT_APP_GROQ_API_KEY || '';
+// Proxy propio que guarda la clave de Groq del lado del servidor: los usuarios
+// nunca necesitan (ni ven) una clave de API para poder chatear.
+const CHAT_PROXY_URL = process.env.REACT_APP_AI_PROXY_URL || 'https://bibl-ia-ai-proxy.onrender.com/api/chat';
 
 const SYSTEM_PROMPT = `Eres Gen, un asistente bíblico especializado creado para la app Bibl.ia.
 Tu única función es responder preguntas relacionadas con la Biblia: textos bíblicos, historia bíblica, teología, contexto cultural e histórico, idiomas originales (hebreo, griego, arameo), personajes bíblicos, geografía bíblica, comentarios de teólogos, tipología bíblica, arqueología bíblica y temas afines.
@@ -13,9 +11,6 @@ Si el usuario hace una pregunta que no tiene relación con la Biblia, decile ama
 Cuando cites versículos, indicá el libro, capítulo y versículo (ej: Juan 3:16).`;
 
 export default function GenPanel({ onClose, darkMode, initialVerse }) {
-  const [apiKey,     setApiKey]     = useState(() => ENV_KEY || localStorage.getItem('groq_api_key') || '');
-  const [configured, setConfigured] = useState(() => !!(ENV_KEY || localStorage.getItem('groq_api_key')));
-  const [keyInput,   setKeyInput]   = useState('');
   const [messages,   setMessages]   = useState(() => {
     if (initialVerse) {
       return [
@@ -40,8 +35,8 @@ export default function GenPanel({ onClose, darkMode, initialVerse }) {
   }, [messages, loading]);
 
   useEffect(() => {
-    if (configured) inputRef.current?.focus();
-  }, [configured]);
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     const limitCheck = checkAndRegisterUsage(0, true);
@@ -51,22 +46,6 @@ export default function GenPanel({ onClose, darkMode, initialVerse }) {
       setLimitWarning('');
     }
   }, []);
-
-  function saveKey() {
-    const k = keyInput.trim();
-    if (!k) return;
-    localStorage.setItem('groq_api_key', k);
-    setApiKey(k);
-    setConfigured(true);
-  }
-
-  function clearKey() {
-    if (ENV_KEY) return; // clave de entorno: no se puede cambiar desde el cliente
-    localStorage.removeItem('groq_api_key');
-    setApiKey('');
-    setKeyInput('');
-    setConfigured(false);
-  }
 
   const systemPrompt = useMemo(() => {
     let prompt = SYSTEM_PROMPT;
@@ -146,36 +125,29 @@ Enfoca tus explicaciones, contexto histórico, traducción lingüística, teolog
     ];
 
     try {
-      const res = await fetch(GROQ_URL, {
+      const res = await fetch(CHAT_PROXY_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: GROQ_MODEL,
-          messages: groqMessages,
-          max_tokens: 1024,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: groqMessages }),
       });
 
+      const data = await res.json().catch(() => ({}));
+
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        const msg = err?.error?.message || `Error ${res.status}`;
+        const msg = data?.error || `Error ${res.status}`;
         setMessages(prev => [...prev, { role: 'gen', text: `⚠️ ${msg}` }]);
         setLoading(false);
         return;
       }
 
-      const data  = await res.json();
-      const reply = data?.choices?.[0]?.message?.content || '(Sin respuesta)';
-      
+      const reply = data?.reply || '(Sin respuesta)';
+
       // Registrar consumo de caracteres (pregunta + respuesta)
       checkAndRegisterUsage(text.length + reply.length, false);
 
       setMessages(prev => [...prev, { role: 'gen', text: reply }]);
     } catch {
-      setMessages(prev => [...prev, { role: 'gen', text: '⚠️ Error de conexión. Verificá tu clave API.' }]);
+      setMessages(prev => [...prev, { role: 'gen', text: '⚠️ Error de conexión. Probá de nuevo en un momento.' }]);
     }
 
     setLoading(false);
@@ -196,89 +168,51 @@ Enfoca tus explicaciones, contexto histórico, traducción lingüística, teolog
             <div className="gen-subtitle">Asistente bíblico · Groq</div>
           </div>
         </div>
-        <div className="gen-header-right">
-          {configured && !ENV_KEY && (
-            <button className="gen-key-btn" onClick={clearKey} title="Cambiar clave API">🔑</button>
-          )}
-        </div>
       </div>
 
-      {!configured ? (
-        <div className="gen-setup">
-          <div className="gen-setup-icon">✨</div>
-          <div className="gen-setup-title">Configurar Gen</div>
-          <div className="gen-setup-desc">
-            Gen usa Groq (Llama 3.3). Ingresá tu clave API gratuita de Groq para comenzar.
-            <br />
-            <a
-              href="https://console.groq.com/keys"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gen-setup-link"
-            >
-              Obtener clave en console.groq.com →
-            </a>
+      <div className="gen-messages">
+        {messages.map((m, i) => (
+          <div key={i} className={`gen-bubble gen-bubble-${m.role}`}>
+            {m.role === 'gen' && <div className="gen-bubble-avatar">✨</div>}
+            <div className="gen-bubble-text">{m.text}</div>
           </div>
-          <input
-            className="gen-key-input"
-            type="password"
-            placeholder="gsk_…"
-            value={keyInput}
-            onChange={e => setKeyInput(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && saveKey()}
-            autoFocus
-          />
-          <button className="gen-setup-btn" onClick={saveKey} disabled={!keyInput.trim()}>
-            Guardar y comenzar
-          </button>
-        </div>
-      ) : (
-        <>
-          <div className="gen-messages">
-            {messages.map((m, i) => (
-              <div key={i} className={`gen-bubble gen-bubble-${m.role}`}>
-                {m.role === 'gen' && <div className="gen-bubble-avatar">✨</div>}
-                <div className="gen-bubble-text">{m.text}</div>
-              </div>
-            ))}
-            {loading && (
-              <div className="gen-bubble gen-bubble-gen">
-                <div className="gen-bubble-avatar">✨</div>
-                <div className="gen-bubble-text gen-typing">
-                  <span /><span /><span />
-                </div>
-              </div>
-            )}
-            <div ref={bottomRef} />
-          </div>
-
-          {limitWarning && (
-            <div className="gen-limit-warning" style={{ margin: '0 16px 10px', padding: '10px 14px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.35)', color: '#ef4444', fontSize: '0.82rem', textAlign: 'center', fontWeight: '500' }}>
-              ⚠️ {limitWarning}
+        ))}
+        {loading && (
+          <div className="gen-bubble gen-bubble-gen">
+            <div className="gen-bubble-avatar">✨</div>
+            <div className="gen-bubble-text gen-typing">
+              <span /><span /><span />
             </div>
-          )}
-
-          <div className="gen-input-row">
-            <textarea
-              ref={inputRef}
-              className="gen-input"
-              placeholder={limitWarning ? 'Límite de uso alcanzado' : 'Preguntale algo a Gen sobre la Biblia…'}
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              rows={1}
-              disabled={loading || !!limitWarning}
-            />
-            <button
-              className="gen-send-btn"
-              onClick={sendMessage}
-              disabled={!input.trim() || loading || !!limitWarning}
-            >
-              ➤
-            </button>
           </div>
-        </>
+        )}
+        <div ref={bottomRef} />
+      </div>
+
+      {limitWarning && (
+        <div className="gen-limit-warning" style={{ margin: '0 16px 10px', padding: '10px 14px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.35)', color: '#ef4444', fontSize: '0.82rem', textAlign: 'center', fontWeight: '500' }}>
+          ⚠️ {limitWarning}
+        </div>
       )}
+
+      <div className="gen-input-row">
+        <textarea
+          ref={inputRef}
+          className="gen-input"
+          placeholder={limitWarning ? 'Límite de uso alcanzado' : 'Preguntale algo a Gen sobre la Biblia…'}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          rows={1}
+          disabled={loading || !!limitWarning}
+        />
+        <button
+          className="gen-send-btn"
+          onClick={sendMessage}
+          disabled={!input.trim() || loading || !!limitWarning}
+        >
+          ➤
+        </button>
+      </div>
     </div>
   );
 }

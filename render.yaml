@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: bibl-ia-ai-proxy
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://labibl-ia.onrender.com
