@@ -1,4 +1,4 @@
-const CACHE = 'biblia-v7';
+const CACHE = 'biblia-v8';
 const PRECACHE = ['/', '/es_rvr.json', '/manifest.json', '/logo192.png', '/logo512.png'];
 
 self.addEventListener('install', e => {
