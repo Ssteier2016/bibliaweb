@@ -2208,7 +2208,16 @@ export default function App() {
 
   // Auth state + carga de datos
   useEffect(() => {
-    return onAuthChange(async (firebaseUser) => {
+    // Si Firebase Auth nunca responde (p.ej. un bloqueador de rastreadores
+    // como los "Shields" de Brave corta sus conexiones), no dejar la app
+    // colgada en la pantalla de carga: después de unos segundos se asume
+    // "no logueado" y se muestra la pantalla de inicio de sesión igual.
+    const authTimeout = setTimeout(() => {
+      setUser(prev => (prev === undefined ? null : prev));
+    }, 6000);
+
+    const unsubscribe = onAuthChange(async (firebaseUser) => {
+      clearTimeout(authTimeout);
       try {
         if (firebaseUser && !firebaseUser.isAnonymous) {
           const data = await loadUserData(firebaseUser.uid);
@@ -2250,6 +2259,8 @@ export default function App() {
         setUser(firebaseUser || null);
       }
     });
+
+    return () => { clearTimeout(authTimeout); unsubscribe(); };
   }, []);
 
   // Premio de racha: cada 10 días cumplidos, un versículo aleatorio coleccionable
