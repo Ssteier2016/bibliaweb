@@ -1,5 +1,5 @@
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
+const GROQ_MODEL = 'openai/gpt-oss-120b';
 const MAX_TOKENS = 1024;
 
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -107,7 +107,7 @@ export default {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${env.GROQ_API_KEY}`,
         },
-        body: JSON.stringify({ model: GROQ_MODEL, messages, max_tokens: MAX_TOKENS }),
+        body: JSON.stringify({ model: GROQ_MODEL, messages, max_completion_tokens: MAX_TOKENS }),
       });
 
       const data = await groqRes.json().catch(() => ({}));
